@@ -16,4 +16,89 @@
     <string name="title_activity_splashscreen">SplashscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="dcother">دیگر(وضاحت کریں)</string>
+    <string name="dcdkn">معلوم نہیں</string>
+    <string name="dcyes">ہاں</string>
+    <string name="dcno">نہیں</string>
+    <string name="dcna">قابل اطلاق نہیں</string>
+
+
+    <!-- Section D-->
+
+    <string name="secD">Section D: Householed Construction</string>
+    <string name="dcd01">گھرکی تعمیر میں کون سا بنیادی مواد استعمال کیا گیا (مشاہد ہ کیجئے) زياده  استعمال ہونے والے مواد پر نشان لگائیے</string>
+    <string name="dcd01a">دیواریں</string>
+    <string name="dcd01a01"> بغیر پلستر کے سیمنٹ کے بلاکس</string>
+    <string name="dcd01a02">پلستر</string>
+    <string name="dcd01a03">اینٹیں</string>
+    <string name="dcd01a04">سیمنٹ اور چونے کی پتھر</string>
+    <string name="dcd01a05">چھڑی / پا م / تنوں</string>
+    <string name="dcd01a06">پلائیووڈ</string>
+    <string name="dcd01b">چھت</string>
+    <string name="dcd01b01">آر۔سی ۔سی</string>
+    <string name="dcd01b02">ٹین کی چادر سے</string>
+    <string name="dcd01b03">کنکریٹ</string>
+    <string name="dcd01b04">گھاس پھونس</string>
+    <string name="dcd01b05">استعمال شدہ لکڑی</string>
+    <string name="dcd01b06">کنکریٹ کی سلیب کے ساتھ آنسو گیٹس</string>
+    <string name="dcd01c">فرش</string>
+    <string name="dcd01c01">سیمنٹ</string>
+    <string name="dcd01c02">ٹین کی چادر سے</string>
+    <string name="dcd01c03">لکڑی</string>
+    <string name="dcd01c04">سنگ مرمر / ٹائل</string>
+    <string name="dcd02">گھر میں سونے کے لئےکتنے کمر ےاستعمال ہوتے ہیں؟</string>
+    <string name="dcd03">آپ کے مکان کی مالکانہ حیثیت کیا ہے؟</string>
+    <string name="dcd0301">اپنا ہے</string>
+    <string name="dcd0302">کرائے کا</string>
+    <string name="dcd04">آپ کے گھر میں پینے کے پانی کا سب سے بڑا ذریعہ کیاہے؟</string>
+    <string name="dcd0401">گھر کا نلکا</string>
+    <string name="dcd0402">گلی میں لگا ہوا نلکا</string>
+    <string name="dcd0403">ٹیوب ویل بورنگ</string>
+    <string name="dcd0404">ہینڈ پمپ / الیکٹرک پمپ</string>
+    <string name="dcd0405">کنواں</string>
+    <string name="dcd0406">چھوٹے ٹینک / ڈرم</string>
+    <string name="dcd0407">ٹینکر / ٹرک</string>
+    <string name="dcd05">کیا آپ پینے کے پانی کو محفوظ بنانے کے لیے کوئی طریقہ استعمال کرتے ہیں؟</string>
+
+    <string name="dcd06">کیا آپ عام طور پر پینے کے پانی کو محفوظ بنانے کے لیے کوئی طریقہ استعمال کرتے ہیں؟</string>
+    <string name="dcd0601">ابالتے ہیں</string>
+    <string name="dcd0602">کپڑے کے ذرہعے چھانتے ہیں</string>
+    <string name="dcd0603">واٹر فلٹر استعمال کرتے ہیں</string>
+    <string name="dcd0604">بلیچ / کلورین ملاتے ہیں</string>
+    <string name="dcd07">آپ کے گھر کے افراد عام طور پر کس قسم کی لیٹرین استعمال کرتے ہیں؟</string>
+    <string name="dcd0701">نکاسی کا باقاعدہ نظام</string>
+    <string name="dcd0702">گڑھے والے لیٹرین</string>
+    <string name="dcd0703">کھلی جگہ جاتے ہیں</string>
+    <string name="dcd0704">معلوم نہیں</string>
+    <string name="dcd0706">گڑھے والے لیٹرین</string>
+    <string name="dcd0707">سلیب کے ساتھ گڑھے والے لیٹرین</string>
+    <string name="dcd0708">بغیر سلیب کے ساتھ گڑھے والے لیٹرین </string>
+    <string name="dcd0709">ڈھکا ہوا لیٹرین</string>
+    <string name="dcd0710">خشک ٹوائلٹ</string>
+    <string name="dcd0711">کوئی سہولیات نہیں / بش / میدان</string>
+    <string name="dcd08">کیا لیٹرین کی اس سہولیت کو دوسرے لوگ بھی استعمال کرتے ہیں؟</string>
+    <string name="dcd09">آپ کے گھر میں عموماً کھانا پکانے کے لیے کونسا ایندھن استعمال ہوتا ہے؟</string>
+    <string name="dcd0901">لکڑی</string>
+    <string name="dcd0902">ایل پی جی</string>
+    <string name="dcd0903">قدرتی گیس</string>
+    <string name="dcd0904">بائیو گیس</string>
+    <string name="dcd0905">کول لگنائٹ</string>
+    <string name="dcd0906">مٹی کا تیل</string>
+    <string name="dcd0907">گھر میں کھانا نہیں پکتا</string>
+    <string name="dcd10">عام طور پر آپ کے گھر میں کون سی زپان بولی جاتی ہے؟</string>
+    <string name="dcd1001">اردو</string>
+    <string name="dcd1002">سندھی</string>
+    <string name="dcd1003">پنجابی</string>
+    <string name="dcd1004">پشتو</string>
+    <string name="dcd1005">بلوچی</string>
+    <string name="dcd1006">بنگالی</string>
+    <string name="dcd1007">سرائیکی</string>
+    <string name="dcd11">کیا آپ کے گھر میں بجلی موجود ہے؟</string>
+    <string name="dcd12">آپ اپنے گھر میں بجلی کونسے ذرائع سے استعمال کرتے ہیں؟</string>
+    <string name="dcd1201">کے ۔ الیکٹرک</string>
+    <string name="dcd1202">جنریٹر</string>
+    <string name="dcd1203">سلور</string>
+    <string name="dcd1204">پون چکی</string>
+
+
 </resources>
