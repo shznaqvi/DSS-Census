@@ -83,7 +83,8 @@
     <string name="dcd0903">قدرتی گیس</string>
     <string name="dcd0904">بائیو گیس</string>
     <string name="dcd0905">کول لگنائٹ</string>
-    <string name="dcd0906">گھر میں کھانا نہیں پکتا</string>
+    <string name="dcd0906">مٹی کا تیل</string>
+    <string name="dcd0907">گھر میں کھانا نہیں پکتا</string>
     <string name="dcd10">عام طور پر آپ کے گھر میں کون سی زپان بولی جاتی ہے؟</string>
     <string name="dcd1001">اردو</string>
     <string name="dcd1002">سندھی</string>
@@ -98,19 +99,6 @@
     <string name="dcd1202">جنریٹر</string>
     <string name="dcd1203">سلور</string>
     <string name="dcd1204">پون چکی</string>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </resources>

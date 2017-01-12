@@ -28,6 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SectionDActivity"></activity>
+        <activity android:name=".SectionEActivity"></activity>
     </application>
 
 </manifest>
