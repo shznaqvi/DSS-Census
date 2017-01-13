@@ -27,8 +27,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SectionDActivity"></activity>
-        <activity android:name=".SectionEActivity"></activity>
+        <activity android:name=".SectionDActivity" />
+        <activity android:name=".SectionEActivity" />
+        <activity android:name=".SectionFActivity" />
+        <activity android:name=".SectionIActivity" />
+        <activity android:name=".SectionJActivity"></activity>
     </application>
 
 </manifest>
