@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_grad"
+
     tools:context=".SplashscreenActivity">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
@@ -20,7 +20,7 @@
             android:layout_gravity="center_horizontal"
             android:contentDescription="TVI LOGO"
             android:paddingTop="72dp"
-            android:src="@drawable/logo" />
+            />
 
         <TextView
             android:id="@+id/fullscreen_content"

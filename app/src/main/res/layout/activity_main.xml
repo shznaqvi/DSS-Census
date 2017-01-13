@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
 
-            android:background="@drawable/background_grad"
+
             android:padding="20dp"
             android:textColor="@color/white"
             android:textSize="14sp"
