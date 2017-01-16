@@ -43,80 +43,80 @@ public class MainActivity extends Activity {
         MainApp.child_name = "Test";
 
 
-        if (MainApp.admin) {
-            adminsec.setVisibility(View.VISIBLE);
-        } else {
-            adminsec.setVisibility(View.GONE);
-        }
+//        if (MainApp.admin) {
+//            adminsec.setVisibility(View.VISIBLE);
+//        } else {
+//            adminsec.setVisibility(View.GONE);
+//        }
 
 
-        DatabaseHelper db = new DatabaseHelper(this);
-        Collection<FormsContract> todaysForms = new ArrayList<>();
-
-        todaysForms = db.getTodayForms();
-
-        rSumText += "TODAY'S RECORDS SUMMARY\r\n";
-        rSumText += "=======================";
-        rSumText += "\r\n\r\n";
-        rSumText += "Total Forms Today: " + todaysForms.size();
-        rSumText += "\r\n";
-        rSumText += "    Forms List: \r\n";
-        String iStatus = "";
-        for (FormsContract fc : todaysForms) {
-
-            switch (fc.getIstatus()) {
-                case "1":
-                    iStatus = "Complete";
-                    break;
-                case "2":
-                    iStatus = "House Locked";
-                    break;
-                case "3":
-                    iStatus = "Refused";
-                    break;
-                case "4":
-                    iStatus = "Refused";
-                    break;
-            }
-
-            rSumText += fc.getSubareacode() + " " + fc.getHousehold() + " " + iStatus;
-            rSumText += "\r\n";
-
-        }
-
-        rSumText += "--------------------------------------------------\r\n";
-        if (MainApp.admin) {
-            adminsec.setVisibility(View.VISIBLE);
-            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
-            rSumText += "Last Update: " + syncPref.getString("LastUpdate", "Never Updated");
-            rSumText += "\r\n";
-            rSumText += "Last Synced(DB): " + syncPref.getString("LastSyncDB", "Never Synced");
-            rSumText += "\r\n";
-        }
-        recordSummary.setText(rSumText);
+//        DatabaseHelper db = new DatabaseHelper(this);
+//        Collection<FormsContract> todaysForms = new ArrayList<>();
+//
+//        todaysForms = db.getTodayForms();
+//
+//        rSumText += "TODAY'S RECORDS SUMMARY\r\n";
+//        rSumText += "=======================";
+//        rSumText += "\r\n\r\n";
+//        rSumText += "Total Forms Today: " + todaysForms.size();
+//        rSumText += "\r\n";
+//        rSumText += "    Forms List: \r\n";
+//        String iStatus = "";
+//        for (FormsContract fc : todaysForms) {
+//
+//            switch (fc.getIstatus()) {
+//                case "1":
+//                    iStatus = "Complete";
+//                    break;
+//                case "2":
+//                    iStatus = "House Locked";
+//                    break;
+//                case "3":
+//                    iStatus = "Refused";
+//                    break;
+//                case "4":
+//                    iStatus = "Refused";
+//                    break;
+//            }
+//
+//            rSumText += fc.getSubareacode() + " " + fc.getHousehold() + " " + iStatus;
+//            rSumText += "\r\n";
+//
+//        }
+//
+//        rSumText += "--------------------------------------------------\r\n";
+//        if (MainApp.admin) {
+//            adminsec.setVisibility(View.VISIBLE);
+//            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+//            rSumText += "Last Update: " + syncPref.getString("LastUpdate", "Never Updated");
+//            rSumText += "\r\n";
+//            rSumText += "Last Synced(DB): " + syncPref.getString("LastSyncDB", "Never Synced");
+//            rSumText += "\r\n";
+//        }
+//        recordSummary.setText(rSumText);
 
 
     }
 
-   /* public void openForm(View v) {
-        Intent oF = new Intent(this, SectionAActivity.class);
-        startActivity(oF);
-    }
-
-    public void openA(View v) {
-        Intent iA = new Intent(this, SectionAActivity.class);
-        startActivity(iA);
-    }
-
-    public void openB(View v) {
-        Intent iB = new Intent(this, SectionBActivity.class);
-        startActivity(iB);
-    }
-
-    public void openC(View v) {
-        Intent iC = new Intent(this, SectionCActivity.class);
-        startActivity(iC);
-    }
+//    public void openForm(View v) {
+//        Intent oF = new Intent(this, SectionAActivity.class);
+//        startActivity(oF);
+//    }
+//
+//    public void openA(View v) {
+//        Intent iA = new Intent(this, SectionAActivity.class);
+//        startActivity(iA);
+//    }
+//
+//    public void openB(View v) {
+//        Intent iB = new Intent(this, SectionBActivity.class);
+//        startActivity(iB);
+//    }
+//
+//    public void openC(View v) {
+//        Intent iC = new Intent(this, SectionCActivity.class);
+//        startActivity(iC);
+//    }
 
     public void openD(View v) {
         Intent iD = new Intent(this, SectionDActivity.class);
@@ -133,20 +133,20 @@ public class MainActivity extends Activity {
         startActivity(iD);
     }
 
-    public void openIM(View v) {
-        Intent iIM = new Intent(this, SectionIMActivity.class);
-        startActivity(iIM);
-    }
-
-    public void openG(View v) {
-        Intent iG = new Intent(this, SectionGActivity.class);
-        startActivity(iG);
-    }
-
-    public void openEnd(View v) {
-        Intent iEnd = new Intent(this, EndingActivity.class);
-        startActivity(iEnd);
-    }*/
+//    public void openIM(View v) {
+//        Intent iIM = new Intent(this, SectionIMActivity.class);
+//        startActivity(iIM);
+//    }
+//
+//    public void openG(View v) {
+//        Intent iG = new Intent(this, SectionGActivity.class);
+//        startActivity(iG);
+//    }
+//
+//    public void openEnd(View v) {
+//        Intent iEnd = new Intent(this, EndingActivity.class);
+//        startActivity(iEnd);
+//    }
 
     public void openDB(View v) {
         Intent dbmanager = new Intent(getApplicationContext(), AndroidDatabaseManager.class);
