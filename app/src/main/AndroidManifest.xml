@@ -33,7 +33,9 @@
         <activity android:name=".SectionIActivity" />
         <activity android:name=".SectionJActivity" />
         <activity android:name=".SectionGActivity" />
-        <activity android:name=".SectionHActivity"></activity>
+        <activity android:name=".SectionHActivity" />
+        <activity android:name=".SectionAActivity" />
+        <activity android:name=".SectionBActivity"></activity>
     </application>
 
 </manifest>

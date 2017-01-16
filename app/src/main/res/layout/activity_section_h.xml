@@ -354,6 +354,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
+                android:visibility="gone"
                 />
 
             <TextView
@@ -520,7 +521,8 @@
                 android:id="@+id/dch1196x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/dcother" />
+                android:hint="@string/dcother"
+                android:visibility="gone" />
 
         </LinearLayout>
 
@@ -535,27 +537,57 @@
             android:textColor="@android:color/white" />
 
 
-        <RadioGroup
-            android:id="@+id/dch12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/dch1201"
+            <RadioGroup
+                android:id="@+id/dch12"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/dch1201"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dch1201" />
+
+                <RadioButton
+                    android:id="@+id/dch1202"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dch1202" />
+
+            </RadioGroup>
+
+            <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dch1201" />
+                android:layout_gravity="end"
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/dch1202"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/dch1202" />
+                <Button
+                    android:id="@+id/btn_End"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="endInterview"
+                    android:text="@string/end_interview"
+                    android:textColor="#ff1e1e" />
 
-        </RadioGroup>
+                <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+
+                <Button
+                    android:id="@+id/btn_Continue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="startInterview"
+                    android:text="@string/start_interview"
+                    android:textColor="#1ed61e" />
+                <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
+
+            </LinearLayout>
 
 
-    </LinearLayout>
+        </LinearLayout>
 
     </ScrollView>
 
