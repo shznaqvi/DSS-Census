@@ -94,8 +94,8 @@
 
             <LinearLayout
                 android:id="@+id/fldGrpdcg03"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
@@ -222,104 +222,134 @@
 
 
             <LinearLayout
-            android:id="@+id/fldGrpdcg05"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
+                android:id="@+id/fldGrpdcg05"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:text="@string/dcg05"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/dcg05"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
 
 
-            <CheckBox
-                android:id="@+id/dcg0501"
-                android:layout_width="match_parent"
+                <CheckBox
+                    android:id="@+id/dcg0501"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcg0501" />
+
+                <CheckBox
+                    android:id="@+id/dcg0502"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcg0502" />
+
+                <CheckBox
+                    android:id="@+id/dcg0503"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcg0503" />
+
+
+                <CheckBox
+                    android:id="@+id/dcg0504"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcg0504" />
+
+                <CheckBox
+                    android:id="@+id/dcg0505"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcg0505" />
+
+                <CheckBox
+                    android:id="@+id/dcg0506"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcg0506" />
+
+                <CheckBox
+                    android:id="@+id/dcg0507"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcg0507" />
+
+                <CheckBox
+                    android:id="@+id/dcg0508"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcg0508" />
+
+                <CheckBox
+                    android:id="@+id/dcg0509"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcg0509" />
+
+                <CheckBox
+                    android:id="@+id/dcg0510"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcg0510" />
+
+
+                <CheckBox
+                    android:id="@+id/dcg0511"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcg0511" />
+
+
+                <CheckBox
+                    android:id="@+id/dcg0512"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcg0512" />
+
+                <CheckBox
+                    android:id="@+id/dcg0513"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcg0513" />
+            </LinearLayout>
+
+            <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dcg0501" />
+                android:layout_gravity="end"
+                android:orientation="horizontal">
 
-            <CheckBox
-                android:id="@+id/dcg0502"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/dcg0502" />
+                <Button
+                    android:id="@+id/btn_End"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="endInterview"
+                    android:text="@string/end_interview"
+                    android:textColor="#ff1e1e" />
 
-            <CheckBox
-                android:id="@+id/dcg0503"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/dcg0503" />
+                <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
 
+                <Button
+                    android:id="@+id/btn_Continue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="startInterview"
+                    android:text="@string/start_interview"
+                    android:textColor="#1ed61e" />
+                <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 
-            <CheckBox
-                android:id="@+id/dcg0504"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/dcg0504" />
+            </LinearLayout>
 
-            <CheckBox
-                android:id="@+id/dcg0505"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/dcg0505" />
-
-            <CheckBox
-                android:id="@+id/dcg0506"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/dcg0506" />
-
-            <CheckBox
-                android:id="@+id/dcg0507"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/dcg0507" />
-
-            <CheckBox
-                android:id="@+id/dcg0508"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/dcg0508" />
-
-            <CheckBox
-                android:id="@+id/dcg0509"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/dcg0509" />
-
-            <CheckBox
-                android:id="@+id/dcg0510"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/dcg0510" />
-
-
-            <CheckBox
-                android:id="@+id/dcg0511"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/dcg0511" />
-
-
-            <CheckBox
-                android:id="@+id/dcg0512"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/dcg0512" />
-
-            <CheckBox
-                android:id="@+id/dcg0513"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/dcg0513" />
         </LinearLayout>
-
-    </LinearLayout>
 
     </ScrollView>
 
