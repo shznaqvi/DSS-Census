@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.dss_census;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -154,8 +155,8 @@ public class SectionIActivity extends Activity {
     RadioButton dci18b02;
     @BindView(R.id.dci18b99)
     RadioButton dci18b99;
-    @BindView(R.id.dcf18btimes)
-    EditText dcf18btimes;
+    @BindView(R.id.dci18btimes)
+    EditText dci18btimes;
     @BindView(R.id.dci18c)
     RadioGroup dci18c;
     @BindView(R.id.dci18c01)
@@ -164,8 +165,8 @@ public class SectionIActivity extends Activity {
     RadioButton dci18c02;
     @BindView(R.id.dci18c99)
     RadioButton dci18c99;
-    @BindView(R.id.dcf18ctimes)
-    EditText dcf18ctimes;
+    @BindView(R.id.dci18ctimes)
+    EditText dci18ctimes;
     @BindView(R.id.dci18d)
     RadioGroup dci18d;
     @BindView(R.id.dci18d01)
@@ -190,8 +191,8 @@ public class SectionIActivity extends Activity {
     RadioButton dci18f02;
     @BindView(R.id.dci18f99)
     RadioButton dci18f99;
-    @BindView(R.id.dcf18ftimes)
-    EditText dcf18ftimes;
+    @BindView(R.id.dci18ftimes)
+    EditText dci18ftimes;
     @BindView(R.id.dci18g)
     RadioGroup dci18g;
     @BindView(R.id.dci18g01)
@@ -344,6 +345,31 @@ public class SectionIActivity extends Activity {
         dci05.setMaxDate(new Date().getTime());
         dob = new SimpleDateFormat("dd-MM-yyyy").format(dci05.getCalendarView().getDate());
 
+        // ============= Q 18 B =============
+        if (dci18b01.isChecked()) {
+            dci18btimes.setVisibility(View.VISIBLE);
+        } else {
+            dci18btimes.setVisibility(View.GONE);
+            dci18btimes.setText(null);
+        }
+
+        // ============= Q 18 C =============
+        if (dci18c01.isChecked()) {
+            dci18ctimes.setVisibility(View.VISIBLE);
+        } else {
+            dci18ctimes.setVisibility(View.GONE);
+            dci18ctimes.setText(null);
+        }
+
+        // ============= Q 18 F =============
+        if (dci18f01.isChecked()) {
+            dci18ftimes.setVisibility(View.VISIBLE);
+        } else {
+            dci18ftimes.setVisibility(View.GONE);
+            dci18ftimes.setText(null);
+        }
+
+
 
     }
 
@@ -470,5 +496,50 @@ public class SectionIActivity extends Activity {
 
 
     }
+
+    public boolean ValidateForm() {
+
+        // ====================== Q 1 ==============
+        if (dci01.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci01), Toast.LENGTH_SHORT).show();
+            dci01.setError("This data is Required!");
+            return false;
+        } else {
+            dci01.setError(null);
+        }
+
+        // ====================== Q 2 ==============
+        if (dci02.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci02), Toast.LENGTH_SHORT).show();
+            dci0202.setError("This data is Required!");
+            return false;
+        } else {
+            dci0202.setError(null);
+        }
+
+        // ====================== Q 3 ==============
+        if (dci03.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci03), Toast.LENGTH_SHORT).show();
+            dci03.setError("This data is Required!");
+            return false;
+        } else {
+            dci03.setError(null);
+        }
+
+        // ====================== Q 4 ==============
+        if (dci04.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci04), Toast.LENGTH_SHORT).show();
+            dci04.setError("This data is Required!");
+            return false;
+        } else {
+            dci04.setError(null);
+        }
+
+        // ====================== Q 5 ==============
+
+
+        return true;
+    }
+
 }
 
