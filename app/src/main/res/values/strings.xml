@@ -230,6 +230,7 @@
     <string name="dcd1202">جنریٹر</string>
     <string name="dcd1203">سلور</string>
     <string name="dcd1204">پون چکی</string>
+
     <string name="dce01"> برائے مہربانی اس جگہ کا مشاہدہ کرائیں جہاں آپ اور آپ کے گھروں عموماً ہاتھ دھوتے ہیں </string>
     <string name="dce0101"> مشاہدہ </string>
     <string name="dce0102"> مشاہدہ نہیں کیا </string>
@@ -375,7 +376,7 @@
     <string name="dch0501"> ایک سے دو بچے </string>
     <string name="dch0502"> تین سے چار بچے </string>
     <string name="dch0503"> پانچ سے زیادہ بچے </string>
-    <string name="dch06"> کیا آپ نے ابھی عورت کی نس بندی کروائی ہوئی ہے؟ </string>
+  <string name="dch06"> کیا آپ نے ابھی عورت کی نس بندی کروائی ہوئی ہے؟ </string>
     <string name="dch07"> کیا آپ اور بچہ پیدا کرنا چاہیں گی یا آپ مزید بچہ پیدا نہیں کرنا چاہیں گے </string>
     <string name="dch0701"> ہاں دوسرا بچہ </string>
     <string name="dch0702"> نہیں/ دوسرا بچہ نہیں </string>

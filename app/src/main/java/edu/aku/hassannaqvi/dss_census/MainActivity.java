@@ -98,25 +98,25 @@ public class MainActivity extends Activity {
 
     }
 
-//    public void openForm(View v) {
-//        Intent oF = new Intent(this, SectionAActivity.class);
-//        startActivity(oF);
-//    }
-//
-//    public void openA(View v) {
-//        Intent iA = new Intent(this, SectionAActivity.class);
-//        startActivity(iA);
-//    }
-//
-//    public void openB(View v) {
-//        Intent iB = new Intent(this, SectionBActivity.class);
-//        startActivity(iB);
-//    }
-//
-//    public void openC(View v) {
-//        Intent iC = new Intent(this, SectionCActivity.class);
-//        startActivity(iC);
-//    }
+    public void openForm(View v) {
+        Intent oF = new Intent(MainActivity.this, SectionBActivity.class);
+        startActivity(oF);
+    }
+
+    public void openA(View v) {
+        Intent iA = new Intent(this, SectionAActivity.class);
+        startActivity(iA);
+    }
+
+    public void openB(View v) {
+        Intent iB = new Intent(this, SectionBActivity.class);
+        startActivity(iB);
+    }
+
+    public void openC(View v) {
+        Intent iC = new Intent(this, SectionCActivity.class);
+        startActivity(iC);
+    }
 
     public void openD(View v) {
         Intent iD = new Intent(this, SectionDActivity.class);
@@ -133,20 +133,30 @@ public class MainActivity extends Activity {
         startActivity(iD);
     }
 
-//    public void openIM(View v) {
-//        Intent iIM = new Intent(this, SectionIMActivity.class);
-//        startActivity(iIM);
-//    }
-//
-//    public void openG(View v) {
-//        Intent iG = new Intent(this, SectionGActivity.class);
-//        startActivity(iG);
-//    }
-//
-//    public void openEnd(View v) {
-//        Intent iEnd = new Intent(this, EndingActivity.class);
-//        startActivity(iEnd);
-//    }
+    public void openG(View v) {
+        Intent iG = new Intent(this, SectionGActivity.class);
+        startActivity(iG);
+    }
+
+    public void openH(View v) {
+        Intent iEnd = new Intent(this, SectionHActivity.class);
+        startActivity(iEnd);
+    }
+
+    public void openI(View v) {
+        Intent iEnd = new Intent(this, SectionIActivity.class);
+        startActivity(iEnd);
+    }
+
+    public void openJ(View v) {
+        Intent iEnd = new Intent(this, SectionJActivity.class);
+        startActivity(iEnd);
+    }
+
+    public void openK(View v) {
+        Intent iEnd = new Intent(this, SectionKActivity.class);
+        startActivity(iEnd);
+    }
 
     public void openDB(View v) {
         Intent dbmanager = new Intent(getApplicationContext(), AndroidDatabaseManager.class);

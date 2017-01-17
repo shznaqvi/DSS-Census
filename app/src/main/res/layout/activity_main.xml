@@ -129,15 +129,6 @@
                 android:text="Section D" />
 
             <Button
-                android:id="@+id/openIM"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:onClick="openIM"
-                android:text="Section IM" />
-
-            <Button
                 android:id="@+id/openE"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -166,13 +157,49 @@
                 android:text="Section G" />
 
             <Button
-                android:id="@+id/openEnd"
+                android:id="@+id/openH"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
-                android:onClick="openEnd"
-                android:text="Section End" />
+                android:onClick="openH"
+                android:text="Section H" />
+
+            <Button
+                android:id="@+id/openI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+                android:onClick="openI"
+                android:text="Section I" />
+
+            <Button
+                android:id="@+id/openJ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+                android:onClick="openJ"
+                android:text="Section J" />
+
+            <Button
+                android:id="@+id/openK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+                android:onClick="openK"
+                android:text="Section K" />
+
+            <!--<Button-->
+                <!--android:id="@+id/openEnd"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="8dp"-->
+                <!--android:layout_marginTop="16dp"-->
+                <!--android:onClick="openEnd"-->
+                <!--android:text="Section End" />-->
 
             <Button
                 android:id="@+id/openDB"

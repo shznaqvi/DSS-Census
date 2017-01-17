@@ -354,6 +354,8 @@ public class SectionIActivity extends Activity {
         ButterKnife.bind(this);
 
         appHeader.setText("DSS - > Section I: IYCF (0-23 Month)");
+
+
         dci05.setMaxDate(new Date().getTime());
         dob = new SimpleDateFormat("dd-MM-yyyy").format(dci05.getCalendarView().getDate());
 
@@ -413,7 +415,7 @@ public class SectionIActivity extends Activity {
             }
             if (UpdateDB()) {*/
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, SectionIActivity.class);
+        Intent endSec = new Intent(this, MainActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
            /* } else {

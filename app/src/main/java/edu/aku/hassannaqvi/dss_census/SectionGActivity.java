@@ -114,11 +114,29 @@ public class SectionGActivity extends Activity {
         setContentView(R.layout.activity_section_g);
         ButterKnife.bind(this);
 
+        appHeader.setText("DSS - > Section G");
+
     }
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
         //TODO implement
+        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
+       /* if (formValidation()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {*/
+        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+        Intent endSec = new Intent(this, MainActivity.class);
+        endSec.putExtra("complete", false);
+        startActivity(endSec);
+           /* } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        } */
     }
 
     @OnClick(R.id.btn_Continue)
