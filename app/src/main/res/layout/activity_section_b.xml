@@ -702,7 +702,7 @@
                     android:text="@string/dcbir03" />
             </RadioGroup>
 
-        </LinearLayout>
+
 
         <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
 
@@ -731,6 +731,8 @@
                 android:text="@string/start_interview"
                 android:textColor="#1ed61e" />
             <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
+
+        </LinearLayout>
 
         </LinearLayout>
 
