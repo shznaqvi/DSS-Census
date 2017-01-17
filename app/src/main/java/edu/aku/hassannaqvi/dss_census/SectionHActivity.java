@@ -234,7 +234,7 @@ public class SectionHActivity extends Activity {
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
-        if (formValidation()) {
+        if (ValidateForm()) {
             try {
                 SaveDraft();
             } catch (JSONException e) {
@@ -259,13 +259,13 @@ public class SectionHActivity extends Activity {
 
         //int updcount = db.updateSh();
 
-        if (updcount == 1) {
-            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-            return true;
-        } else {
-            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+        //if (updcount == 1) {
+        //Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+        // return true;
+        //} //else {
+        //Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }
+        //}
 
     }
 

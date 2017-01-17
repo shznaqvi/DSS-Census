@@ -195,13 +195,13 @@ public class SectionBActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        //TODO implement
+
     }
 
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
-        //TODO implement
+
     }
 
 }
