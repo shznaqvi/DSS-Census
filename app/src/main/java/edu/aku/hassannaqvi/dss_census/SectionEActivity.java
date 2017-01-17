@@ -300,7 +300,7 @@ public class SectionEActivity extends Activity {
             }
             if (UpdateDB()) {*/
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, SectionFActivity.class);
+        Intent endSec = new Intent(this, MainActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
            /* } else {

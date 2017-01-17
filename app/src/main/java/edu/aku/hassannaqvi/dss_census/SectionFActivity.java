@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
+import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -86,10 +88,46 @@ public class SectionFActivity extends Activity  {
         setContentView(R.layout.activity_section_f);
         ButterKnife.bind(this);
 
+        appHeader.setText("DSS - > Section F");
+
+        dcfAgeDob.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if(dcfAge.isChecked()){
+                    fldGrpdcf04a.setVisibility(View.GONE);
+                }
+                else {
+                    fldGrpdcf04a.setVisibility(View.VISIBLE);
+                    fldGrpdcf04b.setVisibility(View.GONE);
+
+                    dcf0401.setText(null);
+                    dcf0402.setText(null);
+                    dcf0403.setText(null);
+
+                }
+            }
+        });
+
     }
 
     @OnClick(R.id.btn_End) void onBtnEndClick() {
         //TODO implement
+        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
+       /* if (formValidation()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {*/
+        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+        Intent endSec = new Intent(this, MainActivity.class);
+        endSec.putExtra("complete", false);
+        startActivity(endSec);
+           /* } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        } */
     }
 
     @OnClick(R.id.btn_Continue) void onBtnContinueClick() {
