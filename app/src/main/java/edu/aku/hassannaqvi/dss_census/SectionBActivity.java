@@ -195,6 +195,11 @@ public class SectionBActivity extends Activity {
 
         appHeader.setText("DSS - > Section B");
 
+        dcba.setText(getIntent().getExtras().get("memberName").toString());
+
+        dcba.setEnabled(false);
+
+
     }
 
     @OnClick(R.id.btn_End)
@@ -223,7 +228,7 @@ public class SectionBActivity extends Activity {
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
 
-        startActivity(new Intent(this,SectionCActivity.class));
+        startActivity(new Intent(this, SectionCActivity.class));
 
     }
 

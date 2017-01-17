@@ -24,6 +24,10 @@ public class MainApp extends Application {
     /*
         public static final String _IP = "43.245.131.159"; // Test server
     */
+
+
+    public static int NoMembers = 7;
+
     public static final Integer MONTHS_LIMIT = 11;
     public static final Integer DAYS_LIMIT = 29;
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters

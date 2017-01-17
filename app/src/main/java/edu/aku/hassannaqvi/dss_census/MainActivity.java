@@ -99,8 +99,13 @@ public class MainActivity extends Activity {
     }
 
     public void openForm(View v) {
-        Intent oF = new Intent(MainActivity.this, SectionBActivity.class);
+        Intent oF = new Intent(MainActivity.this, FamilyMembersActivity.class);
         startActivity(oF);
+    }
+
+    public void openMembers(View v) {
+        Intent iMem = new Intent(this, FamilyMembersActivity.class);
+        startActivity(iMem);
     }
 
     public void openA(View v) {
@@ -155,6 +160,16 @@ public class MainActivity extends Activity {
 
     public void openK(View v) {
         Intent iEnd = new Intent(this, SectionKActivity.class);
+        startActivity(iEnd);
+    }
+
+    public void openL(View v) {
+        Intent iEnd = new Intent(this, SectionLActivity.class);
+        startActivity(iEnd);
+    }
+
+    public void openM(View v) {
+        Intent iEnd = new Intent(this, SectionMActivity.class);
         startActivity(iEnd);
     }
 

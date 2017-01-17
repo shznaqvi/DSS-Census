@@ -39,7 +39,8 @@
         <activity android:name=".SectionKActivity" />
         <activity android:name=".SectionCActivity" />
         <activity android:name=".SectionLActivity" />
-        <activity android:name=".SectionMActivity"></activity>
+        <activity android:name=".SectionMActivity" />
+        <activity android:name=".FamilyMembersActivity"></activity>
     </application>
 
 </manifest>

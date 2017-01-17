@@ -95,6 +95,8 @@ public class SectionFActivity extends Activity  {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if(dcfAge.isChecked()){
                     fldGrpdcf04a.setVisibility(View.GONE);
+                    fldGrpdcf04b.setVisibility(View.VISIBLE);
+
                 }
                 else {
                     fldGrpdcf04a.setVisibility(View.VISIBLE);
