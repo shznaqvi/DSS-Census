@@ -3,6 +3,8 @@ package edu.aku.hassannaqvi.dss_census;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -379,6 +381,24 @@ public class SectionIActivity extends Activity {
             dci18ftimes.setText(null);
         }
 
+        dci2101.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                dci2199.setEnabled(false);
+                dci2199.setChecked(false);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
 
     }
 
@@ -674,6 +694,16 @@ public class SectionIActivity extends Activity {
             dci18b99.setError(null);
         }
 
+        if (dci18b01.isChecked() && dci18btimes.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
+            dci18btimes.setError("This data is Required!");
+            dci18btimes.requestFocus();
+            return false;
+        } else {
+            dci18btimes.setError(null);
+        }
+
+
         // ====================== Q 18C ==============
         if (dci18c.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18c), Toast.LENGTH_SHORT).show();
@@ -682,6 +712,16 @@ public class SectionIActivity extends Activity {
         } else {
             dci18c99.setError(null);
         }
+
+        if (dci18c01.isChecked() && dci18ctimes.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
+            dci18ctimes.setError("This data is Required!");
+            dci18ctimes.requestFocus();
+            return false;
+        } else {
+            dci18ctimes.setError(null);
+        }
+
         // ====================== Q 18D ==============
         if (dci18d.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18d), Toast.LENGTH_SHORT).show();
@@ -706,6 +746,16 @@ public class SectionIActivity extends Activity {
         } else {
             dci18f99.setError(null);
         }
+
+        if (dci18f01.isChecked() && dci18ftimes.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
+            dci18ftimes.setError("This data is Required!");
+            dci18ftimes.requestFocus();
+            return false;
+        } else {
+            dci18ftimes.setError(null);
+        }
+
         // ====================== Q 18G ==============
         if (dci18g.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18g), Toast.LENGTH_SHORT).show();
@@ -778,6 +828,141 @@ public class SectionIActivity extends Activity {
         } else {
             dci19f02.setError(null);
         }
+
+        // ====================== Q 19G ==============
+        if (dci19g.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19g), Toast.LENGTH_SHORT).show();
+            dci19g02.setError("This data is Required!");
+            return false;
+        } else {
+            dci19g02.setError(null);
+        }
+        // ====================== Q 19H ==============
+        if (dci19h.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19h), Toast.LENGTH_SHORT).show();
+            dci19h02.setError("This data is Required!");
+            return false;
+        } else {
+            dci19h02.setError(null);
+        }
+        // ====================== Q 19I ==============
+        if (dci19i.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19i), Toast.LENGTH_SHORT).show();
+            dci19i02.setError("This data is Required!");
+            return false;
+        } else {
+            dci19i02.setError(null);
+        }
+        // ====================== Q 19J ==============
+        if (dci19j.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19j), Toast.LENGTH_SHORT).show();
+            dci19j02.setError("This data is Required!");
+            return false;
+        } else {
+            dci19j02.setError(null);
+        }
+        // ====================== Q 19K ==============
+        if (dci19k.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19k), Toast.LENGTH_SHORT).show();
+            dci19k02.setError("This data is Required!");
+            return false;
+        } else {
+            dci19k02.setError(null);
+        }
+        // ====================== Q 19L ==============
+        if (dci19l.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19l), Toast.LENGTH_SHORT).show();
+            dci19l02.setError("This data is Required!");
+            return false;
+        } else {
+            dci19l02.setError(null);
+        }
+        // ====================== Q 19M ==============
+        if (dci19m.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19m), Toast.LENGTH_SHORT).show();
+            dci19m02.setError("This data is Required!");
+            return false;
+        } else {
+            dci19m02.setError(null);
+        }
+        // ====================== Q 19N ==============
+        if (dci19n.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19n), Toast.LENGTH_SHORT).show();
+            dci19n02.setError("This data is Required!");
+            return false;
+        } else {
+            dci19n02.setError(null);
+        }
+        // ====================== Q 19O ==============
+        if (dci19o.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19o), Toast.LENGTH_SHORT).show();
+            dci19o02.setError("This data is Required!");
+            return false;
+        } else {
+            dci19o02.setError(null);
+        }
+        // ====================== Q 19P ==============
+        if (dci19p.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19p), Toast.LENGTH_SHORT).show();
+            dci19p02.setError("This data is Required!");
+            return false;
+        } else {
+            dci19p02.setError(null);
+        }
+        // ====================== Q 19Q ==============
+        if (dci19q.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19q), Toast.LENGTH_SHORT).show();
+            dci19q02.setError("This data is Required!");
+            return false;
+        } else {
+            dci19q02.setError(null);
+        }
+
+        // ====================== Q 20 ==============
+        if (dci20.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci20), Toast.LENGTH_SHORT).show();
+            dci2099.setError("This data is Required!");
+            return false;
+        } else {
+            dci2099.setError(null);
+        }
+
+        // ====================== Q 21 ==============
+        if (dci2101.getText().toString().isEmpty() && (!(dci2199.isChecked()))) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci21), Toast.LENGTH_SHORT).show();
+            dci2199.setError("This data is Required!");
+            return false;
+        } else {
+            dci2199.setError(null);
+        }
+
+        if (dci2199.isChecked()) {
+            dci2101.setEnabled(false);
+            dci2101.setText(null);
+        } else {
+            dci2101.setEnabled(true);
+        }
+
+        // ====================== Q 21 ==============
+        if (dci22.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci22), Toast.LENGTH_SHORT).show();
+            dci2299.setError("This data is Required!");
+            return false;
+        } else {
+            dci2299.setError(null);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
