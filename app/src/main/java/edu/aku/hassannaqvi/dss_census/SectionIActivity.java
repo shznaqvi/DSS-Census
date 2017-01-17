@@ -369,6 +369,12 @@ public class SectionIActivity extends Activity {
             dci18ftimes.setText(null);
         }
 
+        dci05.init(dci05.getYear(), dci05.getMonth(), dci05.getDayOfMonth(), new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+            }
+        });
 
 
     }
