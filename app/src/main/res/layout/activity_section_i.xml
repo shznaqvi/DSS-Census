@@ -855,6 +855,49 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#efefef"
+                android:text="@string/dci18i"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/dci18i"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/dci18i01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcyes" />
+
+                <RadioButton
+                    android:id="@+id/dci18i02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcno" />
+
+                <RadioButton
+                    android:id="@+id/dci18i99"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcdkn" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/dci18ix"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/dcother"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
                 android:text="@string/dci19"
