@@ -167,7 +167,7 @@ public class SectionAActivity extends Activity {
 
         appHeader.setText("DSS - > Section A: HH Identification & Visit Status");
 
-        dca01.setText(getIntent().getExtras().get("memberName").toString());
+//        dca01.setText(getIntent().getExtras().get("memberName").toString());
 
 
 
@@ -199,7 +199,14 @@ public class SectionAActivity extends Activity {
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
 
-        startActivity(new Intent(this, SectionBActivity.class));
+        if (!dca0701.getText().toString().isEmpty() && Integer.parseInt(dca0701.getText().toString()) > 0){
+            dca0701.setError(null);
+            MainApp.NoMembers = Integer.parseInt(dca0701.getText().toString());
+            startActivity(new Intent(this, FamilyMembersActivity.class));
+        }else {
+            Toast.makeText(this,getString(R.string.dca07),Toast.LENGTH_SHORT).show();
+            dca0701.setError("Invalid!!");
+        }
 
     }
 
