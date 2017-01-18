@@ -52,7 +52,35 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.dca0504)
     EditText dca0504;
     @BindView(R.id.dca0505)
-    EditText dca0505;
+    RadioGroup dca0505;
+    @BindView(R.id.dca050501)
+    RadioButton dca050501;
+    @BindView(R.id.dca050502)
+    RadioButton dca050502;
+    @BindView(R.id.dca050503)
+    RadioButton dca050503;
+    @BindView(R.id.dca050504)
+    RadioButton dca050504;
+    @BindView(R.id.dca050505)
+    RadioButton dca050505;
+    @BindView(R.id.dca050506)
+    RadioButton dca050506;
+    @BindView(R.id.dca050507)
+    RadioButton dca050507;
+    @BindView(R.id.dca050508)
+    RadioButton dca050508;
+    @BindView(R.id.dca050509)
+    RadioButton dca050509;
+    @BindView(R.id.dca050510)
+    RadioButton dca050510;
+    @BindView(R.id.dca050511)
+    RadioButton dca050511;
+    @BindView(R.id.dca050512)
+    RadioButton dca050512;
+    @BindView(R.id.dca050596)
+    RadioButton dca050596;
+    @BindView(R.id.dca050596x)
+    EditText dca050596x;
     @BindView(R.id.dca06)
     EditText dca06;
     @BindView(R.id.dca0601)
@@ -66,7 +94,35 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.dca0603)
     EditText dca0603;
     @BindView(R.id.dca0604)
-    EditText dca0604;
+    RadioGroup dca0604;
+    @BindView(R.id.dca060401)
+    RadioButton dca060401;
+    @BindView(R.id.dca060402)
+    RadioButton dca060402;
+    @BindView(R.id.dca060403)
+    RadioButton dca060403;
+    @BindView(R.id.dca060404)
+    RadioButton dca060404;
+    @BindView(R.id.dca060405)
+    RadioButton dca060405;
+    @BindView(R.id.dca060406)
+    RadioButton dca060406;
+    @BindView(R.id.dca060407)
+    RadioButton dca060407;
+    @BindView(R.id.dca060408)
+    RadioButton dca060408;
+    @BindView(R.id.dca060409)
+    RadioButton dca060409;
+    @BindView(R.id.dca060410)
+    RadioButton dca060410;
+    @BindView(R.id.dca060411)
+    RadioButton dca060411;
+    @BindView(R.id.dca060412)
+    RadioButton dca060412;
+    @BindView(R.id.dca060496)
+    RadioButton dca060496;
+    @BindView(R.id.dca060496x)
+    EditText dca060496x;
     @BindView(R.id.dca0701)
     EditText dca0701;
     @BindView(R.id.dca0702)
@@ -101,6 +157,7 @@ public class SectionAActivity extends Activity {
     RadioButton dca1101;
     @BindView(R.id.dca1102)
     RadioButton dca1102;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
