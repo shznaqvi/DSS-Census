@@ -29,6 +29,18 @@
     <string name="dcmale"> مرد </string>
     <string name="dcfemale"> عورت </string>
     <string name="Frequency"> Frequency </string>
+    <string name="dcpro01">پروفیشنل / ٹیکنیکل / مینیجریل</string>
+    <string name="dcpro02">کلرک</string>
+    <string name="dcpro03">سہولتیں مہیا کرنا</string>
+    <string name="dcpro04">مستری</string>
+    <string name="dcpro05">مزدور</string>
+    <string name="dcpro06">گھریلو نوکر</string>
+    <string name="dcpro07">ذراعت</string>
+    <string name="dcpro08">کاروبار</string>
+    <string name="dcpro09">چھوٹی دکان / چھوٹا کاروبار</string>
+    <string name="dcpro10">بیروزگار</string>
+    <string name="dcpro11">رٹائرڈ</string>
+    <string name="dcpro12">ہائوس وائف</string>
 
     <string name="dca03"> DSS ID </string>
     <string name="dca04"> کیا اجازت مل گئی؟ </string>
