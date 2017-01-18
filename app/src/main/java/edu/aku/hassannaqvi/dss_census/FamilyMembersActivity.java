@@ -33,7 +33,7 @@ public class FamilyMembersActivity extends Activity  {
         final List<String> Members = new ArrayList<String>();
 
         for (byte i=0;i<MainApp.NoMembers;i++){
-            Members.add("Member "+i);
+            Members.add("Member "+(i+1));
         }
 
         lstNoMembers.setAdapter(new ArrayAdapter<String>(getApplicationContext(),R.layout.lstview, Members));
@@ -42,7 +42,7 @@ public class FamilyMembersActivity extends Activity  {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                Intent i = new Intent(getApplicationContext(), SectionAActivity.class);
+                Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
 
                 i.putExtra("memberName",Members.get(position));
 

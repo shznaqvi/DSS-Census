@@ -136,23 +136,23 @@ public class SectionFActivity extends Activity  {
         //TODO implement
 
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
-        if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {
+//        if (formValidation()) {
+//            try {
+//                SaveDraft();
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//            if (UpdateDB()) {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
 
                 startActivity(new Intent(this, SectionGActivity.class));
 
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-        }
+//            } else {
+//                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+//            }
+//        }
     }
 
     public boolean formValidation() {

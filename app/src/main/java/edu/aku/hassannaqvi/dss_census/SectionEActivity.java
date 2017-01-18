@@ -315,23 +315,23 @@ public class SectionEActivity extends Activity {
     void onBtnContinueClick() {
 
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
-        if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {
+//        if (formValidation()) {
+//            try {
+//                SaveDraft();
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//            if (UpdateDB()) {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
 
                 Intent secNext = new Intent(this, SectionFActivity.class);
                 startActivity(secNext);
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-        }
+//            } else {
+//                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+//            }
+//        }
 
     }
 
@@ -775,10 +775,10 @@ public class SectionEActivity extends Activity {
         return true;
     }
 
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
-    }
+//    @Override
+//    public void onBackPressed() {
+//        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+//    }
 
 }
 
