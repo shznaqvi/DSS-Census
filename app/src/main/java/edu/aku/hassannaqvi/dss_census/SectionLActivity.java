@@ -1,16 +1,15 @@
 package edu.aku.hassannaqvi.dss_census;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.CheckBox;
-import android.widget.RadioGroup;
-import android.widget.RadioButton;
-import android.widget.EditText;
-import android.widget.Button;
 import android.widget.Toast;
 
 import butterknife.BindView;
@@ -139,7 +138,7 @@ public class SectionLActivity extends Activity  {
         setContentView(R.layout.activity_section_l);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section L");
+        appHeader.setText("DSS - > Section L : Household Food Insecurity");
 
     }
 

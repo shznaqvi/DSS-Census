@@ -1,19 +1,18 @@
 package edu.aku.hassannaqvi.dss_census;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.RadioGroup;
-import android.widget.RadioButton;
-import android.widget.EditText;
-import android.widget.CheckBox;
-import android.widget.Button;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -228,7 +227,7 @@ public class SectionDActivity extends Activity {
         setContentView(R.layout.activity_section_d);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section D");
+        appHeader.setText("DSS - > Section D: Household Construction");
 
         dcd0688.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

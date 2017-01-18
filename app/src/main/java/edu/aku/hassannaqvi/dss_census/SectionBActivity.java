@@ -193,11 +193,11 @@ public class SectionBActivity extends Activity {
         setContentView(R.layout.activity_section_b);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section B");
+        appHeader.setText("DSS - > Section B: List the Family Members of Household");
 
-        dcba.setText(getIntent().getExtras().get("memberName").toString());
+//        dcba.setText(getIntent().getExtras().get("memberName").toString());
 
-        dcba.setEnabled(false);
+        //      dcba.setEnabled(false);
 
 
     }

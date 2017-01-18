@@ -23,8 +23,8 @@ public class SectionAActivity extends Activity {
     ScrollView scrollView01;
     @BindView(R.id.app_header)
     TextView appHeader;
-    @BindView(R.id.dca01)
-    EditText dca01;
+    @BindView(R.id.dca03)
+    EditText dca03;
     @BindView(R.id.dca04)
     RadioGroup dca04;
     @BindView(R.id.dca0401)
@@ -167,7 +167,7 @@ public class SectionAActivity extends Activity {
 
         appHeader.setText("DSS - > Section A: HH Identification & Visit Status");
 
-//        dca01.setText(getIntent().getExtras().get("memberName").toString());
+        //        dca01.setText(getIntent().getExtras().get("memberName").toString());
 
 
 

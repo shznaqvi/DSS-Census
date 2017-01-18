@@ -3,8 +3,6 @@ package edu.aku.hassannaqvi.dss_census;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -383,23 +381,6 @@ public class SectionIActivity extends Activity {
             dci18ftimes.setText(null);
         }
 
-        dci2101.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                dci2199.setEnabled(false);
-                dci2199.setChecked(false);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
 
 
     }
