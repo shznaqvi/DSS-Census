@@ -65,7 +65,7 @@
                 android:background="#efefef"
                 android:text="@string/dccbrhh"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -168,7 +168,7 @@
                 android:background="#efefef"
                 android:text="@string/dcbbfid"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -186,7 +186,7 @@
                 android:background="#efefef"
                 android:text="@string/dcbbmid"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <EditText

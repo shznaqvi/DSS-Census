@@ -1,18 +1,16 @@
 package edu.aku.hassannaqvi.dss_census;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.RelativeLayout;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -44,7 +42,7 @@ public class FamilyMembersActivity extends Activity  {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                Intent i = new Intent(getApplicationContext(),SectionBActivity.class);
+                Intent i = new Intent(getApplicationContext(), SectionAActivity.class);
 
                 i.putExtra("memberName",Members.get(position));
 

@@ -27,19 +27,45 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SectionDActivity" />
-        <activity android:name=".SectionEActivity" />
-        <activity android:name=".SectionFActivity" />
-        <activity android:name=".SectionIActivity" />
-        <activity android:name=".SectionJActivity" />
-        <activity android:name=".SectionGActivity" />
-        <activity android:name=".SectionHActivity" />
-        <activity android:name=".SectionAActivity" />
-        <activity android:name=".SectionBActivity" />
-        <activity android:name=".SectionKActivity" />
-        <activity android:name=".SectionCActivity" />
-        <activity android:name=".SectionLActivity" />
-        <activity android:name=".SectionMActivity" />
+        <activity
+            android:name=".SectionDActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".SectionEActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".SectionFActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".SectionIActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".SectionJActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".SectionGActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".SectionHActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".SectionAActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".SectionBActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".SectionKActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".SectionCActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".SectionLActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".SectionMActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity android:name=".FamilyMembersActivity"></activity>
     </application>
 

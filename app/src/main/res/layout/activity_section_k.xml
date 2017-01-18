@@ -236,7 +236,7 @@
                 android:background="#efefef"
                 android:text="@string/dckbcg"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -266,7 +266,7 @@
                 android:background="#efefef"
                 android:text="@string/dcksrc"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -356,7 +356,7 @@
                 android:background="#efefef"
                 android:text="@string/dcksrc"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -386,7 +386,7 @@
                 android:background="#efefef"
                 android:text="@string/dckdate"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <DatePicker
@@ -416,7 +416,7 @@
                 android:background="#efefef"
                 android:text="@string/dckp1"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -446,7 +446,7 @@
                 android:background="#efefef"
                 android:text="@string/dcksrc"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -506,7 +506,7 @@
                 android:background="#efefef"
                 android:text="@string/dcksrc"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -567,7 +567,7 @@
                 android:background="#efefef"
                 android:text="@string/dcksrc"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -597,7 +597,7 @@
                 android:background="#efefef"
                 android:text="@string/dckdate"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <DatePicker
@@ -627,7 +627,7 @@
                 android:background="#efefef"
                 android:text="@string/dckp2"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -657,7 +657,7 @@
                 android:background="#efefef"
                 android:text="@string/dcksrc"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -717,7 +717,7 @@
                 android:background="#efefef"
                 android:text="@string/dcksrc"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -778,7 +778,7 @@
                 android:background="#efefef"
                 android:text="@string/dcksrc"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -808,7 +808,7 @@
                 android:background="#efefef"
                 android:text="@string/dckdate"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <DatePicker
@@ -838,7 +838,7 @@
                 android:background="#efefef"
                 android:text="@string/dckp3"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -868,7 +868,7 @@
                 android:background="#efefef"
                 android:text="@string/dcksrc"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -928,7 +928,7 @@
                 android:background="#efefef"
                 android:text="@string/dcksrc"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -989,7 +989,7 @@
                 android:background="#efefef"
                 android:text="@string/dcksrc"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -1019,7 +1019,7 @@
                 android:background="#efefef"
                 android:text="@string/dckdate"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <DatePicker
@@ -1049,7 +1049,7 @@
                 android:background="#efefef"
                 android:text="@string/dckm1"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -1079,7 +1079,7 @@
                 android:background="#efefef"
                 android:text="@string/dcksrc"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -1109,7 +1109,7 @@
                 android:background="#efefef"
                 android:text="@string/dckdate"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <DatePicker
@@ -1139,7 +1139,7 @@
                 android:background="#efefef"
                 android:text="@string/dckm2"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -1169,7 +1169,7 @@
                 android:background="#efefef"
                 android:text="@string/dcksrc"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -1199,7 +1199,7 @@
                 android:background="#efefef"
                 android:text="@string/dckdate"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <DatePicker

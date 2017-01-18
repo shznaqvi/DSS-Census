@@ -34,99 +34,99 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
                 android:text="@string/dcfa"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/colorPrimary"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@android:color/white" />
 
             <EditText
+                android:id="@+id/dcfa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcfa"
                 android:hint="@string/dcfa"
                 android:inputType="textCapWords"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
                 android:text="@string/dcf01"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/colorPrimary"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@android:color/white" />
 
             <EditText
+                android:id="@+id/dcf01"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf01"
+                android:digits="0123456789"
                 android:hint="@string/dcf01"
                 android:inputType="number"
-                android:digits="0123456789"
                 android:maxLength="2"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
                 android:text="@string/dcf02"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/colorPrimary"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@android:color/white" />
 
             <EditText
+                android:id="@+id/dcf0201"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf0201"
+                android:digits="0123456789"
                 android:hint="@string/dcf0201"
                 android:inputType="number"
-                android:digits="0123456789"
                 android:maxLength="2"/>
 
             <EditText
+                android:id="@+id/dcf0202"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf0202"
+                android:digits="0123456789"
                 android:hint="@string/dcf0202"
                 android:inputType="number"
-                android:digits="0123456789"
                 android:maxLength="2"/>
 
             <EditText
+                android:id="@+id/dcf0203"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf0203"
+                android:digits="0123456789"
                 android:hint="@string/dcf0203"
                 android:inputType="number"
-                android:digits="0123456789"
                 android:maxLength="2"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
                 android:text="@string/dcf03"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/colorPrimary"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@android:color/white" />
 
             <EditText
+                android:id="@+id/dcf03"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf03"
+                android:digits="0123456789"
                 android:hint="@string/dcf03"
                 android:inputType="number"
-                android:digits="0123456789"
                 android:maxLength="2"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
                 android:text="@string/dcf04"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/colorPrimary"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@android:color/white" />
 
             <RadioGroup
                 android:id="@+id/dcfAgeDob"
@@ -170,30 +170,30 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/dcf0401"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf0401"
+                android:digits="0123456789"
                 android:hint="@string/dcf04d"
                 android:inputType="number"
-                android:digits="0123456789"
                 android:maxLength="2"/>
 
             <EditText
+                android:id="@+id/dcf0402"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf0402"
+                android:digits="0123456789"
                 android:hint="@string/dcf04m"
                 android:inputType="number"
-                android:digits="0123456789"
                 android:maxLength="2"/>
 
             <EditText
+                android:id="@+id/dcf0403"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf0403"
+                android:digits="0123456789"
                 android:hint="@string/dcf04y"
                 android:inputType="number"
-                android:digits="0123456789"
                 android:maxLength="2"/>
 
         </LinearLayout>
@@ -201,69 +201,69 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
                 android:text="@string/dcf05"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/colorPrimary"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@android:color/white" />
 
             <EditText
+                android:id="@+id/dcf05"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf05"
+                android:digits="0123456789"
                 android:hint="@string/dcf05y"
                 android:inputType="number"
-                android:digits="0123456789"
                 android:maxLength="2"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
                 android:text="@string/dcf06"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/colorPrimary"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@android:color/white" />
 
             <EditText
+                android:id="@+id/dcf06"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf06"
+                android:digits="0123456789"
                 android:hint="@string/dcf06y"
                 android:inputType="number"
-                android:digits="0123456789"
                 android:maxLength="2"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
                 android:text="@string/dcf07"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/colorPrimary"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@android:color/white" />
 
             <RadioGroup
+                android:id="@+id/dcf07"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/dcf07">
+                android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dcf0701"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dcf0702"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
+                    android:id="@+id/dcf0799"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/dcf0799"
                     android:text="@string/dcf0799"/>
 
             </RadioGroup>
@@ -277,51 +277,51 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
                 android:text="@string/dcf08"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/colorPrimary"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@android:color/white" />
 
             <EditText
+                android:id="@+id/dcf08"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf08"
+                android:digits="0123456789"
                 android:hint="@string/dcf08m"
                 android:inputType="number"
-                android:digits="0123456789"
                 android:maxLength="2"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
                 android:text="@string/dcf09"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/colorPrimary"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@android:color/white" />
 
             <RadioGroup
+                android:id="@+id/dcf09"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/dcf09">
+                android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dcf0901"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dcf0902"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
+                    android:id="@+id/dcf0999"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/dcf0999"
                     android:text="@string/dcdkn"/>
 
             </RadioGroup>
@@ -335,88 +335,88 @@
                 <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
                 android:text="@string/dcf10"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/colorPrimary"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="16dp"/>
+                    android:textColor="@android:color/white" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/HP"
-                android:textSize="25dp"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:text="@string/HP"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"
+                android:textStyle="bold"
                 />
 
             <CheckBox
+                android:id="@+id/dcf1001"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1001"
                 android:text="@string/dcf1001"/>
 
             <CheckBox
+                android:id="@+id/dcf1002"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1002"
                 android:text="@string/dcf1002"/>
 
             <CheckBox
+                android:id="@+id/dcf1003"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1003"
                 android:text="@string/dcf1003"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/OP"
-                android:textSize="25dp"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:text="@string/OP"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"
+                android:textStyle="bold"
                 />
 
             <CheckBox
+                android:id="@+id/dcf1004"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1004"
                 android:text="@string/dcf1004"/>
 
             <CheckBox
+                android:id="@+id/dcf1005"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1005"
                 android:text="@string/dcf1005"/>
 
             <CheckBox
+                android:id="@+id/dcf1006"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1006"
                 android:text="@string/dcf1006"/>
 
             <CheckBox
+                android:id="@+id/dcf1007"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1007"
                 android:text="@string/dcf1007"/>
 
             <CheckBox
+                android:id="@+id/dcf1096"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1096"
                 android:text="@string/dcother"/>
 
             <EditText
+                android:id="@+id/dcf1096x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1096x"
                 android:hint="@string/dcother"
                 android:inputType="textCapWords"/>
 
@@ -424,58 +424,58 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
                 android:text="@string/dcf11"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/colorPrimary"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@android:color/white" />
 
             <CheckBox
+                android:id="@+id/dcf1101"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1101"
                 android:text="@string/dcf1101"/>
 
             <CheckBox
+                android:id="@+id/dcf1102"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1102"
                 android:text="@string/dcf1102"/>
 
             <CheckBox
+                android:id="@+id/dcf1103"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1103"
                 android:text="@string/dcf1103"/>
 
             <CheckBox
+                android:id="@+id/dcf1104"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1104"
                 android:text="@string/dcf1104"/>
 
             <CheckBox
+                android:id="@+id/dcf1105"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1105"
                 android:text="@string/dcf1105"/>
 
             <CheckBox
+                android:id="@+id/dcf1106"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1106"
                 android:text="@string/dcf1106"/>
 
             <CheckBox
+                android:id="@+id/dcf1196"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1196"
                 android:text="@string/dcother"/>
 
             <EditText
+                android:id="@+id/dcf1196x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf1196x"
                 android:hint="@string/dcother"
                 android:inputType="textCapWords"/>
 
@@ -483,19 +483,19 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
                 android:text="@string/dcf12"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/colorPrimary"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@android:color/white" />
 
             <EditText
+                android:id="@+id/dcf12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dcf12"
+                android:digits="0123456789"
                 android:hint="@string/dcf12"
                 android:inputType="number"
-                android:digits="0123456789"
                 android:maxLength="2"/>
 
             </LinearLayout>
@@ -513,21 +513,21 @@
                 <Button
                     android:id="@+id/btn_End"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="endInterview"
                     android:text="@string/end_interview"
-                    android:textColor="#ff1e1e"
-                    android:layout_height="wrap_content" />
+                    android:textColor="#ff1e1e" />
 
                 <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
 
                 <Button
                     android:id="@+id/btn_Continue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:onClick="startInterview"
                     android:text="@string/start_interview"
-                    android:textColor="#1ed61e"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:textColor="#1ed61e" />
                 <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 
             </LinearLayout>
