@@ -1,23 +1,20 @@
 package edu.aku.hassannaqvi.dss_census;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.util.Log;
+import android.widget.CheckBox;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.RadioGroup;
-import android.widget.RadioButton;
-import android.widget.LinearLayout;
-import android.widget.CheckBox;
-import android.widget.Button;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.text.SimpleDateFormat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -114,7 +111,7 @@ public class SectionGActivity extends Activity {
         setContentView(R.layout.activity_section_g);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section G");
+        appHeader.setText("DSS - > Section G: Family Planning");
 
     }
 

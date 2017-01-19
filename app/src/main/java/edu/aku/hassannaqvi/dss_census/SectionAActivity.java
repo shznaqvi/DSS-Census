@@ -11,8 +11,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -25,8 +23,8 @@ public class SectionAActivity extends Activity {
     ScrollView scrollView01;
     @BindView(R.id.app_header)
     TextView appHeader;
-    @BindView(R.id.dca01)
-    EditText dca01;
+    @BindView(R.id.dca03)
+    EditText dca03;
     @BindView(R.id.dca04)
     RadioGroup dca04;
     @BindView(R.id.dca0401)
@@ -55,6 +53,34 @@ public class SectionAActivity extends Activity {
     EditText dca0504;
     @BindView(R.id.dca0505)
     RadioGroup dca0505;
+    @BindView(R.id.dca050501)
+    RadioButton dca050501;
+    @BindView(R.id.dca050502)
+    RadioButton dca050502;
+    @BindView(R.id.dca050503)
+    RadioButton dca050503;
+    @BindView(R.id.dca050504)
+    RadioButton dca050504;
+    @BindView(R.id.dca050505)
+    RadioButton dca050505;
+    @BindView(R.id.dca050506)
+    RadioButton dca050506;
+    @BindView(R.id.dca050507)
+    RadioButton dca050507;
+    @BindView(R.id.dca050508)
+    RadioButton dca050508;
+    @BindView(R.id.dca050509)
+    RadioButton dca050509;
+    @BindView(R.id.dca050510)
+    RadioButton dca050510;
+    @BindView(R.id.dca050511)
+    RadioButton dca050511;
+    @BindView(R.id.dca050512)
+    RadioButton dca050512;
+    @BindView(R.id.dca050596)
+    RadioButton dca050596;
+    @BindView(R.id.dca050596x)
+    EditText dca050596x;
     @BindView(R.id.dca06)
     EditText dca06;
     @BindView(R.id.dca0601)
@@ -64,11 +90,39 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.dca060102)
     RadioButton dca060102;
     @BindView(R.id.dca0602)
-    RadioGroup dca0602;
+    EditText dca0602;
     @BindView(R.id.dca0603)
     EditText dca0603;
     @BindView(R.id.dca0604)
-    EditText dca0604;
+    RadioGroup dca0604;
+    @BindView(R.id.dca060401)
+    RadioButton dca060401;
+    @BindView(R.id.dca060402)
+    RadioButton dca060402;
+    @BindView(R.id.dca060403)
+    RadioButton dca060403;
+    @BindView(R.id.dca060404)
+    RadioButton dca060404;
+    @BindView(R.id.dca060405)
+    RadioButton dca060405;
+    @BindView(R.id.dca060406)
+    RadioButton dca060406;
+    @BindView(R.id.dca060407)
+    RadioButton dca060407;
+    @BindView(R.id.dca060408)
+    RadioButton dca060408;
+    @BindView(R.id.dca060409)
+    RadioButton dca060409;
+    @BindView(R.id.dca060410)
+    RadioButton dca060410;
+    @BindView(R.id.dca060411)
+    RadioButton dca060411;
+    @BindView(R.id.dca060412)
+    RadioButton dca060412;
+    @BindView(R.id.dca060496)
+    RadioButton dca060496;
+    @BindView(R.id.dca060496x)
+    EditText dca060496x;
     @BindView(R.id.dca0701)
     EditText dca0701;
     @BindView(R.id.dca0702)
@@ -111,6 +165,9 @@ public class SectionAActivity extends Activity {
         ButterKnife.bind(this);
 
         appHeader.setText("DSS - > Section A: HH Identification & Visit Status");
+
+//        dca01.setText(getIntent().getExtras().get("memberName").toString());
+
 
 
     }

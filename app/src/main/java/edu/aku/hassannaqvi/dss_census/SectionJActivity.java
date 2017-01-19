@@ -1,17 +1,16 @@
 package edu.aku.hassannaqvi.dss_census;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.util.Log;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.RadioGroup;
-import android.widget.RadioButton;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.Button;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -86,7 +85,7 @@ public class SectionJActivity extends Activity  {
         setContentView(R.layout.activity_section_j);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section J");
+        appHeader.setText("DSS - > Section J: Child Health Status (Index Child)");
     }
 
     @OnClick(R.id.btn_End) void onBtnEndClick() {

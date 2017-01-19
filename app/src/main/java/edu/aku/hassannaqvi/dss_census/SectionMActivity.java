@@ -1,15 +1,14 @@
 package edu.aku.hassannaqvi.dss_census;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.RadioGroup;
-import android.widget.RadioButton;
-import android.widget.EditText;
-import android.widget.Button;
 import android.widget.Toast;
 
 import butterknife.BindView;
@@ -113,7 +112,7 @@ public class SectionMActivity extends Activity  {
         setContentView(R.layout.activity_section_m);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section M");
+        appHeader.setText("DSS - > Section M: Home Environment");
     }
 
     @OnClick(R.id.btn_End) void onBtnEndClick() {
