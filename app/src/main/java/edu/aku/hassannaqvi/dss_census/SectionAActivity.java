@@ -11,6 +11,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -52,7 +54,7 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.dca0504)
     EditText dca0504;
     @BindView(R.id.dca0505)
-    EditText dca0505;
+    RadioGroup dca0505;
     @BindView(R.id.dca06)
     EditText dca06;
     @BindView(R.id.dca0601)
@@ -62,7 +64,7 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.dca060102)
     RadioButton dca060102;
     @BindView(R.id.dca0602)
-    EditText dca0602;
+    RadioGroup dca0602;
     @BindView(R.id.dca0603)
     EditText dca0603;
     @BindView(R.id.dca0604)
@@ -109,9 +111,6 @@ public class SectionAActivity extends Activity {
         ButterKnife.bind(this);
 
         appHeader.setText("DSS - > Section A: HH Identification & Visit Status");
-
-//        dca01.setText(getIntent().getExtras().get("memberName").toString());
-
 
 
     }

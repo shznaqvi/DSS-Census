@@ -26,8 +26,8 @@ public class SectionBActivity extends Activity {
     TextView appHeader;
     @BindView(R.id.dcba)
     EditText dcba;
-    @BindView(R.id.dcid)
-    EditText dcid;
+    @BindView(R.id.dcbid)
+    EditText dcbid;
     @BindView(R.id.dcbbrhh)
     RadioGroup dcbbrhh;
     @BindView(R.id.dcbbrhh01)
@@ -228,8 +228,26 @@ public class SectionBActivity extends Activity {
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
 
-        startActivity(new Intent(this, SectionCActivity.class));
+        if(!dcbid.getText().toString().isEmpty()) {
 
+            dcbid.setError(null);
+
+            if (dcbis05.isChecked()) {
+
+                MainApp.deadMembers.add(new MainApp.deadMemberClass(Integer.parseInt(getIntent().getExtras().get("position").toString()),
+                        dcbid.getText().toString()));
+
+//                startActivity(new Intent(this, FamilyMembersActivity.class));
+                finish();
+
+            } else {
+                finish();
+                startActivity(new Intent(this, SectionCActivity.class));
+            }
+        }else {
+            Toast.makeText(this,getString(R.string.dcbid),Toast.LENGTH_SHORT).show();
+            dcbid.setError("Invalid!!");
+        }
     }
 
 }

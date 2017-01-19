@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,13 +46,24 @@ public class FamilyMembersActivity extends Activity  {
                 Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
 
                 i.putExtra("memberName",Members.get(position));
+                i.putExtra("position",position + 1);
 
                 startActivity(i);
-
-//                Toast.makeText(getApplicationContext(),""+Members.get(position),Toast.LENGTH_LONG).show();
-
             }
         });
+
+
+
+
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+//        Death Members
+        for (MainApp.deadMemberClass curVal : MainApp.deadMembers){
+            lstNoMembers.getChildAt(curVal.position - 1).setBackgroundColor(getResources().getColor(R.color.gray));
+        }
+    }
 }

@@ -11,6 +11,9 @@ import android.provider.Settings;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by hassan.naqvi on 11/30/2016.
  */
@@ -27,6 +30,7 @@ public class MainApp extends Application {
 
 
     public static int NoMembers = 7;
+    public static List<deadMemberClass> deadMembers = new ArrayList<deadMemberClass>();
 
     public static final Integer MONTHS_LIMIT = 11;
     public static final Integer DAYS_LIMIT = 29;
@@ -72,6 +76,10 @@ public class MainApp extends Application {
                 MINIMUM_DISTANCE_CHANGE_FOR_UPDATES,
                 new MyLocationListener()
         );
+
+
+//        Initialize Dead Member List
+//        deadMembers = new ArrayList<String>();
 
     }
 
@@ -192,4 +200,35 @@ public class MainApp extends Application {
         }
 
     }
+
+    public static class deadMemberClass{
+
+        int position;
+        String DSSId;
+
+
+        public deadMemberClass(int i,String s){
+            position = i;
+            DSSId = s;
+        }
+
+        public void setPosition(int i){
+            position = i;
+        }
+
+        public int getPosition(){
+            return position;
+        }
+
+        public void setDSSId(String id){
+            DSSId = id;
+        }
+
+
+    }
+
+
 }
+
+
+
