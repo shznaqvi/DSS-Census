@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcl01"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -48,9 +49,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcl01a"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <CheckBox
@@ -121,9 +123,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcl01b"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <CheckBox
@@ -194,9 +197,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcl01c"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <CheckBox
@@ -267,9 +271,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcl01d"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <CheckBox
@@ -340,9 +345,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcl01e"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <CheckBox
@@ -413,9 +419,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcl01f"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <CheckBox
@@ -486,9 +493,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcl01g"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <CheckBox
@@ -559,9 +567,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcl01h"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <CheckBox
@@ -632,9 +641,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcl01i"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <CheckBox
@@ -705,6 +715,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcl02"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -715,9 +726,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="16dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcl02a"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -734,9 +746,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="16dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcl02b"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -753,9 +766,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="16dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcl02c"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -772,9 +786,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="16dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcl02d"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -791,9 +806,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="16dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcl02e"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -809,6 +825,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcl03"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -850,6 +867,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcl04"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -891,6 +909,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcl05"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
