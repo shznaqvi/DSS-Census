@@ -165,7 +165,6 @@ public class SectionAActivity extends Activity {
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section A: HH Identification & Visit Status");
 
         //        dca01.setText(getIntent().getExtras().get("memberName").toString());
 

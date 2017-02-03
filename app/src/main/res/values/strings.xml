@@ -19,13 +19,15 @@
   <string name="secALabel">HH Identification and Visit Status</string>
   <string name="secBLabel">List the Family Members of household</string>
   <string name="secCLabel">People Deceased in last one year</string>
+  <string name="secDLabel">Household Construction</string>
   <string name="secELabel">Hand Washing</string>
   <string name="secFLabel">Reproductive History of Selected Mother</string>
   <string name="secGLabel">Family Planning</string>
   <string name="secHLabel">Unmet Need</string>
   <string name="secILabel">Infant and Young Feeding (0-23 Month)</string>
   <string name="secJLabel">Child Health Status (Index Child)</string>
-  <string name="secKLabel">Household Food Insecurity</string>
+  <string name="secKLabel">Vaccination</string>
+  <string name="secLLabel">Household Food Insecurity</string>
   <string name="secMLabel">Home Environment</string>
 
     <string name="title_activity_splashscreen">SplashscreenActivity</string>
