@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
+                android:text="@string/secBLabel"
                 android:textSize="30sp" />
 
             <View
@@ -39,6 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcba"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -56,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcbid"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -71,6 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcbb"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -81,9 +85,10 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcbbrhh"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -178,9 +183,10 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcbbfid"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -196,9 +202,10 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcbbmid"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -212,6 +219,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcbc"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -258,6 +266,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcbd"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -286,6 +295,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcbe"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -375,6 +385,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcbf"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -499,6 +510,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcbg"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -520,6 +532,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcbh"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -553,6 +566,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcbi"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -563,9 +577,10 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcbis"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
@@ -625,9 +640,10 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcbidt"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -674,9 +690,10 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dcbir"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <RadioGroup

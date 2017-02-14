@@ -112,7 +112,7 @@ public class SectionMActivity extends Activity  {
         setContentView(R.layout.activity_section_m);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section M: Home Environment");
+
     }
 
     @OnClick(R.id.btn_End) void onBtnEndClick() {

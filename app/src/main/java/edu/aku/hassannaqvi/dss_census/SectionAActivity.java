@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +21,7 @@ public class SectionAActivity extends Activity {
     private static final String TAG = SectionDActivity.class.getSimpleName();
 
     @BindView(R.id.activity_section_a)
-    RelativeLayout activitySectionA;
+    FrameLayout activitySectionA;
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)
@@ -167,7 +167,6 @@ public class SectionAActivity extends Activity {
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section A: HH Identification & Visit Status");
 
 //        dca01.setText(getIntent().getExtras().get("memberName").toString());
 

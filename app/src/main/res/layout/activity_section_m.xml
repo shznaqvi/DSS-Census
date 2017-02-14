@@ -27,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
+                android:text="@string/secMLabel"
                 android:textSize="30sp" />
 
             <View
@@ -40,9 +41,10 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="Home Environment"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -50,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm01"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -121,6 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm02"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -150,6 +154,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm03"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -179,6 +184,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm03"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -208,6 +214,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm03"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -237,6 +244,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm06"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -272,6 +280,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm07"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -289,6 +298,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm08"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -325,15 +335,17 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="Water"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm09"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -363,6 +375,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm10"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -392,6 +405,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm11"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -421,6 +435,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm12"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -450,6 +465,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm13"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -509,6 +525,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm14"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -560,6 +577,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm15"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -589,6 +607,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm16"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -618,6 +637,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm17"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -653,6 +673,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm17a"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -729,6 +750,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm19"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -764,6 +786,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dcm20"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />

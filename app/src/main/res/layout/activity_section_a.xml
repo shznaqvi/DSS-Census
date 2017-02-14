@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_section_a"
     android:layout_width="match_parent"
@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
+                android:text="@string/secALabel"
                 android:textSize="30sp" />
 
             <View
@@ -38,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dca03"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -54,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dca04"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -91,6 +94,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/sec2A"
                 android:textColor="@color/colorPrimary"
                 android:textSize="25sp"
@@ -101,6 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dca05"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -118,6 +123,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dca0501"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
@@ -153,6 +159,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dca0502"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
@@ -193,6 +200,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="2"
                     android:background="#efefef"
+                    android:padding="2dp"
                     android:text="@string/dca0503"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20sp"
@@ -238,15 +246,16 @@
 
 
             <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="2"
-                    android:background="#efefef"
-                    android:text="@string/dca0505"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="2"
+                android:background="#efefef"
+                android:padding="2dp"
+                android:text="@string/dca0505"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <RadioGroup
                 android:id="@+id/dca0505"
@@ -344,6 +353,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dca06"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -361,6 +371,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dca0601"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
@@ -401,6 +412,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="2"
                     android:background="#efefef"
+                    android:padding="2dp"
                     android:text="@string/dca0602"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20sp"
@@ -450,6 +462,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="2"
                 android:background="#efefef"
+                android:padding="2dp"
                 android:text="@string/dca0604"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
@@ -552,6 +565,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dca07"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -595,6 +609,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dca08"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -638,6 +653,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dca09"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -707,6 +723,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dca10"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -730,6 +747,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dca11"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -748,8 +766,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/dca1101"
-
-
                     />
 
                 <RadioButton
@@ -800,4 +816,4 @@
     </ScrollView>
 
 
-</RelativeLayout>
+</FrameLayout>
