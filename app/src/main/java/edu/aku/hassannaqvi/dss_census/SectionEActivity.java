@@ -563,35 +563,37 @@ public class SectionEActivity extends Activity {
         }
 
         // ======================  Q 8 =================
+        if (dce0701.isChecked()) {
+            if (dce08.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce08), Toast.LENGTH_SHORT).show();
+                dce0899.setError("This data is Required!");
+                Log.i(TAG, "dce08: This data is Required!");
+                return false;
+            } else {
+                dce0899.setError(null);
+            }
 
-        if (dce08.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce08), Toast.LENGTH_SHORT).show();
-            dce0899.setError("This data is Required!");
-            Log.i(TAG, "dce08: This data is Required!");
-            return false;
-        } else {
-            dce0899.setError(null);
-        }
+            // ======================  Q 9 =================
+            if (dce0801.isChecked() || dce0899.isChecked()) {
+                if (dce09.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce09), Toast.LENGTH_SHORT).show();
+                    dce0999.setError("This data is Required!");
+                    Log.i(TAG, "dce09: This data is Required!");
+                    return false;
+                } else {
+                    dce0999.setError(null);
+                }
 
-        // ======================  Q 9 =================
-
-        if (dce09.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce09), Toast.LENGTH_SHORT).show();
-            dce0999.setError("This data is Required!");
-            Log.i(TAG, "dce09: This data is Required!");
-            return false;
-        } else {
-            dce0999.setError(null);
-        }
-
-        // Others
-        if (dce0996.isChecked() && dce0996x.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce09) + " - " + getString(R.string.dcother), Toast.LENGTH_LONG).show();
-            dce0996x.setError("This data is Required!");    // Set Error on last radio button
-            Log.i(TAG, "dce0996x: This data is Required!");
-            return false;
-        } else {
-            dce0996x.setError(null);
+                // Others
+                if (dce0996.isChecked() && dce0996x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce09) + " - " + getString(R.string.dcother), Toast.LENGTH_LONG).show();
+                    dce0996x.setError("This data is Required!");    // Set Error on last radio button
+                    Log.i(TAG, "dce0996x: This data is Required!");
+                    return false;
+                } else {
+                    dce0996x.setError(null);
+                }
+            }
         }
 
         // ======================  Q 10 =================
