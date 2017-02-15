@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,10 +21,10 @@ import butterknife.OnClick;
 
 public class SectionAActivity extends Activity {
 
-    private static final String TAG = SectionDActivity.class.getSimpleName();
+    private static final String TAG = SectionAActivity.class.getSimpleName();
 
     @BindView(R.id.activity_section_a)
-    FrameLayout activitySectionA;
+    RelativeLayout activitySectionA;
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)
@@ -437,6 +440,7 @@ public class SectionAActivity extends Activity {
         }
 
 //        16
+
         if (dca09m.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca09m), Toast.LENGTH_SHORT).show();
             dca09m.setError("This data is Required!");    // Set Error on last radio button
@@ -484,6 +488,72 @@ public class SectionAActivity extends Activity {
 
         return true;
     }
+
+    private void SaveDraft() throws JSONException {
+        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+
+        JSONObject sa = new JSONObject();
+
+        sa.put("dca03", dca03.getText().toString());
+        sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : "0");
+        sa.put("dca05", dca05.getText().toString());
+        sa.put("dca0501", dca050101.isChecked() ? "1" : dca050102.isChecked() ? "2" : "0");
+        sa.put("dca0502", dca050201.isChecked() ? "1" : dca050202.isChecked() ? "2" : "0");
+        sa.put("dca0503", dca0503.getText().toString());
+        sa.put("dca0504", dca0504.getText().toString());
+        sa.put("dca0505", dca050501.isChecked() ? "1" : dca050502.isChecked() ? "2" : dca050503.isChecked() ? "3"
+                : dca050504.isChecked() ? "4" : dca050505.isChecked() ? "5" : dca050506.isChecked() ? "6"
+                : dca050507.isChecked() ? "7" : dca050508.isChecked() ? "8" : dca050509.isChecked() ? "9"
+                : dca050510.isChecked() ? "10" : dca050511.isChecked() ? "11" : dca050512.isChecked() ? "12"
+                : dca050596.isChecked() ? "96" : "0");
+        sa.put("dca050596x", dca050596x.getText().toString());
+        sa.put("dca06", dca06.getText().toString());
+        sa.put("dca0601", dca060101.isChecked() ? "1" : dca060102.isChecked() ? "2" : "0");
+        sa.put("dca0602", dca0602.getText().toString());
+        sa.put("dca0603", dca0603.getText().toString());
+        sa.put("dca0604", dca060401.isChecked() ? "1" : dca060402.isChecked() ? "2" : dca060403.isChecked() ? "3"
+                : dca060404.isChecked() ? "4" : dca060405.isChecked() ? "5" : dca060406.isChecked() ? "6"
+                : dca060407.isChecked() ? "7" : dca060408.isChecked() ? "8" : dca060409.isChecked() ? "9"
+                : dca060410.isChecked() ? "10" : dca060411.isChecked() ? "11" : dca060412.isChecked() ? "12"
+                : dca060496.isChecked() ? "96" : "0");
+        sa.put("dca060496x", dca060496x.getText().toString());
+        sa.put("dca0701", dca0701.getText().toString());
+        sa.put("dca0702", dca0702.getText().toString());
+        sa.put("dca0703", dca0703.getText().toString());
+        sa.put("dca0801", dca0801.getText().toString());
+        sa.put("dca0802", dca0802.getText().toString());
+        sa.put("dca0803", dca0803.getText().toString());
+        sa.put("dca09", dca0901.isChecked() ? "1" : dca0902.isChecked() ? "2" : dca0903.isChecked() ? "3" : "0");
+        sa.put("dca09m", dca09m.getText().toString());
+        sa.put("dca09y", dca09y.getText().toString());
+        sa.put("dca10a", dca10a.getText().toString());
+        sa.put("dca10b", dca10b.getText().toString());
+        sa.put("dca11", dca1101.isChecked() ? "1" : dca1102.isChecked() ? "2" : "0");
+
+
+        //DCEApp.fc.setROW_Sa(String.valueOf(sa));
+
+        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean UpdateDB() {
+        //SRCDBHelper db = new SRCDBHelper(this);
+
+        //int updcount = db.updateSe();
+
+//        if (updcount == 1) {
+//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+//            return true;
+//        } else {
+//            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
+
+        return true;
+    }
+
+
+
 
 
 }

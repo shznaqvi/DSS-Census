@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +17,10 @@ import butterknife.OnClick;
 
 public class SectionMActivity extends Activity  {
 
-    @BindView(R.id.activity_section_m) FrameLayout activitySectionM;
+    private static final String TAG = SectionMActivity.class.getSimpleName();
+
+    @BindView(R.id.activity_section_m)
+    RelativeLayout activitySectionM;
     @BindView(R.id.scrollView01) ScrollView scrollView01;
     @BindView(R.id.app_header) TextView appHeader;
     @BindView(R.id.dcm01) RadioGroup dcm01;

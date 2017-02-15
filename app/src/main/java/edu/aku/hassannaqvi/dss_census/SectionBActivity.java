@@ -3,14 +3,20 @@ package edu.aku.hassannaqvi.dss_census;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,8 +24,10 @@ import butterknife.OnClick;
 
 public class SectionBActivity extends Activity {
 
+    private static final String TAG = SectionBActivity.class.getSimpleName();
+
     @BindView(R.id.activity_section_b)
-    FrameLayout activitySectionB;
+    RelativeLayout activitySectionB;
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)
@@ -186,7 +194,10 @@ public class SectionBActivity extends Activity {
     RadioButton dcbir02;
     @BindView(R.id.dcbir03)
     RadioButton dcbir03;
-
+    @BindView(R.id.dcbf18)
+    RadioButton dcbf18;
+    @BindView(R.id.dcbf18x)
+    EditText dcbf18x;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -197,6 +208,46 @@ public class SectionBActivity extends Activity {
 //        dcba.setText(getIntent().getExtras().get("memberName").toString());
 
         //      dcba.setEnabled(false);
+
+        // ====================== Education Level Others ================
+        dcbe.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dcbe09.isChecked()) {
+                    dcbe09x.setVisibility(View.VISIBLE);
+                } else {
+                    dcbe09x.setVisibility(View.GONE);
+                    dcbe09x.setText(null);
+                }
+            }
+        });
+
+        //===================== Occupation Others =================
+        dcbf.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dcbf18.isChecked()) {
+                    dcbf18x.setVisibility(View.VISIBLE);
+                } else {
+                    dcbf18x.setVisibility(View.GONE);
+                    dcbf18x.setText(null);
+                }
+            }
+        });
+
+        dcbis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dcbis06.isChecked()) {
+                    dcbis06x.setVisibility(View.VISIBLE);
+                } else {
+                    dcbis06x.setVisibility(View.GONE);
+                    dcbis06x.setText(null);
+                }
+            }
+        });
+
+
 
 
     }
@@ -248,5 +299,86 @@ public class SectionBActivity extends Activity {
             dcbid.setError("Invalid!!");
         }
     }
+
+    private boolean UpdateDB() {
+        //SRCDBHelper db = new SRCDBHelper(this);
+
+        //int updcount = db.updateSe();
+
+//        if (updcount == 1) {
+//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+//            return true;
+//        } else {
+//            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
+
+        return true;
+    }
+
+    private void SaveDraft() throws JSONException {
+        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+
+        JSONObject sb = new JSONObject();
+
+        sb.put("dcba", dcba.getText().toString());
+        sb.put("dcbid", dcbid.getText().toString());
+        sb.put("dcbbrhh", dcbbrhh01.isChecked() ? "1" : dcbbrhh02.isChecked() ? "2" : dcbbrhh03.isChecked() ? "3"
+                : dcbbrhh04.isChecked() ? "4" : dcbbrhh05.isChecked() ? "5" : dcbbrhh06.isChecked() ? "6"
+                : dcbbrhh07.isChecked() ? "7" : dcbbrhh08.isChecked() ? "8" : dcbbrhh09.isChecked() ? "9" : dcbbrhh10.isChecked() ? "10"
+                : dcbbrhh11.isChecked() ? "11" : dcbbrhh98.isChecked() ? "98" : dcbbrhh99.isChecked() ? "99" : "0");
+        sb.put("dcbbfid", dcbbfid.getText().toString());
+        sb.put("dcbbmid", dcbbmid.getText().toString());
+        sb.put("dcbc", dcbc01.isChecked() ? "1" : dcbc02.isChecked() ? "2" : dcbc03.isChecked() ? "3"
+                : dcbc04.isChecked() ? "4" : dcbc99.isChecked() ? "99" : "0");
+
+        sb.put("dcbd", dcbd01.isChecked() ? "1" : dcbd02.isChecked() ? "2" : "0");
+        sb.put("dcbe", dcbe01.isChecked() ? "1" : dcbe02.isChecked() ? "2" : dcbe03.isChecked() ? "3"
+                : dcbe04.isChecked() ? "4" : dcbe05.isChecked() ? "5" : dcbe06.isChecked() ? "6"
+                : dcbe07.isChecked() ? "7" : dcbe08.isChecked() ? "8" : dcbe09.isChecked() ? "9"
+                : dcbe98.isChecked() ? "98" : dcbe99.isChecked() ? "99" : "0");
+        sb.put("dcbe09x", dcbe09x.getText().toString());
+        sb.put("dcbf", dcbf01.isChecked() ? "1" : dcbf02.isChecked() ? "2" : dcbf03.isChecked() ? "3"
+                : dcbf04.isChecked() ? "4" : dcbf05.isChecked() ? "5" : dcbf06.isChecked() ? "6"
+                : dcbf07.isChecked() ? "7" : dcbf08.isChecked() ? "8" : dcbf09.isChecked() ? "9"
+                : dcbf10.isChecked() ? "10" : dcbf11.isChecked() ? "11" : dcbf12.isChecked() ? "12"
+                : dcbf13.isChecked() ? "13" : dcbf14.isChecked() ? "14" : dcbf15.isChecked() ? "15"
+                : dcbf16.isChecked() ? "16" : dcbf17.isChecked() ? "17" : dcbf18.isChecked() ? "18"
+                : dcbf99.isChecked() ? "99" : "0");
+        sb.put("dcbf18x", dcbf18x.getText().toString());
+        sb.put("dcbg", new SimpleDateFormat("dd-MM-yyyy").format(dcbg.getCalendarView().getDate()));
+        sb.put("dcbhy", dcbhy.getText().toString());
+        sb.put("dcbhm", dcbhm.getText().toString());
+        sb.put("dcbhd", dcbhd.getText().toString());
+        sb.put("dcbis", dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
+                : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : "0");
+        sb.put("dcbis06x", dcbis06x.getText().toString());
+        sb.put("dcbidt", dcbidt01.isChecked() ? "1" : dcbidt02.isChecked() ? "2" : dcbidt03.isChecked() ? "3"
+                : dcbidt04.isChecked() ? "4" : dcbidt05.isChecked() ? "5" : "0");
+        sb.put("dcbir", dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
+
+        //DCEApp.fc.setROW_Sb(String.valueOf(sb));
+
+        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+
+
+    }
+
+    public boolean formValidation() {
+
+        // ====================== Q 1 ==============
+
+
+        return true;
+    }
+
+    //@Override
+//    public void onBackPressed() {
+//        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+//    }
+
+
+
+
 
 }

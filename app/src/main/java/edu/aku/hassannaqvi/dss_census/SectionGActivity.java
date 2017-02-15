@@ -4,11 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.CheckBox;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,10 +23,10 @@ import butterknife.OnClick;
 
 public class SectionGActivity extends Activity {
 
-    private static final String TAG = SectionDActivity.class.getSimpleName();
+    private static final String TAG = SectionGActivity.class.getSimpleName();
 
     @BindView(R.id.activity_sectionG)
-    FrameLayout activitySectionG;
+    RelativeLayout activitySectionG;
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)
@@ -113,6 +114,59 @@ public class SectionGActivity extends Activity {
 
         appHeader.setText("DSS - > Section G: Family Planning");
 
+        //================= Q2  Skip Pattern==================
+
+        dcg02.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dcg0201.isChecked()) {
+                    fldGrpdcg03.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdcg03.setVisibility(View.GONE);
+                    dcg0301.setChecked(false);
+                    dcg0302.setChecked(false);
+                    dcg0303.setChecked(false);
+                    dcg0304.setChecked(false);
+                    dcg0305.setChecked(false);
+                    dcg0306.setChecked(false);
+                    dcg0307.setChecked(false);
+                    dcg0308.setChecked(false);
+                    dcg0309.setChecked(false);
+                    dcg0310.setChecked(false);
+                    dcg0311.setChecked(false);
+                    dcg0312.setChecked(false);
+                    dcg0313.setChecked(false);
+                }
+            }
+        });
+
+        //================= Q 4 Skip pattern ==============
+
+        dcg04.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dcg0401.isChecked()) {
+                    fldGrpdcg05.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdcg05.setVisibility(View.GONE);
+                    dcg0501.setChecked(false);
+                    dcg0502.setChecked(false);
+                    dcg0503.setChecked(false);
+                    dcg0504.setChecked(false);
+                    dcg0505.setChecked(false);
+                    dcg0506.setChecked(false);
+                    dcg0507.setChecked(false);
+                    dcg0508.setChecked(false);
+                    dcg0509.setChecked(false);
+                    dcg0510.setChecked(false);
+                    dcg0511.setChecked(false);
+                    dcg0512.setChecked(false);
+                    dcg0513.setChecked(false);
+
+                }
+            }
+        });
+
     }
 
     @OnClick(R.id.btn_End)
@@ -186,16 +240,18 @@ public class SectionGActivity extends Activity {
         }
 
 //        03
-        if (!dcg0301.isChecked() && !dcg0302.isChecked() && !dcg0303.isChecked() && !dcg0304.isChecked() && !dcg0305.isChecked()
-                && !dcg0306.isChecked() && !dcg0307.isChecked() && !dcg0308.isChecked() && !dcg0309.isChecked() && !dcg0310.isChecked()
-                && !dcg0311.isChecked() && !dcg0312.isChecked() && !dcg0313.isChecked()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcg03), Toast.LENGTH_SHORT).show();
-            dcg0313.setError("This data is Required!");    // Set Error on last radio button
+        if (dcg0201.isChecked()) {
+            if (!(dcg0301.isChecked() && dcg0302.isChecked() && dcg0303.isChecked() && dcg0304.isChecked() && dcg0305.isChecked()
+                    && dcg0306.isChecked() && dcg0307.isChecked() && dcg0308.isChecked() && dcg0309.isChecked() && dcg0310.isChecked()
+                    && dcg0311.isChecked() && dcg0312.isChecked() && dcg0313.isChecked())) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcg03), Toast.LENGTH_SHORT).show();
+                dcg0313.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dcg03: This data is Required!");
-            return false;
-        } else {
-            dcg0313.setError(null);
+                Log.i(TAG, "dcg03: This data is Required!");
+                return false;
+            } else {
+                dcg0313.setError(null);
+            }
         }
 
 //        04
@@ -210,16 +266,18 @@ public class SectionGActivity extends Activity {
         }
 
 //        05
-        if (!dcg0501.isChecked() && !dcg0502.isChecked() && !dcg0503.isChecked() && !dcg0504.isChecked() && !dcg0505.isChecked()
-                && !dcg0506.isChecked() && !dcg0507.isChecked() && !dcg0508.isChecked() && !dcg0509.isChecked() && !dcg0510.isChecked()
-                && !dcg0511.isChecked() && !dcg0512.isChecked() && !dcg0513.isChecked()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcg05), Toast.LENGTH_SHORT).show();
-            dcg0513.setError("This data is Required!");    // Set Error on last radio button
+        if (dcg0401.isChecked()) {
+            if (!(dcg0501.isChecked() && dcg0502.isChecked() && dcg0503.isChecked() && dcg0504.isChecked() && dcg0505.isChecked()
+                    && dcg0506.isChecked() && dcg0507.isChecked() && dcg0508.isChecked() && dcg0509.isChecked() && dcg0510.isChecked()
+                    && dcg0511.isChecked() && dcg0512.isChecked() && dcg0513.isChecked())) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcg05), Toast.LENGTH_SHORT).show();
+                dcg0513.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dcg05: This data is Required!");
-            return false;
-        } else {
-            dcg0513.setError(null);
+                Log.i(TAG, "dcg05: This data is Required!");
+                return false;
+            } else {
+                dcg0513.setError(null);
+            }
         }
 
         return true;

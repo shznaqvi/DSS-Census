@@ -8,10 +8,10 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +27,7 @@ public class SectionEActivity extends Activity {
 
     private static final String TAG = SectionEActivity.class.getSimpleName();
     @BindView(R.id.activity_section_e)
-    FrameLayout activitySectionE;
+    RelativeLayout activitySectionE;
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)

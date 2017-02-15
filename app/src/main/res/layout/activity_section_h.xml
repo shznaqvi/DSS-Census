@@ -63,6 +63,12 @@
                     android:text="@string/dcno" />
             </RadioGroup>
 
+            <LinearLayout
+                android:id="@+id/fldGrpdch02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
 
             <TextView
                 android:layout_width="match_parent"
@@ -92,6 +98,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dcno" />
             </RadioGroup>
+            </LinearLayout>
 
 
             <TextView
@@ -123,6 +130,12 @@
 
             </RadioGroup>
 
+            <LinearLayout
+                android:id="@+id/fldGrpdch04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
 
             <TextView
                 android:layout_width="match_parent"
@@ -165,6 +178,13 @@
 
 
             </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/fldGrpdch05"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -181,6 +201,10 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/dch05"
                 android:inputType="textCapWords" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"

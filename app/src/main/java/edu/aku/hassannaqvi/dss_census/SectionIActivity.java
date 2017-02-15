@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,8 +27,10 @@ import butterknife.OnClick;
 
 public class SectionIActivity extends Activity {
 
+    private static final String TAG = SectionIActivity.class.getSimpleName();
+
     @BindView(R.id.activity_section_i)
-    FrameLayout activitySectionI;
+    RelativeLayout activitySectionI;
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)
