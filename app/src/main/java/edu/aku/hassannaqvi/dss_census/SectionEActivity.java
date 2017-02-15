@@ -286,6 +286,42 @@ public class SectionEActivity extends Activity {
         });
 
 
+        //============ Skip Pattern Q7 ===================
+
+        dce07.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dce0701.isChecked()) {
+                    fldGrpdce07.setVisibility(View.VISIBLE);
+                    fldGrpdce08.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdce07.setVisibility(View.GONE);
+                    fldGrpdce08.setVisibility(View.GONE);
+                    dce08.clearCheck();
+                    dce09.clearCheck();
+                    dce0996x.setText(null);
+
+                }
+            }
+        });
+
+        //============ Skip Pattern Q8 ===================
+
+        dce08.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dce0801.isChecked()) {
+                    fldGrpdce08.setVisibility(View.GONE);
+                    dce09.clearCheck();
+                    dce0996x.setText(null);
+                } else {
+                    fldGrpdce08.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+
+
     }
 
     @OnClick(R.id.btn_End)
@@ -441,6 +477,7 @@ public class SectionEActivity extends Activity {
             if (dce0196x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce01), Toast.LENGTH_SHORT).show();
                 dce0196x.setError("This data is Required!");
+                Log.i(TAG, "dce0196x: This data is Required!");
                 return false;
             } else {
                 dce0196x.setError(null);
@@ -450,6 +487,7 @@ public class SectionEActivity extends Activity {
         if (dce01.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce01), Toast.LENGTH_SHORT).show();
             dce0196.setError("This data is Required!");
+            Log.i(TAG, "dce01: This data is Required!");
             return false;
         } else {
             dce0196.setError(null);
@@ -460,6 +498,7 @@ public class SectionEActivity extends Activity {
         if (dce02.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce02), Toast.LENGTH_SHORT).show();
             dce0202.setError("This data is Required!");
+            Log.i(TAG, "dce02: This data is Required!");
             return false;
         } else {
             dce0202.setError(null);
@@ -470,6 +509,7 @@ public class SectionEActivity extends Activity {
         if (dce03.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce03), Toast.LENGTH_SHORT).show();
             dce0396.setError("This data is Required!");
+            Log.i(TAG, "dce03: This data is Required!");
             return false;
         } else {
             dce0396.setError(null);
@@ -479,6 +519,7 @@ public class SectionEActivity extends Activity {
             if (dce0396x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce03), Toast.LENGTH_SHORT).show();
                 dce0396x.setError("This data is Required!");
+                Log.i(TAG, "dce0396x: This data is Required!");
                 return false;
             } else {
                 dce0396x.setError(null);
@@ -494,6 +535,7 @@ public class SectionEActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce06), Toast.LENGTH_LONG).show();
             dce0696.setError("This data is Required!");    // Set Error on last radio button
             Log.i(TAG, "dce06: This data is Required!");
+
             return false;
         } else {
             dce0196.setError(null);
@@ -514,6 +556,7 @@ public class SectionEActivity extends Activity {
         if (dce07.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce07), Toast.LENGTH_SHORT).show();
             dce0799.setError("This data is Required!");
+            Log.i(TAG, "dce07: This data is Required!");
             return false;
         } else {
             dce0799.setError(null);
@@ -524,6 +567,7 @@ public class SectionEActivity extends Activity {
         if (dce08.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce08), Toast.LENGTH_SHORT).show();
             dce0899.setError("This data is Required!");
+            Log.i(TAG, "dce08: This data is Required!");
             return false;
         } else {
             dce0899.setError(null);
@@ -534,6 +578,7 @@ public class SectionEActivity extends Activity {
         if (dce09.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce09), Toast.LENGTH_SHORT).show();
             dce0999.setError("This data is Required!");
+            Log.i(TAG, "dce09: This data is Required!");
             return false;
         } else {
             dce0999.setError(null);

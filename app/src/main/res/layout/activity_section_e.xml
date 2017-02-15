@@ -384,10 +384,11 @@
             android:id="@+id/fldGrpdce07"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
 
-             <TextView
+            <TextView
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:layout_marginTop="16dp"
@@ -425,7 +426,8 @@
                 android:id="@+id/fldGrpdce08"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
 
             <TextView
