@@ -29,6 +29,7 @@
   <string name="secKLabel">Vaccination</string>
   <string name="secLLabel">Household Food Insecurity</string>
   <string name="secMLabel">Home Environment</string>
+  <string name="days">Number of Days</string>
 
     <string name="title_activity_splashscreen">SplashscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>

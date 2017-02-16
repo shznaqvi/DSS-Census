@@ -62,30 +62,29 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a1" />
 
-            <RadioGroup
-                android:id="@+id/dcl01a1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/dcl01a101"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01a102"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01a1fr"
+            <LinearLayout
+                android:id="@+id/fldGrpa1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+
+                <EditText
+                    android:id="@+id/dcl01a1days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+
+                <EditText
+                    android:id="@+id/dcl01a1fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
 
             <CheckBox
                 android:id="@+id/dcl01ac"
@@ -93,30 +92,28 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a2" />
 
-            <RadioGroup
-                android:id="@+id/dcl01a2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/dcl01a201"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01a202"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01a2fr"
+            <LinearLayout
+                android:id="@+id/fldGrpa2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+
+                <EditText
+                    android:id="@+id/dcl01a2days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01a2fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -136,62 +133,58 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a1" />
 
-            <RadioGroup
-                android:id="@+id/dcl01b1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01b101"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01b102"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01b1fr"
+            <LinearLayout
+                android:id="@+id/fldGrpb1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
 
+
+                <EditText
+                    android:id="@+id/dcl01b1days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01b1fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
             <CheckBox
                 android:id="@+id/dcl01bc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a2" />
 
-            <RadioGroup
-                android:id="@+id/dcl01b2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01b201"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01b202"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01b2fr"
+            <LinearLayout
+                android:id="@+id/fldGrpb2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
 
+
+                <EditText
+                    android:id="@+id/dcl01b2days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01b2fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -210,62 +203,58 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a1" />
 
-            <RadioGroup
-                android:id="@+id/dcl01c1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01c101"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01c102"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01c1fr"
+            <LinearLayout
+                android:id="@+id/fldGrpc1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
 
+
+                <EditText
+                    android:id="@+id/dcl01c1days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01c1fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
             <CheckBox
                 android:id="@+id/dcl01cc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a2" />
 
-            <RadioGroup
-                android:id="@+id/dcl01c2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01c201"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01c202"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01c2fr"
+            <LinearLayout
+                android:id="@+id/fldGrpc2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
 
+
+                <EditText
+                    android:id="@+id/dcl01c2days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01c2fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -284,61 +273,58 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a1" />
 
-            <RadioGroup
-                android:id="@+id/dcl01d1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01d101"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01d102"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01d1fr"
+            <LinearLayout
+                android:id="@+id/fldGrpd1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
 
+
+                <EditText
+                    android:id="@+id/dcl01d1days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01d1fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
             <CheckBox
                 android:id="@+id/dcl01dc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a2" />
 
-            <RadioGroup
-                android:id="@+id/dcl01d2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01d201"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01d202"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01d2fr"
+            <LinearLayout
+                android:id="@+id/fldGrpd2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+
+                <EditText
+                    android:id="@+id/dcl01d2days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01d2fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -358,30 +344,29 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a1" />
 
-            <RadioGroup
-                android:id="@+id/dcl01e1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01e101"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01e102"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01e1fr"
+            <LinearLayout
+                android:id="@+id/fldGrpe1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+
+                <EditText
+                    android:id="@+id/dcl01e1days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01e1fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
 
             <CheckBox
                 android:id="@+id/dcl01ec"
@@ -389,31 +374,29 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a2" />
 
-            <RadioGroup
-                android:id="@+id/dcl01e2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01e201"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01e202"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01e2fr"
+            <LinearLayout
+                android:id="@+id/fldGrpe2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
 
+
+                <EditText
+                    android:id="@+id/dcl01e2days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01e2fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -432,61 +415,58 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a1" />
 
-            <RadioGroup
-                android:id="@+id/dcl01f1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01f101"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01f102"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01f1fr"
+            <LinearLayout
+                android:id="@+id/fldGrpf1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
 
+
+                <EditText
+                    android:id="@+id/dcl01f1days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01f1fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
             <CheckBox
                 android:id="@+id/dcl01fc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a2" />
 
-            <RadioGroup
-                android:id="@+id/dcl01f2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01f201"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01f202"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01f2fr"
+            <LinearLayout
+                android:id="@+id/fldGrpf2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+
+                <EditText
+                    android:id="@+id/dcl01f2days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01f2fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -506,62 +486,58 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a1" />
 
-            <RadioGroup
-                android:id="@+id/dcl01g1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01g101"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01g102"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01g1fr"
+            <LinearLayout
+                android:id="@+id/fldGrpg1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
 
+
+                <EditText
+                    android:id="@+id/dcl01g1days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01g1fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
             <CheckBox
                 android:id="@+id/dcl01gc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a2" />
 
-            <RadioGroup
-                android:id="@+id/dcl01g2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01g201"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01g202"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01g2fr"
+            <LinearLayout
+                android:id="@+id/fldGrpg2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
 
+
+                <EditText
+                    android:id="@+id/dcl01g2days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01g2fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -580,61 +556,58 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a1" />
 
-            <RadioGroup
-                android:id="@+id/dcl01h1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01h101"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01h102"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01h1fr"
+            <LinearLayout
+                android:id="@+id/fldGrh1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
 
+
+                <EditText
+                    android:id="@+id/dcl01h1days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01h1fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
             <CheckBox
                 android:id="@+id/dcl01hc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a2" />
 
-            <RadioGroup
-                android:id="@+id/dcl01h2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01h201"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01h202"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01h2fr"
+            <LinearLayout
+                android:id="@+id/fldGrph2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+
+                <EditText
+                    android:id="@+id/dcl01h2days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01h2fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -654,30 +627,29 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a1" />
 
-            <RadioGroup
-                android:id="@+id/dcl01i1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01i101"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01i102"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01i1fr"
+            <LinearLayout
+                android:id="@+id/fldGrpi1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+
+                <EditText
+                    android:id="@+id/dcl01i1days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01i1fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
 
             <CheckBox
                 android:id="@+id/dcl01ic"
@@ -685,31 +657,29 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dcl01a2" />
 
-            <RadioGroup
-                android:id="@+id/dcl01i2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcl01i201"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dcl01i202"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/dcl01i2fr"
+            <LinearLayout
+                android:id="@+id/fldGrpi2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Frequency" />
+                android:orientation="horizontal"
+                android:visibility="gone">
 
+
+                <EditText
+                    android:id="@+id/dcl01i2days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/days" />
+
+                <EditText
+                    android:id="@+id/dcl01i2fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/Frequency" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
