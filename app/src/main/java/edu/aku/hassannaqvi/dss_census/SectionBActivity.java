@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.dss_census;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -366,7 +367,216 @@ public class SectionBActivity extends Activity {
 
     public boolean formValidation() {
 
-        // ====================== Q 1 ==============
+        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
+
+        // ====================== Name ==============
+
+        if (dcba.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcba), Toast.LENGTH_SHORT).show();
+            dcba.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcba: This data is Required!");
+            return false;
+        } else {
+            dcba.setError(null);
+        }
+
+        //=============== ID =============
+
+        if (dcbid.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();
+            dcbid.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbid: This data is Required!");
+            return false;
+        } else {
+            dcbid.setError(null);
+        }
+
+        // ===================== Relation with HH ==============
+        if (dcbbrhh.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbbrhh), Toast.LENGTH_SHORT).show();
+            dcbbrhh99.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbbrhh: This data is Required!");
+            return false;
+        } else {
+            dcbbrhh99.setError(null);
+        }
+
+        //============= Father ID ====================
+
+        if (dcbbfid.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbbfid), Toast.LENGTH_SHORT).show();
+            dcbbfid.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbbfid: This data is Required!");
+            return false;
+        } else {
+            dcbbfid.setError(null);
+        }
+
+        // ============== Mother ID ===================
+
+        if (dcbbmid.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbbmid), Toast.LENGTH_SHORT).show();
+            dcbbmid.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbbmid: This data is Required!");
+            return false;
+        } else {
+            dcbbmid.setError(null);
+        }
+
+        // ============== Marital Status ===================
+
+        if (dcbc.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbc), Toast.LENGTH_SHORT).show();
+            dcbc99.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbc: This data is Required!");
+            return false;
+        } else {
+            dcbc99.setError(null);
+        }
+
+        // ============== Sex ===================
+
+        if (dcbd.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbd), Toast.LENGTH_SHORT).show();
+            dcbd02.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbd: This data is Required!");
+            return false;
+        } else {
+            dcbd02.setError(null);
+        }
+
+        // ============== Education ===================
+
+        if (dcbe.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbe), Toast.LENGTH_SHORT).show();
+            dcbe99.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbe: This data is Required!");
+            return false;
+        } else {
+            dcbe99.setError(null);
+        }
+
+        // ================= Other Education ===========
+        if (dcbe09.isChecked() && dcbe09x.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbe) + " - " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
+            dcbe09x.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbe09x: This data is Required!");
+            return false;
+        } else {
+            dcbe09x.setError(null);
+        }
+
+        // ============== Occupation ===================
+
+        if (dcbf.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbf), Toast.LENGTH_SHORT).show();
+            dcbf99.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbf: This data is Required!");
+            return false;
+        } else {
+            dcbf99.setError(null);
+        }
+
+        // ================= Other Occupation ===========
+        if (dcbf18.isChecked() && dcbf18x.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbf) + " - " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
+            dcbf18x.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbf18x: This data is Required!");
+            return false;
+        } else {
+            dcbf18x.setError(null);
+        }
+        // ================= Age in years ===========
+        if (dcbhy.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbhy), Toast.LENGTH_SHORT).show();
+            dcbhy.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbhy: This data is Required!");
+            return false;
+        } else {
+            dcbhy.setError(null);
+        }
+
+        // ================= Age in months ===========
+        if (dcbhm.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbhm), Toast.LENGTH_SHORT).show();
+            dcbhm.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbhm: This data is Required!");
+            return false;
+        } else {
+            dcbhm.setError(null);
+        }
+
+        // ================= Age in days ===========
+        if (dcbhd.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbhd), Toast.LENGTH_SHORT).show();
+            dcbhd.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbhd: This data is Required!");
+            return false;
+        } else {
+            dcbhd.setError(null);
+        }
+
+        // ============== Status ===================
+
+        if (dcbis.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis), Toast.LENGTH_SHORT).show();
+            dcbis06.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbis: This data is Required!");
+            return false;
+        } else {
+            dcbis06.setError(null);
+        }
+
+        // ================= Other Status ===========
+        if (dcbis06.isChecked() && dcbis06x.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis) + " - " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
+            dcbis06x.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbis06x: This data is Required!");
+            return false;
+        } else {
+            dcbis06x.setError(null);
+        }
+
+        // ============== Date ===================
+
+        if (dcbidt.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbidt), Toast.LENGTH_SHORT).show();
+            dcbidt05.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbidt: This data is Required!");
+            return false;
+        } else {
+            dcbidt05.setError(null);
+        }
+
+        // ============== Remarks ===================
+
+        if (dcbir.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbir), Toast.LENGTH_SHORT).show();
+            dcbir03.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbir: This data is Required!");
+            return false;
+        } else {
+            dcbir03.setError(null);
+        }
+
 
 
         return true;
