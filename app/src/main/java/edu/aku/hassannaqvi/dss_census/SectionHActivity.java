@@ -277,23 +277,23 @@ public class SectionHActivity extends Activity {
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
-//        if (ValidateForm()) {
-//            try {
-//                SaveDraft();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//            if (UpdateDB()) {
+        if (ValidateForm()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
 
                 Intent secNext = new Intent(this, SectionIActivity.class);
                 startActivity(secNext);
-//            } else {
-//                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-//            }
-//        }
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
 
     }
 
