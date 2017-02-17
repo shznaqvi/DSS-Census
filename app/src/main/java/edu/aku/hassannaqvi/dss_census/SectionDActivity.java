@@ -232,7 +232,7 @@ public class SectionDActivity extends Activity {
         dcd0688.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b){
+                if (b) {
                     dcd0601.setChecked(false);
                     dcd0601.setEnabled(false);
                     dcd0602.setChecked(false);
@@ -241,7 +241,7 @@ public class SectionDActivity extends Activity {
                     dcd0603.setEnabled(false);
                     dcd0604.setChecked(false);
                     dcd0604.setEnabled(false);
-                }else {
+                } else {
                     dcd0601.setEnabled(true);
                     dcd0602.setEnabled(true);
                     dcd0603.setEnabled(true);
@@ -393,23 +393,23 @@ public class SectionDActivity extends Activity {
     void onBtnContinueClick() {
 
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
-//        if (formValidation()) {
-//            try {
-//                SaveDraft();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//            if (UpdateDB()) {
+        if (formValidation()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
 
                 Intent secNext = new Intent(this, SectionEActivity.class);
                 startActivity(secNext);
-//            } else {
-//                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-//            }
-//        }
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
 
     }
 

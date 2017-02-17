@@ -199,6 +199,7 @@ public class SectionBActivity extends Activity {
     RadioButton dcbf18;
     @BindView(R.id.dcbf18x)
     EditText dcbf18x;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -249,8 +250,6 @@ public class SectionBActivity extends Activity {
         });
 
 
-
-
     }
 
     @OnClick(R.id.btn_End)
@@ -278,27 +277,25 @@ public class SectionBActivity extends Activity {
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
-
-        if(!dcbid.getText().toString().isEmpty()) {
-
-            dcbid.setError(null);
-
-            if (dcbis05.isChecked()) {
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+        if (formValidation()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 MainApp.deadMembers.add(new MainApp.deadMemberClass(Integer.parseInt(getIntent().getExtras().get("position").toString()),
                         dcbid.getText().toString()));
-
-//                startActivity(new Intent(this, FamilyMembersActivity.class));
                 finish();
 
             } else {
-                finish();
-                startActivity(new Intent(this, SectionCActivity.class));
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-        }else {
-            Toast.makeText(this,getString(R.string.dcbid),Toast.LENGTH_SHORT).show();
-            dcbid.setError("Invalid!!");
         }
+
     }
 
     private boolean UpdateDB() {
@@ -578,7 +575,6 @@ public class SectionBActivity extends Activity {
         }
 
 
-
         return true;
     }
 
@@ -586,9 +582,6 @@ public class SectionBActivity extends Activity {
 //    public void onBackPressed() {
 //        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
 //    }
-
-
-
 
 
 }

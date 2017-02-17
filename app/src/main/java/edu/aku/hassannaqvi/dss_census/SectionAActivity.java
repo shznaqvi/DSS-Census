@@ -202,21 +202,21 @@ public class SectionAActivity extends Activity {
     void onBtnContinueClick() {
 
         if (formValidation()) {
-//            try {
-//                SaveDraft();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//            if (UpdateDB()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
             Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
             finish();
 
             MainApp.NoMembers = Integer.parseInt(dca0701.getText().toString());
             startActivity(new Intent(this, FamilyMembersActivity.class));
-//            } else {
-//                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-//            }
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
         }
 
     }

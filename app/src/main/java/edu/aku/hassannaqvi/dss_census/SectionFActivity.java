@@ -25,61 +25,109 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SectionFActivity extends Activity  {
+public class SectionFActivity extends Activity {
 
 
     private static final String TAG = SectionFActivity.class.getSimpleName();
 
     @BindView(R.id.activity_section_f)
     RelativeLayout activitySectionF;
-    @BindView(R.id.scrollView01) ScrollView scrollView01;
-    @BindView(R.id.app_header) TextView appHeader;
-    @BindView(R.id.dcfa) EditText dcfa;
-    @BindView(R.id.dcf01) EditText dcf01;
-    @BindView(R.id.dcf0201) EditText dcf0201;
-    @BindView(R.id.dcf0202) EditText dcf0202;
-    @BindView(R.id.dcf0203) EditText dcf0203;
-    @BindView(R.id.dcf03) EditText dcf03;
-    @BindView(R.id.dcf04dob) DatePicker dcf04dob;
-    @BindView(R.id.fldGrpdcf04a) LinearLayout fldGrpdcf04a;
-    @BindView(R.id.fldGrpdcf04b) LinearLayout fldGrpdcf04b;
-    @BindView(R.id.dcfAgeDob) RadioGroup dcfAgeDob;
-    @BindView(R.id.dcfDob) RadioButton dcfDob;
-    @BindView(R.id.dcfAge) RadioButton dcfAge;
-    @BindView(R.id.dcf0401) EditText dcf0401;
-    @BindView(R.id.dcf0402) EditText dcf0402;
-    @BindView(R.id.dcf0403) EditText dcf0403;
-    @BindView(R.id.dcf05) EditText dcf05;
-    @BindView(R.id.dcf06) EditText dcf06;
-    @BindView(R.id.dcf07) RadioGroup dcf07;
-    @BindView(R.id.dcf0701) RadioButton dcf0701;
-    @BindView(R.id.dcf0702) RadioButton dcf0702;
-    @BindView(R.id.dcf0799) RadioButton dcf0799;
-    @BindView(R.id.fldGrpdcf07) LinearLayout fldGrpdcf07;
-    @BindView(R.id.dcf08) EditText dcf08;
-    @BindView(R.id.dcf09) RadioGroup dcf09;
-    @BindView(R.id.dcf0901) RadioButton dcf0901;
-    @BindView(R.id.dcf0902) RadioButton dcf0902;
-    @BindView(R.id.dcf0999) RadioButton dcf0999;
-    @BindView(R.id.fldGrpdcf09) LinearLayout fldGrpdcf09;
-    @BindView(R.id.dcf1001) CheckBox dcf1001;
-    @BindView(R.id.dcf1002) CheckBox dcf1002;
-    @BindView(R.id.dcf1003) CheckBox dcf1003;
-    @BindView(R.id.dcf1004) CheckBox dcf1004;
-    @BindView(R.id.dcf1005) CheckBox dcf1005;
-    @BindView(R.id.dcf1006) CheckBox dcf1006;
-    @BindView(R.id.dcf1007) CheckBox dcf1007;
-    @BindView(R.id.dcf1096) CheckBox dcf1096;
-    @BindView(R.id.dcf1096x) EditText dcf1096x;
-    @BindView(R.id.dcf1101) CheckBox dcf1101;
-    @BindView(R.id.dcf1102) CheckBox dcf1102;
-    @BindView(R.id.dcf1103) CheckBox dcf1103;
-    @BindView(R.id.dcf1104) CheckBox dcf1104;
-    @BindView(R.id.dcf1105) CheckBox dcf1105;
-    @BindView(R.id.dcf1106) CheckBox dcf1106;
-    @BindView(R.id.dcf1196) CheckBox dcf1196;
-    @BindView(R.id.dcf1196x) EditText dcf1196x;
-    @BindView(R.id.dcf12) EditText dcf12;
+    @BindView(R.id.scrollView01)
+    ScrollView scrollView01;
+    @BindView(R.id.app_header)
+    TextView appHeader;
+    @BindView(R.id.dcfa)
+    EditText dcfa;
+    @BindView(R.id.dcf01)
+    EditText dcf01;
+    @BindView(R.id.dcf0201)
+    EditText dcf0201;
+    @BindView(R.id.dcf0202)
+    EditText dcf0202;
+    @BindView(R.id.dcf0203)
+    EditText dcf0203;
+    @BindView(R.id.dcf03)
+    EditText dcf03;
+    @BindView(R.id.dcf04dob)
+    DatePicker dcf04dob;
+    @BindView(R.id.fldGrpdcf04a)
+    LinearLayout fldGrpdcf04a;
+    @BindView(R.id.fldGrpdcf04b)
+    LinearLayout fldGrpdcf04b;
+    @BindView(R.id.dcfAgeDob)
+    RadioGroup dcfAgeDob;
+    @BindView(R.id.dcfDob)
+    RadioButton dcfDob;
+    @BindView(R.id.dcfAge)
+    RadioButton dcfAge;
+    @BindView(R.id.dcf0401)
+    EditText dcf0401;
+    @BindView(R.id.dcf0402)
+    EditText dcf0402;
+    @BindView(R.id.dcf0403)
+    EditText dcf0403;
+    @BindView(R.id.dcf05)
+    EditText dcf05;
+    @BindView(R.id.dcf06)
+    EditText dcf06;
+    @BindView(R.id.dcf07)
+    RadioGroup dcf07;
+    @BindView(R.id.dcf0701)
+    RadioButton dcf0701;
+    @BindView(R.id.dcf0702)
+    RadioButton dcf0702;
+    @BindView(R.id.dcf0799)
+    RadioButton dcf0799;
+    @BindView(R.id.fldGrpdcf07)
+    LinearLayout fldGrpdcf07;
+    @BindView(R.id.dcf08)
+    EditText dcf08;
+    @BindView(R.id.dcf09)
+    RadioGroup dcf09;
+    @BindView(R.id.dcf0901)
+    RadioButton dcf0901;
+    @BindView(R.id.dcf0902)
+    RadioButton dcf0902;
+    @BindView(R.id.dcf0999)
+    RadioButton dcf0999;
+    @BindView(R.id.fldGrpdcf09)
+    LinearLayout fldGrpdcf09;
+    @BindView(R.id.dcf1001)
+    CheckBox dcf1001;
+    @BindView(R.id.dcf1002)
+    CheckBox dcf1002;
+    @BindView(R.id.dcf1003)
+    CheckBox dcf1003;
+    @BindView(R.id.dcf1004)
+    CheckBox dcf1004;
+    @BindView(R.id.dcf1005)
+    CheckBox dcf1005;
+    @BindView(R.id.dcf1006)
+    CheckBox dcf1006;
+    @BindView(R.id.dcf1007)
+    CheckBox dcf1007;
+    @BindView(R.id.dcf1096)
+    CheckBox dcf1096;
+    @BindView(R.id.dcf1096x)
+    EditText dcf1096x;
+    @BindView(R.id.dcf1101)
+    CheckBox dcf1101;
+    @BindView(R.id.dcf1102)
+    CheckBox dcf1102;
+    @BindView(R.id.dcf1103)
+    CheckBox dcf1103;
+    @BindView(R.id.dcf1104)
+    CheckBox dcf1104;
+    @BindView(R.id.dcf1105)
+    CheckBox dcf1105;
+    @BindView(R.id.dcf1106)
+    CheckBox dcf1106;
+    @BindView(R.id.dcf1196)
+    CheckBox dcf1196;
+    @BindView(R.id.dcf1196x)
+    EditText dcf1196x;
+    @BindView(R.id.dcf12)
+    EditText dcf12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,12 +140,11 @@ public class SectionFActivity extends Activity  {
         dcfAgeDob.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if(dcfAge.isChecked()){
+                if (dcfAge.isChecked()) {
                     fldGrpdcf04a.setVisibility(View.GONE);
                     fldGrpdcf04b.setVisibility(View.VISIBLE);
 
-                }
-                else {
+                } else {
                     fldGrpdcf04a.setVisibility(View.VISIBLE);
                     fldGrpdcf04b.setVisibility(View.GONE);
 
@@ -181,7 +228,8 @@ public class SectionFActivity extends Activity  {
 
     }
 
-    @OnClick(R.id.btn_End) void onBtnEndClick() {
+    @OnClick(R.id.btn_End)
+    void onBtnEndClick() {
         //TODO implement
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
        /* if (formValidation()) {
@@ -201,27 +249,28 @@ public class SectionFActivity extends Activity  {
         } */
     }
 
-    @OnClick(R.id.btn_Continue) void onBtnContinueClick() {
+    @OnClick(R.id.btn_Continue)
+    void onBtnContinueClick() {
         //TODO implement
 
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
-//        if (formValidation()) {
-//            try {
-//                SaveDraft();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//            if (UpdateDB()) {
+        if (formValidation()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
 
                 startActivity(new Intent(this, SectionGActivity.class));
 
-//            } else {
-//                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-//            }
-//        }
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     public boolean formValidation() {
@@ -295,7 +344,7 @@ public class SectionFActivity extends Activity  {
 
 //        04
 
-        if (dcfAge.isChecked()){
+        if (dcfAge.isChecked()) {
 
 //          Days
             if (dcf0401.getText().toString().isEmpty()) {
@@ -388,7 +437,7 @@ public class SectionFActivity extends Activity  {
         }
 
 //        07
-        if (dcf07.getCheckedRadioButtonId() == -1){
+        if (dcf07.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcf07), Toast.LENGTH_SHORT).show();
             dcf0799.setError("This data is Required!");    // Set Error on last radio button
 
