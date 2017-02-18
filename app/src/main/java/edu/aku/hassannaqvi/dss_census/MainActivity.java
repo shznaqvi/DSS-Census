@@ -14,8 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -99,7 +97,7 @@ public class MainActivity extends Activity {
     }
 
     public void openForm(View v) {
-        Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
+        Intent oF = new Intent(MainActivity.this, SectionIActivity.class);
         startActivity(oF);
     }
 

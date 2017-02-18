@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -20,12 +21,14 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SectionIActivity extends Activity {
+public class SectionIActivity extends Activity implements RadioGroup.OnCheckedChangeListener {
 
     private static final String TAG = SectionIActivity.class.getSimpleName();
 
@@ -321,8 +324,6 @@ public class SectionIActivity extends Activity {
     RadioButton dci2002;
     @BindView(R.id.dci2099)
     RadioButton dci2099;
-    @BindView(R.id.fldGrpdci20)
-    LinearLayout fldGrpdci20;
     @BindView(R.id.dci2101)
     EditText dci2101;
     @BindView(R.id.dci2199)
@@ -346,12 +347,31 @@ public class SectionIActivity extends Activity {
     RadioButton dci18i99;
     @BindView(R.id.dci18ix)
     EditText dci18ix;
+    @BindView(R.id.fldGrpdci13)
+    LinearLayout fldGrpdci13;
+    @BindView(R.id.fldGrpdci14)
+    LinearLayout fldGrpdci14;
+    @BindView(R.id.fldGrpdci20)
+    LinearLayout fldGrpdci20;
+    @BindView(R.id.fldGrpdci21)
+    LinearLayout fldGrpdci21;
+
+    @BindViews({R.id.dci19a, R.id.dci19b, R.id.dci19c, R.id.dci19d, R.id.dci19e, R.id.dci19f, R.id.dci19g,
+            R.id.dci19h, R.id.dci19i, R.id.dci19j, R.id.dci19k, R.id.dci19l, R.id.dci19m, R.id.dci19n, R.id.dci19o,
+            R.id.dci19p, R.id.dci19q})
+    List<RadioGroup> dci19;
+
+    @BindViews({R.id.dci19a02, R.id.dci19b02, R.id.dci19c02, R.id.dci19d02, R.id.dci19e02, R.id.dci19f02, R.id.dci19g02,
+            R.id.dci19h02, R.id.dci19i02, R.id.dci19j02, R.id.dci19k02, R.id.dci19l02, R.id.dci19m02, R.id.dci19n02, R.id.dci19o02,
+            R.id.dci19p02, R.id.dci19q02})
+    List<RadioButton> dci1902;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_i);
         ButterKnife.bind(this);
+
 
         appHeader.setText("DSS - > Section I: IYCF (0-23 Month)");
 
@@ -360,28 +380,105 @@ public class SectionIActivity extends Activity {
         dob = new SimpleDateFormat("dd-MM-yyyy").format(dci05.getCalendarView().getDate());
 
         // ============= Q 18 B =============
-        if (dci18b01.isChecked()) {
-            dci18btimes.setVisibility(View.VISIBLE);
-        } else {
-            dci18btimes.setVisibility(View.GONE);
-            dci18btimes.setText(null);
-        }
+        dci18b.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dci18b01.isChecked()) {
+                    dci18btimes.setVisibility(View.VISIBLE);
+                } else {
+                    dci18btimes.setVisibility(View.GONE);
+                    dci18btimes.setText(null);
+                }
+            }
+        });
+
 
         // ============= Q 18 C =============
-        if (dci18c01.isChecked()) {
-            dci18ctimes.setVisibility(View.VISIBLE);
-        } else {
-            dci18ctimes.setVisibility(View.GONE);
-            dci18ctimes.setText(null);
-        }
+        dci18c.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dci18c01.isChecked()) {
+                    dci18ctimes.setVisibility(View.VISIBLE);
+                } else {
+                    dci18ctimes.setVisibility(View.GONE);
+                    dci18ctimes.setText(null);
+                }
+
+            }
+        });
 
         // ============= Q 18 F =============
-        if (dci18f01.isChecked()) {
-            dci18ftimes.setVisibility(View.VISIBLE);
-        } else {
-            dci18ftimes.setVisibility(View.GONE);
-            dci18ftimes.setText(null);
+        dci18f.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dci18f01.isChecked()) {
+                    dci18ftimes.setVisibility(View.VISIBLE);
+                } else {
+                    dci18ftimes.setVisibility(View.GONE);
+                    dci18ftimes.setText(null);
+                }
+
+            }
+        });
+
+        //=================== Q12 Skip Pattern ==============
+        dci12.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dci1201.isChecked()) {
+                    fldGrpdci13.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdci13.setVisibility(View.GONE);
+                    dci13.clearCheck();
+                }
+            }
+        });
+
+        //================== Q 13 Skip Pattern ===============
+        dci13.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dci1301.isChecked()) {
+                    fldGrpdci14.setVisibility(View.GONE);
+                    dci14.clearCheck();
+                } else {
+                    fldGrpdci14.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+
+        // =================== Q 19 Skip Pattern ================
+        for (RadioGroup rg : dci19) {
+            rg.setOnCheckedChangeListener(this);
         }
+
+        //================= Q 20 Skip Pattern =============
+
+        dci20.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dci2001.isChecked()) {
+                    fldGrpdci21.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdci21.setVisibility(View.GONE);
+                    dci2101.setText(null);
+                    dci2199.setChecked(false);
+                }
+            }
+        });
+
+        dci2199.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    dci2101.setEnabled(false);
+                    dci2101.setText(null);
+                } else {
+                    dci2101.setEnabled(true);
+                }
+            }
+        });
 
 
 
@@ -562,7 +659,6 @@ public class SectionIActivity extends Activity {
         if (dci07d.getText().toString().isEmpty() && dci07m.getText().toString().isEmpty() && dci07y.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci07), Toast.LENGTH_SHORT).show();
             dci07y.setError("This data is Required!");
-            dci07y.requestFocus();
             return false;
         } else {
             dci07y.setError(null);
@@ -621,28 +717,34 @@ public class SectionIActivity extends Activity {
             dci1299.setError(null);
         }
         // ====================== Q 13 ==============
-        if (dci13.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci13), Toast.LENGTH_SHORT).show();
-            dci1399.setError("This data is Required!");
-            return false;
+        if (dci1201.isChecked()) {
+            if (dci13.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci13), Toast.LENGTH_SHORT).show();
+                dci1399.setError("This data is Required!");
+                return false;
+            } else {
+                dci1399.setError(null);
+            }
         } else {
-            dci1399.setError(null);
-        }
-        // ====================== Q 14 ==============
-        if (dci14.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci12), Toast.LENGTH_SHORT).show();
-            dci1499.setError("This data is Required!");
-            return false;
-        } else {
-            dci1499.setError(null);
+            // ====================== Q 14 ==============
+            if (dci14.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci14), Toast.LENGTH_SHORT).show();
+                dci1499.setError("This data is Required!");
+                return false;
+            } else {
+                dci1499.setError(null);
+            }
+
         }
         // ====================== Q 15 ==============
-        if (dci15.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci12), Toast.LENGTH_SHORT).show();
-            dci1599.setError("This data is Required!");
-            return false;
-        } else {
-            dci1599.setError(null);
+        if (dci1301.isChecked()) {
+            if (dci15.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci15), Toast.LENGTH_SHORT).show();
+                dci1599.setError("This data is Required!");
+                return false;
+            } else {
+                dci1599.setError(null);
+            }
         }
         // ====================== Q 16 ==============
         if (dci16.getCheckedRadioButtonId() == -1) {
@@ -680,9 +782,9 @@ public class SectionIActivity extends Activity {
         }
 
         if (dci18b01.isChecked() && dci18btimes.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18b), Toast.LENGTH_SHORT).show();
             dci18btimes.setError("This data is Required!");
-            dci18btimes.requestFocus();
+
             return false;
         } else {
             dci18btimes.setError(null);
@@ -699,7 +801,7 @@ public class SectionIActivity extends Activity {
         }
 
         if (dci18c01.isChecked() && dci18ctimes.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18c), Toast.LENGTH_SHORT).show();
             dci18ctimes.setError("This data is Required!");
             dci18ctimes.requestFocus();
             return false;
@@ -733,9 +835,9 @@ public class SectionIActivity extends Activity {
         }
 
         if (dci18f01.isChecked() && dci18ftimes.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18f), Toast.LENGTH_SHORT).show();
             dci18ftimes.setError("This data is Required!");
-            dci18ftimes.requestFocus();
+
             return false;
         } else {
             dci18ftimes.setError(null);
@@ -912,6 +1014,7 @@ public class SectionIActivity extends Activity {
             dci2099.setError(null);
         }
 
+
         // ====================== Q 21 ==============
         if (dci2101.getText().toString().isEmpty() && (!(dci2199.isChecked()))) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci21), Toast.LENGTH_SHORT).show();
@@ -921,12 +1024,6 @@ public class SectionIActivity extends Activity {
             dci2199.setError(null);
         }
 
-        if (dci2199.isChecked()) {
-            dci2101.setEnabled(false);
-            dci2101.setText(null);
-        } else {
-            dci2101.setEnabled(true);
-        }
 
         // ====================== Q 21 ==============
         if (dci22.getCheckedRadioButtonId() == -1) {
@@ -937,38 +1034,47 @@ public class SectionIActivity extends Activity {
             dci2299.setError(null);
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        if (is19AllNo() && dci2001.isChecked()) {
+            Toast.makeText(this, "ERROR: " + getString(R.string.dci19a) + "Atleast one should be Yes", Toast.LENGTH_SHORT).show();
+            dci19a02.setError("Atlease one should be yes Other wise Select no in " + getString(R.string.dci20));
+            dci19a02.requestFocus();
+            return false;
+        } else {
+            dci19a02.setError(null);
+        }
 
 
         return true;
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+
+        if (is19AllNo()) {
+            // Show answer here
+            fldGrpdci20.setVisibility(View.VISIBLE);
+
+        } else {
+            fldGrpdci20.setVisibility(View.VISIBLE);
+            fldGrpdci21.setVisibility(View.VISIBLE);
+
+        }
+
+    }
+
+    public boolean is19AllNo() {
+        boolean val = false;
+
+        int i = 0;
+        for (RadioButton rg : dci1902) {
+            if (rg.isChecked())
+                i++;
+        }
+
+        // Show answer here
+        return i == dci1902.size();
+
+        //return val;
     }
 
 }
