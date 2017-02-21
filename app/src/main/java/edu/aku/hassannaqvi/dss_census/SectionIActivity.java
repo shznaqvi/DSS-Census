@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.dss_census;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -614,6 +615,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci01.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci01), Toast.LENGTH_SHORT).show();
             dci01.setError("This data is Required!");
+            Log.i(TAG, "dci01: This data is Required!");
             return false;
         } else {
             dci01.setError(null);
@@ -623,6 +625,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci02.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci02), Toast.LENGTH_SHORT).show();
             dci0202.setError("This data is Required!");
+            Log.i(TAG, "dci02: This data is Required!");
             return false;
         } else {
             dci0202.setError(null);
@@ -632,6 +635,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci03.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci03), Toast.LENGTH_SHORT).show();
             dci03.setError("This data is Required!");
+            Log.i(TAG, "dci03: This data is Required!");
             return false;
         } else {
             dci03.setError(null);
@@ -641,6 +645,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci04.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci04), Toast.LENGTH_SHORT).show();
             dci04.setError("This data is Required!");
+            Log.i(TAG, "dci05: This data is Required!");
             return false;
         } else {
             dci04.setError(null);
@@ -650,6 +655,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci06.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci06), Toast.LENGTH_SHORT).show();
             dci0699.setError("This data is Required!");
+            Log.i(TAG, "dci06: This data is Required!");
             return false;
         } else {
             dci0699.setError(null);
@@ -659,6 +665,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci07d.getText().toString().isEmpty() && dci07m.getText().toString().isEmpty() && dci07y.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci07), Toast.LENGTH_SHORT).show();
             dci07y.setError("This data is Required!");
+            Log.i(TAG, "dci07y: This data is Required!");
             return false;
         } else {
             dci07y.setError(null);
@@ -668,6 +675,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci08.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci08), Toast.LENGTH_SHORT).show();
             dci0803.setError("This data is Required!");
+            Log.i(TAG, "dci08: This data is Required!");
             return false;
         } else {
             dci0803.setError(null);
@@ -677,6 +685,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci09.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci09), Toast.LENGTH_SHORT).show();
             dci09.setError("This data is Required!");
+            Log.i(TAG, "dci09: This data is Required!");
             return false;
         } else {
             dci09.setError(null);
@@ -686,6 +695,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci10a.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci10a), Toast.LENGTH_SHORT).show();
             dci10a02.setError("This data is Required!");
+            Log.i(TAG, "dci10a: This data is Required!");
             return false;
         } else {
             dci10a02.setError(null);
@@ -695,6 +705,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci10b.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci10b), Toast.LENGTH_SHORT).show();
             dci10b02.setError("This data is Required!");
+            Log.i(TAG, "dci10b: This data is Required!");
             return false;
         } else {
             dci10b02.setError(null);
@@ -704,6 +715,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci11.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci11), Toast.LENGTH_SHORT).show();
             dci1199.setError("This data is Required!");
+            Log.i(TAG, "dci11: This data is Required!");
             return false;
         } else {
             dci1199.setError(null);
@@ -712,6 +724,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci12.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci12), Toast.LENGTH_SHORT).show();
             dci1299.setError("This data is Required!");
+            Log.i(TAG, "dci12: This data is Required!");
             return false;
         } else {
             dci1299.setError(null);
@@ -721,6 +734,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             if (dci13.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci13), Toast.LENGTH_SHORT).show();
                 dci1399.setError("This data is Required!");
+                Log.i(TAG, "dci13: This data is Required!");
                 return false;
             } else {
                 dci1399.setError(null);
@@ -730,6 +744,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             if (dci14.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci14), Toast.LENGTH_SHORT).show();
                 dci1499.setError("This data is Required!");
+                Log.i(TAG, "dci14: This data is Required!");
                 return false;
             } else {
                 dci1499.setError(null);
@@ -741,6 +756,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             if (dci15.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci15), Toast.LENGTH_SHORT).show();
                 dci1599.setError("This data is Required!");
+                Log.i(TAG, "dci15: This data is Required!");
                 return false;
             } else {
                 dci1599.setError(null);
@@ -750,6 +766,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci16.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci16), Toast.LENGTH_SHORT).show();
             dci1699.setError("This data is Required!");
+            Log.i(TAG, "dci16: This data is Required!");
             return false;
         } else {
             dci1699.setError(null);
@@ -759,6 +776,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci17.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci17), Toast.LENGTH_SHORT).show();
             dci1799.setError("This data is Required!");
+            Log.i(TAG, "dci17: This data is Required!");
             return false;
         } else {
             dci1799.setError(null);
@@ -768,6 +786,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci18a.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18a), Toast.LENGTH_SHORT).show();
             dci18a99.setError("This data is Required!");
+            Log.i(TAG, "dci18a: This data is Required!");
             return false;
         } else {
             dci18a99.setError(null);
@@ -776,6 +795,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci18b.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18b), Toast.LENGTH_SHORT).show();
             dci18b99.setError("This data is Required!");
+            Log.i(TAG, "dci18b: This data is Required!");
             return false;
         } else {
             dci18b99.setError(null);
@@ -784,6 +804,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci18b01.isChecked() && dci18btimes.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18b), Toast.LENGTH_SHORT).show();
             dci18btimes.setError("This data is Required!");
+            Log.i(TAG, "dci18btimes: This data is Required!");
 
             return false;
         } else {
@@ -795,6 +816,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci18c.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18c), Toast.LENGTH_SHORT).show();
             dci18c99.setError("This data is Required!");
+            Log.i(TAG, "dci18c: This data is Required!");
             return false;
         } else {
             dci18c99.setError(null);
@@ -803,7 +825,8 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci18c01.isChecked() && dci18ctimes.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18c), Toast.LENGTH_SHORT).show();
             dci18ctimes.setError("This data is Required!");
-            dci18ctimes.requestFocus();
+            Log.i(TAG, "dcictimes: This data is Required!");
+
             return false;
         } else {
             dci18ctimes.setError(null);
@@ -813,6 +836,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci18d.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18d), Toast.LENGTH_SHORT).show();
             dci18d99.setError("This data is Required!");
+            Log.i(TAG, "dci18d: This data is Required!");
             return false;
         } else {
             dci18d99.setError(null);
@@ -821,6 +845,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci18e.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18e), Toast.LENGTH_SHORT).show();
             dci18e99.setError("This data is Required!");
+            Log.i(TAG, "dci18e: This data is Required!");
             return false;
         } else {
             dci18e99.setError(null);
@@ -829,6 +854,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci18f.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18f), Toast.LENGTH_SHORT).show();
             dci18f99.setError("This data is Required!");
+            Log.i(TAG, "dci18f: This data is Required!");
             return false;
         } else {
             dci18f99.setError(null);
@@ -837,6 +863,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci18f01.isChecked() && dci18ftimes.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18f), Toast.LENGTH_SHORT).show();
             dci18ftimes.setError("This data is Required!");
+            Log.i(TAG, "dci18ftimes: This data is Required!");
 
             return false;
         } else {
@@ -847,6 +874,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci18g.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18g), Toast.LENGTH_SHORT).show();
             dci18g99.setError("This data is Required!");
+            Log.i(TAG, "dci18g: This data is Required!");
             return false;
         } else {
             dci18g99.setError(null);
@@ -855,6 +883,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci18h.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18h), Toast.LENGTH_SHORT).show();
             dci18h99.setError("This data is Required!");
+            Log.i(TAG, "dci18h: This data is Required!");
             return false;
         } else {
             dci18h99.setError(null);
@@ -863,6 +892,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci18i.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci18i), Toast.LENGTH_SHORT).show();
             dci18i99.setError("This data is Required!");
+            Log.i(TAG, "dci18i: This data is Required!");
             return false;
         } else {
             dci18i99.setError(null);
@@ -871,6 +901,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19a.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19a), Toast.LENGTH_SHORT).show();
             dci19a02.setError("This data is Required!");
+            Log.i(TAG, "dci19a: This data is Required!");
             return false;
         } else {
             dci19a02.setError(null);
@@ -879,6 +910,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19b.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19b), Toast.LENGTH_SHORT).show();
             dci19b02.setError("This data is Required!");
+            Log.i(TAG, "dci19b: This data is Required!");
             return false;
         } else {
             dci19b02.setError(null);
@@ -887,6 +919,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19c.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19c), Toast.LENGTH_SHORT).show();
             dci19c02.setError("This data is Required!");
+            Log.i(TAG, "dci19c: This data is Required!");
             return false;
         } else {
             dci19c02.setError(null);
@@ -895,6 +928,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19d.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19d), Toast.LENGTH_SHORT).show();
             dci19d02.setError("This data is Required!");
+            Log.i(TAG, "dci19d: This data is Required!");
             return false;
         } else {
             dci19d02.setError(null);
@@ -903,6 +937,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19e.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19e), Toast.LENGTH_SHORT).show();
             dci19e02.setError("This data is Required!");
+            Log.i(TAG, "dci19e: This data is Required!");
             return false;
         } else {
             dci19e02.setError(null);
@@ -911,6 +946,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19f.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19f), Toast.LENGTH_SHORT).show();
             dci19f02.setError("This data is Required!");
+            Log.i(TAG, "dci19f: This data is Required!");
             return false;
         } else {
             dci19f02.setError(null);
@@ -920,6 +956,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19g.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19g), Toast.LENGTH_SHORT).show();
             dci19g02.setError("This data is Required!");
+            Log.i(TAG, "dci19g: This data is Required!");
             return false;
         } else {
             dci19g02.setError(null);
@@ -928,6 +965,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19h.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19h), Toast.LENGTH_SHORT).show();
             dci19h02.setError("This data is Required!");
+            Log.i(TAG, "dci19h: This data is Required!");
             return false;
         } else {
             dci19h02.setError(null);
@@ -936,6 +974,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19i.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19i), Toast.LENGTH_SHORT).show();
             dci19i02.setError("This data is Required!");
+            Log.i(TAG, "dci19i: This data is Required!");
             return false;
         } else {
             dci19i02.setError(null);
@@ -944,6 +983,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19j.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19j), Toast.LENGTH_SHORT).show();
             dci19j02.setError("This data is Required!");
+            Log.i(TAG, "dci19j: This data is Required!");
             return false;
         } else {
             dci19j02.setError(null);
@@ -952,6 +992,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19k.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19k), Toast.LENGTH_SHORT).show();
             dci19k02.setError("This data is Required!");
+            Log.i(TAG, "dci19k: This data is Required!");
             return false;
         } else {
             dci19k02.setError(null);
@@ -960,6 +1001,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19l.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19l), Toast.LENGTH_SHORT).show();
             dci19l02.setError("This data is Required!");
+            Log.i(TAG, "dci19l: This data is Required!");
             return false;
         } else {
             dci19l02.setError(null);
@@ -968,6 +1010,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19m.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19m), Toast.LENGTH_SHORT).show();
             dci19m02.setError("This data is Required!");
+            Log.i(TAG, "dci19m: This data is Required!");
             return false;
         } else {
             dci19m02.setError(null);
@@ -976,6 +1019,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19n.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19n), Toast.LENGTH_SHORT).show();
             dci19n02.setError("This data is Required!");
+            Log.i(TAG, "dci19n: This data is Required!");
             return false;
         } else {
             dci19n02.setError(null);
@@ -984,6 +1028,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19o.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19o), Toast.LENGTH_SHORT).show();
             dci19o02.setError("This data is Required!");
+            Log.i(TAG, "dci19o: This data is Required!");
             return false;
         } else {
             dci19o02.setError(null);
@@ -992,6 +1037,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19p.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19p), Toast.LENGTH_SHORT).show();
             dci19p02.setError("This data is Required!");
+            Log.i(TAG, "dci19p: This data is Required!");
             return false;
         } else {
             dci19p02.setError(null);
@@ -1000,6 +1046,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci19q.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19q), Toast.LENGTH_SHORT).show();
             dci19q02.setError("This data is Required!");
+            Log.i(TAG, "dci19q: This data is Required!");
             return false;
         } else {
             dci19q02.setError(null);
@@ -1009,6 +1056,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci20.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci20), Toast.LENGTH_SHORT).show();
             dci2099.setError("This data is Required!");
+            Log.i(TAG, "dci20: This data is Required!");
             return false;
         } else {
             dci2099.setError(null);
@@ -1016,12 +1064,15 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
 
 
         // ====================== Q 21 ==============
-        if (dci2101.getText().toString().isEmpty() && (!(dci2199.isChecked()))) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci21), Toast.LENGTH_SHORT).show();
-            dci2199.setError("This data is Required!");
-            return false;
-        } else {
-            dci2199.setError(null);
+        if (dci2001.isChecked()) {
+            if (dci2101.getText().toString().isEmpty() && (!(dci2199.isChecked()))) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci21), Toast.LENGTH_SHORT).show();
+                dci2199.setError("This data is Required!");
+                Log.i(TAG, "dci21: This data is Required!");
+                return false;
+            } else {
+                dci2199.setError(null);
+            }
         }
 
 
@@ -1029,6 +1080,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (dci22.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci22), Toast.LENGTH_SHORT).show();
             dci2299.setError("This data is Required!");
+            Log.i(TAG, "dci22: This data is Required!");
             return false;
         } else {
             dci2299.setError(null);
@@ -1037,10 +1089,15 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         if (is19AllNo() && dci2001.isChecked()) {
             Toast.makeText(this, "ERROR: " + getString(R.string.dci19a) + "Atleast one should be Yes", Toast.LENGTH_SHORT).show();
             dci19a02.setError("Atlease one should be yes Other wise Select no in " + getString(R.string.dci20));
-            dci19a02.requestFocus();
+            Log.i(TAG, "dci19: This data is Required!");
+            return false;
+        } else if (!(is19AllNo()) && !dci2001.isChecked()) {
+            dci2001.setError("Check again" + getString(R.string.dci20));
+            Log.i(TAG, "dci20: This data is Required!");
             return false;
         } else {
             dci19a02.setError(null);
+            dci2001.setError(null);
         }
 
 
