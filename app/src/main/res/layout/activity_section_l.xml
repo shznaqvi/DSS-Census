@@ -704,7 +704,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/dc102a"
+                android:id="@+id/dcl02a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Number of days"
@@ -724,7 +724,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/dc102b"
+                android:id="@+id/dcl02b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Number of days"
@@ -744,7 +744,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/dc102c"
+                android:id="@+id/dcl02c"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Number of days"
@@ -764,7 +764,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/dc102d"
+                android:id="@+id/dcl02d"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Number of days"
@@ -784,7 +784,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/dc102e"
+                android:id="@+id/dcl02e"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Number of days"
