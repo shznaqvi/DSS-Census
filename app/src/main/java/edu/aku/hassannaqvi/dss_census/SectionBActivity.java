@@ -287,8 +287,22 @@ public class SectionBActivity extends Activity {
             if (UpdateDB()) {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
-                MainApp.deadMembers.add(new MainApp.deadMemberClass(Integer.parseInt(getIntent().getExtras().get("position").toString()),
-                        dcbid.getText().toString()));
+//                MainApp.deadMembers.add(new MainApp.deadMemberClass(Integer.parseInt(getIntent().getExtras().get("position").toString()),
+//                        dcbid.getText().toString()));
+
+                MainApp.familyMembersList.add(new familyMembers(dcba.getText().toString(),
+                        dcbid.getText().toString()
+                        ,((RadioButton)findViewById(dcbis.getCheckedRadioButtonId())).getText().toString()
+                        ,((RadioButton)findViewById(dcbd.getCheckedRadioButtonId())).getText().toString()));
+
+                if (!(((RadioButton)findViewById(dcbis.getCheckedRadioButtonId())).getText().toString()).contains("Death")) {
+                    MainApp.currentStatusCount += 1;
+                }else {
+                    if (MainApp.NoMembersCount != 0){
+                        MainApp.NoMembersCount -= 1;
+                    }
+                }
+
                 finish();
 
             } else {

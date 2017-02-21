@@ -7,13 +7,13 @@ package edu.aku.hassannaqvi.dss_census;
 public class familyMembers {
     String memberName;
     String cStatus;
-    String mStatus;
+    String DSSid;
     String dob;
 
-    public familyMembers(String memberName, String mStatus, String cStatus, String dob) {
+    public familyMembers(String memberName, String DSSid, String cStatus, String dob) {
         this.memberName = memberName;
         this.cStatus = cStatus;
-        this.mStatus = mStatus;
+        this.DSSid = DSSid;
         this.dob = dob;
     }
 
@@ -33,12 +33,12 @@ public class familyMembers {
         this.cStatus = cStatus;
     }
 
-    public String getmStatus() {
-        return mStatus;
+    public String getDSSid() {
+        return DSSid;
     }
 
-    public void setmStatus(String mStatus) {
-        this.mStatus = mStatus;
+    public void setDSSid(String DSSid) {
+        this.DSSid = DSSid;
     }
 
     public String getDob() {

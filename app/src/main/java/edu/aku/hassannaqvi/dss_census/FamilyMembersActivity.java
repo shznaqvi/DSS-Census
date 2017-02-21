@@ -12,42 +12,38 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class FamilyMembersActivity extends Activity  {
+public class FamilyMembersActivity extends Activity {
 
 //    @BindView(R.id.activity_family_members) RelativeLayout activityFamilyMembers;
 //    @BindView(R.id.lst_noMembers) ListView lstNoMembers;
 
 
-    private List<familyMembers> familyMembersList = new ArrayList<>();
-//    private RecyclerView recycler_noMembers;
+    //    private RecyclerView recycler_noMembers;
     private familyMembersAdapter mAdapter;
-
-    String[] mStatus = {"Single","Married","Divorced"};
-    String[] gender = {"Male","Female"};
-
     @BindView(R.id.recycler_noMembers)
     RecyclerView recycler_noMembers;
 
     @BindView(R.id.btn_Continue)
     Button btn_Continue;
 
+    @BindView(R.id.btn_addMember)
+    Button btn_addMember;
+
     @BindView(R.id.btn_End)
     Button btn_End;
 
-
+//    String[] mStatus = {"Single", "Married", "Divorced"};
+//    String[] gender = {"Male", "Female"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,28 +69,28 @@ public class FamilyMembersActivity extends Activity  {
 //        });
 
 //        Set Recycler View
-
-        mAdapter = new familyMembersAdapter(familyMembersList);
+        mAdapter = new familyMembersAdapter(MainApp.familyMembersList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recycler_noMembers.setLayoutManager(mLayoutManager);
         recycler_noMembers.setItemAnimator(new DefaultItemAnimator());
         recycler_noMembers.setAdapter(mAdapter);
 
-        for (byte i=0;i<MainApp.NoMembers;i++){
-
-            familyMembersList.add(new familyMembers("Member "+(i+1),""+ mStatus[new Random().nextInt(mStatus.length)],"none"
-                    ,""+gender[new Random().nextInt(gender.length)]));
-        }
+//        for (byte i=0;i<MainApp.NoMembersCount;i++){
+//
+//            familyMembersList.add(new familyMembers("Member "+(i+1),""+ DSSid[new Random().nextInt(DSSid.length)],"none"
+//                    ,""+gender[new Random().nextInt(gender.length)]));
+//        }
 
         mAdapter.notifyDataSetChanged();
 
         recycler_noMembers.addOnItemTouchListener(
                 new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override public void onItemClick(View view, int position) {
+                    @Override
+                    public void onItemClick(View view, int position) {
                         // TODO Handle item click
 
                         Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
-                        i.putExtra("memberName", familyMembersList.get(position).getMemberName());
+                        i.putExtra("memberName", MainApp.familyMembersList.get(position).getMemberName());
                         i.putExtra("position", position + 1);
 
                         startActivity(i);
@@ -132,20 +128,31 @@ public class FamilyMembersActivity extends Activity  {
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
 
-        startActivity(new Intent(this,SectionCActivity.class));
+        startActivity(new Intent(this, SectionCActivity.class));
 
     }
 
     @OnClick(R.id.btn_addMember)
     void onBtnAddMemberClick() {
 
-        startActivity(new Intent(this,SectionBActivity.class));
+        startActivity(new Intent(this, SectionBActivity.class));
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+//        Set Enable for Next Section
+        if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
+            btn_Continue.setEnabled(false);
+            btn_addMember.setEnabled(true);
+        } else {
+            btn_Continue.setEnabled(true);
+            btn_addMember.setEnabled(false);
+        }
+
+
 
 //        Death Members
 
@@ -159,12 +166,12 @@ public class FamilyMembersActivity extends Activity  {
         private List<familyMembers> familyMembersList;
 
         public class MyViewHolder extends RecyclerView.ViewHolder {
-            public TextView memberName, martialStatus, year, currentStatus;
+            public TextView memberName, DSSid, year, currentStatus;
 
             public MyViewHolder(View view) {
                 super(view);
                 this.memberName = (TextView) view.findViewById(R.id.memberName);
-                this.martialStatus = (TextView) view.findViewById(R.id.martialStatus);
+                this.DSSid = (TextView) view.findViewById(R.id.DSSid);
                 this.currentStatus = (TextView) view.findViewById(R.id.currentStatus);
                 year = (TextView) view.findViewById(R.id.year);
             }
@@ -186,8 +193,8 @@ public class FamilyMembersActivity extends Activity  {
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
             familyMembers familyMembers = familyMembersList.get(position);
-            holder.memberName.setText(familyMembers.getMemberName());
-            holder.martialStatus.setText(familyMembers.getmStatus());
+            holder.memberName.setText(familyMembers.getMemberName().toUpperCase());
+            holder.DSSid.setText(familyMembers.getDSSid());
             holder.currentStatus.setText(familyMembers.getcStatus());
             holder.year.setText(familyMembers.getDob());
         }
