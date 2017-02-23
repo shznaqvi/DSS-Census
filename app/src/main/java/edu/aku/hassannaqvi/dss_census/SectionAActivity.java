@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -186,6 +185,8 @@ public class SectionAActivity extends Activity {
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
+        //==================== Permission Skip Check =================
+
         dca04.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -217,6 +218,8 @@ public class SectionAActivity extends Activity {
                     dca0802.setText(null);
                     dca0803.setText(null);
                     dca09.clearCheck();
+                    dca09m.setText(null);
+                    dca09y.setText(null);
                     dca10a.setText(null);
                     dca10b.setText(null);
                     dca11.clearCheck();
@@ -236,6 +239,20 @@ public class SectionAActivity extends Activity {
                     fldGrpdca0901.setVisibility(View.GONE);
                     dca09m.setText(null);
                     dca09y.setText(null);
+                }
+            }
+        });
+
+        // =================== If Respondent is male ===============
+
+        dca0501.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (dca050101.isChecked()) {
+                    dca050201.setEnabled(false);
+                    dca050201.setChecked(false);
+                } else {
+                    dca050201.setEnabled(true);
                 }
             }
         });
@@ -314,9 +331,8 @@ public class SectionAActivity extends Activity {
             dca0402.setError(null);
         }
 
-        if (dca0401.isChecked()) {
-
 //        03
+        if (dca0401.isChecked()) {
             if (dca05.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca05), Toast.LENGTH_SHORT).show();
                 dca05.setError("This data is Required!");    // Set Error on last radio button
@@ -351,6 +367,18 @@ public class SectionAActivity extends Activity {
             if (dca0503.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0503), Toast.LENGTH_SHORT).show();
                 dca0503.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0503: This data is Required!");
+                return false;
+            } else {
+                dca0503.setError(null);
+            }
+
+            if ((Integer.parseInt(dca0503.getText().toString()) < 16) || (Integer.parseInt(dca0503.getText().toString()) > 99)) {
+                Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca0503), Toast.LENGTH_SHORT).show();
+                dca0503.setError("Range is 16 - 99 Years!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0503: Range is 16 - 99 Years!");
                 return false;
             } else {
                 dca0503.setError(null);
@@ -360,6 +388,17 @@ public class SectionAActivity extends Activity {
             if (dca0504.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0504), Toast.LENGTH_SHORT).show();
                 dca0504.setError("This data is Required!");    // Set Error on last radio button
+                return false;
+            } else {
+                dca0504.setError(null);
+            }
+
+            if ((Integer.parseInt(dca0504.getText().toString()) < 1) || (Integer.parseInt(dca0504.getText().toString()) > 16)
+                    && Integer.parseInt(dca0504.getText().toString()) != 99) {
+                Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca0504), Toast.LENGTH_SHORT).show();
+                dca0504.setError("Range is 1 - 16 or 99!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0504: Range is 1 - 16 or 99!");
                 return false;
             } else {
                 dca0504.setError(null);
