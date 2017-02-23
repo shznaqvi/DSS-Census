@@ -718,7 +718,7 @@
                         android:layout_weight="1"
                         android:hint="@string/dca09y"
                         android:inputType="number"
-                        android:maxLength="2" />
+                        android:maxLength="4" />
 
                 </LinearLayout>
 
