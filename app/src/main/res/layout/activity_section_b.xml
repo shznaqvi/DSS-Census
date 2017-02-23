@@ -525,55 +525,102 @@
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
                 android:padding="2dp"
-                android:text="@string/dcbg"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-
-            <DatePicker
-                android:id="@+id/dcbg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                android:ems="10"
-                android:spinnersShown="true" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcbh"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
 
-            <EditText
-                android:id="@+id/dcbhy"
+            <RadioGroup
+                android:id="@+id/dcbdob"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/dcbhy"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/dcbhm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/dcbhm"
-                android:inputType="number"
-                android:maxLength="2" />
+                <RadioButton
+                    android:id="@+id/dcbdob01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcbg" />
 
-            <EditText
-                android:id="@+id/dcbhd"
+                <RadioButton
+                    android:id="@+id/dcbAge02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcbh" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/fldGrpdcbdob"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/dcbhd"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="2dp"
+                    android:text="@string/dcbg"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
+
+
+                <DatePicker
+                    android:id="@+id/dcbg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner"
+                    android:ems="10"
+                    android:spinnersShown="true" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fldGrpdcpAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="2dp"
+                    android:text="@string/dcbh"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/dcbhy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dcbhy"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+                <EditText
+                    android:id="@+id/dcbhm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dcbhm"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+                <EditText
+                    android:id="@+id/dcbhd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dcbhd"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -697,6 +744,27 @@
 
             </RadioGroup>
 
+            <LinearLayout
+                android:id="@+id/fldGrpdcbidt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+
+                <DatePicker
+                    android:id="@+id/dcbidob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner"
+                    android:ems="10"
+                    android:spinnersShown="true" />
+
+
+            </LinearLayout>
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -709,6 +777,7 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
 
             <RadioGroup
                 android:id="@+id/dcbir"
@@ -733,6 +802,13 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dcbir03" />
             </RadioGroup>
+
+            <EditText
+                android:id="@+id/dcbirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name of Place"
+                android:visibility="gone" />
 
 
             <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
