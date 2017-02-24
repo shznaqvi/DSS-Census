@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -76,12 +78,22 @@ public class SectionCActivity extends Activity {
     RadioButton dccc02;
     @BindView(R.id.dccd)
     DatePicker dccd;
+    @BindView(R.id.dccdod)
+    RadioGroup dccdod;
+    @BindView(R.id.dccage01)
+    RadioButton dccage01;
+    @BindView(R.id.dccdod02)
+    RadioButton dccdod02;
+    @BindView(R.id.fldGrpdccage)
+    LinearLayout fldGrpdccage;
     @BindView(R.id.dccey)
     EditText dccey;
     @BindView(R.id.dccem)
     EditText dccem;
     @BindView(R.id.dcced)
     EditText dcced;
+    @BindView(R.id.fldGrpdccdod)
+    LinearLayout fldGrpdccdod;
     @BindView(R.id.dccf)
     DatePicker dccf;
     @BindView(R.id.dccg)
@@ -98,6 +110,9 @@ public class SectionCActivity extends Activity {
     RadioButton dcch04;
     @BindView(R.id.dcch05)
     RadioButton dcch05;
+    @BindView(R.id.fldGrpdcch)
+    LinearLayout fldGrpdcch;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +121,36 @@ public class SectionCActivity extends Activity {
         ButterKnife.bind(this);
 
         appHeader.setText("DSS - > Section C: People Deceased in Last One Year");
+
+        dccdod.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (dccage01.isChecked()) {
+                    fldGrpdccage.setVisibility(View.VISIBLE);
+                    fldGrpdccdod.setVisibility(View.GONE);
+
+                } else {
+                    fldGrpdccdod.setVisibility(View.VISIBLE);
+                    fldGrpdccage.setVisibility(View.GONE);
+                    dcced.setText(null);
+                    dccem.setText(null);
+                    dccey.setText(null);
+                }
+            }
+        });
+
+        dccc.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (dccc01.isChecked()) {
+                    fldGrpdcch.setVisibility(View.GONE);
+                    dcch.clearCheck();
+                } else {
+                    fldGrpdcch.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
 
     }
 
@@ -262,37 +307,50 @@ public class SectionCActivity extends Activity {
             dccc02.setError(null);
         }
 
-        // ================= Age in years ===========
-        if (dccey.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dccey), Toast.LENGTH_SHORT).show();
-            dccey.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
+        if (dccdod.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcce), Toast.LENGTH_SHORT).show();
+            dccdod02.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dccey: This data is Required!");
+            Log.i(TAG, "dccdod: This data is Required!");
             return false;
         } else {
-            dccey.setError(null);
+            dccdod02.setError(null);
         }
 
-        // ================= Age in months ===========
-        if (dccem.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dccem), Toast.LENGTH_SHORT).show();
-            dccem.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
 
-            Log.i(TAG, "dccem: This data is Required!");
-            return false;
-        } else {
-            dccem.setError(null);
-        }
+        if (dccage01.isChecked()) {
+            // ================= Age in years ===========
+            if (dccey.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dccey), Toast.LENGTH_SHORT).show();
+                dccey.setError("This data is Required! ");    // Set Error on last radio button
 
-        // ================= Age in days ===========
-        if (dcced.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcced), Toast.LENGTH_SHORT).show();
-            dcced.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
+                Log.i(TAG, "dccey: This data is Required!");
+                return false;
+            } else {
+                dccey.setError(null);
+            }
 
-            Log.i(TAG, "dcced: This data is Required!");
-            return false;
-        } else {
-            dcced.setError(null);
+            // ================= Age in months ===========
+            if (dccem.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dccem), Toast.LENGTH_SHORT).show();
+                dccem.setError("This data is Required! ");    // Set Error on last radio button
+
+                Log.i(TAG, "dccem: This data is Required!");
+                return false;
+            } else {
+                dccem.setError(null);
+            }
+
+            // ================= Age in days ===========
+            if (dcced.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcced), Toast.LENGTH_SHORT).show();
+                dcced.setError("This data is Required! ");    // Set Error on last radio button
+
+                Log.i(TAG, "dcced: This data is Required!");
+                return false;
+            } else {
+                dcced.setError(null);
+            }
         }
 
         // ============== Remarks ===================
@@ -307,16 +365,19 @@ public class SectionCActivity extends Activity {
             dccg.setError(null);
         }
 
-        // ============== Status of WRA ===================
+        if (dccc02.isChecked()) {
 
-        if (dcch.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcch), Toast.LENGTH_SHORT).show();
-            dcch05.setError("This data is Required!");    // Set Error on last radio button
+            // ============== Status of WRA ===================
 
-            Log.i(TAG, "dcch: This data is Required!");
-            return false;
-        } else {
-            dcch05.setError(null);
+            if (dcch.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcch), Toast.LENGTH_SHORT).show();
+                dcch05.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "dcch: This data is Required!");
+                return false;
+            } else {
+                dcch05.setError(null);
+            }
         }
 
         return true;

@@ -233,6 +233,7 @@
                     android:text="@string/dccc02" />
             </RadioGroup>
 
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -252,6 +253,43 @@
                 android:datePickerMode="spinner"
                 android:ems="10"
                 android:spinnersShown="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+                android:padding="2dp"
+                android:text="@string/dcce"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+
+            <RadioGroup
+                android:id="@+id/dccdod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/dccage01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcce" />
+
+                <RadioButton
+                    android:id="@+id/dccdod02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dccf" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/fldGrpdccage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
 
             <TextView
                 android:layout_width="match_parent"
@@ -286,6 +324,14 @@
                 android:hint="@string/dcced"
                 android:inputType="number"
                 android:maxLength="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fldGrpdccdod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
 
             <TextView
                 android:layout_width="match_parent"
@@ -306,6 +352,7 @@
                 android:datePickerMode="spinner"
                 android:ems="10"
                 android:spinnersShown="true" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -322,6 +369,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dccg" />
+
+            <LinearLayout
+                android:id="@+id/fldGrpdcch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
 
             <TextView
                 android:layout_width="match_parent"
@@ -368,6 +422,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dcch05" />
             </RadioGroup>
+
+            </LinearLayout>
 
             <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
 
