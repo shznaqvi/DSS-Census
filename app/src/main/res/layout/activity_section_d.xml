@@ -109,7 +109,9 @@
                 android:id="@+id/dcd01a96x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/dcother" />
+                android:hint="@string/dcother"
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -178,7 +180,9 @@
                 android:id="@+id/dcd01b96x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/dcother" />
+                android:hint="@string/dcother"
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -237,7 +241,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -356,7 +361,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -551,7 +557,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -659,7 +666,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -732,7 +740,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
