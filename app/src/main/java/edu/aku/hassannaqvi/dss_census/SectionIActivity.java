@@ -378,6 +378,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
 
 
         dci05.setMaxDate(new Date().getTime());
+        dci05.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
         dob = new SimpleDateFormat("dd-MM-yyyy").format(dci05.getCalendarView().getDate());
 
         // ============= Q 18 B =============

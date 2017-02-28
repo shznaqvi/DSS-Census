@@ -525,25 +525,24 @@
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
                 android:padding="2dp"
-                android:text="@string/dcbh"
+                android:text="@string/dcAge"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
 
             <RadioGroup
                 android:id="@+id/dcbdob"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/radiogroup"
+                android:layout_marginTop="32dp"
+                android:background="@color/colorPrimary">
 
                 <RadioButton
                     android:id="@+id/dcbdob01"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/radiobutton"
                     android:text="@string/dcbg" />
 
                 <RadioButton
                     android:id="@+id/dcbAge02"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/radiobutton"
                     android:text="@string/dcbh" />
 
             </RadioGroup>

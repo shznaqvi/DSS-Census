@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -224,7 +225,8 @@ public class SectionBActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_b);
         ButterKnife.bind(this);
-
+        dcbg.setMaxDate(new Date().getTime());
+        dcbidob.setMaxDate(new Date().getTime());
 
 //        dcba.setText(getIntent().getExtras().get("memberName").toString());
 

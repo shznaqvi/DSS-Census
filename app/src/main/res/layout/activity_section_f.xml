@@ -48,7 +48,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcfa"
-                android:inputType="textCapWords"/>
+                android:inputType="textCapWords">
+
+                <requestFocus />
+            </EditText>
 
             <TextView
                 android:layout_width="match_parent"
@@ -268,7 +271,7 @@
                     android:id="@+id/dcf0702"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/dcyes"/>
+                    android:text="@string/dcno" />
 
                 <RadioButton
                     android:id="@+id/dcf0799"

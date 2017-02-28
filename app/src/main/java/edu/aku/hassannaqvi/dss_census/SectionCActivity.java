@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -119,6 +120,9 @@ public class SectionCActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_c);
         ButterKnife.bind(this);
+        dccd.setMaxDate(new Date().getTime());
+        dccf.setMaxDate(new Date().getTime());
+        dccf.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
 
         appHeader.setText("DSS - > Section C: People Deceased in Last One Year");
 

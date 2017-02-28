@@ -113,6 +113,41 @@
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
                 android:padding="2dp"
+                android:text="@string/dcAge"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <RadioGroup
+                android:id="@+id/dckdob"
+                style="@style/radiogroup"
+                android:layout_marginTop="32dp"
+                android:background="@color/colorPrimary">
+
+                <RadioButton
+                    android:id="@+id/dckdob01"
+                    style="@style/radiobutton"
+                    android:text="@string/dcbg" />
+
+                <RadioButton
+                    android:id="@+id/dckAge02"
+                    style="@style/radiobutton"
+                    android:text="@string/dcbh" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/fldGrpdckdob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+                android:padding="2dp"
                 android:text="@string/dckd"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -127,7 +162,16 @@
                 android:ems="10"
                 android:spinnersShown="true" />
 
-            <TextView
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fldGrpdckAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -170,6 +214,7 @@
                     android:inputType="number"
                     android:maxLength="2" />
 
+            </LinearLayout>
             </LinearLayout>
 
             <TextView

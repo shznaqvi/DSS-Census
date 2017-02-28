@@ -394,10 +394,7 @@ public class SectionHActivity extends Activity {
             } else {
                 dch0499.setError(null);
             }
-        }
-
-        //==================== Q 5 ==============
-        if (dch0302.isChecked() && dch0402.isChecked())
+        } else if (dch0302.isChecked() && dch0402.isChecked())
             if (dch05.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch05), Toast.LENGTH_SHORT).show();
                 dch05.setError("This data is Required!");

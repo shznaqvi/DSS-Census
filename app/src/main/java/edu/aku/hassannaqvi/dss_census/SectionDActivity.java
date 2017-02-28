@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -220,6 +221,8 @@ public class SectionDActivity extends Activity {
     RadioButton dcd1203;
     @BindView(R.id.dcd1204)
     RadioButton dcd1204;
+    @BindView(R.id.fldGrpdcd06)
+    LinearLayout fldGrpdcd06;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -363,6 +366,25 @@ public class SectionDActivity extends Activity {
 
                     dcd1096x.setVisibility(View.GONE);
                     dcd1096x.setText(null);
+                }
+            }
+        });
+
+        //============ Q 5 Skip Pattern =============
+        dcd05.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (dcd0501.isChecked()) {
+                    fldGrpdcd06.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdcd06.setVisibility(View.GONE);
+                    dcd0601.setChecked(false);
+                    dcd0602.setChecked(false);
+                    dcd0603.setChecked(false);
+                    dcd0604.setChecked(false);
+                    dcd0688.setChecked(false);
+
+
                 }
             }
         });
@@ -540,14 +562,16 @@ public class SectionDActivity extends Activity {
         }
 
 //        06
-        if (!dcd0601.isChecked() && !dcd0602.isChecked() && !dcd0603.isChecked() && !dcd0604.isChecked()
-                && !dcd0688.isChecked()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd06), Toast.LENGTH_LONG).show();
-            dcd0688.setError("This data is Required!");    // Set Error on last radio button
-            Log.i(TAG, "mn0531: This data is Required!");
-            return false;
-        } else {
-            dcd0688.setError(null);
+        if (dcd0501.isChecked()) {
+            if (!dcd0601.isChecked() && !dcd0602.isChecked() && !dcd0603.isChecked() && !dcd0604.isChecked()
+                    && !dcd0688.isChecked()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd06), Toast.LENGTH_LONG).show();
+                dcd0688.setError("This data is Required!");    // Set Error on last radio button
+                Log.i(TAG, "mn0531: This data is Required!");
+                return false;
+            } else {
+                dcd0688.setError(null);
+            }
         }
 
 //        07

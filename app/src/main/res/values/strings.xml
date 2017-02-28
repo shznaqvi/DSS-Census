@@ -144,7 +144,9 @@
     <string name="dcbf15"> Retired </string>
     <string name="dcbf16"> Private Service </string>
     <string name="dcbf17"> Factory Worker </string>
+  <string name="dcAge"> تاریخ پیدائش  /  عمر </string>
     <string name="dcbg"> تاریخ پیدائش </string>
+  <string name="dcAgeatDeath"> تاریخ وفات / وفات کی عمر </string>
     <string name="dcbh"> عمر </string>
     <string name="dcbhy"> سال </string>
     <string name="dcbhm"> مہینہ </string>

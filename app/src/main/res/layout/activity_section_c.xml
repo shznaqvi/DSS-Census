@@ -163,7 +163,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -260,25 +260,28 @@
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
                 android:padding="2dp"
-                android:text="@string/dcce"
+                android:text="@string/dcAgeatDeath"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
 
 
             <RadioGroup
                 android:id="@+id/dccdod"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/radiogroup"
+                android:layout_marginTop="32dp"
+                android:background="@color/colorPrimary">
 
                 <RadioButton
                     android:id="@+id/dccage01"
-                    android:layout_width="match_parent"
+                    style="@style/radiobutton"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dcce" />
 
                 <RadioButton
                     android:id="@+id/dccdod02"
-                    android:layout_width="match_parent"
+                    style="@style/radiobutton"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dccf" />
 
