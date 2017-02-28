@@ -22,8 +22,6 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends Activity {
 
-    private Boolean exit = false;
-
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
     @BindView(R.id.adminsec)
     LinearLayout adminsec;
@@ -31,6 +29,7 @@ public class MainActivity extends Activity {
     TextView recordSummary;
     @BindView(R.id.areaCode)
     EditText areaCode;
+    private Boolean exit = false;
     private String rSumText = "";
 
     @Override

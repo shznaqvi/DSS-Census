@@ -573,7 +573,7 @@ public class SectionEActivity extends Activity {
             }
 
             // ======================  Q 9 =================
-            if (dce0801.isChecked() || dce0899.isChecked()) {
+            if (dce0802.isChecked() || dce0899.isChecked()) {
                 if (dce09.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce09), Toast.LENGTH_SHORT).show();
                     dce0999.setError("This data is Required!");

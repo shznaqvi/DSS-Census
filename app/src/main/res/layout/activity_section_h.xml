@@ -182,22 +182,23 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:visibility="gone">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/dch05"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
 
-            <EditText
-                android:id="@+id/dch05"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/dch05"
-                android:inputType="textCapWords" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/colorPrimary"
+                        android:padding="2dp"
+                        android:text="@string/dch05"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@android:color/white" />
+
+                    <EditText
+                        android:id="@+id/dch05"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/dch05"
+                        android:inputType="textCapWords" />
 
                 </LinearLayout>
 

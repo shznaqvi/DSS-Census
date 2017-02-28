@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -258,17 +259,7 @@ public class SectionBActivity extends Activity {
             }
         });
 
-        dcbis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if (dcbis06.isChecked()) {
-                    dcbis06x.setVisibility(View.VISIBLE);
-                } else {
-                    dcbis06x.setVisibility(View.GONE);
-                    dcbis06x.setText(null);
-                }
-            }
-        });
+
 
         dcbd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -386,6 +377,18 @@ public class SectionBActivity extends Activity {
                     dcbir03.setChecked(false);
                     dcbirm.setVisibility(View.GONE);
                     dcbirm.setText(null);
+                }
+            }
+        });
+
+        dcbis06.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    dcbis06x.setVisibility(View.VISIBLE);
+                } else {
+                    dcbis06x.setVisibility(View.GONE);
+                    dcbis06x.setText(null);
                 }
             }
         });

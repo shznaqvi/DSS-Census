@@ -356,37 +356,39 @@ public class SectionKActivity extends Activity  {
         } else {
             dckc02.setError(null);
         }
-        // ================= Age in years ===========
-        if (dckey.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dckey), Toast.LENGTH_SHORT).show();
-            dckey.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
+        if (dckAge02.isChecked()) {
+            // ================= Age in years ===========
+            if (dckey.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dckey), Toast.LENGTH_SHORT).show();
+                dckey.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
 
-            Log.i(TAG, "dckey: This data is Required!");
-            return false;
-        } else {
-            dckey.setError(null);
-        }
+                Log.i(TAG, "dckey: This data is Required!");
+                return false;
+            } else {
+                dckey.setError(null);
+            }
 
-        // ================= Age in months ===========
-        if (dckem.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dckem), Toast.LENGTH_SHORT).show();
-            dckem.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
+            // ================= Age in months ===========
+            if (dckem.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dckem), Toast.LENGTH_SHORT).show();
+                dckem.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
 
-            Log.i(TAG, "dckem: This data is Required!");
-            return false;
-        } else {
-            dckem.setError(null);
-        }
+                Log.i(TAG, "dckem: This data is Required!");
+                return false;
+            } else {
+                dckem.setError(null);
+            }
 
-        // ================= Age in days ===========
-        if (dcked.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcked), Toast.LENGTH_SHORT).show();
-            dcked.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
+            // ================= Age in days ===========
+            if (dcked.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcked), Toast.LENGTH_SHORT).show();
+                dcked.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
 
-            Log.i(TAG, "dcked: This data is Required!");
-            return false;
-        } else {
-            dcked.setError(null);
+                Log.i(TAG, "dcked: This data is Required!");
+                return false;
+            } else {
+                dcked.setError(null);
+            }
         }
 
         // ============== Vitamin drops ===================

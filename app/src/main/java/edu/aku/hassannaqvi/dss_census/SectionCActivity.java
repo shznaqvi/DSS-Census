@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -151,6 +152,18 @@ public class SectionCActivity extends Activity {
                     dcch.clearCheck();
                 } else {
                     fldGrpdcch.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        dccbrhh09.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    dccbrhh09x.setVisibility(View.VISIBLE);
+                } else {
+                    dccbrhh09x.setVisibility(View.GONE);
+                    dccbrhh09x.setText(null);
                 }
             }
         });
