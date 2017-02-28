@@ -603,11 +603,11 @@ public class SectionAActivity extends Activity {
             }
 
             int total = Integer.parseInt(dca0701.getText().toString());
-            int male = Integer.parseInt(dca0702.getText().toString());
-            int female = Integer.parseInt(dca0703.getText().toString());
-            int totalCh = Integer.parseInt(dca0801.getText().toString());
-            int maleCh = Integer.parseInt(dca0802.getText().toString());
-            int femaleCh = Integer.parseInt(dca0803.getText().toString());
+            int male = Integer.parseInt(dca0702.getText().toString().isEmpty() ? "0" : dca0702.getText().toString());
+            int female = Integer.parseInt(dca0703.getText().toString().isEmpty() ? "0" : dca0703.getText().toString());
+            int totalCh = Integer.parseInt(dca0801.getText().toString().isEmpty() ? "0" : dca0801.getText().toString());
+            int maleCh = Integer.parseInt(dca0802.getText().toString().isEmpty() ? "0" : dca0802.getText().toString());
+            int femaleCh = Integer.parseInt(dca0803.getText().toString().isEmpty() ? "0" : dca0803.getText().toString());
 
 
             //=============== total should be equal to sum of male & female members
