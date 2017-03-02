@@ -219,15 +219,11 @@ public class SectionHActivity extends Activity {
             }
         });
 
-
         dch0301.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     fldGrpdch04.setVisibility(View.VISIBLE);
-                } else {
-                    fldGrpdch04.setVisibility(View.GONE);
-                    dch04.clearCheck();
                 }
             }
         });
@@ -236,13 +232,13 @@ public class SectionHActivity extends Activity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
+                    fldGrpdch04.setVisibility(View.GONE);
+                    dch04.clearCheck();
                     fldGrpdch05.setVisibility(View.VISIBLE);
-                } else {
-                    fldGrpdch05.setVisibility(View.GONE);
-                    dch05.setText(null);
                 }
             }
         });
+
 
         //============== Q4 Skip Pattern ==================
         dch04.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -405,7 +401,7 @@ public class SectionHActivity extends Activity {
                 dch0499.setError(null);
             }
         }
-        if (dch0302.isChecked())
+        if (dch0302.isChecked() || dch0402.isChecked())
             if (dch05.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch05), Toast.LENGTH_SHORT).show();
                 dch05.setError("This data is Required!");
