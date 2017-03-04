@@ -23,11 +23,12 @@ import java.util.Date;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+
     public static final String SQL_CREATE_USERS = "CREATE TABLE " + UsersContract.singleUser.TABLE_NAME + "("
             + UsersContract.singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + UsersContract.singleUser.ROW_USERNAME + " TEXT,"
             + UsersContract.singleUser.ROW_PASSWORD + " TEXT );";
-    private static final String DATABASE_NAME = "virband.db";
+    private static final String DATABASE_NAME = "dss-census.db";
     private static final int DATABASE_VERSION = 1;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsContract.singleForm.TABLE_NAME + "("
@@ -79,7 +80,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-
+        db.execSQL(SQL_DELETE_USERS);
+        db.execSQL(SQL_DELETE_FORMS);
     }
 
     public void syncUser(JSONArray userlist) {
@@ -197,6 +199,69 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Collection<FormsContract> getAllForms() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                FormsContract.singleForm._ID,
+                FormsContract.singleForm.COLUMN_NAME_UID,
+                FormsContract.singleForm.COLUMN_NAME_PROJECT_NAME,
+                //singleForm.COLUMN_NAME_SURVEY_TYPE,
+                FormsContract.singleForm.COLUMN_NAME_DEVICE_ID,
+                FormsContract.singleForm.COLUMN_NAME_GPS_LAT,
+                FormsContract.singleForm.COLUMN_NAME_GPS_LNG,
+                FormsContract.singleForm.COLUMN_NAME_GPS_ACC,
+                FormsContract.singleForm.COLUMN_NAME_GPS_TIME,
+                FormsContract.singleForm.COLUMN_NAME_SYNCED,
+                FormsContract.singleForm.COLUMN_NAME_SYNCED_DATE,
+                FormsContract.singleForm.COLUMN_NAME_FORM_DATE,
+                FormsContract.singleForm.COLUMN_NAME_INTERVIEWER,
+                FormsContract.singleForm.COLUMN_NAME_AREA_CODE,
+                FormsContract.singleForm.COLUMN_NAME_SUBAREA_CODE,
+                FormsContract.singleForm.COLUMN_NAME_HOUSEHOLD,
+                FormsContract.singleForm.COLUMN_NAME_ISTATUS,
+                //singleForm.COLUMN_NAME_SA,
+                FormsContract.singleForm.COLUMN_NAME_SB,
+                FormsContract.singleForm.COLUMN_NAME_SC,
+                FormsContract.singleForm.COLUMN_NAME_SD,
+                FormsContract.singleForm.COLUMN_NAME_SIC,
+
+
+        };
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                FormsContract.singleForm._ID + " ASC";
+
+        Collection<FormsContract> allFC = new ArrayList<FormsContract>();
+        try {
+            c = db.query(
+                    FormsContract.singleForm.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                FormsContract fc = new FormsContract();
+                allFC.add(fc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allFC;
+    }
+
+    public Collection<FormsContract> getUnsyncedForms() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
