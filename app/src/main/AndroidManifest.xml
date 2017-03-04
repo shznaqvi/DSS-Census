@@ -67,6 +67,8 @@
             android:name=".SectionMActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity android:name=".FamilyMembersActivity"></activity>
+        <activity android:name=".AndroidDatabaseManager" />
+
     </application>
 
 </manifest>
