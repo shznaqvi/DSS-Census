@@ -75,7 +75,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
 
                 <EditText
@@ -83,7 +85,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
 
             <CheckBox
@@ -105,14 +109,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01a2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
 
             <TextView
@@ -147,14 +155,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01b1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
             <CheckBox
                 android:id="@+id/dcl01bc"
@@ -176,14 +188,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01b2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -217,14 +233,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01c1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
             <CheckBox
                 android:id="@+id/dcl01cc"
@@ -246,14 +266,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01c2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -278,6 +302,8 @@
                 android:id="@+id/fldGrpd1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="2"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -294,7 +320,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
             </LinearLayout>
             <CheckBox
                 android:id="@+id/dcl01dc"
@@ -316,14 +345,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01d2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
 
             <TextView
@@ -358,14 +391,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01e1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
 
             <CheckBox
@@ -388,14 +425,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01e2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -429,14 +470,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01f1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
             <CheckBox
                 android:id="@+id/dcl01fc"
@@ -458,14 +503,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01f2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
 
             <TextView
@@ -500,7 +549,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01g1fr"
@@ -529,14 +580,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01g2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -570,14 +625,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01h1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
             <CheckBox
                 android:id="@+id/dcl01hc"
@@ -599,14 +658,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01h2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
 
             <TextView
@@ -641,14 +704,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01i1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
 
             <CheckBox
@@ -671,14 +738,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01i2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
 
             <TextView

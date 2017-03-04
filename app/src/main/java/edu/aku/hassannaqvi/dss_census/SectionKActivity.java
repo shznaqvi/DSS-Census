@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -17,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,7 +40,17 @@ public class SectionKActivity extends Activity  {
     @BindView(R.id.dckc) RadioGroup dckc;
     @BindView(R.id.dckc01) RadioButton dckc01;
     @BindView(R.id.dckc02) RadioButton dckc02;
+    @BindView(R.id.dckdob)
+    RadioGroup dckdob;
+    @BindView(R.id.dckdob01)
+    RadioButton dckdob01;
+    @BindView(R.id.dckAge02)
+    RadioButton dckAge02;
+    @BindView(R.id.fldGrpdckdob)
+    LinearLayout fldGrpdckdob;
     @BindView(R.id.dckd) DatePicker dckd;
+    @BindView(R.id.fldGrpdckAge)
+    LinearLayout fldGrpdckAge;
     @BindView(R.id.dckey)
     EditText dckey;
     @BindView(R.id.dckem)
@@ -151,6 +164,40 @@ public class SectionKActivity extends Activity  {
         ButterKnife.bind(this);
 
         appHeader.setText("DSS - > Section K: Vaccination");
+
+        dckd.setMaxDate(new Date().getTime());
+        dckd.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
+        dckdate0.setMaxDate(new Date().getTime());
+        dckdate0.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
+        dckdate1.setMaxDate(new Date().getTime());
+        dckdate1.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
+        dckdate2.setMaxDate(new Date().getTime());
+        dckdate2.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
+        dckdate3.setMaxDate(new Date().getTime());
+        dckdate3.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
+        dckdate4.setMaxDate(new Date().getTime());
+        dckdate4.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
+        dckdate5.setMaxDate(new Date().getTime());
+        dckdate5.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
+
+
+        dckdob.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (dckdob01.isChecked()) {
+                    fldGrpdckdob.setVisibility(View.VISIBLE);
+                    fldGrpdckAge.setVisibility(View.GONE);
+                    dcked.setText(null);
+                    dckem.setText(null);
+                    dckey.setText(null);
+                } else {
+                    fldGrpdckAge.setVisibility(View.VISIBLE);
+                    fldGrpdckdob.setVisibility(View.GONE);
+                }
+            }
+        });
+
+
 
     }
 
@@ -309,37 +356,39 @@ public class SectionKActivity extends Activity  {
         } else {
             dckc02.setError(null);
         }
-        // ================= Age in years ===========
-        if (dckey.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dckey), Toast.LENGTH_SHORT).show();
-            dckey.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
+        if (dckAge02.isChecked()) {
+            // ================= Age in years ===========
+            if (dckey.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dckey), Toast.LENGTH_SHORT).show();
+                dckey.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
 
-            Log.i(TAG, "dckey: This data is Required!");
-            return false;
-        } else {
-            dckey.setError(null);
-        }
+                Log.i(TAG, "dckey: This data is Required!");
+                return false;
+            } else {
+                dckey.setError(null);
+            }
 
-        // ================= Age in months ===========
-        if (dckem.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dckem), Toast.LENGTH_SHORT).show();
-            dckem.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
+            // ================= Age in months ===========
+            if (dckem.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dckem), Toast.LENGTH_SHORT).show();
+                dckem.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
 
-            Log.i(TAG, "dckem: This data is Required!");
-            return false;
-        } else {
-            dckem.setError(null);
-        }
+                Log.i(TAG, "dckem: This data is Required!");
+                return false;
+            } else {
+                dckem.setError(null);
+            }
 
-        // ================= Age in days ===========
-        if (dcked.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcked), Toast.LENGTH_SHORT).show();
-            dcked.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
+            // ================= Age in days ===========
+            if (dcked.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcked), Toast.LENGTH_SHORT).show();
+                dcked.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
 
-            Log.i(TAG, "dcked: This data is Required!");
-            return false;
-        } else {
-            dcked.setError(null);
+                Log.i(TAG, "dcked: This data is Required!");
+                return false;
+            } else {
+                dcked.setError(null);
+            }
         }
 
         // ============== Vitamin drops ===================

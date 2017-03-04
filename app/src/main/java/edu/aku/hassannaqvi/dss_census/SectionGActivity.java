@@ -241,9 +241,9 @@ public class SectionGActivity extends Activity {
 
 //        03
         if (dcg0201.isChecked()) {
-            if (!(dcg0301.isChecked() && dcg0302.isChecked() && dcg0303.isChecked() && dcg0304.isChecked() && dcg0305.isChecked()
-                    && dcg0306.isChecked() && dcg0307.isChecked() && dcg0308.isChecked() && dcg0309.isChecked() && dcg0310.isChecked()
-                    && dcg0311.isChecked() && dcg0312.isChecked() && dcg0313.isChecked())) {
+            if (!(dcg0301.isChecked() || dcg0302.isChecked() || dcg0303.isChecked() || dcg0304.isChecked() || dcg0305.isChecked()
+                    || dcg0306.isChecked() || dcg0307.isChecked() || dcg0308.isChecked() || dcg0309.isChecked() || dcg0310.isChecked()
+                    || dcg0311.isChecked() || dcg0312.isChecked() || dcg0313.isChecked())) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcg03), Toast.LENGTH_SHORT).show();
                 dcg0313.setError("This data is Required!");    // Set Error on last radio button
 
@@ -267,9 +267,9 @@ public class SectionGActivity extends Activity {
 
 //        05
         if (dcg0401.isChecked()) {
-            if (!(dcg0501.isChecked() && dcg0502.isChecked() && dcg0503.isChecked() && dcg0504.isChecked() && dcg0505.isChecked()
-                    && dcg0506.isChecked() && dcg0507.isChecked() && dcg0508.isChecked() && dcg0509.isChecked() && dcg0510.isChecked()
-                    && dcg0511.isChecked() && dcg0512.isChecked() && dcg0513.isChecked())) {
+            if (!(dcg0501.isChecked() || dcg0502.isChecked() || dcg0503.isChecked() || dcg0504.isChecked() || dcg0505.isChecked()
+                    || dcg0506.isChecked() || dcg0507.isChecked() || dcg0508.isChecked() || dcg0509.isChecked() || dcg0510.isChecked()
+                    || dcg0511.isChecked() || dcg0512.isChecked() || dcg0513.isChecked())) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcg05), Toast.LENGTH_SHORT).show();
                 dcg0513.setError("This data is Required!");    // Set Error on last radio button
 

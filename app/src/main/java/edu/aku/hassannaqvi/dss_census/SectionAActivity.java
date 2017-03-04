@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -164,14 +167,147 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.dca1102)
     RadioButton dca1102;
 
+    @BindView(R.id.fldGrpdca05)
+    LinearLayout fldGrpdca05;
+
+    @BindView(R.id.fldGrpdca0901)
+    LinearLayout fldGrpdca0901;
+
+    @BindView(R.id.btn_Continue)
+    Button btn_Continue;
+
+    @BindView(R.id.btn_End)
+    Button btn_End;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
+        //==================== Permission Skip Check =================
 
-//        dca01.setText(getIntent().getExtras().get("memberName").toString());
+        dca04.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dca0401.isChecked()) {
+                    fldGrpdca05.setVisibility(View.VISIBLE);
+
+                    btn_Continue.setEnabled(true);
+                    btn_End.setEnabled(false);
+                } else {
+                    fldGrpdca05.setVisibility(View.GONE);
+
+                    dca05.setText(null);
+                    dca0501.clearCheck();
+                    dca0502.clearCheck();
+                    dca0503.setText(null);
+                    dca0504.setText(null);
+                    dca0505.clearCheck();
+                    dca050596x.setText(null);
+                    dca06.setText(null);
+                    dca0601.clearCheck();
+                    dca0602.setText(null);
+                    dca0603.setText(null);
+                    dca0604.clearCheck();
+                    dca060496x.setText(null);
+                    dca0701.setText(null);
+                    dca0702.setText(null);
+                    dca0703.setText(null);
+                    dca0801.setText(null);
+                    dca0802.setText(null);
+                    dca0803.setText(null);
+                    dca09.clearCheck();
+                    dca09m.setText(null);
+                    dca09y.setText(null);
+                    dca10a.setText(null);
+                    dca10b.setText(null);
+                    dca11.clearCheck();
+
+                    btn_Continue.setEnabled(false);
+                    btn_End.setEnabled(true);
+                }
+            }
+        });
+
+        dca09.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (!dca0901.isChecked()) {
+                    fldGrpdca0901.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdca0901.setVisibility(View.GONE);
+                    dca09m.setText(null);
+                    dca09y.setText(null);
+                }
+            }
+        });
+
+        // =================== If Respondent is male ===============
+
+        dca0501.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (dca050101.isChecked()) {
+                    dca050201.setEnabled(false);
+                    dca050201.setChecked(false);
+                    dca050512.setEnabled(false);
+                    dca050512.setChecked(false);
+                } else {
+                    dca050201.setEnabled(true);
+                    dca050512.setEnabled(true);
+
+                }
+
+
+            }
+        });
+
+        //=============== Others Occupation ==============
+
+        dca0505.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (dca050596.isChecked()) {
+                    dca050596x.setVisibility(View.VISIBLE);
+                } else {
+                    dca050596x.setVisibility(View.GONE);
+                    dca050596x.setText(null);
+                }
+            }
+        });
+
+        //=============== Others Occupation ==============
+
+        dca0604.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (dca060496.isChecked()) {
+                    dca060496x.setVisibility(View.VISIBLE);
+                } else {
+                    dca060496x.setVisibility(View.GONE);
+                    dca060496x.setText(null);
+                }
+            }
+        });
+
+        // =================== If Respondent is male ===============
+
+        dca0601.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (dca060101.isChecked()) {
+                    dca060412.setEnabled(false);
+                    dca060412.setChecked(false);
+                } else {
+                    dca060412.setEnabled(true);
+
+                }
+
+
+            }
+        });
+
 
     }
 
@@ -179,21 +315,24 @@ public class SectionAActivity extends Activity {
     void onBtnEndClick() {
 
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
-       /* if (formValidation()) {
+        if (formValidation()) {
             try {
                 SaveDraft();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            if (UpdateDB()) {*/
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, MainActivity.class);
-        endSec.putExtra("complete", false);
-        startActivity(endSec);
-           /* } else {
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+
+                finish();
+
+                Intent endSec = new Intent(this, MainActivity.class);
+                endSec.putExtra("complete", false);
+                startActivity(endSec);
+            } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-        } */
+        }
 
     }
 
@@ -208,12 +347,12 @@ public class SectionAActivity extends Activity {
                 e.printStackTrace();
             }
             if (UpdateDB()) {
-            Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
-            finish();
+                finish();
 
-            MainApp.NoMembers = Integer.parseInt(dca0701.getText().toString());
-            startActivity(new Intent(this, FamilyMembersActivity.class));
+                MainApp.NoMembersCount = Integer.parseInt(dca0701.getText().toString());
+                startActivity(new Intent(this, FamilyMembersActivity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -246,244 +385,385 @@ public class SectionAActivity extends Activity {
         }
 
 //        03
-        if (dca05.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca05), Toast.LENGTH_SHORT).show();
-            dca05.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca05.setError(null);
-        }
+        if (dca0401.isChecked()) {
+            if (dca05.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca05), Toast.LENGTH_SHORT).show();
+                dca05.setError("This data is Required!");    // Set Error on last radio button
+                return false;
+            } else {
+                dca05.setError(null);
+            }
 
 //        04
-        if (dca0501.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0501), Toast.LENGTH_SHORT).show();
-            dca050102.setError("This data is Required!");    // Set Error on last radio button
+            if (dca0501.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0501), Toast.LENGTH_SHORT).show();
+                dca050102.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dca0501: This data is Required!");
-            return false;
-        } else {
-            dca050102.setError(null);
-        }
+                Log.i(TAG, "dca0501: This data is Required!");
+                return false;
+            } else {
+                dca050102.setError(null);
+            }
 
 //        05
-        if (dca0502.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0502), Toast.LENGTH_SHORT).show();
-            dca050202.setError("This data is Required!");    // Set Error on last radio button
+            if (dca0502.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0502), Toast.LENGTH_SHORT).show();
+                dca050202.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dca0502: This data is Required!");
-            return false;
-        } else {
-            dca050202.setError(null);
-        }
-
-//        06
-        if (dca0503.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0503), Toast.LENGTH_SHORT).show();
-            dca0503.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca0503.setError(null);
-        }
+                Log.i(TAG, "dca0502: This data is Required!");
+                return false;
+            } else {
+                dca050202.setError(null);
+            }
 
 //        06
-        if (dca0504.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0504), Toast.LENGTH_SHORT).show();
-            dca0504.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca0504.setError(null);
-        }
+            if (dca0503.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0503), Toast.LENGTH_SHORT).show();
+                dca0503.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0503: This data is Required!");
+                return false;
+            } else {
+                dca0503.setError(null);
+            }
+
+            if ((Integer.parseInt(dca0503.getText().toString()) < 16) || (Integer.parseInt(dca0503.getText().toString()) > 99)) {
+                Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca0503), Toast.LENGTH_SHORT).show();
+                dca0503.setError("Range is 16 - 99 Years!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0503: Range is 16 - 99 Years!");
+                return false;
+            } else {
+                dca0503.setError(null);
+            }
+
+//        06
+            if (dca0504.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0504), Toast.LENGTH_SHORT).show();
+                dca0504.setError("This data is Required!");    // Set Error on last radio button
+                return false;
+            } else {
+                dca0504.setError(null);
+            }
+
+            if ((Integer.parseInt(dca0504.getText().toString()) < 1) || (Integer.parseInt(dca0504.getText().toString()) > 16)
+                    && Integer.parseInt(dca0504.getText().toString()) != 99) {
+                Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca0504), Toast.LENGTH_SHORT).show();
+                dca0504.setError("Range is 1 - 16 or 99!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0504: Range is 1 - 16 or 99!");
+                return false;
+            } else {
+                dca0504.setError(null);
+            }
 
 //        07
-        if (dca0505.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0505), Toast.LENGTH_SHORT).show();
-            dca050502.setError("This data is Required!");    // Set Error on last radio button
+            if (dca0505.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0505), Toast.LENGTH_SHORT).show();
+                dca050502.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dca0505: This data is Required!");
-            return false;
-        } else {
-            dca050502.setError(null);
-        }
+                Log.i(TAG, "dca0505: This data is Required!");
+                return false;
+            } else {
+                dca050502.setError(null);
+            }
 
-        if (dca050596.isChecked() && dca050596x.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0505), Toast.LENGTH_SHORT).show();
-            dca050596x.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca050596x.setError(null);
-        }
+            if (dca050596.isChecked() && dca050596x.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0505), Toast.LENGTH_SHORT).show();
+                dca050596x.setError("This data is Required!");    // Set Error on last radio button
+                return false;
+            } else {
+                dca050596x.setError(null);
+            }
 
 //        08
-        if (dca06.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca06), Toast.LENGTH_SHORT).show();
-            dca06.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca06.setError(null);
-        }
+            if (dca06.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca06), Toast.LENGTH_SHORT).show();
+                dca06.setError("This data is Required!");    // Set Error on last radio button
+                return false;
+            } else {
+                dca06.setError(null);
+            }
 
 //        09
-        if (dca0601.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0601), Toast.LENGTH_SHORT).show();
-            dca060102.setError("This data is Required!");    // Set Error on last radio button
+            if (dca0601.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0601), Toast.LENGTH_SHORT).show();
+                dca060102.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dca0601: This data is Required!");
-            return false;
-        } else {
-            dca060102.setError(null);
-        }
+                Log.i(TAG, "dca0601: This data is Required!");
+                return false;
+            } else {
+                dca060102.setError(null);
+            }
 
 //        10
-        if (dca0602.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0602), Toast.LENGTH_SHORT).show();
-            dca0602.setError("This data is Required!");    // Set Error on last radio button
+            if (dca0602.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0602), Toast.LENGTH_SHORT).show();
+                dca0602.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dca0602: This data is Required!");
-            return false;
-        } else {
-            dca0602.setError(null);
-        }
+                Log.i(TAG, "dca0602: This data is Required!");
+                return false;
+            } else {
+                dca0602.setError(null);
+            }
+
+            if ((Integer.parseInt(dca0602.getText().toString()) < 16) || (Integer.parseInt(dca0602.getText().toString()) > 99)) {
+                Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca0602), Toast.LENGTH_SHORT).show();
+                dca0602.setError("Range is 16 - 99 Years!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0602: Range is 16 - 99 Years!");
+                return false;
+            } else {
+                dca0602.setError(null);
+            }
 
 //        11
-        if (dca0603.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0603), Toast.LENGTH_SHORT).show();
-            dca0603.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca0603.setError(null);
-        }
+            if (dca0603.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0603), Toast.LENGTH_SHORT).show();
+                dca0603.setError("This data is Required!");    // Set Error on last radio button
+                return false;
+            } else {
+                dca0603.setError(null);
+            }
+
+            if ((Integer.parseInt(dca0603.getText().toString()) < 1) || (Integer.parseInt(dca0603.getText().toString()) > 16)
+                    && Integer.parseInt(dca0603.getText().toString()) != 99) {
+                Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca0603), Toast.LENGTH_SHORT).show();
+                dca0603.setError("Range is 1 - 16 or 99!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0603: Range is 1 - 16 or 99!");
+                return false;
+            } else {
+                dca0603.setError(null);
+            }
+
 
 //        12
-        if (dca0604.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0604), Toast.LENGTH_SHORT).show();
-            dca060496.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca060496.setError(null);
-        }
+            if (dca0604.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0604), Toast.LENGTH_SHORT).show();
+                dca060496.setError("This data is Required!");    // Set Error on last radio button
 
-        if (dca060496.isChecked() && dca060496x.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0604), Toast.LENGTH_SHORT).show();
-            dca060496x.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca060496x.setError(null);
-        }
+                Log.i(TAG, "dca0604: This data is Required!");
+                return false;
+            } else {
+                dca060496.setError(null);
+            }
+
+            if (dca060496.isChecked() && dca060496x.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0604), Toast.LENGTH_SHORT).show();
+                dca060496x.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca060496x: This data is Required!");
+                return false;
+            } else {
+                dca060496x.setError(null);
+            }
 
 //        13
-        if (dca0701.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca07), Toast.LENGTH_SHORT).show();
-            dca0701.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca0701.setError(null);
-        }
+            if (dca0701.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca07), Toast.LENGTH_SHORT).show();
+                dca0701.setError("This data is Required!");    // Set Error on last radio button
 
-        if (Integer.parseInt(dca0701.getText().toString()) < 1) {
-            Toast.makeText(this, "Invalid Data: " + getString(R.string.dca07), Toast.LENGTH_SHORT).show();
-            dca0701.setError("Invalid Data must me greater then 0");    // Set Error on last radio button
-            return false;
-        } else {
-            dca0701.setError(null);
-        }
+                Log.i(TAG, "dca0701: This data is Required!");
+                return false;
+            } else {
+                dca0701.setError(null);
+            }
 
-        if (dca0702.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca07), Toast.LENGTH_SHORT).show();
-            dca0702.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca0702.setError(null);
-        }
 
-        if (dca0703.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca07), Toast.LENGTH_SHORT).show();
-            dca0703.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca0703.setError(null);
-        }
+            if (Integer.parseInt(dca0701.getText().toString()) < 1) {
+                Toast.makeText(this, "Invalid Data: " + getString(R.string.dca07), Toast.LENGTH_SHORT).show();
+                dca0701.setError("Invalid Data must me greater then 0");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0701: Invalid Data must me greater then 0");
+                return false;
+            } else {
+                dca0701.setError(null);
+            }
+
+            if (dca0702.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca07), Toast.LENGTH_SHORT).show();
+                dca0702.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0702: This data is Required!");
+                return false;
+            } else {
+                dca0702.setError(null);
+            }
+
+
+            if (dca0703.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca07), Toast.LENGTH_SHORT).show();
+                dca0703.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0703: This data is Required!");
+                return false;
+            } else {
+                dca0703.setError(null);
+            }
+
+            int total = Integer.parseInt(dca0701.getText().toString());
+            int male = Integer.parseInt(dca0702.getText().toString().isEmpty() ? "0" : dca0702.getText().toString());
+            int female = Integer.parseInt(dca0703.getText().toString().isEmpty() ? "0" : dca0703.getText().toString());
+            int totalCh = Integer.parseInt(dca0801.getText().toString().isEmpty() ? "0" : dca0801.getText().toString());
+            int maleCh = Integer.parseInt(dca0802.getText().toString().isEmpty() ? "0" : dca0802.getText().toString());
+            int femaleCh = Integer.parseInt(dca0803.getText().toString().isEmpty() ? "0" : dca0803.getText().toString());
+
+
+            //=============== total should be equal to sum of male & female members
+            if ((male + female) != total) {
+                Toast.makeText(this, "Invalid: " + getString(R.string.dca07), Toast.LENGTH_SHORT).show();
+                dca0701.setError("Invalid... Check Again");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0701: Invalid.... Check Again");
+                return false;
+            } else {
+                dca0701.setError(null);
+            }
+
+            if (totalCh > total || totalCh == total) {
+                Toast.makeText(this, "Invalid: " + getString(R.string.dca08), Toast.LENGTH_SHORT).show();
+                dca0801.setError("Number of children cannot be equal to total members");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0801: Invalid.... Check Again");
+                return false;
+            } else {
+                dca0801.setError(null);
+            }
+
+            if ((maleCh + femaleCh) != totalCh) {
+                Toast.makeText(this, "Invalid: " + getString(R.string.dca08), Toast.LENGTH_SHORT).show();
+                dca0801.setError("Invalid... Check Again");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0801: Invalid.... Check Again");
+                return false;
+            } else {
+                dca0801.setError(null);
+            }
+
+            if (maleCh > male) {
+                Toast.makeText(this, "Invalid: " + getString(R.string.dca08), Toast.LENGTH_SHORT).show();
+                dca0802.setError("Children can not be greater than male members");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0802: Invalid.... Check Again");
+                return false;
+            } else {
+                dca0802.setError(null);
+            }
+
+            if (femaleCh > female) {
+                Toast.makeText(this, "Invalid: " + getString(R.string.dca08), Toast.LENGTH_SHORT).show();
+                dca0803.setError("Children can not be greater than female members");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0803: Invalid.... Check Again");
+                return false;
+            } else {
+                dca0803.setError(null);
+            }
+
 
 //        14
-        if (dca0801.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca08), Toast.LENGTH_SHORT).show();
-            dca0801.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca0801.setError(null);
-        }
+            if (dca0801.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca08), Toast.LENGTH_SHORT).show();
+                dca0801.setError("This data is Required!");    // Set Error on last radio button
 
-        if (dca0802.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca08), Toast.LENGTH_SHORT).show();
-            dca0802.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca0802.setError(null);
-        }
+                Log.i(TAG, "dca0801: This data is Required!");
+                return false;
+            } else {
+                dca0801.setError(null);
+            }
 
-        if (dca0803.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca08), Toast.LENGTH_SHORT).show();
-            dca0803.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca0803.setError(null);
-        }
+            if (dca0802.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca08), Toast.LENGTH_SHORT).show();
+                dca0802.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0802: This data is Required!");
+                return false;
+            } else {
+                dca0802.setError(null);
+            }
+
+            if (dca0803.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca08), Toast.LENGTH_SHORT).show();
+                dca0803.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0803: This data is Required!");
+                return false;
+            } else {
+                dca0803.setError(null);
+            }
 
 //        15
-        if (dca09.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca09), Toast.LENGTH_SHORT).show();
-            dca0902.setError("This data is Required!");    // Set Error on last radio button
+            if (dca09.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca09), Toast.LENGTH_SHORT).show();
+                dca0902.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dca09: This data is Required!");
-            return false;
-        } else {
-            dca0902.setError(null);
-        }
+                Log.i(TAG, "dca09: This data is Required!");
+                return false;
+            } else {
+                dca0902.setError(null);
+            }
 
 //        16
 
-        if (dca09m.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca09m), Toast.LENGTH_SHORT).show();
-            dca09m.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca09m.setError(null);
-        }
+            if (dca0902.isChecked() || dca0903.isChecked()) {
+                if (dca09m.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca09m), Toast.LENGTH_SHORT).show();
+                    dca09m.setError("This data is Required!");    // Set Error on last radio button
+                    return false;
+                } else {
+                    dca09m.setError(null);
+                }
 
-        if (dca09y.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca09y), Toast.LENGTH_SHORT).show();
-            dca09y.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca09y.setError(null);
-        }
+                if ((Integer.parseInt(dca09m.getText().toString()) < 1) || (Integer.parseInt(dca09m.getText().toString())) > 11) {
+                    Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca09m), Toast.LENGTH_SHORT).show();
+                    dca09m.setError("Range is 1 - 11 months");    // Set Error on last radio button
+                    return false;
+                } else {
+                    dca09m.setError(null);
+                }
+
+                if (dca09y.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca09y), Toast.LENGTH_SHORT).show();
+                    dca09y.setError("This data is Required!");    // Set Error on last radio button
+                    return false;
+                } else {
+                    dca09y.setError(null);
+                }
+            }
 
 //        17
-        if (dca10a.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca10a), Toast.LENGTH_SHORT).show();
-            dca10a.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca10a.setError(null);
-        }
+            if (dca10a.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca10a), Toast.LENGTH_SHORT).show();
+                dca10a.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca10a: This data is Required!");
+                return false;
+            } else {
+                dca10a.setError(null);
+            }
 
 //        18
-        if (dca10b.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca10b), Toast.LENGTH_SHORT).show();
-            dca10b.setError("This data is Required!");    // Set Error on last radio button
-            return false;
-        } else {
-            dca10b.setError(null);
-        }
+            if (dca10b.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca10b), Toast.LENGTH_SHORT).show();
+                dca10b.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca10b: This data is Required!");
+                return false;
+            } else {
+                dca10b.setError(null);
+            }
 
 //        19
-        if (dca11.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca11), Toast.LENGTH_SHORT).show();
-            dca1102.setError("This data is Required!");    // Set Error on last radio button
+            if (dca11.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca11), Toast.LENGTH_SHORT).show();
+                dca1102.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dca11: This data is Required!");
-            return false;
-        } else {
-            dca1102.setError(null);
+                Log.i(TAG, "dca11: This data is Required!");
+                return false;
+            } else {
+                dca1102.setError(null);
+            }
         }
 
         return true;
@@ -551,9 +831,6 @@ public class SectionAActivity extends Activity {
 
         return true;
     }
-
-
-
 
 
 }

@@ -109,7 +109,9 @@
                 android:id="@+id/dcd01a96x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/dcother" />
+                android:hint="@string/dcother"
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -178,7 +180,9 @@
                 android:id="@+id/dcd01b96x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/dcother" />
+                android:hint="@string/dcother"
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -237,7 +241,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -356,7 +361,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -394,7 +400,14 @@
 
             </RadioGroup>
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/fldGrpdcd06"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -434,6 +447,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/dcna" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -551,7 +566,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -659,7 +675,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -732,7 +749,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView

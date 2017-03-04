@@ -27,11 +27,6 @@ public class MainApp extends Application {
     /*
         public static final String _IP = "43.245.131.159"; // Test server
     */
-
-
-    public static int NoMembers = 7;
-    public static List<deadMemberClass> deadMembers = new ArrayList<deadMemberClass>();
-
     public static final Integer MONTHS_LIMIT = 11;
     public static final Integer DAYS_LIMIT = 29;
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
@@ -57,6 +52,19 @@ public class MainApp extends Application {
     public static String areaCode;
     protected LocationManager locationManager;
     Location location;
+
+//    Total No of members got from Section A
+    public static int NoMembersCount = 0;
+
+//    Total No of Alive members got from Section B
+    public static int currentStatusCount = 0;
+
+
+    public static List<deadMemberClass> deadMembers = new ArrayList<deadMemberClass>();
+
+    //    Family Member List
+    public static List<familyMembers> familyMembersList = new ArrayList<>();
+
 
     @Override
     public void onCreate() {
@@ -201,26 +209,26 @@ public class MainApp extends Application {
 
     }
 
-    public static class deadMemberClass{
+    public static class deadMemberClass {
 
         int position;
         String DSSId;
 
 
-        public deadMemberClass(int i,String s){
+        public deadMemberClass(int i, String s) {
             position = i;
             DSSId = s;
         }
 
-        public void setPosition(int i){
+        public void setPosition(int i) {
             position = i;
         }
 
-        public int getPosition(){
+        public int getPosition() {
             return position;
         }
 
-        public void setDSSId(String id){
+        public void setDSSId(String id) {
             DSSId = id;
         }
 

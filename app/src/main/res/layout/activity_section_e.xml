@@ -91,7 +91,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords"/>
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -175,7 +176,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords"/>
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -259,7 +261,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords"/>
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -343,7 +346,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords"/>
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
 
             <TextView
@@ -500,7 +504,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dcother"
-                android:inputType="textCapWords"/>
+                android:inputType="textCapWords"
+                android:visibility="gone" />
 
             </LinearLayout>
         </LinearLayout>

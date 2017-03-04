@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -86,6 +87,46 @@ public class SectionJActivity extends Activity  {
         ButterKnife.bind(this);
 
         appHeader.setText("DSS - > Section J: Child Health Status (Index Child)");
+
+        dcj0577.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    dcj0501.setChecked(false);
+                    dcj0501.setEnabled(false);
+                    dcj0502.setChecked(false);
+                    dcj0502.setEnabled(false);
+                    dcj0503.setChecked(false);
+                    dcj0503.setEnabled(false);
+                    dcj0504.setChecked(false);
+                    dcj0504.setEnabled(false);
+                    dcj0505.setChecked(false);
+                    dcj0505.setEnabled(false);
+                    dcj0506.setChecked(false);
+                    dcj0506.setEnabled(false);
+                    dcj0507.setChecked(false);
+                    dcj0507.setEnabled(false);
+                    dcj0508.setChecked(false);
+                    dcj0508.setEnabled(false);
+                    dcj0509.setChecked(false);
+                    dcj0509.setEnabled(false);
+                    dcj0596.setChecked(false);
+                    dcj0596.setEnabled(false);
+                } else {
+                    dcj0501.setEnabled(true);
+                    dcj0502.setEnabled(true);
+                    dcj0503.setEnabled(true);
+                    dcj0504.setEnabled(true);
+                    dcj0505.setEnabled(true);
+                    dcj0506.setEnabled(true);
+                    dcj0507.setEnabled(true);
+                    dcj0508.setEnabled(true);
+                    dcj0509.setEnabled(true);
+                    dcj0596.setEnabled(true);
+
+                }
+            }
+        });
     }
 
     @OnClick(R.id.btn_End) void onBtnEndClick() {
