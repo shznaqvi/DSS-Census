@@ -19,9 +19,6 @@ public class FormsContract {
     private String DSSID = "";
     private String formDate = ""; // Date
     private String interviewer = ""; // Interviewer
-    private String areacode = "0000"; // Area Code
-    private String subareacode = ""; // Cluster
-    private String household = ""; // Household number
 
     private String istatus = ""; // Interview Status
     private String sA = "";
@@ -58,9 +55,6 @@ public class FormsContract {
         this.DSSID= jsonObject.getString(singleForm.COLUMN_DSSID);
         this.formDate= jsonObject.getString(singleForm.COLUMN_FORMDATE);
         this.interviewer= jsonObject.getString(singleForm.COLUMN_INTERVIEWER);
-        this.areacode= jsonObject.getString(singleForm.COLUMN_AREACODE);
-        this.subareacode= jsonObject.getString(singleForm.COLUMN_SUBAREACODE);
-        this.household= jsonObject.getString(singleForm.COLUMN_HOUSEHOLD);
         this.istatus= jsonObject.getString(singleForm.COLUMN_ISTATUS);
         this.sA= jsonObject.getString(singleForm.COLUMN_SA);
         this.sD= jsonObject.getString(singleForm.COLUMN_SD);
@@ -91,9 +85,6 @@ public class FormsContract {
         this.DSSID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DSSID));
         this.formDate = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_FORMDATE));
         this.interviewer = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_INTERVIEWER));
-        this.areacode = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_AREACODE));
-        this.subareacode = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SUBAREACODE));
-        this.household = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_HOUSEHOLD));
         this.istatus = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_ISTATUS));
         this.sA = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SA));
         this.sD = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SD));
@@ -130,9 +121,6 @@ public class FormsContract {
         json.put(singleForm.COLUMN_DSSID, this.DSSID == null ? JSONObject.NULL : this.DSSID);
         json.put(singleForm.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(singleForm.COLUMN_INTERVIEWER, this.interviewer == null ? JSONObject.NULL : this.interviewer);
-        json.put(singleForm.COLUMN_AREACODE, this.areacode == null ? JSONObject.NULL : this.areacode);
-        json.put(singleForm.COLUMN_SUBAREACODE, this.subareacode == null ? JSONObject.NULL : this.subareacode);
-        json.put(singleForm.COLUMN_HOUSEHOLD, this.household == null ? JSONObject.NULL : this.household);
         json.put(singleForm.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
         json.put(singleForm.COLUMN_SA, this.sA == null ? JSONObject.NULL : this.sA);
         json.put(singleForm.COLUMN_SD, this.sD == null ? JSONObject.NULL : this.sD);
@@ -157,6 +145,202 @@ public class FormsContract {
         return json;
     }
 
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public String get_ID() {
+        return _ID;
+    }
+
+    public void set_ID(String _ID) {
+        this._ID = _ID;
+    }
+
+    public String getUID() {
+        return _UID;
+    }
+
+    public void setUID(String _UID) {
+        this._UID = _UID;
+    }
+
+    public String getDSSID() {
+        return DSSID;
+    }
+
+    public void setDSSID(String DSSID) {
+        this.DSSID = DSSID;
+    }
+
+    public String getFormDate() {
+        return formDate;
+    }
+
+    public void setFormDate(String formDate) {
+        this.formDate = formDate;
+    }
+
+    public String getInterviewer() {
+        return interviewer;
+    }
+
+    public void setInterviewer(String interviewer) {
+        this.interviewer = interviewer;
+    }
+
+    public String getIstatus() {
+        return istatus;
+    }
+
+    public void setIstatus(String istatus) {
+        this.istatus = istatus;
+    }
+
+    public String getsA() {
+        return sA;
+    }
+
+    public void setsA(String sA) {
+        this.sA = sA;
+    }
+
+    public String getsD() {
+        return sD;
+    }
+
+    public void setsD(String sD) {
+        this.sD = sD;
+    }
+
+    public String getsE() {
+        return sE;
+    }
+
+    public void setsE(String sE) {
+        this.sE = sE;
+    }
+
+    public String getsF() {
+        return sF;
+    }
+
+    public void setsF(String sF) {
+        this.sF = sF;
+    }
+
+    public String getsG() {
+        return sG;
+    }
+
+    public void setsG(String sG) {
+        this.sG = sG;
+    }
+
+    public String getsH() {
+        return sH;
+    }
+
+    public void setsH(String sH) {
+        this.sH = sH;
+    }
+
+    public String getsI() {
+        return sI;
+    }
+
+    public void setsI(String sI) {
+        this.sI = sI;
+    }
+
+    public String getsJ() {
+        return sJ;
+    }
+
+    public void setsJ(String sJ) {
+        this.sJ = sJ;
+    }
+
+    public String getsK() {
+        return sK;
+    }
+
+    public void setsK(String sK) {
+        this.sK = sK;
+    }
+
+    public String getsL() {
+        return sL;
+    }
+
+    public void setsL(String sL) {
+        this.sL = sL;
+    }
+
+    public String getsM() {
+        return sM;
+    }
+
+    public void setsM(String sM) {
+        this.sM = sM;
+    }
+
+    public String getGpsLat() {
+        return gpsLat;
+    }
+
+    public void setGpsLat(String gpsLat) {
+        this.gpsLat = gpsLat;
+    }
+
+    public String getGpsLng() {
+        return gpsLng;
+    }
+
+    public void setGpsLng(String gpsLng) {
+        this.gpsLng = gpsLng;
+    }
+
+    public String getGpsTime() {
+        return gpsTime;
+    }
+
+    public void setGpsTime(String gpsTime) {
+        this.gpsTime = gpsTime;
+    }
+
+    public String getGpsAcc() {
+        return gpsAcc;
+    }
+
+    public void setGpsAcc(String gpsAcc) {
+        this.gpsAcc = gpsAcc;
+    }
+
+    public String getDeviceID() {
+        return deviceID;
+    }
+
+    public void setDeviceID(String deviceID) {
+        this.deviceID = deviceID;
+    }
+
+    public String getSynced() {
+        return synced;
+    }
+
+    public void setSynced(String synced) {
+        this.synced = synced;
+    }
+
+    public String getSynced_date() {
+        return synced_date;
+    }
+
+    public void setSynced_date(String synced_date) {
+        this.synced_date = synced_date;
+    }
+
     public static abstract class singleForm implements BaseColumns {
 
         public static final String TABLE_NAME = "forms";
@@ -166,9 +350,6 @@ public class FormsContract {
         public static final String COLUMN_DSSID = "dssid";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_INTERVIEWER = "interviewer";
-        public static final String COLUMN_AREACODE = "areacode";
-        public static final String COLUMN_SUBAREACODE = "subareacode";
-        public static final String COLUMN_HOUSEHOLD = "household";
         public static final String COLUMN_ISTATUS = "istatus";
         public static final String COLUMN_SA = "sa";
         public static final String COLUMN_SD = "sd";
