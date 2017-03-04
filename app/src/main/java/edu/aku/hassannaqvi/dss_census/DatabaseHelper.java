@@ -32,7 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsContract.singleForm.TABLE_NAME + "("
-            + FormsContract.singleForm._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + FormsContract.singleForm.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + FormsContract.singleForm.COLUMN_NAME_UID + " TEXT,"
             + FormsContract.singleForm.COLUMN_NAME_DEVICE_ID + " TEXT,"
             + FormsContract.singleForm.COLUMN_NAME_PROJECT_NAME + " TEXT,"
@@ -188,7 +188,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsContract.singleForm.COLUMN_NAME_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = FormsContract.singleForm._ID + " LIKE ?";
+        String where = FormsContract.singleForm.COLUMN_ID + " LIKE ?";
         String[] whereArgs = {id};
 
         int count = db.update(
@@ -212,7 +212,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                FormsContract.singleForm._ID + " ASC";
+                FormsContract.singleForm.COLUMN_ID + " ASC";
 
         Collection<FormsContract> allFC = new ArrayList<FormsContract>();
         try {
@@ -244,7 +244,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                FormsContract.singleForm._ID,
+                FormsContract.singleForm.COLUMN_ID,
                 FormsContract.singleForm.COLUMN_NAME_UID,
                 FormsContract.singleForm.COLUMN_NAME_PROJECT_NAME,
                 //singleForm.COLUMN_NAME_SURVEY_TYPE,
@@ -275,7 +275,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                FormsContract.singleForm._ID + " ASC";
+                FormsContract.singleForm.COLUMN_ID + " ASC";
 
         Collection<FormsContract> allFC = new ArrayList<FormsContract>();
         try {
@@ -308,7 +308,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                FormsContract.singleForm._ID,
+                FormsContract.singleForm.COLUMN_ID,
                 FormsContract.singleForm.COLUMN_NAME_AREA_CODE,
                 FormsContract.singleForm.COLUMN_NAME_SUBAREA_CODE,
                 FormsContract.singleForm.COLUMN_NAME_HOUSEHOLD,
@@ -320,7 +320,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                FormsContract.singleForm._ID + " ASC";
+                FormsContract.singleForm.COLUMN_ID + " ASC";
 
         Collection<FormsContract> formList = new ArrayList<FormsContract>();
         try {
