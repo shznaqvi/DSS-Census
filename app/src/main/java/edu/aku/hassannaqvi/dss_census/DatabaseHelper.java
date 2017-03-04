@@ -203,27 +203,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c = null;
         String[] columns = {
                 FormsContract.singleForm._ID,
-                FormsContract.singleForm.COLUMN_NAME_UID,
-                FormsContract.singleForm.COLUMN_NAME_PROJECT_NAME,
-                //singleForm.COLUMN_NAME_SURVEY_TYPE,
-                FormsContract.singleForm.COLUMN_NAME_DEVICE_ID,
-                FormsContract.singleForm.COLUMN_NAME_GPS_LAT,
-                FormsContract.singleForm.COLUMN_NAME_GPS_LNG,
-                FormsContract.singleForm.COLUMN_NAME_GPS_ACC,
-                FormsContract.singleForm.COLUMN_NAME_GPS_TIME,
-                FormsContract.singleForm.COLUMN_NAME_SYNCED,
-                FormsContract.singleForm.COLUMN_NAME_SYNCED_DATE,
-                FormsContract.singleForm.COLUMN_NAME_FORM_DATE,
-                FormsContract.singleForm.COLUMN_NAME_INTERVIEWER,
-                FormsContract.singleForm.COLUMN_NAME_AREA_CODE,
-                FormsContract.singleForm.COLUMN_NAME_SUBAREA_CODE,
-                FormsContract.singleForm.COLUMN_NAME_HOUSEHOLD,
-                FormsContract.singleForm.COLUMN_NAME_ISTATUS,
-                //singleForm.COLUMN_NAME_SA,
-                FormsContract.singleForm.COLUMN_NAME_SB,
-                FormsContract.singleForm.COLUMN_NAME_SC,
-                FormsContract.singleForm.COLUMN_NAME_SD,
-                FormsContract.singleForm.COLUMN_NAME_SIC,
 
 
         };
