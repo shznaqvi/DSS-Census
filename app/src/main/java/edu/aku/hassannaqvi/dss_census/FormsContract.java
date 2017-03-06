@@ -20,6 +20,7 @@ public class FormsContract {
     private String formDate = ""; // Date
     private String interviewer = ""; // Interviewer
 
+
     private String istatus = ""; // Interview Status
     private String sA = "";
     //private String sB = ""; // commented out for Members
