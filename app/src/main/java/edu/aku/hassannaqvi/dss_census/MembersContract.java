@@ -155,6 +155,230 @@ public class MembersContract {
         return json;
     }
 
+    public String get_ID() {
+        return _ID;
+    }
+
+    public void set_ID(String _ID) {
+        this._ID = _ID;
+    }
+
+    public String get_UID() {
+        return _UID;
+    }
+
+    public void set_UID(String _UID) {
+        this._UID = _UID;
+    }
+
+    public String getFormDate() {
+        return formDate;
+    }
+
+    public void setFormDate(String formDate) {
+        this.formDate = formDate;
+    }
+
+    public String getInterviewer() {
+        return interviewer;
+    }
+
+    public void setInterviewer(String interviewer) {
+        this.interviewer = interviewer;
+    }
+
+    public String getDssID() {
+        return dssID;
+    }
+
+    public void setDssID(String dssID) {
+        this.dssID = dssID;
+    }
+
+    public String getIstatus() {
+        return istatus;
+    }
+
+    public void setIstatus(String istatus) {
+        this.istatus = istatus;
+    }
+
+    public String getFmName() {
+        return fmName;
+    }
+
+    public void setFmName(String fmName) {
+        this.fmName = fmName;
+    }
+
+    public String getFmRHH() {
+        return fmRHH;
+    }
+
+    public void setFmRHH(String fmRHH) {
+        this.fmRHH = fmRHH;
+    }
+
+    public String getFmDssIdF() {
+        return fmDssIdF;
+    }
+
+    public void setFmDssIdF(String fmDssIdF) {
+        this.fmDssIdF = fmDssIdF;
+    }
+
+    public String getFmDssIdM() {
+        return fmDssIdM;
+    }
+
+    public void setFmDssIdM(String fmDssIdM) {
+        this.fmDssIdM = fmDssIdM;
+    }
+
+    public String getFmMaritalStatus() {
+        return fmMaritalStatus;
+    }
+
+    public void setFmMaritalStatus(String fmMaritalStatus) {
+        this.fmMaritalStatus = fmMaritalStatus;
+    }
+
+    public String getFmGender() {
+        return fmGender;
+    }
+
+    public void setFmGender(String fmGender) {
+        this.fmGender = fmGender;
+    }
+
+    public String getFmEducation() {
+        return fmEducation;
+    }
+
+    public void setFmEducation(String fmEducation) {
+        this.fmEducation = fmEducation;
+    }
+
+    public String getFmOccupation() {
+        return fmOccupation;
+    }
+
+    public void setFmOccupation(String fmOccupation) {
+        this.fmOccupation = fmOccupation;
+    }
+
+    public String getFmDOB() {
+        return fmDOB;
+    }
+
+    public void setFmDOB(String fmDOB) {
+        this.fmDOB = fmDOB;
+    }
+
+    public String getFmAgeY() {
+        return fmAgeY;
+    }
+
+    public void setFmAgeY(String fmAgeY) {
+        this.fmAgeY = fmAgeY;
+    }
+
+    public String getFmAgeM() {
+        return fmAgeM;
+    }
+
+    public void setFmAgeM(String fmAgeM) {
+        this.fmAgeM = fmAgeM;
+    }
+
+    public String getFmAgeD() {
+        return fmAgeD;
+    }
+
+    public void setFmAgeD(String fmAgeD) {
+        this.fmAgeD = fmAgeD;
+    }
+
+    public String getFmCurStatus() {
+        return fmCurStatus;
+    }
+
+    public void setFmCurStatus(String fmCurStatus) {
+        this.fmCurStatus = fmCurStatus;
+    }
+
+    public String getFmCSDate() {
+        return fmCSDate;
+    }
+
+    public void setFmCSDate(String fmCSDate) {
+        this.fmCSDate = fmCSDate;
+    }
+
+    public String getFmRemarks() {
+        return fmRemarks;
+    }
+
+    public void setFmRemarks(String fmRemarks) {
+        this.fmRemarks = fmRemarks;
+    }
+
+    public String getGpsLat() {
+        return gpsLat;
+    }
+
+    public void setGpsLat(String gpsLat) {
+        this.gpsLat = gpsLat;
+    }
+
+    public String getGpsLng() {
+        return gpsLng;
+    }
+
+    public void setGpsLng(String gpsLng) {
+        this.gpsLng = gpsLng;
+    }
+
+    public String getGpsTime() {
+        return gpsTime;
+    }
+
+    public void setGpsTime(String gpsTime) {
+        this.gpsTime = gpsTime;
+    }
+
+    public String getGpsAcc() {
+        return gpsAcc;
+    }
+
+    public void setGpsAcc(String gpsAcc) {
+        this.gpsAcc = gpsAcc;
+    }
+
+    public String getDeviceID() {
+        return deviceID;
+    }
+
+    public void setDeviceID(String deviceID) {
+        this.deviceID = deviceID;
+    }
+
+    public String getSynced() {
+        return synced;
+    }
+
+    public void setSynced(String synced) {
+        this.synced = synced;
+    }
+
+    public String getSynced_date() {
+        return synced_date;
+    }
+
+    public void setSynced_date(String synced_date) {
+        this.synced_date = synced_date;
+    }
+
     public static abstract class singleMember implements BaseColumns {
 
         public static final String TABLE_NAME = "members";

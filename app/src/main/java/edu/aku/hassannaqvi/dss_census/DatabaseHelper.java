@@ -18,6 +18,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.dss_census.FormsContract.singleForm;
+import edu.aku.hassannaqvi.dss_census.MembersContract.singleMember;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -108,6 +109,58 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
 
         } catch (Exception e) {
+        }
+    }
+
+    public void syncMembers(JSONArray memberslist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(singleMember.TABLE_NAME, null, null);
+        try {
+            JSONArray jsonArray = memberslist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectEC = jsonArray.getJSONObject(i);
+
+                MembersContract mc = new MembersContract();
+                mc.Sync(jsonObjectEC);
+
+                ContentValues values = new ContentValues();
+
+                values.put(singleMember.COLUMN_UID, mc.get_UID());
+                values.put(singleMember.COLUMN_FORMDATE, mc.getFormDate());
+                values.put(singleMember.COLUMN_INTERVIEWER, mc.getInterviewer());
+                values.put(singleMember.COLUMN_DSSID, mc.getDssID());
+                values.put(singleMember.COLUMN_ISTATUS, mc.getIstatus());
+                values.put(singleMember.COLUMN_FMNAME, mc.getFmName());
+                values.put(singleMember.COLUMN_FMRHH, mc.getFmRHH());
+                values.put(singleMember.COLUMN_FMDSSIDF, mc.getFmDssIdF());
+                values.put(singleMember.COLUMN_FMDSSIDM, mc.getFmDssIdM());
+                values.put(singleMember.COLUMN_FMMARITALSTATUS, mc.getFmMaritalStatus());
+                values.put(singleMember.COLUMN_FMGENDER, mc.getFmGender());
+                values.put(singleMember.COLUMN_FMEDUCATION, mc.getFmEducation());
+                values.put(singleMember.COLUMN_FMOCCUPATION, mc.getFmOccupation());
+                values.put(singleMember.COLUMN_FMDOB, mc.getFmDOB());
+                values.put(singleMember.COLUMN_FMAGEY, mc.getFmAgeY());
+                values.put(singleMember.COLUMN_FMAGEM, mc.getFmAgeM());
+                values.put(singleMember.COLUMN_FMAGED, mc.getFmAgeD());
+                values.put(singleMember.COLUMN_FMCURSTATUS, mc.getFmCurStatus());
+                values.put(singleMember.COLUMN_FMCSDATE, mc.getFmCSDate());
+                values.put(singleMember.COLUMN_FMREMARKS, mc.getFmRemarks());
+                values.put(singleMember.COLUMN_GPSLAT, mc.getGpsLat());
+                values.put(singleMember.COLUMN_GPSLNG, mc.getGpsLng());
+                values.put(singleMember.COLUMN_GPSTIME, mc.getGpsTime());
+                values.put(singleMember.COLUMN_GPSACC, mc.getGpsAcc());
+                values.put(singleMember.COLUMN_DEVICEID, mc.getDeviceID());
+                values.put(singleMember.COLUMN_SYNCED, mc.getSynced());
+                values.put(singleMember.COLUMN_SYNCED_DATE, mc.getSynced_date());
+
+
+                db.insert(singleMember.TABLE_NAME, null, values);
+            }
+
+
+        } catch (Exception e) {
+        } finally {
+            db.close();
         }
     }
 
