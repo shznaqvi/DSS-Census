@@ -221,102 +221,136 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
     RadioButton dci19a01;
     @BindView(R.id.dci19a02)
     RadioButton dci19a02;
+    @BindView(R.id.dci19a99)
+    RadioButton dci19a99;
     @BindView(R.id.dci19b)
     RadioGroup dci19b;
     @BindView(R.id.dci19b01)
     RadioButton dci19b01;
     @BindView(R.id.dci19b02)
     RadioButton dci19b02;
+    @BindView(R.id.dci19b99)
+    RadioButton dci19b99;
     @BindView(R.id.dci19c)
     RadioGroup dci19c;
     @BindView(R.id.dci19c01)
     RadioButton dci19c01;
     @BindView(R.id.dci19c02)
     RadioButton dci19c02;
+    @BindView(R.id.dci19c99)
+    RadioButton dci19c99;
     @BindView(R.id.dci19d)
     RadioGroup dci19d;
     @BindView(R.id.dci19d01)
     RadioButton dci19d01;
     @BindView(R.id.dci19d02)
     RadioButton dci19d02;
+    @BindView(R.id.dci19d99)
+    RadioButton dci19d99;
     @BindView(R.id.dci19e)
     RadioGroup dci19e;
     @BindView(R.id.dci19e01)
     RadioButton dci19e01;
     @BindView(R.id.dci19e02)
     RadioButton dci19e02;
+    @BindView(R.id.dci19e99)
+    RadioButton dci19e99;
     @BindView(R.id.dci19f)
     RadioGroup dci19f;
     @BindView(R.id.dci19f01)
     RadioButton dci19f01;
     @BindView(R.id.dci19f02)
     RadioButton dci19f02;
+    @BindView(R.id.dci19f99)
+    RadioButton dci19f99;
     @BindView(R.id.dci19g)
     RadioGroup dci19g;
     @BindView(R.id.dci19g01)
     RadioButton dci19g01;
     @BindView(R.id.dci19g02)
     RadioButton dci19g02;
+    @BindView(R.id.dci19g99)
+    RadioButton dci19g99;
     @BindView(R.id.dci19h)
     RadioGroup dci19h;
     @BindView(R.id.dci19h01)
     RadioButton dci19h01;
     @BindView(R.id.dci19h02)
     RadioButton dci19h02;
+    @BindView(R.id.dci19h99)
+    RadioButton dci19h99;
     @BindView(R.id.dci19i)
     RadioGroup dci19i;
     @BindView(R.id.dci19i01)
     RadioButton dci19i01;
     @BindView(R.id.dci19i02)
     RadioButton dci19i02;
+    @BindView(R.id.dci19i99)
+    RadioButton dci19i99;
     @BindView(R.id.dci19j)
     RadioGroup dci19j;
     @BindView(R.id.dci19j01)
     RadioButton dci19j01;
     @BindView(R.id.dci19j02)
     RadioButton dci19j02;
+    @BindView(R.id.dci19j99)
+    RadioButton dci19j99;
     @BindView(R.id.dci19k)
     RadioGroup dci19k;
     @BindView(R.id.dci19k01)
     RadioButton dci19k01;
     @BindView(R.id.dci19k02)
     RadioButton dci19k02;
+    @BindView(R.id.dci19k99)
+    RadioButton dci19k99;
     @BindView(R.id.dci19l)
     RadioGroup dci19l;
     @BindView(R.id.dci19l01)
     RadioButton dci19l01;
     @BindView(R.id.dci19l02)
     RadioButton dci19l02;
+    @BindView(R.id.dci19l99)
+    RadioButton dci19l99;
     @BindView(R.id.dci19m)
     RadioGroup dci19m;
     @BindView(R.id.dci19m01)
     RadioButton dci19m01;
     @BindView(R.id.dci19m02)
     RadioButton dci19m02;
+    @BindView(R.id.dci19m99)
+    RadioButton dci19m99;
     @BindView(R.id.dci19n)
     RadioGroup dci19n;
     @BindView(R.id.dci19n01)
     RadioButton dci19n01;
     @BindView(R.id.dci19n02)
     RadioButton dci19n02;
+    @BindView(R.id.dci19n99)
+    RadioButton dci19n99;
     @BindView(R.id.dci19o)
     RadioGroup dci19o;
     @BindView(R.id.dci19o01)
     RadioButton dci19o01;
     @BindView(R.id.dci19o02)
     RadioButton dci19o02;
+    @BindView(R.id.dci19o99)
+    RadioButton dci19o99;
     @BindView(R.id.dci19p)
     RadioGroup dci19p;
     @BindView(R.id.dci19p01)
     RadioButton dci19p01;
     @BindView(R.id.dci19p02)
     RadioButton dci19p02;
+    @BindView(R.id.dci19p99)
+    RadioButton dci19p99;
     @BindView(R.id.dci19q)
     RadioGroup dci19q;
     @BindView(R.id.dci19q01)
     RadioButton dci19q01;
     @BindView(R.id.dci19q02)
     RadioButton dci19q02;
+    @BindView(R.id.dci19q99)
+    RadioButton dci19q99;
     @BindView(R.id.dci20)
     RadioGroup dci20;
     @BindView(R.id.dci2001)
@@ -366,6 +400,12 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             R.id.dci19h02, R.id.dci19i02, R.id.dci19j02, R.id.dci19k02, R.id.dci19l02, R.id.dci19m02, R.id.dci19n02, R.id.dci19o02,
             R.id.dci19p02, R.id.dci19q02})
     List<RadioButton> dci1902;
+
+    @BindViews({R.id.dci19a99, R.id.dci19b99, R.id.dci19c99, R.id.dci19d99, R.id.dci19e99, R.id.dci19f99, R.id.dci19g99,
+            R.id.dci19h99, R.id.dci19i99, R.id.dci19j99, R.id.dci19k99, R.id.dci19l99, R.id.dci19m99, R.id.dci19n99, R.id.dci19o99,
+            R.id.dci19p99, R.id.dci19q99})
+    List<RadioButton> dci1999;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -581,23 +621,23 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         si.put("dci18f", dci18f01.isChecked() ? "1" : dci18f02.isChecked() ? "2" : dci18f99.isChecked() ? "99" : "0");
         si.put("dci18g", dci18g01.isChecked() ? "1" : dci18g02.isChecked() ? "2" : dci18g99.isChecked() ? "99" : "0");
         si.put("dci18h", dci18h01.isChecked() ? "1" : dci18h02.isChecked() ? "2" : dci18h99.isChecked() ? "99" : "0");
-        si.put("dci19a", dci19a01.isChecked() ? "1" : dci19a02.isChecked() ? "2" : "0");
-        si.put("dci19b", dci19b01.isChecked() ? "1" : dci19b02.isChecked() ? "2" : "0");
-        si.put("dci19c", dci19c01.isChecked() ? "1" : dci19c02.isChecked() ? "2" : "0");
-        si.put("dci19d", dci19d01.isChecked() ? "1" : dci19d02.isChecked() ? "2" : "0");
-        si.put("dci19e", dci19e01.isChecked() ? "1" : dci19e02.isChecked() ? "2" : "0");
-        si.put("dci19f", dci19f01.isChecked() ? "1" : dci19f02.isChecked() ? "2" : "0");
-        si.put("dci19g", dci19g01.isChecked() ? "1" : dci19g02.isChecked() ? "2" : "0");
-        si.put("dci19h", dci19h01.isChecked() ? "1" : dci19h02.isChecked() ? "2" : "0");
-        si.put("dci19i", dci19i01.isChecked() ? "1" : dci19i02.isChecked() ? "2" : "0");
-        si.put("dci19j", dci19j01.isChecked() ? "1" : dci19j02.isChecked() ? "2" : "0");
-        si.put("dci19k", dci19k01.isChecked() ? "1" : dci19k02.isChecked() ? "2" : "0");
-        si.put("dci19l", dci19l01.isChecked() ? "1" : dci19l02.isChecked() ? "2" : "0");
-        si.put("dci19m", dci19m01.isChecked() ? "1" : dci19m02.isChecked() ? "2" : "0");
-        si.put("dci19n", dci19n01.isChecked() ? "1" : dci19n02.isChecked() ? "2" : "0");
-        si.put("dci19o", dci19o01.isChecked() ? "1" : dci19o02.isChecked() ? "2" : "0");
-        si.put("dci19p", dci19p01.isChecked() ? "1" : dci19p02.isChecked() ? "2" : "0");
-        si.put("dci19q", dci19q01.isChecked() ? "1" : dci19q02.isChecked() ? "2" : "0");
+        si.put("dci19a", dci19a01.isChecked() ? "1" : dci19a02.isChecked() ? "2" : dci19a99.isChecked() ? "99" : "0");
+        si.put("dci19b", dci19b01.isChecked() ? "1" : dci19b02.isChecked() ? "2" : dci19b99.isChecked() ? "99" : "0");
+        si.put("dci19c", dci19c01.isChecked() ? "1" : dci19c02.isChecked() ? "2" : dci19c99.isChecked() ? "99" : "0");
+        si.put("dci19d", dci19d01.isChecked() ? "1" : dci19d02.isChecked() ? "2" : dci19d99.isChecked() ? "99" : "0");
+        si.put("dci19e", dci19e01.isChecked() ? "1" : dci19e02.isChecked() ? "2" : dci19e99.isChecked() ? "99" : "0");
+        si.put("dci19f", dci19f01.isChecked() ? "1" : dci19f02.isChecked() ? "2" : dci19f99.isChecked() ? "99" : "0");
+        si.put("dci19g", dci19g01.isChecked() ? "1" : dci19g02.isChecked() ? "2" : dci19g99.isChecked() ? "99" : "0");
+        si.put("dci19h", dci19h01.isChecked() ? "1" : dci19h02.isChecked() ? "2" : dci19h99.isChecked() ? "99" : "0");
+        si.put("dci19i", dci19i01.isChecked() ? "1" : dci19i02.isChecked() ? "2" : dci19i99.isChecked() ? "99" : "0");
+        si.put("dci19j", dci19j01.isChecked() ? "1" : dci19j02.isChecked() ? "2" : dci19j99.isChecked() ? "99" : "0");
+        si.put("dci19k", dci19k01.isChecked() ? "1" : dci19k02.isChecked() ? "2" : dci19k99.isChecked() ? "99" : "0");
+        si.put("dci19l", dci19l01.isChecked() ? "1" : dci19l02.isChecked() ? "2" : dci19l99.isChecked() ? "99" : "0");
+        si.put("dci19m", dci19m01.isChecked() ? "1" : dci19m02.isChecked() ? "2" : dci19m99.isChecked() ? "99" : "0");
+        si.put("dci19n", dci19n01.isChecked() ? "1" : dci19n02.isChecked() ? "2" : dci19n99.isChecked() ? "99" : "0");
+        si.put("dci19o", dci19o01.isChecked() ? "1" : dci19o02.isChecked() ? "2" : dci19o99.isChecked() ? "99" : "0");
+        si.put("dci19p", dci19p01.isChecked() ? "1" : dci19p02.isChecked() ? "2" : dci19p99.isChecked() ? "99" : "0");
+        si.put("dci19q", dci19q01.isChecked() ? "1" : dci19q02.isChecked() ? "2" : dci19q99.isChecked() ? "99" : "0");
         si.put("dci20", dci2001.isChecked() ? "1" : dci2002.isChecked() ? "2" : dci2099.isChecked() ? "99" : "0");
         si.put("dci2101", dci2101.getText().toString());
         si.put("dci21", dci2199.isChecked() ? "99" : "0");
@@ -901,156 +941,156 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         // ====================== Q 19A ==============
         if (dci19a.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19a), Toast.LENGTH_SHORT).show();
-            dci19a02.setError("This data is Required!");
+            dci19a99.setError("This data is Required!");
             Log.i(TAG, "dci19a: This data is Required!");
             return false;
         } else {
-            dci19a02.setError(null);
+            dci19a99.setError(null);
         }
         // ====================== Q 19B ==============
         if (dci19b.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19b), Toast.LENGTH_SHORT).show();
-            dci19b02.setError("This data is Required!");
+            dci19b99.setError("This data is Required!");
             Log.i(TAG, "dci19b: This data is Required!");
             return false;
         } else {
-            dci19b02.setError(null);
+            dci19b99.setError(null);
         }
         // ====================== Q 19C ==============
         if (dci19c.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19c), Toast.LENGTH_SHORT).show();
-            dci19c02.setError("This data is Required!");
+            dci19c99.setError("This data is Required!");
             Log.i(TAG, "dci19c: This data is Required!");
             return false;
         } else {
-            dci19c02.setError(null);
+            dci19c99.setError(null);
         }
         // ====================== Q 19D ==============
         if (dci19d.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19d), Toast.LENGTH_SHORT).show();
-            dci19d02.setError("This data is Required!");
+            dci19d99.setError("This data is Required!");
             Log.i(TAG, "dci19d: This data is Required!");
             return false;
         } else {
-            dci19d02.setError(null);
+            dci19d99.setError(null);
         }
         // ====================== Q 19E ==============
         if (dci19e.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19e), Toast.LENGTH_SHORT).show();
-            dci19e02.setError("This data is Required!");
+            dci19e99.setError("This data is Required!");
             Log.i(TAG, "dci19e: This data is Required!");
             return false;
         } else {
-            dci19e02.setError(null);
+            dci19e99.setError(null);
         }
         // ====================== Q 19F ==============
         if (dci19f.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19f), Toast.LENGTH_SHORT).show();
-            dci19f02.setError("This data is Required!");
+            dci19f99.setError("This data is Required!");
             Log.i(TAG, "dci19f: This data is Required!");
             return false;
         } else {
-            dci19f02.setError(null);
+            dci19f99.setError(null);
         }
 
         // ====================== Q 19G ==============
         if (dci19g.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19g), Toast.LENGTH_SHORT).show();
-            dci19g02.setError("This data is Required!");
+            dci19g99.setError("This data is Required!");
             Log.i(TAG, "dci19g: This data is Required!");
             return false;
         } else {
-            dci19g02.setError(null);
+            dci19g99.setError(null);
         }
         // ====================== Q 19H ==============
         if (dci19h.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19h), Toast.LENGTH_SHORT).show();
-            dci19h02.setError("This data is Required!");
+            dci19h99.setError("This data is Required!");
             Log.i(TAG, "dci19h: This data is Required!");
             return false;
         } else {
-            dci19h02.setError(null);
+            dci19h99.setError(null);
         }
         // ====================== Q 19I ==============
         if (dci19i.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19i), Toast.LENGTH_SHORT).show();
-            dci19i02.setError("This data is Required!");
+            dci19i99.setError("This data is Required!");
             Log.i(TAG, "dci19i: This data is Required!");
             return false;
         } else {
-            dci19i02.setError(null);
+            dci19i99.setError(null);
         }
         // ====================== Q 19J ==============
         if (dci19j.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19j), Toast.LENGTH_SHORT).show();
-            dci19j02.setError("This data is Required!");
+            dci19j99.setError("This data is Required!");
             Log.i(TAG, "dci19j: This data is Required!");
             return false;
         } else {
-            dci19j02.setError(null);
+            dci19j99.setError(null);
         }
         // ====================== Q 19K ==============
         if (dci19k.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19k), Toast.LENGTH_SHORT).show();
-            dci19k02.setError("This data is Required!");
+            dci19k99.setError("This data is Required!");
             Log.i(TAG, "dci19k: This data is Required!");
             return false;
         } else {
-            dci19k02.setError(null);
+            dci19k99.setError(null);
         }
         // ====================== Q 19L ==============
         if (dci19l.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19l), Toast.LENGTH_SHORT).show();
-            dci19l02.setError("This data is Required!");
+            dci19l99.setError("This data is Required!");
             Log.i(TAG, "dci19l: This data is Required!");
             return false;
         } else {
-            dci19l02.setError(null);
+            dci19l99.setError(null);
         }
         // ====================== Q 19M ==============
         if (dci19m.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19m), Toast.LENGTH_SHORT).show();
-            dci19m02.setError("This data is Required!");
+            dci19m99.setError("This data is Required!");
             Log.i(TAG, "dci19m: This data is Required!");
             return false;
         } else {
-            dci19m02.setError(null);
+            dci19m99.setError(null);
         }
         // ====================== Q 19N ==============
         if (dci19n.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19n), Toast.LENGTH_SHORT).show();
-            dci19n02.setError("This data is Required!");
+            dci19n99.setError("This data is Required!");
             Log.i(TAG, "dci19n: This data is Required!");
             return false;
         } else {
-            dci19n02.setError(null);
+            dci19n99.setError(null);
         }
         // ====================== Q 19O ==============
         if (dci19o.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19o), Toast.LENGTH_SHORT).show();
-            dci19o02.setError("This data is Required!");
+            dci19o99.setError("This data is Required!");
             Log.i(TAG, "dci19o: This data is Required!");
             return false;
         } else {
-            dci19o02.setError(null);
+            dci19o99.setError(null);
         }
         // ====================== Q 19P ==============
         if (dci19p.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19p), Toast.LENGTH_SHORT).show();
-            dci19p02.setError("This data is Required!");
+            dci19p99.setError("This data is Required!");
             Log.i(TAG, "dci19p: This data is Required!");
             return false;
         } else {
-            dci19p02.setError(null);
+            dci19p99.setError(null);
         }
         // ====================== Q 19Q ==============
         if (dci19q.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci19q), Toast.LENGTH_SHORT).show();
-            dci19q02.setError("This data is Required!");
+            dci19q99.setError("This data is Required!");
             Log.i(TAG, "dci19q: This data is Required!");
             return false;
         } else {
-            dci19q02.setError(null);
+            dci19q99.setError(null);
         }
 
         // ====================== Q 20 ==============
@@ -1108,7 +1148,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
 
-        if (is19AllNo()) {
+        if (is19AllNo() || is19Alldontknow()) {
             // Show answer here
             fldGrpdci20.setVisibility(View.VISIBLE);
 
@@ -1131,6 +1171,21 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
 
         // Show answer here
         return i == dci1902.size();
+
+        //return val;
+    }
+
+    public boolean is19Alldontknow() {
+        boolean val = false;
+
+        int i = 0;
+        for (RadioButton rg : dci1999) {
+            if (rg.isChecked())
+                i++;
+        }
+
+        // Show answer here
+        return i == dci1999.size();
 
         //return val;
     }
