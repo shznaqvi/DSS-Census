@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.dss_census;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -192,6 +193,8 @@ public class SectionEActivity extends Activity {
     EditText dce1021;
     @BindView(R.id.dce1022)
     EditText dce1022;
+    @BindView(R.id.fldGrpdce05)
+    LinearLayout fldGrpdce05;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -316,6 +319,19 @@ public class SectionEActivity extends Activity {
                     dce0996x.setText(null);
                 } else {
                     fldGrpdce08.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        dce04.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (dce0401.isChecked()) {
+                    fldGrpdce05.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdce05.setVisibility(View.GONE);
+                    dce05.clearCheck();
+                    dce0596x.setText(null);
                 }
             }
         });
@@ -525,6 +541,38 @@ public class SectionEActivity extends Activity {
             }
         }
 
+        if (dce04.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce04), Toast.LENGTH_SHORT).show();
+            dce0402.setError("This data is Required!");
+            Log.i(TAG, "dce04: This data is Required!");
+            return false;
+        } else {
+            dce0402.setError(null);
+        }
+
+        if (dce0401.isChecked()) {
+            if (dce05.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce05), Toast.LENGTH_SHORT).show();
+                dce0596.setError("This data is Required!");
+                Log.i(TAG, "dce05: This data is Required!");
+                return false;
+            } else {
+                dce0596.setError(null);
+            }
+
+            if (dce0596.isChecked() && dce0596x.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce05) + " - " + getString(R.string.dcother), Toast.LENGTH_LONG).show();
+                dce0596x.setError("This data is Required!");    // Set Error on last radio button
+                Log.i(TAG, "dce0596x: This data is Required!");
+                return false;
+            } else {
+                dce0596x.setError(null);
+            }
+
+        }
+
+
+
         // ============== Q 6 ===============
 
         //  CheckBox
@@ -537,7 +585,7 @@ public class SectionEActivity extends Activity {
 
             return false;
         } else {
-            dce0196.setError(null);
+            dce0696.setError(null);
         }
 
         // Others

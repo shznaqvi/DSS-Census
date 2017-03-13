@@ -135,9 +135,9 @@ public class SectionHActivity extends Activity {
     @BindView(R.id.dch13)
     RadioGroup dch13;
     @BindView(R.id.dch1301)
-    RadioButton dch1301;
+    /*RadioButton dch1301;
     @BindView(R.id.dch1302)
-    RadioButton dch1302;
+    RadioButton dch1302;*/
     @BindView(R.id.fldGrpdch02)
     LinearLayout fldGrpdch02;
     @BindView(R.id.fldGrpdch04)
@@ -344,7 +344,7 @@ public class SectionHActivity extends Activity {
                 : dch1207.isChecked() ? "7" : dch1208.isChecked() ? "8" : dch1209.isChecked() ? "9"
                 : dch1296.isChecked() ? "96" : dch1299.isChecked() ? "99" : "0");
         sh.put("dch1296x", dch1296x.getText().toString());
-        sh.put("dch13", dch1301.isChecked() ? "1" : dch1302.isChecked() ? "2" : "0");
+        //sh.put("dch13", dch1301.isChecked() ? "1" : dch1302.isChecked() ? "2" : "0");
 
 
         // DCEApp.fc.setROW_Sh(String.valueOf(sh));
@@ -506,14 +506,14 @@ public class SectionHActivity extends Activity {
 
         // =================== Q 13 ==================
 
-        if (dch13.getCheckedRadioButtonId() == -1) {
+        /*if (dch13.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch13), Toast.LENGTH_SHORT).show();
             dch1302.setError("This data is Required!");
             Log.i(TAG, "dch13: This data is Required!");
             return false;
         } else {
             dch1302.setError(null);
-        }
+        }*/
 
         return true;
     }
