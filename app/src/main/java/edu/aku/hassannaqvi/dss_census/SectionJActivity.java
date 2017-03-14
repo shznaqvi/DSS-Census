@@ -113,6 +113,10 @@ public class SectionJActivity extends Activity  {
     RadioButton dcj1202;
     @BindView(R.id.dcj1299)
     RadioButton dcj1299;
+    @BindView(R.id.fldGrpdcj09)
+    LinearLayout fldGrpdcj09;
+    @BindView(R.id.fldGrpdcj12)
+    LinearLayout fldGrpdcj12;
 
 
     @Override
@@ -182,6 +186,32 @@ public class SectionJActivity extends Activity  {
                     dcj0696.setChecked(false);
                     dcj0696x.setText(null);
                     dcj0677.setChecked(false);
+                }
+            }
+        });
+
+        dcj08.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (dcj0801.isChecked()) {
+                    fldGrpdcj09.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdcj09.setVisibility(View.GONE);
+                    dcj0901.setText(null);
+                    dcj0902.setText(null);
+                    dcj0903.setText(null);
+                }
+            }
+        });
+
+        dcj11.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (dcj1101.isChecked()) {
+                    fldGrpdcj12.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdcj12.setVisibility(View.GONE);
+                    dcj12.clearCheck();
                 }
             }
         });
@@ -296,7 +326,7 @@ public class SectionJActivity extends Activity  {
             if (!dcj0601.isChecked() && !dcj0602.isChecked() && !dcj0603.isChecked() && !dcj0604.isChecked() && !dcj0605.isChecked()
                     && !dcj0606.isChecked() && !dcj0607.isChecked() && !dcj0608.isChecked() && !dcj0609.isChecked() && !dcj0696.isChecked()
                     && !dcj0677.isChecked()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcg06), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcj06), Toast.LENGTH_SHORT).show();
                 dcj0677.setError("This data is Required!");    // Set Error on last radio button
 
                 Log.i(TAG, "dcg06: This data is Required!");
@@ -365,14 +395,16 @@ public class SectionJActivity extends Activity  {
         }
 
 //        11
-        if (dcj12.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcj12), Toast.LENGTH_SHORT).show();
-            dcj1299.setError("This data is Required!");    // Set Error on last radio button
+        if (dcj1101.isChecked()) {
+            if (dcj12.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcj12), Toast.LENGTH_SHORT).show();
+                dcj1299.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dcg12: This data is Required!");
-            return false;
-        } else {
-            dcj1299.setError(null);
+                Log.i(TAG, "dcg12: This data is Required!");
+                return false;
+            } else {
+                dcj1299.setError(null);
+            }
         }
 
         return true;

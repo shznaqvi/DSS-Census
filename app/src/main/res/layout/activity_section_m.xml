@@ -40,11 +40,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
-                android:background="#efefef"
+                android:background="@color/pink_100"
                 android:padding="2dp"
-                android:text="Home Environment"
+                android:text="@string/dcm01sub"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -323,11 +323,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
-                android:background="#efefef"
+                android:background="@color/pink_100"
                 android:padding="2dp"
-                android:text="Water"
+                android:text="@string/dcm09sub"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <TextView

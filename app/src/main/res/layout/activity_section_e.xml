@@ -538,6 +538,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1001"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -557,7 +558,10 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1002"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
+
+
                 />
 
             <EditText
@@ -576,6 +580,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1003"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -595,6 +600,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1004"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -614,6 +620,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1005"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -633,6 +640,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1006"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -652,6 +660,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1007"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -671,6 +680,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1008"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -690,6 +700,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1009"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -709,6 +720,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1010"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -728,6 +740,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1011"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -747,6 +760,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1012"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -766,6 +780,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1013"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -785,6 +800,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1014"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -804,6 +820,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1015"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -823,6 +840,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1016"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -842,6 +860,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1017"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -861,6 +880,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1018"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -881,6 +901,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1019"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -900,6 +921,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1020"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -919,6 +941,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1021"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 
@@ -938,6 +961,7 @@
                 android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dce1022"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 />
 

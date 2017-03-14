@@ -31,7 +31,7 @@
     <string name="secKLabel"> سیکشن کے:حفاظتی ٹیکے</string>
     <string name="secLLabel">سیکشن ایل :گھریلو خوراک ی ناقص تحفظ ،خوراک کا استعمال اور تبدیل</string>
     <string name="dcl2heading"> خاندان کا غذا سے متعلق نمنٹے حکمت عملی </string>
-    <string name="dcl03heading"> بھوک کا پیمانہ ( گزشتہ ایک ماہ کے متعلق) </string>
+  <string name="dcl3heading"> بھوک کا پیمانہ ( گزشتہ ایک ماہ کے متعلق) </string>
     <string name="secMLabel">سیکشن ایم: گھر کا ماحول</string>
 
     <string name="days">Number of Days</string>
@@ -214,7 +214,7 @@
     <string name="dcch04"> حمل سے پہلے </string>
     <string name="dcch05"> حمل کے بعد 24 دن کے اندر </string>
     <string name="dcd01"> کیا آپ بے نظیر انکم سپورٹ پروگرام کا حصہ ہیں /انرول ہیں </string>
-    <string name="dcd0101"> BISP کے بارے میں نہیں جانتے </string>
+  <string name="dcd0104"> BISP کے بارے میں نہیں جانتے </string>
     <string name="dcd02"> اگر جی ہاں، تو آپ کتنی رقم حاصل کر رہے ہیں ؟ </string>
     <string name="dcd0201"> روپے </string>
     <string name="dcd03"> آپ کتنے عرصے سے یہ رقم وصول کر رہے ہیں ؟ </string>
@@ -222,21 +222,21 @@
     <string name="dcd03mnth"> مہنیے </string>
     <string name="dcd04"> گھر کی تعمیر میں کون سا بنیادی مواد استعمال کیا گیاہے (مشاہدہ کیجئے)َ
   زیادہ تر استعمال ہونے والے مواد پر نشان لگائیں </string>
-    <string name="dcd04asub"> دیواریں </string>
+  <string name="dcd04a"> دیواریں </string>
     <string name="dcd04a01"> سمنٹ کے بلاکس (بغیر پلستر ) </string>
     <string name="dcd04a02"> پلستر </string>
     <string name="dcd04a03"> اینٹیں </string>
     <string name="dcd04a04"> سیمنٹ اور چونے کا پتھر </string>
     <string name="dcd04a05"> چھڑی / پام / تنوں </string>
     <string name="dcd04a06"> پلائیووڈ </string>
-    <string name="dcd04bsub"> چھت </string>
+  <string name="dcd04b"> چھت </string>
     <string name="dcd04b01"> آر۔سی ۔سی </string>
     <string name="dcd04b02"> ٹیِن کی چادر سے </string>
     <string name="dcd04b03"> کنکریٹ </string>
     <string name="dcd04b04"> گھاس پھونس </string>
     <string name="dcd04b05"> استعمال شدہ لکٹری </string>
     <string name="dcd04b06"> Tear Garter With Concrete Slabs </string>
-    <string name="dcd04csub"> فرش </string>
+  <string name="dcd04c"> فرش </string>
     <string name="dcd04c01"> سیمنٹ </string>
     <string name="dcd04c02"> مٹی </string>
     <string name="dcd04c03"> لکٹری </string>
@@ -297,7 +297,6 @@
     <string name="dcd1502"> جنریٹر </string>
     <string name="dcd1503"> سلور </string>
     <string name="dcd1504"> پون چکی </string>
-
     <string name="dce01"> برائے مہربانی اس جگہ کا مشاہدہ کرائیں جہاں آپ اور آپ کے گھروں کے لوگ عموماً ہاتھ دھوتے ہیں </string>
     <string name="dce0101"> مشاہدہ </string>
     <string name="dce0102"> مشاہدہ نہیں کیا </string>
@@ -317,7 +316,6 @@
     <string name="dce0503"> مائع صابن </string>
     <string name="dce0504"> رکھ / مٹی/ ریت </string>
     <string name="dce06"> عام طور پر کن حالات میں آپ ہاتھ دھوتے ہیں  یہ ایک کھلا سوال ہے اس میں درج ذیل جوابات نہ بتائیں جواب دہندہ کو خود کوشش کرنے دیں ۔ </string>
-
     <string name="dce0601"> کھانا بنانے کی تیاری سے پہلے </string>
     <string name="dce0602"> کھانا پکانے سے پہلے </string>
     <string name="dce0603"> کھانا کھانے سے پہلے </string>
@@ -391,7 +389,6 @@
     <string name="dcf1001"> ڈاکٹر </string>
     <string name="dcf1002"> نرس/مڈوائفْ لیڈی ہیلتھ ورکر </string>
     <string name="dcf1003"> کمونیٹی ہیلتھ ورکر </string>
-
     <string name="dcf1004"> دائی </string>
     <string name="dcf1005"> لیڈی ہیلتھ ورکر </string>
     <string name="dcf1006"> ہومیوپتیھ / حکیم </string>
@@ -407,7 +404,6 @@
     <string name="dcf12"> اس حمل کے دوران آپ نے کتنی مرتبہ اپنا معائنہ کروایا؟ </string>
     <string name="dcf1201"> Number of times </string>
     <string name="dcgsub01"> اب میں خاندانی منصوبہ بندی کے بارے میں پوچھوں گی۔جس میں ایک جوڑا حمل سےبچنے کے لیے ،بچے کے لیے یا اس میں تاخیر کرنے کے لیے کیا کیا طریقہ استعمال کرسکتے ہیں </string>
-
     <string name="dcg01"> کیا آپ نےکسی ایسے طریقوں کے بارے میں سنا ہے جو ایک عورت یا مرد حمل سے بچاؤ کے لیے استعمال کرتے ہیں؟ </string>
   <string name="dcg02"> کیا آپ یا آپ کے شوہر نے کبھی خاندانی منصوبہ بندی کے طریقے استعمال کئے ہیں؟ </string>
     <string name="dcg03"> ان میں سے کون کونسے طریقے استعمال کئے ہیں ان پر سرکل لگاد دیں
@@ -445,23 +441,21 @@
     <string name="dcg0513"> کوئی اور روایتی طریقہ </string>
     <string name="dch01"> سی پی 1 کو چیک کریں :کیا آپ ابھی حمل سے ہیں </string>
     <string name="dch02"> اب میں آپ سے آپ کے موجودہ حمل کے بارے میں پوچھنا چاہتی ہوں/کہ جب آپ حمل سے ہوئی تو کیا آپ اس وقت حاملہ ہونا چاہتی تھی؟ </string>
-    <string name="dch03"> کیا آپ بعد میں بھی کوئی بچہ پیدا کرنا چاہتی ہے یا آپ کوئی اور بچہ پیدا کرنا نہیں چاہتی ہیں </string>
-    <string name="dch0301"> ابھی نہیں چاہتی </string>
-    <string name="dch0302"> ابھی نہیں بعد میں حمل سے ہونا چاہتی تھی </string>
-    <string name="dch0303"> اور نہیں </string>
-    <string name="dch04"> اب میں اپ سے مستقبل کے بارے میں کچھ سوال کروں گی
-  اس حمل کے بعد کیا اپ مزید بچہ پیدا کرنا چاہیں گی یا مزید بچہ پیدا کرنا نہیں چاہیں گی </string>
+  <string name="dch04"> کیا آپ بعد میں بھی کوئی بچہ پیدا کرنا چاہتی ہے یا آپ کوئی اور بچہ پیدا کرنا نہیں چاہتی ہیں </string>
+  <string name="dch0401"> ابھی نہیں چاہتی </string>
+  <string name="dch0402"> ابھی نہیں بعد میں حمل سے ہونا چاہتی تھی </string>
 
-    <string name="dch0401"> ہاں دوسرا بچہ </string>
-    <string name="dch0402"> نہیں/ دوسرا بچہ نہیں </string>
-    <string name="dch0403"> ابھی فیصلہ نہیں کیا/ معلوم نہیں </string>
+  <string name="dch03"> اب میں اپ سے مستقبل کے بارے میں کچھ سوال کروں گی
+  اس حمل کے بعد کیا اپ مزید بچہ پیدا کرنا چاہیں گی یا مزید بچہ پیدا کرنا نہیں چاہیں گی </string>
+  <string name="dch0301"> ہاں دوسرا بچہ </string>
+  <string name="dch0302"> نہیں/ دوسرا بچہ نہیں </string>
+  <string name="dch0303"> ابھی فیصلہ نہیں کیا/ معلوم نہیں </string>
     <string name="dch05">اگر اور نہیں تو اس کی کیا وجہ ہے؟</string>
   <string name="dch06"> بچوں کی مطلوبہ تعداد </string>
   <string name="dch07"> آپ کے خیال میں ایک مثالی خاندان میں کتنے افراد ہونے چاہیں؟ </string>
     <string name="dch08"> کیا آپ نے ابھی اپنی نس بندی کروائی ہوئی ہے؟ </string>
     <string name="dch09"> جواب دہندہ نے جیسا جواب دیا ہے اس کو محفوظ کریں
   آپ اگلے بچے کی پیدائش کے لیے کتنا وقت انتظار کرنا چاہے گی ۔ </string>
-
     <string name="dch09m"> مہینہ </string>
   <string name="dch09y"> سال </string>
   <string name="dch0901"> انتظار کرنا نہیں چاہوں گی </string>
@@ -497,10 +491,10 @@
     <string name="dci06"> تاریخ پیدائش کا ذریعہ </string>
     <string name="dci0601"> کارڈ/پیدائشی سرٹیفیکیٹ </string>
     <string name="dci0602"> دیکھ بھال کرنے والے </string>
-    "<string name="dci07"> میں آپ سے کچھ سوال (نام) کے متعلق پوچھتا ہوں کس مہینے یا سال میں (نام) پیدا ہوا ؟
+  <string name="dci07"> میں آپ سے کچھ سوال (نام) کے متعلق پوچھتا ہوں کس مہینے یا سال میں (نام) پیدا ہوا ؟
     اس کی تاریخ پیدائش کیا ہے؟ اگرجوابدہندہ کو ٹھیک ٹھیک تاریخ پیدائش پتہ نہ ہو تو پوچھے۔کیا (نام) کی صحت یا حفاظتی ٹیکوں کے کارڈ پر تاریخ پیدائش درج یا قلمبند ہے؟ اگر صحت یا حفاظتی ٹیکوں کا کارڈ دکھایا جائے اور پھر دستاویز یا ہداہت کے طور پر درج کرلیں </string>
     <string name="dci07d"> دن
-  دن،اگر دن معلوم نہیں تو ""98""لکھیں </string>
+  دن،اگر دن معلوم نہیں تو "98" لکھیں </string>
     <string name="dci07m"> مہینہ </string>
     <string name="dci07y"> سال </string>
     <string name="dci08"> نام) اپنی پچھلی سالگرہ پر کتنی عمر کا ہواتھا؟ عمر کو مکمل سالوں میں تحریر کریں </string>
@@ -527,26 +521,22 @@
   <string name="dci17"> کیا (نام) کو کل دن یا رات کے دوران (مقامی نام والا او-ار-ایس) دیا گیا ہے ؟ </string>
     <string name="dci18"> کل دن یا رات کے دوران (نام) کتنی مرتبہ دی ہوئی فہرست کے آئیٹم کو ختم کیا
 سوال نمبر 13 پڑھیں  اگر بچے نے آئیٹم اے،بی،اور ایف ختم کیا تو درج کریں۔ اگر جواب معلوم نہ ہو تو 98 درج کریں۔
- </string>
+    </string>
     <string name="dci18sub"> اب میں آپ سے کچھ مائع غذا کے بارے میں سوال کروں گی جو آپ نے گزشتہ دن اور رات کے دوران استعمال کی ہے
   مائع کی فہرست کو سادے پانی سے پڑھنا شروع کریں </string>
 
     <string name="dci18a"> سادہ پانی </string>
   <string name="dci18b"> شیر خوار کی ترکیب (مقامی مثالیں شامل کرلیں) </string>
     <string name="dci18b1time"> وقت </string>
-
     <string name="dci18c"> دودھ جیسا کہ ڈبے کا سفوف والا یا تازہ دودھ جانور کا </string>
-
     <string name="dci18d"> تازہ یا ڈبے والا جوس </string>
     <string name="dci18e"> پتلی یخنی یا سوپ </string>
     <string name="dci18f"> دھی </string>
-
     <string name="dci18g"> پتلا دلیہ </string>
     <string name="dci18h"> کوئی اور محلول جیساکہ (فہرست میں موجود پانی کی بنیاد پر بنے ہوئے مقامی محلول) </string>
     <string name="dci18i"> یا کوئی دوسرا مائعجات </string>
   <string name="dci19"> (نام) نے اس کے بعد کیا کیا۔ کیا (نام) نے اس وقت کوئی بھی چیز کھائی اگر ہاں تو ہمیں ہر وہ چیز بتائیں جو (نام) نے اس وقت کھائی۔ </string>
     <string name="dci19sub"> برائے مہربانی ہر وہ چیز کھول کر بتاہیں جو کہ (نام) نے کل دن یا رات کے دوران کھائی تھی۔چاہے گھر میں یا گھر کے باہر۔ </string>
-
     <string name="dci19a"> دلیہ،ڈبل روٹی ،چاول ،نوڈلس یا دوسری خوراک جو کہ دانوں سے بنی ہو </string>
     <string name="dci19b"> کدو،گاجر کچلی ہوئی یا میٹھی آلو جو کہ اندر سے پیلی یا نارنجی ہو </string>
     <string name="dci19c"> سفید آلو،سفید ترکاری،سوجی یا کوئی بھی خوراک جو جٹوں سے بنی ہو </string>
@@ -571,10 +561,8 @@
     <string name="dcj02"> کیا گزشتہ دو ہفتوں میں (نام) کی سانس پُھلی ؟ </string>
     <string name="dcj03"> کیا گزشتہ دو ہفتوں میں (نام) کے سینے میں کھچاؤہوا؟ </string>
     <string name="dcj04"> کیا گزشتہ دو ہفتوں میں (نام) کو ڈائیریا ہوا؟ (دن میں دو سے تین پتلی پوٹیوں کو امحال سمجھا جائے) </string>
-    \
     <string name="dcj05"> کیا (نام) کسی تکالیف والی علامات سے گزرا؟ </string>
     <string name="dcj06"> کیا (نام) موجودہ ترتیب میں دی گئی تکالیف والی علامات سے گزرا؟( مختلف انتخابات کی اجازت ہے ) جوابات پڑھے مشاہدہ کریں کہ کیا بچہ تیز سا نس لے رہا ہے؟ </string>
-
     <string name="dcj0601"> کھانسی اور نزلہ </string>
     <string name="dcj0602"> بخار </string>
     <string name="dcj0603"> تیز سانس لینا </string>
@@ -586,7 +574,6 @@
     <string name="dcj0609"> پیشاب میں جلن کی جلن کی وجہ سے رونا </string>
     <string name="dcj0677"> اوپر دی گئی کوئی بیماری نہیں </string>
     <string name="dcj07"> کیا (نام) موجودہ ترتیب میں دی گئی تکالیف والی علامات سے گزرا؟( مختلف انتخابات کی اجازت ہے ) جوابات پڑھے مشاہدہ کریں کہ کیا بچہ تیز سا نس لے رہا ہے؟ </string>
-
     <string name="dcj08"> کیا پچھلے چھ مہینوں میں آپ کا بچہ کبھی بیمار ہوا ہے ؟ جس کے لیے ہسپتال لے کر گئے ہو؟ </string>
     <string name="dcj09"> اگر بیمار ہوا ہے تووضاحت کریں بشرطیکہ ایک سے زیادہ دفعہ بیمااری لاحق ہوئی ہو </string>
     <string name="dcj10"> کیا آپ کےبچے کو گھر میں داخل ہوتے ہی یا اندھیرے کمرے میں جاتے ہیوئے یا پلیٹ میں بڑی چیزوں کو پہنچانے میں یا چہروں کو پہنچانے میں مشکل پیش آئی ہو؟ تو اندھاپن کے متعلق جو ہدایت مینول میں دی گئی ہے بچے کی ماں کو تفصل میں بتائے کہ اندھاپن کا ہے؟ </string>
@@ -611,8 +598,12 @@
     <string name="dckg"> کیا بچے کو پہلے کبھی پولیو مہم کے دوران پولیو کے قطرے پلائے گئےہیں ؟ </string>
     <string name="dckbirth"> پیدائش کے وقت </string>
     <string name="dckbcg"> BCG </string>
-    <string name="dckbcgsrc"> Source </string>
-    <string name="dckbcgscar"> Scar </string>
+  <string name="dcksrc"> ذرائع </string>
+  <string name="dcksrc01"> حفاظتی ٹیکوں کا کارڈ </string>
+  <string name="dcksrc02"> جواب دینے والا </string>
+  <string name="dckscar"> نشان </string>
+  <string name="dckscar03"> بچہ موجود نہیں </string>
+  <string name="dckdate">  تاریخ </string>
     <string name="dckop0"> OPV 0 </string>
     <string name="dckop0src"> Source </string>
     <string name="dck6w"> 6 ہفتوں پر </string>
@@ -639,7 +630,7 @@
     <string name="dck9m"> 9 ماہ پر </string>
     <string name="dckm1"> Measles 1 </string>
     <string name="dckm1src"> Source </string>
-    <string name="dck15m"> 15اہ پر </string>
+  <string name="dck15m">   15ماہ پر </string>
     <string name="dckm2"> Measles 2 </string>
     <string name="dckm2src"> Source </string>
     <string name="dclheading"> سیکشن ایل :گھریلو خوراک ی ناقص تحفظ ،خوراک کا استعمال اور تبدیل </string>
@@ -693,6 +684,7 @@
     <string name="dcl0501"> کبھی کبھار 2-1 بار </string>
     <string name="dcl0502"> کبھی کبھی 10-3 بار </string>
     <string name="dcl0503"> اکثر 10 بار سے زیادہ </string>
+  <string name="dcm01sub">گھر کا ماحول</string>
     <string name="dcm01"> مندرجہ ذیل میں سے کونسا آپ کے گھر کو بہتر بیان کرسکتا ہے ؟ </string>
     <string name="dcm0101"> گھر </string>
     <string name="dcm0102"> اپارٹمنٹ/فلٹ کو دو حصوں میں تقسیم کرں </string>

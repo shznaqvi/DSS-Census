@@ -361,6 +361,13 @@
                     android:text="@string/dcdkn"/>
             </RadioGroup>
 
+            <LinearLayout
+                android:id="@+id/fldGrpdcj09"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -391,6 +398,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/dcj09"
                 android:inputType="textCapWords"/>
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -460,7 +469,14 @@
                     android:text="@string/dcdkn"/>
             </RadioGroup>
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/fldGrpdcj12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -493,6 +509,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dcdkn"/>
             </RadioGroup>
+
+            </LinearLayout>
 
             <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
 

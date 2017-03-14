@@ -97,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="5dp"
-                    android:background="#efefef"
+                    android:background="@color/pink_100"
                     android:padding="2dp"
                     android:text="@string/sec2A"
                     android:textColor="@color/colorPrimary"
