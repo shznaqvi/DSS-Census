@@ -1132,13 +1132,17 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             dci19a02.setError("Atlease one should be yes Other wise Select no in " + getString(R.string.dci20));
             Log.i(TAG, "dci19: This data is Required!");
             return false;
-        } else if (!(is19AllNo()) && !dci2001.isChecked()) {
-            dci2001.setError("Check again" + getString(R.string.dci20));
+        } else {
+            dci19a02.setError(null);
+        }
+
+        if (is19Alldontknow() && !dci2099.isChecked()) {
+            Toast.makeText(this, "ERROR: " + getString(R.string.dci20) + "Atleast one should be Yes", Toast.LENGTH_SHORT).show();
+            dci2099.setError("Atlease one should be yes Other wise Select Dont Know in " + getString(R.string.dci20));
             Log.i(TAG, "dci20: This data is Required!");
             return false;
         } else {
-            dci19a02.setError(null);
-            dci2001.setError(null);
+            dci2099.setError(null);
         }
 
 
@@ -1152,6 +1156,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             // Show answer here
             fldGrpdci20.setVisibility(View.VISIBLE);
 
+
         } else {
             fldGrpdci20.setVisibility(View.VISIBLE);
             fldGrpdci21.setVisibility(View.VISIBLE);
@@ -1161,7 +1166,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
     }
 
     public boolean is19AllNo() {
-        boolean val = false;
+
 
         int i = 0;
         for (RadioButton rg : dci1902) {
@@ -1176,7 +1181,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
     }
 
     public boolean is19Alldontknow() {
-        boolean val = false;
+
 
         int i = 0;
         for (RadioButton rg : dci1999) {
@@ -1189,6 +1194,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
 
         //return val;
     }
+
 
 }
 

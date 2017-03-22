@@ -9,6 +9,7 @@ import org.json.JSONObject;
 /**
  * Created by hassan.naqvi on 12/2/2016.
  */
+
 public class RandsContract {
     private static final String TAG = "RANDs_CONTRACT";
 
