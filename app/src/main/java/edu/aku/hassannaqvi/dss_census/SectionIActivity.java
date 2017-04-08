@@ -1136,13 +1136,13 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             dci19a02.setError(null);
         }
 
-        if (is19Alldontknow() && !dci2099.isChecked()) {
+        if (is19Alldontknow() && dci2002.isChecked()) {
             Toast.makeText(this, "ERROR: " + getString(R.string.dci20) + "Atleast one should be Yes", Toast.LENGTH_SHORT).show();
-            dci2099.setError("Atlease one should be yes Other wise Select Dont Know in " + getString(R.string.dci20));
+            dci2002.setError("Atlease one should be yes Other wise Select Dont Know in " + getString(R.string.dci20));
             Log.i(TAG, "dci20: This data is Required!");
             return false;
         } else {
-            dci2099.setError(null);
+            dci2002.setError(null);
         }
 
 

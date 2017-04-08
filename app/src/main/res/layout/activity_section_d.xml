@@ -212,10 +212,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
-                android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dcd04b"
-                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -283,10 +281,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
-                android:background="#efefef"
                 android:padding="2dp"
                 android:text="@string/dcd04c"
-                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 android:textStyle="bold"
 

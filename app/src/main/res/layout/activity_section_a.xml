@@ -124,12 +124,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="16dp"
                     android:layout_marginTop="5dp"
-                    android:background="#efefef"
                     android:padding="2dp"
                     android:text="@string/dca0501"
-                    android:textColor="@color/colorPrimary"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -162,10 +160,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="5dp"
-                    android:background="#efefef"
                     android:padding="2dp"
                     android:text="@string/dca0502"
-                    android:textColor="@color/colorPrimary"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -203,10 +199,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:layout_weight="2"
-                        android:background="#efefef"
                         android:padding="2dp"
                         android:text="@string/dca0503"
-                        android:textColor="@color/colorPrimary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -231,9 +225,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:layout_weight="2"
-                        android:background="#efefef"
                         android:text="@string/dca0504"
-                        android:textColor="@color/colorPrimary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -253,11 +245,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="2"
-                    android:background="#efefef"
                     android:padding="2dp"
                     android:text="@string/dca0505"
-                    android:textColor="@color/colorPrimary"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -374,10 +365,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="5dp"
-                    android:background="#efefef"
                     android:padding="2dp"
                     android:text="@string/dca0601"
-                    android:textColor="@color/colorPrimary"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -415,10 +404,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:layout_weight="2"
-                        android:background="#efefef"
                         android:padding="2dp"
                         android:text="@string/dca0602"
-                        android:textColor="@color/colorPrimary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -443,9 +430,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:layout_weight="2"
-                        android:background="#efefef"
                         android:text="@string/dca0603"
-                        android:textColor="@color/colorPrimary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -464,11 +449,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="2"
-                    android:background="#efefef"
                     android:padding="2dp"
                     android:text="@string/dca0604"
-                    android:textColor="@color/colorPrimary"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -588,6 +572,12 @@
                         android:inputType="number"
                         android:maxLength="2" />
 
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDark"></View>
+
+
                     <EditText
                         android:id="@+id/dca0702"
                         android:layout_width="match_parent"
@@ -596,6 +586,12 @@
                         android:hint="@string/dca0702"
                         android:inputType="number"
                         android:maxLength="2" />
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDark"></View>
+
 
                     <EditText
                         android:id="@+id/dca0703"
@@ -632,6 +628,12 @@
                         android:inputType="number"
                         android:maxLength="2" />
 
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDark"></View>
+
+
                     <EditText
                         android:id="@+id/dca0802"
                         android:layout_width="match_parent"
@@ -640,6 +642,12 @@
                         android:hint="@string/dca0802"
                         android:inputType="number"
                         android:maxLength="2" />
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDark"></View>
+
 
                     <EditText
                         android:id="@+id/dca0803"
@@ -706,15 +714,23 @@
                         android:id="@+id/dca09m"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
                         android:layout_weight="1"
                         android:hint="@string/dca09m"
                         android:inputType="number"
                         android:maxLength="2" />
 
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDark"></View>
+
+
                     <EditText
                         android:id="@+id/dca09y"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
                         android:layout_weight="1"
                         android:hint="@string/dca09y"
                         android:inputType="number"
@@ -743,8 +759,10 @@
                     android:id="@+id/dca10b"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:hint="@string/dca10b"
                     android:inputType="textCapWords" />
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -760,7 +778,7 @@
                     android:id="@+id/dca11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+
 
                     >
 
@@ -768,14 +786,14 @@
                         android:id="@+id/dca1101"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+
                         android:text="@string/dca1101" />
 
                     <RadioButton
                         android:id="@+id/dca1102"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+
                         android:text="@string/dca1102"
 
                         />
