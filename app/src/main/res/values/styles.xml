@@ -11,6 +11,10 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="BackgroundStyle" parent="android:Widget.ScrollView">
+        <item name="android:background">#efefef</item>
+    </style>
+
     <style name="SpinnerItem">
         <item name="android:textAppearance">@style/SpinnerItemText</item>
     </style>
@@ -73,7 +77,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">16dp</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:background">#efefef</item>
+        <item name="android:background">#d6d6d6</item>
         <item name="android:padding">16dp</item>
     </style>
 
@@ -84,7 +88,7 @@
         <item name="android:textSize">24sp</item>
         <item name="android:typeface">serif</item>
         <item name="android:textColor">#ff0000</item>
-        <item name="android:background">#efefef</item>
+        <item name="android:background">#d6d6d6</item>
         <item name="android:padding">16dp</item>
 
 
@@ -111,7 +115,7 @@
         <item name="android:gravity">right</item>
         <item name="android:orientation">vertical</item>
         <item name="android:layout_marginBottom">16dp</item>
-        <item name="android:background">#efefef</item>
+        <item name="android:background">#d6d6d6</item>
         <item name="android:textSize">24sp</item>
         <item name="android:typeface">serif</item>
         <item name="android:padding">16dp</item>
@@ -125,7 +129,7 @@
         <item name="android:drawableRight">@android:drawable/btn_radio</item>
         <item name="android:textSize">24sp</item>
         <item name="android:typeface">serif</item>
-        <item name="android:background">#efefef</item>
+        <item name="android:background">#d6d6d6</item>
         <item name="android:padding">4dp</item>
     </style>
 
@@ -145,7 +149,7 @@
         <item name="android:textSize">24sp</item>
         <item name="android:typeface">serif</item>
         <item name="android:drawableRight">?android:attr/listChoiceIndicatorMultiple</item>
-        <item name="android:background">#efefef</item>
+        <item name="android:background">#d6d6d6</item>
         <item name="android:padding">4dp</item>
 
 
