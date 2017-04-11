@@ -22,7 +22,7 @@
 
             <TextView
                 android:id="@+id/app_header"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
@@ -38,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcfa"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -47,6 +46,7 @@
                 android:id="@+id/dcfa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dcfa"
                 android:inputType="textCapWords">
 
@@ -58,7 +58,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcf01"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -67,6 +66,7 @@
                 android:id="@+id/dcf01"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:digits="0123456789"
                 android:hint="@string/dcf01"
                 android:inputType="number"
@@ -77,7 +77,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcf02"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -90,7 +89,7 @@
                 android:digits="0123456789"
                 android:hint="@string/dcf0201"
                 android:inputType="number"
-                android:maxLength="2"/>
+                android:maxLength="2" />
 
             <EditText
                 android:id="@+id/dcf0202"
@@ -117,7 +116,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcf03"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -126,6 +124,7 @@
                 android:id="@+id/dcf03"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:digits="0123456789"
                 android:hint="@string/dcf03"
                 android:inputType="number"
@@ -136,7 +135,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcf04"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -149,12 +147,16 @@
 
                 <RadioButton
                     android:id="@+id/dcfDob"
-                    style="@style/radiobutton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcf04a" />
 
                 <RadioButton
                     android:id="@+id/dcfAge"
-                    style="@style/radiobutton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcf04b" />
 
             </RadioGroup>
@@ -164,6 +166,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <DatePicker
                 android:id="@+id/dcf04dob"
                 android:layout_width="match_parent"
@@ -186,6 +189,7 @@
                 android:id="@+id/dcf0401"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:digits="0123456789"
                 android:hint="@string/dcf04d"
                 android:inputType="number"
@@ -195,6 +199,7 @@
                 android:id="@+id/dcf0402"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:layout_marginTop="1dp"
                 android:digits="0123456789"
                 android:hint="@string/dcf04m"
@@ -205,6 +210,7 @@
                 android:id="@+id/dcf0403"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:layout_marginTop="1dp"
                 android:digits="0123456789"
                 android:hint="@string/dcf04y"
@@ -218,7 +224,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcf05"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -227,6 +232,7 @@
                 android:id="@+id/dcf05"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:digits="0123456789"
                 android:hint="@string/dcf05y"
                 android:inputType="number"
@@ -237,7 +243,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcf06"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -246,6 +251,7 @@
                 android:id="@+id/dcf06"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:digits="0123456789"
                 android:hint="@string/dcf06y"
                 android:inputType="number"
@@ -256,7 +262,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcf07"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -268,20 +273,23 @@
 
                 <RadioButton
                     android:id="@+id/dcf0701"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
                     android:id="@+id/dcf0702"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcno" />
 
                 <RadioButton
                     android:id="@+id/dcf0799"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcf0799"/>
 
             </RadioGroup>
@@ -298,7 +306,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcf08"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -307,6 +314,7 @@
                 android:id="@+id/dcf08"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:digits="0123456789"
                 android:hint="@string/dcf08m"
                 android:inputType="number"
@@ -317,7 +325,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcf09"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -329,20 +336,23 @@
 
                 <RadioButton
                     android:id="@+id/dcf0901"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
                     android:id="@+id/dcf0902"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
                     android:id="@+id/dcf0999"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcdkn"/>
 
             </RadioGroup>
@@ -358,172 +368,180 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
                     android:text="@string/dcf10"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:background="#efefef"
-                android:padding="2dp"
-                android:text="@string/HP"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#efefef"
+                    android:text="@string/HP"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/colorPrimary" />
 
-            <CheckBox
-                android:id="@+id/dcf1001"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcf1001"/>
+                <CheckBox
+                    android:id="@+id/dcf1001"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcf1001" />
 
-            <CheckBox
-                android:id="@+id/dcf1002"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcf1002"/>
+                <CheckBox
+                    android:id="@+id/dcf1002"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcf1002" />
 
-            <CheckBox
-                android:id="@+id/dcf1003"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcf1003"/>
+                <CheckBox
+                    android:id="@+id/dcf1003"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcf1003" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:background="#efefef"
-                android:text="@string/OP"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#efefef"
+                    android:text="@string/OP"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/colorPrimary" />
 
-            <CheckBox
-                android:id="@+id/dcf1004"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcf1004"/>
+                <CheckBox
+                    android:id="@+id/dcf1004"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcf1004" />
 
-            <CheckBox
-                android:id="@+id/dcf1005"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcf1005"/>
+                <CheckBox
+                    android:id="@+id/dcf1005"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcf1005" />
 
-            <CheckBox
-                android:id="@+id/dcf1006"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcf1006"/>
+                <CheckBox
+                    android:id="@+id/dcf1006"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcf1006" />
 
-            <CheckBox
-                android:id="@+id/dcf1007"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcf1007"/>
+                <CheckBox
+                    android:id="@+id/dcf1007"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcf1007" />
 
-            <CheckBox
-                android:id="@+id/dcf1096"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcother"/>
+                <CheckBox
+                    android:id="@+id/dcf1096"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcother" />
 
-            <EditText
-                android:id="@+id/dcf1096x"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/dcother"
-                android:inputType="textCapWords"
-                android:visibility="gone" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/dcf11"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <CheckBox
-                android:id="@+id/dcf1101"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcf1101"/>
-
-            <CheckBox
-                android:id="@+id/dcf1102"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcf1102"/>
-
-            <CheckBox
-                android:id="@+id/dcf1103"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcf1103"/>
-
-            <CheckBox
-                android:id="@+id/dcf1104"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcf1104"/>
-
-            <CheckBox
-                android:id="@+id/dcf1105"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcf1105"/>
-
-            <CheckBox
-                android:id="@+id/dcf1106"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcf1106"/>
-
-            <CheckBox
-                android:id="@+id/dcf1196"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcother"/>
-
-            <EditText
-                android:id="@+id/dcf1196x"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/dcother"
-                android:inputType="textCapWords"
-                android:visibility="gone" />
+                <EditText
+                    android:id="@+id/dcf1096x"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:hint="@string/dcother"
+                    android:inputType="textCapWords"
+                    android:visibility="gone" />
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/dcf12"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/dcf11"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
 
-            <EditText
-                android:id="@+id/dcf12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:digits="0123456789"
-                android:hint="@string/dcf12"
-                android:inputType="number"
-                android:maxLength="2"/>
+                <CheckBox
+                    android:id="@+id/dcf1101"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcf1101" />
+
+                <CheckBox
+                    android:id="@+id/dcf1102"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcf1102" />
+
+                <CheckBox
+                    android:id="@+id/dcf1103"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcf1103" />
+
+                <CheckBox
+                    android:id="@+id/dcf1104"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcf1104" />
+
+                <CheckBox
+                    android:id="@+id/dcf1105"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcf1105" />
+
+                <CheckBox
+                    android:id="@+id/dcf1106"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcf1106" />
+
+                <CheckBox
+                    android:id="@+id/dcf1196"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcother" />
+
+                <EditText
+                    android:id="@+id/dcf1196x"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:hint="@string/dcother"
+                    android:inputType="textCapWords"
+                    android:visibility="gone" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/dcf12"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/dcf12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:digits="0123456789"
+                    android:hint="@string/dcf12"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
             </LinearLayout>
 
@@ -532,7 +550,7 @@
             <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:orientation="horizontal">

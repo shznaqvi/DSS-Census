@@ -165,8 +165,7 @@
 
                 <RadioGroup
                     android:id="@+id/dca0502"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/radiogroup"
                     android:orientation="horizontal">
 
                     <RadioButton

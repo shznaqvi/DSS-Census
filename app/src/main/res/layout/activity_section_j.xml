@@ -22,7 +22,7 @@
 
             <TextView
                 android:id="@+id/app_header"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
@@ -38,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcj01"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -50,20 +49,23 @@
 
                 <RadioButton
                     android:id="@+id/dcj0101"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
                     android:id="@+id/dcj0102"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcno"/>
 
                 <RadioButton
                     android:id="@+id/dcj0199"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcdkn"/>
             </RadioGroup>
 
@@ -72,7 +74,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcj02"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -84,20 +85,23 @@
 
                 <RadioButton
                     android:id="@+id/dcj0201"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
                     android:id="@+id/dcj0202"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcno"/>
 
                 <RadioButton
                     android:id="@+id/dcj0299"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcdkn"/>
             </RadioGroup>
 
@@ -106,7 +110,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcj03"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -118,20 +121,23 @@
 
                 <RadioButton
                     android:id="@+id/dcj0301"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
                     android:id="@+id/dcj0302"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcno"/>
 
                 <RadioButton
                     android:id="@+id/dcj0399"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcdkn"/>
             </RadioGroup>
 
@@ -140,7 +146,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcj04"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -152,20 +157,23 @@
 
                 <RadioButton
                     android:id="@+id/dcj0401"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
                     android:id="@+id/dcj0402"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcno"/>
 
                 <RadioButton
                     android:id="@+id/dcj0499"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcdkn"/>
             </RadioGroup>
 
@@ -174,7 +182,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcj05"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -187,14 +194,16 @@
 
                 <RadioButton
                     android:id="@+id/dcj0501"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes" />
 
                 <RadioButton
                     android:id="@+id/dcj0502"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcno" />
 
             </RadioGroup>
@@ -212,84 +221,94 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:padding="2dp"
                     android:text="@string/dcj06"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
                 <CheckBox
                     android:id="@+id/dcj0601"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcj0601" />
 
-            <CheckBox
-                android:id="@+id/dcj0602"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcj0602" />
+                <CheckBox
+                    android:id="@+id/dcj0602"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcj0602" />
 
-            <CheckBox
-                android:id="@+id/dcj0603"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcj0603" />
+                <CheckBox
+                    android:id="@+id/dcj0603"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcj0603" />
 
-            <CheckBox
-                android:id="@+id/dcj0604"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcj0604" />
+                <CheckBox
+                    android:id="@+id/dcj0604"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcj0604" />
 
-            <CheckBox
-                android:id="@+id/dcj0605"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcj0605" />
+                <CheckBox
+                    android:id="@+id/dcj0605"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcj0605" />
 
-            <CheckBox
-                android:id="@+id/dcj0606"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcj0606" />
+                <CheckBox
+                    android:id="@+id/dcj0606"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcj0606" />
 
-            <CheckBox
-                android:id="@+id/dcj0607"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcj0607" />
+                <CheckBox
+                    android:id="@+id/dcj0607"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcj0607" />
 
-            <CheckBox
-                android:id="@+id/dcj0608"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcj0608" />
+                <CheckBox
+                    android:id="@+id/dcj0608"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcj0608" />
 
-            <CheckBox
-                android:id="@+id/dcj0609"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcj0609" />
+                <CheckBox
+                    android:id="@+id/dcj0609"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcj0609" />
 
-            <CheckBox
-                android:id="@+id/dcj0677"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcj0677" />
+                <CheckBox
+                    android:id="@+id/dcj0677"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcj0677" />
 
-            <CheckBox
-                android:id="@+id/dcj0696"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dcother"/>
+                <CheckBox
+                    android:id="@+id/dcj0696"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcother" />
 
-            <EditText
-                android:id="@+id/dcj0696x"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/dcother"
-                android:inputType="textCapWords"
-                android:visibility="gone" />
+                <EditText
+                    android:id="@+id/dcj0696x"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:hint="@string/dcother"
+                    android:inputType="textCapWords"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -298,7 +317,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcj07"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -310,20 +328,23 @@
 
                 <RadioButton
                     android:id="@+id/dcj0701"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
                     android:id="@+id/dcj0702"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcno"/>
 
                 <RadioButton
                     android:id="@+id/dcj0799"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcdkn"/>
             </RadioGroup>
 
@@ -332,7 +353,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcj08"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -344,20 +364,23 @@
 
                 <RadioButton
                     android:id="@+id/dcj0801"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
                     android:id="@+id/dcj0802"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcno"/>
 
                 <RadioButton
                     android:id="@+id/dcj0899"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcdkn"/>
             </RadioGroup>
 
@@ -373,7 +396,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcj09"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -382,6 +404,7 @@
                 android:id="@+id/dcj0901"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dcj09"
                 android:inputType="textCapWords"/>
 
@@ -389,6 +412,7 @@
                 android:id="@+id/dcj0902"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dcj09"
                 android:inputType="textCapWords"/>
 
@@ -396,6 +420,7 @@
                 android:id="@+id/dcj0903"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dcj09"
                 android:inputType="textCapWords"/>
 
@@ -406,7 +431,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcj10"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -418,20 +442,23 @@
 
                 <RadioButton
                     android:id="@+id/dcj1001"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
                     android:id="@+id/dcj1002"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcno"/>
 
                 <RadioButton
                     android:id="@+id/dcj1099"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcdkn"/>
             </RadioGroup>
 
@@ -440,7 +467,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcj11"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -452,20 +478,23 @@
 
                 <RadioButton
                     android:id="@+id/dcj1101"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
                     android:id="@+id/dcj1102"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcno"/>
 
                 <RadioButton
                     android:id="@+id/dcj1199"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcdkn"/>
             </RadioGroup>
 
@@ -477,45 +506,47 @@
                 android:visibility="gone">
 
                 <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="@string/dcj12"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <RadioGroup
-                android:id="@+id/dcj12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/dcj1201"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/dcyes"/>
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/dcj12"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
 
-                <RadioButton
-                    android:id="@+id/dcj1202"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcno"/>
+                <RadioGroup
+                    android:id="@+id/dcj12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/dcj1299"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dcdkn"/>
-            </RadioGroup>
+                    <RadioButton
+                        android:id="@+id/dcj1201"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:text="@string/dcyes" />
+
+                    <RadioButton
+                        android:id="@+id/dcj1202"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:text="@string/dcno" />
+
+                    <RadioButton
+                        android:id="@+id/dcj1299"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:text="@string/dcdkn" />
+                </RadioGroup>
 
             </LinearLayout>
 
             <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:orientation="horizontal">

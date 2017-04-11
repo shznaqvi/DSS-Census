@@ -71,19 +71,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
+                android:background="@color/pink_100"
                 android:text="@string/dcbb"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/colorPrimaryDark" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="#efefef"
                 android:text="@string/dcbbrhh"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/colorPrimary" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <RadioGroup
                 android:id="@+id/dcbbrhh"
@@ -569,13 +567,15 @@
 
                 <RadioButton
                     android:id="@+id/dcbdob01"
-                    style="@style/radiobutton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
                     android:text="@string/dcbg" />
 
                 <RadioButton
                     android:id="@+id/dcbAge02"
-                    style="@style/radiobutton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
                     android:text="@string/dcbh" />
 
@@ -661,22 +661,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
+                android:background="@color/pink_100"
                 android:text="@string/dcbi"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/colorPrimaryDark" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:background="#efefef"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dcbis"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <RadioGroup

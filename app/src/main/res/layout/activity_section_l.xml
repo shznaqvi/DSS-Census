@@ -22,7 +22,7 @@
 
             <TextView
                 android:id="@+id/app_header"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
@@ -38,34 +38,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
+                android:background="@color/pink_100"
                 android:text="@string/dcl01"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/colorPrimaryDark" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:background="#efefef"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dcl01a"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
                 android:id="@+id/dcl01am"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a1" />
 
             <LinearLayout
                 android:id="@+id/fldGrpa1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -94,12 +90,14 @@
                 android:id="@+id/dcl01ac"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a2" />
 
             <LinearLayout
                 android:id="@+id/fldGrpa2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -126,19 +124,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:background="#efefef"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dcl01b"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
                 android:id="@+id/dcl01bm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a1" />
 
 
@@ -146,6 +140,7 @@
                 android:id="@+id/fldGrpb1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -172,6 +167,7 @@
                 android:id="@+id/dcl01bc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a2" />
 
 
@@ -179,6 +175,7 @@
                 android:id="@+id/fldGrpb2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -204,19 +201,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:background="#efefef"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dcl01c"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
                 android:id="@+id/dcl01cm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a1" />
 
 
@@ -224,6 +217,7 @@
                 android:id="@+id/fldGrpc1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -250,6 +244,7 @@
                 android:id="@+id/dcl01cc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a2" />
 
 
@@ -257,6 +252,7 @@
                 android:id="@+id/fldGrpc2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -282,19 +278,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:background="#efefef"
-                android:padding="2dp"
+                android:layout_marginTop="15dp"
                 android:text="@string/dcl01d"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
                 android:id="@+id/dcl01dm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a1" />
 
 
@@ -302,8 +294,7 @@
                 android:id="@+id/fldGrpd1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLength="2"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -313,7 +304,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/days" />
+                    android:hint="@string/days"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <EditText
                     android:id="@+id/dcl01d1fr"
@@ -329,6 +322,7 @@
                 android:id="@+id/dcl01dc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a2" />
 
 
@@ -336,6 +330,7 @@
                 android:id="@+id/fldGrpd2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -362,19 +357,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:background="#efefef"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dcl01e"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
                 android:id="@+id/dcl01em"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a1" />
 
 
@@ -382,6 +373,7 @@
                 android:id="@+id/fldGrpe1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -409,6 +401,7 @@
                 android:id="@+id/dcl01ec"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a2" />
 
 
@@ -416,6 +409,7 @@
                 android:id="@+id/fldGrpe2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -441,19 +435,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:background="#efefef"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dcl01f"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
                 android:id="@+id/dcl01fm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a1" />
 
 
@@ -461,6 +451,7 @@
                 android:id="@+id/fldGrpf1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -487,6 +478,7 @@
                 android:id="@+id/dcl01fc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a2" />
 
 
@@ -494,6 +486,7 @@
                 android:id="@+id/fldGrpf2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -520,19 +513,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:background="#efefef"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dcl01g"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
                 android:id="@+id/dcl01gm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a1" />
 
 
@@ -540,6 +529,7 @@
                 android:id="@+id/fldGrpg1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -564,6 +554,7 @@
                 android:id="@+id/dcl01gc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a2" />
 
 
@@ -571,6 +562,7 @@
                 android:id="@+id/fldGrpg2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -596,19 +588,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:background="#efefef"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dcl01h"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
                 android:id="@+id/dcl01hm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a1" />
 
 
@@ -616,6 +604,7 @@
                 android:id="@+id/fldGrh1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -642,6 +631,7 @@
                 android:id="@+id/dcl01hc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a2" />
 
 
@@ -649,6 +639,7 @@
                 android:id="@+id/fldGrph2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -675,19 +666,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:background="#efefef"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dcl01i"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
                 android:id="@+id/dcl01im"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a1" />
 
 
@@ -695,6 +682,7 @@
                 android:id="@+id/fldGrpi1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -722,6 +710,7 @@
                 android:id="@+id/dcl01ic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a2" />
 
 
@@ -729,6 +718,7 @@
                 android:id="@+id/fldGrpi2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -755,41 +745,31 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:background="@color/pink_100"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dcl2heading"
-                android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
+                android:background="@color/pink_100"
                 android:text="@string/dcl02"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/colorPrimaryDark" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="16dp"
-                android:background="#efefef"
-                android:padding="2dp"
                 android:text="@string/dcl02a"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
                 android:id="@+id/dcl02a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="Number of days"
                 android:inputType="number"
                 android:maxLength="2" />
@@ -797,19 +777,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="16dp"
-                android:background="#efefef"
-                android:padding="2dp"
                 android:text="@string/dcl02b"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
                 android:id="@+id/dcl02b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="Number of days"
                 android:inputType="number"
                 android:maxLength="2" />
@@ -817,19 +793,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="16dp"
-                android:background="#efefef"
-                android:padding="2dp"
                 android:text="@string/dcl02c"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
                 android:id="@+id/dcl02c"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="Number of days"
                 android:inputType="number"
                 android:maxLength="2" />
@@ -837,19 +809,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="16dp"
-                android:background="#efefef"
-                android:padding="2dp"
                 android:text="@string/dcl02d"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
                 android:id="@+id/dcl02d"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="Number of days"
                 android:inputType="number"
                 android:maxLength="2" />
@@ -857,19 +825,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="16dp"
-                android:background="#efefef"
-                android:padding="2dp"
                 android:text="@string/dcl02e"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
                 android:id="@+id/dcl02e"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="Number of days"
                 android:inputType="number"
                 android:maxLength="2" />
@@ -877,14 +841,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="16dp"
                 android:background="@color/pink_100"
-                android:padding="2dp"
                 android:text="@string/dcl3heading"
-                android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/colorPrimary" />
 
 
             <TextView
@@ -892,7 +853,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcl03"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -906,24 +866,28 @@
                     android:id="@+id/dcl0388"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcl0388" />
 
                 <RadioButton
                     android:id="@+id/dcl0301"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcl0301" />
 
                 <RadioButton
                     android:id="@+id/dcl0302"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcl0302" />
 
                 <RadioButton
                     android:id="@+id/dcl0303"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcl0303" />
 
 
@@ -934,7 +898,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcl04"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -948,6 +911,7 @@
                     android:id="@+id/dcl0488"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcl0388" />
 
                 <RadioButton
@@ -960,12 +924,14 @@
                     android:id="@+id/dcl0402"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcl0402" />
 
                 <RadioButton
                     android:id="@+id/dcl0403"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcl0403" />
 
 
@@ -976,7 +942,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dcl05"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -990,24 +955,28 @@
                     android:id="@+id/dcl0588"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcl0388" />
 
                 <RadioButton
                     android:id="@+id/dcl0501"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcl0501" />
 
                 <RadioButton
                     android:id="@+id/dcl0502"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcl0502" />
 
                 <RadioButton
                     android:id="@+id/dcl0503"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcl0503" />
 
             </RadioGroup>
@@ -1015,7 +984,7 @@
             <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:orientation="horizontal">

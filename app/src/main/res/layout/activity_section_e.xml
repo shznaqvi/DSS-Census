@@ -22,7 +22,7 @@
 
             <TextView
                 android:id="@+id/app_header"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
@@ -38,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dce01"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -50,38 +49,39 @@
 
                 <RadioButton
                     android:id="@+id/dce0101"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0101"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
                     android:background="#efefef"
                     android:text="Not Observed"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
                     />
 
                 <RadioButton
                     android:id="@+id/dce0102"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0102"/>
 
                 <RadioButton
                     android:id="@+id/dce0103"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0103"/>
 
                 <RadioButton
                     android:id="@+id/dce0196"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcother"/>
 
             </RadioGroup>
@@ -90,6 +90,7 @@
                 android:id="@+id/dce0196x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
@@ -100,7 +101,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dce02"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -112,14 +112,16 @@
 
                 <RadioButton
                     android:id="@+id/dce0201"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0201"/>
 
                 <RadioButton
                     android:id="@+id/dce0202"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0202"/>
 
             </RadioGroup>
@@ -129,7 +131,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dce03"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -141,32 +142,37 @@
 
                 <RadioButton
                     android:id="@+id/dce0301"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0301"/>
 
                 <RadioButton
                     android:id="@+id/dce0302"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0302"/>
 
                 <RadioButton
                     android:id="@+id/dce0303"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0303"/>
 
                 <RadioButton
                     android:id="@+id/dce0304"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0304"/>
 
                 <RadioButton
                     android:id="@+id/dce0396"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcother"/>
 
             </RadioGroup>
@@ -175,6 +181,7 @@
                 android:id="@+id/dce0396x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
@@ -185,7 +192,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dce04"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -197,14 +203,16 @@
 
                 <RadioButton
                     android:id="@+id/dce0401"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
                     android:id="@+id/dce0402"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcno"/>
 
             </RadioGroup>
@@ -222,7 +230,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dce05"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -234,32 +241,37 @@
 
                 <RadioButton
                     android:id="@+id/dce0501"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0501"/>
 
                 <RadioButton
                     android:id="@+id/dce0502"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0502"/>
 
                 <RadioButton
                     android:id="@+id/dce0503"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0503"/>
 
                 <RadioButton
                     android:id="@+id/dce0504"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0504"/>
 
                 <RadioButton
                     android:id="@+id/dce0596"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcother"/>
 
             </RadioGroup>
@@ -268,6 +280,7 @@
                 android:id="@+id/dce0596x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
@@ -280,81 +293,92 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dce06"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
 
             <CheckBox
                 android:id="@+id/dce0601"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dce0601"/>
 
             <CheckBox
                 android:id="@+id/dce0602"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dce0602"/>
 
             <CheckBox
                 android:id="@+id/dce0603"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dce0603"/>
 
             <CheckBox
                 android:id="@+id/dce0604"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dce0604"/>
 
             <CheckBox
                 android:id="@+id/dce0605"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dce0605"/>
 
             <CheckBox
                 android:id="@+id/dce0606"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dce0606"/>
 
             <CheckBox
                 android:id="@+id/dce0607"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dce0607"/>
 
             <CheckBox
                 android:id="@+id/dce0608"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dce0608"/>
 
             <CheckBox
                 android:id="@+id/dce0609"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dce0609"/>
 
             <CheckBox
                 android:id="@+id/dce0610"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dce0610"/>
 
             <CheckBox
                 android:id="@+id/dce0696"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/dcother"/>
 
             <EditText
                 android:id="@+id/dce0696x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
@@ -365,7 +389,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:padding="2dp"
                 android:text="@string/dce07"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -377,20 +400,23 @@
 
                 <RadioButton
                     android:id="@+id/dce0701"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
                     android:id="@+id/dce0702"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcno"/>
 
                 <RadioButton
                     android:id="@+id/dce0799"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcdkn"/>
             </RadioGroup>
 
@@ -407,7 +433,6 @@
                  android:layout_height="wrap_content"
                  android:layout_marginTop="16dp"
                  android:background="@color/colorPrimary"
-                 android:padding="2dp"
                  android:text="@string/dce08"
                  android:textAppearance="?android:attr/textAppearanceLarge"
                  android:textColor="@android:color/white" />
@@ -419,20 +444,23 @@
 
                 <RadioButton
                     android:id="@+id/dce0801"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcyes"/>
 
                 <RadioButton
                     android:id="@+id/dce0802"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcno"/>
 
                 <RadioButton
                     android:id="@+id/dce0899"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcdkn"/>
             </RadioGroup>
 
@@ -460,50 +488,57 @@
 
                 <RadioButton
                     android:id="@+id/dce0901"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0901"/>
 
                 <RadioButton
                     android:id="@+id/dce0902"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0902"/>
 
                 <RadioButton
                     android:id="@+id/dce0903"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0903"/>
 
                 <RadioButton
                     android:id="@+id/dce0904"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/dce0904"/>
 
                 <RadioButton
                     android:id="@+id/dce0905"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0905"/>
 
                 <RadioButton
                     android:id="@+id/dce0906"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dce0906"/>
 
                 <RadioButton
                     android:id="@+id/dce0999"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcdkn"/>
 
                 <RadioButton
                     android:id="@+id/dce0996"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcother"/>
 
             </RadioGroup>
@@ -513,6 +548,7 @@
                 android:id="@+id/dce0996x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
@@ -525,7 +561,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="#efefef"
-                android:padding="2dp"
                 android:text="@string/dce10"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/colorPrimaryDark" />
@@ -533,17 +568,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1001"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1001"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1001"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -551,16 +585,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1002"
-                android:textSize="20sp" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
                 android:id="@+id/dce1002"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1002"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -568,17 +601,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1003"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1003"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1003"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -586,17 +618,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1004"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1004"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1004"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -604,17 +635,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1005"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1005"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1005"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -622,17 +652,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1006"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1006"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1006"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -640,17 +669,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1007"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1007"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1007"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -658,17 +686,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1008"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1008"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1008"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -676,17 +703,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1009"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1009"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1009"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -694,17 +720,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1010"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1010"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1010"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -712,17 +737,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1011"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1011"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1011"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -730,17 +754,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1012"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1012"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1012"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -748,17 +771,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1013"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1013"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1001"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -766,17 +788,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1014"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1014"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1014"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -784,17 +805,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1015"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1015"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1015"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -802,17 +822,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1016"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1016"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1016"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -820,17 +839,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1017"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1017"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1017"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -838,17 +856,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1018"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1018"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1018"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -857,17 +874,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1019"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1019"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1019"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -875,17 +891,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1020"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1020"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1020"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -893,17 +908,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1021"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1021"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1021"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -911,17 +925,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/dce1022"
-                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
                 android:id="@+id/dce1022"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:hint="@string/dce1022"
                 android:inputType="number"
                 android:maxLength="2"/>
@@ -929,7 +942,7 @@
             <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:orientation="horizontal">

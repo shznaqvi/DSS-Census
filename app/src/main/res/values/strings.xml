@@ -214,7 +214,7 @@
     <string name="dcch04"> حمل سے پہلے </string>
     <string name="dcch05"> حمل کے بعد 24 دن کے اندر </string>
     <string name="dcd01"> کیا آپ بے نظیر انکم سپورٹ پروگرام کا حصہ ہیں /انرول ہیں </string>
-  <string name="dcd0104"> BISP کے بارے میں نہیں جانتے </string>
+    <string name="dcd0104"> یہ BISP کے بارے میں نہیں جانتے</string>
     <string name="dcd02"> اگر جی ہاں، تو آپ کتنی رقم حاصل کر رہے ہیں ؟ </string>
     <string name="dcd0201"> روپے </string>
     <string name="dcd03"> آپ کتنے عرصے سے یہ رقم وصول کر رہے ہیں ؟ </string>
