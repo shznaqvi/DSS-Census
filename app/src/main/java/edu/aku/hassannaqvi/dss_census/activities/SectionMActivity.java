@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.dss_census;
+package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -21,6 +21,7 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.aku.hassannaqvi.dss_census.R;
 
 public class SectionMActivity extends Activity {
 
@@ -258,7 +259,7 @@ public class SectionMActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-
+        //TODO implement
 
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {

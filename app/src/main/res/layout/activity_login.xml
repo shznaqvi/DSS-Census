@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".LoginActivity">
+    tools:context="edu.aku.hassannaqvi.dss_census.activities.LoginActivity">
 
     <!-- Login progress -->
     <ProgressBar
@@ -38,7 +38,7 @@
                 android:gravity="center_horizontal"
 
                 android:keepScreenOn="true"
-                android:text="VIR Band Household Survey"
+                android:text="DSS-CENSUS 2017-2018"
                 android:textColor="@color/colorAccent"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -58,7 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="0dp"
-                android:contentDescription="TVI LOGO"
+                android:contentDescription="Aga Khan LOGO"
+                android:src="@drawable/agakhan"
                 android:onClick="gotoMain" />
 
             <AutoCompleteTextView

@@ -17,8 +17,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-import edu.aku.hassannaqvi.dss_census.FormsContract.singleForm;
-import edu.aku.hassannaqvi.dss_census.MembersContract.singleMember;
+import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
+import edu.aku.hassannaqvi.dss_census.contracts.FormsContract.singleForm;
+import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
+import edu.aku.hassannaqvi.dss_census.contracts.MembersContract.singleMember;
+import edu.aku.hassannaqvi.dss_census.contracts.UsersContract;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.

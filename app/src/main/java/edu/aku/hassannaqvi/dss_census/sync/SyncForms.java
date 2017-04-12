@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.dss_census;
+package edu.aku.hassannaqvi.dss_census.sync;
 
 /**
  * Created by hassan.naqvi on 12/2/2016.
@@ -21,6 +21,9 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Collection;
+
+import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
+import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 
 /**
  * Created by hassan.naqvi on 7/26/2016.

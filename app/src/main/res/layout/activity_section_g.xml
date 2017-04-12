@@ -4,7 +4,7 @@
     android:id="@+id/activity_sectionG"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.aku.hassannaqvi.dss_census.SectionGActivity">
+    tools:context="edu.aku.hassannaqvi.dss_census.activities.SectionGActivity">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollView01"

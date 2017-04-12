@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.dss_census;
+package edu.aku.hassannaqvi.dss_census.get;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -16,18 +16,21 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
+import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
+import edu.aku.hassannaqvi.dss_census.contracts.RandsContract;
+
 /**
- * Created by hassan.naqvi on 11/30/2016.
+ * Created by hassan.naqvi on 12/2/2016.
  */
 
-public class GetUsers extends AsyncTask<String, String, String> {
+public class GetRands extends AsyncTask<String, String, String> {
 
-    private final String TAG = "GetUsers()";
+    private final String TAG = "GetRand()";
     HttpURLConnection urlConnection;
     private Context mContext;
     private ProgressDialog pd;
 
-    public GetUsers(Context context) {
+    public GetRands(Context context) {
         mContext = context;
     }
 
@@ -35,9 +38,10 @@ public class GetUsers extends AsyncTask<String, String, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         pd = new ProgressDialog(mContext);
-        pd.setTitle("Syncing Users");
+        pd.setTitle("Syncing Randomization");
         pd.setMessage("Getting connected to server...");
         pd.show();
+
     }
 
     @Override
@@ -48,6 +52,7 @@ public class GetUsers extends AsyncTask<String, String, String> {
         } catch (IOException e) {
             return "Unable to retrieve web page. URL may be invalid.";
         }
+
     }
 
     @Override
@@ -59,19 +64,19 @@ public class GetUsers extends AsyncTask<String, String, String> {
         //json = json.replaceAll("\\[", "").replaceAll("\\]","");
         Log.d(TAG, result);
         if (json.length() > 0) {
-            ArrayList<UsersContract> userArrayList;
+            ArrayList<RandsContract> psuArrayList;
             DatabaseHelper db = new DatabaseHelper(mContext);
             try {
-                userArrayList = new ArrayList<UsersContract>();
+                psuArrayList = new ArrayList<RandsContract>();
                 //JSONObject jsonObject = new JSONObject(json);
                 JSONArray jsonArray = new JSONArray(json);
-                db.syncUser(jsonArray);
+                //db.syncRands(jsonArray);
                 pd.setMessage("Received: " + jsonArray.length());
                 pd.show();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            //db.getAllUsers();
+            //db.getAllRands();
         } else {
             pd.setMessage("Received: " + json.length() + "");
             pd.show();

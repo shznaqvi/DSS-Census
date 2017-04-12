@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.dss_census;
+package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -21,6 +21,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.aku.hassannaqvi.dss_census.MainApp;
+import edu.aku.hassannaqvi.dss_census.R;
+import edu.aku.hassannaqvi.dss_census.otherClasses.familyMembers;
 
 public class FamilyMembersActivity extends Activity {
 

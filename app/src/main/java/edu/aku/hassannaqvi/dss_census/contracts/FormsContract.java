@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.dss_census;
+package edu.aku.hassannaqvi.dss_census.contracts;
 
 import android.database.Cursor;
 import android.provider.BaseColumns;

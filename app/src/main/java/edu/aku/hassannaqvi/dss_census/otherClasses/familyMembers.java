@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.dss_census;
+package edu.aku.hassannaqvi.dss_census.otherClasses;
 
 /**
  * Created by Ali on 04-Feb-17.

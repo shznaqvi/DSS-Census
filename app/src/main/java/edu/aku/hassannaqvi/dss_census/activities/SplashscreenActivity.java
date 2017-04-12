@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.dss_census;
+package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+
+import edu.aku.hassannaqvi.dss_census.R;
 
 
 /**

@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.dss_census;
+package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -19,6 +19,11 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import edu.aku.hassannaqvi.dss_census.AndroidDatabaseManager;
+import edu.aku.hassannaqvi.dss_census.MainApp;
+import edu.aku.hassannaqvi.dss_census.R;
+import edu.aku.hassannaqvi.dss_census.get.GetUsers;
+import edu.aku.hassannaqvi.dss_census.sync.SyncForms;
 
 public class MainActivity extends Activity {
 

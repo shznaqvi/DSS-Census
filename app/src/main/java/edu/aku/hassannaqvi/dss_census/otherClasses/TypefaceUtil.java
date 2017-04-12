@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.dss_census;
+package edu.aku.hassannaqvi.dss_census.otherClasses;
 
 import android.content.Context;
 import android.graphics.Typeface;
