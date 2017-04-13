@@ -231,7 +231,7 @@ public class SectionBActivity extends Activity {
         ButterKnife.bind(this);
         dcbg.setMaxDate(new Date().getTime());
         dcbidob.setMaxDate(new Date().getTime());
-        dcbidob.setMinDate(MainApp.MILLISECONDS_IN_100_YEAR);
+        //dcbidob.setMinDate(MainApp.MILLISECONDS_IN_100_YEAR);
 
 //        dcba.setText(getIntent().getExtras().get("memberName").toString());
 
