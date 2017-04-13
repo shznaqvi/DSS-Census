@@ -593,7 +593,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="#efefef"
+                android:background="@color/pink_100"
                 android:text="@string/dci18"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/colorPrimaryDark" />
@@ -954,9 +954,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="1dp"
                 android:layout_marginTop="16dp"
-                android:background="#efefef"
+                android:background="@color/pink_100"
                 android:text="@string/dci19"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/colorPrimaryDark" />

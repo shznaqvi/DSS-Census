@@ -23,6 +23,7 @@ import java.net.URL;
 import java.util.Collection;
 
 import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
+import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 
 /**
@@ -38,13 +39,13 @@ public class SyncForms extends AsyncTask<String, Void, String> {
         mContext = context;
     }
 
-    public static void longInfo(String str) {
+    /*public static void longInfo(String str) {
         if (str.length() > 4000) {
             Log.i("TAG: ", str.substring(0, 4000));
             longInfo(str.substring(4000));
         } else
             Log.i("TAG: ", str);
-    }
+    }*/
 
     @Override
     protected void onPreExecute() {
@@ -61,7 +62,7 @@ public class SyncForms extends AsyncTask<String, Void, String> {
 
         String line = "No Response";
         try {
-            return downloadUrl(urls[0]);
+            return downloadUrl(MainApp._HOST_URL + "");
         } catch (IOException e) {
             return "Unable to upload data. Server may be down.";
         }
@@ -101,6 +102,8 @@ public class SyncForms extends AsyncTask<String, Void, String> {
         // Only display the first 500 characters of the retrieved
         // web page content.
         int len = 500;
+        //DatabaseHelper db = new DatabaseHelper(mContext);
+        //Collections<FormsContract> forms = db.getUnsyncedForm
 
         try {
             URL url = new URL(myurl);
@@ -127,7 +130,7 @@ public class SyncForms extends AsyncTask<String, Void, String> {
 
                 }
                 wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
-                longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
+                //longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
                 wr.flush();
             } catch (JSONException e) {
                 // TODO Auto-generated catch block

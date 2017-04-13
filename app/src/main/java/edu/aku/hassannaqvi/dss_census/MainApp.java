@@ -27,7 +27,7 @@ public class MainApp extends Application {
 
     public static final String _IP = "192.168.1.10"; // Test PHP server
     public static final Integer _PORT = 8080; // Port - with colon (:)
-    public static final String _HOST_URL = "http://" + _IP + ":" + _PORT + "/";
+    public static final String _HOST_URL = "http://" + MainApp._IP + ":" + MainApp._PORT + "/dss/";
 
     /*
         public static final String _IP = "43.245.131.159"; // Test server
@@ -55,21 +55,15 @@ public class MainApp extends Application {
     public static OCsContract im;
     public static String userName = "0000";
     public static String areaCode;
-    protected LocationManager locationManager;
-    Location location;
-
 //    Total No of members got from Section A
     public static int NoMembersCount = 0;
-
 //    Total No of Alive members got from Section B
     public static int currentStatusCount = 0;
-
-
     public static List<deadMemberClass> deadMembers = new ArrayList<deadMemberClass>();
-
     //    Family Member List
     public static List<familyMembers> familyMembersList = new ArrayList<>();
-
+    protected LocationManager locationManager;
+    Location location;
 
     @Override
     public void onCreate() {
@@ -175,6 +169,32 @@ public class MainApp extends Application {
         return provider1.equals(provider2);
     }
 
+    public static class deadMemberClass {
+
+        int position;
+        String DSSId;
+
+
+        public deadMemberClass(int i, String s) {
+            position = i;
+            DSSId = s;
+        }
+
+        public int getPosition() {
+            return position;
+        }
+
+        public void setPosition(int i) {
+            position = i;
+        }
+
+        public void setDSSId(String id) {
+            DSSId = id;
+        }
+
+
+    }
+
     private class MyLocationListener implements LocationListener {
 
         public void onLocationChanged(Location location) {
@@ -211,32 +231,6 @@ public class MainApp extends Application {
         public void onProviderEnabled(String s) {
 
         }
-
-    }
-
-    public static class deadMemberClass {
-
-        int position;
-        String DSSId;
-
-
-        public deadMemberClass(int i, String s) {
-            position = i;
-            DSSId = s;
-        }
-
-        public void setPosition(int i) {
-            position = i;
-        }
-
-        public int getPosition() {
-            return position;
-        }
-
-        public void setDSSId(String id) {
-            DSSId = id;
-        }
-
 
     }
 
