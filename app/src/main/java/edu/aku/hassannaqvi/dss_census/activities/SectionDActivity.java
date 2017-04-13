@@ -243,6 +243,47 @@ public class SectionDActivity extends Activity {
     RadioButton dcd1503;
     @BindView(R.id.dcd1504)
     RadioButton dcd1504;
+    @BindView(R.id.dcd16)
+    RadioGroup dcd16;
+    @BindView(R.id.dcd1601)
+    RadioButton dcd1601;
+    @BindView(R.id.dcd1602)
+    RadioButton dcd1602;
+    @BindView(R.id.dcd1699)
+    RadioButton dcd1699;
+    @BindView(R.id.fldGrpdcd16)
+    LinearLayout fldGrpdcd16;
+    @BindView(R.id.dcd17)
+    RadioGroup dcd17;
+    @BindView(R.id.dcd1701)
+    RadioButton dcd1701;
+    @BindView(R.id.dcd1702)
+    RadioButton dcd1702;
+    @BindView(R.id.dcd1799)
+    RadioButton dcd1799;
+    @BindView(R.id.fldGrpdcd17)
+    LinearLayout fldGrpdcd17;
+    @BindView(R.id.dcd18)
+    RadioGroup dcd18;
+    @BindView(R.id.dcd1801)
+    RadioButton dcd1801;
+    @BindView(R.id.dcd1802)
+    RadioButton dcd1802;
+    @BindView(R.id.dcd1803)
+    RadioButton dcd1803;
+    @BindView(R.id.dcd1804)
+    RadioButton dcd1804;
+    @BindView(R.id.dcd1805)
+    RadioButton dcd1805;
+    @BindView(R.id.dcd1806)
+    RadioButton dcd1806;
+    @BindView(R.id.dcd1899)
+    RadioButton dcd1899;
+    @BindView(R.id.dcd1896)
+    RadioButton dcd1896;
+    @BindView(R.id.dcd1896x)
+    EditText dcd1896x;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -424,6 +465,61 @@ public class SectionDActivity extends Activity {
                 }
             }
         });
+
+        // ========================= Q 18 Others============================
+        dcd18.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == dcd1896.getId()) {
+
+                    dcd1896x.setVisibility(View.VISIBLE);
+                    dcd1896x.requestFocus();
+
+                } else {
+
+                    dcd1896x.setVisibility(View.GONE);
+                    dcd1896x.setText(null);
+                }
+            }
+        });
+
+
+        //============ Skip Pattern Q16 ===================
+
+        dcd16.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dcd1601.isChecked()) {
+                    fldGrpdcd16.setVisibility(View.VISIBLE);
+                    fldGrpdcd17.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdcd16.setVisibility(View.GONE);
+                    fldGrpdcd17.setVisibility(View.GONE);
+                    dcd17.clearCheck();
+                    dcd18.clearCheck();
+                    dcd1896x.setText(null);
+
+                }
+            }
+        });
+
+        //============ Skip Pattern Q17 ===================
+
+        dcd18.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (dcd1801.isChecked()) {
+                    fldGrpdcd17.setVisibility(View.GONE);
+                    dcd18.clearCheck();
+                    dcd1896x.setText(null);
+                } else {
+                    fldGrpdcd17.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+
+
 
     }
 
@@ -747,6 +843,52 @@ public class SectionDActivity extends Activity {
             dcd1504.setError(null);
         }
 
+        // ======================  Q 16 =================
+
+        if (dcd16.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd16), Toast.LENGTH_SHORT).show();
+            dcd1699.setError("This data is Required!");
+            Log.i(TAG, "dcd16: This data is Required!");
+            return false;
+        } else {
+            dcd1699.setError(null);
+        }
+
+        // ======================  Q 17 =================
+        if (dcd1701.isChecked()) {
+            if (dcd17.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd17), Toast.LENGTH_SHORT).show();
+                dcd1799.setError("This data is Required!");
+                Log.i(TAG, "dcd17: This data is Required!");
+                return false;
+            } else {
+                dcd1799.setError(null);
+            }
+
+            // ======================  Q 18 =================
+            if (dcd1802.isChecked() || dcd1899.isChecked()) {
+                if (dcd18.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd18), Toast.LENGTH_SHORT).show();
+                    dcd1899.setError("This data is Required!");
+                    Log.i(TAG, "dcd18: This data is Required!");
+                    return false;
+                } else {
+                    dcd1899.setError(null);
+                }
+
+                // Others
+                if (dcd1896.isChecked() && dcd1896x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd18) + " - " + getString(R.string.dcother), Toast.LENGTH_LONG).show();
+                    dcd1896x.setError("This data is Required!");    // Set Error on last radio button
+                    Log.i(TAG, "dcd1896x: This data is Required!");
+                    return false;
+                } else {
+                    dcd1896x.setError(null);
+                }
+            }
+        }
+
+
         return true;
     }
 
@@ -769,92 +911,102 @@ public class SectionDActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        JSONObject sE = new JSONObject();
+        JSONObject sD = new JSONObject();
 
         // Radio Group
 
 
-        sE.put("dcd01", dcd0101.isChecked() ? "1" : dcd0102.isChecked() ? "2" : "0");
-        sE.put("dcd02", dcd02.getText().toString());
-        sE.put("dcd03y", dcd03y.getText().toString());
-        sE.put("dcd03m", dcd03m.getText().toString());
+        sD.put("dcd01", dcd0101.isChecked() ? "1" : dcd0102.isChecked() ? "2" : "0");
+        sD.put("dcd02", dcd02.getText().toString());
+        sD.put("dcd03y", dcd03y.getText().toString());
+        sD.put("dcd03m", dcd03m.getText().toString());
 //        01 A
-        sE.put("dcd04a", dcd04a01.isChecked() ? "1" : dcd04a02.isChecked() ? "2" : dcd04a03.isChecked() ? "3"
+        sD.put("dcd04a", dcd04a01.isChecked() ? "1" : dcd04a02.isChecked() ? "2" : dcd04a03.isChecked() ? "3"
                 : dcd04a04.isChecked() ? "4" : dcd04a05.isChecked() ? "5" : dcd04a06.isChecked() ? "6"
                 : dcd04a96.isChecked() ? "96" : "0");
         // Edit Text
-        sE.put("dcd04a96x", dcd04a96x.getText().toString());
+        sD.put("dcd04a96x", dcd04a96x.getText().toString());
 
 //        01 B
-        sE.put("dcd04b", dcd04b01.isChecked() ? "1" : dcd04b02.isChecked() ? "2" : dcd04b03.isChecked() ? "3"
+        sD.put("dcd04b", dcd04b01.isChecked() ? "1" : dcd04b02.isChecked() ? "2" : dcd04b03.isChecked() ? "3"
                 : dcd04b04.isChecked() ? "4" : dcd04b05.isChecked() ? "5" : dcd04b06.isChecked() ? "6"
                 : dcd04b96.isChecked() ? "96" : "0");
         // Edit Text
-        sE.put("dcd04b96x", dcd04b96x.getText().toString());
+        sD.put("dcd04b96x", dcd04b96x.getText().toString());
 
 //        01 C
-        sE.put("dcd04c", dcd04c01.isChecked() ? "1" : dcd04c02.isChecked() ? "2" : dcd04c03.isChecked() ? "3"
+        sD.put("dcd04c", dcd04c01.isChecked() ? "1" : dcd04c02.isChecked() ? "2" : dcd04c03.isChecked() ? "3"
                 : dcd04c04.isChecked() ? "4" : dcd04c96.isChecked() ? "96" : "0");
         // Edit Text
-        sE.put("dcd04c96x", dcd04c96x.getText().toString());
+        sD.put("dcd04c96x", dcd04c96x.getText().toString());
 
 //        02
-        sE.put("dcd05", dcd05.getText().toString());
+        sD.put("dcd05", dcd05.getText().toString());
 
 //        03
-        sE.put("dcd06", dcd0601.isChecked() ? "1" : dcd0602.isChecked() ? "2" : "0");
+        sD.put("dcd06", dcd0601.isChecked() ? "1" : dcd0602.isChecked() ? "2" : "0");
 
 //        04
-        sE.put("dcd07", dcd0701.isChecked() ? "1" : dcd0702.isChecked() ? "2" : dcd0703.isChecked() ? "3"
+        sD.put("dcd07", dcd0701.isChecked() ? "1" : dcd0702.isChecked() ? "2" : dcd0703.isChecked() ? "3"
                 : dcd0704.isChecked() ? "4" : dcd0705.isChecked() ? "4" : dcd0706.isChecked() ? "4" :
                 dcd0707.isChecked() ? "4" : dcd0796.isChecked() ? "96" : "0");
         // Edit Text
-        sE.put("dcd0796x", dcd0796x.getText().toString());
+        sD.put("dcd0796x", dcd0796x.getText().toString());
 
 //        05
-        sE.put("dcd08", dcd0801.isChecked() ? "1" : dcd0802.isChecked() ? "2" : dcd0899.isChecked() ? "99" : "0");
+        sD.put("dcd08", dcd0801.isChecked() ? "1" : dcd0802.isChecked() ? "2" : dcd0899.isChecked() ? "99" : "0");
 
 //        06
         // Checkbox
-        sE.put("dcd0901", dcd0901.isChecked() ? "1" : "0");
-        sE.put("dcd0902", dcd0902.isChecked() ? "2" : "0");
-        sE.put("dcd0903", dcd0903.isChecked() ? "3" : "0");
-        sE.put("dcd0904", dcd0904.isChecked() ? "4" : "0");
-        sE.put("dcd0988", dcd0988.isChecked() ? "88" : "0");
+        sD.put("dcd0901", dcd0901.isChecked() ? "1" : "0");
+        sD.put("dcd0902", dcd0902.isChecked() ? "2" : "0");
+        sD.put("dcd0903", dcd0903.isChecked() ? "3" : "0");
+        sD.put("dcd0904", dcd0904.isChecked() ? "4" : "0");
+        sD.put("dcd0988", dcd0988.isChecked() ? "88" : "0");
 
 //        07
-        sE.put("dcd10", dcd1001.isChecked() ? "1" : dcd1002.isChecked() ? "2" : dcd1003.isChecked() ? "3"
+        sD.put("dcd10", dcd1001.isChecked() ? "1" : dcd1002.isChecked() ? "2" : dcd1003.isChecked() ? "3"
                 : dcd1004.isChecked() ? "4" : dcd1005.isChecked() ? "5" : dcd1006.isChecked() ? "6" :
                 dcd1007.isChecked() ? "7" : dcd1008.isChecked() ? "8" : dcd1009.isChecked() ? "9"
                         : dcd1010.isChecked() ? "10" : dcd1096.isChecked() ? "96" : "0");
         // Edit Text
-        sE.put("dcd1096x", dcd1096x.getText().toString());
+        sD.put("dcd1096x", dcd1096x.getText().toString());
 
 //        08
-        sE.put("dcd11", dcd1101.isChecked() ? "1" : dcd1102.isChecked() ? "2" : dcd1199.isChecked() ? "99" : "0");
+        sD.put("dcd11", dcd1101.isChecked() ? "1" : dcd1102.isChecked() ? "2" : dcd1199.isChecked() ? "99" : "0");
 
 //        09
-        sE.put("dcd12", dcd1201.isChecked() ? "1" : dcd1202.isChecked() ? "2" : dcd1203.isChecked() ? "3"
+        sD.put("dcd12", dcd1201.isChecked() ? "1" : dcd1202.isChecked() ? "2" : dcd1203.isChecked() ? "3"
                 : dcd1204.isChecked() ? "4" : dcd1205.isChecked() ? "5" : dcd1206.isChecked() ? "6" :
                 dcd1207.isChecked() ? "7" : dcd1296.isChecked() ? "96" : "0");
         // Edit Text
-        sE.put("dcd1296x", dcd1296x.getText().toString());
+        sD.put("dcd1296x", dcd1296x.getText().toString());
 
 //        10
-        sE.put("dcd13", dcd1301.isChecked() ? "1" : dcd1302.isChecked() ? "2" : dcd1303.isChecked() ? "3"
+        sD.put("dcd13", dcd1301.isChecked() ? "1" : dcd1302.isChecked() ? "2" : dcd1303.isChecked() ? "3"
                 : dcd1304.isChecked() ? "4" : dcd1305.isChecked() ? "5" : dcd1306.isChecked() ? "6" :
                 dcd1307.isChecked() ? "7" : dcd1396.isChecked() ? "96" : "0");
         // Edit Text
-        sE.put("dcd1396x", dcd1396x.getText().toString());
+        sD.put("dcd1396x", dcd1396x.getText().toString());
 
 //        11
-        sE.put("dcd14", dcd1401.isChecked() ? "1" : dcd1402.isChecked() ? "2" : dcd1499.isChecked() ? "99" : "0");
+        sD.put("dcd14", dcd1401.isChecked() ? "1" : dcd1402.isChecked() ? "2" : dcd1499.isChecked() ? "99" : "0");
 
 //        12
-        sE.put("dcd15", dcd1501.isChecked() ? "1" : dcd1502.isChecked() ? "2" : dcd1503.isChecked() ? "3"
+        sD.put("dcd15", dcd1501.isChecked() ? "1" : dcd1502.isChecked() ? "2" : dcd1503.isChecked() ? "3"
                 : dcd1504.isChecked() ? "4" : "0");
 
-//        MainApp.fc.setROW_sE(String.valueOf(sE));
+        sD.put("dcd16", dcd1601.isChecked() ? "1" : dcd1602.isChecked() ? "2" : dcd1699.isChecked() ? "99" : "0");
+        // Radio Group
+        sD.put("dcd17", dcd1701.isChecked() ? "1" : dcd1702.isChecked() ? "2" : dcd1799.isChecked() ? "99" : "0");
+        // Radio Group
+        sD.put("dcd18", dcd1801.isChecked() ? "1" : dcd1802.isChecked() ? "2" : dcd1803.isChecked() ? "3"
+                : dcd1804.isChecked() ? "4" : dcd1805.isChecked() ? "5" : dcd1806.isChecked() ? "6"
+                : dcd1896.isChecked() ? "96" : dcd1899.isChecked() ? "99" : "0");
+        // Edit Text
+        sD.put("dcd1896x", dcd1896x.getText().toString());
+
+        //MainApp.fc.setROW_sD(String.valueOf(sD));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

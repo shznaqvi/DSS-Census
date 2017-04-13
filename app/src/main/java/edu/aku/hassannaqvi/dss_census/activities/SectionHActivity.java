@@ -338,29 +338,29 @@ public class SectionHActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        JSONObject sh = new JSONObject();
+        JSONObject sH = new JSONObject();
 
         // Radio Group
-        sh.put("dch01", dch0101.isChecked() ? "1" : dch0102.isChecked() ? "2" : "0");
-        sh.put("dch02", dch0201.isChecked() ? "1" : dch0202.isChecked() ? "2" : "0");
-        sh.put("dch03", dch0301.isChecked() ? "1" : dch0302.isChecked() ? "2" : dch0303.isChecked() ? "3" : "0");
-        sh.put("dch04", dch0401.isChecked() ? "1" : dch0402.isChecked() ? "2" : "0");
-        sh.put("dch05", dch05.getText().toString());
-        sh.put("dch06", dch06.getText().toString());
-        sh.put("dch07", dch07.getText().toString());
-        sh.put("dch08", dch0801.isChecked() ? "1" : dch0802.isChecked() ? "2" : "0");
-        sh.put("dch09m", dch09m.getText().toString());
-        sh.put("dch09y", dch09y.getText().toString());
-        sh.put("dch09", dch0901.isChecked() ? "1" : dch0902.isChecked() ? "2" : dch0903.isChecked() ? "3"
+        sH.put("dch01", dch0101.isChecked() ? "1" : dch0102.isChecked() ? "2" : "0");
+        sH.put("dch02", dch0201.isChecked() ? "1" : dch0202.isChecked() ? "2" : "0");
+        sH.put("dch03", dch0301.isChecked() ? "1" : dch0302.isChecked() ? "2" : dch0303.isChecked() ? "3" : "0");
+        sH.put("dch04", dch0401.isChecked() ? "1" : dch0402.isChecked() ? "2" : "0");
+        sH.put("dch05", dch05.getText().toString());
+        sH.put("dch06", dch06.getText().toString());
+        sH.put("dch07", dch07.getText().toString());
+        sH.put("dch08", dch0801.isChecked() ? "1" : dch0802.isChecked() ? "2" : "0");
+        sH.put("dch09m", dch09m.getText().toString());
+        sH.put("dch09y", dch09y.getText().toString());
+        sH.put("dch09", dch0901.isChecked() ? "1" : dch0902.isChecked() ? "2" : dch0903.isChecked() ? "3"
                 : dch0996.isChecked() ? "96" : dch0999.isChecked() ? "99" : "0");
-        sh.put("dch0996x", dch0996x.getText().toString());
-        sh.put("dch10", dch1001.isChecked() ? "1" : dch1002.isChecked() ? "2" : dch1003.isChecked() ? "3" : "0");
-        sh.put("dch11", dch1101.isChecked() ? "1" : dch1102.isChecked() ? "2" : dch1199.isChecked() ? "99" : "0");
-        sh.put("dch12", dch1201.isChecked() ? "1" : dch1202.isChecked() ? "2" : dch1203.isChecked() ? "3"
+        sH.put("dch0996x", dch0996x.getText().toString());
+        sH.put("dch10", dch1001.isChecked() ? "1" : dch1002.isChecked() ? "2" : dch1003.isChecked() ? "3" : "0");
+        sH.put("dch11", dch1101.isChecked() ? "1" : dch1102.isChecked() ? "2" : dch1199.isChecked() ? "99" : "0");
+        sH.put("dch12", dch1201.isChecked() ? "1" : dch1202.isChecked() ? "2" : dch1203.isChecked() ? "3"
                 : dch1204.isChecked() ? "4" : dch1205.isChecked() ? "5" : dch1206.isChecked() ? "6"
                 : dch1207.isChecked() ? "7" : dch1208.isChecked() ? "8" : dch1209.isChecked() ? "9"
                 : dch1296.isChecked() ? "96" : dch1299.isChecked() ? "99" : "0");
-        sh.put("dch1296x", dch1296x.getText().toString());
+        sH.put("dch1296x", dch1296x.getText().toString());
         //sh.put("dch13", dch1301.isChecked() ? "1" : dch1302.isChecked() ? "2" : "0");
 
 

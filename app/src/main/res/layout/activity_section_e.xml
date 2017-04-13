@@ -384,7 +384,7 @@
                 android:visibility="gone" />
 
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -555,13 +555,13 @@
 
             </LinearLayout>
         </LinearLayout>
-
+-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/pink_100"
-                android:text="@string/dce10"
+                android:text="@string/dce07"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/colorPrimaryDark" />
 
@@ -569,16 +569,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1001"
+                android:text="@string/dce0701"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1001"
+                android:id="@+id/dce0701"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1001"
+                android:hint="@string/dce0701"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -586,15 +586,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1002"
+                android:text="@string/dce0702"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/dce1002"
+                android:id="@+id/dce0702"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1002"
+                android:hint="@string/dce0702"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -602,16 +602,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1003"
+                android:text="@string/dce0703"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1003"
+                android:id="@+id/dce0703"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1003"
+                android:hint="@string/dce0703"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -619,16 +619,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1004"
+                android:text="@string/dce0704"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1004"
+                android:id="@+id/dce0704"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1004"
+                android:hint="@string/dce0704"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -636,16 +636,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1005"
+                android:text="@string/dce0705"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1005"
+                android:id="@+id/dce0705"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1005"
+                android:hint="@string/dce0705"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -653,16 +653,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1006"
+                android:text="@string/dce0706"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1006"
+                android:id="@+id/dce0706"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1006"
+                android:hint="@string/dce0706"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -670,16 +670,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1007"
+                android:text="@string/dce0707"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1007"
+                android:id="@+id/dce0707"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1007"
+                android:hint="@string/dce0707"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -687,16 +687,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1008"
+                android:text="@string/dce0708"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1008"
+                android:id="@+id/dce0708"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1008"
+                android:hint="@string/dce0708"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -704,16 +704,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1009"
+                android:text="@string/dce0709"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1009"
+                android:id="@+id/dce0709"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1009"
+                android:hint="@string/dce0709"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -721,16 +721,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1010"
+                android:text="@string/dce0710"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1010"
+                android:id="@+id/dce0710"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1010"
+                android:hint="@string/dce0710"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -738,16 +738,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1011"
+                android:text="@string/dce0711"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1011"
+                android:id="@+id/dce0711"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1011"
+                android:hint="@string/dce0711"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -755,16 +755,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1012"
+                android:text="@string/dce0712"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1012"
+                android:id="@+id/dce0712"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1012"
+                android:hint="@string/dce0712"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -772,16 +772,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1013"
+                android:text="@string/dce0713"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1013"
+                android:id="@+id/dce0713"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1001"
+                android:hint="@string/dce0701"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -789,16 +789,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1014"
+                android:text="@string/dce0714"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1014"
+                android:id="@+id/dce0714"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1014"
+                android:hint="@string/dce0714"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -806,16 +806,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1015"
+                android:text="@string/dce0715"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1015"
+                android:id="@+id/dce0715"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1015"
+                android:hint="@string/dce0715"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -823,16 +823,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1016"
+                android:text="@string/dce0716"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1016"
+                android:id="@+id/dce0716"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1016"
+                android:hint="@string/dce0716"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -840,16 +840,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1017"
+                android:text="@string/dce0717"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1017"
+                android:id="@+id/dce0717"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1017"
+                android:hint="@string/dce0717"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -857,16 +857,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1018"
+                android:text="@string/dce0718"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1018"
+                android:id="@+id/dce0718"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1018"
+                android:hint="@string/dce0718"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -875,16 +875,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1019"
+                android:text="@string/dce0719"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1019"
+                android:id="@+id/dce0719"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1019"
+                android:hint="@string/dce0719"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -892,16 +892,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1020"
+                android:text="@string/dce0720"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1020"
+                android:id="@+id/dce0720"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1020"
+                android:hint="@string/dce0720"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -909,16 +909,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1021"
+                android:text="@string/dce0721"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1021"
+                android:id="@+id/dce0721"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1021"
+                android:hint="@string/dce0721"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -926,16 +926,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dce1022"
+                android:text="@string/dce0722"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <EditText
-                android:id="@+id/dce1022"
+                android:id="@+id/dce0722"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce1022"
+                android:hint="@string/dce0722"
                 android:inputType="number"
                 android:maxLength="2"/>
 

@@ -110,8 +110,8 @@ public class SectionEActivity extends Activity {
     CheckBox dce0696;
     @BindView(R.id.dce0696x)
     EditText dce0696x;
-    @BindView(R.id.dce07)
-    RadioGroup dce07;
+    //@BindView(R.id.dce07)
+    /*RadioGroup dce07;
     @BindView(R.id.dce0701)
     RadioButton dce0701;
     @BindView(R.id.dce0702)
@@ -150,50 +150,51 @@ public class SectionEActivity extends Activity {
     RadioButton dce0996;
     @BindView(R.id.dce0996x)
     EditText dce0996x;
-    @BindView(R.id.dce1001)
-    EditText dce1001;
-    @BindView(R.id.dce1002)
-    EditText dce1002;
-    @BindView(R.id.dce1003)
-    EditText dce1003;
-    @BindView(R.id.dce1004)
-    EditText dce1004;
-    @BindView(R.id.dce1005)
-    EditText dce1005;
-    @BindView(R.id.dce1006)
-    EditText dce1006;
-    @BindView(R.id.dce1007)
-    EditText dce1007;
-    @BindView(R.id.dce1008)
-    EditText dce1008;
-    @BindView(R.id.dce1009)
-    EditText dce1009;
-    @BindView(R.id.dce1010)
-    EditText dce1010;
-    @BindView(R.id.dce1011)
-    EditText dce1011;
-    @BindView(R.id.dce1012)
-    EditText dce1012;
-    @BindView(R.id.dce1013)
-    EditText dce1013;
-    @BindView(R.id.dce1014)
-    EditText dce1014;
-    @BindView(R.id.dce1015)
-    EditText dce1015;
-    @BindView(R.id.dce1016)
-    EditText dce1016;
-    @BindView(R.id.dce1017)
-    EditText dce1017;
-    @BindView(R.id.dce1018)
-    EditText dce1018;
-    @BindView(R.id.dce1019)
-    EditText dce1019;
-    @BindView(R.id.dce1020)
-    EditText dce1020;
-    @BindView(R.id.dce1021)
-    EditText dce1021;
-    @BindView(R.id.dce1022)
-    EditText dce1022;
+    */
+    @BindView(R.id.dce0701)
+    EditText dce0701;
+    @BindView(R.id.dce0702)
+    EditText dce0702;
+    @BindView(R.id.dce0703)
+    EditText dce0703;
+    @BindView(R.id.dce0704)
+    EditText dce0704;
+    @BindView(R.id.dce0705)
+    EditText dce0705;
+    @BindView(R.id.dce0706)
+    EditText dce0706;
+    @BindView(R.id.dce0707)
+    EditText dce0707;
+    @BindView(R.id.dce0708)
+    EditText dce0708;
+    @BindView(R.id.dce0709)
+    EditText dce0709;
+    @BindView(R.id.dce0710)
+    EditText dce0710;
+    @BindView(R.id.dce0711)
+    EditText dce0711;
+    @BindView(R.id.dce0712)
+    EditText dce0712;
+    @BindView(R.id.dce0713)
+    EditText dce0713;
+    @BindView(R.id.dce0714)
+    EditText dce0714;
+    @BindView(R.id.dce0715)
+    EditText dce0715;
+    @BindView(R.id.dce0716)
+    EditText dce0716;
+    @BindView(R.id.dce0717)
+    EditText dce0717;
+    @BindView(R.id.dce0718)
+    EditText dce0718;
+    @BindView(R.id.dce0719)
+    EditText dce0719;
+    @BindView(R.id.dce0720)
+    EditText dce0720;
+    @BindView(R.id.dce0721)
+    EditText dce0721;
+    @BindView(R.id.dce0722)
+    EditText dce0722;
     @BindView(R.id.fldGrpdce05)
     LinearLayout fldGrpdce05;
 
@@ -272,7 +273,7 @@ public class SectionEActivity extends Activity {
         });
 
 
-        // ========================= Q 9 Others============================
+        /*// ========================= Q 9 Others============================
         dce09.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -323,7 +324,7 @@ public class SectionEActivity extends Activity {
                 }
             }
         });
-
+*/
         dce04.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
@@ -407,42 +408,42 @@ public class SectionEActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        JSONObject se = new JSONObject();
+        JSONObject sE = new JSONObject();
 
         // Radio Group
-        se.put("dce01", dce0101.isChecked() ? "1" : dce0102.isChecked() ? "2" : dce0103.isChecked() ? "3"
+        sE.put("dce01", dce0101.isChecked() ? "1" : dce0102.isChecked() ? "2" : dce0103.isChecked() ? "3"
                 : dce0196.isChecked() ? "96" : "0");
         // Edit Text
-        se.put("dce0196x", dce0196x.getText().toString());
+        sE.put("dce0196x", dce0196x.getText().toString());
         // Radio Group
-        se.put("dce02", dce0201.isChecked() ? "1" : dce0202.isChecked() ? "2" : "0");
+        sE.put("dce02", dce0201.isChecked() ? "1" : dce0202.isChecked() ? "2" : "0");
         // Radio Group
-        se.put("dce03", dce0301.isChecked() ? "1" : dce0302.isChecked() ? "2" : dce0303.isChecked() ? "3"
+        sE.put("dce03", dce0301.isChecked() ? "1" : dce0302.isChecked() ? "2" : dce0303.isChecked() ? "3"
                 : dce0304.isChecked() ? "4" : dce0396.isChecked() ? "96" : "0");
         // Edit Text
-        se.put("dce0396x", dce0396x.getText().toString());
-        se.put("dce03", dce0301.isChecked() ? "1" : dce0302.isChecked() ? "2" : "0");
-        se.put("dce04", dce0401.isChecked() ? "1" : dce0402.isChecked() ? "2" : "0");
-        se.put("dce05", dce0501.isChecked() ? "1" : dce0502.isChecked() ? "2" : dce0503.isChecked() ? "3"
+        sE.put("dce0396x", dce0396x.getText().toString());
+        sE.put("dce03", dce0301.isChecked() ? "1" : dce0302.isChecked() ? "2" : "0");
+        sE.put("dce04", dce0401.isChecked() ? "1" : dce0402.isChecked() ? "2" : "0");
+        sE.put("dce05", dce0501.isChecked() ? "1" : dce0502.isChecked() ? "2" : dce0503.isChecked() ? "3"
                 : dce0504.isChecked() ? "4" : dce0596.isChecked() ? "96" : "0");
         // Edit Text
-        se.put("dce0496x", dce0596x.getText().toString());
+        sE.put("dce0496x", dce0596x.getText().toString());
         // Checkbox
-        se.put("dce0601", dce0601.isChecked() ? "1" : "0");
-        se.put("dce0602", dce0602.isChecked() ? "1" : "0");
-        se.put("dce0603", dce0603.isChecked() ? "1" : "0");
-        se.put("dce0604", dce0604.isChecked() ? "1" : "0");
-        se.put("dce0605", dce0605.isChecked() ? "1" : "0");
-        se.put("dce0606", dce0606.isChecked() ? "1" : "0");
-        se.put("dce0607", dce0607.isChecked() ? "1" : "0");
-        se.put("dce0608", dce0608.isChecked() ? "1" : "0");
-        se.put("dce0609", dce0609.isChecked() ? "1" : "0");
-        se.put("dce0610", dce0610.isChecked() ? "1" : "0");
-        se.put("dce0696", dce0696.isChecked() ? "1" : "0");
+        sE.put("dce0601", dce0601.isChecked() ? "1" : "0");
+        sE.put("dce0602", dce0602.isChecked() ? "1" : "0");
+        sE.put("dce0603", dce0603.isChecked() ? "1" : "0");
+        sE.put("dce0604", dce0604.isChecked() ? "1" : "0");
+        sE.put("dce0605", dce0605.isChecked() ? "1" : "0");
+        sE.put("dce0606", dce0606.isChecked() ? "1" : "0");
+        sE.put("dce0607", dce0607.isChecked() ? "1" : "0");
+        sE.put("dce0608", dce0608.isChecked() ? "1" : "0");
+        sE.put("dce0609", dce0609.isChecked() ? "1" : "0");
+        sE.put("dce0610", dce0610.isChecked() ? "1" : "0");
+        sE.put("dce0696", dce0696.isChecked() ? "1" : "0");
         // Edit Text
-        se.put("dce0696x", dce0696x.getText().toString());
+        sE.put("dce0696x", dce0696x.getText().toString());
         // Radio Group
-        se.put("dce07", dce0701.isChecked() ? "1" : dce0702.isChecked() ? "2" : dce0799.isChecked() ? "99" : "0");
+        /*se.put("dce07", dce0701.isChecked() ? "1" : dce0702.isChecked() ? "2" : dce0799.isChecked() ? "99" : "0");
         // Radio Group
         se.put("dce08", dce0801.isChecked() ? "1" : dce0802.isChecked() ? "2" : dce0899.isChecked() ? "99" : "0");
         // Radio Group
@@ -450,33 +451,33 @@ public class SectionEActivity extends Activity {
                 : dce0904.isChecked() ? "4" : dce0905.isChecked() ? "5" : dce0906.isChecked() ? "6"
                 : dce0996.isChecked() ? "96" : dce0999.isChecked() ? "99" : "0");
         // Edit Text
-        se.put("dce0996x", dce0996x.getText().toString());
+        se.put("dce0996x", dce0996x.getText().toString());*/
         // Edit Text
-        se.put("dce1001", dce1001.getText().toString());
-        se.put("dce1002", dce1002.getText().toString());
-        se.put("dce1003", dce1003.getText().toString());
-        se.put("dce1004", dce1004.getText().toString());
-        se.put("dce1005", dce1005.getText().toString());
-        se.put("dce1006", dce1006.getText().toString());
-        se.put("dce1007", dce1007.getText().toString());
-        se.put("dce1008", dce1008.getText().toString());
-        se.put("dce1009", dce1009.getText().toString());
-        se.put("dce1010", dce1010.getText().toString());
-        se.put("dce1011", dce1011.getText().toString());
-        se.put("dce1012", dce1012.getText().toString());
-        se.put("dce1013", dce1013.getText().toString());
-        se.put("dce1011", dce1011.getText().toString());
-        se.put("dce1012", dce1012.getText().toString());
-        se.put("dce1013", dce1013.getText().toString());
-        se.put("dce1014", dce1014.getText().toString());
-        se.put("dce1015", dce1015.getText().toString());
-        se.put("dce1016", dce1016.getText().toString());
-        se.put("dce1017", dce1017.getText().toString());
-        se.put("dce1018", dce1018.getText().toString());
-        se.put("dce1019", dce1019.getText().toString());
-        se.put("dce1020", dce1020.getText().toString());
-        se.put("dce1021", dce1021.getText().toString());
-        se.put("dce1022", dce1022.getText().toString());
+        sE.put("dce0701", dce0701.getText().toString());
+        sE.put("dce0702", dce0702.getText().toString());
+        sE.put("dce0703", dce0703.getText().toString());
+        sE.put("dce0704", dce0704.getText().toString());
+        sE.put("dce0705", dce0705.getText().toString());
+        sE.put("dce0706", dce0706.getText().toString());
+        sE.put("dce0707", dce0707.getText().toString());
+        sE.put("dce0708", dce0708.getText().toString());
+        sE.put("dce0709", dce0709.getText().toString());
+        sE.put("dce0710", dce0710.getText().toString());
+        sE.put("dce0711", dce0711.getText().toString());
+        sE.put("dce0712", dce0712.getText().toString());
+        sE.put("dce0713", dce0713.getText().toString());
+        sE.put("dce1011", dce0711.getText().toString());
+        sE.put("dce0712", dce0712.getText().toString());
+        sE.put("dce0713", dce0713.getText().toString());
+        sE.put("dce0714", dce0714.getText().toString());
+        sE.put("dce0715", dce0715.getText().toString());
+        sE.put("dce0716", dce0716.getText().toString());
+        sE.put("dce0717", dce0717.getText().toString());
+        sE.put("dce0718", dce0718.getText().toString());
+        sE.put("dce0719", dce0719.getText().toString());
+        sE.put("dce0720", dce0720.getText().toString());
+        sE.put("dce0721", dce0721.getText().toString());
+        sE.put("dce0722", dce0722.getText().toString());
 
         //DCEApp.fc.setROW_Se(String.valueOf(se));
 
@@ -599,7 +600,7 @@ public class SectionEActivity extends Activity {
             dce0696x.setError(null);
         }
 
-        // ======================  Q 7 =================
+        /*// ======================  Q 7 =================
 
         if (dce07.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce07), Toast.LENGTH_SHORT).show();
@@ -643,227 +644,227 @@ public class SectionEActivity extends Activity {
                 }
             }
         }
-
+*/
         // ======================  Q 10 =================
 
-        if (dce1001.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1001), Toast.LENGTH_LONG).show();
-            dce1001.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0701.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0701), Toast.LENGTH_LONG).show();
+            dce0701.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1001: This data is Required!");
+            Log.i(TAG, "dce0701: This data is Required!");
             return false;
         } else {
-            dce1001.setError(null);
+            dce0701.setError(null);
         }
 
-        if (dce1002.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1002), Toast.LENGTH_LONG).show();
-            dce1002.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0702.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0702), Toast.LENGTH_LONG).show();
+            dce0702.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1002: This data is Required!");
+            Log.i(TAG, "dce0702: This data is Required!");
             return false;
         } else {
-            dce1002.setError(null);
+            dce0702.setError(null);
         }
 
-        if (dce1003.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1003), Toast.LENGTH_LONG).show();
-            dce1003.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0703.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0703), Toast.LENGTH_LONG).show();
+            dce0703.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1003: This data is Required!");
+            Log.i(TAG, "dce0703: This data is Required!");
             return false;
         } else {
-            dce1003.setError(null);
+            dce0703.setError(null);
         }
 
-        if (dce1004.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1004), Toast.LENGTH_LONG).show();
-            dce1004.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0704.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0704), Toast.LENGTH_LONG).show();
+            dce0704.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1004: This data is Required!");
+            Log.i(TAG, "dce0704: This data is Required!");
             return false;
         } else {
-            dce1004.setError(null);
+            dce0704.setError(null);
         }
 
-        if (dce1005.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1005), Toast.LENGTH_LONG).show();
-            dce1005.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0705.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0705), Toast.LENGTH_LONG).show();
+            dce0705.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1005: This data is Required!");
+            Log.i(TAG, "dce0705: This data is Required!");
             return false;
         } else {
-            dce1005.setError(null);
+            dce0705.setError(null);
         }
 
-        if (dce1006.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1006), Toast.LENGTH_LONG).show();
-            dce1006.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0706.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0706), Toast.LENGTH_LONG).show();
+            dce0706.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1006: This data is Required!");
+            Log.i(TAG, "dce0706: This data is Required!");
             return false;
         } else {
-            dce1006.setError(null);
+            dce0706.setError(null);
         }
 
-        if (dce1007.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1007), Toast.LENGTH_LONG).show();
-            dce1007.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0707.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0707), Toast.LENGTH_LONG).show();
+            dce0707.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1007: This data is Required!");
+            Log.i(TAG, "dce0707: This data is Required!");
             return false;
         } else {
-            dce1007.setError(null);
+            dce0707.setError(null);
         }
 
-        if (dce1008.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1008), Toast.LENGTH_LONG).show();
-            dce1008.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0708.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0708), Toast.LENGTH_LONG).show();
+            dce0708.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1008: This data is Required!");
+            Log.i(TAG, "dce0708: This data is Required!");
             return false;
         } else {
-            dce1008.setError(null);
+            dce0708.setError(null);
         }
 
-        if (dce1009.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1009), Toast.LENGTH_LONG).show();
-            dce1009.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0709.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0709), Toast.LENGTH_LONG).show();
+            dce0709.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1009: This data is Required!");
+            Log.i(TAG, "dce0709: This data is Required!");
             return false;
         } else {
-            dce1009.setError(null);
+            dce0709.setError(null);
         }
 
-        if (dce1010.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1010), Toast.LENGTH_LONG).show();
-            dce1010.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0710.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0710), Toast.LENGTH_LONG).show();
+            dce0710.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1010: This data is Required!");
+            Log.i(TAG, "dce0710: This data is Required!");
             return false;
         } else {
-            dce1010.setError(null);
+            dce0710.setError(null);
         }
 
-        if (dce1011.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1011), Toast.LENGTH_LONG).show();
-            dce1011.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0711.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0711), Toast.LENGTH_LONG).show();
+            dce0711.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1011: This data is Required!");
+            Log.i(TAG, "dce0711: This data is Required!");
             return false;
         } else {
-            dce1011.setError(null);
+            dce0711.setError(null);
         }
 
-        if (dce1012.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1012), Toast.LENGTH_LONG).show();
-            dce1012.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0712.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0712), Toast.LENGTH_LONG).show();
+            dce0712.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1012: This data is Required!");
+            Log.i(TAG, "dce0712: This data is Required!");
             return false;
         } else {
-            dce1012.setError(null);
+            dce0712.setError(null);
         }
 
-        if (dce1013.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1013), Toast.LENGTH_LONG).show();
-            dce1013.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0713.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0713), Toast.LENGTH_LONG).show();
+            dce0713.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1013: This data is Required!");
+            Log.i(TAG, "dce0713: This data is Required!");
             return false;
         } else {
-            dce1013.setError(null);
+            dce0713.setError(null);
         }
 
-        if (dce1014.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1014), Toast.LENGTH_LONG).show();
-            dce1014.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0714.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0714), Toast.LENGTH_LONG).show();
+            dce0714.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1014: This data is Required!");
+            Log.i(TAG, "dce0714: This data is Required!");
             return false;
         } else {
-            dce1014.setError(null);
+            dce0714.setError(null);
         }
 
-        if (dce1015.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1015), Toast.LENGTH_LONG).show();
-            dce1015.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0715.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0715), Toast.LENGTH_LONG).show();
+            dce0715.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1015: This data is Required!");
+            Log.i(TAG, "dce0715: This data is Required!");
             return false;
         } else {
-            dce1015.setError(null);
+            dce0715.setError(null);
         }
 
-        if (dce1016.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1016), Toast.LENGTH_LONG).show();
-            dce1016.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0716.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0716), Toast.LENGTH_LONG).show();
+            dce0716.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1016: This data is Required!");
+            Log.i(TAG, "dce0716: This data is Required!");
             return false;
         } else {
-            dce1016.setError(null);
+            dce0716.setError(null);
         }
 
-        if (dce1017.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1017), Toast.LENGTH_LONG).show();
-            dce1017.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0717.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0717), Toast.LENGTH_LONG).show();
+            dce0717.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1017: This data is Required!");
+            Log.i(TAG, "dce0717: This data is Required!");
             return false;
         } else {
-            dce1017.setError(null);
+            dce0717.setError(null);
         }
 
-        if (dce1018.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1018), Toast.LENGTH_LONG).show();
-            dce1018.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0718.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0718), Toast.LENGTH_LONG).show();
+            dce0718.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1018: This data is Required!");
+            Log.i(TAG, "dce0718: This data is Required!");
             return false;
         } else {
-            dce1018.setError(null);
+            dce0718.setError(null);
         }
 
-        if (dce1019.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1019), Toast.LENGTH_LONG).show();
-            dce1019.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0719.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0719), Toast.LENGTH_LONG).show();
+            dce0719.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1019: This data is Required!");
+            Log.i(TAG, "dce0719: This data is Required!");
             return false;
         } else {
-            dce1019.setError(null);
+            dce0719.setError(null);
         }
 
-        if (dce1020.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1020), Toast.LENGTH_LONG).show();
-            dce1020.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0720.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0720), Toast.LENGTH_LONG).show();
+            dce0720.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1020: This data is Required!");
+            Log.i(TAG, "dce0720: This data is Required!");
             return false;
         } else {
-            dce1020.setError(null);
+            dce0720.setError(null);
         }
 
-        if (dce1021.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1021), Toast.LENGTH_LONG).show();
-            dce1021.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0721.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0721), Toast.LENGTH_LONG).show();
+            dce0721.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1021: This data is Required!");
+            Log.i(TAG, "dce0721: This data is Required!");
             return false;
         } else {
-            dce1021.setError(null);
+            dce0721.setError(null);
         }
 
-        if (dce1022.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce1022), Toast.LENGTH_LONG).show();
-            dce1022.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+        if (dce0722.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce0722), Toast.LENGTH_LONG).show();
+            dce0722.setError("This data is Required! Or Place 0");    // Set Error on last radio button
 
-            Log.i(TAG, "dce1022: This data is Required!");
+            Log.i(TAG, "dce0722: This data is Required!");
             return false;
         } else {
-            dce1022.setError(null);
+            dce0722.setError(null);
         }
 
 

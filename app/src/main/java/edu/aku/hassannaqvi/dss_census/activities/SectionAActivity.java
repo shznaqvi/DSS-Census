@@ -774,43 +774,43 @@ public class SectionAActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        JSONObject sa = new JSONObject();
+        JSONObject sA = new JSONObject();
 
-        sa.put("dca03", dca03.getText().toString());
-        sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : "0");
-        sa.put("dca05", dca05.getText().toString());
-        sa.put("dca0501", dca050101.isChecked() ? "1" : dca050102.isChecked() ? "2" : "0");
-        sa.put("dca0502", dca050201.isChecked() ? "1" : dca050202.isChecked() ? "2" : "0");
-        sa.put("dca0503", dca0503.getText().toString());
-        sa.put("dca0504", dca0504.getText().toString());
-        sa.put("dca0505", dca050501.isChecked() ? "1" : dca050502.isChecked() ? "2" : dca050503.isChecked() ? "3"
+        sA.put("dca03", dca03.getText().toString());
+        sA.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : "0");
+        sA.put("dca05", dca05.getText().toString());
+        sA.put("dca0501", dca050101.isChecked() ? "1" : dca050102.isChecked() ? "2" : "0");
+        sA.put("dca0502", dca050201.isChecked() ? "1" : dca050202.isChecked() ? "2" : "0");
+        sA.put("dca0503", dca0503.getText().toString());
+        sA.put("dca0504", dca0504.getText().toString());
+        sA.put("dca0505", dca050501.isChecked() ? "1" : dca050502.isChecked() ? "2" : dca050503.isChecked() ? "3"
                 : dca050504.isChecked() ? "4" : dca050505.isChecked() ? "5" : dca050506.isChecked() ? "6"
                 : dca050507.isChecked() ? "7" : dca050508.isChecked() ? "8" : dca050509.isChecked() ? "9"
                 : dca050510.isChecked() ? "10" : dca050511.isChecked() ? "11" : dca050512.isChecked() ? "12"
                 : dca050596.isChecked() ? "96" : "0");
-        sa.put("dca050596x", dca050596x.getText().toString());
-        sa.put("dca06", dca06.getText().toString());
-        sa.put("dca0601", dca060101.isChecked() ? "1" : dca060102.isChecked() ? "2" : "0");
-        sa.put("dca0602", dca0602.getText().toString());
-        sa.put("dca0603", dca0603.getText().toString());
-        sa.put("dca0604", dca060401.isChecked() ? "1" : dca060402.isChecked() ? "2" : dca060403.isChecked() ? "3"
+        sA.put("dca050596x", dca050596x.getText().toString());
+        sA.put("dca06", dca06.getText().toString());
+        sA.put("dca0601", dca060101.isChecked() ? "1" : dca060102.isChecked() ? "2" : "0");
+        sA.put("dca0602", dca0602.getText().toString());
+        sA.put("dca0603", dca0603.getText().toString());
+        sA.put("dca0604", dca060401.isChecked() ? "1" : dca060402.isChecked() ? "2" : dca060403.isChecked() ? "3"
                 : dca060404.isChecked() ? "4" : dca060405.isChecked() ? "5" : dca060406.isChecked() ? "6"
                 : dca060407.isChecked() ? "7" : dca060408.isChecked() ? "8" : dca060409.isChecked() ? "9"
                 : dca060410.isChecked() ? "10" : dca060411.isChecked() ? "11" : dca060412.isChecked() ? "12"
                 : dca060496.isChecked() ? "96" : "0");
-        sa.put("dca060496x", dca060496x.getText().toString());
-        sa.put("dca0701", dca0701.getText().toString());
-        sa.put("dca0702", dca0702.getText().toString());
-        sa.put("dca0703", dca0703.getText().toString());
-        sa.put("dca0801", dca0801.getText().toString());
-        sa.put("dca0802", dca0802.getText().toString());
-        sa.put("dca0803", dca0803.getText().toString());
-        sa.put("dca09", dca0901.isChecked() ? "1" : dca0902.isChecked() ? "2" : dca0903.isChecked() ? "3" : "0");
-        sa.put("dca09m", dca09m.getText().toString());
-        sa.put("dca09y", dca09y.getText().toString());
-        sa.put("dca10a", dca10a.getText().toString());
-        sa.put("dca10b", dca10b.getText().toString());
-        sa.put("dca11", dca1101.isChecked() ? "1" : dca1102.isChecked() ? "2" : "0");
+        sA.put("dca060496x", dca060496x.getText().toString());
+        sA.put("dca0701", dca0701.getText().toString());
+        sA.put("dca0702", dca0702.getText().toString());
+        sA.put("dca0703", dca0703.getText().toString());
+        sA.put("dca0801", dca0801.getText().toString());
+        sA.put("dca0802", dca0802.getText().toString());
+        sA.put("dca0803", dca0803.getText().toString());
+        sA.put("dca09", dca0901.isChecked() ? "1" : dca0902.isChecked() ? "2" : dca0903.isChecked() ? "3" : "0");
+        sA.put("dca09m", dca09m.getText().toString());
+        sA.put("dca09y", dca09y.getText().toString());
+        sA.put("dca10a", dca10a.getText().toString());
+        sA.put("dca10b", dca10b.getText().toString());
+        sA.put("dca11", dca1101.isChecked() ? "1" : dca1102.isChecked() ? "2" : "0");
 
 
         //DCEApp.fc.setROW_Sa(String.valueOf(sa));

@@ -83,7 +83,7 @@ public class SectionKActivity extends Activity  {
     @BindView(R.id.dckopv0src) RadioGroup dckopv0src;
     @BindView(R.id.dckopv0src01) RadioButton dckopv0src01;
     @BindView(R.id.dckopv0src02) RadioButton dckopv0src02;
-    @BindView(R.id.dckdate0) DatePicker dckdate0;
+    //@BindView(R.id.dckdate0) DatePicker dckdate0;
     @BindView(R.id.dckp1) RadioGroup dckp1;
     @BindView(R.id.dckp101) RadioButton dckp101;
     @BindView(R.id.dckp102) RadioButton dckp102;
@@ -103,7 +103,7 @@ public class SectionKActivity extends Activity  {
     @BindView(R.id.dckopv1src) RadioGroup dckopv1src;
     @BindView(R.id.dckopv1src01) RadioButton dckopv1src01;
     @BindView(R.id.dckopv1src02) RadioButton dckopv1src02;
-    @BindView(R.id.dckdate1) DatePicker dckdate1;
+    //@BindView(R.id.dckdate1) DatePicker dckdate1;
     @BindView(R.id.dckp2) RadioGroup dckp2;
     @BindView(R.id.dckp201) RadioButton dckp201;
     @BindView(R.id.dckp202) RadioButton dckp202;
@@ -123,7 +123,7 @@ public class SectionKActivity extends Activity  {
     @BindView(R.id.dckopv2src) RadioGroup dckopv2src;
     @BindView(R.id.dckopv2src01) RadioButton dckopv2src01;
     @BindView(R.id.dckopv2src02) RadioButton dckopv2src02;
-    @BindView(R.id.dckdate2) DatePicker dckdate2;
+    //@BindView(R.id.dckdate2) DatePicker dckdate2;
     @BindView(R.id.dckp3) RadioGroup dckp3;
     @BindView(R.id.dckp301) RadioButton dckp301;
     @BindView(R.id.dckp302) RadioButton dckp302;
@@ -143,21 +143,21 @@ public class SectionKActivity extends Activity  {
     @BindView(R.id.dckopv3src) RadioGroup dckopv3src;
     @BindView(R.id.dckopv3src01) RadioButton dckopv3src01;
     @BindView(R.id.dckopv3src02) RadioButton dckopv3src02;
-    @BindView(R.id.dckdate3) DatePicker dckdate3;
+    //@BindView(R.id.dckdate3) DatePicker dckdate3;
     @BindView(R.id.dckm1) RadioGroup dckm1;
     @BindView(R.id.dckm101) RadioButton dckm101;
     @BindView(R.id.dckm102) RadioButton dckm102;
     @BindView(R.id.dckm1src) RadioGroup dckm1src;
     @BindView(R.id.dckm1src01) RadioButton dckm1src01;
     @BindView(R.id.dckm1src02) RadioButton dckm1src02;
-    @BindView(R.id.dckdate4) DatePicker dckdate4;
+    //@BindView(R.id.dckdate4) DatePicker dckdate4;
     @BindView(R.id.dckm2) RadioGroup dckm2;
     @BindView(R.id.dckm201) RadioButton dckm201;
     @BindView(R.id.dckm202) RadioButton dckm202;
     @BindView(R.id.dckm2src) RadioGroup dckm2src;
     @BindView(R.id.dckm2src01) RadioButton dckm2src01;
     @BindView(R.id.dckm2src02) RadioButton dckm2src02;
-    @BindView(R.id.dckdate5) DatePicker dckdate5;
+    //@BindView(R.id.dckdate5) DatePicker dckdate5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,7 +169,7 @@ public class SectionKActivity extends Activity  {
 
         dckd.setMaxDate(new Date().getTime());
         dckd.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
-        dckdate0.setMaxDate(new Date().getTime());
+        /*dckdate0.setMaxDate(new Date().getTime());
         dckdate0.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
         dckdate1.setMaxDate(new Date().getTime());
         dckdate1.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
@@ -181,7 +181,7 @@ public class SectionKActivity extends Activity  {
         dckdate4.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
         dckdate5.setMaxDate(new Date().getTime());
         dckdate5.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
-
+*/
 
         dckdob.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -268,50 +268,50 @@ public class SectionKActivity extends Activity  {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        JSONObject sk = new JSONObject();
+        JSONObject sK = new JSONObject();
 
-        sk.put("dcka", dcka.getText().toString());
-        sk.put("dckb", dckb01.isChecked() ? "1" : dckb02.isChecked() ? "2" : "0");
-        sk.put("dckc", dckc01.isChecked() ? "1" : dckc02.isChecked() ? "2" : "0");
-        sk.put("dcbd", new SimpleDateFormat("dd-MM-yyyy").format(dckd.getCalendarView().getDate()));
-        sk.put("dckey", dckey.getText().toString());
-        sk.put("dckem", dckem.getText().toString());
-        sk.put("dcked", dcked.getText().toString());
-        sk.put("dckf", dckf01.isChecked() ? "1" : dckf02.isChecked() ? "2" : "0");
-        sk.put("dcki", dcki01.isChecked() ? "1" : dcki02.isChecked() ? "2" : "0");
-        sk.put("dckbcg", dckbcg01.isChecked() ? "1" : dckbcg02.isChecked() ? "2" : "0");
-        sk.put("dckbcgsrc", dckbcgsrc01.isChecked() ? "1" : dckbcgsrc02.isChecked() ? "2" : "0");
-        sk.put("dckscar", dckscar01.isChecked() ? "1" : dckscar02.isChecked() ? "2" : dckscar03.isChecked() ? "3" : "0");
-        sk.put("dckopv0", dckopv001.isChecked() ? "1" : dckopv002.isChecked() ? "2" : "0");
-        sk.put("dckopv0src", dckopv0src01.isChecked() ? "1" : dckopv0src02.isChecked() ? "2" : "0");
-        sk.put("dckdate0", new SimpleDateFormat("dd-MM-yyyy").format(dckdate0.getCalendarView().getDate()));
-        sk.put("dckp1", dckp101.isChecked() ? "1" : dckp102.isChecked() ? "2" : "0");
-        sk.put("dckp1src", dckp1src01.isChecked() ? "1" : dckp1src02.isChecked() ? "2" : "0");
-        sk.put("dckpcv1", dckpcv101.isChecked() ? "1" : dckpcv102.isChecked() ? "2" : "0");
-        sk.put("dckpcv1src", dckpcv1src01.isChecked() ? "1" : dckpcv1src02.isChecked() ? "2" : "0");
-        sk.put("dckopv1", dckopv101.isChecked() ? "1" : dckopv102.isChecked() ? "2" : "0");
-        sk.put("dckopv1src", dckopv1src01.isChecked() ? "1" : dckopv1src02.isChecked() ? "2" : "0");
-        sk.put("dckdate1", new SimpleDateFormat("dd-MM-yyyy").format(dckdate1.getCalendarView().getDate()));
-        sk.put("dckp2", dckp201.isChecked() ? "1" : dckp202.isChecked() ? "2" : "0");
-        sk.put("dckp2src", dckp2src01.isChecked() ? "1" : dckp2src02.isChecked() ? "2" : "0");
-        sk.put("dckpcv2", dckpcv201.isChecked() ? "1" : dckpcv202.isChecked() ? "2" : "0");
-        sk.put("dckpcv2src", dckpcv2src01.isChecked() ? "1" : dckpcv2src02.isChecked() ? "2" : "0");
-        sk.put("dckopv2", dckopv201.isChecked() ? "1" : dckopv202.isChecked() ? "2" : "0");
-        sk.put("dckopv2src", dckopv2src01.isChecked() ? "1" : dckopv2src02.isChecked() ? "2" : "0");
-        sk.put("dckdate2", new SimpleDateFormat("dd-MM-yyyy").format(dckdate2.getCalendarView().getDate()));
-        sk.put("dckp3", dckp301.isChecked() ? "1" : dckp302.isChecked() ? "2" : "0");
-        sk.put("dckp3src", dckp3src01.isChecked() ? "1" : dckp3src02.isChecked() ? "2" : "0");
-        sk.put("dckpcv3", dckpcv301.isChecked() ? "1" : dckpcv302.isChecked() ? "2" : "0");
-        sk.put("dckpcv3src", dckpcv3src01.isChecked() ? "1" : dckpcv3src02.isChecked() ? "2" : "0");
-        sk.put("dckopv3", dckopv301.isChecked() ? "1" : dckopv302.isChecked() ? "2" : "0");
-        sk.put("dckopv3src", dckopv3src01.isChecked() ? "1" : dckopv3src02.isChecked() ? "2" : "0");
-        sk.put("dckdate3", new SimpleDateFormat("dd-MM-yyyy").format(dckdate3.getCalendarView().getDate()));
-        sk.put("dckm1", dckm101.isChecked() ? "1" : dckm102.isChecked() ? "2" : "0");
-        sk.put("dckm1src", dckm1src01.isChecked() ? "1" : dckm1src02.isChecked() ? "2" : "0");
-        sk.put("dckdate4", new SimpleDateFormat("dd-MM-yyyy").format(dckdate4.getCalendarView().getDate()));
-        sk.put("dckm2", dckm201.isChecked() ? "1" : dckm202.isChecked() ? "2" : "0");
-        sk.put("dckm2src", dckm2src01.isChecked() ? "1" : dckm2src02.isChecked() ? "2" : "0");
-        sk.put("dckdate5", new SimpleDateFormat("dd-MM-yyyy").format(dckdate5.getCalendarView().getDate()));
+        sK.put("dcka", dcka.getText().toString());
+        sK.put("dckb", dckb01.isChecked() ? "1" : dckb02.isChecked() ? "2" : "0");
+        sK.put("dckc", dckc01.isChecked() ? "1" : dckc02.isChecked() ? "2" : "0");
+        sK.put("dcbd", new SimpleDateFormat("dd-MM-yyyy").format(dckd.getCalendarView().getDate()));
+        sK.put("dckey", dckey.getText().toString());
+        sK.put("dckem", dckem.getText().toString());
+        sK.put("dcked", dcked.getText().toString());
+        sK.put("dckf", dckf01.isChecked() ? "1" : dckf02.isChecked() ? "2" : "0");
+        sK.put("dcki", dcki01.isChecked() ? "1" : dcki02.isChecked() ? "2" : "0");
+        sK.put("dckbcg", dckbcg01.isChecked() ? "1" : dckbcg02.isChecked() ? "2" : "0");
+        sK.put("dckbcgsrc", dckbcgsrc01.isChecked() ? "1" : dckbcgsrc02.isChecked() ? "2" : "0");
+        sK.put("dckscar", dckscar01.isChecked() ? "1" : dckscar02.isChecked() ? "2" : dckscar03.isChecked() ? "3" : "0");
+        sK.put("dckopv0", dckopv001.isChecked() ? "1" : dckopv002.isChecked() ? "2" : "0");
+        sK.put("dckopv0src", dckopv0src01.isChecked() ? "1" : dckopv0src02.isChecked() ? "2" : "0");
+        //sk.put("dckdate0", new SimpleDateFormat("dd-MM-yyyy").format(dckdate0.getCalendarView().getDate()));
+        sK.put("dckp1", dckp101.isChecked() ? "1" : dckp102.isChecked() ? "2" : "0");
+        sK.put("dckp1src", dckp1src01.isChecked() ? "1" : dckp1src02.isChecked() ? "2" : "0");
+        sK.put("dckpcv1", dckpcv101.isChecked() ? "1" : dckpcv102.isChecked() ? "2" : "0");
+        sK.put("dckpcv1src", dckpcv1src01.isChecked() ? "1" : dckpcv1src02.isChecked() ? "2" : "0");
+        sK.put("dckopv1", dckopv101.isChecked() ? "1" : dckopv102.isChecked() ? "2" : "0");
+        sK.put("dckopv1src", dckopv1src01.isChecked() ? "1" : dckopv1src02.isChecked() ? "2" : "0");
+        //sk.put("dckdate1", new SimpleDateFormat("dd-MM-yyyy").format(dckdate1.getCalendarView().getDate()));
+        sK.put("dckp2", dckp201.isChecked() ? "1" : dckp202.isChecked() ? "2" : "0");
+        sK.put("dckp2src", dckp2src01.isChecked() ? "1" : dckp2src02.isChecked() ? "2" : "0");
+        sK.put("dckpcv2", dckpcv201.isChecked() ? "1" : dckpcv202.isChecked() ? "2" : "0");
+        sK.put("dckpcv2src", dckpcv2src01.isChecked() ? "1" : dckpcv2src02.isChecked() ? "2" : "0");
+        sK.put("dckopv2", dckopv201.isChecked() ? "1" : dckopv202.isChecked() ? "2" : "0");
+        sK.put("dckopv2src", dckopv2src01.isChecked() ? "1" : dckopv2src02.isChecked() ? "2" : "0");
+        //sk.put("dckdate2", new SimpleDateFormat("dd-MM-yyyy").format(dckdate2.getCalendarView().getDate()));
+        sK.put("dckp3", dckp301.isChecked() ? "1" : dckp302.isChecked() ? "2" : "0");
+        sK.put("dckp3src", dckp3src01.isChecked() ? "1" : dckp3src02.isChecked() ? "2" : "0");
+        sK.put("dckpcv3", dckpcv301.isChecked() ? "1" : dckpcv302.isChecked() ? "2" : "0");
+        sK.put("dckpcv3src", dckpcv3src01.isChecked() ? "1" : dckpcv3src02.isChecked() ? "2" : "0");
+        sK.put("dckopv3", dckopv301.isChecked() ? "1" : dckopv302.isChecked() ? "2" : "0");
+        sK.put("dckopv3src", dckopv3src01.isChecked() ? "1" : dckopv3src02.isChecked() ? "2" : "0");
+        //sk.put("dckdate3", new SimpleDateFormat("dd-MM-yyyy").format(dckdate3.getCalendarView().getDate()));
+        sK.put("dckm1", dckm101.isChecked() ? "1" : dckm102.isChecked() ? "2" : "0");
+        sK.put("dckm1src", dckm1src01.isChecked() ? "1" : dckm1src02.isChecked() ? "2" : "0");
+        //sk.put("dckdate4", new SimpleDateFormat("dd-MM-yyyy").format(dckdate4.getCalendarView().getDate()));
+        sK.put("dckm2", dckm201.isChecked() ? "1" : dckm202.isChecked() ? "2" : "0");
+        sK.put("dckm2src", dckm2src01.isChecked() ? "1" : dckm2src02.isChecked() ? "2" : "0");
+        //sk.put("dckdate5", new SimpleDateFormat("dd-MM-yyyy").format(dckdate5.getCalendarView().getDate()));
 
 
 //        MainApp.fc.setROW_sk(String.valueOf(sk));

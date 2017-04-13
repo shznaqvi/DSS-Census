@@ -237,24 +237,24 @@ public class SectionCActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        JSONObject sc = new JSONObject();
+        JSONObject sC = new JSONObject();
 
-        sc.put("dcca", dcca.getText().toString());
-        sc.put("dccbrhh", dccbrhh01.isChecked() ? "1" : dccbrhh02.isChecked() ? "2" : dccbrhh03.isChecked() ? "3"
+        sC.put("dcca", dcca.getText().toString());
+        sC.put("dccbrhh", dccbrhh01.isChecked() ? "1" : dccbrhh02.isChecked() ? "2" : dccbrhh03.isChecked() ? "3"
                 : dccbrhh04.isChecked() ? "4" : dccbrhh05.isChecked() ? "5" : dccbrhh06.isChecked() ? "6"
                 : dccbrhh07.isChecked() ? "7" : dccbrhh08.isChecked() ? "8" : dccbrhh09.isChecked() ? "9"
                 : dccbrhh10.isChecked() ? "10" : dccbrhh11.isChecked() ? "11" : dccbrhh98.isChecked() ? "98"
                 : dccbrhh99.isChecked() ? "99" : "0");
-        sc.put("dccbfid", dccbfid.getText().toString());
-        sc.put("dccbmid", dccbmid.getText().toString());
-        sc.put("dccc", dccc01.isChecked() ? "1" : dccc02.isChecked() ? "2" : "0");
-        sc.put("dccd", new SimpleDateFormat("dd-MM-yyyy").format(dccd.getCalendarView().getDate()));
-        sc.put("dccey", dccey.getText().toString());
-        sc.put("dccem", dccem.getText().toString());
-        sc.put("dcced", dcced.getText().toString());
-        sc.put("dccf", new SimpleDateFormat("dd-MM-yyyy").format(dccf.getCalendarView().getDate()));
-        sc.put("dccg", dccg.getText().toString());
-        sc.put("dcch", dcch01.isChecked() ? "1" : dcch02.isChecked() ? "2" : dcch03.isChecked() ? "3"
+        sC.put("dccbfid", dccbfid.getText().toString());
+        sC.put("dccbmid", dccbmid.getText().toString());
+        sC.put("dccc", dccc01.isChecked() ? "1" : dccc02.isChecked() ? "2" : "0");
+        sC.put("dccd", new SimpleDateFormat("dd-MM-yyyy").format(dccd.getCalendarView().getDate()));
+        sC.put("dccey", dccey.getText().toString());
+        sC.put("dccem", dccem.getText().toString());
+        sC.put("dcced", dcced.getText().toString());
+        sC.put("dccf", new SimpleDateFormat("dd-MM-yyyy").format(dccf.getCalendarView().getDate()));
+        sC.put("dccg", dccg.getText().toString());
+        sC.put("dcch", dcch01.isChecked() ? "1" : dcch02.isChecked() ? "2" : dcch03.isChecked() ? "3"
                 : dcch04.isChecked() ? "4" : dcch05.isChecked() ? "5" : "0");
 
 
