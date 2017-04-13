@@ -49,8 +49,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                 android:hint="@string/dca03"
-                android:inputType="number" />
+                android:inputType="text"
+                android:maxLength="10" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -769,30 +771,39 @@
 
                 </LinearLayout>
 
-                <TextView
+                <LinearLayout
+                    android:id="@+id/fldGrpdca10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorPrimary"
-                    android:text="@string/dca10"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@android:color/white" />
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
-                <EditText
-                    android:id="@+id/dca10a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:hint="@string/dca10a"
-                    android:inputType="textCapWords" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/colorPrimary"
+                        android:text="@string/dca10"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@android:color/white" />
 
-                <EditText
-                    android:id="@+id/dca10b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:hint="@string/dca10b"
-                    android:inputType="textCapWords" />
+                    <EditText
+                        android:id="@+id/dca10a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:hint="@string/dca10a"
+                        android:inputType="textCapWords" />
+
+                    <EditText
+                        android:id="@+id/dca10b"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:hint="@string/dca10b"
+                        android:inputType="textCapWords" />
+
+                </LinearLayout>
 
 
                 <TextView

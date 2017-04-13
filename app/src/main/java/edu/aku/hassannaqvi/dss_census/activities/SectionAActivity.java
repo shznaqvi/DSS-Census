@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.dss_census.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -180,6 +181,8 @@ public class SectionAActivity extends Activity {
 
     @BindView(R.id.btn_End)
     Button btn_End;
+    @BindView(R.id.fldGrpdca10)
+    LinearLayout fldGrpdca10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -310,6 +313,19 @@ public class SectionAActivity extends Activity {
             }
         });
 
+        dca09.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (dca0901.isChecked()) {
+                    fldGrpdca10.setVisibility(View.GONE);
+                    dca10a.setText(null);
+                    dca10b.setText(null);
+                } else {
+                    fldGrpdca10.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
 
     }
 
@@ -429,7 +445,7 @@ public class SectionAActivity extends Activity {
                 dca0503.setError(null);
             }
 
-            if ((Integer.parseInt(dca0503.getText().toString()) < 16) || (Integer.parseInt(dca0503.getText().toString()) > 99)) {
+            if ((Integer.parseInt(dca0503.getText().toString()) < 14) || (Integer.parseInt(dca0503.getText().toString()) > 99)) {
                 Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca0503), Toast.LENGTH_SHORT).show();
                 dca0503.setError("Range is 16 - 99 Years!");    // Set Error on last radio button
 
@@ -448,12 +464,13 @@ public class SectionAActivity extends Activity {
                 dca0504.setError(null);
             }
 
-            if ((Integer.parseInt(dca0504.getText().toString()) < 1) || (Integer.parseInt(dca0504.getText().toString()) > 16)
-                    && Integer.parseInt(dca0504.getText().toString()) != 99) {
+            if ((Integer.parseInt(dca0504.getText().toString()) < 1) || (Integer.parseInt(dca0504.getText().toString()) > 9)
+                    && Integer.parseInt(dca0504.getText().toString()) != 88
+                    && Integer.parseInt(dca0504.getText().toString()) != 98) {
                 Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca0504), Toast.LENGTH_SHORT).show();
-                dca0504.setError("Range is 1 - 16 or 99!");    // Set Error on last radio button
+                dca0504.setError("Range is 1 - 9 or 88 / 98!");    // Set Error on last radio button
 
-                Log.i(TAG, "dca0504: Range is 1 - 16 or 99!");
+                Log.i(TAG, "dca0504: Range is 1 - 9 or 88 / 98!");
                 return false;
             } else {
                 dca0504.setError(null);
@@ -509,7 +526,7 @@ public class SectionAActivity extends Activity {
                 dca0602.setError(null);
             }
 
-            if ((Integer.parseInt(dca0602.getText().toString()) < 16) || (Integer.parseInt(dca0602.getText().toString()) > 99)) {
+            if ((Integer.parseInt(dca0602.getText().toString()) < 14) || (Integer.parseInt(dca0602.getText().toString()) > 99)) {
                 Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca0602), Toast.LENGTH_SHORT).show();
                 dca0602.setError("Range is 16 - 99 Years!");    // Set Error on last radio button
 
@@ -528,12 +545,14 @@ public class SectionAActivity extends Activity {
                 dca0603.setError(null);
             }
 
-            if ((Integer.parseInt(dca0603.getText().toString()) < 1) || (Integer.parseInt(dca0603.getText().toString()) > 16)
-                    && Integer.parseInt(dca0603.getText().toString()) != 99) {
+            if ((Integer.parseInt(dca0603.getText().toString().isEmpty() ? "0" : dca0603.getText().toString()) < 1)
+                    || (Integer.parseInt(dca0603.getText().toString().isEmpty() ? "0" : dca0603.getText().toString()) > 9)
+                    && Integer.parseInt(dca0603.getText().toString().isEmpty() ? "0" : dca0603.getText().toString()) != 88
+                    && Integer.parseInt(dca0603.getText().toString().isEmpty() ? "0" : dca0603.getText().toString()) != 98) {
                 Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca0603), Toast.LENGTH_SHORT).show();
-                dca0603.setError("Range is 1 - 16 or 99!");    // Set Error on last radio button
+                dca0603.setError("Range is 1 - 9 / 88 / 98!");    // Set Error on last radio button
 
-                Log.i(TAG, "dca0603: Range is 1 - 16 or 99!");
+                Log.i(TAG, "dca0603: Range is 1 - 9 / 88 / 98!");
                 return false;
             } else {
                 dca0603.setError(null);
@@ -735,25 +754,28 @@ public class SectionAActivity extends Activity {
             }
 
 //        17
-            if (dca10a.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca10a), Toast.LENGTH_SHORT).show();
-                dca10a.setError("This data is Required!");    // Set Error on last radio button
 
-                Log.i(TAG, "dca10a: This data is Required!");
-                return false;
-            } else {
-                dca10a.setError(null);
-            }
+            if (dca0902.isChecked() || dca0903.isChecked()) {
+                if (dca10a.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca10a), Toast.LENGTH_SHORT).show();
+                    dca10a.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "dca10a: This data is Required!");
+                    return false;
+                } else {
+                    dca10a.setError(null);
+                }
 
 //        18
-            if (dca10b.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca10b), Toast.LENGTH_SHORT).show();
-                dca10b.setError("This data is Required!");    // Set Error on last radio button
+                if (dca10b.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca10b), Toast.LENGTH_SHORT).show();
+                    dca10b.setError("This data is Required!");    // Set Error on last radio button
 
-                Log.i(TAG, "dca10b: This data is Required!");
-                return false;
-            } else {
-                dca10b.setError(null);
+                    Log.i(TAG, "dca10b: This data is Required!");
+                    return false;
+                } else {
+                    dca10b.setError(null);
+                }
             }
 
 //        19
