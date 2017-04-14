@@ -18,7 +18,7 @@ public class FormsContract {
     private String _UID = "";
     private String DSSID = "";
     private String formDate = ""; // Date
-    private String interviewer = ""; // Interviewer
+    private String user = ""; // Interviewer
 
 
     private String istatus = ""; // Interview Status
@@ -39,7 +39,7 @@ public class FormsContract {
 
     private String gpsLat = "";
     private String gpsLng = "";
-    private String gpsTime = "";
+    private String gpsDT = "";
     private String gpsAcc = "";
     private String deviceID = "";
     private String synced = "";
@@ -55,7 +55,7 @@ public class FormsContract {
         this._UID= jsonObject.getString(singleForm.COLUMN_UID);
         this.DSSID= jsonObject.getString(singleForm.COLUMN_DSSID);
         this.formDate= jsonObject.getString(singleForm.COLUMN_FORMDATE);
-        this.interviewer= jsonObject.getString(singleForm.COLUMN_INTERVIEWER);
+        this.user = jsonObject.getString(singleForm.COLUMN_USER);
         this.istatus= jsonObject.getString(singleForm.COLUMN_ISTATUS);
         this.sA= jsonObject.getString(singleForm.COLUMN_SA);
         this.sD= jsonObject.getString(singleForm.COLUMN_SD);
@@ -70,7 +70,7 @@ public class FormsContract {
         this.sM= jsonObject.getString(singleForm.COLUMN_SM);
         this.gpsLat= jsonObject.getString(singleForm.COLUMN_GPSLAT);
         this.gpsLng= jsonObject.getString(singleForm.COLUMN_GPSLNG);
-        this.gpsTime= jsonObject.getString(singleForm.COLUMN_GPSTIME);
+        this.gpsDT = jsonObject.getString(singleForm.COLUMN_GPSDATE);
         this.gpsAcc= jsonObject.getString(singleForm.COLUMN_GPSACC);
         this.deviceID= jsonObject.getString(singleForm.COLUMN_DEVICEID);
         this.synced= jsonObject.getString(singleForm.COLUMN_SYNCED);
@@ -85,7 +85,7 @@ public class FormsContract {
         this._UID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_UID));
         this.DSSID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DSSID));
         this.formDate = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_FORMDATE));
-        this.interviewer = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_INTERVIEWER));
+        this.user = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_USER));
         this.istatus = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_ISTATUS));
         this.sA = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SA));
         this.sD = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SD));
@@ -100,7 +100,7 @@ public class FormsContract {
         this.sM = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SM));
         this.gpsLat = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_GPSLAT));
         this.gpsLng = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_GPSLNG));
-        this.gpsTime = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_GPSTIME));
+        this.gpsDT = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_GPSDATE));
         this.gpsAcc = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_GPSACC));
         this.deviceID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DEVICEID));
         this.synced = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SYNCED));
@@ -121,7 +121,7 @@ public class FormsContract {
         json.put(singleForm.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
         json.put(singleForm.COLUMN_DSSID, this.DSSID == null ? JSONObject.NULL : this.DSSID);
         json.put(singleForm.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
-        json.put(singleForm.COLUMN_INTERVIEWER, this.interviewer == null ? JSONObject.NULL : this.interviewer);
+        json.put(singleForm.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
         json.put(singleForm.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
         json.put(singleForm.COLUMN_SA, this.sA == null ? JSONObject.NULL : this.sA);
         json.put(singleForm.COLUMN_SD, this.sD == null ? JSONObject.NULL : this.sD);
@@ -136,7 +136,7 @@ public class FormsContract {
         json.put(singleForm.COLUMN_SM, this.sM == null ? JSONObject.NULL : this.sM);
         json.put(singleForm.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(singleForm.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
-        json.put(singleForm.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
+        json.put(singleForm.COLUMN_GPSDATE, this.gpsDT == null ? JSONObject.NULL : this.gpsDT);
         json.put(singleForm.COLUMN_GPSACC, this.gpsAcc == null ? JSONObject.NULL : this.gpsAcc);
         json.put(singleForm.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
         json.put(singleForm.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
@@ -182,12 +182,12 @@ public class FormsContract {
         this.formDate = formDate;
     }
 
-    public String getInterviewer() {
-        return interviewer;
+    public String getUser() {
+        return user;
     }
 
-    public void setInterviewer(String interviewer) {
-        this.interviewer = interviewer;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getIstatus() {
@@ -302,12 +302,12 @@ public class FormsContract {
         this.gpsLng = gpsLng;
     }
 
-    public String getGpsTime() {
-        return gpsTime;
+    public String getGpsDT() {
+        return gpsDT;
     }
 
-    public void setGpsTime(String gpsTime) {
-        this.gpsTime = gpsTime;
+    public void setGpsDT(String gpsDT) {
+        this.gpsDT = gpsDT;
     }
 
     public String getGpsAcc() {
@@ -346,11 +346,12 @@ public class FormsContract {
 
         public static final String TABLE_NAME = "forms";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
+        public static final String COLUMN_PROJECT_NAME = "projectname";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_DSSID = "dssid";
         public static final String COLUMN_FORMDATE = "formdate";
-        public static final String COLUMN_INTERVIEWER = "interviewer";
+        public static final String COLUMN_USER = "user";
         public static final String COLUMN_ISTATUS = "istatus";
         public static final String COLUMN_SA = "sa";
         public static final String COLUMN_SD = "sd";
@@ -365,7 +366,7 @@ public class FormsContract {
         public static final String COLUMN_SM = "sm";
         public static final String COLUMN_GPSLAT = "gpslat";
         public static final String COLUMN_GPSLNG = "gpslng";
-        public static final String COLUMN_GPSTIME = "gpstime";
+        public static final String COLUMN_GPSDATE = "gpsdate";
         public static final String COLUMN_GPSACC = "gpsacc";
         public static final String COLUMN_DEVICEID = "deviceid";
         public static final String COLUMN_SYNCED = "synced";
