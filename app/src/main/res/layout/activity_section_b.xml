@@ -740,11 +740,12 @@
 
 
                 <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/dcbidt"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:id="@+id/dcbidtTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/dcbidt"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <!--<RadioGroup
                     android:id="@+id/dcbidt"

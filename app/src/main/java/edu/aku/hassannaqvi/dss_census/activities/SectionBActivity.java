@@ -224,6 +224,8 @@ public class SectionBActivity extends Activity {
     EditText dcbirm;
     @BindView(R.id.fldGrpdcbir)
     LinearLayout fldGrpdcbir;
+    @BindView(R.id.dcbidtTxt)
+    TextView dcbidtTxt;
 
 
 
@@ -328,6 +330,53 @@ public class SectionBActivity extends Activity {
                 }
             }
         });
+
+
+        dcbis02.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    dcbidtTxt.setText(getString(R.string.dcbis02) + " " + getString(R.string.dcbidt));
+                }
+            }
+        });
+
+        dcbis03.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    dcbidtTxt.setText(getString(R.string.dcbis03) + " " + getString(R.string.dcbidt));
+                }
+            }
+        });
+
+        dcbis04.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    dcbidtTxt.setText(getString(R.string.dcbis04) + " " + getString(R.string.dcbidt));
+                }
+            }
+        });
+
+        dcbis05.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    dcbidtTxt.setText(getString(R.string.dcbis05) + " " + getString(R.string.dcbidt));
+                }
+            }
+        });
+
+        dcbis06.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    dcbidtTxt.setText(getString(R.string.dcother) + " " + getString(R.string.dcbidt));
+                }
+            }
+        });
+
 
 
     }
