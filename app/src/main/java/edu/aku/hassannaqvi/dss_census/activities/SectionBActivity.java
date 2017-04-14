@@ -231,6 +231,7 @@ public class SectionBActivity extends Activity {
         ButterKnife.bind(this);
         dcbg.setMaxDate(new Date().getTime());
         dcbidob.setMaxDate(new Date().getTime());
+        //dcbidob.setMinDate(MainApp.MILLISECONDS_IN_100_YEAR);
 
 //        dcba.setText(getIntent().getExtras().get("memberName").toString());
 
@@ -487,50 +488,50 @@ public class SectionBActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        JSONObject sb = new JSONObject();
+        JSONObject sB = new JSONObject();
 
-        sb.put("dcba", dcba.getText().toString());
-        sb.put("dcbid", dcbid.getText().toString());
-        sb.put("dcbbrhh", dcbbrhh01.isChecked() ? "1" : dcbbrhh02.isChecked() ? "2" : dcbbrhh03.isChecked() ? "3"
+        sB.put("dcba", dcba.getText().toString());
+        sB.put("dcbid", dcbid.getText().toString());
+        sB.put("dcbbrhh", dcbbrhh01.isChecked() ? "1" : dcbbrhh02.isChecked() ? "2" : dcbbrhh03.isChecked() ? "3"
                 : dcbbrhh04.isChecked() ? "4" : dcbbrhh05.isChecked() ? "5" : dcbbrhh06.isChecked() ? "6"
                 : dcbbrhh07.isChecked() ? "7" : dcbbrhh08.isChecked() ? "8" : dcbbrhh09.isChecked() ? "9" : dcbbrhh10.isChecked() ? "10"
                 : dcbbrhh11.isChecked() ? "11" : dcbbrhh98.isChecked() ? "98" : dcbbrhh99.isChecked() ? "99" : "0");
-        sb.put("dcbbfid", dcbbfid.getText().toString());
-        sb.put("dcbbmid", dcbbmid.getText().toString());
-        sb.put("dcbc", dcbc01.isChecked() ? "1" : dcbc02.isChecked() ? "2" : dcbc03.isChecked() ? "3"
+        sB.put("dcbbfid", dcbbfid.getText().toString());
+        sB.put("dcbbmid", dcbbmid.getText().toString());
+        sB.put("dcbc", dcbc01.isChecked() ? "1" : dcbc02.isChecked() ? "2" : dcbc03.isChecked() ? "3"
                 : dcbc04.isChecked() ? "4" : dcbc99.isChecked() ? "99" : "0");
 
-        sb.put("dcbd", dcbd01.isChecked() ? "1" : dcbd02.isChecked() ? "2" : "0");
-        sb.put("dcbe", dcbe01.isChecked() ? "1" : dcbe02.isChecked() ? "2" : dcbe03.isChecked() ? "3"
+        sB.put("dcbd", dcbd01.isChecked() ? "1" : dcbd02.isChecked() ? "2" : "0");
+        sB.put("dcbe", dcbe01.isChecked() ? "1" : dcbe02.isChecked() ? "2" : dcbe03.isChecked() ? "3"
                 : dcbe04.isChecked() ? "4" : dcbe05.isChecked() ? "5" : dcbe06.isChecked() ? "6"
                 : dcbe07.isChecked() ? "7" : dcbe08.isChecked() ? "8" : dcbe09.isChecked() ? "9"
                 : dcbe98.isChecked() ? "98" : dcbe99.isChecked() ? "99" : "0");
-        sb.put("dcbe09x", dcbe09x.getText().toString());
-        sb.put("dcbf", dcbf01.isChecked() ? "1" : dcbf02.isChecked() ? "2" : dcbf03.isChecked() ? "3"
+        sB.put("dcbe09x", dcbe09x.getText().toString());
+        sB.put("dcbf", dcbf01.isChecked() ? "1" : dcbf02.isChecked() ? "2" : dcbf03.isChecked() ? "3"
                 : dcbf04.isChecked() ? "4" : dcbf05.isChecked() ? "5" : dcbf06.isChecked() ? "6"
                 : dcbf07.isChecked() ? "7" : dcbf08.isChecked() ? "8" : dcbf09.isChecked() ? "9"
                 : dcbf10.isChecked() ? "10" : dcbf11.isChecked() ? "11" : dcbf12.isChecked() ? "12"
                 : dcbf13.isChecked() ? "13" : dcbf14.isChecked() ? "14" : dcbf15.isChecked() ? "15"
                 : dcbf16.isChecked() ? "16" : dcbf17.isChecked() ? "17" : dcbf18.isChecked() ? "18"
                 : dcbf99.isChecked() ? "99" : "0");
-        sb.put("dcbf18x", dcbf18x.getText().toString());
-        sb.put("dcbg", new SimpleDateFormat("dd-MM-yyyy").format(dcbg.getCalendarView().getDate()));
-        sb.put("dcbhy", dcbhy.getText().toString());
-        sb.put("dcbhm", dcbhm.getText().toString());
-        sb.put("dcbhd", dcbhd.getText().toString());
-        sb.put("dcbis", dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
+        sB.put("dcbf18x", dcbf18x.getText().toString());
+        sB.put("dcbg", new SimpleDateFormat("dd-MM-yyyy").format(dcbg.getCalendarView().getDate()));
+        sB.put("dcbhy", dcbhy.getText().toString());
+        sB.put("dcbhm", dcbhm.getText().toString());
+        sB.put("dcbhd", dcbhd.getText().toString());
+        sB.put("dcbis", dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
                 : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : "0");
-        sb.put("dcbis06x", dcbis06x.getText().toString());
-        sb.put("dcbidt", dcbidt01.isChecked() ? "1" : dcbidt02.isChecked() ? "2" : dcbidt03.isChecked() ? "3"
+        sB.put("dcbis06x", dcbis06x.getText().toString());
+        sB.put("dcbidt", dcbidt01.isChecked() ? "1" : dcbidt02.isChecked() ? "2" : dcbidt03.isChecked() ? "3"
                 : dcbidt04.isChecked() ? "4" : dcbidt05.isChecked() ? "5" : "0");
-        sb.put("dcbidob", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-        sb.put("dcbimid", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-        sb.put("dcbimod", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-        sb.put("dcbiimd", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-        sb.put("dcbidod", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        sB.put("dcbidob", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        sB.put("dcbimid", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        sB.put("dcbimod", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        sB.put("dcbiimd", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        sB.put("dcbidod", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
 
-        sb.put("dcbir", dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
-        sb.put("dcbirm", dcbirm.getText().toString());
+        sB.put("dcbir", dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
+        sB.put("dcbirm", dcbirm.getText().toString());
 
 
         //DCEApp.fc.setROW_Sb(String.valueOf(sb));

@@ -441,7 +441,7 @@
 
             </RadioGroup>
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -457,7 +457,7 @@
                 android:datePickerMode="spinner"
                 android:ems="10"
                 android:spinnersShown="true" />
-
+-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -639,7 +639,7 @@
 
             </RadioGroup>
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -655,7 +655,7 @@
                 android:datePickerMode="spinner"
                 android:ems="10"
                 android:spinnersShown="true" />
-
+-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -669,6 +669,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:gravity="center"
                 android:text="@string/dckp2"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -836,7 +837,7 @@
 
             </RadioGroup>
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -852,7 +853,7 @@
                 android:datePickerMode="spinner"
                 android:ems="10"
                 android:spinnersShown="true" />
-
+-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -1034,7 +1035,7 @@
 
             </RadioGroup>
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -1049,7 +1050,7 @@
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"
                 android:ems="10"
-                android:spinnersShown="true" />
+                android:spinnersShown="true" />-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -1117,22 +1118,22 @@
 
             </RadioGroup>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/dckdate"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+            <!-- <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="16dp"
+                 android:text="@string/dckdate"
+                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <DatePicker
-                android:id="@+id/dckdate4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                android:ems="10"
-                android:spinnersShown="true" />
+             <DatePicker
+                 android:id="@+id/dckdate4"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="1"
+                 android:calendarViewShown="false"
+                 android:datePickerMode="spinner"
+                 android:ems="10"
+                 android:spinnersShown="true" />-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -1200,7 +1201,7 @@
 
             </RadioGroup>
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -1215,7 +1216,7 @@
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"
                 android:ems="10"
-                android:spinnersShown="true" />
+                android:spinnersShown="true" />-->
 
             <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
 
