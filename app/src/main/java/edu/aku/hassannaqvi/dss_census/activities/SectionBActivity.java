@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.dss_census.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -195,18 +196,18 @@ public class SectionBActivity extends Activity {
     RadioButton dcbis06;
     @BindView(R.id.dcbis06x)
     EditText dcbis06x;
-    @BindView(R.id.dcbidt)
+    /*@BindView(R.id.dcbidt)
     RadioGroup dcbidt;
-    @BindView(R.id.dcbidt01)
-    RadioButton dcbidt01;
-    @BindView(R.id.dcbidt02)
+    *//*@BindView(R.id.dcbidt01)
+    RadioButton dcbidt01;*/
+    /*@BindView(R.id.dcbidt02)
     RadioButton dcbidt02;
     @BindView(R.id.dcbidt03)
     RadioButton dcbidt03;
     @BindView(R.id.dcbidt04)
     RadioButton dcbidt04;
     @BindView(R.id.dcbidt05)
-    RadioButton dcbidt05;
+    RadioButton dcbidt05;*/
     @BindView(R.id.dcbir)
     RadioGroup dcbir;
     @BindView(R.id.dcbir01)
@@ -221,6 +222,8 @@ public class SectionBActivity extends Activity {
     DatePicker dcbidob;
     @BindView(R.id.dcbirm)
     EditText dcbirm;
+    @BindView(R.id.fldGrpdcbir)
+    LinearLayout fldGrpdcbir;
 
 
 
@@ -293,97 +296,6 @@ public class SectionBActivity extends Activity {
             }
         });
 
-        dcbis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (dcbis01.isChecked()) {
-                    dcbidt01.setEnabled(true);
-                    dcbidt02.setEnabled(false);
-                    dcbidt02.setChecked(false);
-                    dcbidt03.setEnabled(false);
-                    dcbidt03.setChecked(false);
-                    dcbidt04.setEnabled(false);
-                    dcbidt04.setChecked(false);
-                    dcbidt05.setEnabled(false);
-                    dcbidt05.setChecked(false);
-                    dcbir01.setEnabled(false);
-                    dcbir01.setChecked(false);
-                    dcbir02.setEnabled(false);
-                    dcbir02.setChecked(false);
-                    dcbir03.setEnabled(false);
-                    dcbir03.setChecked(false);
-                    dcbirm.setVisibility(View.GONE);
-                    dcbirm.setText(null);
-                } else if (dcbis02.isChecked()) {
-                    dcbidt01.setEnabled(false);
-                    dcbidt01.setChecked(false);
-                    dcbidt02.setEnabled(true);
-                    dcbidt03.setEnabled(false);
-                    dcbidt03.setChecked(false);
-                    dcbidt04.setEnabled(false);
-                    dcbidt04.setChecked(false);
-                    dcbidt05.setEnabled(false);
-                    dcbidt05.setChecked(false);
-                    dcbir01.setEnabled(true);
-                    dcbir02.setEnabled(false);
-                    dcbidt02.setChecked(false);
-                    dcbir03.setEnabled(false);
-                    dcbidt03.setChecked(false);
-                    dcbirm.setVisibility(View.VISIBLE);
-                } else if (dcbis03.isChecked()) {
-                    dcbidt01.setEnabled(false);
-                    dcbidt01.setChecked(false);
-                    dcbidt02.setEnabled(false);
-                    dcbidt02.setChecked(false);
-                    dcbidt03.setEnabled(true);
-                    dcbidt04.setEnabled(false);
-                    dcbidt04.setChecked(false);
-                    dcbidt05.setEnabled(false);
-                    dcbidt05.setChecked(false);
-                    dcbir01.setEnabled(false);
-                    dcbir01.setChecked(false);
-                    dcbir02.setEnabled(true);
-                    dcbir03.setEnabled(false);
-                    dcbir03.setChecked(false);
-                    dcbirm.setVisibility(View.VISIBLE);
-                } else if (dcbis04.isChecked()) {
-                    dcbidt01.setEnabled(false);
-                    dcbidt01.setChecked(false);
-                    dcbidt02.setEnabled(false);
-                    dcbidt02.setChecked(false);
-                    dcbidt03.setEnabled(false);
-                    dcbidt03.setChecked(false);
-                    dcbidt04.setEnabled(true);
-                    dcbidt05.setEnabled(false);
-                    dcbidt05.setChecked(false);
-                    dcbir01.setEnabled(false);
-                    dcbir01.setChecked(false);
-                    dcbir02.setEnabled(false);
-                    dcbir02.setChecked(false);
-                    dcbir03.setEnabled(true);
-                    dcbirm.setVisibility(View.VISIBLE);
-
-                } else if (dcbis05.isChecked()) {
-                    dcbidt01.setEnabled(false);
-                    dcbidt01.setChecked(false);
-                    dcbidt02.setEnabled(false);
-                    dcbidt02.setChecked(false);
-                    dcbidt03.setEnabled(false);
-                    dcbidt03.setChecked(false);
-                    dcbidt04.setEnabled(false);
-                    dcbidt04.setChecked(false);
-                    dcbidt05.setEnabled(true);
-                    dcbir01.setEnabled(false);
-                    dcbir01.setChecked(false);
-                    dcbir02.setEnabled(false);
-                    dcbir02.setChecked(false);
-                    dcbir03.setEnabled(false);
-                    dcbir03.setChecked(false);
-                    dcbirm.setVisibility(View.GONE);
-                    dcbirm.setText(null);
-                }
-            }
-        });
 
         dcbis06.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -397,11 +309,22 @@ public class SectionBActivity extends Activity {
             }
         });
 
-        dcbidt.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        dcbis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (dcbidt01.isChecked() || dcbidt02.isChecked() || dcbidt03.isChecked() || dcbidt04.isChecked() || dcbidt05.isChecked()) {
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (dcbis01.isChecked()) {
+                    fldGrpdcbidt.setVisibility(View.GONE);
+                    //dcbidt.clearCheck();
+                    fldGrpdcbir.setVisibility(View.GONE);
+                    dcbir.clearCheck();
+                    dcbirm.setText(null);
+                } else if (dcbis05.isChecked()) {
+                    fldGrpdcbir.setVisibility(View.GONE);
+                    dcbir.clearCheck();
+                    dcbirm.setText(null);
+                } else {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
+                    fldGrpdcbir.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -522,14 +445,14 @@ public class SectionBActivity extends Activity {
         sB.put("dcbis", dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
                 : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : "0");
         sB.put("dcbis06x", dcbis06x.getText().toString());
-        sB.put("dcbidt", dcbidt01.isChecked() ? "1" : dcbidt02.isChecked() ? "2" : dcbidt03.isChecked() ? "3"
-                : dcbidt04.isChecked() ? "4" : dcbidt05.isChecked() ? "5" : "0");
+        /*B.put("dcbidt",  dcbidt02.isChecked() ? "2" : dcbidt03.isChecked() ? "3"
+                : dcbidt04.isChecked() ? "4" : dcbidt05.isChecked() ? "5" : "0");*/
         sB.put("dcbidob", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-        sB.put("dcbimid", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        /*sB.put("dcbimid", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         sB.put("dcbimod", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         sB.put("dcbiimd", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         sB.put("dcbidod", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-
+*/
         sB.put("dcbir", dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
         sB.put("dcbirm", dcbirm.getText().toString());
 
@@ -773,7 +696,7 @@ public class SectionBActivity extends Activity {
             dcbis06x.setError(null);
         }
 
-        // ============== Date ===================
+        /*// ============== Date ===================
 
         if (dcbidt.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbidt), Toast.LENGTH_SHORT).show();
@@ -784,9 +707,9 @@ public class SectionBActivity extends Activity {
         } else {
             dcbidt05.setError(null);
         }
-
+*/
         // ============== Remarks ===================
-        if (dcbidt02.isChecked() || dcbidt03.isChecked() || dcbidt04.isChecked()) {
+        if (dcbis02.isChecked() || dcbis03.isChecked() || dcbis04.isChecked()) {
             if (dcbir.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbir), Toast.LENGTH_SHORT).show();
                 dcbir03.setError("This data is Required!");    // Set Error on last radio button
@@ -807,6 +730,7 @@ public class SectionBActivity extends Activity {
                 dcbirm.setError(null);
             }
         }
+        //}
 
 
         return true;
