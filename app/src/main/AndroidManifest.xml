@@ -72,11 +72,9 @@
         <activity
             android:name=".activities.SectionMActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-
-        <activity android:name=".activities.FamilyMembersActivity"></activity>
-
+        <activity android:name=".activities.FamilyMembersActivity" />
         <activity android:name=".AndroidDatabaseManager" />
-
+        <activity android:name=".activities.EndingActivity"></activity>
     </application>
 
 </manifest>

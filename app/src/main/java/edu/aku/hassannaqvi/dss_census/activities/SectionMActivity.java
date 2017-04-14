@@ -259,7 +259,6 @@ public class SectionMActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        //TODO implement
 
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {
@@ -270,7 +269,7 @@ public class SectionMActivity extends Activity {
             }
             if (UpdateDB()) {
                 Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
-                Intent endSec = new Intent(this, MainActivity.class);
+                Intent endSec = new Intent(this, EndingActivity.class);
                 endSec.putExtra("complete", false);
                 startActivity(endSec);
             } else {
