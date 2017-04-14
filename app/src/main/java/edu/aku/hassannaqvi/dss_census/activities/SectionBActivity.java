@@ -21,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -234,9 +235,12 @@ public class SectionBActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_b);
         ButterKnife.bind(this);
+
+        Calendar cal = Calendar.getInstance();
         dcbg.setMaxDate(new Date().getTime());
         dcbidob.setMaxDate(new Date().getTime());
-        //dcbidob.setMinDate(MainApp.MILLISECONDS_IN_100_YEAR);
+        cal.add(Calendar.YEAR, -97);
+        dcbidob.setMinDate(cal.getTimeInMillis());
 
 //        dcba.setText(getIntent().getExtras().get("memberName").toString());
 
