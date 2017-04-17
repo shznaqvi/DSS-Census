@@ -315,7 +315,7 @@ public class CensusContract {
         this.update_flag= jsonObject.getString(censusMember.COLUMN_UPDATE_FLAG);
         this.update_dt= jsonObject.getString(censusMember.COLUMN_UPDATE_DT);
         this.synced= jsonObject.getString(censusMember.COLUMN_SYNCED);
-        this.syncedDate= jsonObject.getString(censusMember.COLUMN_SYNCEDDATE);
+        this.syncedDate= jsonObject.getString(censusMember.COLUMN_SYNCED_DATE);
 
         return this;
 
@@ -352,7 +352,7 @@ public class CensusContract {
         this.update_flag = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_UPDATE_FLAG));
         this.update_dt = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_UPDATE_DT));
         this.synced = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SYNCED));
-        this.syncedDate = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SYNCEDDATE));
+        this.syncedDate = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SYNCED_DATE));
 
         return this;
 
@@ -392,7 +392,7 @@ public class CensusContract {
         json.put(censusMember.COLUMN_UPDATE_FLAG, this.update_flag == null ? JSONObject.NULL : this.update_flag);
         json.put(censusMember.COLUMN_UPDATE_DT, this.update_dt == null ? JSONObject.NULL : this.update_dt);
         json.put(censusMember.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
-        json.put(censusMember.COLUMN_SYNCEDDATE, this.syncedDate == null ? JSONObject.NULL : this.syncedDate);
+        json.put(censusMember.COLUMN_SYNCED_DATE, this.syncedDate == null ? JSONObject.NULL : this.syncedDate);
 
 
         return json;
@@ -433,6 +433,6 @@ public class CensusContract {
         public static final String COLUMN_UPDATE_FLAG = "updated_flag";
         public static final String COLUMN_UPDATE_DT = "update_date";
         public static final String COLUMN_SYNCED = "synced";
-        public static final String COLUMN_SYNCEDDATE = "sync_date";
+        public static final String COLUMN_SYNCED_DATE = "sync_date";
     }
 }

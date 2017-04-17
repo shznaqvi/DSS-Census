@@ -120,7 +120,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             censusMember.COLUMN_UPDATE_FLAG + " TEXT,"+
             censusMember.COLUMN_UPDATE_DT + " TEXT,"+
             censusMember.COLUMN_SYNCED + " TEXT,"+
-            censusMember.COLUMN_SYNCEDDATE + " TEXT"
+            censusMember.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
     private static final String SQL_CREATE_MEMBERS = "CREATE TABLE "
             + singleMember.TABLE_NAME + "("
@@ -292,6 +292,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor mCursor = db.rawQuery("SELECT * FROM " + singleUser.TABLE_NAME + " WHERE " + singleUser.ROW_USERNAME + "=? AND " + singleUser.ROW_PASSWORD + "=?", new String[]{username, password});
         if (mCursor != null) {
             if (mCursor.getCount() > 0) {
+
+                MainApp.regionDss = mCursor.getString(4);
+
                 return true;
             }
         }
@@ -327,7 +330,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleMember.COLUMN_MEMBER_TYPE,
         };
 
-        String whereClause = singleMember.COLUMN_DSS_ID_MEMBER + " = ?";
+        String whereClause = "area = ?";
         String[] whereArgs = new String[] {dssID};
         String groupBy = null;
         String having = null;
@@ -466,7 +469,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(censusMember.COLUMN_UPDATE_FLAG, mc.getUpdate_flag());
         values.put(censusMember.COLUMN_UPDATE_DT, mc.getUpdate_dt());
         values.put(censusMember.COLUMN_SYNCED, mc.getSynced());
-        values.put(censusMember.COLUMN_SYNCEDDATE, mc.getSyncedDate());
+        values.put(censusMember.COLUMN_SYNCED_DATE, mc.getSyncedDate());
 
 
         long newRowId;
@@ -491,6 +494,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int count = db.update(
                 singleForm.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateCensus(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(censusMember.COLUMN_SYNCED, true);
+        values.put(censusMember.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = censusMember.COLUMN_ID + " LIKE ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                censusMember.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
@@ -556,73 +578,74 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFC;
     }
 
-//    public Collection<MembersContract> getAllMembers() {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor c = null;
-//        String[] columns = {
-//                singleMember.COLUMN_ID,
-//                singleMember.COLUMN_DATE,
-//                singleMember.COLUMN_FORMDATE,
-//                singleMember.COLUMN_DEVICEID,
-//                singleMember.COLUMN_USER,
-//                singleMember.COLUMN_DSS_ID_HH,
-//                singleMember.COLUMN_DSS_ID_F,
-//                singleMember.COLUMN_DSS_ID_M,
-//                singleMember.COLUMN_DSS_ID_H,
-//                singleMember.COLUMN_DSS_ID_MEMBER,
-//                singleMember.COLUMN_PREVS_DSS_ID_MEMBER,
-//                singleMember.COLUMN_SITE_CODE,
-//                singleMember.COLUMN_NAME,
-//                singleMember.COLUMN_DOB,
-//                singleMember.COLUMN_AGE,
-//                singleMember.COLUMN_GENDER,
-//                singleMember.COLUMN_IS_HEAD,
-//                singleMember.COLUMN_RELATION_HH,
-//                singleMember.COLUMN_CURRENT_STATUS,
-//                singleMember.COLUMN_CURRENT_DATE,
-//                singleMember.COLUMN_DOD,
-//                singleMember.COLUMN_M_STATUS,
-//                singleMember.COLUMN_EDUCATION,
-//                singleMember.COLUMN_OCCUPATION,
-//                singleMember.COLUMN_MEMBER_TYPE,
-//                singleMember.COLUMN_UPDATE_FLAG,
-//                singleMember.COLUMN_UPDATE_DT,
-//                singleMember.COLUMN_SYNCED,
-//                singleMember.COLUMN_SYNCEDDATE
-//        };
-//        String whereClause = null;
-//        String[] whereArgs = null;
-//        String groupBy = null;
-//        String having = null;
-//
-//        String orderBy =
-//                singleMember.COLUMN_ID + " ASC";
-//
-//        Collection<MembersContract> allMC = new ArrayList<MembersContract>();
-//        try {
-//            c = db.query(
-//                    singleMember.TABLE_NAME,  // The table to query
-//                    columns,                   // The columns to return
-//                    whereClause,               // The columns for the WHERE clause
-//                    whereArgs,                 // The values for the WHERE clause
-//                    groupBy,                   // don't group the rows
-//                    having,                    // don't filter by row groups
-//                    orderBy                    // The sort order
-//            );
-//            while (c.moveToNext()) {
-//                MembersContract fc = new MembersContract();
-//                allMC.add(fc.Hydrate(c));
-//            }
-//        } finally {
-//            if (c != null) {
-//                c.close();
-//            }
-//            if (db != null) {
-//                db.close();
-//            }
-//        }
-//        return allMC;
-//    }
+    public Collection<CensusContract> getAllCensus() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                censusMember.COLUMN_ID,
+                censusMember.COLUMN_UID,
+                censusMember.COLUMN_DATE,
+                censusMember.COLUMN_FORMDATE,
+                censusMember.COLUMN_DEVICEID,
+                censusMember.COLUMN_USER,
+                censusMember.COLUMN_DSS_ID_HH,
+                censusMember.COLUMN_DSS_ID_F,
+                censusMember.COLUMN_DSS_ID_M,
+                censusMember.COLUMN_DSS_ID_H,
+                censusMember.COLUMN_DSS_ID_MEMBER,
+                censusMember.COLUMN_PREVS_DSS_ID_MEMBER,
+                censusMember.COLUMN_SITE_CODE,
+                censusMember.COLUMN_NAME,
+                censusMember.COLUMN_DOB,
+                censusMember.COLUMN_AGE,
+                censusMember.COLUMN_GENDER,
+                censusMember.COLUMN_IS_HEAD,
+                censusMember.COLUMN_RELATION_HH,
+                censusMember.COLUMN_CURRENT_STATUS,
+                censusMember.COLUMN_CURRENT_DATE,
+                censusMember.COLUMN_DOD,
+                censusMember.COLUMN_M_STATUS,
+                censusMember.COLUMN_EDUCATION,
+                censusMember.COLUMN_OCCUPATION,
+                censusMember.COLUMN_MEMBER_TYPE,
+                censusMember.COLUMN_UPDATE_FLAG,
+                censusMember.COLUMN_UPDATE_DT,
+                censusMember.COLUMN_SYNCED,
+                censusMember.COLUMN_SYNCED_DATE
+        };
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                censusMember.COLUMN_ID + " ASC";
+
+        Collection<CensusContract> allCC = new ArrayList<CensusContract>();
+        try {
+            c = db.query(
+                    censusMember.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                CensusContract cc = new CensusContract();
+                allCC.add(cc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allCC;
+    }
 
     public Collection<FormsContract> getUnsyncedForms() {
         SQLiteDatabase db = this.getReadableDatabase();
