@@ -85,8 +85,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     @BindView(R.id.spUC)
     Spinner spUC;
 
-    @BindView(R.id.syncData)
-    Button syncData;
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -202,24 +200,21 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     }
 
-    @OnClick(R.id.syncData)
-    void onSyncClustersClick() {
+    @OnClick(R.id.syncData) void onSyncDataClick() {
         //TODO implement
-
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
 
+            // Sync Users
+            Toast.makeText(getApplicationContext(), "Syncing Users", Toast.LENGTH_SHORT).show();
             new GetUsers(this).execute();
-            Toast.makeText(getApplicationContext(), "Getting Users", Toast.LENGTH_SHORT).show();
 
         } else {
             Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
     private void populateAutoComplete() {

@@ -4,31 +4,33 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
 import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.MainApp;
-import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract.*;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
  */
 
-public class GetMembers extends AsyncTask<String, String, String> {
+public class GetMembers extends AsyncTask<Void, Void, String> {
 
-    private final String TAG = "GetMembers()";
-    HttpURLConnection urlConnection;
+    private static final String TAG = "GetMembers";
     private Context mContext;
     private ProgressDialog pd;
 
@@ -36,72 +38,134 @@ public class GetMembers extends AsyncTask<String, String, String> {
         mContext = context;
     }
 
+    public static void longInfo(String str) {
+        if (str.length() > 4000) {
+            Log.i(TAG + "LongInfo", str.substring(0, 4000));
+            longInfo(str.substring(4000));
+        } else
+            Log.i(TAG + "LongInfo", str);
+    }
+
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
         pd = new ProgressDialog(mContext);
-        pd.setTitle("Syncing Members");
-        pd.setMessage("Getting connected to server...");
+        pd.setTitle("Please wait... Processing Members");
         pd.show();
 
     }
 
+
     @Override
-    protected String doInBackground(String... args) {
+    protected String doInBackground(Void... params) {
 
-        StringBuilder result = new StringBuilder();
-
+        String line = "No Response";
         try {
-            URL url = new URL(MainApp._HOST_URL + singleMember._URI);
-            urlConnection = (HttpURLConnection) url.openConnection();
-            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    Log.i(TAG, "Members In: " + line);
-                    result.append(line);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-
-
-        } finally {
-            urlConnection.disconnect();
+            return downloadUrl(MainApp._HOST_URL + singleMember._URI);
+        } catch (IOException e) {
+            return "Unable to upload data. Server may be down.";
         }
 
-
-        return result.toString();
     }
 
     @Override
     protected void onPostExecute(String result) {
+        super.onPostExecute(result);
 
-        //Do something with the JSON string
-
-        String json = result;
-        //json = json.replaceAll("\\[", "").replaceAll("\\]","");
-        Log.d(TAG, result);
-        if (json.length() > 0) {
-            ArrayList<MembersContract> membersArrayList;
+        JSONArray json = null;
+        try {
+            json = new JSONArray(result);
             DatabaseHelper db = new DatabaseHelper(mContext);
-            try {
-                membersArrayList = new ArrayList<MembersContract>();
-                //JSONObject jsonObject = new JSONObject(json);
-                JSONArray jsonArray = new JSONArray(json);
-                db.syncMembers(jsonArray);
-                pd.setMessage("Received: " + jsonArray.length());
-                pd.show();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            // db.getAllMembers();
-        } else {
-            pd.setMessage("Received: " + json.length() + "");
+            db.syncMembers(json);
+            Toast.makeText(mContext, "Successfully Synced " + json.length() + " Members", Toast.LENGTH_SHORT).show();
+
+            pd.setMessage(json.length() + " Members synced.");
+            pd.setTitle("Members: Done");
             pd.show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(mContext, "Failed Sync " + result, Toast.LENGTH_SHORT).show();
+
+            pd.setMessage(result);
+            pd.setTitle("Members Sync Failed");
+            pd.show();
+
         }
+
+    }
+
+    private String downloadUrl(String myurl) throws IOException {
+        String line = "No Response";
+
+        InputStream is = null;
+        // Only display the first 500 characters of the retrieved
+        // web page content.
+        int len = 5000;
+
+        HttpURLConnection conn = null;
+        StringBuilder result = null;
+        try {
+            URL url = new URL(myurl);
+            Log.d(TAG, "downloadUrl: " + myurl);
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setReadTimeout(10000 /* milliseconds */);
+            conn.setConnectTimeout(15000 /* milliseconds */);
+            conn.setRequestMethod("POST");
+            conn.setDoOutput(true);
+            conn.setDoInput(true);
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("charset", "utf-8");
+            conn.setUseCaches(false);
+
+            // Starts the query
+            conn.connect();
+            JSONArray jsonSync = new JSONArray();
+            DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
+            JSONObject json = new JSONObject();
+            try {
+                json.put("RegionDSS", MainApp.regionDss);
+            } catch (JSONException e1) {
+                e1.printStackTrace();
+            }
+            Log.d(TAG, "downloadUrl: " + json.toString());
+            wr.writeBytes(json.toString());
+            longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
+            wr.flush();
+            wr.close();
+
+            int HttpResult = conn.getResponseCode();
+            if (HttpResult == HttpURLConnection.HTTP_OK) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(
+                        conn.getInputStream(), "utf-8"));
+                StringBuffer sb = new StringBuffer();
+
+                while ((line = br.readLine()) != null) {
+                    sb.append(line + "\n");
+                }
+                br.close();
+
+                System.out.println("" + sb.toString());
+                return sb.toString();
+            } else {
+                System.out.println(conn.getResponseMessage());
+                return conn.getResponseMessage();
+            }
+        } catch (MalformedURLException e) {
+
+            e.printStackTrace();
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+
+        return line;
+    }
+
+    public String readIt(InputStream stream, int len) throws IOException {
+        Reader reader = null;
+        reader = new InputStreamReader(stream, "UTF-8");
+        char[] buffer = new char[len];
+        reader.read(buffer);
+        return new String(buffer);
     }
 }

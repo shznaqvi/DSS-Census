@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 import edu.aku.hassannaqvi.dss_census.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
+import edu.aku.hassannaqvi.dss_census.get.GetMembers;
 import edu.aku.hassannaqvi.dss_census.get.GetUsers;
 import edu.aku.hassannaqvi.dss_census.sync.SyncForms;
 
@@ -220,20 +221,14 @@ public class MainActivity extends Activity {
 
     public void syncDevice(View view) {
 
-        String usersUrl = MainApp._HOST_URL + "virband/api/users.php";
-        String randsUrl = MainApp._HOST_URL + "virband/api/random.php"; // url to sync randomise data
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
 
             // Sync Users
-            Toast.makeText(getApplicationContext(), "Syncing Users", Toast.LENGTH_SHORT).show();
-            new GetUsers(this).execute(usersUrl);
-
-            // Sync Randomization
-            // Toast.makeText(getApplicationContext(), "Syncing Randomization", Toast.LENGTH_SHORT).show();
-            // new GetRands(this).execute(randsUrl);
+            Toast.makeText(getApplicationContext(), "Syncing Members", Toast.LENGTH_SHORT).show();
+            new GetMembers(this).execute();
 
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
