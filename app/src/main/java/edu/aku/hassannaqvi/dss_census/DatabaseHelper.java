@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract.singleForm;
 import edu.aku.hassannaqvi.dss_census.contracts.HouseholdContract;
@@ -25,6 +26,7 @@ import edu.aku.hassannaqvi.dss_census.contracts.MembersContract.singleMember;
 import edu.aku.hassannaqvi.dss_census.contracts.UsersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.UsersContract.*;
 import edu.aku.hassannaqvi.dss_census.contracts.HouseholdContract.*;
+import edu.aku.hassannaqvi.dss_census.contracts.CensusContract.*;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -36,7 +38,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String SQL_CREATE_USERS = "CREATE TABLE " + singleUser.TABLE_NAME + "("
             + singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + singleUser.ROW_USERNAME + " TEXT,"
-            + singleUser.ROW_PASSWORD + " TEXT );";
+            + singleUser.ROW_PASSWORD + " TEXT,"
+            + singleUser.FULL_NAME + " TEXT,"
+            + singleUser.REGION_DSS + " TEXT );";
     private static final String DATABASE_NAME = "dss-census.db";
     private static final int DATABASE_VERSION = 1;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
@@ -84,13 +88,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             householdForm.COLUMN_SYNCED + " TEXT," +
             householdForm.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
+    private static final String SQL_CREATE_CENSUS = "CREATE TABLE "
+            + censusMember.TABLE_NAME + "("
+            + censusMember.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + censusMember.COLUMN_PROJECT_NAME + " TEXT," +
+            censusMember.COLUMN_UID + " TEXT,"+
+            censusMember.COLUMN_DATE + " TEXT,"+
+            censusMember.COLUMN_FORMDATE + " TEXT,"+
+            censusMember.COLUMN_DEVICEID + " TEXT,"+
+            censusMember.COLUMN_USER + " TEXT,"+
+            censusMember.COLUMN_DSS_ID_HH + " TEXT,"+
+            censusMember.COLUMN_DSS_ID_F + " TEXT,"+
+            censusMember.COLUMN_DSS_ID_M + " TEXT,"+
+            censusMember.COLUMN_DSS_ID_H + " TEXT,"+
+            censusMember.COLUMN_DSS_ID_MEMBER + " TEXT,"+
+            censusMember.COLUMN_PREVS_DSS_ID_MEMBER + " TEXT,"+
+            censusMember.COLUMN_SITE_CODE + " TEXT,"+
+            censusMember.COLUMN_NAME + " TEXT,"+
+            censusMember.COLUMN_DOB + " TEXT,"+
+            censusMember.COLUMN_AGE + " TEXT,"+
+            censusMember.COLUMN_GENDER + " TEXT,"+
+            censusMember.COLUMN_IS_HEAD + " TEXT,"+
+            censusMember.COLUMN_RELATION_HH + " TEXT,"+
+            censusMember.COLUMN_CURRENT_STATUS + " TEXT,"+
+            censusMember.COLUMN_CURRENT_DATE + " TEXT,"+
+            censusMember.COLUMN_DOD + " TEXT,"+
+            censusMember.COLUMN_M_STATUS + " TEXT,"+
+            censusMember.COLUMN_EDUCATION + " TEXT,"+
+            censusMember.COLUMN_OCCUPATION + " TEXT,"+
+            censusMember.COLUMN_MEMBER_TYPE + " TEXT,"+
+            censusMember.COLUMN_UPDATE_FLAG + " TEXT,"+
+            censusMember.COLUMN_UPDATE_DT + " TEXT,"+
+            censusMember.COLUMN_SYNCED + " TEXT,"+
+            censusMember.COLUMN_SYNCEDDATE + " TEXT"
+            + " );";
     private static final String SQL_CREATE_MEMBERS = "CREATE TABLE "
             + singleMember.TABLE_NAME + "("
             + singleMember.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
-            singleMember.COLUMN_UID + " TEXT,"+
-            singleMember.COLUMN_FORMDATE + " TEXT,"+
-            singleMember.COLUMN_DEVICEID + " TEXT,"+
-            singleMember.COLUMN_USER + " TEXT,"+
+            singleMember.COLUMN_DATE + " TEXT,"+
             singleMember.COLUMN_DSS_ID_HH + " TEXT,"+
             singleMember.COLUMN_DSS_ID_F + " TEXT,"+
             singleMember.COLUMN_DSS_ID_M + " TEXT,"+
@@ -110,12 +145,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleMember.COLUMN_M_STATUS + " TEXT,"+
             singleMember.COLUMN_EDUCATION + " TEXT,"+
             singleMember.COLUMN_OCCUPATION + " TEXT,"+
-            singleMember.COLUMN_MEMBER_TYPE + " TEXT,"+
-            singleMember.COLUMN_UPDATE_FLAG + " TEXT,"+
-            singleMember.COLUMN_UPDATE_DT + " TEXT,"+
-            singleMember.COLUMN_SYNCED + " TEXT,"+
-            singleMember.COLUMN_SYNCEDDATE + " TEXT"
-            + " );";
+            singleMember.COLUMN_MEMBER_TYPE + " TEXT"+
+             " );";
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
     private static final String SQL_DELETE_FORMS =
@@ -124,6 +155,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + householdForm.TABLE_NAME;
     private static final String SQL_DELETE_MEMBERS =
             "DROP TABLE IF EXISTS " + singleMember.TABLE_NAME;
+    private static final String SQL_DELETE_CENSUS =
+            "DROP TABLE IF EXISTS " + censusMember.TABLE_NAME;
     private final String TAG = "DatabaseHelper";
     public String spDateT = new SimpleDateFormat("dd-MM-yy").format(new Date().getTime());
 
@@ -141,6 +174,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_FORMS);
         db.execSQL(SQL_CREATE_HOUSEHOLD);
         db.execSQL(SQL_CREATE_MEMBERS);
+        db.execSQL(SQL_CREATE_CENSUS);
 
     }
 
@@ -150,54 +184,61 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_FORMS);
         db.execSQL(SQL_DELETE_HOUSEHOLD);
         db.execSQL(SQL_DELETE_MEMBERS);
+        db.execSQL(SQL_DELETE_CENSUS);
     }
 
     public void syncUser(JSONArray userlist) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(singleUser.TABLE_NAME, null, null);
-
+        db.delete(UsersContract.singleUser.TABLE_NAME, null, null);
         try {
             JSONArray jsonArray = userlist;
             for (int i = 0; i < jsonArray.length(); i++) {
+
                 JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
-                String userName = jsonObjectUser.getString("username");
-                String password = jsonObjectUser.getString("password");
 
-
+                UsersContract user = new UsersContract();
+                user.Sync(jsonObjectUser);
                 ContentValues values = new ContentValues();
 
-                values.put(singleUser.ROW_USERNAME, userName);
-                values.put(singleUser.ROW_PASSWORD, password);
+                values.put(singleUser.ROW_USERNAME, user.getUserName());
+                values.put(singleUser.ROW_PASSWORD, user.getPassword());
+                values.put(singleUser.FULL_NAME, user.getFULL_NAME());
+                values.put(singleUser.REGION_DSS, user.getREGION_DSS());
                 db.insert(singleUser.TABLE_NAME, null, values);
             }
-            db.close();
+
 
         } catch (Exception e) {
+            Log.d(TAG, "syncUser(e): " + e);
+        } finally {
+            db.close();
         }
     }
 
-    public ArrayList<UsersContract> getAllUsers() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        ArrayList<UsersContract> userList = null;
-        try {
-            userList = new ArrayList<UsersContract>();
-            String QUERY = "SELECT * FROM " + singleUser.TABLE_NAME;
-            Cursor cursor = db.rawQuery(QUERY, null);
-            int num = cursor.getCount();
-            if (!cursor.isLast()) {
-                while (cursor.moveToNext()) {
-                    UsersContract user = new UsersContract();
-                    user.setId(cursor.getInt(0));
-                    user.setUserName(cursor.getString(1));
-                    user.setPassword(cursor.getString(2));
-                    userList.add(user);
-                }
-            }
-            db.close();
-        } catch (Exception e) {
-        }
-        return userList;
-    }
+//    public ArrayList<UsersContract> getAllUsers() {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        ArrayList<UsersContract> userList = null;
+//        try {
+//            userList = new ArrayList<UsersContract>();
+//            String QUERY = "SELECT * FROM " + singleUser.TABLE_NAME;
+//            Cursor cursor = db.rawQuery(QUERY, null);
+//            int num = cursor.getCount();
+//            if (!cursor.isLast()) {
+//                while (cursor.moveToNext()) {
+//                    UsersContract user = new UsersContract();
+//                    user.setId(cursor.getInt(0));
+//                    user.setUserName(cursor.getString(1));
+//                    user.setPassword(cursor.getString(2));
+//                    user.setFULL_NAME(cursor.getString(3));
+//                    user.setREGION_DSS(cursor.getString(4));
+//                    userList.add(user);
+//                }
+//            }
+//            db.close();
+//        } catch (Exception e) {
+//        }
+//        return userList;
+//    }
 
     public boolean Login(String username, String password) throws SQLException {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -209,6 +250,69 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return false;
+    }
+
+    public Collection<MembersContract> getMembersByDSS(String dssID) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                singleMember.COLUMN_ID,
+                singleMember.COLUMN_DATE,
+                singleMember.COLUMN_DSS_ID_HH,
+                singleMember.COLUMN_DSS_ID_F,
+                singleMember.COLUMN_DSS_ID_M,
+                singleMember.COLUMN_DSS_ID_H,
+                singleMember.COLUMN_DSS_ID_MEMBER,
+                singleMember.COLUMN_PREVS_DSS_ID_MEMBER,
+                singleMember.COLUMN_SITE_CODE,
+                singleMember.COLUMN_NAME,
+                singleMember.COLUMN_DOB,
+                singleMember.COLUMN_AGE,
+                singleMember.COLUMN_GENDER,
+                singleMember.COLUMN_IS_HEAD,
+                singleMember.COLUMN_RELATION_HH,
+                singleMember.COLUMN_CURRENT_STATUS,
+                singleMember.COLUMN_CURRENT_DATE,
+                singleMember.COLUMN_DOD,
+                singleMember.COLUMN_M_STATUS,
+                singleMember.COLUMN_EDUCATION,
+                singleMember.COLUMN_OCCUPATION,
+                singleMember.COLUMN_MEMBER_TYPE,
+        };
+
+        String whereClause = singleMember.COLUMN_DSS_ID_MEMBER + " = ?";
+        String[] whereArgs = new String[] {dssID};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                singleMember.COLUMN_ID + " ASC";
+
+        Collection<MembersContract> memList = new ArrayList<MembersContract>();
+        try {
+            c = db.query(
+                    singleMember.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                MembersContract mc = new MembersContract();
+                memList.add(mc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return memList;
     }
 
     public Long addForm(FormsContract fc) {
@@ -280,47 +384,49 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
-    public Long addMembers(MembersContract mc) {
+    public Long addCensusMembers(CensusContract mc) {
 
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(singleMember.COLUMN_UID, mc.get_UID());
-        values.put(singleMember.COLUMN_FORMDATE, mc.getFormDate());
-        values.put(singleMember.COLUMN_DEVICEID, mc.getDeviceId());
-        values.put(singleMember.COLUMN_USER, mc.getUser());
-        values.put(singleMember.COLUMN_DSS_ID_HH, mc.getDss_id_hh());
-        values.put(singleMember.COLUMN_DSS_ID_F, mc.getDss_id_f());
-        values.put(singleMember.COLUMN_DSS_ID_M, mc.getDss_id_m());
-        values.put(singleMember.COLUMN_DSS_ID_H, mc.getDss_id_h());
-        values.put(singleMember.COLUMN_DSS_ID_MEMBER, mc.getDss_id_member());
-        values.put(singleMember.COLUMN_PREVS_DSS_ID_MEMBER, mc.getPrevs_dss_id_member());
-        values.put(singleMember.COLUMN_SITE_CODE, mc.getSite_code());
-        values.put(singleMember.COLUMN_NAME, mc.getName());
-        values.put(singleMember.COLUMN_DOB, mc.getDob());
-        values.put(singleMember.COLUMN_AGE, mc.getAge());
-        values.put(singleMember.COLUMN_GENDER, mc.getGender());
-        values.put(singleMember.COLUMN_IS_HEAD, mc.getIs_head());
-        values.put(singleMember.COLUMN_RELATION_HH, mc.getRelation_hh());
-        values.put(singleMember.COLUMN_CURRENT_STATUS, mc.getCurrent_status());
-        values.put(singleMember.COLUMN_CURRENT_DATE, mc.getCurrent_date());
-        values.put(singleMember.COLUMN_DOD, mc.getDod());
-        values.put(singleMember.COLUMN_M_STATUS, mc.getM_status());
-        values.put(singleMember.COLUMN_EDUCATION, mc.getEducation());
-        values.put(singleMember.COLUMN_OCCUPATION, mc.getOccupation());
-        values.put(singleMember.COLUMN_MEMBER_TYPE, mc.getMember_type());
-        values.put(singleMember.COLUMN_UPDATE_FLAG, mc.getUpdate_flag());
-        values.put(singleMember.COLUMN_UPDATE_DT, mc.getUpdate_dt());
-        values.put(singleMember.COLUMN_SYNCED, mc.getSynced());
-        values.put(singleMember.COLUMN_SYNCEDDATE, mc.getSyncedDate());
+        values.put(censusMember.COLUMN_PROJECT_NAME, mc.getProjectName());
+        values.put(censusMember.COLUMN_UID, mc.get_UID());
+        values.put(censusMember.COLUMN_DATE, mc.get_DATE());
+        values.put(censusMember.COLUMN_FORMDATE, mc.getFormDate());
+        values.put(censusMember.COLUMN_DEVICEID, mc.getDeviceId());
+        values.put(censusMember.COLUMN_USER, mc.getUser());
+        values.put(censusMember.COLUMN_DSS_ID_HH, mc.getDss_id_hh());
+        values.put(censusMember.COLUMN_DSS_ID_F, mc.getDss_id_f());
+        values.put(censusMember.COLUMN_DSS_ID_M, mc.getDss_id_m());
+        values.put(censusMember.COLUMN_DSS_ID_H, mc.getDss_id_h());
+        values.put(censusMember.COLUMN_DSS_ID_MEMBER, mc.getDss_id_member());
+        values.put(censusMember.COLUMN_PREVS_DSS_ID_MEMBER, mc.getPrevs_dss_id_member());
+        values.put(censusMember.COLUMN_SITE_CODE, mc.getSite_code());
+        values.put(censusMember.COLUMN_NAME, mc.getName());
+        values.put(censusMember.COLUMN_DOB, mc.getDob());
+        values.put(censusMember.COLUMN_AGE, mc.getAge());
+        values.put(censusMember.COLUMN_GENDER, mc.getGender());
+        values.put(censusMember.COLUMN_IS_HEAD, mc.getIs_head());
+        values.put(censusMember.COLUMN_RELATION_HH, mc.getRelation_hh());
+        values.put(censusMember.COLUMN_CURRENT_STATUS, mc.getCurrent_status());
+        values.put(censusMember.COLUMN_CURRENT_DATE, mc.getCurrent_date());
+        values.put(censusMember.COLUMN_DOD, mc.getDod());
+        values.put(censusMember.COLUMN_M_STATUS, mc.getM_status());
+        values.put(censusMember.COLUMN_EDUCATION, mc.getEducation());
+        values.put(censusMember.COLUMN_OCCUPATION, mc.getOccupation());
+        values.put(censusMember.COLUMN_MEMBER_TYPE, mc.getMember_type());
+        values.put(censusMember.COLUMN_UPDATE_FLAG, mc.getUpdate_flag());
+        values.put(censusMember.COLUMN_UPDATE_DT, mc.getUpdate_dt());
+        values.put(censusMember.COLUMN_SYNCED, mc.getSynced());
+        values.put(censusMember.COLUMN_SYNCEDDATE, mc.getSyncedDate());
 
 
         long newRowId;
         newRowId = db.insert(
-                singleMember.TABLE_NAME,
-                singleMember.COLUMN_NAME_NULLABLE,
+                censusMember.TABLE_NAME,
+                censusMember.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
@@ -404,73 +510,73 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFC;
     }
 
-    public Collection<MembersContract> getAllMembers() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
-        String[] columns = {
-                singleMember.COLUMN_ID,
-                singleMember.COLUMN_UID,
-                singleMember.COLUMN_FORMDATE,
-                singleMember.COLUMN_DEVICEID,
-                singleMember.COLUMN_USER,
-                singleMember.COLUMN_DSS_ID_HH,
-                singleMember.COLUMN_DSS_ID_F,
-                singleMember.COLUMN_DSS_ID_M,
-                singleMember.COLUMN_DSS_ID_H,
-                singleMember.COLUMN_DSS_ID_MEMBER,
-                singleMember.COLUMN_PREVS_DSS_ID_MEMBER,
-                singleMember.COLUMN_SITE_CODE,
-                singleMember.COLUMN_NAME,
-                singleMember.COLUMN_DOB,
-                singleMember.COLUMN_AGE,
-                singleMember.COLUMN_GENDER,
-                singleMember.COLUMN_IS_HEAD,
-                singleMember.COLUMN_RELATION_HH,
-                singleMember.COLUMN_CURRENT_STATUS,
-                singleMember.COLUMN_CURRENT_DATE,
-                singleMember.COLUMN_DOD,
-                singleMember.COLUMN_M_STATUS,
-                singleMember.COLUMN_EDUCATION,
-                singleMember.COLUMN_OCCUPATION,
-                singleMember.COLUMN_MEMBER_TYPE,
-                singleMember.COLUMN_UPDATE_FLAG,
-                singleMember.COLUMN_UPDATE_DT,
-                singleMember.COLUMN_SYNCED,
-                singleMember.COLUMN_SYNCEDDATE
-        };
-        String whereClause = null;
-        String[] whereArgs = null;
-        String groupBy = null;
-        String having = null;
-
-        String orderBy =
-                singleMember.COLUMN_ID + " ASC";
-
-        Collection<MembersContract> allMC = new ArrayList<MembersContract>();
-        try {
-            c = db.query(
-                    singleMember.TABLE_NAME,  // The table to query
-                    columns,                   // The columns to return
-                    whereClause,               // The columns for the WHERE clause
-                    whereArgs,                 // The values for the WHERE clause
-                    groupBy,                   // don't group the rows
-                    having,                    // don't filter by row groups
-                    orderBy                    // The sort order
-            );
-            while (c.moveToNext()) {
-                MembersContract fc = new MembersContract();
-                allMC.add(fc.Hydrate(c));
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
-        return allMC;
-    }
+//    public Collection<MembersContract> getAllMembers() {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor c = null;
+//        String[] columns = {
+//                singleMember.COLUMN_ID,
+//                singleMember.COLUMN_DATE,
+//                singleMember.COLUMN_FORMDATE,
+//                singleMember.COLUMN_DEVICEID,
+//                singleMember.COLUMN_USER,
+//                singleMember.COLUMN_DSS_ID_HH,
+//                singleMember.COLUMN_DSS_ID_F,
+//                singleMember.COLUMN_DSS_ID_M,
+//                singleMember.COLUMN_DSS_ID_H,
+//                singleMember.COLUMN_DSS_ID_MEMBER,
+//                singleMember.COLUMN_PREVS_DSS_ID_MEMBER,
+//                singleMember.COLUMN_SITE_CODE,
+//                singleMember.COLUMN_NAME,
+//                singleMember.COLUMN_DOB,
+//                singleMember.COLUMN_AGE,
+//                singleMember.COLUMN_GENDER,
+//                singleMember.COLUMN_IS_HEAD,
+//                singleMember.COLUMN_RELATION_HH,
+//                singleMember.COLUMN_CURRENT_STATUS,
+//                singleMember.COLUMN_CURRENT_DATE,
+//                singleMember.COLUMN_DOD,
+//                singleMember.COLUMN_M_STATUS,
+//                singleMember.COLUMN_EDUCATION,
+//                singleMember.COLUMN_OCCUPATION,
+//                singleMember.COLUMN_MEMBER_TYPE,
+//                singleMember.COLUMN_UPDATE_FLAG,
+//                singleMember.COLUMN_UPDATE_DT,
+//                singleMember.COLUMN_SYNCED,
+//                singleMember.COLUMN_SYNCEDDATE
+//        };
+//        String whereClause = null;
+//        String[] whereArgs = null;
+//        String groupBy = null;
+//        String having = null;
+//
+//        String orderBy =
+//                singleMember.COLUMN_ID + " ASC";
+//
+//        Collection<MembersContract> allMC = new ArrayList<MembersContract>();
+//        try {
+//            c = db.query(
+//                    singleMember.TABLE_NAME,  // The table to query
+//                    columns,                   // The columns to return
+//                    whereClause,               // The columns for the WHERE clause
+//                    whereArgs,                 // The values for the WHERE clause
+//                    groupBy,                   // don't group the rows
+//                    having,                    // don't filter by row groups
+//                    orderBy                    // The sort order
+//            );
+//            while (c.moveToNext()) {
+//                MembersContract fc = new MembersContract();
+//                allMC.add(fc.Hydrate(c));
+//            }
+//        } finally {
+//            if (c != null) {
+//                c.close();
+//            }
+//            if (db != null) {
+//                db.close();
+//            }
+//        }
+//        return allMC;
+//    }
 
     public Collection<FormsContract> getUnsyncedForms() {
         SQLiteDatabase db = this.getReadableDatabase();

@@ -202,7 +202,7 @@ public class HouseholdContract {
 
         public static final String TABLE_NAME = "household";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
-        public static final String COLUMN_PROJECT_NAME = "projectname";
+        public static final String COLUMN_PROJECT_NAME = "DSS Census";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_HOUSEHOLDID = "dssid";

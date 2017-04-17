@@ -28,9 +28,9 @@ import edu.aku.hassannaqvi.dss_census.otherClasses.familyMembers;
 
 public class MainApp extends Application {
 
-    public static final String _IP = "192.168.1.10"; // Test PHP server
+    public static final String _IP = "43.245.131.159"; // Test PHP server
     public static final Integer _PORT = 8080; // Port - with colon (:)
-    public static final String _HOST_URL = "http://" + MainApp._IP + ":" + MainApp._PORT + "/dss/";
+    public static final String _HOST_URL = "http://" + MainApp._IP + ":" + MainApp._PORT + "/dss/api/";
 
     /*
         public static final String _IP = "43.245.131.159"; // Test server
@@ -69,6 +69,9 @@ public class MainApp extends Application {
     public static List<familyMembers> familyMembersList = new ArrayList<>();
     protected LocationManager locationManager;
     Location location;
+
+//    Ali
+    public static String regionDss = "";
 
     @Override
     public void onCreate() {

@@ -8,6 +8,8 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,7 +19,9 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
+import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.contracts.UsersContract;
+import edu.aku.hassannaqvi.dss_census.contracts.UsersContract.*;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -41,16 +45,38 @@ public class GetUsers extends AsyncTask<String, String, String> {
         pd.setTitle("Syncing Users");
         pd.setMessage("Getting connected to server...");
         pd.show();
+
     }
 
     @Override
-    protected String doInBackground(String... urls) {
-        // params comes from the execute() call: params[0] is the url.
+    protected String doInBackground(String... args) {
+
+        StringBuilder result = new StringBuilder();
+
         try {
-            return downloadUrl(urls[0]);
-        } catch (IOException e) {
-            return "Unable to retrieve web page. URL may be invalid.";
+            URL url = new URL(MainApp._HOST_URL + singleUser._URI);
+            urlConnection = (HttpURLConnection) url.openConnection();
+            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    Log.i(TAG, "User In: " + line);
+                    result.append(line);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+
+        } finally {
+            urlConnection.disconnect();
         }
+
+
+        return result.toString();
     }
 
     @Override
@@ -74,57 +100,10 @@ public class GetUsers extends AsyncTask<String, String, String> {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            //db.getAllUsers();
+            // db.getAllUsers();
         } else {
             pd.setMessage("Received: " + json.length() + "");
             pd.show();
         }
-    }
-
-    // Given a URL, establishes an HttpUrlConnection and retrieves
-// the web page content as a InputStream, which it returns as
-// a string.
-    private String downloadUrl(String userUrl) throws IOException {
-        InputStream is = null;
-        // Only display the first 500 characters of the retrieved
-        // web page content.
-        int len = 500;
-
-        try {
-            URL url = new URL(userUrl);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setReadTimeout(10000 /* milliseconds */);
-            conn.setConnectTimeout(15000 /* milliseconds */);
-            conn.setRequestMethod("GET");
-            conn.setDoInput(true);
-            conn.setRequestProperty("Content-Type", "application/json");
-            conn.setRequestProperty("charset", "utf-8");
-            conn.setUseCaches(false);
-            // Starts the query
-            conn.connect();
-            int response = conn.getResponseCode();
-            Log.d(TAG, "The response is: " + response);
-            is = conn.getInputStream();
-
-            // Convert the InputStream into a string
-            String contentAsString = readIt(is, len);
-            return contentAsString;
-
-            // Makes sure that the InputStream is closed after the app is
-            // finished using it.
-        } finally {
-            if (is != null) {
-                is.close();
-            }
-        }
-    }
-
-    // Reads an InputStream and converts it to a String.
-    public String readIt(InputStream stream, int len) throws IOException {
-        Reader reader = null;
-        reader = new InputStreamReader(stream, "UTF-8");
-        char[] buffer = new char[len];
-        reader.read(buffer);
-        return new String(buffer);
     }
 }

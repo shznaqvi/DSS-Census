@@ -14,10 +14,7 @@ public class MembersContract {
 
     private final String projectName = "DSS Census";
     private String _ID = "";
-    private String _UID = "";
-    private String formDate = "";
-    private String deviceId = "";
-    private String user = "";
+    private String _DATE = "";
     private String dss_id_hh = "";
     private String dss_id_f = "";
     private String dss_id_m = "";
@@ -38,10 +35,6 @@ public class MembersContract {
     private String education = "";
     private String occupation = "";
     private String member_type = "";
-    private String update_flag = "";
-    private String update_dt = "";
-    private String synced = "";
-    private String syncedDate = "";
 
 
     public MembersContract() {
@@ -51,36 +44,12 @@ public class MembersContract {
         return projectName;
     }
 
-    public String get_UID() {
-        return _UID;
+    public String get_DATE() {
+        return _DATE;
     }
 
-    public void set_UID(String _UID) {
-        this._UID = _UID;
-    }
-
-    public String getFormDate() {
-        return formDate;
-    }
-
-    public void setFormDate(String formDate) {
-        this.formDate = formDate;
-    }
-
-    public String getDeviceId() {
-        return deviceId;
-    }
-
-    public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
+    public void set_DATE(String _DATE) {
+        this._DATE = _DATE;
     }
 
     public String getDss_id_hh() {
@@ -243,45 +212,10 @@ public class MembersContract {
         this.member_type = member_type;
     }
 
-    public String getUpdate_flag() {
-        return update_flag;
-    }
-
-    public void setUpdate_flag(String update_flag) {
-        this.update_flag = update_flag;
-    }
-
-    public String getUpdate_dt() {
-        return update_dt;
-    }
-
-    public void setUpdate_dt(String update_dt) {
-        this.update_dt = update_dt;
-    }
-
-    public String getSynced() {
-        return synced;
-    }
-
-    public void setSynced(String synced) {
-        this.synced = synced;
-    }
-
-    public String getSyncedDate() {
-        return syncedDate;
-    }
-
-    public void setSyncedDate(String syncedDate) {
-        this.syncedDate = syncedDate;
-    }
-
     public MembersContract Sync(JSONObject jsonObject) throws JSONException {
 
         this._ID= jsonObject.getString(singleMember.COLUMN_ID);
-        this._UID= jsonObject.getString(singleMember.COLUMN_UID);
-        this.formDate= jsonObject.getString(singleMember.COLUMN_FORMDATE);
-        this.deviceId= jsonObject.getString(singleMember.COLUMN_DEVICEID);
-        this.user= jsonObject.getString(singleMember.COLUMN_USER);
+        this._DATE = jsonObject.getString(singleMember.COLUMN_DATE);
         this.dss_id_hh= jsonObject.getString(singleMember.COLUMN_DSS_ID_HH);
         this.dss_id_f= jsonObject.getString(singleMember.COLUMN_DSS_ID_F);
         this.dss_id_m= jsonObject.getString(singleMember.COLUMN_DSS_ID_M);
@@ -302,10 +236,6 @@ public class MembersContract {
         this.education= jsonObject.getString(singleMember.COLUMN_EDUCATION);
         this.occupation= jsonObject.getString(singleMember.COLUMN_OCCUPATION);
         this.member_type= jsonObject.getString(singleMember.COLUMN_MEMBER_TYPE);
-        this.update_flag= jsonObject.getString(singleMember.COLUMN_UPDATE_FLAG);
-        this.update_dt= jsonObject.getString(singleMember.COLUMN_UPDATE_DT);
-        this.synced= jsonObject.getString(singleMember.COLUMN_SYNCED);
-        this.syncedDate= jsonObject.getString(singleMember.COLUMN_SYNCEDDATE);
 
         return this;
 
@@ -314,10 +244,7 @@ public class MembersContract {
     public MembersContract Hydrate(Cursor cursor) {
 
         this._ID = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_ID));
-        this._UID = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_UID));
-        this.formDate = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_FORMDATE));
-        this.deviceId = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_DEVICEID));
-        this.user = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_USER));
+        this._DATE = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_DATE));
         this.dss_id_hh = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_DSS_ID_HH));
         this.dss_id_f = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_DSS_ID_F));
         this.dss_id_m = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_DSS_ID_M));
@@ -338,10 +265,6 @@ public class MembersContract {
         this.education = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_EDUCATION));
         this.occupation = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_OCCUPATION));
         this.member_type = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_MEMBER_TYPE));
-        this.update_flag = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_UPDATE_FLAG));
-        this.update_dt = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_UPDATE_DT));
-        this.synced = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_SYNCED));
-        this.syncedDate = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_SYNCEDDATE));
 
         return this;
 
@@ -353,10 +276,7 @@ public class MembersContract {
         JSONObject json = new JSONObject();
 
         json.put(singleMember.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
-        json.put(singleMember.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
-        json.put(singleMember.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
-        json.put(singleMember.COLUMN_DEVICEID, this.deviceId == null ? JSONObject.NULL : this.deviceId);
-        json.put(singleMember.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
+        json.put(singleMember.COLUMN_DATE, this._DATE == null ? JSONObject.NULL : this._DATE);
         json.put(singleMember.COLUMN_DSS_ID_HH, this.dss_id_hh == null ? JSONObject.NULL : this.dss_id_hh);
         json.put(singleMember.COLUMN_DSS_ID_F, this.dss_id_f == null ? JSONObject.NULL : this.dss_id_f);
         json.put(singleMember.COLUMN_DSS_ID_M, this.dss_id_m == null ? JSONObject.NULL : this.dss_id_m);
@@ -377,10 +297,6 @@ public class MembersContract {
         json.put(singleMember.COLUMN_EDUCATION, this.education == null ? JSONObject.NULL : this.education);
         json.put(singleMember.COLUMN_OCCUPATION, this.occupation == null ? JSONObject.NULL : this.occupation);
         json.put(singleMember.COLUMN_MEMBER_TYPE, this.member_type == null ? JSONObject.NULL : this.member_type);
-        json.put(singleMember.COLUMN_UPDATE_FLAG, this.update_flag == null ? JSONObject.NULL : this.update_flag);
-        json.put(singleMember.COLUMN_UPDATE_DT, this.update_dt == null ? JSONObject.NULL : this.update_dt);
-        json.put(singleMember.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
-        json.put(singleMember.COLUMN_SYNCEDDATE, this.syncedDate == null ? JSONObject.NULL : this.syncedDate);
 
 
         return json;
@@ -391,11 +307,8 @@ public class MembersContract {
         public static final String TABLE_NAME = "members";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
 
-        public static final String COLUMN_ID = "id";
-        public static final String COLUMN_UID = "uid";
-        public static final String COLUMN_FORMDATE = "formdate";
-        public static final String COLUMN_DEVICEID = "deviceid";
-        public static final String COLUMN_USER = "user";
+        public static final String COLUMN_ID = "_id";
+        public static final String COLUMN_DATE = "_date";
         public static final String COLUMN_DSS_ID_HH = "dss_id_hh";
         public static final String COLUMN_DSS_ID_F = "dss_id_f";
         public static final String COLUMN_DSS_ID_M = "dss_id_m";
@@ -416,11 +329,6 @@ public class MembersContract {
         public static final String COLUMN_EDUCATION = "education";
         public static final String COLUMN_OCCUPATION = "occupation";
         public static final String COLUMN_MEMBER_TYPE = "member_type";
-        public static final String COLUMN_UPDATE_FLAG = "update_flag";
-        public static final String COLUMN_UPDATE_DT = "update_dt";
-        public static final String COLUMN_SYNCED = "synced";
-        public static final String COLUMN_SYNCEDDATE = "synceddate";
-
 
     }
 }
