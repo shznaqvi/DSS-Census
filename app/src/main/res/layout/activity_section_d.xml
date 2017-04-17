@@ -367,7 +367,8 @@
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
                 android:hint="@string/dcd05"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"

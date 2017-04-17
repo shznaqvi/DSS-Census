@@ -18,15 +18,15 @@ import java.util.Collection;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
+import edu.aku.hassannaqvi.dss_census.contracts.CensusContract.censusMember;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract.singleForm;
 import edu.aku.hassannaqvi.dss_census.contracts.HouseholdContract;
+import edu.aku.hassannaqvi.dss_census.contracts.HouseholdContract.householdForm;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract.singleMember;
 import edu.aku.hassannaqvi.dss_census.contracts.UsersContract;
-import edu.aku.hassannaqvi.dss_census.contracts.UsersContract.*;
-import edu.aku.hassannaqvi.dss_census.contracts.HouseholdContract.*;
-import edu.aku.hassannaqvi.dss_census.contracts.CensusContract.*;
+import edu.aku.hassannaqvi.dss_census.contracts.UsersContract.singleUser;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -210,6 +210,52 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         } catch (Exception e) {
             Log.d(TAG, "syncUser(e): " + e);
+        } finally {
+            db.close();
+        }
+    }
+
+    public void syncMember(JSONArray memberlist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(MembersContract.singleMember.TABLE_NAME, null, null);
+        try {
+            JSONArray jsonArray = memberlist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+
+                JSONObject jsonObjectMember = jsonArray.getJSONObject(i);
+
+                MembersContract member = new MembersContract();
+                member.Sync(jsonObjectMember);
+                ContentValues values = new ContentValues();
+
+                values.put(singleMember.COLUMN_DSS_ID_MEMBER, member.getDss_id_member());
+                values.put(singleMember.COLUMN_DATE, member.get_DATE());
+                values.put(singleMember.COLUMN_DSS_ID_HH, member.getDss_id_hh());
+                values.put(singleMember.COLUMN_DSS_ID_F, member.getDss_id_f());
+                values.put(singleMember.COLUMN_DSS_ID_M, member.getDss_id_m());
+                values.put(singleMember.COLUMN_DSS_ID_H, member.getDss_id_h());
+                values.put(singleMember.COLUMN_PREVS_DSS_ID_MEMBER, member.getPrevs_dss_id_member());
+                values.put(singleMember.COLUMN_SITE_CODE, member.getSite_code());
+                values.put(singleMember.COLUMN_NAME, member.getName());
+                values.put(singleMember.COLUMN_DOB, member.getDob());
+                values.put(singleMember.COLUMN_AGE, member.getAge());
+                values.put(singleMember.COLUMN_GENDER, member.getGender());
+                values.put(singleMember.COLUMN_IS_HEAD, member.getIs_head());
+                values.put(singleMember.COLUMN_RELATION_HH, member.getRelation_hh());
+                values.put(singleMember.COLUMN_CURRENT_STATUS, member.getCurrent_status());
+                values.put(singleMember.COLUMN_CURRENT_DATE, member.getCurrent_date());
+                values.put(singleMember.COLUMN_DOD, member.getDod());
+                values.put(singleMember.COLUMN_M_STATUS, member.getM_status());
+                values.put(singleMember.COLUMN_EDUCATION, member.getEducation());
+                values.put(singleMember.COLUMN_OCCUPATION, member.getOccupation());
+                values.put(singleMember.COLUMN_MEMBER_TYPE, member.getMember_type());
+
+                db.insert(singleMember.TABLE_NAME, null, values);
+            }
+
+
+        } catch (Exception e) {
+            Log.d(TAG, "syncMember(e): " + e);
         } finally {
             db.close();
         }
