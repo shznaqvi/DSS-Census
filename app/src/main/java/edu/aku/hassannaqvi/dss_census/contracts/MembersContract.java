@@ -330,5 +330,7 @@ public class MembersContract {
         public static final String COLUMN_OCCUPATION = "occupation";
         public static final String COLUMN_MEMBER_TYPE = "member_type";
 
+        public static final String _URI = "getfamilymembers.php";
+
     }
 }
