@@ -80,7 +80,7 @@ public class FamilyMembersActivity extends Activity {
 
 //        for (byte i=0;i<MainApp.NoMembersCount;i++){
 //
-//            familyMembersList.add(new familyMembers("Member "+(i+1),""+ DSSid[new Random().nextInt(DSSid.length)],"none"
+//            familyMembersList.add(new familyMembers("Member "+(i+1),""+ DSSidm[new Random().nextInt(DSSidm.length)],"none"
 //                    ,""+gender[new Random().nextInt(gender.length)]));
 //        }
 
@@ -169,12 +169,12 @@ public class FamilyMembersActivity extends Activity {
         private List<familyMembers> familyMembersList;
 
         public class MyViewHolder extends RecyclerView.ViewHolder {
-            public TextView memberName, DSSid, year, currentStatus;
+            public TextView memberName, DSSidm, year, currentStatus;
 
             public MyViewHolder(View view) {
                 super(view);
                 this.memberName = (TextView) view.findViewById(R.id.memberName);
-                this.DSSid = (TextView) view.findViewById(R.id.DSSid);
+                this.DSSidm = (TextView) view.findViewById(R.id.DSSid);
                 this.currentStatus = (TextView) view.findViewById(R.id.currentStatus);
                 year = (TextView) view.findViewById(R.id.year);
             }
@@ -197,7 +197,7 @@ public class FamilyMembersActivity extends Activity {
         public void onBindViewHolder(MyViewHolder holder, int position) {
             familyMembers familyMembers = familyMembersList.get(position);
             holder.memberName.setText(familyMembers.getMemberName().toUpperCase());
-            holder.DSSid.setText(familyMembers.getDSSid());
+            holder.DSSidm.setText(familyMembers.getDSSid());
             holder.currentStatus.setText(familyMembers.getcStatus());
             holder.year.setText(familyMembers.getDob());
         }

@@ -123,7 +123,7 @@ public class GetMembers extends AsyncTask<Void, Void, String> {
             DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
             JSONObject json = new JSONObject();
             try {
-                json.put("RegionDSS", MainApp.regionDss);
+                json.put("area", MainApp.regionDss);
             } catch (JSONException e1) {
                 e1.printStackTrace();
             }

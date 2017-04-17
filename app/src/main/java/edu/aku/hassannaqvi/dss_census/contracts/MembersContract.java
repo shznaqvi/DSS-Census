@@ -40,6 +40,14 @@ public class MembersContract {
     public MembersContract() {
     }
 
+    public String get_ID() {
+        return _ID;
+    }
+
+    public void set_ID(String _ID) {
+        this._ID = _ID;
+    }
+
     public String getProjectName() {
         return projectName;
     }

@@ -33,6 +33,7 @@ public class EndingActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
+        finish();
         Intent endSec = new Intent(this, MainActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);

@@ -23,6 +23,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -32,6 +34,8 @@ import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
+import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
+import edu.aku.hassannaqvi.dss_census.otherClasses.familyMembers;
 
 public class SectionAActivity extends Activity {
 
@@ -193,11 +197,19 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.fldGrpdca10)
     LinearLayout fldGrpdca10;
 
+    @BindView(R.id.mp02_count)
+    TextView mp02_count;
+
+    Collection<MembersContract> members;
+    DatabaseHelper db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
+
+        db = new DatabaseHelper(this);
 
         //==================== Permission Skip Check =================
 
@@ -354,6 +366,57 @@ public class SectionAActivity extends Activity {
 
     }
 
+
+    @OnClick(R.id.checkDSSID)
+    void onBtnDSSIDClick() {
+
+        mp02_count.setVisibility(View.VISIBLE);
+
+        if (!dca03.getText().toString().isEmpty()) {
+
+            dca03.setError(null);
+
+            members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
+
+            mp02_count.setText("Members found = " + members.size());
+
+
+            if (members.size() != 0) {
+
+                MainApp.familyMembersList = new ArrayList<>();
+
+                for (MembersContract ec : members) {
+                    MainApp.familyMembersList.add(new familyMembers(ec.getName(),ec.getDss_id_member(),ec.getCurrent_status(),ec.getDob()));
+                }
+
+                Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
+
+//                fldGrpmp02a007.setVisibility(View.VISIBLE);
+                btn_Continue.setVisibility(View.VISIBLE);
+
+//                flag = true;
+
+            } else {
+
+//                fldGrpmp02a007.setVisibility(View.GONE);
+                btn_Continue.setVisibility(View.GONE);
+//                mp02a007.setText(null);
+//                mp02a008.setText(null);
+//                mp02a013.clearCheck();
+
+//                flag = false;
+
+                Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
+            }
+
+
+        } else {
+            dca03.setError("This data is Required!");
+        }
+
+
+
+    }
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
@@ -848,7 +911,6 @@ public class SectionAActivity extends Activity {
     }
 
     private boolean UpdateDB() {
-        DatabaseHelper db = new DatabaseHelper(this);
 
         Long updcount = db.addForm(MainApp.fc);
         MainApp.fc.set_ID(String.valueOf(updcount));

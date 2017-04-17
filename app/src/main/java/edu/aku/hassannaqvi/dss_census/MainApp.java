@@ -73,6 +73,7 @@ public class MainApp extends Application {
 //    Ali
     public static String regionDss = "";
 
+
     @Override
     public void onCreate() {
         super.onCreate();

@@ -124,7 +124,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + " );";
     private static final String SQL_CREATE_MEMBERS = "CREATE TABLE "
             + singleMember.TABLE_NAME + "("
-            + singleMember.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
+            + singleMember.COLUMN_ID + " TEXT,"+
             singleMember.COLUMN_DATE + " TEXT,"+
             singleMember.COLUMN_DSS_ID_HH + " TEXT,"+
             singleMember.COLUMN_DSS_ID_F + " TEXT,"+
@@ -228,6 +228,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 member.Sync(jsonObjectMember);
                 ContentValues values = new ContentValues();
 
+                values.put(singleMember.COLUMN_ID, member.get_ID());
                 values.put(singleMember.COLUMN_DSS_ID_MEMBER, member.getDss_id_member());
                 values.put(singleMember.COLUMN_DATE, member.get_DATE());
                 values.put(singleMember.COLUMN_DSS_ID_HH, member.getDss_id_hh());
@@ -293,8 +294,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (mCursor != null) {
             if (mCursor.getCount() > 0) {
 
-                MainApp.regionDss = mCursor.getString(4);
-
+                if (mCursor.moveToFirst()) {
+                    MainApp.regionDss = mCursor.getString(mCursor.getColumnIndex("region_dss"));
+                }
                 return true;
             }
         }
@@ -330,7 +332,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleMember.COLUMN_MEMBER_TYPE,
         };
 
-        String whereClause = "area = ?";
+        String whereClause = singleMember.COLUMN_DSS_ID_HH +" = ?";
         String[] whereArgs = new String[] {dssID};
         String groupBy = null;
         String having = null;
