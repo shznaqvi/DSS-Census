@@ -204,7 +204,6 @@ public class SectionKActivity extends Activity  {
     }
 
     @OnClick(R.id.btn_End) void onBtnEndClick() {
-        //TODO implement
 
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {
