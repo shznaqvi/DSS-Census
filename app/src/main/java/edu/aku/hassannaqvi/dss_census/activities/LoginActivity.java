@@ -85,6 +85,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     @BindView(R.id.spUC)
     Spinner spUC;
 
+    @BindView(R.id.syncData)
+    Button syncData;
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -200,8 +202,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     }
 
-    @OnClick(R.id.syncData) void onSyncDataClick() {
+    @OnClick(R.id.syncData)
+    void onSyncDataClick() {
         //TODO implement
+
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);

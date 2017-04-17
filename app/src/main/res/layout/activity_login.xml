@@ -98,28 +98,31 @@
                 android:gravity="center"
                 android:popupBackground="#3d3d3d" />
 
-            <Button
-                android:id="@+id/email_sign_in_button"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="110dp"
-                android:padding="16dp"
-                android:text="@string/action_sign_in"
-                android:textStyle="bold" />
-
 
             <Button
                 android:id="@+id/syncData"
                 style="?android:textAppearanceSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:layout_marginTop="10dp"
-                android:layout_weight="3"
                 android:drawableStart="@drawable/ic_cloud_download_black_24dp"
                 android:padding="16dp"
-                android:text="Sync Data"
+                android:text=" Sync Data"
+                android:textStyle="bold"
+
+                />
+
+            <Button
+                android:id="@+id/email_sign_in_button"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:padding="16dp"
+                android:text="@string/action_sign_in"
                 android:textStyle="bold" />
+
 
             <TextView
                 android:id="@+id/txtinstalldate"
@@ -128,7 +131,7 @@
                 android:background="#efefef"
                 android:gravity="center"
                 android:textColor="#565656"
-                android:textSize="11sp" />
+                android:textSize="12sp" />
 
         </LinearLayout>
     </ScrollView>
