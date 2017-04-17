@@ -14,6 +14,8 @@ import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -44,9 +46,11 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
+import edu.aku.hassannaqvi.dss_census.get.GetUsers;
 
 
 /**
@@ -80,6 +84,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     Button mEmailSignInButton;
     @BindView(R.id.spUC)
     Spinner spUC;
+
+    @BindView(R.id.syncData)
+    Button syncData;
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -191,6 +198,26 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
             }
         });
+
+
+    }
+
+    @OnClick(R.id.syncData)
+    void onSyncClustersClick() {
+        //TODO implement
+
+        // Require permissions INTERNET & ACCESS_NETWORK_STATE
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+
+            new GetUsers(this).execute();
+            Toast.makeText(getApplicationContext(), "Getting Users", Toast.LENGTH_SHORT).show();
+
+        } else {
+            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+        }
 
 
     }
@@ -370,6 +397,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             mPassword = password;
         }
 
+
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
@@ -449,5 +477,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             showProgress(false);
         }
     }
+
+
 }
 

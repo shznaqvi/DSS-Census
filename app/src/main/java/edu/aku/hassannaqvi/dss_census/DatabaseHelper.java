@@ -215,7 +215,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void syncMember(JSONArray memberlist) {
+    public void syncMembers(JSONArray memberlist) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(MembersContract.singleMember.TABLE_NAME, null, null);
         try {
