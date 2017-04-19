@@ -16,6 +16,7 @@ public class FormsContract {
     //private final String surveyType = "SN";
     private String _ID = "";
     private String _UID = "";
+    private String ISNEW = "";
     private String DSSID = "";
     private String formDate = ""; // Date
     private String user = ""; // Interviewer
@@ -53,6 +54,7 @@ public class FormsContract {
     public FormsContract Sync(JSONObject jsonObject) throws JSONException {
         this._ID= jsonObject.getString(singleForm.COLUMN_ID);
         this._UID= jsonObject.getString(singleForm.COLUMN_UID);
+        this.ISNEW = jsonObject.getString(singleForm.COLUMN_IS_NEW);
         this.DSSID= jsonObject.getString(singleForm.COLUMN_DSSID);
         this.formDate= jsonObject.getString(singleForm.COLUMN_FORMDATE);
         this.user = jsonObject.getString(singleForm.COLUMN_USER);
@@ -83,6 +85,7 @@ public class FormsContract {
     public FormsContract Hydrate(Cursor cursor) {
         this._ID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_UID));
+        this.ISNEW = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_IS_NEW));
         this.DSSID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DSSID));
         this.formDate = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_FORMDATE));
         this.user = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_USER));
@@ -119,6 +122,7 @@ public class FormsContract {
 
         json.put(singleForm.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(singleForm.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
+        json.put(singleForm.COLUMN_IS_NEW, this.ISNEW == null ? JSONObject.NULL : this.ISNEW);
         json.put(singleForm.COLUMN_DSSID, this.DSSID == null ? JSONObject.NULL : this.DSSID);
         json.put(singleForm.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(singleForm.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
@@ -164,6 +168,14 @@ public class FormsContract {
 
     public void setUID(String _UID) {
         this._UID = _UID;
+    }
+
+    public String getISNEW() {
+        return ISNEW;
+    }
+
+    public void setISNEW(String ISNEW) {
+        this.ISNEW = ISNEW;
     }
 
     public String getDSSID() {
@@ -349,6 +361,7 @@ public class FormsContract {
         public static final String COLUMN_PROJECT_NAME = "projectname";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
+        public static final String COLUMN_IS_NEW = "isnew";
         public static final String COLUMN_DSSID = "dssid";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_USER = "user";
