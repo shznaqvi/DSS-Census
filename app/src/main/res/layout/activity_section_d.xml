@@ -145,6 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@color/pink_100"
+                android:gravity="center"
                 android:text="@string/dcd04a"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/colorPrimary" />
@@ -220,6 +221,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/pink_100"
+                android:gravity="center"
                 android:text="@string/dcd04b"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/colorPrimary" />
@@ -295,6 +297,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/pink_100"
+                android:gravity="center"
                 android:text="@string/dcd04c"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/colorPrimary" />
@@ -366,7 +369,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcd05"
+                android:hint="@string/dcd0501"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -585,6 +588,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/pink_100"
+                android:gravity="center"
                 android:text="Flush / Pour Flush to"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/colorPrimary" />
@@ -626,6 +630,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@color/pink_100"
+                    android:gravity="center"
                     android:text="Ventilated Improved"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/colorPrimary" />

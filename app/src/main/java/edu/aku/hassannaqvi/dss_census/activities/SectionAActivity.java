@@ -529,7 +529,7 @@ public class SectionAActivity extends Activity {
 
             if ((Integer.parseInt(dca0504.getText().toString()) < 1) || (Integer.parseInt(dca0504.getText().toString()) > 9)
                     && Integer.parseInt(dca0504.getText().toString()) != 88
-                    && Integer.parseInt(dca0504.getText().toString()) != 98) {
+                    && Integer.parseInt(dca0504.getText().toString()) != 99) {
                 Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca0504), Toast.LENGTH_SHORT).show();
                 dca0504.setError("Range is 1 - 9 or 88 / 99!");    // Set Error on last radio button
 
@@ -610,7 +610,7 @@ public class SectionAActivity extends Activity {
 
             if ((Integer.parseInt(dca0603.getText().toString()) < 1) || (Integer.parseInt(dca0603.getText().toString()) > 9)
                     && Integer.parseInt(dca0603.getText().toString()) != 88
-                    && Integer.parseInt(dca0603.getText().toString()) != 98) {
+                    && Integer.parseInt(dca0603.getText().toString()) != 99) {
                 Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca0603), Toast.LENGTH_SHORT).show();
                 dca0603.setError("Range is 1 - 9 or 88 / 99!");    // Set Error on last radio button
 

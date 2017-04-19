@@ -43,6 +43,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/colorPrimaryDark" />
 
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,6 +75,11 @@
                     android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
 
 
                 <EditText
@@ -111,6 +117,11 @@
                     android:inputType="number"
                     android:maxLength="2" />
 
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
+
                 <EditText
                     android:id="@+id/dcl01a2fr"
                     android:layout_width="match_parent"
@@ -121,10 +132,12 @@
                     android:maxLength="2" />
             </LinearLayout>
 
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_weight="1"
                 android:text="@string/dcl01b"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -153,6 +166,11 @@
                     android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
 
                 <EditText
                     android:id="@+id/dcl01b1fr"
@@ -188,6 +206,11 @@
                     android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
 
                 <EditText
                     android:id="@+id/dcl01b2fr"
@@ -231,6 +254,11 @@
                     android:inputType="number"
                     android:maxLength="2" />
 
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
+
                 <EditText
                     android:id="@+id/dcl01c1fr"
                     android:layout_width="match_parent"
@@ -265,6 +293,11 @@
                     android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
 
                 <EditText
                     android:id="@+id/dcl01c2fr"
@@ -308,6 +341,11 @@
                     android:inputType="number"
                     android:maxLength="2" />
 
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
+
                 <EditText
                     android:id="@+id/dcl01d1fr"
                     android:layout_width="match_parent"
@@ -343,6 +381,11 @@
                     android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
 
                 <EditText
                     android:id="@+id/dcl01d2fr"
@@ -387,6 +430,11 @@
                     android:inputType="number"
                     android:maxLength="2" />
 
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
+
                 <EditText
                     android:id="@+id/dcl01e1fr"
                     android:layout_width="match_parent"
@@ -422,6 +470,11 @@
                     android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
 
                 <EditText
                     android:id="@+id/dcl01e2fr"
@@ -465,6 +518,11 @@
                     android:inputType="number"
                     android:maxLength="2" />
 
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
+
                 <EditText
                     android:id="@+id/dcl01f1fr"
                     android:layout_width="match_parent"
@@ -499,6 +557,11 @@
                     android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
 
                 <EditText
                     android:id="@+id/dcl01f2fr"
@@ -543,6 +606,11 @@
                     android:inputType="number"
                     android:maxLength="2" />
 
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
+
                 <EditText
                     android:id="@+id/dcl01g1fr"
                     android:layout_width="match_parent"
@@ -575,6 +643,11 @@
                     android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
 
                 <EditText
                     android:id="@+id/dcl01g2fr"
@@ -618,6 +691,11 @@
                     android:inputType="number"
                     android:maxLength="2" />
 
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
+
                 <EditText
                     android:id="@+id/dcl01h1fr"
                     android:layout_width="match_parent"
@@ -652,6 +730,11 @@
                     android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
 
                 <EditText
                     android:id="@+id/dcl01h2fr"
@@ -696,6 +779,11 @@
                     android:inputType="number"
                     android:maxLength="2" />
 
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
+
                 <EditText
                     android:id="@+id/dcl01i1fr"
                     android:layout_width="match_parent"
@@ -732,6 +820,11 @@
                     android:inputType="number"
                     android:maxLength="2" />
 
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"></View>
+
                 <EditText
                     android:id="@+id/dcl01i2fr"
                     android:layout_width="match_parent"
@@ -746,8 +839,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
                 android:text="@string/dcl2heading"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="30sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -770,7 +864,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="Number of days"
+                android:hint="@string/dcnod"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -786,7 +880,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="Number of days"
+                android:hint="@string/dcnod"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -802,7 +896,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="Number of days"
+                android:hint="@string/dcnod"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -818,7 +912,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="Number of days"
+                android:hint="@string/dcnod"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -834,7 +928,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="Number of days"
+                android:hint="@string/dcnod"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -843,9 +937,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/pink_100"
+                android:gravity="center_horizontal"
                 android:text="@string/dcl3heading"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="30sp" />
 
 
             <TextView

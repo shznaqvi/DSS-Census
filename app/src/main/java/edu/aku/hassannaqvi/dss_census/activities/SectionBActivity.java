@@ -69,8 +69,8 @@ public class SectionBActivity extends Activity {
     RadioButton dcbbrhh10;
     @BindView(R.id.dcbbrhh11)
     RadioButton dcbbrhh11;
-    @BindView(R.id.dcbbrhh98)
-    RadioButton dcbbrhh98;
+    @BindView(R.id.dcbbrhh88)
+    RadioButton dcbbrhh88;
     @BindView(R.id.dcbbrhh99)
     RadioButton dcbbrhh99;
     @BindView(R.id.dcbbfid)
@@ -87,8 +87,8 @@ public class SectionBActivity extends Activity {
     RadioButton dcbc03;
     @BindView(R.id.dcbc04)
     RadioButton dcbc04;
-    @BindView(R.id.dcbc99)
-    RadioButton dcbc99;
+    @BindView(R.id.dcbc88)
+    RadioButton dcbc88;
     @BindView(R.id.dcbd)
     RadioGroup dcbd;
     @BindView(R.id.dcbd01)
@@ -113,14 +113,14 @@ public class SectionBActivity extends Activity {
     RadioButton dcbe07;
     @BindView(R.id.dcbe08)
     RadioButton dcbe08;
-    @BindView(R.id.dcbe09)
-    RadioButton dcbe09;
-    @BindView(R.id.dcbe98)
-    RadioButton dcbe98;
+    @BindView(R.id.dcbe96)
+    RadioButton dcbe96;
     @BindView(R.id.dcbe99)
     RadioButton dcbe99;
-    @BindView(R.id.dcbe09x)
-    EditText dcbe09x;
+    @BindView(R.id.dcbe88)
+    RadioButton dcbe88;
+    @BindView(R.id.dcbe96x)
+    EditText dcbe96x;
     @BindView(R.id.dcbf)
     RadioGroup dcbf;
     @BindView(R.id.dcbf01)
@@ -157,12 +157,12 @@ public class SectionBActivity extends Activity {
     RadioButton dcbf16;
     @BindView(R.id.dcbf17)
     RadioButton dcbf17;
-    @BindView(R.id.dcbf99)
-    RadioButton dcbf99;
-    @BindView(R.id.dcbf18)
-    RadioButton dcbf18;
-    @BindView(R.id.dcbf18x)
-    EditText dcbf18x;
+    @BindView(R.id.dcbf88)
+    RadioButton dcbf88;
+    @BindView(R.id.dcbf96)
+    RadioButton dcbf96;
+    @BindView(R.id.dcbf96x)
+    EditText dcbf96x;
     @BindView(R.id.dcbdob)
     RadioGroup dcbdob;
     @BindView(R.id.dcbdob01)
@@ -197,18 +197,14 @@ public class SectionBActivity extends Activity {
     RadioButton dcbis06;
     @BindView(R.id.dcbis06x)
     EditText dcbis06x;
-    /*@BindView(R.id.dcbidt)
-    RadioGroup dcbidt;
-    *//*@BindView(R.id.dcbidt01)
-    RadioButton dcbidt01;*/
-    /*@BindView(R.id.dcbidt02)
-    RadioButton dcbidt02;
-    @BindView(R.id.dcbidt03)
-    RadioButton dcbidt03;
-    @BindView(R.id.dcbidt04)
-    RadioButton dcbidt04;
-    @BindView(R.id.dcbidt05)
-    RadioButton dcbidt05;*/
+    @BindView(R.id.fldGrpdcbidt)
+    LinearLayout fldGrpdcbidt;
+    @BindView(R.id.dcbidtTxt)
+    TextView dcbidtTxt;
+    @BindView(R.id.dcbidob)
+    DatePicker dcbidob;
+    @BindView(R.id.fldGrpdcbir)
+    LinearLayout fldGrpdcbir;
     @BindView(R.id.dcbir)
     RadioGroup dcbir;
     @BindView(R.id.dcbir01)
@@ -217,16 +213,8 @@ public class SectionBActivity extends Activity {
     RadioButton dcbir02;
     @BindView(R.id.dcbir03)
     RadioButton dcbir03;
-    @BindView(R.id.fldGrpdcbidt)
-    LinearLayout fldGrpdcbidt;
-    @BindView(R.id.dcbidob)
-    DatePicker dcbidob;
     @BindView(R.id.dcbirm)
     EditText dcbirm;
-    @BindView(R.id.fldGrpdcbir)
-    LinearLayout fldGrpdcbir;
-    @BindView(R.id.dcbidtTxt)
-    TextView dcbidtTxt;
 
 
 
@@ -250,11 +238,11 @@ public class SectionBActivity extends Activity {
         dcbe.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if (dcbe09.isChecked()) {
-                    dcbe09x.setVisibility(View.VISIBLE);
+                if (dcbe96.isChecked()) {
+                    dcbe96x.setVisibility(View.VISIBLE);
                 } else {
-                    dcbe09x.setVisibility(View.GONE);
-                    dcbe09x.setText(null);
+                    dcbe96x.setVisibility(View.GONE);
+                    dcbe96x.setText(null);
                 }
             }
         });
@@ -263,11 +251,11 @@ public class SectionBActivity extends Activity {
         dcbf.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if (dcbf18.isChecked()) {
-                    dcbf18x.setVisibility(View.VISIBLE);
+                if (dcbf96.isChecked()) {
+                    dcbf96x.setVisibility(View.VISIBLE);
                 } else {
-                    dcbf18x.setVisibility(View.GONE);
-                    dcbf18x.setText(null);
+                    dcbf96x.setVisibility(View.GONE);
+                    dcbf96x.setText(null);
                 }
             }
         });
@@ -474,26 +462,26 @@ public class SectionBActivity extends Activity {
         sB.put("dcbbrhh", dcbbrhh01.isChecked() ? "1" : dcbbrhh02.isChecked() ? "2" : dcbbrhh03.isChecked() ? "3"
                 : dcbbrhh04.isChecked() ? "4" : dcbbrhh05.isChecked() ? "5" : dcbbrhh06.isChecked() ? "6"
                 : dcbbrhh07.isChecked() ? "7" : dcbbrhh08.isChecked() ? "8" : dcbbrhh09.isChecked() ? "9" : dcbbrhh10.isChecked() ? "10"
-                : dcbbrhh11.isChecked() ? "11" : dcbbrhh98.isChecked() ? "98" : dcbbrhh99.isChecked() ? "99" : "0");
+                : dcbbrhh11.isChecked() ? "11" : dcbbrhh99.isChecked() ? "99" : dcbbrhh88.isChecked() ? "88" : "0");
         sB.put("dcbbfid", dcbbfid.getText().toString());
         sB.put("dcbbmid", dcbbmid.getText().toString());
         sB.put("dcbc", dcbc01.isChecked() ? "1" : dcbc02.isChecked() ? "2" : dcbc03.isChecked() ? "3"
-                : dcbc04.isChecked() ? "4" : dcbc99.isChecked() ? "99" : "0");
+                : dcbc04.isChecked() ? "4" : dcbc88.isChecked() ? "88" : "0");
 
         sB.put("dcbd", dcbd01.isChecked() ? "1" : dcbd02.isChecked() ? "2" : "0");
         sB.put("dcbe", dcbe01.isChecked() ? "1" : dcbe02.isChecked() ? "2" : dcbe03.isChecked() ? "3"
                 : dcbe04.isChecked() ? "4" : dcbe05.isChecked() ? "5" : dcbe06.isChecked() ? "6"
-                : dcbe07.isChecked() ? "7" : dcbe08.isChecked() ? "8" : dcbe09.isChecked() ? "9"
-                : dcbe98.isChecked() ? "98" : dcbe99.isChecked() ? "99" : "0");
-        sB.put("dcbe09x", dcbe09x.getText().toString());
+                : dcbe07.isChecked() ? "7" : dcbe08.isChecked() ? "8" : dcbe96.isChecked() ? "96"
+                : dcbe99.isChecked() ? "99" : dcbe88.isChecked() ? "88" : "0");
+        sB.put("dcbe96x", dcbe96x.getText().toString());
         sB.put("dcbf", dcbf01.isChecked() ? "1" : dcbf02.isChecked() ? "2" : dcbf03.isChecked() ? "3"
                 : dcbf04.isChecked() ? "4" : dcbf05.isChecked() ? "5" : dcbf06.isChecked() ? "6"
                 : dcbf07.isChecked() ? "7" : dcbf08.isChecked() ? "8" : dcbf09.isChecked() ? "9"
                 : dcbf10.isChecked() ? "10" : dcbf11.isChecked() ? "11" : dcbf12.isChecked() ? "12"
                 : dcbf13.isChecked() ? "13" : dcbf14.isChecked() ? "14" : dcbf15.isChecked() ? "15"
-                : dcbf16.isChecked() ? "16" : dcbf17.isChecked() ? "17" : dcbf18.isChecked() ? "18"
-                : dcbf99.isChecked() ? "99" : "0");
-        sB.put("dcbf18x", dcbf18x.getText().toString());
+                : dcbf16.isChecked() ? "16" : dcbf17.isChecked() ? "17" : dcbf96.isChecked() ? "96"
+                : dcbf88.isChecked() ? "88" : "0");
+        sB.put("dcbf96x", dcbf96x.getText().toString());
         sB.put("dcbg", new SimpleDateFormat("dd-MM-yyyy").format(dcbg.getCalendarView().getDate()));
         sB.put("dcbhy", dcbhy.getText().toString());
         sB.put("dcbhm", dcbhm.getText().toString());
@@ -587,12 +575,12 @@ public class SectionBActivity extends Activity {
 
         if (dcbc.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbc), Toast.LENGTH_SHORT).show();
-            dcbc99.setError("This data is Required!");    // Set Error on last radio button
+            dcbc88.setError("This data is Required!");    // Set Error on last radio button
 
             Log.i(TAG, "dcbc: This data is Required!");
             return false;
         } else {
-            dcbc99.setError(null);
+            dcbc88.setError(null);
         }
 
         // ============== Sex ===================
@@ -611,46 +599,46 @@ public class SectionBActivity extends Activity {
 
         if (dcbe.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbe), Toast.LENGTH_SHORT).show();
-            dcbe99.setError("This data is Required!");    // Set Error on last radio button
+            dcbe88.setError("This data is Required!");    // Set Error on last radio button
 
             Log.i(TAG, "dcbe: This data is Required!");
             return false;
         } else {
-            dcbe99.setError(null);
+            dcbe88.setError(null);
         }
 
         // ================= Other Education ===========
-        if (dcbe09.isChecked() && dcbe09x.getText().toString().isEmpty()) {
+        if (dcbe96.isChecked() && dcbe96x.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbe) + " - " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
-            dcbe09x.setError("This data is Required!");    // Set Error on last radio button
+            dcbe96x.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dcbe09x: This data is Required!");
+            Log.i(TAG, "dcbe96x: This data is Required!");
             return false;
         } else {
-            dcbe09x.setError(null);
+            dcbe96x.setError(null);
         }
 
         // ============== Occupation ===================
 
         if (dcbf.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbf), Toast.LENGTH_SHORT).show();
-            dcbf99.setError("This data is Required!");    // Set Error on last radio button
+            dcbf88.setError("This data is Required!");    // Set Error on last radio button
 
             Log.i(TAG, "dcbf: This data is Required!");
             return false;
         } else {
-            dcbf99.setError(null);
+            dcbf88.setError(null);
         }
 
         // ================= Other Occupation ===========
-        if (dcbf18.isChecked() && dcbf18x.getText().toString().isEmpty()) {
+        if (dcbf96.isChecked() && dcbf96x.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbf) + " - " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
-            dcbf18x.setError("This data is Required!");    // Set Error on last radio button
+            dcbf96x.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dcbf18x: This data is Required!");
+            Log.i(TAG, "dcbf96x: This data is Required!");
             return false;
         } else {
-            dcbf18x.setError(null);
+            dcbf96x.setError(null);
         }
 
         if (dcbdob.getCheckedRadioButtonId() == -1) {
