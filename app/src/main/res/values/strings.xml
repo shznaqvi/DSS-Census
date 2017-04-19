@@ -134,6 +134,10 @@
     <string name="dcbdm"> مرد </string>
     <string name="dcbdf"> عورت </string>
     <string name="dcbe"> تعلیم </string>
+  <string name="dcbm"> Member Type </string>
+  <string name="dcbm01"> شادی شدہ عورت </string>
+  <string name="dcbm02"> شوہر </string>
+  <string name="dcbm03"> بچہ </string>
     <string name="dcbe01"> غیر تعلیم یافتہ/ناخواندہ </string>
     <string name="dcbe02"> ابتدائی تعلیم پانچ سال سے کم </string>
     <string name="dcbe03"> پرائمری اسکول پانچ سال تک پڑھے ہوئے </string>

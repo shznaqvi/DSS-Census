@@ -29,7 +29,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
-import edu.aku.hassannaqvi.dss_census.otherClasses.familyMembers;
 
 public class SectionBActivity extends Activity {
 
@@ -215,6 +214,15 @@ public class SectionBActivity extends Activity {
     RadioButton dcbir03;
     @BindView(R.id.dcbirm)
     EditText dcbirm;
+    @BindView(R.id.dcbm)
+    RadioGroup dcbm;
+    @BindView(R.id.dcbm01)
+    RadioButton dcbm01;
+    @BindView(R.id.dcbm02)
+    RadioButton dcbm02;
+    @BindView(R.id.dcbm03)
+    RadioButton dcbm03;
+
 
     int position = 0;
 
@@ -516,6 +524,7 @@ public class SectionBActivity extends Activity {
 */
         sB.put("dcbir", dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
         sB.put("dcbirm", dcbirm.getText().toString());
+        sB.put("dcbm", dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : "0");
 
 
         //DCEApp.fc.setROW_Sb(String.valueOf(sb));
@@ -610,6 +619,18 @@ public class SectionBActivity extends Activity {
             return false;
         } else {
             dcbd02.setError(null);
+        }
+
+        // ============== Education ===================
+
+        if (dcbm.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbm), Toast.LENGTH_SHORT).show();
+            dcbm03.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbm: This data is Required!");
+            return false;
+        } else {
+            dcbm03.setError(null);
         }
 
         // ============== Education ===================
