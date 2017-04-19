@@ -58,18 +58,18 @@ public class SectionCActivity extends Activity {
     RadioButton dccbrhh07;
     @BindView(R.id.dccbrhh08)
     RadioButton dccbrhh08;
-    @BindView(R.id.dccbrhh09)
-    RadioButton dccbrhh09;
+    @BindView(R.id.dccbrhh96)
+    RadioButton dccbrhh96;
     @BindView(R.id.dccbrhh10)
     RadioButton dccbrhh10;
     @BindView(R.id.dccbrhh11)
     RadioButton dccbrhh11;
-    @BindView(R.id.dccbrhh98)
-    RadioButton dccbrhh98;
     @BindView(R.id.dccbrhh99)
     RadioButton dccbrhh99;
-    @BindView(R.id.dccbrhh09x)
-    EditText dccbrhh09x;
+    @BindView(R.id.dccbrhh88)
+    RadioButton dccbrhh88;
+    @BindView(R.id.dccbrhh96x)
+    EditText dccbrhh96x;
     @BindView(R.id.dccbfid)
     EditText dccbfid;
     @BindView(R.id.dccbmid)
@@ -158,14 +158,14 @@ public class SectionCActivity extends Activity {
             }
         });
 
-        dccbrhh09.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        dccbrhh96.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    dccbrhh09x.setVisibility(View.VISIBLE);
+                    dccbrhh96x.setVisibility(View.VISIBLE);
                 } else {
-                    dccbrhh09x.setVisibility(View.GONE);
-                    dccbrhh09x.setText(null);
+                    dccbrhh96x.setVisibility(View.GONE);
+                    dccbrhh96x.setText(null);
                 }
             }
         });
@@ -242,9 +242,9 @@ public class SectionCActivity extends Activity {
         sC.put("dcca", dcca.getText().toString());
         sC.put("dccbrhh", dccbrhh01.isChecked() ? "1" : dccbrhh02.isChecked() ? "2" : dccbrhh03.isChecked() ? "3"
                 : dccbrhh04.isChecked() ? "4" : dccbrhh05.isChecked() ? "5" : dccbrhh06.isChecked() ? "6"
-                : dccbrhh07.isChecked() ? "7" : dccbrhh08.isChecked() ? "8" : dccbrhh09.isChecked() ? "9"
-                : dccbrhh10.isChecked() ? "10" : dccbrhh11.isChecked() ? "11" : dccbrhh98.isChecked() ? "98"
-                : dccbrhh99.isChecked() ? "99" : "0");
+                : dccbrhh07.isChecked() ? "7" : dccbrhh08.isChecked() ? "8" : dccbrhh96.isChecked() ? "9"
+                : dccbrhh10.isChecked() ? "10" : dccbrhh11.isChecked() ? "11" : dccbrhh99.isChecked() ? "99"
+                : dccbrhh88.isChecked() ? "88" : "0");
         sC.put("dccbfid", dccbfid.getText().toString());
         sC.put("dccbmid", dccbmid.getText().toString());
         sC.put("dccc", dccc01.isChecked() ? "1" : dccc02.isChecked() ? "2" : "0");

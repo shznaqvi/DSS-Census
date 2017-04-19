@@ -60,6 +60,8 @@ public class SectionHActivity extends Activity {
     RadioButton dch0401;
     @BindView(R.id.dch0402)
     RadioButton dch0402;
+    @BindView(R.id.dch0403)
+    RadioButton dch0403;
     @BindView(R.id.dch05)
     EditText dch05;
     @BindView(R.id.dch06)
@@ -223,28 +225,36 @@ public class SectionHActivity extends Activity {
             }
         });
 
-        dch0301.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    fldGrpdch04.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-
-        dch0302.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        dch0303.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     fldGrpdch04.setVisibility(View.GONE);
-                    dch04.clearCheck();
                     fldGrpdch05.setVisibility(View.VISIBLE);
+                    dch04.clearCheck();
+                } else {
+                    fldGrpdch04.setVisibility(View.VISIBLE);
+                    fldGrpdch05.setVisibility(View.GONE);
+                    dch05.setText(null);
+                }
+            }
+        });
+
+        dch0402.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //dch04.clearCheck();
+                    fldGrpdch05.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdch05.setVisibility(View.GONE);
+                    dch05.setText(null);
                 }
             }
         });
 
 
-        //============== Q4 Skip Pattern ==================
+       /* //============== Q4 Skip Pattern ==================
         dch04.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -255,7 +265,7 @@ public class SectionHActivity extends Activity {
                     dch05.setText(null);
                 }
             }
-        });
+        });*/
 
         dch11.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -344,7 +354,7 @@ public class SectionHActivity extends Activity {
         sH.put("dch01", dch0101.isChecked() ? "1" : dch0102.isChecked() ? "2" : "0");
         sH.put("dch02", dch0201.isChecked() ? "1" : dch0202.isChecked() ? "2" : "0");
         sH.put("dch03", dch0301.isChecked() ? "1" : dch0302.isChecked() ? "2" : dch0303.isChecked() ? "3" : "0");
-        sH.put("dch04", dch0401.isChecked() ? "1" : dch0402.isChecked() ? "2" : "0");
+        sH.put("dch04", dch0401.isChecked() ? "1" : dch0402.isChecked() ? "2" : dch0403.isChecked() ? "2" : "0");
         sH.put("dch05", dch05.getText().toString());
         sH.put("dch06", dch06.getText().toString());
         sH.put("dch07", dch07.getText().toString());
@@ -408,7 +418,7 @@ public class SectionHActivity extends Activity {
 
 
         // ================= Q 4 ========================
-        if (dch0301.isChecked()) {
+        if (dch0301.isChecked() || dch0302.isChecked()) {
             if (dch04.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch04), Toast.LENGTH_SHORT).show();
                 dch0402.setError("This data is Required!");
@@ -418,7 +428,7 @@ public class SectionHActivity extends Activity {
                 dch0402.setError(null);
             }
         }
-        if (dch0302.isChecked() || dch0402.isChecked())
+        if (dch0303.isChecked() || dch0402.isChecked())
             if (dch05.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch05), Toast.LENGTH_SHORT).show();
                 dch05.setError("This data is Required!");
