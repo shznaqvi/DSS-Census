@@ -48,6 +48,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             +singleForm.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             +singleForm.COLUMN_PROJECT_NAME + " TEXT,"
             +singleForm.COLUMN_UID + " TEXT," +
+            singleForm.COLUMN_IS_NEW + " TEXT," +
             singleForm.COLUMN_DSSID + " TEXT," +
             singleForm.COLUMN_FORMDATE + " TEXT," +
             singleForm.COLUMN_USER + " TEXT," +
@@ -375,6 +376,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(singleForm.COLUMN_PROJECT_NAME, fc.getProjectName());
         values.put(singleForm.COLUMN_UID, fc.getUID());
+        values.put(singleForm.COLUMN_IS_NEW, fc.getISNEW());
         values.put(singleForm.COLUMN_DSSID, fc.getDSSID());
         values.put(singleForm.COLUMN_FORMDATE, fc.getFormDate());
         values.put(singleForm.COLUMN_USER, fc.getUser());
@@ -655,6 +657,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 FormsContract.singleForm.COLUMN_ID,
                 singleForm.COLUMN_UID,
+                singleForm.COLUMN_IS_NEW,
                 singleForm.COLUMN_DSSID,
                 singleForm.COLUMN_FORMDATE,
                 singleForm.COLUMN_USER,
@@ -677,9 +680,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_DEVICEID,
                 singleForm.COLUMN_SYNCED,
                 singleForm.COLUMN_SYNCED_DATE,
-
-
-
         };
         String whereClause = null;
         String[] whereArgs = null;

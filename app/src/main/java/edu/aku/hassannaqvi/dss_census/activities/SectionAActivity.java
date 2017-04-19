@@ -203,6 +203,8 @@ public class SectionAActivity extends Activity {
     Collection<MembersContract> members;
     DatabaseHelper db;
 
+    Boolean isNew = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -392,19 +394,20 @@ public class SectionAActivity extends Activity {
                 Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
 
 //                fldGrpmp02a007.setVisibility(View.VISIBLE);
-                btn_Continue.setVisibility(View.VISIBLE);
+//                btn_Continue.setVisibility(View.VISIBLE);
 
 //                flag = true;
+
+                isNew = false;
 
             } else {
 
 //                fldGrpmp02a007.setVisibility(View.GONE);
-                btn_Continue.setVisibility(View.GONE);
-//                mp02a007.setText(null);
-//                mp02a008.setText(null);
-//                mp02a013.clearCheck();
+//                btn_Continue.setVisibility(View.GONE);
 
 //                flag = false;
+
+                isNew = true;
 
                 Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
             }
@@ -864,6 +867,8 @@ public class SectionAActivity extends Activity {
         MainApp.fc.setUser(MainApp.userName);
         MainApp.fc.setDeviceID(Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID));
+
+        MainApp.fc.setISNEW(isNew.toString());
 
         JSONObject sa = new JSONObject();
 

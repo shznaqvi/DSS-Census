@@ -54,35 +54,12 @@ public class FamilyMembersActivity extends Activity {
         setContentView(R.layout.activity_family_members);
         ButterKnife.bind(this);
 
-//        final List<String> Members = new ArrayList<>();
-
-//        lstNoMembers.setAdapter(new ArrayAdapter<String>(getApplicationContext(),R.layout.lstview, Members));
-//
-//        lstNoMembers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//            @Override
-//            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-//                Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
-//
-//                i.putExtra("memberName",Members.get(position));
-//                i.putExtra("position",position + 1);
-//
-//                startActivity(i);
-//            }
-//        });
-
 //        Set Recycler View
         mAdapter = new familyMembersAdapter(MainApp.familyMembersList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recycler_noMembers.setLayoutManager(mLayoutManager);
         recycler_noMembers.setItemAnimator(new DefaultItemAnimator());
         recycler_noMembers.setAdapter(mAdapter);
-
-//        for (byte i=0;i<MainApp.NoMembersCount;i++){
-//
-//            familyMembersList.add(new familyMembers("Member "+(i+1),""+ DSSidm[new Random().nextInt(DSSidm.length)],"none"
-//                    ,""+gender[new Random().nextInt(gender.length)]));
-//        }
 
         mAdapter.notifyDataSetChanged();
 
@@ -109,21 +86,10 @@ public class FamilyMembersActivity extends Activity {
     void onBtnEndClick() {
 
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
-       /* if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {*/
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
         Intent endSec = new Intent(this, MainActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
-           /* } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-        } */
 
     }
 
