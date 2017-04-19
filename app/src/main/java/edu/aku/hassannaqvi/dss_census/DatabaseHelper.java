@@ -550,6 +550,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
+
+    public int updateCensusID() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(censusMember.COLUMN_UID, MainApp.cc.get_UID());
+
+// Which row to update, based on the ID
+        String selection = censusMember._ID + " LIKE ?";
+        String[] selectionArgs = {String.valueOf(MainApp.cc.get_ID())};
+
+        int count = db.update(censusMember.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
     public Collection<FormsContract> getAllForms() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;

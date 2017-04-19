@@ -11,17 +11,16 @@ import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.OCsContract;
 import edu.aku.hassannaqvi.dss_census.otherClasses.TypefaceUtil;
-import edu.aku.hassannaqvi.dss_census.otherClasses.familyMembers;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -66,15 +65,14 @@ public class MainApp extends Application {
 //    Total No of Alive members got from Section B
     public static int currentStatusCount = 0;
     public static List<deadMemberClass> deadMembers = new ArrayList<deadMemberClass>();
+    //    Ali
+    public static String regionDss = "";
+    public static List<MembersContract> familyMembersList;
+    public static CensusContract cc;
     //    Family Member List
 //    public static List<familyMembers> familyMembersList;
     protected LocationManager locationManager;
     Location location;
-
-//    Ali
-    public static String regionDss = "";
-    public static List<MembersContract> familyMembersList;
-
 
     @Override
     public void onCreate() {
@@ -176,6 +174,32 @@ public class MainApp extends Application {
         return provider1.equals(provider2);
     }
 
+    public static class deadMemberClass {
+
+        int position;
+        String DSSId;
+
+
+        public deadMemberClass(int i, String s) {
+            position = i;
+            DSSId = s;
+        }
+
+        public int getPosition() {
+            return position;
+        }
+
+        public void setPosition(int i) {
+            position = i;
+        }
+
+        public void setDSSId(String id) {
+            DSSId = id;
+        }
+
+
+    }
+
     private class MyLocationListener implements LocationListener {
 
         public void onLocationChanged(Location location) {
@@ -228,33 +252,6 @@ public class MainApp extends Application {
         public void onProviderEnabled(String s) {
 
         }
-    }
-
-
-    public static class deadMemberClass {
-
-        int position;
-        String DSSId;
-
-
-        public deadMemberClass(int i, String s) {
-            position = i;
-            DSSId = s;
-        }
-
-        public int getPosition() {
-            return position;
-        }
-
-        public void setPosition(int i) {
-            position = i;
-        }
-
-        public void setDSSId(String id) {
-            DSSId = id;
-        }
-
-
     }
 
 }

@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -27,8 +26,10 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
+import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
 
 public class SectionBActivity extends Activity {
 
@@ -414,11 +415,13 @@ public class SectionBActivity extends Activity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    dcbidtTxt.setText(getString(R.string.dcother) + " " + getString(R.string.dcbidt));
+                    dcbis06x.setVisibility(View.VISIBLE);
+                } else {
+                    dcbis06x.setVisibility(View.GONE);
+                    dcbis06x.setText(null);
                 }
             }
         });
-
 
 
     }
@@ -487,25 +490,71 @@ public class SectionBActivity extends Activity {
     }
 
     private boolean UpdateDB() {
-        //SRCDBHelper db = new SRCDBHelper(this);
+        DatabaseHelper db = new DatabaseHelper(this);
+        Long updcount = db.addCensusMembers(MainApp.cc);
+        MainApp.cc.set_ID(String.valueOf(updcount));
 
-        //int updcount = db.updateSe();
+        if (updcount != 0) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
 
-//        if (updcount == 1) {
-//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-//            return true;
-//        } else {
-//            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-//            return false;
-//        }
+            MainApp.cc.set_UID(
+                    (MainApp.fc.getDeviceID() + MainApp.cc.get_ID()));
+            db.updateCensusID();
 
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
         return true;
     }
 
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        JSONObject sB = new JSONObject();
+
+        MainApp.cc = new CensusContract();
+
+        MainApp.cc.setName(dcba.getText().toString());
+        MainApp.cc.setDss_id_member(dcbid.getText().toString());
+        MainApp.cc.setRelation_hh(dcbbrhh01.isChecked() ? "1" : dcbbrhh02.isChecked() ? "2" : dcbbrhh03.isChecked() ? "3"
+                : dcbbrhh04.isChecked() ? "4" : dcbbrhh05.isChecked() ? "5" : dcbbrhh06.isChecked() ? "6"
+                : dcbbrhh07.isChecked() ? "7" : dcbbrhh08.isChecked() ? "8" : dcbbrhh09.isChecked() ? "9" : dcbbrhh10.isChecked() ? "10"
+                : dcbbrhh11.isChecked() ? "11" : dcbbrhh99.isChecked() ? "99" : dcbbrhh88.isChecked() ? "88" : "0");
+        MainApp.cc.setDss_id_f(dcbbfid.getText().toString());
+        MainApp.cc.setDss_id_m(dcbbmid.getText().toString());
+        MainApp.cc.setM_status(dcbc01.isChecked() ? "1" : dcbc02.isChecked() ? "2" : dcbc03.isChecked() ? "3"
+                : dcbc04.isChecked() ? "4" : dcbc88.isChecked() ? "88" : "0");
+        MainApp.cc.setGender(dcbd01.isChecked() ? "1" : dcbd02.isChecked() ? "2" : "0");
+        MainApp.cc.setEducation(dcbe01.isChecked() ? "1" : dcbe02.isChecked() ? "2" : dcbe03.isChecked() ? "3"
+                : dcbe04.isChecked() ? "4" : dcbe05.isChecked() ? "5" : dcbe06.isChecked() ? "6"
+                : dcbe07.isChecked() ? "7" : dcbe08.isChecked() ? "8" : dcbe96.isChecked() ? "96"
+                : dcbe99.isChecked() ? "99" : dcbe88.isChecked() ? "88" : "0");
+        MainApp.cc.setEducationX(dcbe96x.getText().toString());
+        MainApp.cc.setOccupation(dcbf01.isChecked() ? "1" : dcbf02.isChecked() ? "2" : dcbf03.isChecked() ? "3"
+                : dcbf04.isChecked() ? "4" : dcbf05.isChecked() ? "5" : dcbf06.isChecked() ? "6"
+                : dcbf07.isChecked() ? "7" : dcbf08.isChecked() ? "8" : dcbf09.isChecked() ? "9"
+                : dcbf10.isChecked() ? "10" : dcbf11.isChecked() ? "11" : dcbf12.isChecked() ? "12"
+                : dcbf13.isChecked() ? "13" : dcbf14.isChecked() ? "14" : dcbf15.isChecked() ? "15"
+                : dcbf16.isChecked() ? "16" : dcbf17.isChecked() ? "17" : dcbf96.isChecked() ? "96"
+                : dcbf88.isChecked() ? "88" : "0");
+        MainApp.cc.setOccupationX(dcbf96x.getText().toString());
+        MainApp.cc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        MainApp.cc.setAgeY(dcbhy.getText().toString());
+        MainApp.cc.setAgeM(dcbhm.getText().toString());
+        MainApp.cc.setAgeD(dcbhd.getText().toString());
+        MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
+                : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : "0");
+        MainApp.cc.setCurrent_statusX(dcbis06x.getText().toString());
+        MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : "0");
+        MainApp.cc.setRemarks(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
+
+
+
+
+
+        /*JSONObject sB = new JSONObject();
 
         sB.put("dcba", dcba.getText().toString());
         sB.put("dcbid", dcbid.getText().toString());
@@ -539,18 +588,18 @@ public class SectionBActivity extends Activity {
         sB.put("dcbis", dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
                 : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : "0");
         sB.put("dcbis06x", dcbis06x.getText().toString());
-        /*B.put("dcbidt",  dcbidt02.isChecked() ? "2" : dcbidt03.isChecked() ? "3"
-                : dcbidt04.isChecked() ? "4" : dcbidt05.isChecked() ? "5" : "0");*/
+        *//*B.put("dcbidt",  dcbidt02.isChecked() ? "2" : dcbidt03.isChecked() ? "3"
+                : dcbidt04.isChecked() ? "4" : dcbidt05.isChecked() ? "5" : "0");*//*
         sB.put("dcbidob", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-        /*sB.put("dcbimid", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        *//*sB.put("dcbimid", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         sB.put("dcbimod", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         sB.put("dcbiimd", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         sB.put("dcbidod", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-*/
+*//*
         sB.put("dcbir", dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
         sB.put("dcbirm", dcbirm.getText().toString());
         sB.put("dcbm", dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : "0");
-
+*/
 
         //DCEApp.fc.setROW_Sb(String.valueOf(sb));
 
