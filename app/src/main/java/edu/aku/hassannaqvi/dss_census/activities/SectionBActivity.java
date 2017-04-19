@@ -254,9 +254,34 @@ public class SectionBActivity extends Activity {
             dcbbfid.setText(MainApp.familyMembersList.get(position).getDss_id_f());
             dcbbmid.setText(MainApp.familyMembersList.get(position).getDss_id_m());
 
-            ((RadioButton)dcbd.getChildAt(Integer.parseInt(MainApp.familyMembersList.get(position).getGender()))).setChecked(true);
+            if (!MainApp.familyMembersList.get(position).getM_status().contains("null")) {
+                ((RadioButton) dcbc.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getM_status())) - 1)).setChecked(true);
+            }
+            if (!MainApp.familyMembersList.get(position).getGender().contains("null")) {
+                ((RadioButton) dcbd.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getGender())) - 1)).setChecked(true);
+            }
+            dcbd.setEnabled(false);
 
+            if (!MainApp.familyMembersList.get(position).getEducation().contains("null")) {
+                ((RadioButton) dcbe.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getEducation())) - 1)).setChecked(true);
+            }
+            if (!MainApp.familyMembersList.get(position).getOccupation().contains("null")) {
+                ((RadioButton) dcbf.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getOccupation())) - 1)).setChecked(true);
+            }
+            if (!MainApp.familyMembersList.get(position).getCurrent_status().contains("null")) {
+                ((RadioButton) dcbis.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getCurrent_status())) - 1)).setChecked(true);
+            }
+            if (!MainApp.familyMembersList.get(position).getMember_type().contains("null")) {
 
+                String mt = MainApp.familyMembersList.get(position).getMember_type();
+
+                ((RadioButton) dcbm.getChildAt(mt == "mw" ? 0 : (mt == "h" ? 1 : 2))).setChecked(true);
+            }
+
+        }else {
+            dcba.setEnabled(true);
+            dcbid.setEnabled(true);
+            dcbd.setEnabled(true);
         }
 
         // ====================== Education Level Others ================

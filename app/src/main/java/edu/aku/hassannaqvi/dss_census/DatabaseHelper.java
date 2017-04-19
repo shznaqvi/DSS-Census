@@ -107,16 +107,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             censusMember.COLUMN_SITE_CODE + " TEXT,"+
             censusMember.COLUMN_NAME + " TEXT,"+
             censusMember.COLUMN_DOB + " TEXT,"+
-            censusMember.COLUMN_AGE + " TEXT,"+
+            censusMember.COLUMN_AGEY + " TEXT,"+
+            censusMember.COLUMN_AGEM + " TEXT,"+
+            censusMember.COLUMN_AGED + " TEXT,"+
             censusMember.COLUMN_GENDER + " TEXT,"+
             censusMember.COLUMN_IS_HEAD + " TEXT,"+
             censusMember.COLUMN_RELATION_HH + " TEXT,"+
             censusMember.COLUMN_CURRENT_STATUS + " TEXT,"+
+            censusMember.COLUMN_CURRENT_STATUSX + " TEXT,"+
             censusMember.COLUMN_CURRENT_DATE + " TEXT,"+
             censusMember.COLUMN_DOD + " TEXT,"+
             censusMember.COLUMN_M_STATUS + " TEXT,"+
             censusMember.COLUMN_EDUCATION + " TEXT,"+
+            censusMember.COLUMN_EDUCATIONX + " TEXT,"+
             censusMember.COLUMN_OCCUPATION + " TEXT,"+
+            censusMember.COLUMN_OCCUPATIONX + " TEXT,"+
             censusMember.COLUMN_MEMBER_TYPE + " TEXT,"+
             censusMember.COLUMN_UPDATE_FLAG + " TEXT,"+
             censusMember.COLUMN_UPDATE_DT + " TEXT,"+
@@ -459,16 +464,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(censusMember.COLUMN_SITE_CODE, mc.getSite_code());
         values.put(censusMember.COLUMN_NAME, mc.getName());
         values.put(censusMember.COLUMN_DOB, mc.getDob());
-        values.put(censusMember.COLUMN_AGE, mc.getAge());
+        values.put(censusMember.COLUMN_AGEY, mc.getAgeY());
+        values.put(censusMember.COLUMN_AGEM, mc.getAgeM());
+        values.put(censusMember.COLUMN_AGED, mc.getAgeD());
         values.put(censusMember.COLUMN_GENDER, mc.getGender());
         values.put(censusMember.COLUMN_IS_HEAD, mc.getIs_head());
         values.put(censusMember.COLUMN_RELATION_HH, mc.getRelation_hh());
         values.put(censusMember.COLUMN_CURRENT_STATUS, mc.getCurrent_status());
+        values.put(censusMember.COLUMN_CURRENT_STATUSX, mc.getCurrent_statusX());
         values.put(censusMember.COLUMN_CURRENT_DATE, mc.getCurrent_date());
         values.put(censusMember.COLUMN_DOD, mc.getDod());
         values.put(censusMember.COLUMN_M_STATUS, mc.getM_status());
         values.put(censusMember.COLUMN_EDUCATION, mc.getEducation());
+        values.put(censusMember.COLUMN_EDUCATIONX, mc.getEducationX());
         values.put(censusMember.COLUMN_OCCUPATION, mc.getOccupation());
+        values.put(censusMember.COLUMN_OCCUPATIONX, mc.getOccupationX());
         values.put(censusMember.COLUMN_MEMBER_TYPE, mc.getMember_type());
         values.put(censusMember.COLUMN_UPDATE_FLAG, mc.getUpdate_flag());
         values.put(censusMember.COLUMN_UPDATE_DT, mc.getUpdate_dt());
@@ -601,16 +611,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_SITE_CODE,
                 censusMember.COLUMN_NAME,
                 censusMember.COLUMN_DOB,
-                censusMember.COLUMN_AGE,
+                censusMember.COLUMN_AGEY,
+                censusMember.COLUMN_AGEM,
+                censusMember.COLUMN_AGED,
                 censusMember.COLUMN_GENDER,
                 censusMember.COLUMN_IS_HEAD,
                 censusMember.COLUMN_RELATION_HH,
                 censusMember.COLUMN_CURRENT_STATUS,
+                censusMember.COLUMN_CURRENT_STATUSX,
                 censusMember.COLUMN_CURRENT_DATE,
                 censusMember.COLUMN_DOD,
                 censusMember.COLUMN_M_STATUS,
                 censusMember.COLUMN_EDUCATION,
+                censusMember.COLUMN_EDUCATIONX,
                 censusMember.COLUMN_OCCUPATION,
+                censusMember.COLUMN_OCCUPATIONX,
                 censusMember.COLUMN_MEMBER_TYPE,
                 censusMember.COLUMN_UPDATE_FLAG,
                 censusMember.COLUMN_UPDATE_DT,

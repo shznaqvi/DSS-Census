@@ -28,16 +28,21 @@ public class CensusContract {
     private String site_code = "";
     private String name = "";
     private String dob = "";
-    private String age = "";
+    private String ageY = "";
+    private String ageM = "";
+    private String ageD = "";
     private String gender = "";
     private String is_head = "";
     private String relation_hh = "";
     private String current_status = "";
+    private String current_statusX = "";
     private String current_date = "";
     private String dod = "";
     private String m_status = "";
     private String education = "";
+    private String educationX = "";
     private String occupation = "";
+    private String occupationX = "";
     private String member_type = "";
     private String update_flag = "";
     private String update_dt = "";
@@ -164,12 +169,28 @@ public class CensusContract {
         this.dob = dob;
     }
 
-    public String getAge() {
-        return age;
+    public String getAgeY() {
+        return ageY;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setAgeY(String ageY) {
+        this.ageY = ageY;
+    }
+
+    public String getAgeM() {
+        return ageM;
+    }
+
+    public void setAgeM(String ageM) {
+        this.ageM = ageM;
+    }
+
+    public String getAgeD() {
+        return ageD;
+    }
+
+    public void setAgeD(String ageD) {
+        this.ageD = ageD;
     }
 
     public String getGender() {
@@ -284,6 +305,30 @@ public class CensusContract {
         this.syncedDate = syncedDate;
     }
 
+    public String getCurrent_statusX() {
+        return current_statusX;
+    }
+
+    public void setCurrent_statusX(String current_statusX) {
+        this.current_statusX = current_statusX;
+    }
+
+    public String getEducationX() {
+        return educationX;
+    }
+
+    public void setEducationX(String educationX) {
+        this.educationX = educationX;
+    }
+
+    public String getOccupationX() {
+        return occupationX;
+    }
+
+    public void setOccupationX(String occupationX) {
+        this.occupationX = occupationX;
+    }
+
     public CensusContract Sync(JSONObject jsonObject) throws JSONException {
 
         this._ID= jsonObject.getString(censusMember.COLUMN_ID);
@@ -301,16 +346,21 @@ public class CensusContract {
         this.site_code= jsonObject.getString(censusMember.COLUMN_SITE_CODE);
         this.name= jsonObject.getString(censusMember.COLUMN_NAME);
         this.dob= jsonObject.getString(censusMember.COLUMN_DOB);
-        this.age= jsonObject.getString(censusMember.COLUMN_AGE);
+        this.ageY = jsonObject.getString(censusMember.COLUMN_AGEY);
+        this.ageM = jsonObject.getString(censusMember.COLUMN_AGEM);
+        this.ageD = jsonObject.getString(censusMember.COLUMN_AGED);
         this.gender= jsonObject.getString(censusMember.COLUMN_GENDER);
         this.is_head= jsonObject.getString(censusMember.COLUMN_IS_HEAD);
         this.relation_hh= jsonObject.getString(censusMember.COLUMN_RELATION_HH);
         this.current_status= jsonObject.getString(censusMember.COLUMN_CURRENT_STATUS);
+        this.current_statusX= jsonObject.getString(censusMember.COLUMN_CURRENT_STATUSX);
         this.current_date= jsonObject.getString(censusMember.COLUMN_CURRENT_DATE);
         this.dod= jsonObject.getString(censusMember.COLUMN_DOD);
         this.m_status= jsonObject.getString(censusMember.COLUMN_M_STATUS);
         this.education= jsonObject.getString(censusMember.COLUMN_EDUCATION);
+        this.educationX= jsonObject.getString(censusMember.COLUMN_EDUCATIONX);
         this.occupation= jsonObject.getString(censusMember.COLUMN_OCCUPATION);
+        this.occupationX= jsonObject.getString(censusMember.COLUMN_OCCUPATIONX);
         this.member_type= jsonObject.getString(censusMember.COLUMN_MEMBER_TYPE);
         this.update_flag= jsonObject.getString(censusMember.COLUMN_UPDATE_FLAG);
         this.update_dt= jsonObject.getString(censusMember.COLUMN_UPDATE_DT);
@@ -338,16 +388,21 @@ public class CensusContract {
         this.site_code = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SITE_CODE));
         this.name = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_NAME));
         this.dob = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DOB));
-        this.age = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_AGE));
+        this.ageY = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_AGEY));
+        this.ageM = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_AGEM));
+        this.ageD = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_AGED));
         this.gender = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_GENDER));
         this.is_head = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_IS_HEAD));
         this.relation_hh = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_RELATION_HH));
         this.current_status = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_CURRENT_STATUS));
+        this.current_statusX = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_CURRENT_STATUSX));
         this.current_date = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_CURRENT_DATE));
         this.dod = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DOD));
         this.m_status = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_M_STATUS));
         this.education = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_EDUCATION));
+        this.educationX = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_EDUCATIONX));
         this.occupation = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_OCCUPATION));
+        this.occupationX = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_OCCUPATIONX));
         this.member_type = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_MEMBER_TYPE));
         this.update_flag = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_UPDATE_FLAG));
         this.update_dt = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_UPDATE_DT));
@@ -378,16 +433,21 @@ public class CensusContract {
         json.put(censusMember.COLUMN_SITE_CODE, this.site_code == null ? JSONObject.NULL : this.site_code);
         json.put(censusMember.COLUMN_NAME, this.name == null ? JSONObject.NULL : this.name);
         json.put(censusMember.COLUMN_DOB, this.dob == null ? JSONObject.NULL : this.dob);
-        json.put(censusMember.COLUMN_AGE, this.age == null ? JSONObject.NULL : this.age);
+        json.put(censusMember.COLUMN_AGEY, this.ageY == null ? JSONObject.NULL : this.ageY);
+        json.put(censusMember.COLUMN_AGEY, this.ageM == null ? JSONObject.NULL : this.ageM);
+        json.put(censusMember.COLUMN_AGEY, this.ageD == null ? JSONObject.NULL : this.ageD);
         json.put(censusMember.COLUMN_GENDER, this.gender == null ? JSONObject.NULL : this.gender);
         json.put(censusMember.COLUMN_IS_HEAD, this.is_head == null ? JSONObject.NULL : this.is_head);
         json.put(censusMember.COLUMN_RELATION_HH, this.relation_hh == null ? JSONObject.NULL : this.relation_hh);
         json.put(censusMember.COLUMN_CURRENT_STATUS, this.current_status == null ? JSONObject.NULL : this.current_status);
+        json.put(censusMember.COLUMN_CURRENT_STATUSX, this.current_statusX == null ? JSONObject.NULL : this.current_statusX);
         json.put(censusMember.COLUMN_CURRENT_DATE, this.current_date == null ? JSONObject.NULL : this.current_date);
         json.put(censusMember.COLUMN_DOD, this.dod == null ? JSONObject.NULL : this.dod);
         json.put(censusMember.COLUMN_M_STATUS, this.m_status == null ? JSONObject.NULL : this.m_status);
         json.put(censusMember.COLUMN_EDUCATION, this.education == null ? JSONObject.NULL : this.education);
+        json.put(censusMember.COLUMN_EDUCATIONX, this.educationX == null ? JSONObject.NULL : this.educationX);
         json.put(censusMember.COLUMN_OCCUPATION, this.occupation == null ? JSONObject.NULL : this.occupation);
+        json.put(censusMember.COLUMN_OCCUPATIONX, this.occupationX == null ? JSONObject.NULL : this.occupationX);
         json.put(censusMember.COLUMN_MEMBER_TYPE, this.member_type == null ? JSONObject.NULL : this.member_type);
         json.put(censusMember.COLUMN_UPDATE_FLAG, this.update_flag == null ? JSONObject.NULL : this.update_flag);
         json.put(censusMember.COLUMN_UPDATE_DT, this.update_dt == null ? JSONObject.NULL : this.update_dt);
@@ -419,16 +479,21 @@ public class CensusContract {
         public static final String COLUMN_SITE_CODE = "site_code";
         public static final String COLUMN_NAME = "name";
         public static final String COLUMN_DOB = "dob";
-        public static final String COLUMN_AGE = "age";
+        public static final String COLUMN_AGEY = "agey";
+        public static final String COLUMN_AGEM = "agem";
+        public static final String COLUMN_AGED = "aged";
         public static final String COLUMN_GENDER = "gender";
         public static final String COLUMN_IS_HEAD = "is_head";
         public static final String COLUMN_RELATION_HH = "relation_hh";
         public static final String COLUMN_CURRENT_STATUS = "current_status";
+        public static final String COLUMN_CURRENT_STATUSX = "current_statusx";
         public static final String COLUMN_CURRENT_DATE = "current_date";
         public static final String COLUMN_DOD = "dod";
         public static final String COLUMN_M_STATUS = "m_status";
         public static final String COLUMN_EDUCATION = "education";
+        public static final String COLUMN_EDUCATIONX = "educationx";
         public static final String COLUMN_OCCUPATION = "occupation";
+        public static final String COLUMN_OCCUPATIONX = "occupationx";
         public static final String COLUMN_MEMBER_TYPE = "member_type";
         public static final String COLUMN_UPDATE_FLAG = "updated_flag";
         public static final String COLUMN_UPDATE_DT = "update_date";
