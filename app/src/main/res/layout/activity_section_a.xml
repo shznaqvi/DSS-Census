@@ -60,7 +60,7 @@
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                     android:hint="@string/dca03"
                     android:inputType="text"
-                    android:maxLength="10" />
+                    android:maxLength="11" />
 
                 <Button
                     android:id="@+id/checkDSSID"

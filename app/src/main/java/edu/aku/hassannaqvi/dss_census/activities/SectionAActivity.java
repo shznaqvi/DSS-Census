@@ -35,7 +35,6 @@ import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
-import edu.aku.hassannaqvi.dss_census.otherClasses.familyMembers;
 
 public class SectionAActivity extends Activity {
 
@@ -202,6 +201,8 @@ public class SectionAActivity extends Activity {
 
     Collection<MembersContract> members;
     DatabaseHelper db;
+
+    Boolean isNew = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -383,28 +384,33 @@ public class SectionAActivity extends Activity {
 
             if (members.size() != 0) {
 
+//                MainApp.familyMembersList = new ArrayList<>();
+
                 MainApp.familyMembersList = new ArrayList<>();
 
                 for (MembersContract ec : members) {
-                    MainApp.familyMembersList.add(new familyMembers(ec.getName(),ec.getDss_id_member(),ec.getCurrent_status(),ec.getDob()));
+//                    MainApp.familyMembersList.add(new familyMembers(ec.getName(),ec.getDss_id_member(),ec.getCurrent_status(),ec.getDob()));
+
+                    MainApp.familyMembersList.add(new MembersContract(ec));
                 }
 
                 Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
 
 //                fldGrpmp02a007.setVisibility(View.VISIBLE);
-                btn_Continue.setVisibility(View.VISIBLE);
+//                btn_Continue.setVisibility(View.VISIBLE);
 
 //                flag = true;
+
+                isNew = false;
 
             } else {
 
 //                fldGrpmp02a007.setVisibility(View.GONE);
-                btn_Continue.setVisibility(View.GONE);
-//                mp02a007.setText(null);
-//                mp02a008.setText(null);
-//                mp02a013.clearCheck();
+//                btn_Continue.setVisibility(View.GONE);
 
 //                flag = false;
+
+                isNew = true;
 
                 Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
             }
@@ -865,10 +871,12 @@ public class SectionAActivity extends Activity {
         MainApp.fc.setDeviceID(Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID));
 
+        MainApp.fc.setISNEW(isNew.toString());
+
         JSONObject sa = new JSONObject();
 
         sa.put("dca03", dca03.getText().toString());
-        sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : "0");
+        sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : "0");
         sa.put("dca05", dca05.getText().toString());
         sa.put("dca0501", dca050101.isChecked() ? "1" : dca050102.isChecked() ? "2" : "0");
         sa.put("dca0502", dca050201.isChecked() ? "1" : dca050202.isChecked() ? "2" : "0");

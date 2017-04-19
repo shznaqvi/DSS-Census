@@ -2,41 +2,127 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
     android:focusable="true"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
-    android:clickable="true"
-    android:background="?android:attr/selectableItemBackground"
-    android:orientation="vertical">
+    android:paddingTop="10dp">
 
+    <!-- <TextView
+         android:id="@+id/memberName"
+         android:textColor="@color/title"
+         android:textSize="16sp"
+         android:textStyle="bold"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_alignParentTop="true"
+         android:ellipsize="marquee"
+         android:layout_alignWithParentIfMissing="true"
+         android:gravity="center_vertical"
+         android:text="Name Name"
+          />
+
+     <TextView
+         android:id="@+id/DSSid"
+         android:layout_below="@id/memberName"
+         android:layout_width="match_parent"
+         android:layout_height="26dp"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentRight="true"
+         android:ellipsize="marquee"
+         android:textSize="12sp"
+         android:text="DSSID"
+         />
+
+     <TextView
+         android:id="@+id/currentStatus"
+         android:layout_below="@id/DSSid"
+         android:layout_width="match_parent"
+         android:layout_height="26dp"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentRight="true"
+         android:ellipsize="marquee"
+         android:textSize="12sp"
+         android:text="status"
+         />
+
+     <TextView
+         android:id="@+id/year"
+         android:textColor="@color/year"
+         android:layout_width="match_parent"
+         android:layout_height="26dp"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentRight="true"
+         android:ellipsize="marquee"
+         android:textSize="12sp"
+         android:text="Year"
+         />
+ -->
+    <!-- Family Member Name-->
     <TextView
         android:id="@+id/memberName"
-        android:textColor="@color/title"
-        android:textSize="16dp"
-        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="Memeber Name"
+        android:textColor="#040404"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
 
+    <!-- DSSID -->
     <TextView
         android:id="@+id/DSSid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@id/memberName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_marginTop="1dip"
+        android:text="AAAA99999X"
+        android:textColor="#343434"
+        android:textSize="10dip" />
 
-    <TextView
-        android:id="@+id/currentStatus"
-        android:layout_below="@id/DSSid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+    <!-- Year -->
     <TextView
         android:id="@+id/year"
-        android:textColor="@color/year"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/DSSid"
+        android:layout_marginTop="1dip"
+        android:text="1999"
+        android:textColor="#343434"
+        android:textSize="10dip" />
+
+    <!-- Status -->
+    <TextView
+        android:id="@+id/currentStatus"
         android:layout_width="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        android:gravity="right"
+        android:text="Status"
+        android:textColor="#10bcc9"
+        android:textSize="10dip"
+        android:textStyle="bold" />
+
+    <!-- Rightend Arrow -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentStart="false"
+        android:layout_centerVertical="true"
+        android:src="@drawable/arrow" />
 
 </RelativeLayout>
