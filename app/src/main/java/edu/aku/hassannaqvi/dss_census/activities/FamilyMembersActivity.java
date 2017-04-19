@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
+import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.otherClasses.familyMembers;
 
 public class FamilyMembersActivity extends Activity {
@@ -70,8 +71,9 @@ public class FamilyMembersActivity extends Activity {
                         // TODO Handle item click
 
                         Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
-                        i.putExtra("memberName", MainApp.familyMembersList.get(position).getMemberName());
-                        i.putExtra("position", position + 1);
+                        i.putExtra("dataFlag",true);
+                        i.putExtra("memberName", MainApp.familyMembersList.get(position).getName());
+                        i.putExtra("position", position);
 
                         startActivity(i);
 
@@ -97,7 +99,7 @@ public class FamilyMembersActivity extends Activity {
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
 
-        startActivity(new Intent(this, SectionCActivity.class));
+        startActivity(new Intent(this, SectionDActivity.class));
 
     }
 
@@ -121,8 +123,6 @@ public class FamilyMembersActivity extends Activity {
             btn_addMember.setEnabled(false);
         }
 
-
-
 //        Death Members
 
 //        for (MainApp.deadMemberClass curVal : MainApp.deadMembers){
@@ -132,7 +132,7 @@ public class FamilyMembersActivity extends Activity {
 
     public class familyMembersAdapter extends RecyclerView.Adapter<familyMembersAdapter.MyViewHolder> {
 
-        private List<familyMembers> familyMembersList;
+        private List<MembersContract> familyMembersList;
 
         public class MyViewHolder extends RecyclerView.ViewHolder {
             public TextView memberName, DSSidm, year, currentStatus;
@@ -147,7 +147,7 @@ public class FamilyMembersActivity extends Activity {
         }
 
 
-        public familyMembersAdapter(List<familyMembers> familyMembersList) {
+        public familyMembersAdapter(List<MembersContract> familyMembersList) {
             this.familyMembersList = familyMembersList;
         }
 
@@ -161,10 +161,14 @@ public class FamilyMembersActivity extends Activity {
 
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
-            familyMembers familyMembers = familyMembersList.get(position);
-            holder.memberName.setText(familyMembers.getMemberName().toUpperCase());
-            holder.DSSidm.setText(familyMembers.getDSSid());
-            holder.currentStatus.setText(familyMembers.getcStatus());
+//            familyMembers familyMembers = familyMembersList.get(position);
+            MembersContract familyMembers = MainApp.familyMembersList.get(position);
+//            holder.memberName.setText(familyMembers.getMemberName().toUpperCase());
+//            holder.DSSidm.setText(familyMembers.getDSSid());
+//            holder.currentStatus.setText(familyMembers.getcStatus());
+            holder.memberName.setText(familyMembers.getName().toUpperCase());
+            holder.DSSidm.setText(familyMembers.getDss_id_member());
+            holder.currentStatus.setText(familyMembers.getCurrent_status());
             holder.year.setText(familyMembers.getDob());
         }
 

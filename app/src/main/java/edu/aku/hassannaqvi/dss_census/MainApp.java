@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
+import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.OCsContract;
 import edu.aku.hassannaqvi.dss_census.otherClasses.TypefaceUtil;
 import edu.aku.hassannaqvi.dss_census.otherClasses.familyMembers;
@@ -66,12 +67,13 @@ public class MainApp extends Application {
     public static int currentStatusCount = 0;
     public static List<deadMemberClass> deadMembers = new ArrayList<deadMemberClass>();
     //    Family Member List
-    public static List<familyMembers> familyMembersList = new ArrayList<>();
+//    public static List<familyMembers> familyMembersList;
     protected LocationManager locationManager;
     Location location;
 
 //    Ali
     public static String regionDss = "";
+    public static List<MembersContract> familyMembersList;
 
 
     @Override

@@ -40,6 +40,31 @@ public class MembersContract {
     public MembersContract() {
     }
 
+    public MembersContract(MembersContract mc) {
+        this._ID =  mc.get_ID();
+        this._DATE =  mc.get_DATE();
+        this.dss_id_hh =  mc.getDss_id_hh();
+        this.dss_id_f =  mc.getDss_id_f();
+        this.dss_id_m =  mc.getDss_id_m();
+        this.dss_id_h =  mc.getDss_id_h();
+        this.dss_id_member =  mc.getDss_id_member();
+        this.prevs_dss_id_member =  mc.getPrevs_dss_id_member();
+        this.site_code =  mc.getSite_code();
+        this.name =  mc.getName();
+        this.dob =  mc.getDob();
+        this.age =  mc.getAge();
+        this.gender =  mc.getGender();
+        this.is_head =  mc.getIs_head();
+        this.relation_hh =  mc.getRelation_hh();
+        this.current_status =  mc.getCurrent_status();
+        this.current_date =  mc.getCurrent_date();
+        this.dod =  mc.getDod();
+        this.m_status =  mc.getM_status();
+        this.education =  mc.getEducation();
+        this.occupation =  mc.getOccupation();
+        this.member_type =  mc.getMember_type();
+    }
+
     public String get_ID() {
         return _ID;
     }

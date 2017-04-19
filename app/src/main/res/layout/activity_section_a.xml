@@ -60,7 +60,7 @@
                     android:hint="@string/dca03"
                     android:layout_weight="1"
                     android:inputType="text"
-                    android:maxLength="10" />
+                    android:maxLength="11" />
 
                 <Button
                     android:id="@+id/checkDSSID"

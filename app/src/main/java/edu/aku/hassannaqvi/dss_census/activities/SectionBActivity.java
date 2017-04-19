@@ -228,7 +228,7 @@ public class SectionBActivity extends Activity {
     @BindView(R.id.dcbidtTxt)
     TextView dcbidtTxt;
 
-
+    int position = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -242,9 +242,26 @@ public class SectionBActivity extends Activity {
         cal.add(Calendar.YEAR, -97);
         dcbidob.setMinDate(cal.getTimeInMillis());
 
-//        dcba.setText(getIntent().getExtras().get("memberName").toString());
+        if (getIntent().getBooleanExtra("dataFlag",false)){
 
-        //      dcba.setEnabled(false);
+            position = getIntent().getExtras().getInt("position");
+
+            Log.d("Member fetched",String.valueOf(MainApp.familyMembersList.get(position)));
+
+
+            dcba.setText(MainApp.familyMembersList.get(position).getName());
+            dcba.setEnabled(false);
+
+            dcbid.setText(MainApp.familyMembersList.get(position).getDss_id_member());
+            dcbid.setEnabled(false);
+
+            dcbbfid.setText(MainApp.familyMembersList.get(position).getDss_id_f());
+            dcbbmid.setText(MainApp.familyMembersList.get(position).getDss_id_m());
+
+            ((RadioButton)dcbd.getChildAt(Integer.parseInt(MainApp.familyMembersList.get(position).getGender()))).setChecked(true);
+
+
+        }
 
         // ====================== Education Level Others ================
         dcbe.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -426,10 +443,10 @@ public class SectionBActivity extends Activity {
 //                MainApp.deadMembers.add(new MainApp.deadMemberClass(Integer.parseInt(getIntent().getExtras().get("position").toString()),
 //                        dcbid.getText().toString()));
 
-                MainApp.familyMembersList.add(new familyMembers(dcba.getText().toString(),
-                        dcbid.getText().toString()
-                        ,((RadioButton)findViewById(dcbis.getCheckedRadioButtonId())).getText().toString()
-                        ,((RadioButton)findViewById(dcbd.getCheckedRadioButtonId())).getText().toString()));
+//                MainApp.familyMembersList.add(new familyMembers(dcba.getText().toString(),
+//                        dcbid.getText().toString()
+//                        ,((RadioButton)findViewById(dcbis.getCheckedRadioButtonId())).getText().toString()
+//                        ,((RadioButton)findViewById(dcbd.getCheckedRadioButtonId())).getText().toString()));
 
                 if (!(((RadioButton)findViewById(dcbis.getCheckedRadioButtonId())).getText().toString()).contains("Death")) {
                     MainApp.currentStatusCount += 1;
