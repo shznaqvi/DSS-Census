@@ -410,7 +410,7 @@ public class SectionBActivity extends Activity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    dcbidtTxt.setText(getString(R.string.dcbis05) + " " + getString(R.string.dcbidt));
+                    dcbidtTxt.setText(" " + getString(R.string.dcbidt1));
                 }
             }
         });
@@ -445,9 +445,7 @@ public class SectionBActivity extends Activity {
                 Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
 
                 finish();
-                Intent endSec = new Intent(this, EndingActivity.class);
-                endSec.putExtra("complete", false);
-                startActivity(endSec);
+
 //            } else {
 //                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
 //            }
@@ -473,8 +471,11 @@ public class SectionBActivity extends Activity {
 
                 finish();
 
-                if (!(((RadioButton)findViewById(dcbis.getCheckedRadioButtonId())).getText().toString()).contains("Death")) {
-                    MainApp.currentStatusCount += 1;
+                if (!dcbis05.isChecked()) {
+
+                    if (!dataFlag) {
+                        MainApp.currentStatusCount += 1;
+                    }
                 }else {
                     if (MainApp.NoMembersCount != 0){
 
@@ -502,6 +503,9 @@ public class SectionBActivity extends Activity {
                 db.updateCensusID();
 
                 if (dataFlag) {
+                    MainApp.familyMembersList.set(position, new MembersContract(setDataForList(MainApp.cc)));
+                }
+                else {
                     MainApp.familyMembersList.add(new MembersContract(setDataForList(MainApp.cc)));
                 }
                 return true;
@@ -531,7 +535,7 @@ public class SectionBActivity extends Activity {
             MainApp.cc.setUpdate_dt("true");
         }
         MainApp.cc.setName(dcba.getText().toString());
-//        MainApp.cc.setDss_id_member(dcbid.getText().toString());
+        MainApp.cc.setDss_id_member(dcbid.getText().toString());
         MainApp.cc.setRelation_hh(dcbbrhh01.isChecked() ? "1" : dcbbrhh02.isChecked() ? "2" : dcbbrhh03.isChecked() ? "3"
                 : dcbbrhh04.isChecked() ? "4" : dcbbrhh05.isChecked() ? "5" : dcbbrhh06.isChecked() ? "6"
                 : dcbbrhh07.isChecked() ? "7" : dcbbrhh08.isChecked() ? "8" : dcbbrhh09.isChecked() ? "9" : dcbbrhh10.isChecked() ? "10"

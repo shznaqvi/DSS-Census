@@ -146,12 +146,16 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         // Spinner Drop down elements
         lables = new ArrayList<String>();
-        lables.add("Pehelwan Goth");
-        lables.add("Sachal Goth");
+        lables.add("Rehri Goth");
+        lables.add("Ibrahim Haidery");
+        lables.add("Behns Colony");
+        lables.add("Ali Akber Shah Goth");
 
         values = new ArrayList<String>();
         values.add("01");
         values.add("02");
+        values.add("03");
+        values.add("04");
 
 
         // Polulating 'lables' and 'values' from ucList

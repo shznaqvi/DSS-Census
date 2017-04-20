@@ -96,7 +96,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:gravity="center"
-                android:popupBackground="#3d3d3d" />
+                android:popupBackground="#3d3d3d"
+                android:visibility="gone"/>
 
 
             <Button
