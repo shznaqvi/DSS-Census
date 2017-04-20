@@ -10,6 +10,7 @@ import android.widget.ScrollView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
 
 public class EndingActivity extends Activity {
@@ -34,6 +35,9 @@ public class EndingActivity extends Activity {
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
         finish();
+
+        MainApp.familyMembersList.clear();
+
         Intent endSec = new Intent(this, MainActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);

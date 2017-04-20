@@ -51,6 +51,15 @@ public class FamilyMembersActivity extends Activity {
         setContentView(R.layout.activity_family_members);
         ButterKnife.bind(this);
 
+        //Set Enable for Next Section
+        if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
+            btn_Continue.setEnabled(false);
+            btn_addMember.setEnabled(true);
+        } else {
+            btn_Continue.setEnabled(true);
+            btn_addMember.setEnabled(false);
+        }
+
 //        Set Recycler View
         mAdapter = new familyMembersAdapter(MainApp.familyMembersList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -65,6 +74,10 @@ public class FamilyMembersActivity extends Activity {
                     @Override
                     public void onItemClick(View view, int position) {
                         // TODO Handle item click
+
+                        recycler_noMembers.getChildAt(position).setEnabled(false);
+
+                        mAdapter.notifyDataSetChanged();
 
                         Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
                         i.putExtra("dataFlag",true);
@@ -84,7 +97,7 @@ public class FamilyMembersActivity extends Activity {
 
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, MainActivity.class);
+        Intent endSec = new Intent(this, EndingActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
 
@@ -109,14 +122,16 @@ public class FamilyMembersActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
+        mAdapter.notifyDataSetChanged();
+
 //        Set Enable for Next Section
-//        if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
-//            btn_Continue.setEnabled(false);
-//            btn_addMember.setEnabled(true);
-//        } else {
-//            btn_Continue.setEnabled(true);
-//            btn_addMember.setEnabled(false);
-//        }
+        if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
+            btn_Continue.setEnabled(false);
+            btn_addMember.setEnabled(true);
+        } else {
+            btn_Continue.setEnabled(true);
+            btn_addMember.setEnabled(false);
+        }
 
 //        Death Members
 
@@ -194,6 +209,9 @@ public class FamilyMembersActivity extends Activity {
 
         @Override
         public int getItemCount() {
+
+            MainApp.currentStatusCount = familyMembersList.size();
+
             return familyMembersList.size();
         }
 

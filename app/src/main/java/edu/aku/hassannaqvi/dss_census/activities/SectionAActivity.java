@@ -1,7 +1,9 @@
 package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -42,6 +44,8 @@ public class SectionAActivity extends Activity {
 
     @BindView(R.id.activity_section_a)
     RelativeLayout activitySectionA;
+    @BindView(R.id.membersExists)
+    LinearLayout membersExists;
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)
@@ -198,6 +202,9 @@ public class SectionAActivity extends Activity {
 
     @BindView(R.id.mp02_count)
     TextView mp02_count;
+
+    @BindView(R.id.checkMembers)
+    Button checkMembers;
 
     Collection<MembersContract> members;
     DatabaseHelper db;
@@ -368,10 +375,36 @@ public class SectionAActivity extends Activity {
     }
 
 
+    @OnClick(R.id.checkMembers)
+    void onBtnCheckMemberClick() {
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+
+        String member="";
+        for (byte i=0;i < MainApp.familyMembersList.size();i++){
+            member+=MainApp.familyMembersList.get(i).getName()+"\n";
+        }
+
+        alertDialogBuilder
+                .setTitle("Members Name")
+                .setMessage(member)
+                .setCancelable(false);
+        alertDialogBuilder.setNegativeButton("Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
+
+    }
+
     @OnClick(R.id.checkDSSID)
     void onBtnDSSIDClick() {
 
-        mp02_count.setVisibility(View.VISIBLE);
+        membersExists.setVisibility(View.VISIBLE);
 
         if (!dca03.getText().toString().isEmpty()) {
 
@@ -400,6 +433,8 @@ public class SectionAActivity extends Activity {
 //                btn_Continue.setVisibility(View.VISIBLE);
 
 //                flag = true;
+
+                MainApp.currentStatusCount = MainApp.familyMembersList.size();
 
                 isNew = false;
 
