@@ -254,6 +254,7 @@ public class SectionBActivity extends Activity {
             dcba.setEnabled(false);
 
             dcbid.setText(MainApp.familyMembersList.get(position).getDss_id_member());
+            Log.d(TAG, "onCreate: " + MainApp.familyMembersList.get(position).getDss_id_member());
             dcbid.setEnabled(false);
 
             dcbbfid.setText(MainApp.familyMembersList.get(position).getDss_id_f());

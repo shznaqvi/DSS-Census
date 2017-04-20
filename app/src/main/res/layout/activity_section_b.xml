@@ -63,10 +63,9 @@
 
             <EditText
                 android:id="@+id/dcbid"
-                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-                android:maxLength="11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                 android:hint="@string/dcbid" />
 
             <TextView
@@ -198,8 +197,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-                android:maxLength="11"
-                android:hint="@string/dcbbfid" />
+                android:hint="@string/dcbbfid"
+                android:maxLength="11" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -215,8 +214,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-                android:maxLength="11"
-                android:hint="@string/dcbbmid" />
+                android:hint="@string/dcbbmid"
+                android:maxLength="11" />
 
             <TextView
                 android:layout_width="match_parent"
