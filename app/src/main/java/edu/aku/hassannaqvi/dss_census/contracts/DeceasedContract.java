@@ -113,6 +113,7 @@ public class DeceasedContract {
         return user;
     }
 
+
     public void setUser(String user) {
         this.user = user;
     }
@@ -420,7 +421,7 @@ public class DeceasedContract {
 
     public static abstract class DeceasedMember implements BaseColumns {
 
-        public static final String TABLE_NAME = "census";
+        public static final String TABLE_NAME = "deceased";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
 
         public static final String COLUMN_PROJECT_NAME = "DSS Census";

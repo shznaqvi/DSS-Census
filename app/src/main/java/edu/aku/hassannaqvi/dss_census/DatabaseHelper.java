@@ -19,6 +19,8 @@ import java.util.Date;
 
 import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
 import edu.aku.hassannaqvi.dss_census.contracts.CensusContract.censusMember;
+import edu.aku.hassannaqvi.dss_census.contracts.DeceasedContract;
+import edu.aku.hassannaqvi.dss_census.contracts.DeceasedContract.DeceasedMember;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract.singleForm;
 import edu.aku.hassannaqvi.dss_census.contracts.HouseholdContract;
@@ -156,6 +158,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleMember.COLUMN_OCCUPATION + " TEXT,"+
             singleMember.COLUMN_MEMBER_TYPE + " TEXT"+
              " );";
+    private static final String SQL_CREATE_DECEASED = "CREATE TABLE "
+            + DeceasedMember.TABLE_NAME + "("
+            + DeceasedMember.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            DeceasedMember.COLUMN_DATE + " TEXT," +
+            DeceasedMember.COLUMN_DSS_ID_HH + " TEXT," +
+            DeceasedMember.COLUMN_DSS_ID_F + " TEXT," +
+            DeceasedMember.COLUMN_DSS_ID_M + " TEXT," +
+            DeceasedMember.COLUMN_DSS_ID_H + " TEXT," +
+            DeceasedMember.COLUMN_DSS_ID_MEMBER + " TEXT," +
+            DeceasedMember.COLUMN_PREVS_DSS_ID_MEMBER + " TEXT," +
+            DeceasedMember.COLUMN_SITE_CODE + " TEXT," +
+            DeceasedMember.COLUMN_NAME + " TEXT," +
+            DeceasedMember.COLUMN_DOB + " TEXT," +
+            DeceasedMember.COLUMN_AGEY + " TEXT," +
+            DeceasedMember.COLUMN_AGEM + " TEXT," +
+            DeceasedMember.COLUMN_AGED + " TEXT," +
+            DeceasedMember.COLUMN_GENDER + " TEXT," +
+            DeceasedMember.COLUMN_IS_HEAD + " TEXT," +
+            DeceasedMember.COLUMN_RELATION_HH + " TEXT," +
+            DeceasedMember.COLUMN_DOD + " TEXT," +
+            DeceasedMember.COLUMN_MEMBER_TYPE + " TEXT" +
+            DeceasedMember.COLUMN_WRA + " TEXT" +
+            " );";
+
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
     private static final String SQL_DELETE_FORMS =
@@ -166,6 +192,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + singleMember.TABLE_NAME;
     private static final String SQL_DELETE_CENSUS =
             "DROP TABLE IF EXISTS " + censusMember.TABLE_NAME;
+    private static final String SQL_DELETE_DECEASED =
+            "DROP TABLE IF EXISTS " + DeceasedContract.DeceasedMember.TABLE_NAME;
     private final String TAG = "DatabaseHelper";
     public String spDateT = new SimpleDateFormat("dd-MM-yy").format(new Date().getTime());
 
@@ -184,6 +212,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_HOUSEHOLD);
         db.execSQL(SQL_CREATE_MEMBERS);
         db.execSQL(SQL_CREATE_CENSUS);
+        db.execSQL(SQL_CREATE_DECEASED);
 
     }
 
@@ -194,6 +223,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_HOUSEHOLD);
         db.execSQL(SQL_DELETE_MEMBERS);
         db.execSQL(SQL_DELETE_CENSUS);
+        db.execSQL(SQL_DELETE_DECEASED);
     }
 
     public void syncUser(JSONArray userlist) {
@@ -538,6 +568,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs);
     }
 
+    public void updateDeceased(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(DeceasedMember.COLUMN_SYNCED, true);
+        values.put(DeceasedMember.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = DeceasedMember.COLUMN_ID + " LIKE ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                DeceasedMember.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public int updateDeceasedID() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(DeceasedMember.COLUMN_UID, MainApp.dc.get_UID());
+
+// Which row to update, based on the ID
+        String selection = DeceasedMember._ID + " LIKE ?";
+        String[] selectionArgs = {String.valueOf(MainApp.dc.get_ID())};
+
+        int count = db.update(DeceasedMember.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+
+
+
     public int updateFormID() {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -693,6 +763,77 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return allCC;
     }
+
+    public Collection<DeceasedContract> getAllDeceased() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                DeceasedMember.COLUMN_ID,
+                DeceasedMember.COLUMN_REF_ID,
+                DeceasedMember.COLUMN_UID,
+                DeceasedMember.COLUMN_UUID,
+                DeceasedMember.COLUMN_DATE,
+                DeceasedMember.COLUMN_FORMDATE,
+                DeceasedMember.COLUMN_DEVICEID,
+                DeceasedMember.COLUMN_USER,
+                DeceasedMember.COLUMN_DSS_ID_HH,
+                DeceasedMember.COLUMN_DSS_ID_F,
+                DeceasedMember.COLUMN_DSS_ID_M,
+                DeceasedMember.COLUMN_DSS_ID_H,
+                DeceasedMember.COLUMN_DSS_ID_MEMBER,
+                DeceasedMember.COLUMN_PREVS_DSS_ID_MEMBER,
+                DeceasedMember.COLUMN_SITE_CODE,
+                DeceasedMember.COLUMN_NAME,
+                DeceasedMember.COLUMN_DOB,
+                DeceasedMember.COLUMN_AGEY,
+                DeceasedMember.COLUMN_AGEM,
+                DeceasedMember.COLUMN_AGED,
+                DeceasedMember.COLUMN_GENDER,
+                DeceasedMember.COLUMN_IS_HEAD,
+                DeceasedMember.COLUMN_RELATION_HH,
+                DeceasedMember.COLUMN_DOD,
+                DeceasedMember.COLUMN_MEMBER_TYPE,
+                DeceasedMember.COLUMN_UPDATE_FLAG,
+                DeceasedMember.COLUMN_UPDATE_DT,
+                DeceasedMember.COLUMN_REMARKS,
+                DeceasedMember.COLUMN_SYNCED,
+                DeceasedMember.COLUMN_SYNCED_DATE,
+                DeceasedMember.COLUMN_WRA
+        };
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                censusMember.COLUMN_ID + " ASC";
+
+        Collection<DeceasedContract> allDC = new ArrayList<DeceasedContract>();
+        try {
+            c = db.query(
+                    censusMember.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                DeceasedContract dc = new DeceasedContract();
+                allDC.add(dc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allDC;
+    }
+
 
     public Collection<FormsContract> getUnsyncedForms() {
         SQLiteDatabase db = this.getReadableDatabase();

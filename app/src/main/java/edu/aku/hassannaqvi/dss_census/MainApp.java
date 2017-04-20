@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
+import edu.aku.hassannaqvi.dss_census.contracts.DeceasedContract;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.OCsContract;
@@ -69,6 +70,7 @@ public class MainApp extends Application {
     public static String regionDss = "";
     public static List<MembersContract> familyMembersList;
     public static CensusContract cc;
+    public static DeceasedContract dc;
     //    Family Member List
 //    public static List<familyMembers> familyMembersList;
     protected LocationManager locationManager;
