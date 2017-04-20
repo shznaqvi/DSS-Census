@@ -14,7 +14,6 @@ public class DeceasedContract {
 
     private final String projectName = "DSS Census";
     private String _ID = "";
-    private String REF_ID = "";
     private String _UID = "";
     private String _UUID = "";
     private String _DATE = "";
@@ -27,19 +26,14 @@ public class DeceasedContract {
     private String dss_id_m = "";
     private String dss_id_h = "";
     private String dss_id_member = "";
-    private String prevs_dss_id_member = "";
     private String site_code = "";
     private String name = "";
     private String gender = "";
-    private String is_head = "";
     private String dob = "";
     private String ageY = "";
     private String ageM = "";
     private String ageD = "";
     private String dod = "";
-    private String member_type = "";
-    private String update_flag = "";
-    private String update_dt = "";
     private String synced = "";
     private String syncedDate = "";
     private String remarks = "";
@@ -59,14 +53,6 @@ public class DeceasedContract {
 
     public void set_ID(String _ID) {
         this._ID = _ID;
-    }
-
-    public String getREF_ID() {
-        return REF_ID;
-    }
-
-    public void setREF_ID(String REF_ID) {
-        this.REF_ID = REF_ID;
     }
 
     public String get_UID() {
@@ -158,13 +144,6 @@ public class DeceasedContract {
         this.dss_id_member = dss_id_member;
     }
 
-    public String getPrevs_dss_id_member() {
-        return prevs_dss_id_member;
-    }
-
-    public void setPrevs_dss_id_member(String prevs_dss_id_member) {
-        this.prevs_dss_id_member = prevs_dss_id_member;
-    }
 
     public String getSite_code() {
         return site_code;
@@ -222,13 +201,6 @@ public class DeceasedContract {
         this.gender = gender;
     }
 
-    public String getIs_head() {
-        return is_head;
-    }
-
-    public void setIs_head(String is_head) {
-        this.is_head = is_head;
-    }
 
     public String getRelation_hh() {
         return relation_hh;
@@ -246,29 +218,6 @@ public class DeceasedContract {
         this.dod = dod;
     }
 
-    public String getMember_type() {
-        return member_type;
-    }
-
-    public void setMember_type(String member_type) {
-        this.member_type = member_type;
-    }
-
-    public String getUpdate_flag() {
-        return update_flag;
-    }
-
-    public void setUpdate_flag(String update_flag) {
-        this.update_flag = update_flag;
-    }
-
-    public String getUpdate_dt() {
-        return update_dt;
-    }
-
-    public void setUpdate_dt(String update_dt) {
-        this.update_dt = update_dt;
-    }
 
     public String getSynced() {
         return synced;
@@ -306,7 +255,6 @@ public class DeceasedContract {
     public DeceasedContract Sync(JSONObject jsonObject) throws JSONException {
 
         this._ID = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_ID);
-        this.REF_ID = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_REF_ID);
         this._UID = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_UID);
         this._UUID = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_UUID);
         this._DATE = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_DATE);
@@ -318,7 +266,6 @@ public class DeceasedContract {
         this.dss_id_m = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_DSS_ID_M);
         this.dss_id_h = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_DSS_ID_H);
         this.dss_id_member = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_DSS_ID_MEMBER);
-        this.prevs_dss_id_member = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_PREVS_DSS_ID_MEMBER);
         this.site_code = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_SITE_CODE);
         this.name = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_NAME);
         this.dob = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_DOB);
@@ -326,12 +273,8 @@ public class DeceasedContract {
         this.ageM = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_AGEM);
         this.ageD = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_AGED);
         this.gender = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_GENDER);
-        this.is_head = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_IS_HEAD);
         this.relation_hh = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_RELATION_HH);
         this.dod = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_DOD);
-        this.member_type = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_MEMBER_TYPE);
-        this.update_flag = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_UPDATE_FLAG);
-        this.update_dt = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_UPDATE_DT);
         this.synced = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_SYNCED);
         this.syncedDate = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_SYNCED_DATE);
         this.remarks = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_REMARKS);
@@ -344,7 +287,6 @@ public class DeceasedContract {
     public DeceasedContract Hydrate(Cursor cursor) {
 
         this._ID = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_ID));
-        this.REF_ID = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_REF_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_UID));
         this._UUID = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_UUID));
         this._DATE = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_DATE));
@@ -356,7 +298,6 @@ public class DeceasedContract {
         this.dss_id_m = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_DSS_ID_M));
         this.dss_id_h = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_DSS_ID_H));
         this.dss_id_member = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_DSS_ID_MEMBER));
-        this.prevs_dss_id_member = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_PREVS_DSS_ID_MEMBER));
         this.site_code = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_SITE_CODE));
         this.name = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_NAME));
         this.dob = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_DOB));
@@ -364,12 +305,8 @@ public class DeceasedContract {
         this.ageM = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_AGEM));
         this.ageD = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_AGED));
         this.gender = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_GENDER));
-        this.is_head = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_IS_HEAD));
         this.relation_hh = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_RELATION_HH));
         this.dod = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_DOD));
-        this.member_type = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_MEMBER_TYPE));
-        this.update_flag = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_UPDATE_FLAG));
-        this.update_dt = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_UPDATE_DT));
         this.synced = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_SYNCED));
         this.syncedDate = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_SYNCED_DATE));
         this.remarks = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_REMARKS));
@@ -385,7 +322,6 @@ public class DeceasedContract {
         JSONObject json = new JSONObject();
 
         json.put(DeceasedContract.DeceasedMember.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
-        json.put(DeceasedContract.DeceasedMember.COLUMN_REF_ID, this.REF_ID == null ? JSONObject.NULL : this.REF_ID);
         json.put(DeceasedContract.DeceasedMember.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
         json.put(DeceasedContract.DeceasedMember.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
         json.put(DeceasedContract.DeceasedMember.COLUMN_DATE, this._DATE == null ? JSONObject.NULL : this._DATE);
@@ -397,7 +333,6 @@ public class DeceasedContract {
         json.put(DeceasedContract.DeceasedMember.COLUMN_DSS_ID_M, this.dss_id_m == null ? JSONObject.NULL : this.dss_id_m);
         json.put(DeceasedContract.DeceasedMember.COLUMN_DSS_ID_H, this.dss_id_h == null ? JSONObject.NULL : this.dss_id_h);
         json.put(DeceasedContract.DeceasedMember.COLUMN_DSS_ID_MEMBER, this.dss_id_member == null ? JSONObject.NULL : this.dss_id_member);
-        json.put(DeceasedContract.DeceasedMember.COLUMN_PREVS_DSS_ID_MEMBER, this.prevs_dss_id_member == null ? JSONObject.NULL : this.prevs_dss_id_member);
         json.put(DeceasedContract.DeceasedMember.COLUMN_SITE_CODE, this.site_code == null ? JSONObject.NULL : this.site_code);
         json.put(DeceasedContract.DeceasedMember.COLUMN_NAME, this.name == null ? JSONObject.NULL : this.name);
         json.put(DeceasedContract.DeceasedMember.COLUMN_DOB, this.dob == null ? JSONObject.NULL : this.dob);
@@ -405,12 +340,8 @@ public class DeceasedContract {
         json.put(DeceasedContract.DeceasedMember.COLUMN_AGEY, this.ageM == null ? JSONObject.NULL : this.ageM);
         json.put(DeceasedContract.DeceasedMember.COLUMN_AGEY, this.ageD == null ? JSONObject.NULL : this.ageD);
         json.put(DeceasedContract.DeceasedMember.COLUMN_GENDER, this.gender == null ? JSONObject.NULL : this.gender);
-        json.put(DeceasedContract.DeceasedMember.COLUMN_IS_HEAD, this.is_head == null ? JSONObject.NULL : this.is_head);
         json.put(DeceasedContract.DeceasedMember.COLUMN_RELATION_HH, this.relation_hh == null ? JSONObject.NULL : this.relation_hh);
         json.put(DeceasedContract.DeceasedMember.COLUMN_DOD, this.dod == null ? JSONObject.NULL : this.dod);
-        json.put(DeceasedContract.DeceasedMember.COLUMN_MEMBER_TYPE, this.member_type == null ? JSONObject.NULL : this.member_type);
-        json.put(DeceasedContract.DeceasedMember.COLUMN_UPDATE_FLAG, this.update_flag == null ? JSONObject.NULL : this.update_flag);
-        json.put(DeceasedContract.DeceasedMember.COLUMN_UPDATE_DT, this.update_dt == null ? JSONObject.NULL : this.update_dt);
         json.put(DeceasedContract.DeceasedMember.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
         json.put(DeceasedContract.DeceasedMember.COLUMN_SYNCED_DATE, this.syncedDate == null ? JSONObject.NULL : this.syncedDate);
         json.put(DeceasedContract.DeceasedMember.COLUMN_REMARKS, this.remarks == null ? JSONObject.NULL : this.remarks);
@@ -437,7 +368,6 @@ public class DeceasedContract {
         public static final String COLUMN_DSS_ID_M = "dss_id_m";
         public static final String COLUMN_DSS_ID_H = "dss_id_h";
         public static final String COLUMN_DSS_ID_MEMBER = "dss_id_member";
-        public static final String COLUMN_PREVS_DSS_ID_MEMBER = "prevs_dss_id_member";
         public static final String COLUMN_SITE_CODE = "site_code";
         public static final String COLUMN_NAME = "name";
         public static final String COLUMN_DOB = "dob";
@@ -445,16 +375,11 @@ public class DeceasedContract {
         public static final String COLUMN_AGEM = "agem";
         public static final String COLUMN_AGED = "aged";
         public static final String COLUMN_GENDER = "gender";
-        public static final String COLUMN_IS_HEAD = "is_head";
         public static final String COLUMN_RELATION_HH = "relation_hh";
         public static final String COLUMN_DOD = "dod";
         public static final String COLUMN_REMARKS = "remarks";
-        public static final String COLUMN_MEMBER_TYPE = "member_type";
-        public static final String COLUMN_UPDATE_FLAG = "updated_flag";
-        public static final String COLUMN_UPDATE_DT = "update_date";
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "sync_date";
-        public static final String COLUMN_REF_ID = "refid";
         public static final String COLUMN_WRA = "wra";
     }
 

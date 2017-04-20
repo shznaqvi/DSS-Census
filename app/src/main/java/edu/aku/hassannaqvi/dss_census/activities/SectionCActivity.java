@@ -17,7 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,8 +24,10 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
+import edu.aku.hassannaqvi.dss_census.contracts.DeceasedContract;
 
 public class SectionCActivity extends Activity {
 
@@ -116,6 +117,9 @@ public class SectionCActivity extends Activity {
     RadioButton dcch05;
     @BindView(R.id.fldGrpdcch)
     LinearLayout fldGrpdcch;
+
+    int position = 0;
+    boolean dataFlag = false;
 
 
     @Override
@@ -222,25 +226,57 @@ public class SectionCActivity extends Activity {
 
     private boolean UpdateDB() {
 
-//        DatabaseHelper db = new DatabaseHelper(this);
-//
-//        int updcount = db.updatesE();
-//
-//        if (updcount == 1) {
-//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-//            return true;
-//        } else {
-//            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-//            return false;
-//        }
+        DatabaseHelper db = new DatabaseHelper(this);
+        Long updcount = db.addDeceasedMembers(MainApp.dc);
+        MainApp.dc.set_ID(String.valueOf(updcount));
 
-        return true;
+        if (updcount != 0) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+
+            MainApp.dc.set_UID(
+                    (MainApp.dc.getDeviceId() + MainApp.dc.get_ID()));
+            db.updateDeceasedID();
+
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
     }
 
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        JSONObject sC = new JSONObject();
+        MainApp.dc = new DeceasedContract();
+        MainApp.dc.set_UUID(MainApp.fc.getUID());
+        MainApp.dc.setFormDate(MainApp.fc.getFormDate());
+        MainApp.dc.setDeviceId(MainApp.fc.getDeviceID());
+        MainApp.dc.setDss_id_hh(MainApp.fc.getDSSID());
+        MainApp.dc.setDss_id_h(MainApp.familyMembersList.get(position).getDss_id_h());
+        MainApp.dc.setSite_code(MainApp.familyMembersList.get(position).getSite_code());
+        MainApp.dc.set_DATE(MainApp.familyMembersList.get(position).get_DATE());
+
+        MainApp.dc.setName(dcca.getText().toString());
+        MainApp.dc.setRelation_hh(dccbrhh01.isChecked() ? "1" : dccbrhh02.isChecked() ? "2" : dccbrhh03.isChecked() ? "3"
+                : dccbrhh04.isChecked() ? "4" : dccbrhh05.isChecked() ? "5" : dccbrhh06.isChecked() ? "6"
+                : dccbrhh07.isChecked() ? "7" : dccbrhh08.isChecked() ? "8" : dccbrhh96.isChecked() ? "9"
+                : dccbrhh10.isChecked() ? "10" : dccbrhh11.isChecked() ? "11" : dccbrhh99.isChecked() ? "99"
+                : dccbrhh88.isChecked() ? "88" : "0");
+
+        MainApp.dc.setGender(dccc01.isChecked() ? "1" : dccc02.isChecked() ? "2" : "0");
+        MainApp.dc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dccd.getCalendarView().getDate()));
+        MainApp.dc.setAgeY(dccey.getText().toString());
+        MainApp.dc.setAgeM(dccem.getText().toString());
+        MainApp.dc.setAgeD(dcced.getText().toString());
+        MainApp.dc.setDod(new SimpleDateFormat("dd-MM-yyyy").format(dccf.getCalendarView().getDate()));
+        MainApp.dc.setRemarks(dccg.getText().toString());
+        MainApp.dc.setWra(dcch01.isChecked() ? "1" : dcch02.isChecked() ? "2" : dcch03.isChecked() ? "3"
+                : dcch04.isChecked() ? "4" : dcch05.isChecked() ? "5" : "0");
+
+
+
+        /*JSONObject sC = new JSONObject();
 
         sC.put("dcca", dcca.getText().toString());
         sC.put("dccbrhh", dccbrhh01.isChecked() ? "1" : dccbrhh02.isChecked() ? "2" : dccbrhh03.isChecked() ? "3"
@@ -262,7 +298,7 @@ public class SectionCActivity extends Activity {
 
 
         //        MainApp.fc.setROW_sc(String.valueOf(sc));
-
+*/
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
 

@@ -167,7 +167,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             DeceasedMember.COLUMN_DSS_ID_M + " TEXT," +
             DeceasedMember.COLUMN_DSS_ID_H + " TEXT," +
             DeceasedMember.COLUMN_DSS_ID_MEMBER + " TEXT," +
-            DeceasedMember.COLUMN_PREVS_DSS_ID_MEMBER + " TEXT," +
             DeceasedMember.COLUMN_SITE_CODE + " TEXT," +
             DeceasedMember.COLUMN_NAME + " TEXT," +
             DeceasedMember.COLUMN_DOB + " TEXT," +
@@ -175,10 +174,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             DeceasedMember.COLUMN_AGEM + " TEXT," +
             DeceasedMember.COLUMN_AGED + " TEXT," +
             DeceasedMember.COLUMN_GENDER + " TEXT," +
-            DeceasedMember.COLUMN_IS_HEAD + " TEXT," +
             DeceasedMember.COLUMN_RELATION_HH + " TEXT," +
             DeceasedMember.COLUMN_DOD + " TEXT," +
-            DeceasedMember.COLUMN_MEMBER_TYPE + " TEXT" +
             DeceasedMember.COLUMN_WRA + " TEXT" +
             " );";
 
@@ -530,6 +527,49 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+    public Long addDeceasedMembers(DeceasedContract dc) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(DeceasedMember.COLUMN_PROJECT_NAME, dc.getProjectName());
+        values.put(DeceasedMember.COLUMN_UID, dc.get_UID());
+        values.put(DeceasedMember.COLUMN_UUID, dc.get_UUID());
+        values.put(DeceasedMember.COLUMN_DATE, dc.get_DATE());
+        values.put(DeceasedMember.COLUMN_FORMDATE, dc.getFormDate());
+        values.put(DeceasedMember.COLUMN_DEVICEID, dc.getDeviceId());
+        values.put(DeceasedMember.COLUMN_USER, dc.getUser());
+        values.put(DeceasedMember.COLUMN_DSS_ID_HH, dc.getDss_id_hh());
+        values.put(DeceasedMember.COLUMN_DSS_ID_F, dc.getDss_id_f());
+        values.put(DeceasedMember.COLUMN_DSS_ID_M, dc.getDss_id_m());
+        values.put(DeceasedMember.COLUMN_DSS_ID_H, dc.getDss_id_h());
+        values.put(DeceasedMember.COLUMN_DSS_ID_MEMBER, dc.getDss_id_member());
+        values.put(DeceasedMember.COLUMN_SITE_CODE, dc.getSite_code());
+        values.put(DeceasedMember.COLUMN_NAME, dc.getName());
+        values.put(DeceasedMember.COLUMN_DOB, dc.getDob());
+        values.put(DeceasedMember.COLUMN_AGEY, dc.getAgeY());
+        values.put(DeceasedMember.COLUMN_AGEM, dc.getAgeM());
+        values.put(DeceasedMember.COLUMN_AGED, dc.getAgeD());
+        values.put(DeceasedMember.COLUMN_GENDER, dc.getGender());
+        values.put(DeceasedMember.COLUMN_RELATION_HH, dc.getRelation_hh());
+        values.put(DeceasedMember.COLUMN_DOD, dc.getDod());
+        values.put(DeceasedMember.COLUMN_REMARKS, dc.getRemarks());
+        values.put(DeceasedMember.COLUMN_WRA, dc.getWra());
+        values.put(DeceasedMember.COLUMN_SYNCED, dc.getSynced());
+        values.put(DeceasedMember.COLUMN_SYNCED_DATE, dc.getSyncedDate());
+
+
+        long newRowId;
+        newRowId = db.insert(
+                DeceasedMember.TABLE_NAME,
+                DeceasedMember.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+
     public void updateForms(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -769,7 +809,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c = null;
         String[] columns = {
                 DeceasedMember.COLUMN_ID,
-                DeceasedMember.COLUMN_REF_ID,
                 DeceasedMember.COLUMN_UID,
                 DeceasedMember.COLUMN_UUID,
                 DeceasedMember.COLUMN_DATE,
@@ -781,7 +820,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 DeceasedMember.COLUMN_DSS_ID_M,
                 DeceasedMember.COLUMN_DSS_ID_H,
                 DeceasedMember.COLUMN_DSS_ID_MEMBER,
-                DeceasedMember.COLUMN_PREVS_DSS_ID_MEMBER,
                 DeceasedMember.COLUMN_SITE_CODE,
                 DeceasedMember.COLUMN_NAME,
                 DeceasedMember.COLUMN_DOB,
@@ -789,12 +827,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 DeceasedMember.COLUMN_AGEM,
                 DeceasedMember.COLUMN_AGED,
                 DeceasedMember.COLUMN_GENDER,
-                DeceasedMember.COLUMN_IS_HEAD,
                 DeceasedMember.COLUMN_RELATION_HH,
                 DeceasedMember.COLUMN_DOD,
-                DeceasedMember.COLUMN_MEMBER_TYPE,
-                DeceasedMember.COLUMN_UPDATE_FLAG,
-                DeceasedMember.COLUMN_UPDATE_DT,
                 DeceasedMember.COLUMN_REMARKS,
                 DeceasedMember.COLUMN_SYNCED,
                 DeceasedMember.COLUMN_SYNCED_DATE,
