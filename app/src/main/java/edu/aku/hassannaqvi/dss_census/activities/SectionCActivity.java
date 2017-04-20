@@ -177,21 +177,21 @@ public class SectionCActivity extends Activity {
     void onBtnEndClick() {
 
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
-        if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {
+//        if (formValidation()) {
+//            try {
+//                SaveDraft();
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//            if (UpdateDB()) {
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
                 Intent endSec = new Intent(this, EndingActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-        }
+//            } else {
+//                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+//            }
+//        }
     }
 
     @OnClick(R.id.btn_Continue)
@@ -209,8 +209,10 @@ public class SectionCActivity extends Activity {
 
                 finish();
 
-                Intent secNext = new Intent(this, SectionDActivity.class);
-                startActivity(secNext);
+                MainApp.NoMembersCount -= 1;
+
+//                Intent secNext = new Intent(this, FamilyMembersActivity.class);
+//                startActivity(secNext);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }

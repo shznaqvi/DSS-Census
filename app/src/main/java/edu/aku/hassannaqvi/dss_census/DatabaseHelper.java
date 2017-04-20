@@ -93,7 +93,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + censusMember.TABLE_NAME + "("
             + censusMember.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + censusMember.COLUMN_PROJECT_NAME + " TEXT," +
+            censusMember.COLUMN_REF_ID + " TEXT," +
             censusMember.COLUMN_UID + " TEXT,"+
+            censusMember.COLUMN_UUID + " TEXT,"+
             censusMember.COLUMN_DATE + " TEXT,"+
             censusMember.COLUMN_FORMDATE + " TEXT,"+
             censusMember.COLUMN_DEVICEID + " TEXT,"+
@@ -123,6 +125,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             censusMember.COLUMN_OCCUPATION + " TEXT,"+
             censusMember.COLUMN_OCCUPATIONX + " TEXT,"+
             censusMember.COLUMN_MEMBER_TYPE + " TEXT,"+
+            censusMember.COLUMN_REMARKS + " TEXT,"+
             censusMember.COLUMN_UPDATE_FLAG + " TEXT,"+
             censusMember.COLUMN_UPDATE_DT + " TEXT,"+
             censusMember.COLUMN_SYNCED + " TEXT,"+
@@ -450,7 +453,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
         values.put(censusMember.COLUMN_PROJECT_NAME, mc.getProjectName());
+        values.put(censusMember.COLUMN_REF_ID, mc.getREF_ID());
         values.put(censusMember.COLUMN_UID, mc.get_UID());
+        values.put(censusMember.COLUMN_UUID, mc.get_UUID());
         values.put(censusMember.COLUMN_DATE, mc.get_DATE());
         values.put(censusMember.COLUMN_FORMDATE, mc.getFormDate());
         values.put(censusMember.COLUMN_DEVICEID, mc.getDeviceId());
@@ -480,6 +485,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(censusMember.COLUMN_OCCUPATION, mc.getOccupation());
         values.put(censusMember.COLUMN_OCCUPATIONX, mc.getOccupationX());
         values.put(censusMember.COLUMN_MEMBER_TYPE, mc.getMember_type());
+        values.put(censusMember.COLUMN_REMARKS, mc.getRemarks());
         values.put(censusMember.COLUMN_UPDATE_FLAG, mc.getUpdate_flag());
         values.put(censusMember.COLUMN_UPDATE_DT, mc.getUpdate_dt());
         values.put(censusMember.COLUMN_SYNCED, mc.getSynced());
@@ -559,7 +565,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(censusMember.COLUMN_UID, MainApp.cc.get_UID());
 
 // Which row to update, based on the ID
-        String selection = censusMember._ID + " LIKE ?";
+        String selection = censusMember.COLUMN_ID + " LIKE ?";
         String[] selectionArgs = {String.valueOf(MainApp.cc.get_ID())};
 
         int count = db.update(censusMember.TABLE_NAME,
@@ -616,7 +622,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c = null;
         String[] columns = {
                 censusMember.COLUMN_ID,
+                censusMember.COLUMN_REF_ID,
                 censusMember.COLUMN_UID,
+                censusMember.COLUMN_UUID,
                 censusMember.COLUMN_DATE,
                 censusMember.COLUMN_FORMDATE,
                 censusMember.COLUMN_DEVICEID,
@@ -648,6 +656,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_MEMBER_TYPE,
                 censusMember.COLUMN_UPDATE_FLAG,
                 censusMember.COLUMN_UPDATE_DT,
+                censusMember.COLUMN_REMARKS,
                 censusMember.COLUMN_SYNCED,
                 censusMember.COLUMN_SYNCED_DATE
         };

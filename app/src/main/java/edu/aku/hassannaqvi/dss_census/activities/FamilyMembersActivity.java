@@ -72,7 +72,6 @@ public class FamilyMembersActivity extends Activity {
 
                         Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
                         i.putExtra("dataFlag",true);
-                        i.putExtra("memberName", MainApp.familyMembersList.get(position).getName());
                         i.putExtra("position", position);
 
                         startActivity(i);
@@ -115,13 +114,13 @@ public class FamilyMembersActivity extends Activity {
         super.onResume();
 
 //        Set Enable for Next Section
-        if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
-            btn_Continue.setEnabled(false);
-            btn_addMember.setEnabled(true);
-        } else {
-            btn_Continue.setEnabled(true);
-            btn_addMember.setEnabled(false);
-        }
+//        if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
+//            btn_Continue.setEnabled(false);
+//            btn_addMember.setEnabled(true);
+//        } else {
+//            btn_Continue.setEnabled(true);
+//            btn_addMember.setEnabled(false);
+//        }
 
 //        Death Members
 
@@ -189,6 +188,7 @@ public class FamilyMembersActivity extends Activity {
 
         public RecyclerItemClickListener(Context context, OnItemClickListener listener) {
             mListener = listener;
+
             mGestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
                 @Override
                 public boolean onSingleTapUp(MotionEvent e) {

@@ -14,7 +14,9 @@ public class CensusContract {
 
     private final String projectName = "DSS Census";
     private String _ID = "";
+    private String REF_ID = "";
     private String _UID = "";
+    private String _UUID = "";
     private String _DATE = "";
     private String formDate = "";
     private String deviceId = "";
@@ -48,6 +50,7 @@ public class CensusContract {
     private String update_dt = "";
     private String synced = "";
     private String syncedDate = "";
+    private String remarks = "";
 
 
     public CensusContract() {
@@ -57,12 +60,36 @@ public class CensusContract {
         return projectName;
     }
 
+    public String get_ID() {
+        return _ID;
+    }
+
+    public void set_ID(String _ID) {
+        this._ID = _ID;
+    }
+
+    public String getREF_ID() {
+        return REF_ID;
+    }
+
+    public void setREF_ID(String REF_ID) {
+        this.REF_ID = REF_ID;
+    }
+
     public String get_UID() {
         return _UID;
     }
 
     public void set_UID(String _UID) {
         this._UID = _UID;
+    }
+
+    public String get_UUID() {
+        return _UUID;
+    }
+
+    public void set_UUID(String _UUID) {
+        this._UUID = _UUID;
     }
 
     public String get_DATE() {
@@ -329,10 +356,20 @@ public class CensusContract {
         this.occupationX = occupationX;
     }
 
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
     public CensusContract Sync(JSONObject jsonObject) throws JSONException {
 
         this._ID= jsonObject.getString(censusMember.COLUMN_ID);
+        this.REF_ID= jsonObject.getString(censusMember.COLUMN_REF_ID);
         this._UID= jsonObject.getString(censusMember.COLUMN_UID);
+        this._UUID= jsonObject.getString(censusMember.COLUMN_UUID);
         this._DATE= jsonObject.getString(censusMember.COLUMN_DATE);
         this.formDate= jsonObject.getString(censusMember.COLUMN_FORMDATE);
         this.deviceId= jsonObject.getString(censusMember.COLUMN_DEVICEID);
@@ -366,6 +403,7 @@ public class CensusContract {
         this.update_dt= jsonObject.getString(censusMember.COLUMN_UPDATE_DT);
         this.synced= jsonObject.getString(censusMember.COLUMN_SYNCED);
         this.syncedDate= jsonObject.getString(censusMember.COLUMN_SYNCED_DATE);
+        this.remarks= jsonObject.getString(censusMember.COLUMN_REMARKS);
 
         return this;
 
@@ -374,7 +412,9 @@ public class CensusContract {
     public CensusContract Hydrate(Cursor cursor) {
 
         this._ID = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_ID));
+        this.REF_ID = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_REF_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_UID));
+        this._UUID = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_UUID));
         this._DATE = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DATE));
         this.formDate = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_FORMDATE));
         this.deviceId = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DEVICEID));
@@ -408,6 +448,7 @@ public class CensusContract {
         this.update_dt = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_UPDATE_DT));
         this.synced = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SYNCED));
         this.syncedDate = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SYNCED_DATE));
+        this.remarks = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_REMARKS));
 
         return this;
 
@@ -419,7 +460,9 @@ public class CensusContract {
         JSONObject json = new JSONObject();
 
         json.put(censusMember.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
+        json.put(censusMember.COLUMN_REF_ID, this.REF_ID == null ? JSONObject.NULL : this.REF_ID);
         json.put(censusMember.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
+        json.put(censusMember.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
         json.put(censusMember.COLUMN_DATE, this._DATE == null ? JSONObject.NULL : this._DATE);
         json.put(censusMember.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(censusMember.COLUMN_DEVICEID, this.deviceId == null ? JSONObject.NULL : this.deviceId);
@@ -453,6 +496,7 @@ public class CensusContract {
         json.put(censusMember.COLUMN_UPDATE_DT, this.update_dt == null ? JSONObject.NULL : this.update_dt);
         json.put(censusMember.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
         json.put(censusMember.COLUMN_SYNCED_DATE, this.syncedDate == null ? JSONObject.NULL : this.syncedDate);
+        json.put(censusMember.COLUMN_REMARKS, this.remarks == null ? JSONObject.NULL : this.remarks);
 
 
         return json;
@@ -464,8 +508,9 @@ public class CensusContract {
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
 
         public static final String COLUMN_PROJECT_NAME = "DSS Census";
-        public static final String COLUMN_ID = "id";
+        public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "uid";
+        public static final String COLUMN_UUID = "uuid";
         public static final String COLUMN_DATE = "_date";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_DEVICEID = "deviceid";
@@ -494,10 +539,12 @@ public class CensusContract {
         public static final String COLUMN_EDUCATIONX = "educationx";
         public static final String COLUMN_OCCUPATION = "occupation";
         public static final String COLUMN_OCCUPATIONX = "occupationx";
+        public static final String COLUMN_REMARKS = "remarks";
         public static final String COLUMN_MEMBER_TYPE = "member_type";
         public static final String COLUMN_UPDATE_FLAG = "updated_flag";
         public static final String COLUMN_UPDATE_DT = "update_date";
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "sync_date";
+        public static final String COLUMN_REF_ID = "refid";
     }
 }
