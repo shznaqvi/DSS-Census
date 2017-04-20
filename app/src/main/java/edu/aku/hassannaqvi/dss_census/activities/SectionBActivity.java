@@ -279,8 +279,7 @@ public class SectionBActivity extends Activity {
             if (!MainApp.familyMembersList.get(position).getMember_type().contains("null")) {
 
                 String mt = MainApp.familyMembersList.get(position).getMember_type();
-
-                ((RadioButton) dcbm.getChildAt(mt == "mw" ? 0 : (mt == "h" ? 1 : 2))).setChecked(true);
+                ((RadioButton) dcbm.getChildAt(mt.equals("mw") ? 0 : mt.equals("h") ? 1 : 2)).setChecked(true);
             }
 
         }else {
