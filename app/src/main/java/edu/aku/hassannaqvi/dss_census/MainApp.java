@@ -71,8 +71,8 @@ public class MainApp extends Application {
     public static List<MembersContract> familyMembersList;
     public static CensusContract cc;
     public static DeceasedContract dc;
-    //    Family Member List
-//    public static List<familyMembers> familyMembersList;
+    public static int memFlag = 0;
+    public static List<Integer> memClicked;
     protected LocationManager locationManager;
     Location location;
 

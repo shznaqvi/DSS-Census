@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -52,11 +53,16 @@ public class FamilyMembersActivity extends Activity {
         ButterKnife.bind(this);
 
         //Set Enable for Next Section
-        if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
+        if (MainApp.familyMembersList.size() == MainApp.memFlag) {
+            if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
+                btn_Continue.setEnabled(false);
+                btn_addMember.setEnabled(true);
+            } else {
+                btn_Continue.setEnabled(true);
+                btn_addMember.setEnabled(false);
+            }
+        }else {
             btn_Continue.setEnabled(false);
-            btn_addMember.setEnabled(true);
-        } else {
-            btn_Continue.setEnabled(true);
             btn_addMember.setEnabled(false);
         }
 
@@ -69,21 +75,33 @@ public class FamilyMembersActivity extends Activity {
 
         mAdapter.notifyDataSetChanged();
 
+        MainApp.memClicked = new ArrayList<Integer>();
+
         recycler_noMembers.addOnItemTouchListener(
                 new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
                         // TODO Handle item click
 
-                        recycler_noMembers.getChildAt(position).setEnabled(false);
+                        boolean flag = true;
+                        for(int mem : MainApp.memClicked){
+                            if (mem == position){
+                                flag = false;
+                                break;
+                            }
+                        }
 
-                        mAdapter.notifyDataSetChanged();
+                        if (flag) {
+                            MainApp.memFlag++;
 
-                        Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
-                        i.putExtra("dataFlag",true);
-                        i.putExtra("position", position);
+                            MainApp.memClicked.add(position);
 
-                        startActivity(i);
+                            Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
+                            i.putExtra("dataFlag", true);
+                            i.putExtra("position", position);
+
+                            startActivity(i);
+                        }
 
 //                        Toast.makeText(getApplicationContext(),familyMembersList.get(position).getMemberName(),Toast.LENGTH_SHORT).show();
                     }
@@ -97,6 +115,7 @@ public class FamilyMembersActivity extends Activity {
 
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+        finish();
         Intent endSec = new Intent(this, EndingActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
@@ -107,12 +126,15 @@ public class FamilyMembersActivity extends Activity {
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
 
+        finish();
         startActivity(new Intent(this, SectionDActivity.class));
 
     }
 
     @OnClick(R.id.btn_addMember)
     void onBtnAddMemberClick() {
+
+        MainApp.memFlag++;
 
         startActivity(new Intent(this, SectionBActivity.class));
 
@@ -125,11 +147,16 @@ public class FamilyMembersActivity extends Activity {
         mAdapter.notifyDataSetChanged();
 
 //        Set Enable for Next Section
-        if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
+        if (MainApp.familyMembersList.size() == MainApp.memFlag) {
+            if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
+                btn_Continue.setEnabled(false);
+                btn_addMember.setEnabled(true);
+            } else {
+                btn_Continue.setEnabled(true);
+                btn_addMember.setEnabled(false);
+            }
+        }else {
             btn_Continue.setEnabled(false);
-            btn_addMember.setEnabled(true);
-        } else {
-            btn_Continue.setEnabled(true);
             btn_addMember.setEnabled(false);
         }
 

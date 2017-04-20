@@ -524,6 +524,7 @@ public class SectionBActivity extends Activity {
         MainApp.cc.setFormDate(MainApp.fc.getFormDate());
         MainApp.cc.setDeviceId(MainApp.fc.getDeviceID());
         MainApp.cc.setDss_id_hh(MainApp.fc.getDSSID());
+        MainApp.cc.setUser(MainApp.fc.getUser());
         if (dataFlag) {
             MainApp.cc.setDss_id_h(MainApp.familyMembersList.get(position).getDss_id_h());
             MainApp.cc.setPrevs_dss_id_member(MainApp.familyMembersList.get(position).getPrevs_dss_id_member());
@@ -532,7 +533,7 @@ public class SectionBActivity extends Activity {
             MainApp.cc.set_DATE(MainApp.familyMembersList.get(position).get_DATE());
 
             MainApp.cc.setUpdate_dt(new SimpleDateFormat("dd-MM-yy").format(new Date()));
-            MainApp.cc.setUpdate_dt("true");
+            MainApp.cc.setUpdate_flag("true");
         }
         MainApp.cc.setName(dcba.getText().toString());
         MainApp.cc.setDss_id_member(dcbid.getText().toString());
@@ -924,15 +925,15 @@ public class SectionBActivity extends Activity {
                 dcbir03.setError(null);
             }
 
-            if (dcbirm.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbir), Toast.LENGTH_SHORT).show();
-                dcbirm.setError("This data is Required!");    // Set Error on last radio button
-
-                Log.i(TAG, "dcbirm: This data is Required!");
-                return false;
-            } else {
-                dcbirm.setError(null);
-            }
+//            if (dcbirm.getText().toString().isEmpty()) {
+//                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbir), Toast.LENGTH_SHORT).show();
+//                dcbirm.setError("This data is Required!");    // Set Error on last radio button
+//
+//                Log.i(TAG, "dcbirm: This data is Required!");
+//                return false;
+//            } else {
+//                dcbirm.setError(null);
+//            }
         }
         //}
 
@@ -940,10 +941,10 @@ public class SectionBActivity extends Activity {
         return true;
     }
 
-    //@Override
-//    public void onBackPressed() {
-//        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
-//    }
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+    }
 
 
 }

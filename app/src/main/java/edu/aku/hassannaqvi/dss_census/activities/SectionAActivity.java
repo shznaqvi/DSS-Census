@@ -383,8 +383,12 @@ public class SectionAActivity extends Activity {
 
         String member="";
         for (byte i=0;i < MainApp.familyMembersList.size();i++){
-            member+=MainApp.familyMembersList.get(i).getName()+"\n";
+
+            member+=MainApp.familyMembersList.get(i).getName()+" Type:"+
+                    (MainApp.familyMembersList.get(i).getMember_type().contains("mw") ? "Married Women" :
+                            (MainApp.familyMembersList.get(i).getMember_type().contains("h") ? "Male" : "Child"))+"\n";
         }
+
 
         alertDialogBuilder
                 .setTitle("Members Name")
@@ -414,12 +418,11 @@ public class SectionAActivity extends Activity {
 
             mp02_count.setText("Members found = " + members.size());
 
+            MainApp.familyMembersList = new ArrayList<>();
 
             if (members.size() != 0) {
 
 //                MainApp.familyMembersList = new ArrayList<>();
-
-                MainApp.familyMembersList = new ArrayList<>();
 
                 for (MembersContract ec : members) {
 //                    MainApp.familyMembersList.add(new familyMembers(ec.getName(),ec.getDss_id_member(),ec.getCurrent_status(),ec.getDob()));
@@ -436,6 +439,8 @@ public class SectionAActivity extends Activity {
 
                 MainApp.currentStatusCount = MainApp.familyMembersList.size();
 
+                checkMembers.setEnabled(true);
+
                 isNew = false;
 
             } else {
@@ -446,6 +451,8 @@ public class SectionAActivity extends Activity {
 //                flag = false;
 
                 isNew = true;
+
+                checkMembers.setEnabled(false);
 
                 Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
             }
