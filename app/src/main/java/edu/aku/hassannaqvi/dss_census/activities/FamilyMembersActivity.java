@@ -24,7 +24,6 @@ import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
-import edu.aku.hassannaqvi.dss_census.otherClasses.familyMembers;
 
 public class FamilyMembersActivity extends Activity {
 
@@ -32,19 +31,16 @@ public class FamilyMembersActivity extends Activity {
 //    @BindView(R.id.lst_noMembers) ListView lstNoMembers;
 
 
-    //    private RecyclerView recycler_noMembers;
-    private familyMembersAdapter mAdapter;
     @BindView(R.id.recycler_noMembers)
     RecyclerView recycler_noMembers;
-
     @BindView(R.id.btn_Continue)
     Button btn_Continue;
-
     @BindView(R.id.btn_addMember)
     Button btn_addMember;
-
     @BindView(R.id.btn_End)
     Button btn_End;
+    //    private RecyclerView recycler_noMembers;
+    private familyMembersAdapter mAdapter;
 
 //    String[] mStatus = {"Single", "Married", "Divorced"};
 //    String[] gender = {"Male", "Female"};
@@ -129,22 +125,47 @@ public class FamilyMembersActivity extends Activity {
 //        }
     }
 
+    public static class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
+        GestureDetector mGestureDetector;
+        private OnItemClickListener mListener;
+
+        public RecyclerItemClickListener(Context context, OnItemClickListener listener) {
+            mListener = listener;
+
+            /*mGestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
+                @Override
+                public boolean onSingleTapUp(MotionEvent e) {
+                    return true;
+                }
+            });*/
+        }
+
+        @Override
+        public boolean onInterceptTouchEvent(RecyclerView view, MotionEvent e) {
+            /*View childView = view.findChildViewUnder(e.getX(), e.getY());
+            if (childView != null && mListener != null && mGestureDetector.onTouchEvent(e)) {
+                mListener.onItemClick(childView, view.getChildAdapterPosition(childView));
+            }*/
+            return false;
+        }
+
+        @Override
+        public void onTouchEvent(RecyclerView view, MotionEvent motionEvent) {
+        }
+
+        @Override
+        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+        }
+
+        public interface OnItemClickListener {
+            void onItemClick(View view, int position);
+        }
+    }
+
     public class familyMembersAdapter extends RecyclerView.Adapter<familyMembersAdapter.MyViewHolder> {
 
         private List<MembersContract> familyMembersList;
-
-        public class MyViewHolder extends RecyclerView.ViewHolder {
-            public TextView memberName, DSSidm, year, currentStatus;
-
-            public MyViewHolder(View view) {
-                super(view);
-                this.memberName = (TextView) view.findViewById(R.id.memberName);
-                this.DSSidm = (TextView) view.findViewById(R.id.DSSid);
-                this.currentStatus = (TextView) view.findViewById(R.id.currentStatus);
-                year = (TextView) view.findViewById(R.id.year);
-            }
-        }
-
 
         public familyMembersAdapter(List<MembersContract> familyMembersList) {
             this.familyMembersList = familyMembersList;
@@ -175,44 +196,17 @@ public class FamilyMembersActivity extends Activity {
         public int getItemCount() {
             return familyMembersList.size();
         }
-    }
 
-    public static class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
-        private OnItemClickListener mListener;
+        public class MyViewHolder extends RecyclerView.ViewHolder {
+            public TextView memberName, DSSidm, year, currentStatus;
 
-        public interface OnItemClickListener {
-            void onItemClick(View view, int position);
-        }
-
-        GestureDetector mGestureDetector;
-
-        public RecyclerItemClickListener(Context context, OnItemClickListener listener) {
-            mListener = listener;
-
-            mGestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onSingleTapUp(MotionEvent e) {
-                    return true;
-                }
-            });
-        }
-
-        @Override
-        public boolean onInterceptTouchEvent(RecyclerView view, MotionEvent e) {
-            View childView = view.findChildViewUnder(e.getX(), e.getY());
-            if (childView != null && mListener != null && mGestureDetector.onTouchEvent(e)) {
-                mListener.onItemClick(childView, view.getChildAdapterPosition(childView));
+            public MyViewHolder(View view) {
+                super(view);
+                this.memberName = (TextView) view.findViewById(R.id.memberName);
+                this.DSSidm = (TextView) view.findViewById(R.id.DSSid);
+                this.currentStatus = (TextView) view.findViewById(R.id.currentStatus);
+                year = (TextView) view.findViewById(R.id.year);
             }
-            return false;
-        }
-
-        @Override
-        public void onTouchEvent(RecyclerView view, MotionEvent motionEvent) {
-        }
-
-        @Override
-        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
         }
     }
 }

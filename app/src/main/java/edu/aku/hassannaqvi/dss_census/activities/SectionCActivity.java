@@ -221,6 +221,7 @@ public class SectionCActivity extends Activity {
     }
 
     private boolean UpdateDB() {
+
 //        DatabaseHelper db = new DatabaseHelper(this);
 //
 //        int updcount = db.updatesE();
