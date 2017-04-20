@@ -28,6 +28,7 @@ import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
 
@@ -567,17 +568,17 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
     }
 
     private boolean UpdateDB() {
-        //SRCDBHelper db = new SRCDBHelper(this);
+        DatabaseHelper db = new DatabaseHelper(this);
 
-        //int updcount = db.updateSi();
+        int updcount = db.updateSI();
 
-//        if (updcount == 1) {
+        if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
             return true;
-        //      } else {
-        //        Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-        //      return false;
-        // }
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
 
     }
 

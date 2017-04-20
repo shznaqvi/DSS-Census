@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.R;
 
 public class SectionJActivity extends Activity  {
@@ -477,19 +478,19 @@ public class SectionJActivity extends Activity  {
     }
 
     private boolean UpdateDB() {
-//        DatabaseHelper db = new DatabaseHelper(this);
-//
-//        int updcount = db.updatesE();
-//
-//        if (updcount == 1) {
-//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-//            return true;
-//        } else {
-//            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-//            return false;
-//        }
+        DatabaseHelper db = new DatabaseHelper(this);
 
-        return true;
+        int updcount = db.updateSJ();
+
+        if (updcount == 1) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+
     }
 
 }

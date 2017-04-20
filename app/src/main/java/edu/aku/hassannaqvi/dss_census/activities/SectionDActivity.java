@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.R;
 
 public class SectionDActivity extends Activity {
@@ -893,19 +894,19 @@ public class SectionDActivity extends Activity {
     }
 
     private boolean UpdateDB() {
-//        DatabaseHelper db = new DatabaseHelper(this);
-//
-//        int updcount = db.updatesE();
-//
-//        if (updcount == 1) {
-//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-//            return true;
-//        } else {
-//            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-//            return false;
-//        }
 
-        return true;
+        DatabaseHelper db = new DatabaseHelper(this);
+
+        int updcount = db.updateSD();
+
+        if (updcount == 1) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
     }
 
     private void SaveDraft() throws JSONException {
