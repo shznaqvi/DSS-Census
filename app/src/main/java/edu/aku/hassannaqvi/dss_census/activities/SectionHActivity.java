@@ -23,6 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
+import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
 
 public class SectionHActivity extends Activity {
@@ -375,7 +376,7 @@ public class SectionHActivity extends Activity {
         //sh.put("dch13", dch1301.isChecked() ? "1" : dch1302.isChecked() ? "2" : "0");
 
 
-        // DCEApp.fc.setROW_Sh(String.valueOf(sh));
+        MainApp.fc.setsH(String.valueOf(sH));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

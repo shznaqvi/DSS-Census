@@ -23,6 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
+import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
 
 public class SectionLActivity extends Activity  {
@@ -584,8 +585,7 @@ public class SectionLActivity extends Activity  {
         sL.put("dcl05", dcl0588.isChecked() ? "88" : dcl0501.isChecked() ? "1" : dcl0502.isChecked() ? "2"
                 : dcl0503.isChecked() ? "3" : "0");
 
-
-//        MainApp.fc.setROW_sk(String.valueOf(sk));
+        MainApp.fc.setsL(String.valueOf(sL));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

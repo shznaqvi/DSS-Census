@@ -71,6 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleForm.COLUMN_GPSDATE + " TEXT," +
             singleForm.COLUMN_GPSACC + " TEXT," +
             singleForm.COLUMN_DEVICEID + " TEXT," +
+            singleForm.COLUMN_DEVICETAGID + " TEXT," +
             singleForm.COLUMN_SYNCED + " TEXT," +
             singleForm.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
@@ -431,6 +432,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(singleForm.COLUMN_GPSLNG, fc.getGpsLng());
         values.put(singleForm.COLUMN_GPSDATE, fc.getGpsDT());
         values.put(singleForm.COLUMN_GPSACC, fc.getGpsAcc());
+        values.put(singleForm.COLUMN_DEVICETAGID, fc.getDevicetagID());
         values.put(singleForm.COLUMN_DEVICEID, fc.getDeviceID());
         values.put(singleForm.COLUMN_SYNCED, fc.getSynced());
         values.put(singleForm.COLUMN_SYNCED_DATE, fc.getSynced_date());
@@ -896,6 +898,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_GPSDATE,
                 singleForm.COLUMN_GPSACC,
                 singleForm.COLUMN_DEVICEID,
+                singleForm.COLUMN_DEVICETAGID,
                 singleForm.COLUMN_SYNCED,
                 singleForm.COLUMN_SYNCED_DATE,
         };

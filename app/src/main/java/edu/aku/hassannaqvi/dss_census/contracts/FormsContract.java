@@ -43,6 +43,7 @@ public class FormsContract {
     private String gpsDT = "";
     private String gpsAcc = "";
     private String deviceID = "";
+    private String devicetagID = "";
     private String synced = "";
     private String synced_date = "";
 
@@ -75,6 +76,7 @@ public class FormsContract {
         this.gpsDT = jsonObject.getString(singleForm.COLUMN_GPSDATE);
         this.gpsAcc= jsonObject.getString(singleForm.COLUMN_GPSACC);
         this.deviceID= jsonObject.getString(singleForm.COLUMN_DEVICEID);
+        this.devicetagID= jsonObject.getString(singleForm.COLUMN_DEVICETAGID);
         this.synced= jsonObject.getString(singleForm.COLUMN_SYNCED);
         this.synced_date= jsonObject.getString(singleForm.COLUMN_SYNCED_DATE);
 
@@ -106,6 +108,7 @@ public class FormsContract {
         this.gpsDT = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_GPSDATE));
         this.gpsAcc = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_GPSACC));
         this.deviceID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DEVICEID));
+        this.devicetagID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DEVICETAGID));
         this.synced = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SYNCED));
         this.synced_date = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SYNCED_DATE));
 
@@ -143,6 +146,7 @@ public class FormsContract {
         json.put(singleForm.COLUMN_GPSDATE, this.gpsDT == null ? JSONObject.NULL : this.gpsDT);
         json.put(singleForm.COLUMN_GPSACC, this.gpsAcc == null ? JSONObject.NULL : this.gpsAcc);
         json.put(singleForm.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
+        json.put(singleForm.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
         json.put(singleForm.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
         json.put(singleForm.COLUMN_SYNCED_DATE, this.synced_date == null ? JSONObject.NULL : this.synced_date);
 
@@ -338,6 +342,14 @@ public class FormsContract {
         this.deviceID = deviceID;
     }
 
+    public String getDevicetagID() {
+        return devicetagID;
+    }
+
+    public void setDevicetagID(String devicetagID) {
+        this.devicetagID = devicetagID;
+    }
+
     public String getSynced() {
         return synced;
     }
@@ -382,6 +394,7 @@ public class FormsContract {
         public static final String COLUMN_GPSDATE = "gpsdate";
         public static final String COLUMN_GPSACC = "gpsacc";
         public static final String COLUMN_DEVICEID = "deviceid";
+        public static final String COLUMN_DEVICETAGID = "tagid";
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
     }

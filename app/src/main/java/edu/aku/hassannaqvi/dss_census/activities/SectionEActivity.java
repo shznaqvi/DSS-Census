@@ -24,6 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
+import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
 
 public class SectionEActivity extends Activity {
@@ -479,7 +480,7 @@ public class SectionEActivity extends Activity {
         sE.put("dce0721", dce0721.getText().toString());
         sE.put("dce0722", dce0722.getText().toString());
 
-        //DCEApp.fc.setROW_Se(String.valueOf(se));
+        MainApp.fc.setsE(String.valueOf(sE));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

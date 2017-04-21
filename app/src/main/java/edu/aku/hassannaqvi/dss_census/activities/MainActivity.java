@@ -1,13 +1,17 @@
 package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -38,6 +42,12 @@ public class MainActivity extends Activity {
     private Boolean exit = false;
     private String rSumText = "";
 
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
+    AlertDialog.Builder builder;
+
+    String m_Text= "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +57,37 @@ public class MainActivity extends Activity {
 
         // Reset working variables
         MainApp.child_name = "Test";
+
+        sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
+        editor = sharedPref.edit();
+
+        builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Tag Name");
+
+        final EditText input = new EditText(MainActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_Text = input.getText().toString();
+                if (!m_Text.equals("")) {
+                    editor.putString("tagName", m_Text);
+                    editor.commit();
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        if (sharedPref.getString("tagName",null) == "" || sharedPref.getString("tagName",null) == null){
+            builder.show();
+        }
 
 
 //        if (MainApp.admin) {
@@ -105,8 +146,40 @@ public class MainActivity extends Activity {
     }
 
     public void openForm(View v) {
-        Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
-        startActivity(oF);
+        if (sharedPref.getString("tagName",null) != "" && sharedPref.getString("tagName",null) != null){
+            Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
+            startActivity(oF);
+        }else {
+
+            builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle("Tag Name");
+
+            final EditText input = new EditText(MainActivity.this);
+            input.setInputType(InputType.TYPE_CLASS_TEXT);
+            builder.setView(input);
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    m_Text = input.getText().toString();
+                    if (!m_Text.equals("")) {
+                        editor.putString("tagName", m_Text);
+                        editor.commit();
+
+                        Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
+                        startActivity(oF);
+                    }
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            builder.show();
+        }
     }
 
     public void openMembers(View v) {
