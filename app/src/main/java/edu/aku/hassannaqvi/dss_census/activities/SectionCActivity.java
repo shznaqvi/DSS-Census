@@ -133,6 +133,23 @@ public class SectionCActivity extends Activity {
 
         appHeader.setText("DSS - > Section C: People Deceased in Last One Year");
 
+//        Set fields
+        dcca.setText(MainApp.cc.getName());
+        dcca.setEnabled(false);
+
+        ((RadioButton) dccbrhh.getChildAt((Integer.parseInt(MainApp.cc.getRelation_hh())) - 1)).setChecked(true);
+
+        dccbfid.setText(MainApp.cc.getDss_id_f());
+        dccbmid.setText(MainApp.cc.getDss_id_m());
+
+        ((RadioButton) dccc.getChildAt((Integer.parseInt(MainApp.cc.getGender())) - 1)).setChecked(true);
+
+        String[] dt = MainApp.cc.getDob().split("-");
+
+        dccd.updateDate(Integer.parseInt(dt[2]),Integer.parseInt(dt[1]),Integer.parseInt(dt[0]));
+
+        /* End Fields */
+
         dccdod.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -173,6 +190,8 @@ public class SectionCActivity extends Activity {
                 }
             }
         });
+
+
 
 
     }

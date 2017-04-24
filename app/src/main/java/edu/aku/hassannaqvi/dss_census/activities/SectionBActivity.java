@@ -266,7 +266,6 @@ public class SectionBActivity extends Activity {
             if (!MainApp.familyMembersList.get(position).getGender().contains("null")) {
                 ((RadioButton) dcbd.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getGender())) - 1)).setChecked(true);
             }
-            dcbd.setEnabled(false);
 
             if (!MainApp.familyMembersList.get(position).getEducation().contains("null")) {
                 ((RadioButton) dcbe.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getEducation())) - 1)).setChecked(true);
@@ -360,64 +359,91 @@ public class SectionBActivity extends Activity {
         dcbis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+
                 if (dcbis01.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.GONE);
                     //dcbidt.clearCheck();
                     fldGrpdcbir.setVisibility(View.GONE);
                     dcbir.clearCheck();
                     dcbirm.setText(null);
-                } else if (dcbis05.isChecked()) {
-                    fldGrpdcbir.setVisibility(View.GONE);
-                    dcbir.clearCheck();
-                    dcbirm.setText(null);
-                } else {
+                }
+                else if (dcbis02.isChecked()){
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
                     fldGrpdcbir.setVisibility(View.VISIBLE);
-                }
-            }
-        });
 
-
-        dcbis02.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
                     dcbidtTxt.setText(getString(R.string.dcbis02) + " " + getString(R.string.dcbidt));
                 }
-            }
-        });
+                else if (dcbis03.isChecked()){
+                    fldGrpdcbidt.setVisibility(View.VISIBLE);
+                    fldGrpdcbir.setVisibility(View.VISIBLE);
 
-        dcbis03.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
                     dcbidtTxt.setText(getString(R.string.dcbis03) + " " + getString(R.string.dcbidt));
                 }
-            }
-        });
+                else if (dcbis04.isChecked()){
+                    fldGrpdcbidt.setVisibility(View.VISIBLE);
+                    fldGrpdcbir.setVisibility(View.VISIBLE);
 
-        dcbis04.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
                     dcbidtTxt.setText(getString(R.string.dcbis04) + " " + getString(R.string.dcbidt));
                 }
-            }
-        });
+                else if (dcbis05.isChecked()) {
+                    fldGrpdcbidt.setVisibility(View.VISIBLE);
+                    fldGrpdcbir.setVisibility(View.GONE);
 
-        dcbis05.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+                    dcbir.clearCheck();
+                    dcbirm.setText(null);
+
                     dcbidtTxt.setText(" " + getString(R.string.dcbidt1));
+
                 }
             }
         });
+
+//        dcbis02.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked) {
+//                    dcbidtTxt.setText(getString(R.string.dcbis02) + " " + getString(R.string.dcbidt));
+//                }
+//            }
+//        });
+//
+//        dcbis03.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked) {
+//                    dcbidtTxt.setText(getString(R.string.dcbis03) + " " + getString(R.string.dcbidt));
+//                }
+//            }
+//        });
+//
+//        dcbis04.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked) {
+//                    dcbidtTxt.setText(getString(R.string.dcbis04) + " " + getString(R.string.dcbidt));
+//                }
+//            }
+//        });
+
+//        dcbis05.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked) {
+//                    dcbidtTxt.setText(" " + getString(R.string.dcbidt1));
+//                }
+//            }
+//        });
 
         dcbis06.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
+                    fldGrpdcbidt.setVisibility(View.GONE);
+                    fldGrpdcbir.setVisibility(View.GONE);
+
+                    dcbir.clearCheck();
+                    dcbirm.setText(null);
+
                     dcbis06x.setVisibility(View.VISIBLE);
                 } else {
                     dcbis06x.setVisibility(View.GONE);
@@ -425,6 +451,8 @@ public class SectionBActivity extends Activity {
                 }
             }
         });
+
+
 
 
     }
@@ -561,7 +589,7 @@ public class SectionBActivity extends Activity {
                 : dcbf16.isChecked() ? "16" : dcbf17.isChecked() ? "17" : dcbf96.isChecked() ? "96"
                 : dcbf88.isChecked() ? "88" : "0");
         MainApp.cc.setOccupationX(dcbf96x.getText().toString());
-        MainApp.cc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        MainApp.cc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dcbg.getCalendarView().getDate()));
         MainApp.cc.setAgeY(dcbhy.getText().toString());
         MainApp.cc.setAgeM(dcbhm.getText().toString());
         MainApp.cc.setAgeD(dcbhd.getText().toString());

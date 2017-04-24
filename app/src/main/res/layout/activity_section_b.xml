@@ -791,49 +791,6 @@
                     android:text="@string/dcbidt"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                <!--<RadioGroup
-                    android:id="@+id/dcbidt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    &lt;!&ndash;<RadioButton
-                        android:id="@+id/dcbidt01"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/dcbidt01" />&ndash;&gt;
-
-                    <RadioButton
-                        android:id="@+id/dcbidt02"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/dcbidt02" />
-
-                    <RadioButton
-                        android:id="@+id/dcbidt03"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/dcbidt03" />
-
-                    <RadioButton
-                        android:id="@+id/dcbidt04"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/dcbidt04" />
-
-                    <RadioButton
-                        android:id="@+id/dcbidt05"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/dcbidt05" />
-
-                </RadioGroup>
-    -->
-
 
                 <DatePicker
                     android:id="@+id/dcbidob"
