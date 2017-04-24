@@ -613,7 +613,7 @@ public class SectionFActivity extends Activity {
         // Edit Text
         sF.put("dcf12", dcf12.getText().toString());
 
-//        MainApp.fc.setROW_sE(String.valueOf(sF));
+        MainApp.fc.setsF(String.valueOf(sF));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

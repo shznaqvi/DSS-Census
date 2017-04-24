@@ -2,13 +2,17 @@ package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +29,9 @@ import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 import edu.aku.hassannaqvi.dss_census.get.GetMembers;
+import edu.aku.hassannaqvi.dss_census.get.GetUsers;
+import edu.aku.hassannaqvi.dss_census.sync.SyncCensus;
+import edu.aku.hassannaqvi.dss_census.sync.SyncDeceased;
 import edu.aku.hassannaqvi.dss_census.otherClasses.BackgroundDrawable;
 import edu.aku.hassannaqvi.dss_census.sync.SyncForms;
 
@@ -45,6 +52,12 @@ public class MainActivity extends Activity {
     private Boolean exit = false;
     private String rSumText = "";
 
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
+    AlertDialog.Builder builder;
+
+    String m_Text= "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +67,37 @@ public class MainActivity extends Activity {
 
         // Reset working variables
         MainApp.child_name = "Test";
+
+        sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
+        editor = sharedPref.edit();
+
+        builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Tag Name");
+
+        final EditText input = new EditText(MainActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_Text = input.getText().toString();
+                if (!m_Text.equals("")) {
+                    editor.putString("tagName", m_Text);
+                    editor.commit();
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        if (sharedPref.getString("tagName",null) == "" || sharedPref.getString("tagName",null) == null){
+            builder.show();
+        }
 
 
 //        if (MainApp.admin) {
@@ -112,8 +156,40 @@ public class MainActivity extends Activity {
     }
 
     public void openForm(View v) {
-        Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
-        startActivity(oF);
+        if (sharedPref.getString("tagName",null) != "" && sharedPref.getString("tagName",null) != null){
+            Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
+            startActivity(oF);
+        }else {
+
+            builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle("Tag Name");
+
+            final EditText input = new EditText(MainActivity.this);
+            input.setInputType(InputType.TYPE_CLASS_TEXT);
+            builder.setView(input);
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    m_Text = input.getText().toString();
+                    if (!m_Text.equals("")) {
+                        editor.putString("tagName", m_Text);
+                        editor.commit();
+
+                        Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
+                        startActivity(oF);
+                    }
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            builder.show();
+        }
     }
 
     public void openMembers(View v) {
@@ -199,19 +275,19 @@ public class MainActivity extends Activity {
     }*/
     public void syncServer(View view) {
 
-        String formsUrl = MainApp._HOST_URL + "virband/api/forms.php";
-        String imsUrl = MainApp._HOST_URL + "virband/api/ims.php";
-
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-            new SyncForms(this).execute(formsUrl);
+            new SyncForms(this).execute();
 
-            /*Toast.makeText(getApplicationContext(), "Syncing IMs", Toast.LENGTH_SHORT).show();
-            new SyncIMs(this).execute(imsUrl);*/
+            Toast.makeText(getApplicationContext(), "Syncing Census", Toast.LENGTH_SHORT).show();
+            new SyncCensus(this).execute();
+
+            Toast.makeText(getApplicationContext(), "Syncing Deceased", Toast.LENGTH_SHORT).show();
+            new SyncDeceased(this).execute();
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = syncPref.edit();

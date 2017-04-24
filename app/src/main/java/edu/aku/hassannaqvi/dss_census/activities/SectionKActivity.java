@@ -314,7 +314,7 @@ public class SectionKActivity extends Activity  {
         //sk.put("dckdate5", new SimpleDateFormat("dd-MM-yyyy").format(dckdate5.getCalendarView().getDate()));
 
 
-//        MainApp.fc.setROW_sk(String.valueOf(sk));
+        MainApp.fc.setsK(String.valueOf(sK));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

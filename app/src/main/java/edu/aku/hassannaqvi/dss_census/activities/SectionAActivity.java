@@ -905,8 +905,11 @@ public class SectionAActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
+        SharedPreferences sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
+
         MainApp.fc = new FormsContract();
 
+        MainApp.fc.setDevicetagID(sharedPref.getString("tagName",null));
         MainApp.fc.setDSSID(dca03.getText().toString());
         MainApp.fc.setFormDate(new SimpleDateFormat("dd-MM-yy").format(new Date()));
         MainApp.fc.setUser(MainApp.userName);

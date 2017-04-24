@@ -71,6 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleForm.COLUMN_GPSDATE + " TEXT," +
             singleForm.COLUMN_GPSACC + " TEXT," +
             singleForm.COLUMN_DEVICEID + " TEXT," +
+            singleForm.COLUMN_DEVICETAGID + " TEXT," +
             singleForm.COLUMN_SYNCED + " TEXT," +
             singleForm.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
@@ -431,6 +432,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(singleForm.COLUMN_GPSLNG, fc.getGpsLng());
         values.put(singleForm.COLUMN_GPSDATE, fc.getGpsDT());
         values.put(singleForm.COLUMN_GPSACC, fc.getGpsAcc());
+        values.put(singleForm.COLUMN_DEVICETAGID, fc.getDevicetagID());
         values.put(singleForm.COLUMN_DEVICEID, fc.getDeviceID());
         values.put(singleForm.COLUMN_SYNCED, fc.getSynced());
         values.put(singleForm.COLUMN_SYNCED_DATE, fc.getSynced_date());
@@ -690,8 +692,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c = null;
         String[] columns = {
                 singleForm._ID,
-
-
+                singleForm.COLUMN_UID,
+                singleForm.COLUMN_IS_NEW,
+                singleForm.COLUMN_DSSID,
+                singleForm.COLUMN_FORMDATE,
+                singleForm.COLUMN_USER,
+                singleForm.COLUMN_ISTATUS,
+                singleForm.COLUMN_SA,
+                singleForm.COLUMN_SD,
+                singleForm.COLUMN_SE,
+                singleForm.COLUMN_SF,
+                singleForm.COLUMN_SG,
+                singleForm.COLUMN_SH,
+                singleForm.COLUMN_SI,
+                singleForm.COLUMN_SJ,
+                singleForm.COLUMN_SK,
+                singleForm.COLUMN_SL,
+                singleForm.COLUMN_SM,
+                singleForm.COLUMN_GPSLAT,
+                singleForm.COLUMN_GPSLNG,
+                singleForm.COLUMN_GPSDATE,
+                singleForm.COLUMN_GPSACC,
+                singleForm.COLUMN_DEVICETAGID,
+                singleForm.COLUMN_DEVICEID,
+                singleForm.COLUMN_SYNCED,
+                singleForm.COLUMN_SYNCED_DATE,
         };
         String whereClause = null;
         String[] whereArgs = null;
@@ -699,12 +724,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                FormsContract.singleForm.COLUMN_ID + " ASC";
+                singleForm.COLUMN_ID + " ASC";
 
         Collection<FormsContract> allFC = new ArrayList<FormsContract>();
         try {
             c = db.query(
-                    FormsContract.singleForm.TABLE_NAME,  // The table to query
+                    singleForm.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -727,7 +752,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFC;
     }
 
-    public Collection<CensusContract> getAllCensus() {
+    public Collection<CensusContract> getUnsyncedCensus() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -804,7 +829,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allCC;
     }
 
-    public Collection<DeceasedContract> getAllDeceased() {
+    public Collection<DeceasedContract> getUnsyncedDeceased() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -873,7 +898,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                FormsContract.singleForm.COLUMN_ID,
+                singleForm._ID,
                 singleForm.COLUMN_UID,
                 singleForm.COLUMN_IS_NEW,
                 singleForm.COLUMN_DSSID,
@@ -895,6 +920,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_GPSLNG,
                 singleForm.COLUMN_GPSDATE,
                 singleForm.COLUMN_GPSACC,
+                singleForm.COLUMN_DEVICETAGID,
                 singleForm.COLUMN_DEVICEID,
                 singleForm.COLUMN_SYNCED,
                 singleForm.COLUMN_SYNCED_DATE,

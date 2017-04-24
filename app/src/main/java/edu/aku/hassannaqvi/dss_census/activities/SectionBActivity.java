@@ -241,13 +241,13 @@ public class SectionBActivity extends Activity {
         cal.add(Calendar.YEAR, -97);
         dcbidob.setMinDate(cal.getTimeInMillis());
 
-        dataFlag = getIntent().getBooleanExtra("dataFlag",false);
+        dataFlag = getIntent().getBooleanExtra("dataFlag", false);
 
-        if (dataFlag){
+        if (dataFlag) {
 
             position = getIntent().getExtras().getInt("position");
 
-            Log.d("Member fetched",String.valueOf(MainApp.familyMembersList.get(position)));
+            Log.d("Member fetched", String.valueOf(MainApp.familyMembersList.get(position)));
 
 
             dcba.setText(MainApp.familyMembersList.get(position).getName());
@@ -283,7 +283,7 @@ public class SectionBActivity extends Activity {
                 ((RadioButton) dcbm.getChildAt(mt.equals("mw") ? 0 : mt.equals("h") ? 1 : 2)).setChecked(true);
             }
 
-        }else {
+        } else {
             dcba.setEnabled(true);
             dcbid.setEnabled(false);
             dcbd.setEnabled(true);
@@ -314,7 +314,6 @@ public class SectionBActivity extends Activity {
                 }
             }
         });
-
 
 
         dcbd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -442,9 +441,13 @@ public class SectionBActivity extends Activity {
 //            }
 //            if (UpdateDB()) {
 
-                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+        if (!dataFlag) {
+            MainApp.currentStatusCount += 1;
+        }
 
-                finish();
+        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+
+        finish();
 
 //            } else {
 //                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -476,8 +479,8 @@ public class SectionBActivity extends Activity {
                     if (!dataFlag) {
                         MainApp.currentStatusCount += 1;
                     }
-                }else {
-                    if (MainApp.NoMembersCount != 0){
+                } else {
+                    if (MainApp.NoMembersCount != 0) {
 
                         startActivity(new Intent(this, SectionCActivity.class));
                     }
@@ -491,28 +494,27 @@ public class SectionBActivity extends Activity {
     }
 
     private boolean UpdateDB() {
-            DatabaseHelper db = new DatabaseHelper(this);
-            Long updcount = db.addCensusMembers(MainApp.cc);
-            MainApp.cc.set_ID(String.valueOf(updcount));
+        DatabaseHelper db = new DatabaseHelper(this);
+        Long updcount = db.addCensusMembers(MainApp.cc);
+        MainApp.cc.set_ID(String.valueOf(updcount));
 
-            if (updcount != 0) {
-                Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+        if (updcount != 0) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
 
-                MainApp.cc.set_UID(
-                        (MainApp.cc.getDeviceId() + MainApp.cc.get_ID()));
-                db.updateCensusID();
+            MainApp.cc.set_UID(
+                    (MainApp.cc.getDeviceId() + MainApp.cc.get_ID()));
+            db.updateCensusID();
 
-                if (dataFlag) {
-                    MainApp.familyMembersList.set(position, new MembersContract(setDataForList(MainApp.cc)));
-                }
-                else {
-                    MainApp.familyMembersList.add(new MembersContract(setDataForList(MainApp.cc)));
-                }
-                return true;
+            if (dataFlag) {
+                MainApp.familyMembersList.set(position, new MembersContract(setDataForList(MainApp.cc)));
             } else {
-                Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-                return false;
+                MainApp.familyMembersList.add(new MembersContract(setDataForList(MainApp.cc)));
             }
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
     private void SaveDraft() throws JSONException {
@@ -626,7 +628,7 @@ public class SectionBActivity extends Activity {
 
     }
 
-    public MembersContract setDataForList(CensusContract c){
+    public MembersContract setDataForList(CensusContract c) {
 
         MembersContract m = new MembersContract();
 
@@ -641,7 +643,7 @@ public class SectionBActivity extends Activity {
         m.setSite_code(c.getSite_code());
         m.setName(c.getName());
         m.setDob(c.getDob());
-        m.setAge(c.getAgeY()+"-"+c.getAgeM()+"-"+c.getAgeD());
+        m.setAge(c.getAgeY() + "-" + c.getAgeM() + "-" + c.getAgeD());
         m.setGender(c.getGender());
         m.setIs_head(c.getIs_head());
         m.setRelation_hh(c.getRelation_hh());

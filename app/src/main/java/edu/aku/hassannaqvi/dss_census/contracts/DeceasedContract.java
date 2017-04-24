@@ -381,6 +381,8 @@ public class DeceasedContract {
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "sync_date";
         public static final String COLUMN_WRA = "wra";
+
+        public static String _URL = "deceased.php";
     }
 
 }

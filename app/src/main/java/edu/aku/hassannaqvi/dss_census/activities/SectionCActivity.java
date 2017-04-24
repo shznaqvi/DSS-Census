@@ -187,6 +187,8 @@ public class SectionCActivity extends Activity {
 //                e.printStackTrace();
 //            }
 //            if (UpdateDB()) {
+        MainApp.currentStatusCount -= 1;
+
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
         finish();
 //            } else {
@@ -210,7 +212,7 @@ public class SectionCActivity extends Activity {
 
                 finish();
 
-                MainApp.NoMembersCount -= 1;
+                MainApp.currentStatusCount -= 1;
 
 //                Intent secNext = new Intent(this, FamilyMembersActivity.class);
 //                startActivity(secNext);

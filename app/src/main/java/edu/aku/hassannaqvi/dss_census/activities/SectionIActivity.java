@@ -636,7 +636,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         sI.put("dci20", dci2099.isChecked() ? "99" : "0");
         sI.put("dci21", dci2101.isChecked() ? "1" : dci2102.isChecked() ? "2" : dci2199.isChecked() ? "99" : "0");
 
-        // DCEApp.fc.setROW_Si(String.valueOf(si));
+        MainApp.fc.setsI(String.valueOf(sI));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

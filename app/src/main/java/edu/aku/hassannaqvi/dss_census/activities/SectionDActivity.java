@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.aku.hassannaqvi.dss_census.core.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 
@@ -1007,7 +1008,7 @@ public class SectionDActivity extends Activity {
         // Edit Text
         sD.put("dcd1896x", dcd1896x.getText().toString());
 
-        //MainApp.fc.setROW_sD(String.valueOf(sD));
+        MainApp.fc.setsD(String.valueOf(sD));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

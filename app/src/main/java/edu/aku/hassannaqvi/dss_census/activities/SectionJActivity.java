@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.aku.hassannaqvi.dss_census.core.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 
@@ -471,7 +472,7 @@ public class SectionJActivity extends Activity  {
         sJ.put("dcj12", dcj1201.isChecked() ? "1" : dcj1202.isChecked() ? "2"
                 : dcj1299.isChecked() ? "99" : "0");
 
-//        MainApp.fc.setROW_sE(String.valueOf(sF));
+        MainApp.fc.setsJ(String.valueOf(sJ));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

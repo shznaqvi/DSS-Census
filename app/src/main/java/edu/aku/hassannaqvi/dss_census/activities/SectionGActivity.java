@@ -20,6 +20,7 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import edu.aku.hassannaqvi.dss_census.core.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 
@@ -347,7 +348,7 @@ public class SectionGActivity extends Activity {
         sG.put("dcg0512", dcg0512.isChecked() ? "12" : "0");
         sG.put("dcg0513", dcg0513.isChecked() ? "13" : "0");
 
-//        MainApp.fc.setROW_sE(String.valueOf(sG));
+        MainApp.fc.setsG(String.valueOf(sG));
 
         Toast.makeText(this, "Validation SuccessGul! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
