@@ -16,8 +16,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.contracts.RandsContract;
+import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 
 /**
  * Created by hassan.naqvi on 12/2/2016.

@@ -1,6 +1,7 @@
 package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,6 +14,7 @@ import android.os.Handler;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,13 +25,14 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import edu.aku.hassannaqvi.dss_census.AndroidDatabaseManager;
-import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
+import edu.aku.hassannaqvi.dss_census.core.AndroidDatabaseManager;
+import edu.aku.hassannaqvi.dss_census.core.MainApp;
 import edu.aku.hassannaqvi.dss_census.get.GetMembers;
 import edu.aku.hassannaqvi.dss_census.get.GetUsers;
 import edu.aku.hassannaqvi.dss_census.sync.SyncCensus;
 import edu.aku.hassannaqvi.dss_census.sync.SyncDeceased;
+import edu.aku.hassannaqvi.dss_census.otherClasses.BackgroundDrawable;
 import edu.aku.hassannaqvi.dss_census.sync.SyncForms;
 
 public class MainActivity extends Activity {
@@ -41,6 +44,11 @@ public class MainActivity extends Activity {
     TextView recordSummary;
     @BindView(R.id.areaCode)
     EditText areaCode;
+    @BindView(R.id.syncDevice)
+    Button syncDevice;
+
+    private ProgressDialog pd;
+
     private Boolean exit = false;
     private String rSumText = "";
 
@@ -302,9 +310,11 @@ public class MainActivity extends Activity {
         if (networkInfo != null && networkInfo.isConnected()) {
 
             // Sync Users
-            Toast.makeText(getApplicationContext(), "Syncing Members", Toast.LENGTH_SHORT).show();
+            BackgroundDrawable bg = new BackgroundDrawable();
+            syncDevice.setBackground(bg);
+            bg.start();
             new GetMembers(this).execute();
-
+            //bg.stop();
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = syncPref.edit();

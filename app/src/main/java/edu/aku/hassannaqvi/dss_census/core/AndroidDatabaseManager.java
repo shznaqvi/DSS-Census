@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.dss_census;
+package edu.aku.hassannaqvi.dss_census.core;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.

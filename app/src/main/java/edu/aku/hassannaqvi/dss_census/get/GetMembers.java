@@ -20,9 +20,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
-import edu.aku.hassannaqvi.dss_census.MainApp;
-import edu.aku.hassannaqvi.dss_census.contracts.MembersContract.*;
+import edu.aku.hassannaqvi.dss_census.contracts.MembersContract.singleMember;
+import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
+import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -85,6 +85,7 @@ public class GetMembers extends AsyncTask<Void, Void, String> {
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(mContext, "Failed Sync " + result, Toast.LENGTH_SHORT).show();
+
 
             pd.setMessage(result);
             pd.setTitle("Members Sync Failed");

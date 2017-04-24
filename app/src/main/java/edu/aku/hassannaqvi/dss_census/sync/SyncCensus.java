@@ -25,9 +25,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collection;
 
-import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
-import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
+import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
+import edu.aku.hassannaqvi.dss_census.core.MainApp;
 import edu.aku.hassannaqvi.dss_census.contracts.CensusContract.*;
 
 /**

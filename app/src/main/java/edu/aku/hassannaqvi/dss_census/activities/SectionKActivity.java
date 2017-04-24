@@ -24,9 +24,9 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
-import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
+import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
+import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
 public class SectionKActivity extends Activity  {
 
