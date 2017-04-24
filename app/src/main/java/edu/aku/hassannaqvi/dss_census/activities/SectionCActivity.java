@@ -1,7 +1,6 @@
 package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,10 +23,10 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
-import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.contracts.DeceasedContract;
+import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
+import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
 public class SectionCActivity extends Activity {
 

@@ -22,9 +22,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
+import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
 public class FamilyMembersActivity extends Activity {
 

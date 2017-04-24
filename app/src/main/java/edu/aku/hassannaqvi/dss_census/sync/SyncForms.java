@@ -22,9 +22,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Collection;
 
-import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
-import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
+import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
+import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
 /**
  * Created by hassan.naqvi on 7/26/2016.

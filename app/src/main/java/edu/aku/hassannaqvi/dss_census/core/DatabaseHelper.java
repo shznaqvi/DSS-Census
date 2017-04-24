@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.dss_census;
+package edu.aku.hassannaqvi.dss_census.core;
 
 import android.content.ContentValues;
 import android.content.Context;

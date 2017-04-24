@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.dss_census;
+package edu.aku.hassannaqvi.dss_census.core;
 
 import android.app.Application;
 import android.content.Context;
@@ -21,7 +21,6 @@ import edu.aku.hassannaqvi.dss_census.contracts.DeceasedContract;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.OCsContract;
-import edu.aku.hassannaqvi.dss_census.otherClasses.TypefaceUtil;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.

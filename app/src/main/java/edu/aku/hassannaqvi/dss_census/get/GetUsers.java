@@ -10,18 +10,16 @@ import org.json.JSONException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
-import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.contracts.UsersContract;
-import edu.aku.hassannaqvi.dss_census.contracts.UsersContract.*;
+import edu.aku.hassannaqvi.dss_census.contracts.UsersContract.singleUser;
+import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
+import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
