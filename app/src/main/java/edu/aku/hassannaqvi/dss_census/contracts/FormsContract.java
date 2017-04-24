@@ -397,5 +397,7 @@ public class FormsContract {
         public static final String COLUMN_DEVICETAGID = "tagid";
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
+
+        public static String _URL = "forms.php";
     }
 }

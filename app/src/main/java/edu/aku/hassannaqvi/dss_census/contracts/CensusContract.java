@@ -546,5 +546,7 @@ public class CensusContract {
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "sync_date";
         public static final String COLUMN_REF_ID = "refid";
+
+        public static String _URL = "census.php";
     }
 }

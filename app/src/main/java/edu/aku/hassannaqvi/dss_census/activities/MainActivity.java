@@ -28,6 +28,8 @@ import edu.aku.hassannaqvi.dss_census.MainApp;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.get.GetMembers;
 import edu.aku.hassannaqvi.dss_census.get.GetUsers;
+import edu.aku.hassannaqvi.dss_census.sync.SyncCensus;
+import edu.aku.hassannaqvi.dss_census.sync.SyncDeceased;
 import edu.aku.hassannaqvi.dss_census.sync.SyncForms;
 
 public class MainActivity extends Activity {
@@ -265,19 +267,19 @@ public class MainActivity extends Activity {
     }*/
     public void syncServer(View view) {
 
-        String formsUrl = MainApp._HOST_URL + "virband/api/forms.php";
-        String imsUrl = MainApp._HOST_URL + "virband/api/ims.php";
-
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-            new SyncForms(this).execute(formsUrl);
+            new SyncForms(this).execute();
 
-            /*Toast.makeText(getApplicationContext(), "Syncing IMs", Toast.LENGTH_SHORT).show();
-            new SyncIMs(this).execute(imsUrl);*/
+            Toast.makeText(getApplicationContext(), "Syncing Census", Toast.LENGTH_SHORT).show();
+            new SyncCensus(this).execute();
+
+            Toast.makeText(getApplicationContext(), "Syncing Deceased", Toast.LENGTH_SHORT).show();
+            new SyncDeceased(this).execute();
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = syncPref.edit();

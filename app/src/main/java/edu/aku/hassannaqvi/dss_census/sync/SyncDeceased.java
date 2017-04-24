@@ -17,9 +17,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -27,19 +25,19 @@ import java.util.Collection;
 
 import edu.aku.hassannaqvi.dss_census.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.MainApp;
-import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
-import edu.aku.hassannaqvi.dss_census.contracts.FormsContract.*;
+import edu.aku.hassannaqvi.dss_census.contracts.DeceasedContract;
+import edu.aku.hassannaqvi.dss_census.contracts.DeceasedContract.DeceasedMember;
 
 /**
  * Created by hassan.naqvi on 7/26/2016.
  */
-public class SyncForms extends AsyncTask<Void, Void, String> {
+public class SyncDeceased extends AsyncTask<Void, Void, String> {
 
-    private static final String TAG = "SyncForms";
+    private static final String TAG = "SyncDeceased";
     private Context mContext;
     private ProgressDialog pd;
 
-    public SyncForms(Context context) {
+    public SyncDeceased(Context context) {
         mContext = context;
     }
 
@@ -55,7 +53,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         pd = new ProgressDialog(mContext);
-        pd.setTitle("Please wait... Processing Forms");
+        pd.setTitle("Please wait... Processing Deceased");
         pd.show();
 
     }
@@ -66,7 +64,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
 
         String line = "No Response";
         try {
-            String url = MainApp._HOST_URL + singleForm._URL;
+            String url = MainApp._HOST_URL + DeceasedMember._URL;
             Log.d(TAG, "doInBackground: URL " + url);
             return downloadUrl(url);
         } catch (IOException e) {
@@ -85,21 +83,21 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
             for (int i = 0; i < json.length(); i++) {
                 JSONObject jsonObject = new JSONObject(json.getString(i));
                 if (jsonObject.getString("status").equals("1")) {
-                    db.updateForms(jsonObject.getString("id"));
+                    db.updateDeceased(jsonObject.getString("id"));
                     sSynced++;
                 }
             }
-            Toast.makeText(mContext, sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, sSynced + " Deceased synced." + String.valueOf(json.length() - sSynced) + " Errors.", Toast.LENGTH_SHORT).show();
 
-            pd.setMessage(sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors.");
-            pd.setTitle("Done uploading Forms data");
+            pd.setMessage(sSynced + " Deceased synced." + String.valueOf(json.length() - sSynced) + " Errors.");
+            pd.setTitle("Done uploading Deceased data");
             pd.show();
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(mContext, "Failed Sync " + result, Toast.LENGTH_SHORT).show();
 
             pd.setMessage(result);
-            pd.setTitle("Forms's Sync Failed");
+            pd.setTitle("Deceased's Sync Failed");
             pd.show();
         }
     }
@@ -110,9 +108,9 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
         // web page content.
         //int len = 500;
         DatabaseHelper db = new DatabaseHelper(mContext);
-        Collection<FormsContract> forms = db.getUnsyncedForms();
-        Log.d(TAG, String.valueOf(forms.size()));
-        if (forms.size() > 0) {
+        Collection<DeceasedContract> Deceased = db.getUnsyncedDeceased();
+        Log.d(TAG, String.valueOf(Deceased.size()));
+        if (Deceased.size() > 0) {
             try {
                 URL url = new URL(myurl);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -130,7 +128,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
                 try {
                     DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
 
-                    for (FormsContract fc : forms) {
+                    for (DeceasedContract fc : Deceased) {
 
                         jsonSync.put(fc.toJSONObject());
 
