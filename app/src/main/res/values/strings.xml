@@ -36,7 +36,8 @@
   <string name="dcl3heading"> بھوک کا پیمانہ ( گزشتہ ایک ماہ کے متعلق) </string>
     <string name="secMLabel">سیکشن ایم: گھر کا ماحول</string>
 
-  <string name="days">دنوں کی تعداد</string>
+
+    <string name="days">دنوں کی تعداد</string>
 
 
     <!-- Strings that are fixed for all apps -->

@@ -30,6 +30,20 @@ public class EndingActivity extends Activity {
         setContentView(R.layout.activity_ending);
         ButterKnife.bind(this);
 
+        Boolean check = getIntent().getExtras().getBoolean("check");
+
+        if (check) {
+            dcstatus01.setEnabled(true);
+            dcstatus02.setEnabled(false);
+
+        } else {
+            //fldGrpmn0823Reason.setVisibility(View.GONE);
+            dcstatus01.setEnabled(false);
+            dcstatus02.setEnabled(true);
+
+
+        }
+
     }
 
     @OnClick(R.id.btn_End)
