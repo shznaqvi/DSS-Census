@@ -61,7 +61,7 @@ public class FamilyMembersActivity extends Activity {
                 btn_Continue.setEnabled(true);
                 btn_addMember.setEnabled(false);
             }
-        }else {
+        } else {
             btn_Continue.setEnabled(false);
             btn_addMember.setEnabled(false);
         }
@@ -84,8 +84,8 @@ public class FamilyMembersActivity extends Activity {
                         // TODO Handle item click
 
                         boolean flag = true;
-                        for(int mem : MainApp.memClicked){
-                            if (mem == position){
+                        for (int mem : MainApp.memClicked) {
+                            if (mem == position) {
                                 flag = false;
                                 break;
                             }
@@ -155,8 +155,8 @@ public class FamilyMembersActivity extends Activity {
                 btn_Continue.setEnabled(true);
                 btn_addMember.setEnabled(false);
             }
-        }else {
-             btn_Continue.setEnabled(false);
+        } else {
+            btn_Continue.setEnabled(false);
             btn_addMember.setEnabled(false);
         }
 
@@ -230,11 +230,7 @@ public class FamilyMembersActivity extends Activity {
 //            holder.currentStatus.setText(familyMembers.getcStatus());
             holder.memberName.setText(familyMembers.getName().toUpperCase());
 
-            if (familyMembers.getDss_id_member().contains("")){
-                holder.DSSidm.setText("New Member");
-            }else {
-                holder.DSSidm.setText(familyMembers.getDss_id_member());
-            }
+            holder.DSSidm.setText(familyMembers.getDss_id_member());
 
             holder.currentStatus.setText(familyMembers.getCurrent_status());
             holder.year.setText(familyMembers.getDob());
@@ -242,8 +238,6 @@ public class FamilyMembersActivity extends Activity {
 
         @Override
         public int getItemCount() {
-
-            MainApp.currentStatusCount = familyMembersList.size();
 
             return familyMembersList.size();
         }
