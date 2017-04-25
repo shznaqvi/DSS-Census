@@ -258,6 +258,31 @@ public class SectionMActivity extends Activity {
 
     }
 
+    @OnClick(R.id.btn_Continue)
+    void onBtnContinueClick() {
+
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+        if (formValidation()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
+                finish();
+
+                Intent secNext = new Intent(this, EndingActivity.class);
+                startActivity(secNext);
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+    }
+
+
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
 
