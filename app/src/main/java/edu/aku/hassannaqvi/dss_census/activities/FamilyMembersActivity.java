@@ -230,10 +230,10 @@ public class FamilyMembersActivity extends Activity {
 //            holder.currentStatus.setText(familyMembers.getcStatus());
             holder.memberName.setText(familyMembers.getName().toUpperCase());
 
-            if (familyMembers.getDss_id_member() != ""){
-                holder.DSSidm.setText(familyMembers.getDss_id_member());
-            }else {
+            if (familyMembers.getDss_id_member().contains("")){
                 holder.DSSidm.setText("New Member");
+            }else {
+                holder.DSSidm.setText(familyMembers.getDss_id_member());
             }
 
             holder.currentStatus.setText(familyMembers.getCurrent_status());

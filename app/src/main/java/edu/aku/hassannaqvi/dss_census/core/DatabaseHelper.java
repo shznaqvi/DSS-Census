@@ -162,7 +162,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_DECEASED = "CREATE TABLE "
             + DeceasedMember.TABLE_NAME + "("
             + DeceasedMember.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            DeceasedMember.COLUMN_UID + " TEXT," +
+            DeceasedMember.COLUMN_UUID + " TEXT," +
             DeceasedMember.COLUMN_DATE + " TEXT," +
+            DeceasedMember.COLUMN_FORMDATE + " TEXT," +
+            DeceasedMember.COLUMN_DEVICEID + " TEXT," +
+            DeceasedMember.COLUMN_USER + " TEXT," +
             DeceasedMember.COLUMN_DSS_ID_HH + " TEXT," +
             DeceasedMember.COLUMN_DSS_ID_F + " TEXT," +
             DeceasedMember.COLUMN_DSS_ID_M + " TEXT," +
@@ -177,7 +182,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             DeceasedMember.COLUMN_GENDER + " TEXT," +
             DeceasedMember.COLUMN_RELATION_HH + " TEXT," +
             DeceasedMember.COLUMN_DOD + " TEXT," +
-            DeceasedMember.COLUMN_WRA + " TEXT" +
+            DeceasedMember.COLUMN_REMARKS + " TEXT," +
+            DeceasedMember.COLUMN_WRA + " TEXT," +
+            censusMember.COLUMN_SYNCED + " TEXT,"+
+            censusMember.COLUMN_SYNCED_DATE + " TEXT" +
             " );";
 
     private static final String SQL_DELETE_USERS =

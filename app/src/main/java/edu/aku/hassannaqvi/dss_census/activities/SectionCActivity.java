@@ -144,9 +144,16 @@ public class SectionCActivity extends Activity {
 
         ((RadioButton) dccc.getChildAt((Integer.parseInt(MainApp.cc.getGender())) - 1)).setChecked(true);
 
+        if (((Integer.parseInt(MainApp.cc.getGender())) - 1) == 1){
+            fldGrpdcch.setVisibility(View.VISIBLE);
+        }else {
+            fldGrpdcch.setVisibility(View.GONE);
+            dcch.clearCheck();
+        }
+
         String[] dt = MainApp.cc.getDob().split("-");
 
-        dccd.updateDate(Integer.parseInt(dt[2]),Integer.parseInt(dt[1]),Integer.parseInt(dt[0]));
+        dccd.updateDate(Integer.parseInt(dt[2]),Integer.parseInt(dt[1]) - 1,Integer.parseInt(dt[0]));
 
         /* End Fields */
 
@@ -212,9 +219,9 @@ public class SectionCActivity extends Activity {
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
 
         finish();
-        Intent end_intent = new Intent(this, EndingActivity.class);
-        end_intent.putExtra("check", false);
-        startActivity(end_intent);
+//        Intent end_intent = new Intent(this, EndingActivity.class);
+//        end_intent.putExtra("check", false);
+//        startActivity(end_intent);
 //            } else {
 //                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
 //            }
@@ -275,6 +282,7 @@ public class SectionCActivity extends Activity {
         MainApp.dc.set_UUID(MainApp.fc.getUID());
         MainApp.dc.setFormDate(MainApp.fc.getFormDate());
         MainApp.dc.setDeviceId(MainApp.fc.getDeviceID());
+        MainApp.dc.setUser(MainApp.fc.getUser());
         MainApp.dc.setDss_id_hh(MainApp.fc.getDSSID());
         MainApp.dc.setDss_id_h(MainApp.familyMembersList.get(position).getDss_id_h());
         MainApp.dc.setSite_code(MainApp.familyMembersList.get(position).getSite_code());
@@ -464,10 +472,10 @@ public class SectionCActivity extends Activity {
         return true;
     }
 
-    //@Override
-//    public void onBackPressed() {
-//        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
-//    }
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+    }
 
 
 }
