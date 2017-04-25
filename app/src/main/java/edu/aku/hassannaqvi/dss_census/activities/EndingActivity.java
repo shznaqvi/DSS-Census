@@ -37,6 +37,7 @@ public class EndingActivity extends Activity {
         finish();
 
         MainApp.familyMembersList.clear();
+        MainApp.memFlag = 0;
 
         Intent endSec = new Intent(this, MainActivity.class);
         endSec.putExtra("complete", false);

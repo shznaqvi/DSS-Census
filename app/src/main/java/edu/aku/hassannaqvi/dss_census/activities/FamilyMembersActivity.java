@@ -156,7 +156,7 @@ public class FamilyMembersActivity extends Activity {
                 btn_addMember.setEnabled(false);
             }
         }else {
-            btn_Continue.setEnabled(false);
+             btn_Continue.setEnabled(false);
             btn_addMember.setEnabled(false);
         }
 
@@ -229,7 +229,13 @@ public class FamilyMembersActivity extends Activity {
 //            holder.DSSidm.setText(familyMembers.getDSSid());
 //            holder.currentStatus.setText(familyMembers.getcStatus());
             holder.memberName.setText(familyMembers.getName().toUpperCase());
-            holder.DSSidm.setText(familyMembers.getDss_id_member());
+
+            if (familyMembers.getDss_id_member() != ""){
+                holder.DSSidm.setText(familyMembers.getDss_id_member());
+            }else {
+                holder.DSSidm.setText("New Member");
+            }
+
             holder.currentStatus.setText(familyMembers.getCurrent_status());
             holder.year.setText(familyMembers.getDob());
         }

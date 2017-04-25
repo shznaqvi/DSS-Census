@@ -247,11 +247,11 @@ public class SectionBActivity extends Activity {
 
             position = getIntent().getExtras().getInt("position");
 
-            Log.d("Member fetched", String.valueOf(MainApp.familyMembersList.get(position)));
+//            Log.d("Member fetched", String.valueOf(MainApp.familyMembersList.get(position)));
 
 
             dcba.setText(MainApp.familyMembersList.get(position).getName());
-            dcba.setEnabled(false);
+//            dcba.setEnabled(false);
 
             dcbid.setText(MainApp.familyMembersList.get(position).getDss_id_member());
             Log.d(TAG, "onCreate: " + MainApp.familyMembersList.get(position).getDss_id_member());
