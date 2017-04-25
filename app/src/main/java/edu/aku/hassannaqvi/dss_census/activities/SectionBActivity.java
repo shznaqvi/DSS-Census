@@ -475,7 +475,7 @@ public class SectionBActivity extends Activity {
 
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
 
-        Intent end_intent = new Intent(this, EndingActivity.class);
+        Intent end_intent = new Intent(this, FamilyMembersActivity.class);
         end_intent.putExtra("check", false);
         startActivity(end_intent);
 
