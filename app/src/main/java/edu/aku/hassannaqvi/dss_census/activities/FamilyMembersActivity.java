@@ -232,9 +232,39 @@ public class FamilyMembersActivity extends Activity {
 
             holder.DSSidm.setText(familyMembers.getDss_id_member());
 
-            holder.currentStatus.setText(familyMembers.getCurrent_status());
+            holder.currentStatus.setText(setStatus(familyMembers.getCurrent_status()));
             holder.year.setText(familyMembers.getDob());
         }
+
+
+        public String setStatus(String i){
+            String st = "";
+            switch (i){
+                case "1":
+                    st = getString(R.string.dcbis01);
+                    break;
+                case "2":
+                    st = getString(R.string.dcbis02);
+                    break;
+                case "3":
+                    st = getString(R.string.dcbis03);
+                    break;
+                case "4":
+                    st = getString(R.string.dcbis04);
+                    break;
+                case "5":
+                    st = getString(R.string.dcbis05);
+                    break;
+                case "6":
+                    st = getString(R.string.dcother);
+                    break;
+                default:
+                    break;
+            }
+
+            return st;
+        }
+
 
         @Override
         public int getItemCount() {

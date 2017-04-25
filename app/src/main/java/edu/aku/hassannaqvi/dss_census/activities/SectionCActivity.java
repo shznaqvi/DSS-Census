@@ -133,6 +133,8 @@ public class SectionCActivity extends Activity {
 
         appHeader.setText("DSS - > Section C: People Deceased in Last One Year");
 
+        position = getIntent().getExtras().getInt("position");
+
 //        Set fields
         dcca.setText(MainApp.cc.getName());
         dcca.setEnabled(false);
@@ -287,6 +289,11 @@ public class SectionCActivity extends Activity {
         MainApp.dc.setDss_id_h(MainApp.familyMembersList.get(position).getDss_id_h());
         MainApp.dc.setSite_code(MainApp.familyMembersList.get(position).getSite_code());
         MainApp.dc.set_DATE(MainApp.familyMembersList.get(position).get_DATE());
+
+        MainApp.dc.setDss_id_f(dccbfid.getText().toString());
+        MainApp.dc.setDss_id_m(dccbmid.getText().toString());
+
+        MainApp.dc.setDss_id_member(MainApp.cc.getDss_id_member());
 
         MainApp.dc.setName(dcca.getText().toString());
         MainApp.dc.setRelation_hh(dccbrhh01.isChecked() ? "1" : dccbrhh02.isChecked() ? "2" : dccbrhh03.isChecked() ? "3"

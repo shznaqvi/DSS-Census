@@ -514,7 +514,7 @@ public class SectionBActivity extends Activity {
                 } else {
                     if (MainApp.NoMembersCount != 0) {
 
-                        startActivity(new Intent(this, SectionCActivity.class));
+                        startActivity(new Intent(this, SectionCActivity.class).putExtra("position",position));
                     }
                 }
 
