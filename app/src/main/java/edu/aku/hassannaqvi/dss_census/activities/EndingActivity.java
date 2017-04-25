@@ -20,6 +20,7 @@ import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
 public class EndingActivity extends Activity {
 
+    private static final String TAG = EndingActivity.class.getSimpleName();
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
     @BindView(R.id.dcstatus)
@@ -64,10 +65,19 @@ public class EndingActivity extends Activity {
     }
 
 
+    private void SaveDraft() throws JSONException {
+        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+
+
+        MainApp.fc.setIstatus(dcstatus01.isChecked() ? "1" : dcstatus02.isChecked() ? "2" : "0");
+
+        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+    }
+
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateE();
+        int updcount = db.updateEnding();
 
         if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
@@ -82,39 +92,20 @@ public class EndingActivity extends Activity {
     private boolean formValidation() {
         Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
 
-        if (mn0823.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(Not Selected): " + getString(R.string.mn0823), Toast.LENGTH_LONG).show();
-            mn082304.setError("Please Select One");    // Set Error on last radio button
-            Log.i(TAG, "mn082304: This data is Required!");
+        if (dcstatus.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Not Selected): " + getString(R.string.dcstatus), Toast.LENGTH_LONG).show();
+            dcstatus02.setError("Please Select One");    // Set Error on last radio button
+            Log.i(TAG, "dcstatus: This data is Required!");
             return false;
         } else {
-            mn082304.setError(null);
+            dcstatus02.setError(null);
         }
 
 
-        if (mn082302.isChecked()) {
-
-            if (mn082302x.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
-                mn082302x.setError("Please specify reason");    // Set Error on last radio button
-                Log.i(TAG, "mn082302x: This data is Required!");
-                return false;
-            } else {
-                mn082302x.setError(null);
-            }
-        }
         return true;
     }
 
-    private void SaveDraft() throws JSONException {
-        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-
-        SRCApp.fc.setROW_MN823(mn082301.isChecked() ? "1" : mn082302.isChecked() ? "2" : mn082303.isChecked() ? "3" : mn082304.isChecked() ? "4" : "0");
-        SRCApp.fc.setROW_MN823X(mn082302x.getText().toString());
-
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     public void onBackPressed() {

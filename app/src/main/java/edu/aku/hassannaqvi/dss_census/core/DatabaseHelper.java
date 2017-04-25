@@ -1259,4 +1259,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public int updateEnding() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(singleForm.COLUMN_ISTATUS, MainApp.fc.getIstatus());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + MainApp.fc.get_ID();
+        String[] selectionArgs = {String.valueOf(MainApp.fc.get_ID())};
+
+        int count = db.update(singleForm.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
+
+
 }
