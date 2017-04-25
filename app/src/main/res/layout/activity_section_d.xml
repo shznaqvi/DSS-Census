@@ -99,7 +99,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:hint="@string/dcd0201" />
+                    android:hint="@string/dcd0201"
+                    android:inputType="number" />
 
                 <TextView
                     android:layout_width="match_parent"

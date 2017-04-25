@@ -30,6 +30,7 @@ public class familyMembers {
     }
 
     public void setcStatus(String cStatus) {
+
         this.cStatus = cStatus;
     }
 
@@ -48,4 +49,6 @@ public class familyMembers {
     public void setDob(String dob) {
         this.dob = dob;
     }
+
+
 }

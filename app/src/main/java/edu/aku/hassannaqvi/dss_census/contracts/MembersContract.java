@@ -190,10 +190,12 @@ public class MembersContract {
     }
 
     public String getCurrent_status() {
+
         return current_status;
     }
 
     public void setCurrent_status(String current_status) {
+
         this.current_status = current_status;
     }
 

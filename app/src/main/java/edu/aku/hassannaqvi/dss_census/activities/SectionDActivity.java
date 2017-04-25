@@ -507,10 +507,10 @@ public class SectionDActivity extends Activity {
 
         //============ Skip Pattern Q17 ===================
 
-        dcd18.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        dcd17.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if (dcd1801.isChecked()) {
+                if (dcd1701.isChecked()) {
                     fldGrpdcd17.setVisibility(View.GONE);
                     dcd18.clearCheck();
                     dcd1896x.setText(null);
