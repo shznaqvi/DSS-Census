@@ -162,6 +162,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_DECEASED = "CREATE TABLE "
             + DeceasedMember.TABLE_NAME + "("
             + DeceasedMember.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            DeceasedMember.COLUMN_PROJECT_NAME + " TEXT," +
             DeceasedMember.COLUMN_UID + " TEXT," +
             DeceasedMember.COLUMN_UUID + " TEXT," +
             DeceasedMember.COLUMN_DATE + " TEXT," +
