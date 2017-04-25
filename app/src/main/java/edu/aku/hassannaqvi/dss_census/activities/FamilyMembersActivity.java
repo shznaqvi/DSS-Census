@@ -117,7 +117,7 @@ public class FamilyMembersActivity extends Activity {
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
         finish();
         Intent endSec = new Intent(this, EndingActivity.class);
-        endSec.putExtra("complete", false);
+        endSec.putExtra("check", false);
         startActivity(endSec);
 
     }
