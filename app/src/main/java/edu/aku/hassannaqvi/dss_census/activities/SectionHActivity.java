@@ -289,21 +289,21 @@ public class SectionHActivity extends Activity {
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
-        if (ValidateForm()) {
+        /*if (ValidateForm()) {
             try {
                 SaveDraft();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            if (UpdateDB()) {
+            if (UpdateDB()) {*/
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
                 Intent endSec = new Intent(this, EndingActivity.class);
                 endSec.putExtra("check", false);
         startActivity(endSec);
-            } else {
+           /* } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-        }
+        }*/
 
 
     }
