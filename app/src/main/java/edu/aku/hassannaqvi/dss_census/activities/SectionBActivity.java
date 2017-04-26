@@ -238,8 +238,36 @@ public class SectionBActivity extends Activity {
         Calendar cal = Calendar.getInstance();
         dcbg.setMaxDate(new Date().getTime());
         dcbidob.setMaxDate(new Date().getTime());
-        cal.add(Calendar.YEAR, -97);
-        dcbidob.setMinDate(cal.getTimeInMillis());
+        cal.setTimeInMillis(System.currentTimeMillis());
+        dcbg.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
+
+            @Override
+            public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                Log.d("Date", "Year=" + year + " Month=" + (month + 1) + " day=" + dayOfMonth);
+
+                Calendar cal = Calendar.getInstance();
+                cal.set(year, month, dayOfMonth);
+                //dcbg1.updateDate(year, month, dayOfMonth);
+                dcbidob.setMinDate(cal.getTime().getTime());
+            }
+        });
+
+        /*dcbidob.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
+
+            @Override
+            public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                Log.d("Date", "Year=" + year + " Month=" + (month + 1) + " day=" + dayOfMonth);
+
+                Calendar cal = Calendar.getInstance();
+                cal.set(year, month, dayOfMonth);
+                //dcbidob.setMinDate(cal.getTime().getTime());
+            }
+        });
+*/
+
+
+
+
 
         dataFlag = getIntent().getBooleanExtra("dataFlag", false);
 
@@ -466,8 +494,6 @@ public class SectionBActivity extends Activity {
                 }
             }
         });
-
-
 
 
     }

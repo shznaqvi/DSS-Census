@@ -1,7 +1,6 @@
 package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -156,6 +155,10 @@ public class SectionCActivity extends Activity {
         String[] dt = MainApp.cc.getDob().split("-");
 
         dccd.updateDate(Integer.parseInt(dt[2]),Integer.parseInt(dt[1]) - 1,Integer.parseInt(dt[0]));
+
+        String[] dt1 = MainApp.cc.getCurrent_date().split("-");
+
+        dccf.updateDate(Integer.parseInt(dt[2]), Integer.parseInt(dt[1]) - 1, Integer.parseInt(dt[0]));
 
         /* End Fields */
 
