@@ -705,6 +705,21 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             dci07y.setError(null);
         }
 
+        // ====================== Q 7 ==============
+        if ((Integer.parseInt(dci07d.getText().toString().isEmpty() ? "0" : dci07d.getText().toString()) == 0
+                && Integer.parseInt(dci07m.getText().toString().isEmpty() ? "0" : dci07m.getText().toString()) == 0
+                && Integer.parseInt(dci07y.getText().toString().isEmpty() ? "0" : dci07y.getText().toString()) == 0)) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci07), Toast.LENGTH_SHORT).show();
+            dci07y.setError("Can not be zero");
+            Log.i(TAG, "dci07y: Can not be zero");
+            return false;
+        } else {
+            dci07y.setError(null);
+        }
+
+
+
+
         // ====================== Q 8 ==============
         if (dci08.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci08), Toast.LENGTH_SHORT).show();

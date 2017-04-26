@@ -272,7 +272,7 @@ public class SectionHActivity extends Activity {
         dch11.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                if (dch1101.isChecked()) {
+                if (dch1102.isChecked()) {
                     fldGrpdch12.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpdch12.setVisibility(View.GONE);

@@ -693,6 +693,17 @@ public class SectionDActivity extends Activity {
             dcd05.setError(null);
         }
 
+        if (Integer.parseInt(dcd05.getText().toString().isEmpty() ? "0" : dcd05.getText().toString()) < 1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd05), Toast.LENGTH_SHORT).show();
+            dcd05.setError("Can not be zero");    // Set Error on last radio button
+
+            Log.i(TAG, "dcd05: Can not be zero");
+            return false;
+        } else {
+            dcd05.setError(null);
+        }
+
+
 //        03
 
         if (dcd06.getCheckedRadioButtonId() == -1) {
@@ -858,6 +869,17 @@ public class SectionDActivity extends Activity {
         }
 
         // ======================  Q 17 =================
+
+        if (dcd17.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd17), Toast.LENGTH_SHORT).show();
+            dcd1799.setError("This data is Required!");
+            Log.i(TAG, "dcd17: This data is Required!");
+            return false;
+        } else {
+            dcd1799.setError(null);
+        }
+
+        // ======================  Q 17 =================
         if (dcd1701.isChecked()) {
             if (dcd17.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd17), Toast.LENGTH_SHORT).show();
@@ -866,6 +888,17 @@ public class SectionDActivity extends Activity {
                 return false;
             } else {
                 dcd1799.setError(null);
+            }
+
+            // ======================  Q 18 =================
+
+            if (dcd18.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd18), Toast.LENGTH_SHORT).show();
+                dcd1899.setError("This data is Required!");
+                Log.i(TAG, "dcd18: This data is Required!");
+                return false;
+            } else {
+                dcd1899.setError(null);
             }
 
             // ======================  Q 18 =================

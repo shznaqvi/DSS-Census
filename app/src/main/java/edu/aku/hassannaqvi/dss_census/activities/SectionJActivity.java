@@ -218,6 +218,19 @@ public class SectionJActivity extends Activity  {
                 }
             }
         });
+
+        dcj0696.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    dcj0696x.setVisibility(View.VISIBLE);
+
+                } else {
+                    dcj0696x.setVisibility(View.GONE);
+                    dcj0696x.setText(null);
+                }
+            }
+        });
     }
 
     @OnClick(R.id.btn_End) void onBtnEndClick() {

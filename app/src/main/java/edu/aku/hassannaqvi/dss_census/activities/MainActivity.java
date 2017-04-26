@@ -1,8 +1,8 @@
 package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,7 +12,6 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputType;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,10 +28,9 @@ import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 import edu.aku.hassannaqvi.dss_census.get.GetMembers;
-import edu.aku.hassannaqvi.dss_census.get.GetUsers;
+import edu.aku.hassannaqvi.dss_census.otherClasses.BackgroundDrawable;
 import edu.aku.hassannaqvi.dss_census.sync.SyncCensus;
 import edu.aku.hassannaqvi.dss_census.sync.SyncDeceased;
-import edu.aku.hassannaqvi.dss_census.otherClasses.BackgroundDrawable;
 import edu.aku.hassannaqvi.dss_census.sync.SyncForms;
 
 public class MainActivity extends Activity {
@@ -46,17 +44,13 @@ public class MainActivity extends Activity {
     EditText areaCode;
     @BindView(R.id.syncDevice)
     Button syncDevice;
-
-    private ProgressDialog pd;
-
-    private Boolean exit = false;
-    private String rSumText = "";
-
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     AlertDialog.Builder builder;
-
     String m_Text= "";
+    private ProgressDialog pd;
+    private Boolean exit = false;
+    private String rSumText = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,7 +151,7 @@ public class MainActivity extends Activity {
 
     public void openForm(View v) {
         if (sharedPref.getString("tagName",null) != "" && sharedPref.getString("tagName",null) != null){
-            Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
+            Intent oF = new Intent(MainActivity.this, SectionIActivity.class);
             startActivity(oF);
         }else {
 

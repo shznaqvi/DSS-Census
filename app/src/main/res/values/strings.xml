@@ -115,8 +115,8 @@
     <string name="dcbbrhh"> گھر کے سربراہ سے رشتہ </string>
     <string name="dcbbrhh01"> سربراہ </string>
     <string name="dcbbrhh02"> میاں یا بیوی </string>
-    <string name="dcbbrhh03"> یٹا یا بیٹی </string>
-    <string name="dcbbrhh04"> داماد/بہو </string>
+  <string name="dcbbrhh03"> بیٹا یا بیٹی </string>
+  <string name="dcbbrhh04"> داماد/ بہو </string>
     <string name="dcbbrhh05"> پوتا </string>
     <string name="dcbbrhh06"> ماں باپ </string>
     <string name="dcbbrhh07"> قانونی والدین </string>
@@ -282,7 +282,7 @@
     <string name="dcd1008"> بغیر سلیب کے ساتھ گڑھے والے لیٹرین </string>
     <string name="dcd1009"> ڈھکا ہو لیٹرین </string>
     <string name="dcd1010"> خشک ٹوائلٹ </string>
-    <string name="dcd1011"> کوئی سہولیات / بش / میدان </string>
+  <string name="dcd1011"> کوئی سہولیات نہیں / بش / میدان </string>
   <string name="dcd11">11) کیا لیٹرین کی اس سہولت کو دوسرے لوگ بھی استعمال کرتے ہیں؟ </string>
   <string name="dcd12">12) کیا آپ کے گھر میں کھانا پکانے کے لیے کونسا ایندھن استعمال ہوتا ہے؟ </string>
     <string name="dcd1201"> لکٹری </string>

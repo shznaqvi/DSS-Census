@@ -3,9 +3,12 @@ package edu.aku.hassannaqvi.dss_census.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -229,6 +232,53 @@ public class SectionFActivity extends Activity {
             }
         });
 
+        dcf1096.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    dcf1096x.setVisibility(View.VISIBLE);
+                } else {
+                    dcf1096x.setVisibility(View.GONE);
+                    dcf1096x.setText(null);
+                }
+            }
+        });
+
+        dcf1196.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    dcf1196x.setVisibility(View.VISIBLE);
+                } else {
+                    dcf1196x.setVisibility(View.GONE);
+                    dcf1196x.setText(null);
+                }
+            }
+        });
+        dcf12.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (dcf0901.isChecked() && Integer.parseInt(dcf12.getText().toString().isEmpty() ? "0" : dcf12.getText().toString()) == 0) {
+                    dcf12.setError("Can not be zero..");
+                } else {
+                    dcf12.setError(null);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
     }
 
     @OnClick(R.id.btn_End)
@@ -311,6 +361,18 @@ public class SectionFActivity extends Activity {
             dcf0201.setError(null);
         }
 
+        if ((Integer.parseInt(dcf0201.getText().toString().isEmpty() ? "0" : dcf0201.getText().toString()))
+                > (Integer.parseInt(dcf01.getText().toString().isEmpty() ? "0" : dcf01.getText().toString()))) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcf0201), Toast.LENGTH_SHORT).show();
+            dcf0201.setError("Can not be greater than total pregnancies");    // Set Error on last radio button
+
+            Log.i(TAG, "dcf0201: Can not be greater than total pregnancies");
+            return false;
+        } else {
+            dcf0201.setError(null);
+        }
+
+
 //        02-02
         if (dcf0202.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcf0202), Toast.LENGTH_SHORT).show();
@@ -321,6 +383,21 @@ public class SectionFActivity extends Activity {
         } else {
             dcf0202.setError(null);
         }
+
+        if ((Integer.parseInt(dcf0202.getText().toString().isEmpty() ? "0" : dcf0202.getText().toString()))
+                > (Integer.parseInt(dcf01.getText().toString().isEmpty() ? "0" : dcf01.getText().toString()))) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcf0202), Toast.LENGTH_SHORT).show();
+            dcf0202.setError("Can not be greater than total pregnancies");    // Set Error on last radio button
+
+            Log.i(TAG, "dcf0202: Can not be greater than total pregnancies");
+            return false;
+        } else {
+            dcf0202.setError(null);
+        }
+
+
+
+
 
 //        02-03
         if (dcf0203.getText().toString().isEmpty()) {
@@ -333,12 +410,34 @@ public class SectionFActivity extends Activity {
             dcf0203.setError(null);
         }
 
+        if ((Integer.parseInt(dcf0203.getText().toString().isEmpty() ? "0" : dcf0203.getText().toString()))
+                > (Integer.parseInt(dcf01.getText().toString().isEmpty() ? "0" : dcf01.getText().toString()))) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcf0203), Toast.LENGTH_SHORT).show();
+            dcf0203.setError("Can not be greater than total pregnancies");    // Set Error on last radio button
+
+            Log.i(TAG, "dcf0203: Can not be greater than total pregnancies");
+            return false;
+        } else {
+            dcf0203.setError(null);
+        }
+
 //        03
         if (dcf03.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcf03), Toast.LENGTH_SHORT).show();
             dcf03.setError("This data is Required!");    // Set Error on last radio button
 
             Log.i(TAG, "dcf03: This data is Required!");
+            return false;
+        } else {
+            dcf03.setError(null);
+        }
+
+        if ((Integer.parseInt(dcf03.getText().toString().isEmpty() ? "0" : dcf03.getText().toString()))
+                > (Integer.parseInt(dcf0201.getText().toString().isEmpty() ? "0" : dcf0201.getText().toString()))) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcf03), Toast.LENGTH_SHORT).show();
+            dcf03.setError("Can not be greater than total pregnancies");    // Set Error on last radio button
+
+            Log.i(TAG, "dcf03: Can not be greater than total pregnancies");
             return false;
         } else {
             dcf03.setError(null);
@@ -438,6 +537,17 @@ public class SectionFActivity extends Activity {
             dcf06.setError(null);
         }
 
+        if ((Integer.parseInt(dcf06.getText().toString().isEmpty() ? "0" : dcf06.getText().toString()))
+                < (Integer.parseInt(dcf05.getText().toString().isEmpty() ? "0" : dcf05.getText().toString()))) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcf06), Toast.LENGTH_SHORT).show();
+            dcf06.setError("Can not be less than age at marriage");    // Set Error on last radio button
+
+            Log.i(TAG, "dcf06: Can not be less than age at marriage");
+            return false;
+        } else {
+            dcf06.setError(null);
+        }
+
 //        07
         if (dcf07.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcf07), Toast.LENGTH_SHORT).show();
@@ -457,6 +567,17 @@ public class SectionFActivity extends Activity {
                 dcf08.setError("This data is Required!");    // Set Error on last radio button
 
                 Log.i(TAG, "dcf08: This data is Required!");
+                return false;
+            } else {
+                dcf08.setError(null);
+            }
+
+            if ((Integer.parseInt(dcf08.getText().toString().isEmpty() ? "0" : dcf08.getText().toString())) < 1
+                    || (Integer.parseInt(dcf08.getText().toString().isEmpty() ? "0" : dcf08.getText().toString())) > 10) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcf08), Toast.LENGTH_SHORT).show();
+                dcf08.setError("Range is 1 - 10 months");    // Set Error on last radio button
+
+                Log.i(TAG, "dcf08: Range is 1 - 10 months");
                 return false;
             } else {
                 dcf08.setError(null);

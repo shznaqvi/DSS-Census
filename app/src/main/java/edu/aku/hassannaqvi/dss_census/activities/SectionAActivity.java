@@ -267,9 +267,15 @@ public class SectionAActivity extends Activity {
         dca09.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if (!dca0901.isChecked()) {
+                if (dca0903.isChecked()) {
                     fldGrpdca0901.setVisibility(View.VISIBLE);
                     fldGrpdca10.setVisibility(View.VISIBLE);
+                } else if (dca0902.isChecked()) {
+                    fldGrpdca0901.setVisibility(View.GONE);
+                    fldGrpdca10.setVisibility(View.VISIBLE);
+                    dca09m.setText(null);
+                    dca09y.setText(null);
+
                 } else {
                     fldGrpdca0901.setVisibility(View.GONE);
                     fldGrpdca10.setVisibility(View.GONE);
