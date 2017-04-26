@@ -286,14 +286,15 @@ public class SectionAActivity extends Activity {
         dca0501.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (dca050101.isChecked()) {
+                if (dca050102.isChecked()) {
+                    dca050201.setEnabled(true);
+                    dca050512.setEnabled(true);
+
+                } else {
                     dca050201.setEnabled(false);
                     dca050201.setChecked(false);
                     dca050512.setEnabled(false);
                     dca050512.setChecked(false);
-                } else {
-                    dca050201.setEnabled(true);
-                    dca050512.setEnabled(true);
 
                 }
 

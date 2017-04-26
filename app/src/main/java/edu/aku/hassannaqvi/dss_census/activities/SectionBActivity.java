@@ -452,6 +452,21 @@ public class SectionBActivity extends Activity {
             }
         });
 
+        dcbd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (dcbd01.isChecked()) {
+                    dcbm01.setEnabled(false);
+                    dcbm02.setEnabled(true);
+                    dcbm01.setChecked(false);
+                } else {
+                    dcbm01.setEnabled(true);
+                    dcbm02.setEnabled(false);
+                    dcbm02.setChecked(false);
+                }
+            }
+        });
+
 
 
 
