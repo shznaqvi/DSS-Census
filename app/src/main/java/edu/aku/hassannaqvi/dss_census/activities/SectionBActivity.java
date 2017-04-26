@@ -293,6 +293,16 @@ public class SectionBActivity extends Activity {
             }
             if (!MainApp.familyMembersList.get(position).getGender().contains("null")) {
                 ((RadioButton) dcbd.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getGender())) - 1)).setChecked(true);
+
+                if (((Integer.parseInt(MainApp.familyMembersList.get(position).getGender())) - 1) == 0){
+                    dcbm01.setEnabled(false);
+                    dcbm02.setEnabled(true);
+                    dcbm01.setChecked(false);
+                }else {
+                    dcbm01.setEnabled(true);
+                    dcbm02.setEnabled(false);
+                    dcbm02.setChecked(false);
+                }
             }
 
             if (!MainApp.familyMembersList.get(position).getEducation().contains("null")) {
@@ -555,6 +565,14 @@ public class SectionBActivity extends Activity {
                 } else {
                     if (MainApp.NoMembersCount != 0) {
 
+                        Long dt =  new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY);
+                        Long crDt = dcbidob.getCalendarView().getDate();
+
+                        Log.d("Current Date", "" + dt.toString());
+                        Log.d("Current Date", "" + new SimpleDateFormat().format(new Date(dt)));
+                        Log.d("Selected Date", " "+crDt.toString());
+
+
                         startActivity(new Intent(this, SectionCActivity.class).putExtra("position",position));
                     }
                 }
@@ -590,6 +608,13 @@ public class SectionBActivity extends Activity {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
         }
+    }
+
+    public boolean dodCheck(String dt){
+
+
+
+        return true;
     }
 
     private void SaveDraft() throws JSONException {
