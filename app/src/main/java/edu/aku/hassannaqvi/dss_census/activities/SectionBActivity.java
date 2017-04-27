@@ -566,16 +566,16 @@ public class SectionBActivity extends Activity {
                     if (MainApp.NoMembersCount != 0) {
 
                         Long dt =  new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY);
-                        //Long crDt = dcbidob.getCalendarView().getDate();
-
                         Long crDt = dcbidob.getCalendarView().getDate();
 
                         Log.d("Current Date", "" + dt.toString());
-                        Log.d("Current Date", "" + new SimpleDateFormat("dd/MM/yyyy").format(new Date(crDt).getTime()));
-                        Log.d("Other Date", "" + new SimpleDateFormat("dd/MM/yyyy").format(new Date(dt).getTime()));
+                        Log.d("Current Date", "" + new SimpleDateFormat().format(new Date(dt)));
                         Log.d("Selected Date", " "+crDt.toString());
 
                         if (crDt < dt) {
+
+                            MainApp.currentStatusCount -= 1;
+
                             startActivity(new Intent(this, FamilyMembersActivity.class).putExtra("position", position));
                         } else {
                             startActivity(new Intent(this, SectionCActivity.class).putExtra("position", position));
