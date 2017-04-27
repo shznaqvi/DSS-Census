@@ -21,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -400,6 +401,11 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             R.id.dci18h99, R.id.dci18i99, R.id.dci18j99, R.id.dci18k99, R.id.dci18l99, R.id.dci18m99, R.id.dci18n99, R.id.dci18o99,
             R.id.dci18p99, R.id.dci18q99})
     List<RadioButton> dci1899;
+
+    Calendar now = Calendar.getInstance();
+    int year = now.get(Calendar.YEAR);
+    int month = now.get(Calendar.MONTH);
+    int day = now.get(Calendar.DATE);
 
 
     @Override
