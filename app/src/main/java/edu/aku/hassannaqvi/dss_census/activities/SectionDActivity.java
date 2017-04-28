@@ -880,7 +880,7 @@ public class SectionDActivity extends Activity {
         }
 
         // ======================  Q 17 =================
-        if (dcd1701.isChecked()) {
+        if (dcd1601.isChecked()) {
             if (dcd17.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd17), Toast.LENGTH_SHORT).show();
                 dcd1799.setError("This data is Required!");
@@ -889,6 +889,9 @@ public class SectionDActivity extends Activity {
             } else {
                 dcd1799.setError(null);
             }
+        }
+
+        if (!dcd1701.isChecked()) {
 
             // ======================  Q 18 =================
 

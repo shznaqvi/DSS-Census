@@ -227,7 +227,7 @@ public class SectionHActivity extends Activity {
             }
         });
 
-        dch0303.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        dch0302.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
