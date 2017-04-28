@@ -420,7 +420,7 @@ public class SectionHActivity extends Activity {
 
 
         // ================= Q 4 ========================
-        if (dch0301.isChecked() || dch0302.isChecked()) {
+        if (dch0301.isChecked() || dch0303.isChecked()) {
             if (dch04.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch04), Toast.LENGTH_SHORT).show();
                 dch0402.setError("This data is Required!");
