@@ -9,12 +9,9 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.format.DateFormat;
-import android.util.Log;
-import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
 import edu.aku.hassannaqvi.dss_census.contracts.DeceasedContract;
@@ -72,7 +69,7 @@ public class MainApp extends Application {
     public static DeceasedContract dc;
     public static int memFlag = 0;
     public static List<Integer> memClicked;
-    protected LocationManager locationManager;
+    protected static LocationManager locationManager;
     Location location;
 
     @Override
@@ -87,12 +84,12 @@ public class MainApp extends Application {
         // Requires Permission for GPS -- android.permission.ACCESS_FINE_LOCATION
         // Requires Additional permission for 5.0 -- android.hardware.location.gps
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
         locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER,
                 MINIMUM_TIME_BETWEEN_UPDATES,
                 MINIMUM_DISTANCE_CHANGE_FOR_UPDATES,
-                new MyLocationListener()
+                new GPSLocationListener() // Implement this class from code
+
         );
 
 
@@ -133,6 +130,7 @@ public class MainApp extends Application {
         // because the user has likely moved
         if (isSignificantlyNewer) {
             return true;
+
             // If the new location is more than two minutes older, it must be worse
         } else if (isSignificantlyOlder) {
             return false;
@@ -159,12 +157,6 @@ public class MainApp extends Application {
         return false;
     }
 
-
-    public void showGPSCoordinates(View v) {
-        showCurrentLocation();
-    }
-
-
     /**
      * Checks whether two providers are the same
      */
@@ -175,11 +167,11 @@ public class MainApp extends Application {
         return provider1.equals(provider2);
     }
 
+
     public static class deadMemberClass {
 
         int position;
         String DSSId;
-
 
         public deadMemberClass(int i, String s) {
             position = i;
@@ -198,11 +190,9 @@ public class MainApp extends Application {
             DSSId = id;
         }
 
-
     }
 
-    private class MyLocationListener implements LocationListener {
-
+    public class GPSLocationListener implements LocationListener {
         public void onLocationChanged(Location location) {
 
             SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
@@ -213,7 +203,6 @@ public class MainApp extends Application {
             Location bestLocation = new Location("storedProvider");
             bestLocation.setAccuracy(Float.parseFloat(sharedPref.getString("Accuracy", "0")));
             bestLocation.setTime(Long.parseLong(sharedPref.getString(dt, "0")));
-//                bestLocation.setTime(Long.parseLong(dt));
             bestLocation.setLatitude(Float.parseFloat(sharedPref.getString("Latitude", "0")));
             bestLocation.setLongitude(Float.parseFloat(sharedPref.getString("Longitude", "0")));
 
@@ -222,8 +211,6 @@ public class MainApp extends Application {
                 editor.putString("Latitude", String.valueOf(location.getLatitude()));
                 editor.putString("Accuracy", String.valueOf(location.getAccuracy()));
                 editor.putString("Time", String.valueOf(location.getTime()));
-//                    editor.putString("Time", DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString());
-
 //                String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString();
 //                Toast.makeText(getApplicationContext(),
 //                        "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) +
@@ -234,13 +221,9 @@ public class MainApp extends Application {
 
                 editor.apply();
             }
-
-
-            Map<String, ?> allEntries = sharedPref.getAll();
-            for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-                Log.d("Map", entry.getKey() + ": " + entry.getValue().toString());
-            }
         }
+
+
 
         public void onStatusChanged(String s, int i, Bundle b) {
             showCurrentLocation();

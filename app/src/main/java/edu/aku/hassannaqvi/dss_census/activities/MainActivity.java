@@ -12,6 +12,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,7 +30,6 @@ import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 import edu.aku.hassannaqvi.dss_census.get.GetMembers;
-import edu.aku.hassannaqvi.dss_census.otherClasses.BackgroundDrawable;
 import edu.aku.hassannaqvi.dss_census.sync.SyncCensus;
 import edu.aku.hassannaqvi.dss_census.sync.SyncDeceased;
 import edu.aku.hassannaqvi.dss_census.sync.SyncForms;
@@ -256,6 +257,17 @@ public class MainActivity extends Activity {
         startActivity(iEnd);
     }
 
+    public void testGPS(View v) {
+
+        SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
+        Log.d("MAP", "testGPS: " + sharedPref.getAll().toString());
+        Map<String, ?> allEntries = sharedPref.getAll();
+        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+            Log.d("Map", entry.getKey() + ": " + entry.getValue().toString());
+        }
+
+    }
+
     public void openDB(View v) {
         Intent dbmanager = new Intent(getApplicationContext(), AndroidDatabaseManager.class);
         startActivity(dbmanager);
@@ -304,9 +316,9 @@ public class MainActivity extends Activity {
         if (networkInfo != null && networkInfo.isConnected()) {
 
             // Sync Users
-            BackgroundDrawable bg = new BackgroundDrawable();
+           /* BackgroundDrawable bg = new BackgroundDrawable();
             syncDevice.setBackground(bg);
-            bg.start();
+            bg.start();*/
             new GetMembers(this).execute();
             //bg.stop();
 
