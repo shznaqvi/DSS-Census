@@ -14,6 +14,7 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -47,22 +48,26 @@ public class SectionAActivity extends Activity {
 
     @BindView(R.id.activity_section_a)
     RelativeLayout activitySectionA;
-    @BindView(R.id.membersExists)
-    LinearLayout membersExists;
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)
     TextView appHeader;
     @BindView(R.id.dca03)
     EditText dca03;
+    @BindView(R.id.membersExists)
+    LinearLayout membersExists;
     @BindView(R.id.dca04)
     RadioGroup dca04;
-    @BindView(R.id.dca0401)
-    RadioButton dca0401;
     @BindView(R.id.dca0402)
     RadioButton dca0402;
+    @BindView(R.id.dca0401)
+    RadioButton dca0401;
     @BindView(R.id.dca0403)
     RadioButton dca0403;
+    @BindView(R.id.fldGrpdca05)
+    LinearLayout fldGrpdca05;
+    @BindView(R.id.textView)
+    TextView textView;
     @BindView(R.id.dca05)
     EditText dca05;
     @BindView(R.id.dca0501)
@@ -80,7 +85,31 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.dca0503)
     EditText dca0503;
     @BindView(R.id.dca0504)
-    EditText dca0504;
+    RadioGroup dca0504;
+    @BindView(R.id.dca050401)
+    RadioButton dca050401;
+    @BindView(R.id.dca050402)
+    RadioButton dca050402;
+    @BindView(R.id.dca050403)
+    RadioButton dca050403;
+    @BindView(R.id.dca050404)
+    RadioButton dca050404;
+    @BindView(R.id.dca050405)
+    RadioButton dca050405;
+    @BindView(R.id.dca050406)
+    RadioButton dca050406;
+    @BindView(R.id.dca050407)
+    RadioButton dca050407;
+    @BindView(R.id.dca050408)
+    RadioButton dca050408;
+    @BindView(R.id.dca050499)
+    RadioButton dca050499;
+    @BindView(R.id.dca050488)
+    RadioButton dca050488;
+    @BindView(R.id.dca050496)
+    RadioButton dca050496;
+    @BindView(R.id.dca050496x)
+    EditText dca050496x;
     @BindView(R.id.dca0505)
     RadioGroup dca0505;
     @BindView(R.id.dca050501)
@@ -107,6 +136,18 @@ public class SectionAActivity extends Activity {
     RadioButton dca050511;
     @BindView(R.id.dca050512)
     RadioButton dca050512;
+    @BindView(R.id.dca050513)
+    RadioButton dca050513;
+    @BindView(R.id.dca050514)
+    RadioButton dca050514;
+    @BindView(R.id.dca050515)
+    RadioButton dca050515;
+    @BindView(R.id.dca050516)
+    RadioButton dca050516;
+    @BindView(R.id.dca050517)
+    RadioButton dca050517;
+    @BindView(R.id.dca050588)
+    RadioButton dca050588;
     @BindView(R.id.dca050596)
     RadioButton dca050596;
     @BindView(R.id.dca050596x)
@@ -122,7 +163,31 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.dca0602)
     EditText dca0602;
     @BindView(R.id.dca0603)
-    EditText dca0603;
+    RadioGroup dca0603;
+    @BindView(R.id.dca060301)
+    RadioButton dca060301;
+    @BindView(R.id.dca060302)
+    RadioButton dca060302;
+    @BindView(R.id.dca060303)
+    RadioButton dca060303;
+    @BindView(R.id.dca060304)
+    RadioButton dca060304;
+    @BindView(R.id.dca060305)
+    RadioButton dca060305;
+    @BindView(R.id.dca060306)
+    RadioButton dca060306;
+    @BindView(R.id.dca060307)
+    RadioButton dca060307;
+    @BindView(R.id.dca060308)
+    RadioButton dca060308;
+    @BindView(R.id.dca060399)
+    RadioButton dca060399;
+    @BindView(R.id.dca060388)
+    RadioButton dca060388;
+    @BindView(R.id.dca060396)
+    RadioButton dca060396;
+    @BindView(R.id.dca060396x)
+    EditText dca060396x;
     @BindView(R.id.dca0604)
     RadioGroup dca0604;
     @BindView(R.id.dca060401)
@@ -149,6 +214,18 @@ public class SectionAActivity extends Activity {
     RadioButton dca060411;
     @BindView(R.id.dca060412)
     RadioButton dca060412;
+    @BindView(R.id.dca060413)
+    RadioButton dca060413;
+    @BindView(R.id.dca060414)
+    RadioButton dca060414;
+    @BindView(R.id.dca060415)
+    RadioButton dca060415;
+    @BindView(R.id.dca060416)
+    RadioButton dca060416;
+    @BindView(R.id.dca060417)
+    RadioButton dca060417;
+    @BindView(R.id.dca060488)
+    RadioButton dca060488;
     @BindView(R.id.dca060496)
     RadioButton dca060496;
     @BindView(R.id.dca060496x)
@@ -173,6 +250,8 @@ public class SectionAActivity extends Activity {
     RadioButton dca0902;
     @BindView(R.id.dca0903)
     RadioButton dca0903;
+    @BindView(R.id.fldGrpdca0901)
+    LinearLayout fldGrpdca0901;
     @BindView(R.id.dca09m)
     EditText dca09m;
     @BindView(R.id.dca09y)
@@ -188,11 +267,6 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.dca1102)
     RadioButton dca1102;
 
-    @BindView(R.id.fldGrpdca05)
-    LinearLayout fldGrpdca05;
-
-    @BindView(R.id.fldGrpdca0901)
-    LinearLayout fldGrpdca0901;
 
     @BindView(R.id.btn_Continue)
     Button btn_Continue;
@@ -245,13 +319,15 @@ public class SectionAActivity extends Activity {
                     dca0501.clearCheck();
                     dca0502.clearCheck();
                     dca0503.setText(null);
-                    dca0504.setText(null);
+                    dca0504.clearCheck();
+                    dca050496x.setText(null);
                     dca0505.clearCheck();
                     dca050596x.setText(null);
                     dca06.setText(null);
                     dca0601.clearCheck();
                     dca0602.setText(null);
-                    dca0603.setText(null);
+                    dca0603.clearCheck();
+                    dca060396x.setText(null);
                     dca0604.clearCheck();
                     dca060496x.setText(null);
                     dca0701.setText(null);
@@ -385,6 +461,30 @@ public class SectionAActivity extends Activity {
             @Override
             public void afterTextChanged(Editable s) {
 
+            }
+        });
+
+        dca050496.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    dca050496x.setVisibility(View.VISIBLE);
+                } else {
+                    dca050496x.setVisibility(View.GONE);
+                    dca050496x.setText(null);
+                }
+            }
+        });
+
+        dca060396.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    dca060396x.setVisibility(View.VISIBLE);
+                } else {
+                    dca060396x.setVisibility(View.GONE);
+                    dca060396x.setText(null);
+                }
             }
         });
     }
@@ -614,24 +714,24 @@ public class SectionAActivity extends Activity {
             }
 
 //        06
-            if (dca0504.getText().toString().isEmpty()) {
+            if (dca0504.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0504), Toast.LENGTH_SHORT).show();
-                dca0504.setError("This data is Required!");    // Set Error on last radio button
+                dca050496.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0504: This data is Required!");
                 return false;
             } else {
-                dca0504.setError(null);
+                dca050496.setError(null);
             }
 
-            if ((Integer.parseInt(dca0504.getText().toString()) < 1) || (Integer.parseInt(dca0504.getText().toString()) > 9)
-                    && Integer.parseInt(dca0504.getText().toString()) != 88
-                    && Integer.parseInt(dca0504.getText().toString()) != 99) {
-                Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca0504), Toast.LENGTH_SHORT).show();
-                dca0504.setError("Range is 1 - 9 or 88 / 99!");    // Set Error on last radio button
+            if (dca050496.isChecked() && dca050496x.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0504) + " - " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
+                dca050496x.setError("This data is Required!");    // Set Error on last radio button
 
-                Log.i(TAG, "dca0504: Range is 1 - 9 or 88 / 99!");
+                Log.i(TAG, "dca050496x: This data is Required!");
                 return false;
             } else {
-                dca0504.setError(null);
+                dca050496x.setError(null);
             }
 
 //        07
@@ -695,26 +795,25 @@ public class SectionAActivity extends Activity {
             }
 
 //        11
-            if (dca0603.getText().toString().isEmpty()) {
+            if (dca0603.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0603), Toast.LENGTH_SHORT).show();
-                dca0603.setError("This data is Required!");    // Set Error on last radio button
+                dca060396.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "dca0603: This data is Required!");
                 return false;
             } else {
-                dca0603.setError(null);
+                dca060396.setError(null);
             }
 
-            if ((Integer.parseInt(dca0603.getText().toString()) < 1) || (Integer.parseInt(dca0603.getText().toString()) > 9)
-                    && Integer.parseInt(dca0603.getText().toString()) != 88
-                    && Integer.parseInt(dca0603.getText().toString()) != 99) {
-                Toast.makeText(this, "ERROR(Range): " + getString(R.string.dca0603), Toast.LENGTH_SHORT).show();
-                dca0603.setError("Range is 1 - 9 or 88 / 99!");    // Set Error on last radio button
+            if (dca060396.isChecked() && dca060396x.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0603) + " - " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
+                dca060396x.setError("This data is Required!");    // Set Error on last radio button
 
-                Log.i(TAG, "dca0603: Range is 1 - 9 or 88 / 99!");
+                Log.i(TAG, "dca060396x: This data is Required!");
                 return false;
             } else {
-                dca0603.setError(null);
+                dca060396x.setError(null);
             }
-
 
 //        12
             if (dca0604.getCheckedRadioButtonId() == -1) {
@@ -973,21 +1072,33 @@ public class SectionAActivity extends Activity {
         sa.put("dca0501", dca050101.isChecked() ? "1" : dca050102.isChecked() ? "2" : "0");
         sa.put("dca0502", dca050201.isChecked() ? "1" : dca050202.isChecked() ? "2" : "0");
         sa.put("dca0503", dca0503.getText().toString());
-        sa.put("dca0504", dca0504.getText().toString());
+        sa.put("dca0504", dca050401.isChecked() ? "1" : dca050402.isChecked() ? "2" : dca050403.isChecked() ? "3"
+                : dca050404.isChecked() ? "4" : dca050405.isChecked() ? "5" : dca050406.isChecked() ? "6" : dca050407.isChecked() ? "7"
+                : dca050408.isChecked() ? "8" : dca050499.isChecked() ? "99" : dca050488.isChecked() ? "88" : dca050496.isChecked() ? "96"
+                : "0");
+        sa.put("dca050496x", dca050496x.getText().toString());
         sa.put("dca0505", dca050501.isChecked() ? "1" : dca050502.isChecked() ? "2" : dca050503.isChecked() ? "3"
                 : dca050504.isChecked() ? "4" : dca050505.isChecked() ? "5" : dca050506.isChecked() ? "6"
                 : dca050507.isChecked() ? "7" : dca050508.isChecked() ? "8" : dca050509.isChecked() ? "9"
                 : dca050510.isChecked() ? "10" : dca050511.isChecked() ? "11" : dca050512.isChecked() ? "12"
+                : dca050513.isChecked() ? "13" : dca050514.isChecked() ? "14" : dca050515.isChecked() ? "15"
+                : dca050516.isChecked() ? "16" : dca050517.isChecked() ? "17" : dca050588.isChecked() ? "88"
                 : dca050596.isChecked() ? "96" : "0");
         sa.put("dca050596x", dca050596x.getText().toString());
         sa.put("dca06", dca06.getText().toString());
         sa.put("dca0601", dca060101.isChecked() ? "1" : dca060102.isChecked() ? "2" : "0");
         sa.put("dca0602", dca0602.getText().toString());
-        sa.put("dca0603", dca0603.getText().toString());
+        sa.put("dca0603", dca060301.isChecked() ? "1" : dca060302.isChecked() ? "2" : dca060303.isChecked() ? "3"
+                : dca060304.isChecked() ? "4" : dca060305.isChecked() ? "5" : dca060306.isChecked() ? "6" : dca060307.isChecked() ? "7"
+                : dca060308.isChecked() ? "8" : dca060399.isChecked() ? "99" : dca060388.isChecked() ? "88" : dca060396.isChecked() ? "96"
+                : "0");
+        sa.put("dca060396x", dca060396x.getText().toString());
         sa.put("dca0604", dca060401.isChecked() ? "1" : dca060402.isChecked() ? "2" : dca060403.isChecked() ? "3"
                 : dca060404.isChecked() ? "4" : dca060405.isChecked() ? "5" : dca060406.isChecked() ? "6"
                 : dca060407.isChecked() ? "7" : dca060408.isChecked() ? "8" : dca060409.isChecked() ? "9"
                 : dca060410.isChecked() ? "10" : dca060411.isChecked() ? "11" : dca060412.isChecked() ? "12"
+                : dca060413.isChecked() ? "13" : dca060414.isChecked() ? "14" : dca060415.isChecked() ? "15"
+                : dca060416.isChecked() ? "16" : dca060417.isChecked() ? "17" : dca060488.isChecked() ? "88"
                 : dca060496.isChecked() ? "96" : "0");
         sa.put("dca060496x", dca060496x.getText().toString());
         sa.put("dca0701", dca0701.getText().toString());

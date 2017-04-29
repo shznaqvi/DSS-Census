@@ -54,20 +54,32 @@ public class EndingActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        finish();
 
-        MainApp.familyMembersList.clear();
-        MainApp.memFlag = 0;
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+        if (formValidation()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
 
-        Intent endSec = new Intent(this, MainActivity.class);
-        endSec.putExtra("complete", false);
-        startActivity(endSec);
+                finish();
+
+                MainApp.familyMembersList.clear();
+                MainApp.memFlag = 0;
+
+                Intent endSec = new Intent(this, MainActivity.class);
+                endSec.putExtra("complete", false);
+                startActivity(endSec);
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
-
 
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
-
 
         MainApp.fc.setIstatus(dcstatus01.isChecked() ? "1" : dcstatus02.isChecked() ? "2" : "0");
 
@@ -106,12 +118,10 @@ public class EndingActivity extends Activity {
     }
 
 
-
     @Override
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
-
 
 
 }

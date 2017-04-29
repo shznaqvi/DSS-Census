@@ -158,7 +158,7 @@ public class SectionCActivity extends Activity {
 
         String[] dt1 = MainApp.cc.getCurrent_date().split("-");
 
-        dccf.updateDate(Integer.parseInt(dt[2]), Integer.parseInt(dt[1]) - 1, Integer.parseInt(dt[0]));
+        dccf.updateDate(Integer.parseInt(dt[2]), Integer.parseInt(dt[1]) - 1, Integer.parseInt(dt1[0]));
 
         /* End Fields */
 
