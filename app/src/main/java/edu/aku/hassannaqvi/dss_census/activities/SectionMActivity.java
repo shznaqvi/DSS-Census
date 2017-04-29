@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
+import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
 public class SectionMActivity extends Activity {
 
@@ -303,7 +304,6 @@ public class SectionMActivity extends Activity {
             }
         }*/
 
-
     }
 
     private boolean UpdateDB() {
@@ -578,9 +578,7 @@ public class SectionMActivity extends Activity {
         } else {
             dcm2099.setError(null);
         }
-
         return true;
-
     }
 
     private void SaveDraft() throws JSONException {
@@ -628,10 +626,8 @@ public class SectionMActivity extends Activity {
         sM.put("dcm19", dcm1901.isChecked() ? "1" : dcm1902.isChecked() ? "2" : dcm1999.isChecked() ? "99" : "0");
         sM.put("dcm20", dcm2001.isChecked() ? "1" : dcm2002.isChecked() ? "2" : dcm2099.isChecked() ? "99" : "0");
 
-        //DCEApp.fc.setROW_Se(String.valueOf(se));
+        MainApp.fc.setsM(String.valueOf(sM));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
-
-
 }
