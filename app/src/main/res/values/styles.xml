@@ -134,11 +134,13 @@
     </style>
 
     <style name="buttons" parent="android:Widget.Material.Light.Button">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:typeface">serif</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:padding">16dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:radius">2dp</item>
     </style>
 
     <style name="checkbox" parent="android:Widget.Material.Light.CompoundButton.CheckBox">

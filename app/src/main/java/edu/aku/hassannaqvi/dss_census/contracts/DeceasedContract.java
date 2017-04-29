@@ -337,8 +337,8 @@ public class DeceasedContract {
         json.put(DeceasedContract.DeceasedMember.COLUMN_NAME, this.name == null ? JSONObject.NULL : this.name);
         json.put(DeceasedContract.DeceasedMember.COLUMN_DOB, this.dob == null ? JSONObject.NULL : this.dob);
         json.put(DeceasedContract.DeceasedMember.COLUMN_AGEY, this.ageY == null ? JSONObject.NULL : this.ageY);
-        json.put(DeceasedContract.DeceasedMember.COLUMN_AGEY, this.ageM == null ? JSONObject.NULL : this.ageM);
-        json.put(DeceasedContract.DeceasedMember.COLUMN_AGEY, this.ageD == null ? JSONObject.NULL : this.ageD);
+        json.put(DeceasedContract.DeceasedMember.COLUMN_AGEM, this.ageM == null ? JSONObject.NULL : this.ageM);
+        json.put(DeceasedContract.DeceasedMember.COLUMN_AGED, this.ageD == null ? JSONObject.NULL : this.ageD);
         json.put(DeceasedContract.DeceasedMember.COLUMN_GENDER, this.gender == null ? JSONObject.NULL : this.gender);
         json.put(DeceasedContract.DeceasedMember.COLUMN_RELATION_HH, this.relation_hh == null ? JSONObject.NULL : this.relation_hh);
         json.put(DeceasedContract.DeceasedMember.COLUMN_DOD, this.dod == null ? JSONObject.NULL : this.dod);

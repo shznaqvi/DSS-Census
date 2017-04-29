@@ -60,6 +60,12 @@ public class MainActivity extends Activity {
 
         ButterKnife.bind(this);
 
+        if (MainApp.admin) {
+            adminsec.setVisibility(View.VISIBLE);
+        } else {
+            adminsec.setVisibility(View.GONE);
+        }
+
         // Reset working variables
         MainApp.child_name = "Test";
 

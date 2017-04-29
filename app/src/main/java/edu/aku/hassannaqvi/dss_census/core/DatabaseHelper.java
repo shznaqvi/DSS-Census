@@ -874,12 +874,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                censusMember.COLUMN_ID + " ASC";
+                DeceasedMember.COLUMN_ID + " ASC";
 
         Collection<DeceasedContract> allDC = new ArrayList<DeceasedContract>();
         try {
             c = db.query(
-                    censusMember.TABLE_NAME,  // The table to query
+                    DeceasedMember.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
