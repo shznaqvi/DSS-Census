@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -227,30 +226,28 @@ public class SectionHActivity extends Activity {
             }
         });
 
-        dch0302.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        dch03.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    fldGrpdch04.setVisibility(View.GONE);
-                    fldGrpdch05.setVisibility(View.VISIBLE);
-                    dch04.clearCheck();
-                } else {
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (dch0301.isChecked() || dch0303.isChecked()) {
                     fldGrpdch04.setVisibility(View.VISIBLE);
                     fldGrpdch05.setVisibility(View.GONE);
                     dch05.setText(null);
+                } else {
+                    fldGrpdch05.setVisibility(View.VISIBLE);
+                    fldGrpdch04.setVisibility(View.GONE);
+                    dch04.clearCheck();
                 }
             }
         });
 
-        dch0402.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        dch04.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    //dch04.clearCheck();
-                    fldGrpdch05.setVisibility(View.VISIBLE);
-                } else {
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (dch0401.isChecked() || dch0403.isChecked()) {
                     fldGrpdch05.setVisibility(View.GONE);
-                    dch05.setText(null);
+                } else {
+                    fldGrpdch05.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -430,7 +427,7 @@ public class SectionHActivity extends Activity {
                 dch0402.setError(null);
             }
         }
-        if (dch0303.isChecked() || dch0402.isChecked())
+        if (dch0302.isChecked() || dch0402.isChecked())
             if (dch05.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch05), Toast.LENGTH_SHORT).show();
                 dch05.setError("This data is Required!");
@@ -514,7 +511,7 @@ public class SectionHActivity extends Activity {
             dch1199.setError(null);
         }
 
-        if (dch1101.isChecked()) {
+        if (dch1102.isChecked()) {
 
             // =================== Q 12 ==================
             if (dch12.getCheckedRadioButtonId() == -1) {

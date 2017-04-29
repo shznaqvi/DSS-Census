@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +39,7 @@ import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
+
 
 public class SectionAActivity extends Activity {
 
@@ -206,10 +209,16 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.checkMembers)
     Button checkMembers;
 
+    @BindView(R.id.checkDSSID)
+    Button checkDSSID;
+
     Collection<MembersContract> members;
     DatabaseHelper db;
 
     Boolean isNew = false;
+
+    boolean checked = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -353,7 +362,31 @@ public class SectionAActivity extends Activity {
             }
         });
 
+        dca03.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                checked = false;
+
+                if (!checked) {
+                    dca03.setError("Please Check DSS ID...");
+                } else {
+                    checked = true;
+                    dca03.setError(null);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     @OnClick(R.id.btn_End)
@@ -439,6 +472,7 @@ public class SectionAActivity extends Activity {
 
                 Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
 
+
 //                fldGrpmp02a007.setVisibility(View.VISIBLE);
 //                btn_Continue.setVisibility(View.VISIBLE);
 
@@ -468,6 +502,7 @@ public class SectionAActivity extends Activity {
         } else {
             dca03.setError("This data is Required!");
         }
+        checked = true;
 
 
 
