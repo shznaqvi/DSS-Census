@@ -419,7 +419,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
 
 
         dci05.setMaxDate(new Date().getTime());
-        dci05.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
+        dci05.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) - (MainApp.MILLISECONDS_IN_MONTH) + MainApp.MILLISECONDS_IN_DAY)));
         dob = new SimpleDateFormat("dd-MM-yyyy").format(dci05.getCalendarView().getDate());
 
         // ============= Q 18 B =============
@@ -723,7 +723,39 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             dci07y.setError(null);
         }
 
+        // ====================== Q 7 ==============
+        if ((Integer.parseInt(dci07d.getText().toString().isEmpty() ? "0" : dci07d.getText().toString()) < 0
+                || Integer.parseInt(dci07d.getText().toString().isEmpty() ? "0" : dci07d.getText().toString()) > 29)
+                && Integer.parseInt(dci07d.getText().toString().isEmpty() ? "0" : dci07d.getText().toString()) != 98) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci07d), Toast.LENGTH_SHORT).show();
+            dci07d.setError("Range is 0 to 29 days... ");
+            Log.i(TAG, "Range is 0 to 29 days");
+            return false;
+        } else {
+            dci07d.setError(null);
+        }
 
+        // ====================== Q 7 ==============
+        if ((Integer.parseInt(dci07m.getText().toString().isEmpty() ? "0" : dci07m.getText().toString()) < 0
+                || Integer.parseInt(dci07m.getText().toString().isEmpty() ? "0" : dci07m.getText().toString()) > 11)) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci07m), Toast.LENGTH_SHORT).show();
+            dci07m.setError("Range is 0 to 11 months... ");
+            Log.i(TAG, "Range is 0 to 11 months");
+            return false;
+        } else {
+            dci07m.setError(null);
+        }
+
+        // ====================== Q 7 ==============
+        if ((Integer.parseInt(dci07y.getText().toString().isEmpty() ? "0" : dci07y.getText().toString()) < 0
+                || Integer.parseInt(dci07y.getText().toString().isEmpty() ? "0" : dci07y.getText().toString()) > 1)) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci07y), Toast.LENGTH_SHORT).show();
+            dci07y.setError("Range is 0 to 1 year & 11 months ... ");
+            Log.i(TAG, "Range is 0 to 1 year & 11 months");
+            return false;
+        } else {
+            dci07y.setError(null);
+        }
 
 
         // ====================== Q 8 ==============
@@ -745,6 +777,17 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         } else {
             dci09.setError(null);
         }
+        // ====================== Q 9 ==============
+        if ((Integer.parseInt(dci09.getText().toString().isEmpty() ? "0" : dci09.getText().toString()) < 0
+                || Integer.parseInt(dci09.getText().toString().isEmpty() ? "0" : dci09.getText().toString()) > 23)) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci07m), Toast.LENGTH_SHORT).show();
+            dci09.setError("Range is 0 to 23 months... ");
+            Log.i(TAG, "Range is 0 to 23 months");
+            return false;
+        } else {
+            dci09.setError(null);
+        }
+
 
         // ====================== Q 10a ==============
         if (dci10a.getCheckedRadioButtonId() == -1) {
