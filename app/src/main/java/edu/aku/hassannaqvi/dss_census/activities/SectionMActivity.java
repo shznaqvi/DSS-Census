@@ -304,7 +304,6 @@ public class SectionMActivity extends Activity {
             }
         }*/
 
-
     }
 
     private boolean UpdateDB() {
@@ -579,9 +578,7 @@ public class SectionMActivity extends Activity {
         } else {
             dcm2099.setError(null);
         }
-
         return true;
-
     }
 
     private void SaveDraft() throws JSONException {
@@ -633,6 +630,4 @@ public class SectionMActivity extends Activity {
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
-
-
 }
