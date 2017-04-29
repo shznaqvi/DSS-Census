@@ -38,7 +38,7 @@ public class EndingActivity extends Activity {
 
         Boolean check = getIntent().getExtras().getBoolean("check");
 
-        if (!check) {
+        if (check) {
             dcstatus01.setEnabled(true);
             dcstatus02.setEnabled(false);
 

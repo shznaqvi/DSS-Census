@@ -275,6 +275,7 @@ public class SectionMActivity extends Activity {
                 finish();
 
                 Intent secNext = new Intent(this, EndingActivity.class);
+                secNext.putExtra("check",true);
                 startActivity(secNext);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -295,10 +296,11 @@ public class SectionMActivity extends Activity {
                 e.printStackTrace();
             }
             if (UpdateDB()) {*/
-                Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
-                Intent endSec = new Intent(this, EndingActivity.class);
-                endSec.putExtra("check", false);
-                startActivity(endSec);
+        finish();
+        Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
+        Intent endSec = new Intent(this, EndingActivity.class);
+        endSec.putExtra("check", false);
+        startActivity(endSec);
             /*} else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
