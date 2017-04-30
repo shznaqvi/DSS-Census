@@ -870,14 +870,14 @@ public class SectionDActivity extends Activity {
 
         // ======================  Q 17 =================
 
-        if (dcd17.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd17), Toast.LENGTH_SHORT).show();
-            dcd1799.setError("This data is Required!");
-            Log.i(TAG, "dcd17: This data is Required!");
-            return false;
-        } else {
-            dcd1799.setError(null);
-        }
+//        if (dcd17.getCheckedRadioButtonId() == -1) {
+//            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd17), Toast.LENGTH_SHORT).show();
+//            dcd1799.setError("This data is Required!");
+//            Log.i(TAG, "dcd17: This data is Required!");
+//            return false;
+//        } else {
+//            dcd1799.setError(null);
+//        }
 
         // ======================  Q 17 =================
         if (dcd1601.isChecked()) {
@@ -889,23 +889,12 @@ public class SectionDActivity extends Activity {
             } else {
                 dcd1799.setError(null);
             }
-        }
 
-        if (!dcd1701.isChecked()) {
 
-            // ======================  Q 18 =================
+            if (!dcd1701.isChecked()) {
 
-            if (dcd18.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd18), Toast.LENGTH_SHORT).show();
-                dcd1899.setError("This data is Required!");
-                Log.i(TAG, "dcd18: This data is Required!");
-                return false;
-            } else {
-                dcd1899.setError(null);
-            }
+                // ======================  Q 18 =================
 
-            // ======================  Q 18 =================
-            if (dcd1802.isChecked() || dcd1899.isChecked()) {
                 if (dcd18.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd18), Toast.LENGTH_SHORT).show();
                     dcd1899.setError("This data is Required!");
@@ -915,18 +904,29 @@ public class SectionDActivity extends Activity {
                     dcd1899.setError(null);
                 }
 
-                // Others
-                if (dcd1896.isChecked() && dcd1896x.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd18) + " - " + getString(R.string.dcother), Toast.LENGTH_LONG).show();
-                    dcd1896x.setError("This data is Required!");    // Set Error on last radio button
-                    Log.i(TAG, "dcd1896x: This data is Required!");
-                    return false;
-                } else {
-                    dcd1896x.setError(null);
-                }
+                // ======================  Q 18 =================
+//                if (dcd1802.isChecked() || dcd1899.isChecked()) {
+//                    if (dcd18.getCheckedRadioButtonId() == -1) {
+//                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd18), Toast.LENGTH_SHORT).show();
+//                        dcd1899.setError("This data is Required!");
+//                        Log.i(TAG, "dcd18: This data is Required!");
+//                        return false;
+//                    } else {
+//                        dcd1899.setError(null);
+//                    }
+
+                    // Others
+                    if (dcd1896.isChecked() && dcd1896x.getText().toString().isEmpty()) {
+                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd18) + " - " + getString(R.string.dcother), Toast.LENGTH_LONG).show();
+                        dcd1896x.setError("This data is Required!");    // Set Error on last radio button
+                        Log.i(TAG, "dcd1896x: This data is Required!");
+                        return false;
+                    } else {
+                        dcd1896x.setError(null);
+                    }
+//                }
             }
         }
-
 
         return true;
     }

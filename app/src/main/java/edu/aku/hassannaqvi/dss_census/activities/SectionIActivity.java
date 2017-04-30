@@ -1180,14 +1180,17 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             dci18a02.setError("Atlease one should be yes Other wise Select no in " + getString(R.string.dci19));
             Log.i(TAG, "dci18: This data is Required!");
             return false;
-        } else if (!(is18AllNo()) && !dci1901.isChecked()) {
-            dci1901.setError("Check again" + getString(R.string.dci19));
-            Log.i(TAG, "dci19: This data is Required!");
-            return false;
         } else {
             dci18a02.setError(null);
-            dci1901.setError(null);
         }
+
+//        if (!(is18AllNo()) && !dci1901.isChecked()) {
+//            dci1901.setError("Check again" + getString(R.string.dci19));
+//            Log.i(TAG, "dci19: This data is Required!");
+//            return false;
+//        } else {
+//            dci1901.setError(null);
+//        }
 
 
         return true;
