@@ -239,12 +239,11 @@ public class SectionHActivity extends Activity {
 //                    dch04.clearCheck();
 //                }
                 if (dch0302.isChecked()) {
-                    fldGrpdch05.setVisibility(View.VISIBLE);
                     fldGrpdch04.setVisibility(View.GONE);
                     dch04.clearCheck();
+                    fldGrpdch05.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpdch04.setVisibility(View.VISIBLE);
-                    fldGrpdch05.setVisibility(View.VISIBLE);
                 }
             }
         });

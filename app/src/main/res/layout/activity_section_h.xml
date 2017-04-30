@@ -69,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone">
+                >
 
             <TextView
                 android:layout_width="match_parent"
@@ -149,7 +149,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone">
+                >
 
 
                 <TextView
@@ -196,8 +196,7 @@
                     android:id="@+id/fldGrpdch05"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:visibility="gone">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -372,6 +371,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
+                    android:visibility="gone"
                     android:text="@string/dch0903" />
 
                 <RadioButton
@@ -489,7 +489,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone">
+                >
 
 
                 <TextView
@@ -596,7 +596,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
                     android:hint="@string/dcother"
-                    android:visibility="gone" />
+                     />
 
             </LinearLayout>
 
