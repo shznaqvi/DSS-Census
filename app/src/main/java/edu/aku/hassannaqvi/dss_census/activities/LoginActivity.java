@@ -11,6 +11,7 @@ import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.location.LocationManager;
@@ -20,8 +21,11 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -42,6 +46,11 @@ import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.Target;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -91,9 +100,12 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     @BindView(R.id.syncData)
     Button syncData;
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
+
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
+
+    String DirectoryName;
+
     private UserLoginTask mAuthTask = null;
 
     @Override
@@ -171,25 +183,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         values.add("04");
 
 
-        // Polulating 'lables' and 'values' from ucList
-        // ==>> OPTIMIZED
-       /* for (UCContract uc : ucList) {
-            lables.add(uc.getUCName);
-        }
-        for (UCContract uc : ucList) {
-            values.add(uc.getID);
-        }*/
-
-        // ==>> OLD
-        /*for (int i = 0; i < ucList.size(); i++) {
-            lables.add(ucList.get(i).getUCName());
-            values.add(String.valueOf(ucList.get(i).getID()));
-
-            Log.i("Key - Value:", ucList.get(i).getTownId() + " - " + ucList.get(i).getUCId() + " - " + ucList.get(i).getUCName() + " - " + ucList.get(i).getID());
-
-        }*/
-
-
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getApplicationContext(),
                 android.R.layout.simple_spinner_item, lables);
@@ -219,6 +212,71 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         });
 
 
+//        DB backup
+
+        dbBackup();
+    }
+
+    public void dbBackup() {
+
+        sharedPref = getSharedPreferences("dss01", MODE_PRIVATE);
+        editor = sharedPref.edit();
+
+        if (sharedPref.getBoolean("flag", false)) {
+
+            String dt = sharedPref.getString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()).toString());
+
+            if (dt != new SimpleDateFormat("dd-MM-yy").format(new Date()).toString()) {
+                editor.putString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()).toString());
+
+                editor.commit();
+            }
+
+            File folder = new File(Environment.getExternalStorageDirectory() + File.separator + "DMU-DSSCENSUS");
+            boolean success = true;
+            if (!folder.exists()) {
+                success = folder.mkdirs();
+            }
+            if (success) {
+
+                DirectoryName = folder.getPath() + File.separator + sharedPref.getString("dt", "");
+                folder = new File(DirectoryName);
+                if (!folder.exists()) {
+                    success = folder.mkdirs();
+                }
+                if (success) {
+
+                    try {
+                        File dbFile = new File(this.getDatabasePath(DatabaseHelper.DATABASE_NAME).getPath());
+                        FileInputStream fis = new FileInputStream(dbFile);
+
+                        String outFileName = DirectoryName + File.separator +
+                                DatabaseHelper.DB_NAME;
+
+                        // Open the empty db as the output stream
+                        OutputStream output = new FileOutputStream(outFileName);
+
+                        // Transfer bytes from the inputfile to the outputfile
+                        byte[] buffer = new byte[1024];
+                        int length;
+                        while ((length = fis.read(buffer)) > 0) {
+                            output.write(buffer, 0, length);
+                        }
+                        // Close the streams
+                        output.flush();
+                        output.close();
+                        fis.close();
+                    } catch (IOException e) {
+                        Log.e("dbBackup:", e.getMessage());
+                    }
+
+                }
+
+            } else {
+                Toast.makeText(this, "Not create folder", Toast.LENGTH_SHORT).show();
+            }
+        }
+
     }
 
     @OnClick(R.id.syncData)
@@ -230,10 +288,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
-
-            // Sync Users
-            Toast.makeText(getApplicationContext(), "Syncing Users", Toast.LENGTH_SHORT).show();
-            new GetUsers(this).execute();
+            new syncData(this).execute();
 
         } else {
             Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
@@ -389,6 +444,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     }
 
     public void gotoMain(View v) {
+
+        finish();
+
         Intent im = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(im);
     }
@@ -454,6 +512,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     MainApp.userName = mEmail;
                     MainApp.admin = mEmail.contains("@");
 
+                    finish();
+
                     Intent iLogin = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(iLogin);
 
@@ -495,6 +555,47 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         protected void onCancelled() {
             mAuthTask = null;
             showProgress(false);
+        }
+    }
+
+
+    public class syncData extends AsyncTask<String, String, String> {
+
+        private Context mContext;
+
+        public syncData(Context mContext) {
+            this.mContext = mContext;
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    Toast.makeText(LoginActivity.this, "Sync User", Toast.LENGTH_LONG).show();
+                    new GetUsers(mContext).execute();
+                }
+            });
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+
+                    editor.putBoolean("flag", true);
+                    editor.commit();
+
+                    dbBackup();
+
+                }
+            }, 1200);
         }
     }
 
