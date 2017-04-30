@@ -42,8 +42,8 @@
 
         <Button
             android:id="@+id/openForm"
-            android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="16dp"
             android:onClick="openForm"
@@ -64,17 +64,15 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_height="wrap_content"
                 android:onClick="CheckCluster"
                 android:text="Check Block" />
         </LinearLayout>
 
         <Button
             android:id="@+id/syncServer"
-            android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="16dp"
             android:onClick="syncServer"
@@ -82,8 +80,8 @@
 
         <Button
             android:id="@+id/syncDevice"
-            android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="16dp"
             android:onClick="syncDevice"
@@ -98,8 +96,8 @@
 
             <Button
                 android:id="@+id/openMembers"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openMembers"
@@ -107,8 +105,8 @@
 
             <Button
                 android:id="@+id/openA"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openA"
@@ -116,8 +114,8 @@
 
             <Button
                 android:id="@+id/openB"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openB"
@@ -125,8 +123,8 @@
 
             <Button
                 android:id="@+id/openC"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openC"
@@ -134,8 +132,8 @@
 
             <Button
                 android:id="@+id/openD"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openD"
@@ -143,8 +141,8 @@
 
             <Button
                 android:id="@+id/openE"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openE"
@@ -152,8 +150,8 @@
 
             <Button
                 android:id="@+id/openF"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openF"
@@ -162,8 +160,8 @@
 
             <Button
                 android:id="@+id/openG"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openG"
@@ -171,8 +169,8 @@
 
             <Button
                 android:id="@+id/openH"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openH"
@@ -189,8 +187,8 @@
 
             <Button
                 android:id="@+id/openJ"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openJ"
@@ -198,8 +196,8 @@
 
             <Button
                 android:id="@+id/openK"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openK"
@@ -207,8 +205,8 @@
 
             <Button
                 android:id="@+id/openL"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openL"
@@ -216,8 +214,8 @@
 
             <Button
                 android:id="@+id/openM"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openM"
@@ -235,8 +233,8 @@
 
             <Button
                 android:id="@+id/openDB"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openDB"
@@ -244,8 +242,8 @@
 
             <Button
                 android:id="@+id/testGPS"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="testGPS"
