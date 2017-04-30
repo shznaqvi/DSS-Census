@@ -244,6 +244,7 @@ public class SectionHActivity extends Activity {
                     dch04.clearCheck();
                 } else {
                     fldGrpdch04.setVisibility(View.VISIBLE);
+                    fldGrpdch05.setVisibility(View.VISIBLE);
                 }
             }
         });
