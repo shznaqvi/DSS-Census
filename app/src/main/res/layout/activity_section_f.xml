@@ -47,7 +47,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dcfa"
                 android:inputType="textCapWords">
 
                 <requestFocus />
@@ -68,7 +67,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf01"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -87,7 +85,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf0201"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -97,7 +94,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf0202"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -107,7 +103,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf0203"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -126,7 +121,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf03"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -191,7 +185,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf04d"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -202,7 +195,6 @@
                 android:layout_marginBottom="1dp"
                 android:layout_marginTop="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf04m"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -213,7 +205,6 @@
                 android:layout_marginBottom="1dp"
                 android:layout_marginTop="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf04y"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -234,7 +225,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf05y"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -243,7 +233,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:text="@string/dcf06"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
 
@@ -253,7 +242,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf06y"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -316,7 +304,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf08m"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -451,7 +438,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:hint="@string/dcother"
                     android:inputType="textCapWords"
                     android:visibility="gone" />
 
@@ -519,7 +505,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:hint="@string/dcother"
                     android:inputType="textCapWords"
                     android:visibility="gone" />
 
@@ -539,7 +524,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
                     android:digits="0123456789"
-                    android:hint="@string/dcf12"
                     android:inputType="number"
                     android:maxLength="2" />
 

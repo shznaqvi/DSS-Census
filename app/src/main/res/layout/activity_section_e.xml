@@ -92,7 +92,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
 
@@ -183,7 +182,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
 
@@ -282,7 +280,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
 
@@ -380,7 +377,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
 
@@ -579,7 +575,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0701"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -595,7 +590,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0702"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -612,7 +606,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0703"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -629,7 +623,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0704"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -646,7 +640,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0705"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -663,7 +657,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0706"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -680,7 +674,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0707"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -697,7 +691,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0708"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -714,7 +708,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0709"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -731,7 +725,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0710"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -748,7 +742,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0711"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -765,7 +759,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0712"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -782,7 +776,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0701"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -799,7 +793,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0714"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -816,7 +810,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0715"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -833,7 +827,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0716"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -850,7 +844,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0717"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -867,7 +861,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0718"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -885,7 +879,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0719"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -902,7 +896,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0720"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -919,7 +913,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0721"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -936,7 +930,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dce0722"
+
                 android:inputType="number"
                 android:maxLength="2"/>
 
