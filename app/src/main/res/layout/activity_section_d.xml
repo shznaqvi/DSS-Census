@@ -99,7 +99,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-
+                    android:hint="@string/dcd0201"
                     android:inputType="number" />
 
                 <TextView
@@ -212,7 +212,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-
+                android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
 
@@ -288,7 +288,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-
+                android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
 
@@ -350,7 +350,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-
+                android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
 
@@ -370,7 +370,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-
+                android:hint="@string/dcd0501"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -479,7 +479,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-
+                android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
 
@@ -692,7 +692,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-
+                android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
 
@@ -811,7 +811,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-
+                android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
 
@@ -893,7 +893,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-
+                android:hint="@string/dcother"
                 android:inputType="textCapWords"
                 android:visibility="gone" />
 
@@ -1145,7 +1145,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-
+                        android:hint="@string/dcother"
                         android:inputType="textCapWords"
                         android:visibility="gone" />
 
