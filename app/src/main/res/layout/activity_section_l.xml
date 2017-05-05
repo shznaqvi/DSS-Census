@@ -616,8 +616,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:inputType="number"
-                    android:hint="@string/Frequency" />
+                    android:hint="@string/Frequency"
+                    android:inputType="number" />
             </LinearLayout>
             <CheckBox
                 android:id="@+id/dcl01gc"

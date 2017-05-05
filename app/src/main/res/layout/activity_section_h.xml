@@ -371,8 +371,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:visibility="gone"
-                    android:text="@string/dch0903" />
+                    android:text="@string/dch0903"
+                    android:visibility="gone" />
 
                 <RadioButton
                     android:id="@+id/dch0996"
@@ -596,7 +596,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
                     android:hint="@string/dcother"
-                     />
+                    />
 
             </LinearLayout>
 

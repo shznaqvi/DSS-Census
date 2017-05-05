@@ -284,12 +284,12 @@
     <string name="dcd1010"> خشک ٹوائلٹ </string>
   <string name="dcd1011"> کوئی سہولیات نہیں / بش / میدان </string>
   <string name="dcd11">11) کیا لیٹرین کی اس سہولت کو دوسرے لوگ بھی استعمال کرتے ہیں؟ </string>
-  <string name="dcd12">12) کیا آپ کے گھر میں کھانا پکانے کے لیے کونسا ایندھن استعمال ہوتا ہے؟ </string>
+  <string name="dcd12">12)آپ کے گھر میں کھانا پکانے کے لیے کونسا ایندھن استعمال ہوتا ہے؟ </string>
     <string name="dcd1201"> لکٹری </string>
     <string name="dcd1202"> ایل پی جی </string>
     <string name="dcd1203"> قدرتی گیس </string>
     <string name="dcd1204"> بائو گیس </string>
-    <string name="dcd1205"> کول لگنائٹ </string>
+  <string name="dcd1205"> کوئلہ </string>
     <string name="dcd1206"> مٹی کا تیل </string>
     <string name="dcd1207"> گھر میں کھا نا نہیں پکتا </string>
   <string name="dcd13">13) عام طور پر آپ کے گھر میں کون سی زبان بولی جاتی ہے؟ </string>
@@ -304,8 +304,8 @@
   <string name="dcd15">15) آپ کے گھر میں بجلی کے کون سے ذرائع استعمال ہوتے ہیں ؟ </string>
     <string name="dcd1501"> کے-الیکڑک </string>
     <string name="dcd1502"> جنریٹر </string>
-  <string name="dcd1503"> شمسی توانائی </string>
-  <string name="dcd1504"> پن چکی </string>
+  <string name="dcd1503"> سورج کی روشنی سولر </string>
+  <string name="dcd1504"> ہوائی چکی </string>
   <string name="dcd16"> 16) کیاآپ نے کبھی آیوڈین والے نمک کے بارے میں سَنا ہے </string>
   <string name="dcd17"> 17) کیا آپ آیوڈین ملا نمک استعمال کرتی ہیں </string>
   <string name="dcd18"> 18) اگر یہ آیوڈین ملا نمک استعمال نہیں کرتی ہیں
@@ -327,7 +327,7 @@
     <string name="dce0301"> صابن </string>
     <string name="dce0302"> ڈرجنٹ/پاوڈر/مائع/پیسٹ </string>
     <string name="dce0303"> مائع صابن </string>
-    <string name="dce0304"> رکھ / مٹی/ ریت </string>
+  <string name="dce0304"> راکھ / مٹی/ ریت </string>
   <string name="dce04"> 4) کیا آپ کے گھر میں صابن یا دیگر اشیاء کی سہولت گھر میں یاتھ دھونے کے لیے مہیاءہے </string>
   <string name="dce05"> 5) کیا آپ مجھے وہ چیزیں دیکھائیں گے </string>
     <string name="dce0501"> صابن </string>
@@ -346,9 +346,9 @@
     <string name="dce0609"> بچے کے پیشاب /پاخانہ کرنے کے بعد </string>
     <string name="dce0610"> باتھ روم استعمال کرنے کے بعد </string>
   <string name="dce07"> 7) مندرجہ ذیل اثاثوں کے بارے میں جواب دہندہ سے معلومات حاصل کیں؟ اگر یہ ان کے نہیں ہیں تو کوڈ صفر لگائیں </string>
-    <string name="dce0701"> بھنس،گائے اونٹ </string>
+  <string name="dce0701"> بھینس،گائے اونٹ </string>
     <string name="dce0702"> سائیکل </string>
-    <string name="dce0703"> دوسری گاڑیاں </string>
+  <string name="dce0703"> بڑی گاڑیاں </string>
     <string name="dce0704"> گھر کا فون </string>
     <string name="dce0705"> سلائی مشن </string>
     <string name="dce0706"> فریج </string>
@@ -363,8 +363,8 @@
     <string name="dce0715"> کمپیوٹر </string>
     <string name="dce0716"> گدھے گھوڑے </string>
     <string name="dce0717"> کار،ٹیکسی ،جیپ </string>
-    <string name="dce0718"> وی،سی آر </string>
-    <string name="dce0719"> صوفہ سیٹ </string>
+  <string name="dce0718">  ڈی وی ڈی ،وی،سی آر </string>
+  <string name="dce0719">  صوفہ سیٹ </string>
     <string name="dce0720"> مائیکر واون </string>
     <string name="dce0721"> بجلی والا پنکھا </string>
     <string name="dce0722"> کشتی </string>

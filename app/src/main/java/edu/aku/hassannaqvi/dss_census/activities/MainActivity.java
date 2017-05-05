@@ -158,7 +158,7 @@ public class MainActivity extends Activity {
 
     public void openForm(View v) {
         if (sharedPref.getString("tagName",null) != "" && sharedPref.getString("tagName",null) != null){
-            Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
+            Intent oF = new Intent(MainActivity.this, SectionFActivity.class);
             startActivity(oF);
         }else {
 
