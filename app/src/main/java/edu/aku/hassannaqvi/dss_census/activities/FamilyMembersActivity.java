@@ -92,7 +92,7 @@ public class FamilyMembersActivity extends Activity {
                         }
 
                         if (flag) {
-                            MainApp.memFlag++;
+
 
                             MainApp.memClicked.add(position);
 
@@ -134,9 +134,9 @@ public class FamilyMembersActivity extends Activity {
     @OnClick(R.id.btn_addMember)
     void onBtnAddMemberClick() {
 
-        MainApp.memFlag++;
+//        MainApp.memFlag++;
 
-        startActivity(new Intent(this, SectionBActivity.class));
+        startActivity(new Intent(this, SectionBActivity.class).putExtra("dataFlag", false));
 
     }
 
@@ -145,6 +145,8 @@ public class FamilyMembersActivity extends Activity {
         super.onResume();
 
         mAdapter.notifyDataSetChanged();
+
+        Toast.makeText(this,"Mem flag:"+MainApp.memFlag,Toast.LENGTH_SHORT).show();
 
 //        Set Enable for Next Section
         if (MainApp.familyMembersList.size() == MainApp.memFlag) {

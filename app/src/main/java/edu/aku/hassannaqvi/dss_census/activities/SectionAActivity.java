@@ -300,6 +300,9 @@ public class SectionAActivity extends Activity {
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
+        MainApp.memFlag = 0;
+
+
         db = new DatabaseHelper(this);
 
         //==================== Permission Skip Check =================

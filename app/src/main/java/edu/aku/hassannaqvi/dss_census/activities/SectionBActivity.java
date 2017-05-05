@@ -235,6 +235,10 @@ public class SectionBActivity extends Activity {
         setContentView(R.layout.activity_section_b);
         ButterKnife.bind(this);
 
+//        Check Member Flag
+
+        MainApp.memFlag++;
+
         Calendar cal = Calendar.getInstance();
         dcbg.setMaxDate(new Date().getTime());
         dcbidob.setMaxDate(new Date().getTime());
@@ -265,10 +269,6 @@ public class SectionBActivity extends Activity {
         });
 */
 
-
-
-
-
         dataFlag = getIntent().getBooleanExtra("dataFlag", false);
 
         if (dataFlag) {
@@ -289,10 +289,10 @@ public class SectionBActivity extends Activity {
             dcbbmid.setText(MainApp.familyMembersList.get(position).getDss_id_m());
 
             if (!MainApp.familyMembersList.get(position).getM_status().contains("null")) {
-                ((RadioButton) dcbc.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getM_status())) - 1)).setChecked(true);
+                ((RadioButton) dcbc.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getM_status().isEmpty() ? "1" : MainApp.familyMembersList.get(position).getM_status())) - 1)).setChecked(true);
             }
             if (!MainApp.familyMembersList.get(position).getGender().contains("null")) {
-                ((RadioButton) dcbd.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getGender())) - 1)).setChecked(true);
+                ((RadioButton) dcbd.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getGender().isEmpty() ? "1" : MainApp.familyMembersList.get(position).getGender())) - 1)).setChecked(true);
 
                 if (((Integer.parseInt(MainApp.familyMembersList.get(position).getGender())) - 1) == 0){
                     dcbm01.setEnabled(false);
@@ -575,8 +575,8 @@ public class SectionBActivity extends Activity {
                         if (crDt < dt) {
 
                             MainApp.currentStatusCount -= 1;
-
-                            startActivity(new Intent(this, FamilyMembersActivity.class).putExtra("position", position));
+                            finish();
+//                            startActivity(new Intent(this, FamilyMembersActivity.class).putExtra("position", position));
                         } else {
                             startActivity(new Intent(this, SectionCActivity.class).putExtra("position", position));
                         }

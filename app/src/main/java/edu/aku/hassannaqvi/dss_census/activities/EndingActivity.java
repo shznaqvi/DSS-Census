@@ -64,10 +64,10 @@ public class EndingActivity extends Activity {
             }
             if (UpdateDB()) {
 
-                finish();
-
                 MainApp.familyMembersList.clear();
                 MainApp.memFlag = 0;
+
+                finish();
 
                 Intent endSec = new Intent(this, MainActivity.class);
                 endSec.putExtra("complete", false);
