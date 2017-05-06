@@ -299,7 +299,9 @@ public class SectionBActivity extends Activity {
                 //((RadioButton) dcbc.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getM_status().isEmpty() ? "1" : MainApp.familyMembersList.get(position).getM_status())) - 1)).setChecked(true);
             }
             if (!MainApp.familyMembersList.get(position).getGender().contains("null")) {
-                ((RadioButton) dcbd.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getGender().isEmpty() ? "1" : MainApp.familyMembersList.get(position).getGender())) - 1)).setChecked(true);
+//                ((RadioButton) dcbd.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getGender().isEmpty() ? "1" : MainApp.familyMembersList.get(position).getGender())) - 1)).setChecked(true);
+
+                dcbd.check(MainApp.familyMembersList.get(position).getGender() == "0" ? dcbd01.getId() : dcbd02.getId());
 
                 if (((Integer.parseInt(MainApp.familyMembersList.get(position).getGender())) - 1) == 0){
                     dcbm01.setEnabled(false);
@@ -314,6 +316,13 @@ public class SectionBActivity extends Activity {
 
             if (!MainApp.familyMembersList.get(position).getEducation().contains("null")) {
                 ((RadioButton) dcbe.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getEducation())) - 1)).setChecked(true);
+
+//                dcbe.check(MainApp.familyMembersList.get(position).getM_status() == "1" ? dcbc01.getId()
+//                        : MainApp.familyMembersList.get(position).getM_status() == "2" ? dcbc02.getId()
+//                        : MainApp.familyMembersList.get(position).getM_status() == "3" ? dcbc03.getId()
+//                        : MainApp.familyMembersList.get(position).getM_status() == "4" ? dcbc04.getId()
+//                        : dcbc88.getId()
+
             }
             if (!MainApp.familyMembersList.get(position).getOccupation().contains("null")) {
                 ((RadioButton) dcbf.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getOccupation())) - 1)).setChecked(true);

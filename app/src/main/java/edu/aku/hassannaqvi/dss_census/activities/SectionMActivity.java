@@ -600,7 +600,7 @@ public class SectionMActivity extends Activity {
 
         sM.put("dcm06", dcm0601.isChecked() ? "1" : dcm0602.isChecked() ? "2" : dcm0603.isChecked() ? "3" : "0");
 
-        sM.put("dcm0107", dcm0107.getText().toString());
+        sM.put("dcm07", dcm07.getText().toString());
 
         sM.put("dcm08", dcm0801.isChecked() ? "1" : dcm0802.isChecked() ? "2" : dcm0803.isChecked() ? "3" : "0");
 
