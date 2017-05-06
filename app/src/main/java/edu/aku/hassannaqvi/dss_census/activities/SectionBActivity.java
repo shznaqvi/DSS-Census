@@ -289,7 +289,14 @@ public class SectionBActivity extends Activity {
             dcbbmid.setText(MainApp.familyMembersList.get(position).getDss_id_m());
 
             if (!MainApp.familyMembersList.get(position).getM_status().contains("null")) {
-                ((RadioButton) dcbc.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getM_status().isEmpty() ? "1" : MainApp.familyMembersList.get(position).getM_status())) - 1)).setChecked(true);
+
+                dcbc.check(MainApp.familyMembersList.get(position).getM_status() == "1" ? dcbc01.getId()
+                        : MainApp.familyMembersList.get(position).getM_status() == "2" ? dcbc02.getId()
+                        : MainApp.familyMembersList.get(position).getM_status() == "3" ? dcbc03.getId()
+                        : MainApp.familyMembersList.get(position).getM_status() == "4" ? dcbc04.getId()
+                        : dcbc88.getId()
+                );
+                //((RadioButton) dcbc.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getM_status().isEmpty() ? "1" : MainApp.familyMembersList.get(position).getM_status())) - 1)).setChecked(true);
             }
             if (!MainApp.familyMembersList.get(position).getGender().contains("null")) {
                 ((RadioButton) dcbd.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getGender().isEmpty() ? "1" : MainApp.familyMembersList.get(position).getGender())) - 1)).setChecked(true);
