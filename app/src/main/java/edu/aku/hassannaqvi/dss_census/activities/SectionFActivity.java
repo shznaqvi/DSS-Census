@@ -134,6 +134,8 @@ public class SectionFActivity extends Activity {
     EditText dcf1196x;
     @BindView(R.id.dcf12)
     EditText dcf12;
+    @BindView(R.id.dcf0888)
+    CheckBox dcf0888;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,7 +169,7 @@ public class SectionFActivity extends Activity {
         dcf07.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if (dcf0701.isChecked()) {
+                if (dcf0701.isChecked() || dcf0799.isChecked()) {
                     fldGrpdcf07.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpdcf07.setVisibility(View.GONE);
@@ -193,6 +195,18 @@ public class SectionFActivity extends Activity {
                     dcf12.setText(null);
                 }
 
+            }
+        });
+
+        dcf0888.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    dcf08.setVisibility(View.GONE);
+                    dcf08.setText(null);
+                } else {
+                    dcf08.setVisibility(View.VISIBLE);
+                }
             }
         });
 
@@ -561,8 +575,8 @@ public class SectionFActivity extends Activity {
 
 //        08
 
-        if (dcf0701.isChecked()) {
-            if (dcf08.getText().toString().isEmpty()) {
+        if (dcf0701.isChecked() || dcf0799.isChecked()) {
+            if (dcf08.getText().toString().isEmpty() && !dcf0888.isChecked()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcf08), Toast.LENGTH_SHORT).show();
                 dcf08.setError("This data is Required!");    // Set Error on last radio button
 
@@ -572,15 +586,18 @@ public class SectionFActivity extends Activity {
                 dcf08.setError(null);
             }
 
-            if ((Integer.parseInt(dcf08.getText().toString().isEmpty() ? "0" : dcf08.getText().toString())) < 1
-                    || (Integer.parseInt(dcf08.getText().toString().isEmpty() ? "0" : dcf08.getText().toString())) > 10) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcf08), Toast.LENGTH_SHORT).show();
-                dcf08.setError("Range is 1 - 10 months");    // Set Error on last radio button
 
-                Log.i(TAG, "dcf08: Range is 1 - 10 months");
-                return false;
-            } else {
-                dcf08.setError(null);
+            if (!dcf0888.isChecked()) {
+                if ((Integer.parseInt(dcf08.getText().toString().isEmpty() ? "0" : dcf08.getText().toString())) < 1
+                        || (Integer.parseInt(dcf08.getText().toString().isEmpty() ? "0" : dcf08.getText().toString())) > 10) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcf08), Toast.LENGTH_SHORT).show();
+                    dcf08.setError("Range is 1 - 10 months");    // Set Error on last radio button
+
+                    Log.i(TAG, "dcf08: Range is 1 - 10 months");
+                    return false;
+                } else {
+                    dcf08.setError(null);
+                }
             }
 
 //        09

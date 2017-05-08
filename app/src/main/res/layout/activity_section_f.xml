@@ -47,7 +47,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dcfa"
                 android:inputType="textCapWords">
 
                 <requestFocus />
@@ -68,7 +67,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf01"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -81,15 +79,32 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/pink_100"
+                android:text="@string/dcf0201"
+                android:textColor="@color/colorPrimaryDark" />
+
             <EditText
                 android:id="@+id/dcf0201"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf0201"
                 android:inputType="number"
                 android:maxLength="2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/pink_100"
+                android:text="@string/dcf0202"
+                android:textColor="@color/colorPrimaryDark" />
 
             <EditText
                 android:id="@+id/dcf0202"
@@ -97,9 +112,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf0202"
+
                 android:inputType="number"
                 android:maxLength="2"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/pink_100"
+                android:text="@string/dcf0203"
+                android:textColor="@color/colorPrimaryDark" />
 
             <EditText
                 android:id="@+id/dcf0203"
@@ -107,7 +131,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf0203"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -126,7 +149,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf03"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -185,15 +207,32 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/pink_100"
+                android:text="@string/dcf04d"
+                android:textColor="@color/colorPrimaryDark" />
+
             <EditText
                 android:id="@+id/dcf0401"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf04d"
                 android:inputType="number"
                 android:maxLength="2"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/pink_100"
+                android:text="@string/dcf04m"
+                android:textColor="@color/colorPrimaryDark" />
 
             <EditText
                 android:id="@+id/dcf0402"
@@ -202,9 +241,17 @@
                 android:layout_marginBottom="1dp"
                 android:layout_marginTop="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf04m"
                 android:inputType="number"
                 android:maxLength="2"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/pink_100"
+                android:text="@string/dcf04y"
+                android:textColor="@color/colorPrimaryDark" />
 
             <EditText
                 android:id="@+id/dcf0403"
@@ -213,7 +260,6 @@
                 android:layout_marginBottom="1dp"
                 android:layout_marginTop="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf04y"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -234,7 +280,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf05y"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -253,7 +298,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf06y"
                 android:inputType="number"
                 android:maxLength="2"/>
 
@@ -310,15 +354,22 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
 
+
             <EditText
                 android:id="@+id/dcf08"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:digits="0123456789"
-                android:hint="@string/dcf08m"
                 android:inputType="number"
                 android:maxLength="2"/>
+
+            <CheckBox
+                android:id="@+id/dcf0888"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcna" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -346,7 +397,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/dcyes"/>
+                    android:text="@string/dcno" />
 
                 <RadioButton
                     android:id="@+id/dcf0999"
@@ -451,7 +502,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:hint="@string/dcother"
                     android:inputType="textCapWords"
                     android:visibility="gone" />
 
@@ -519,7 +569,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:hint="@string/dcother"
                     android:inputType="textCapWords"
                     android:visibility="gone" />
 
@@ -539,7 +588,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
                     android:digits="0123456789"
-                    android:hint="@string/dcf1201"
                     android:inputType="number"
                     android:maxLength="2" />
 

@@ -55,7 +55,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-                    android:hint="@string/dca03"
                     android:inputType="text"
                     android:maxLength="11" />
 
@@ -178,7 +177,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:hint="@string/dca05"
                     android:inputType="textCapWords" />
 
                 <TextView
@@ -268,7 +266,6 @@
                         android:layout_marginBottom="1dp"
                         android:layout_marginTop="16dp"
                         android:layout_weight="1"
-                        android:hint="@string/dca0503"
                         android:inputType="number"
                         android:maxLength="2" />
 
@@ -552,7 +549,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:hint="@string/dca06"
                     android:inputType="textCapWords" />
 
                 <TextView
@@ -608,7 +604,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
                         android:layout_weight="1"
-                        android:hint="@string/dca0602"
                         android:inputType="number"
                         android:maxLength="2" />
 
@@ -883,54 +878,63 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/dca0701"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:hint="@string/dca0701"
-                        android:inputType="number"
-                        android:maxLength="2" />
-
-                    <View
-                        android:layout_width="3dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimaryDark"></View>
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/dca0701"
+                    android:textColor="@color/colorPrimaryDark" />
 
 
-                    <EditText
-                        android:id="@+id/dca0702"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:hint="@string/dca0702"
-                        android:inputType="number"
-                        android:maxLength="2" />
+                <EditText
+                    android:id="@+id/dca0701"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
-                    <View
-                        android:layout_width="3dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/dca0702"
+                    android:textColor="@color/colorPrimaryDark" />
 
 
-                    <EditText
-                        android:id="@+id/dca0703"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:hint="@string/dca0703"
-                        android:inputType="number"
-                        android:maxLength="2" />
+                <EditText
+                    android:id="@+id/dca0702"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
-                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/dca0703"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/dca0703"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -941,54 +945,62 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/dca0801"
+                    android:textColor="@color/colorPrimaryDark" />
 
-                    <EditText
-                        android:id="@+id/dca0801"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:hint="@string/dca0801"
-                        android:inputType="number"
-                        android:maxLength="2" />
+                <EditText
+                    android:id="@+id/dca0801"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
-                    <View
-                        android:layout_width="3dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimaryDark"></View>
-
-
-                    <EditText
-                        android:id="@+id/dca0802"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:hint="@string/dca0802"
-                        android:inputType="number"
-                        android:maxLength="2" />
-
-                    <View
-                        android:layout_width="3dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/dca0802"
+                    android:textColor="@color/colorPrimaryDark" />
 
 
-                    <EditText
-                        android:id="@+id/dca0803"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:hint="@string/dca0803"
-                        android:inputType="number"
-                        android:maxLength="2" />
+                <EditText
+                    android:id="@+id/dca0802"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
-                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/dca0803"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/dca0803"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -1040,7 +1052,17 @@
                     android:id="@+id/fldGrpdca0901"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@color/pink_100"
+                        android:text="@string/dca09m"
+                        android:textColor="@color/colorPrimaryDark" />
 
                     <EditText
                         android:id="@+id/dca09m"
@@ -1048,16 +1070,17 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
                         android:layout_marginTop="1dp"
-                        android:layout_weight="1"
-                        android:hint="@string/dca09m"
                         android:inputType="number"
                         android:maxLength="2" />
 
-                    <View
-                        android:layout_width="3dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimaryDark"></View>
-
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@color/pink_100"
+                        android:text="@string/dca09y"
+                        android:textColor="@color/colorPrimaryDark" />
 
                     <EditText
                         android:id="@+id/dca09y"
@@ -1065,8 +1088,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
                         android:layout_marginTop="1dp"
-                        android:layout_weight="1"
-                        android:hint="@string/dca09y"
                         android:inputType="number"
                         android:maxLength="4" />
 
@@ -1077,7 +1098,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1088,20 +1110,36 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@android:color/white" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@color/pink_100"
+                        android:text="@string/dca10a"
+                        android:textColor="@color/colorPrimaryDark" />
+
                     <EditText
                         android:id="@+id/dca10a"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:hint="@string/dca10a"
                         android:inputType="textCapWords" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@color/pink_100"
+                        android:text="@string/dca10b"
+                        android:textColor="@color/colorPrimaryDark" />
 
                     <EditText
                         android:id="@+id/dca10b"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:hint="@string/dca10b"
                         android:inputType="textCapWords" />
 
                 </LinearLayout>

@@ -212,7 +212,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:hint="@string/dch05"
                         android:inputType="textCapWords" />
 
             </LinearLayout>
@@ -231,7 +230,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dch06"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -249,7 +247,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dch07"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -315,7 +312,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/dch09m"
                     android:inputType="number"
                     android:maxLength="2" />
 
@@ -340,7 +336,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/dch09y"
                     android:inputType="number"
                     android:maxLength="4" />
 
@@ -397,7 +392,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dcother"
                 android:visibility="gone"
                 />
 
@@ -575,6 +569,13 @@
                         android:text="@string/dch1209" />
 
                     <RadioButton
+                        android:id="@+id/dch1299"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:text="@string/dcdkn" />
+
+                    <RadioButton
                         android:id="@+id/dch1296"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -582,12 +583,6 @@
                         android:text="@string/dcother" />
 
 
-                    <RadioButton
-                        android:id="@+id/dch1299"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/dcdkn" />
                 </RadioGroup>
 
                 <EditText
@@ -595,7 +590,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:hint="@string/dcother"
+                    android:inputType="textCapWords"
                     />
 
             </LinearLayout>

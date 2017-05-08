@@ -52,7 +52,7 @@
   <string name="dctimes">تعداد</string>
     <string name="dcmale"> مرد </string>
     <string name="dcfemale"> عورت </string>
-  <string name="Frequency"> مقدار </string>
+  <string name="Frequency"> تعداد </string>
 
     <string name="dcpro01">پروفیشنل / ٹیکنیکل / مینیجریل</string>
     <string name="dcpro02">کلرک</string>
@@ -66,6 +66,8 @@
     <string name="dcpro10">بیروزگار</string>
     <string name="dcpro11">رٹائرڈ</string>
     <string name="dcpro12">ہائوس وائف</string>
+  <string name="dcitimes">کل دن یا رات میں کتنی بار استعمال کیا تھا؟</string>
+
 
 
     <!-- Strings related to Sections Below -->
@@ -119,7 +121,7 @@
   <string name="dcbbrhh04"> داماد/ بہو </string>
     <string name="dcbbrhh05"> پوتا </string>
     <string name="dcbbrhh06"> ماں باپ </string>
-    <string name="dcbbrhh07"> قانونی والدین </string>
+  <string name="dcbbrhh07"> ساس سسر </string>
     <string name="dcbbrhh08"> بھائی بہن </string>
     <string name="dcbbrhh09"> دوسرے رشتہ دار </string>
     <string name="dcbbrhh10"> گود لیا گیا / سوتیلا بچہ </string>
@@ -285,7 +287,7 @@
   <string name="dcd1011"> کوئی سہولیات نہیں / بش / میدان </string>
   <string name="dcd11">11) کیا لیٹرین کی اس سہولت کو دوسرے لوگ بھی استعمال کرتے ہیں؟ </string>
   <string name="dcd12">12)آپ کے گھر میں کھانا پکانے کے لیے کونسا ایندھن استعمال ہوتا ہے؟ </string>
-    <string name="dcd1201"> لکٹری </string>
+  <string name="dcd1201"> لکڑی </string>
     <string name="dcd1202"> ایل پی جی </string>
     <string name="dcd1203"> قدرتی گیس </string>
     <string name="dcd1204"> بائو گیس </string>
@@ -500,7 +502,7 @@
   <string name="dci06">6) تاریخ پیدائش کا ذریعہ </string>
     <string name="dci0601"> کارڈ/پیدائشی سرٹیفیکیٹ </string>
     <string name="dci0602"> دیکھ بھال کرنے والے </string>
-  <string name="dci07"> 7) میں آپ سے کچھ سوال (نام) کے متعلق پوچھتی ہوں کہ کس مہینے یا سال میں (نام) پیدا ہوا ؟
+  <string name="dci07"> 7) میں آپ سے کچھ سوال (نام) کے متعلق پوچھتی ہوں کہ کس مہینے یا سال میں (نام) پیدا ہوا ؟ (دن اگر معلوم نہیں تو 98 لکھیں)
     اس کی تاریخ پیدائش کیا ہے؟ اگرجوابدہندہ کو ٹھیک ٹھیک تاریخ پیدائش پتہ نہ ہو تو پوچھیں۔ کیا (نام) کی صحت یا حفاظتی ٹیکوں کے کارڈ پر تاریخ پیدائش درج ہے؟ اگر صحت یا حفاظتی ٹیکوں کے کارڈ پر تاریخ پیدائش درست ہے تو اس کو دستاویزی ہدایت کے طور پر درج کرلیں </string>
     <string name="dci07d"> دن
   دن،اگر دن معلوم نہیں تو "98" لکھیں </string>
@@ -541,7 +543,7 @@
     <string name="dci17h"> کوئی اور محلول جیساکہ (فہرست میں موجود پانی کی بنیاد پر بنے ہوئے مقامی محلول) </string>
     <string name="dci17i"> یا کوئی دوسرا مائعجات </string>
   <string name="dci18"> 18) (نام) نے اس کے بعد کیا کیا۔ کیا (نام) نے اس وقت کوئی بھی چیز کھائی اگر ہاں تو ہمیں ہر وہ چیز بتائیں جو (نام) نے اس وقت کھائی۔ </string>
-    <string name="dci18sub"> برائے مہربانی ہر وہ چیز کھول کر بتاہیں جو کہ (نام) نے کل دن یا رات کے دوران کھائی تھی۔چاہے گھر میں یا گھر کے باہر۔ </string>
+  <string name="dci18sub"> برائے مہربانی ہر وہ چیز جو کہ (نام) نے کل دن یا رات کے دوران کھائی تھی۔چاہے گھر میں یا گھر کے باہر۔ </string>
     <string name="dci18a"> دلیہ،ڈبل روٹی ،چاول ،نوڈلس یا دوسری خوراک جو کہ دانوں سے بنی ہو </string>
     <string name="dci18b"> کدو،گاجر کچلی ہوئی یا میٹھی آلو جو کہ اندر سے پیلی یا نارنجی ہو </string>
     <string name="dci18c"> سفید آلو،سفید ترکاری،سوجی یا کوئی بھی خوراک جو جٹوں سے بنی ہو </string>
@@ -559,7 +561,7 @@
     <string name="dci18o"> کوئی مصالحہ ذائقے کے لیے جیسے کہ مرچیں،گرم مصالحہ، جڑی بوٹیاں یا مچھلی پاوڈر </string>
     <string name="dci18p"> جڑیں کھودنے والے جاندار ،گھونگے یا کیٹرے مکوڑے </string>
     <string name="dci18q">  لال کھجور کے تیل سے ،لال کجھور کی گری سے یا لال کجھور کی گری کے گرسے کی چٹنی سے  تیار کی ہوئی خوراک </string>
-  <string name="dci19"> 19) کیا (نام) نے کل دن یا رات کے دوران میں ٹھوس،نیم ٹھوس یا نرم غذا کھائی ہے ؟ </string>
+  <string name="dci19"> 19) کیا (نام) نے کل دن یا رات کے دوران میں ٹھوس، نیم ٹھوس یا نرم غذا کھائی ہے ؟ </string>
   <string name="dci20"> 20) (نام) نے کل دن یارات کے دوران نے کتنی مرتبہ ٹھوس ،نیم ٹھوس یا نرم غذا بانسبت محلول کھائی؟ </string>
   <string name="dci21"> 21) کیا (نام) کل دن یا رات کے دوران میں کوئی بھی چیز بوتل میں نپل کے ذریعے لی تھی؟ </string>
   <string name="dcj01"> 1) کیا گزشتہ دو ہفتوں میں (نام) کو کھانسی یا زکام ہوا ہے ؟ </string>

@@ -10,8 +10,8 @@
         android:id="@+id/scrollView01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:scrollbars="horizontal">
 
         <LinearLayout
@@ -48,7 +48,8 @@
                 android:id="@+id/dcca"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/dcca" />
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:inputType="textCapWords" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -170,7 +171,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dcother"
                 android:visibility="gone" />
 
             <TextView
@@ -184,8 +184,7 @@
                 android:id="@+id/dccbfid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="1dp"
-                android:hint="@string/dcbbfid" />
+                android:layout_marginBottom="1dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -198,8 +197,7 @@
                 android:id="@+id/dccbmid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="1dp"
-                android:hint="@string/dcbbmid" />
+                android:layout_marginBottom="1dp" />
 
 
             <TextView
@@ -302,30 +300,54 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
 
-            <EditText
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/dccey"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
                 android:id="@+id/dccey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dccey"
                 android:inputType="number"
                 android:maxLength="2" />
 
-            <EditText
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/dccem"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
                 android:id="@+id/dccem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dccem"
                 android:inputType="number"
                 android:maxLength="2" />
 
-            <EditText
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/dcced"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
                 android:id="@+id/dcced"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dcced"
                 android:inputType="number"
                 android:maxLength="2" />
             </LinearLayout>
@@ -371,7 +393,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dccg"
                 android:inputType="textCapWords" />
 
             <LinearLayout

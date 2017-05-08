@@ -9,6 +9,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.format.DateFormat;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -213,13 +214,13 @@ public class MainApp extends Application {
                 editor.putString("Latitude", String.valueOf(location.getLatitude()));
                 editor.putString("Accuracy", String.valueOf(location.getAccuracy()));
                 editor.putString("Time", String.valueOf(location.getTime()));
-//                String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString();
-//                Toast.makeText(getApplicationContext(),
-//                        "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) +
-//                                " LNG: " + String.valueOf(location.getLatitude()) +
-//                                " Accuracy: " + String.valueOf(location.getAccuracy()) +
-//                                " Time: " + date,
-//                        Toast.LENGTH_SHORT).show();
+                String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString();
+                Toast.makeText(getApplicationContext(),
+                        "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) +
+                                " LNG: " + String.valueOf(location.getLatitude()) +
+                                " Accuracy: " + String.valueOf(location.getAccuracy()) +
+                                " Time: " + date,
+                        Toast.LENGTH_SHORT).show();
 
                 editor.apply();
             }

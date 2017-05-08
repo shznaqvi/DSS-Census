@@ -386,6 +386,14 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
     LinearLayout fldGrpdci19;
     @BindView(R.id.fldGrpdci20)
     LinearLayout fldGrpdci20;
+    @BindView(R.id.fldGrpdci17b)
+    LinearLayout fldGrpdci17b;
+    @BindView(R.id.fldGrpdci17c)
+    LinearLayout fldGrpdci17c;
+    @BindView(R.id.fldGrpdci17f)
+    LinearLayout fldGrpdci17f;
+
+
 
     @BindViews({R.id.dci18a, R.id.dci18b, R.id.dci18c, R.id.dci18d, R.id.dci18e, R.id.dci18f, R.id.dci18g,
             R.id.dci18h, R.id.dci18i, R.id.dci18j, R.id.dci18k, R.id.dci18l, R.id.dci18m, R.id.dci18n, R.id.dci18o,
@@ -427,9 +435,9 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (dci17b01.isChecked()) {
-                    dci17btimes.setVisibility(View.VISIBLE);
+                    fldGrpdci17b.setVisibility(View.VISIBLE);
                 } else {
-                    dci17btimes.setVisibility(View.GONE);
+                    fldGrpdci17b.setVisibility(View.GONE);
                     dci17btimes.setText(null);
                 }
             }
@@ -441,9 +449,9 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (dci17c01.isChecked()) {
-                    dci17ctimes.setVisibility(View.VISIBLE);
+                    fldGrpdci17c.setVisibility(View.VISIBLE);
                 } else {
-                    dci17ctimes.setVisibility(View.GONE);
+                    fldGrpdci17c.setVisibility(View.GONE);
                     dci17ctimes.setText(null);
                 }
 
@@ -455,9 +463,9 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (dci17f01.isChecked()) {
-                    dci17ftimes.setVisibility(View.VISIBLE);
+                    fldGrpdci17f.setVisibility(View.VISIBLE);
                 } else {
-                    dci17ftimes.setVisibility(View.GONE);
+                    fldGrpdci17f.setVisibility(View.GONE);
                     dci17ftimes.setText(null);
                 }
 
