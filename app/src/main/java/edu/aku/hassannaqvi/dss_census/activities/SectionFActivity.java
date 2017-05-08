@@ -717,6 +717,7 @@ public class SectionFActivity extends Activity {
 
 //        08
         sF.put("dcf08", dcf08.getText().toString());
+        sF.put("dcf0888", dcf0888.isChecked() ? "88" : "0");
 
 //        09
         sF.put("dcf09", dcf0901.isChecked() ? "1" : dcf0902.isChecked() ? "2"

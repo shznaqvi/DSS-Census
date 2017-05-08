@@ -63,31 +63,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:orientation="horizontal"
-                android:visibility="gone">
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
 
                 <EditText
                     android:id="@+id/dcl01a1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01a1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
@@ -104,30 +114,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:orientation="horizontal"
-                android:visibility="gone">
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01a2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01a2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
@@ -154,30 +174,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01b1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01b1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
@@ -194,33 +222,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01b2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01b2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -241,30 +278,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
 
                 <EditText
                     android:id="@+id/dcl01c1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
+
 
                 <EditText
                     android:id="@+id/dcl01c1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
@@ -284,30 +331,40 @@
                 android:orientation="horizontal"
                 android:visibility="gone">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01c2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
+
 
                 <EditText
                     android:id="@+id/dcl01c2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -328,30 +385,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01d1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
+
 
                 <EditText
                     android:id="@+id/dcl01d1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
 
@@ -372,27 +438,36 @@
                 android:orientation="horizontal"
                 android:visibility="gone">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01d2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
+
 
                 <EditText
                     android:id="@+id/dcl01d2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
@@ -417,30 +492,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01e1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
+
 
                 <EditText
                     android:id="@+id/dcl01e1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
@@ -461,27 +545,36 @@
                 android:orientation="horizontal"
                 android:visibility="gone">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
+
 
                 <EditText
                     android:id="@+id/dcl01e2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01e2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
@@ -505,30 +598,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01f1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
+
 
                 <EditText
                     android:id="@+id/dcl01f1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
@@ -545,30 +647,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
 
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01f2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
+
 
                 <EditText
                     android:id="@+id/dcl01f2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
@@ -596,28 +708,38 @@
                 android:orientation="horizontal"
                 android:visibility="gone">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01g1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01g1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="2" />
+
             </LinearLayout>
             <CheckBox
                 android:id="@+id/dcl01gc"
@@ -636,26 +758,36 @@
                 android:visibility="gone">
 
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
+
                 <EditText
                     android:id="@+id/dcl01g2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
+
 
                 <EditText
                     android:id="@+id/dcl01g2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
@@ -679,33 +811,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01h1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
 
                 <EditText
                     android:id="@+id/dcl01h1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
+
             <CheckBox
                 android:id="@+id/dcl01hc"
                 android:layout_width="match_parent"
@@ -719,30 +852,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01h2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
+
 
                 <EditText
                     android:id="@+id/dcl01h2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
@@ -770,27 +912,27 @@
                 android:orientation="horizontal"
                 android:visibility="gone">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
+
 
                 <EditText
                     android:id="@+id/dcl01i1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
-
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
 
                 <EditText
                     android:id="@+id/dcl01i1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
@@ -808,30 +950,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/days"
+                    android:textColor="@color/colorPrimaryDark" />
 
 
                 <EditText
                     android:id="@+id/dcl01i2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/days"
                     android:inputType="number"
                     android:maxLength="2" />
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/Frequency"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
                     android:id="@+id/dcl01i2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/Frequency"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
@@ -865,7 +1016,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dcnod"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -881,7 +1031,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dcnod"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -897,7 +1046,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dcnod"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -913,7 +1061,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dcnod"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -929,7 +1076,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:hint="@string/dcnod"
                 android:inputType="number"
                 android:maxLength="2" />
 
