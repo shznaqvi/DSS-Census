@@ -20,12 +20,19 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.R;
+import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
+import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
+import edu.aku.hassannaqvi.dss_census.otherClasses.MothersLst;
 
 public class SectionDActivity extends Activity {
 
@@ -521,9 +528,6 @@ public class SectionDActivity extends Activity {
                 }
             }
         });
-
-
-
 
     }
 
@@ -1051,6 +1055,11 @@ public class SectionDActivity extends Activity {
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 
 }
