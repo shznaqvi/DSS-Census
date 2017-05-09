@@ -238,7 +238,7 @@ public class SectionHActivity extends Activity {
 //                    fldGrpdch04.setVisibility(View.GONE);
 //                    dch04.clearCheck();
 //                }
-                if (dch0302.isChecked()) {
+                if (dch0303.isChecked()) {
                     fldGrpdch04.setVisibility(View.GONE);
                     dch04.clearCheck();
                     fldGrpdch05.setVisibility(View.VISIBLE);
@@ -424,7 +424,7 @@ public class SectionHActivity extends Activity {
 
 
         // ================= Q 4 ========================
-        if (!dch0302.isChecked()) {
+        if (!dch0303.isChecked()) {
             if (dch04.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch04), Toast.LENGTH_SHORT).show();
                 dch0402.setError("This data is Required!");
@@ -435,7 +435,7 @@ public class SectionHActivity extends Activity {
             }
         }
 
-        if (dch0302.isChecked() || dch0402.isChecked()) {
+        if (dch0303.isChecked() || dch0402.isChecked()) {
             if (dch05.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch05), Toast.LENGTH_SHORT).show();
                 dch05.setError("This data is Required!");

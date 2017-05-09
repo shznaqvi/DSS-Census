@@ -76,12 +76,12 @@ public class SectionAActivity extends Activity {
     RadioButton dca050101;
     @BindView(R.id.dca050102)
     RadioButton dca050102;
-    @BindView(R.id.dca0502)
+    /*@BindView(R.id.dca0502)
     RadioGroup dca0502;
     @BindView(R.id.dca050201)
     RadioButton dca050201;
     @BindView(R.id.dca050202)
-    RadioButton dca050202;
+    RadioButton dca050202;*/
     @BindView(R.id.dca0503)
     EditText dca0503;
     @BindView(R.id.dca0504)
@@ -320,7 +320,7 @@ public class SectionAActivity extends Activity {
 
                     dca05.setText(null);
                     dca0501.clearCheck();
-                    dca0502.clearCheck();
+                    //dca0502.clearCheck();
                     dca0503.setText(null);
                     dca0504.clearCheck();
                     dca050496x.setText(null);
@@ -375,7 +375,7 @@ public class SectionAActivity extends Activity {
             }
         });
 
-        // =================== If Respondent is male ===============
+        /*// =================== If Respondent is male ===============
 
         dca0501.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -395,7 +395,7 @@ public class SectionAActivity extends Activity {
 
             }
         });
-
+*/
         //=============== Others Occupation ==============
 
         dca0505.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -686,7 +686,7 @@ public class SectionAActivity extends Activity {
             }
 
 //        05
-            if (dca0502.getCheckedRadioButtonId() == -1) {
+            /*if (dca0502.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0502), Toast.LENGTH_SHORT).show();
                 dca050202.setError("This data is Required!");    // Set Error on last radio button
 
@@ -694,7 +694,7 @@ public class SectionAActivity extends Activity {
                 return false;
             } else {
                 dca050202.setError(null);
-            }
+            }*/
 
 //        06
             if (dca0503.getText().toString().isEmpty()) {
@@ -1074,7 +1074,7 @@ public class SectionAActivity extends Activity {
         sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : "0");
         sa.put("dca05", dca05.getText().toString());
         sa.put("dca0501", dca050101.isChecked() ? "1" : dca050102.isChecked() ? "2" : "0");
-        sa.put("dca0502", dca050201.isChecked() ? "1" : dca050202.isChecked() ? "2" : "0");
+        //sa.put("dca0502", dca050201.isChecked() ? "1" : dca050202.isChecked() ? "2" : "0");
         sa.put("dca0503", dca0503.getText().toString());
         sa.put("dca0504", dca050401.isChecked() ? "1" : dca050402.isChecked() ? "2" : dca050403.isChecked() ? "3"
                 : dca050404.isChecked() ? "4" : dca050405.isChecked() ? "5" : dca050406.isChecked() ? "6" : dca050407.isChecked() ? "7"
