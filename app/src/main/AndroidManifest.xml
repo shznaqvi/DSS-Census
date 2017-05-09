@@ -14,7 +14,6 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -84,7 +83,10 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activities.EndingActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activities.MotherListActivity"
+            android:label="@string/title_activity_mother_list"></activity>
     </application>
 
 </manifest>

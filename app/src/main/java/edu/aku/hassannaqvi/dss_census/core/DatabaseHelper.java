@@ -29,6 +29,7 @@ import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract.singleMember;
 import edu.aku.hassannaqvi.dss_census.contracts.UsersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.UsersContract.singleUser;
+import edu.aku.hassannaqvi.dss_census.otherClasses.MothersLst;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -47,10 +48,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "dss-census_copy.db";
     private static final int DATABASE_VERSION = 1;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
-            +singleForm.TABLE_NAME + "("
-            +singleForm.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            +singleForm.COLUMN_PROJECT_NAME + " TEXT,"
-            +singleForm.COLUMN_UID + " TEXT," +
+            + singleForm.TABLE_NAME + "("
+            + singleForm.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + singleForm.COLUMN_PROJECT_NAME + " TEXT,"
+            + singleForm.COLUMN_UID + " TEXT," +
             singleForm.COLUMN_IS_NEW + " TEXT," +
             singleForm.COLUMN_DSSID + " TEXT," +
             singleForm.COLUMN_FORMDATE + " TEXT," +
@@ -98,68 +99,68 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + censusMember.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + censusMember.COLUMN_PROJECT_NAME + " TEXT," +
             censusMember.COLUMN_REF_ID + " TEXT," +
-            censusMember.COLUMN_UID + " TEXT,"+
-            censusMember.COLUMN_UUID + " TEXT,"+
-            censusMember.COLUMN_DATE + " TEXT,"+
-            censusMember.COLUMN_FORMDATE + " TEXT,"+
-            censusMember.COLUMN_DEVICEID + " TEXT,"+
-            censusMember.COLUMN_USER + " TEXT,"+
-            censusMember.COLUMN_DSS_ID_HH + " TEXT,"+
-            censusMember.COLUMN_DSS_ID_F + " TEXT,"+
-            censusMember.COLUMN_DSS_ID_M + " TEXT,"+
-            censusMember.COLUMN_DSS_ID_H + " TEXT,"+
-            censusMember.COLUMN_DSS_ID_MEMBER + " TEXT,"+
-            censusMember.COLUMN_PREVS_DSS_ID_MEMBER + " TEXT,"+
-            censusMember.COLUMN_SITE_CODE + " TEXT,"+
-            censusMember.COLUMN_NAME + " TEXT,"+
-            censusMember.COLUMN_DOB + " TEXT,"+
-            censusMember.COLUMN_AGEY + " TEXT,"+
-            censusMember.COLUMN_AGEM + " TEXT,"+
-            censusMember.COLUMN_AGED + " TEXT,"+
-            censusMember.COLUMN_GENDER + " TEXT,"+
-            censusMember.COLUMN_IS_HEAD + " TEXT,"+
-            censusMember.COLUMN_RELATION_HH + " TEXT,"+
-            censusMember.COLUMN_CURRENT_STATUS + " TEXT,"+
-            censusMember.COLUMN_CURRENT_STATUSX + " TEXT,"+
-            censusMember.COLUMN_CURRENT_DATE + " TEXT,"+
-            censusMember.COLUMN_DOD + " TEXT,"+
-            censusMember.COLUMN_M_STATUS + " TEXT,"+
-            censusMember.COLUMN_EDUCATION + " TEXT,"+
-            censusMember.COLUMN_EDUCATIONX + " TEXT,"+
-            censusMember.COLUMN_OCCUPATION + " TEXT,"+
-            censusMember.COLUMN_OCCUPATIONX + " TEXT,"+
-            censusMember.COLUMN_MEMBER_TYPE + " TEXT,"+
-            censusMember.COLUMN_REMARKS + " TEXT,"+
-            censusMember.COLUMN_UPDATE_FLAG + " TEXT,"+
-            censusMember.COLUMN_UPDATE_DT + " TEXT,"+
-            censusMember.COLUMN_SYNCED + " TEXT,"+
+            censusMember.COLUMN_UID + " TEXT," +
+            censusMember.COLUMN_UUID + " TEXT," +
+            censusMember.COLUMN_DATE + " TEXT," +
+            censusMember.COLUMN_FORMDATE + " TEXT," +
+            censusMember.COLUMN_DEVICEID + " TEXT," +
+            censusMember.COLUMN_USER + " TEXT," +
+            censusMember.COLUMN_DSS_ID_HH + " TEXT," +
+            censusMember.COLUMN_DSS_ID_F + " TEXT," +
+            censusMember.COLUMN_DSS_ID_M + " TEXT," +
+            censusMember.COLUMN_DSS_ID_H + " TEXT," +
+            censusMember.COLUMN_DSS_ID_MEMBER + " TEXT," +
+            censusMember.COLUMN_PREVS_DSS_ID_MEMBER + " TEXT," +
+            censusMember.COLUMN_SITE_CODE + " TEXT," +
+            censusMember.COLUMN_NAME + " TEXT," +
+            censusMember.COLUMN_DOB + " TEXT," +
+            censusMember.COLUMN_AGEY + " TEXT," +
+            censusMember.COLUMN_AGEM + " TEXT," +
+            censusMember.COLUMN_AGED + " TEXT," +
+            censusMember.COLUMN_GENDER + " TEXT," +
+            censusMember.COLUMN_IS_HEAD + " TEXT," +
+            censusMember.COLUMN_RELATION_HH + " TEXT," +
+            censusMember.COLUMN_CURRENT_STATUS + " TEXT," +
+            censusMember.COLUMN_CURRENT_STATUSX + " TEXT," +
+            censusMember.COLUMN_CURRENT_DATE + " TEXT," +
+            censusMember.COLUMN_DOD + " TEXT," +
+            censusMember.COLUMN_M_STATUS + " TEXT," +
+            censusMember.COLUMN_EDUCATION + " TEXT," +
+            censusMember.COLUMN_EDUCATIONX + " TEXT," +
+            censusMember.COLUMN_OCCUPATION + " TEXT," +
+            censusMember.COLUMN_OCCUPATIONX + " TEXT," +
+            censusMember.COLUMN_MEMBER_TYPE + " TEXT," +
+            censusMember.COLUMN_REMARKS + " TEXT," +
+            censusMember.COLUMN_UPDATE_FLAG + " TEXT," +
+            censusMember.COLUMN_UPDATE_DT + " TEXT," +
+            censusMember.COLUMN_SYNCED + " TEXT," +
             censusMember.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
     private static final String SQL_CREATE_MEMBERS = "CREATE TABLE "
             + singleMember.TABLE_NAME + "("
-            + singleMember.COLUMN_ID + " TEXT,"+
-            singleMember.COLUMN_DATE + " TEXT,"+
-            singleMember.COLUMN_DSS_ID_HH + " TEXT,"+
-            singleMember.COLUMN_DSS_ID_F + " TEXT,"+
-            singleMember.COLUMN_DSS_ID_M + " TEXT,"+
-            singleMember.COLUMN_DSS_ID_H + " TEXT,"+
-            singleMember.COLUMN_DSS_ID_MEMBER + " TEXT,"+
-            singleMember.COLUMN_PREVS_DSS_ID_MEMBER + " TEXT,"+
-            singleMember.COLUMN_SITE_CODE + " TEXT,"+
-            singleMember.COLUMN_NAME + " TEXT,"+
-            singleMember.COLUMN_DOB + " TEXT,"+
-            singleMember.COLUMN_AGE + " TEXT,"+
-            singleMember.COLUMN_GENDER + " TEXT,"+
-            singleMember.COLUMN_IS_HEAD + " TEXT,"+
-            singleMember.COLUMN_RELATION_HH + " TEXT,"+
-            singleMember.COLUMN_CURRENT_STATUS + " TEXT,"+
-            singleMember.COLUMN_CURRENT_DATE + " TEXT,"+
-            singleMember.COLUMN_DOD + " TEXT,"+
-            singleMember.COLUMN_M_STATUS + " TEXT,"+
-            singleMember.COLUMN_EDUCATION + " TEXT,"+
-            singleMember.COLUMN_OCCUPATION + " TEXT,"+
-            singleMember.COLUMN_MEMBER_TYPE + " TEXT"+
-             " );";
+            + singleMember.COLUMN_ID + " TEXT," +
+            singleMember.COLUMN_DATE + " TEXT," +
+            singleMember.COLUMN_DSS_ID_HH + " TEXT," +
+            singleMember.COLUMN_DSS_ID_F + " TEXT," +
+            singleMember.COLUMN_DSS_ID_M + " TEXT," +
+            singleMember.COLUMN_DSS_ID_H + " TEXT," +
+            singleMember.COLUMN_DSS_ID_MEMBER + " TEXT," +
+            singleMember.COLUMN_PREVS_DSS_ID_MEMBER + " TEXT," +
+            singleMember.COLUMN_SITE_CODE + " TEXT," +
+            singleMember.COLUMN_NAME + " TEXT," +
+            singleMember.COLUMN_DOB + " TEXT," +
+            singleMember.COLUMN_AGE + " TEXT," +
+            singleMember.COLUMN_GENDER + " TEXT," +
+            singleMember.COLUMN_IS_HEAD + " TEXT," +
+            singleMember.COLUMN_RELATION_HH + " TEXT," +
+            singleMember.COLUMN_CURRENT_STATUS + " TEXT," +
+            singleMember.COLUMN_CURRENT_DATE + " TEXT," +
+            singleMember.COLUMN_DOD + " TEXT," +
+            singleMember.COLUMN_M_STATUS + " TEXT," +
+            singleMember.COLUMN_EDUCATION + " TEXT," +
+            singleMember.COLUMN_OCCUPATION + " TEXT," +
+            singleMember.COLUMN_MEMBER_TYPE + " TEXT" +
+            " );";
     private static final String SQL_CREATE_DECEASED = "CREATE TABLE "
             + DeceasedMember.TABLE_NAME + "("
             + DeceasedMember.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -186,7 +187,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             DeceasedMember.COLUMN_DOD + " TEXT," +
             DeceasedMember.COLUMN_REMARKS + " TEXT," +
             DeceasedMember.COLUMN_WRA + " TEXT," +
-            censusMember.COLUMN_SYNCED + " TEXT,"+
+            censusMember.COLUMN_SYNCED + " TEXT," +
             censusMember.COLUMN_SYNCED_DATE + " TEXT" +
             " );";
 
@@ -204,7 +205,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + DeceasedContract.DeceasedMember.TABLE_NAME;
 
     private static final String SQL_SELECT_MOTHER_BY_CHILD =
-            "SELECT c.name child_name, c.dss_id_member child_id, m.name mother_name, c.dss_id_member mother_id, c.dob date_of_birth, count(*) no_of_children FROM dss.census C join census m on c.dss_id_m = m.dss_id_member where c.member_type =? and m.dss_id_hh =? group by mother_id order by substr(c.dob, 7) desc, substr(dob, 4,2) desc, substr(dob, 1,2) desc;";
+            "SELECT c.name child_name, c.dss_id_member child_id, m.name mother_name, c.dss_id_member mother_id, c.dob date_of_birth FROM census C join census m on c.dss_id_m = m.dss_id_member where c.member_type =? and m.dss_id_hh =? group by mother_id order by substr(c.dob, 7) desc, substr(c.dob, 4,2) desc, substr(c.dob, 1,2) desc;";
 
 
     private final String TAG = "DatabaseHelper";
@@ -386,8 +387,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleMember.COLUMN_MEMBER_TYPE,
         };
 
-        String whereClause = singleMember.COLUMN_DSS_ID_HH +" = ?";
-        String[] whereArgs = new String[] {dssID};
+        String whereClause = singleMember.COLUMN_DSS_ID_HH + " = ?";
+        String[] whereArgs = new String[]{dssID};
         String groupBy = null;
         String having = null;
 
@@ -420,17 +421,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return memList;
     }
 
-    public Collection<MembersContract> getMotherByHousehold(String dssID) {
+    public Collection<MothersLst> getMotherByHousehold(String dssID) {
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         // COLUMNS RETURNED: child_name, child_id, mother_name, mother_id, date_of_birth, no_of_children
-        Collection<MembersContract> memList = new ArrayList<MembersContract>();
+        Collection<MothersLst> memList = new ArrayList<>();
         try {
 
-            c = db.rawQuery(SQL_SELECT_MOTHER_BY_CHILD + new String[]{"c", dssID}, null);
+            c = db.rawQuery(SQL_SELECT_MOTHER_BY_CHILD, new String[]{"c", dssID});
+
+
             while (c.moveToNext()) {
-                MembersContract mc = new MembersContract();
+
+                MothersLst mc = new MothersLst();
                 memList.add(mc.Hydrate(c));
             }
         } finally {
@@ -687,8 +691,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
         return count;
     }
-
-
 
 
     public int updateFormID() {
