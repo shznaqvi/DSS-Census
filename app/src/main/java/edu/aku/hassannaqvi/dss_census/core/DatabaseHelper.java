@@ -27,6 +27,8 @@ import edu.aku.hassannaqvi.dss_census.contracts.HouseholdContract;
 import edu.aku.hassannaqvi.dss_census.contracts.HouseholdContract.householdForm;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract.singleMember;
+import edu.aku.hassannaqvi.dss_census.contracts.MotherContract;
+import edu.aku.hassannaqvi.dss_census.contracts.MotherContract.Mother;
 import edu.aku.hassannaqvi.dss_census.contracts.UsersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.UsersContract.singleUser;
 
@@ -189,6 +191,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             censusMember.COLUMN_SYNCED + " TEXT,"+
             censusMember.COLUMN_SYNCED_DATE + " TEXT" +
             " );";
+
+
+    private static final String SQL_CREATE_MOTHER = "CREATE TABLE "
+            + Mother.TABLE_NAME + "("
+            + Mother.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            Mother.COLUMN_PROJECT_NAME + " TEXT," +
+            Mother.COLUMN_UID + " TEXT," +
+            Mother.COLUMN_UUID + " TEXT," +
+            Mother.COLUMN_ID + " TEXT," +
+            Mother.COLUMN_UUID + " TEXT," +
+            Mother.COLUMN_UID + " TEXT," +
+            Mother.COLUMN_SF + " TEXT," +
+            Mother.COLUMN_SG + " TEXT," +
+            Mother.COLUMN_SH + " TEXT," +
+            Mother.COLUMN_SI + " TEXT," +
+            Mother.COLUMN_SJ + " TEXT," +
+            Mother.COLUMN_SK + " TEXT," +
+            Mother.COLUMN_SL + " TEXT," +
+            Mother.COLUMN_SM + " TEXT," +
+            Mother.COLUMN_GPSLAT + " TEXT," +
+            Mother.COLUMN_GPSLNG + " TEXT," +
+            Mother.COLUMN_GPSDT + " TEXT," +
+            Mother.COLUMN_GPSACC + " TEXT," +
+            Mother.COLUMN_DEVICEID + " TEXT," +
+            Mother.COLUMN_DEVICETAGID + " TEXT," +
+            Mother.COLUMN_SYNCED + " TEXT," +
+            Mother.COLUMN_SYNCED_DATE + " TEXT," +
+
+            " );";
+
 
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
@@ -487,6 +519,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+    public Long addMother(MotherContract mc) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(Mother.COLUMN_PROJECT_NAME, mc.getProjectName());
+        values.put(Mother.COLUMN_UID, mc.get_UID());
+        values.put(Mother.COLUMN_ID, mc.get_ID());
+        values.put(Mother.COLUMN_UUID, mc.get_UUID());
+        values.put(Mother.COLUMN_SF, mc.getsF());
+        values.put(Mother.COLUMN_SG, mc.getsG());
+        values.put(Mother.COLUMN_SH, mc.getsH());
+        values.put(Mother.COLUMN_SI, mc.getsI());
+        values.put(Mother.COLUMN_SJ, mc.getsJ());
+        values.put(Mother.COLUMN_SK, mc.getsK());
+        values.put(Mother.COLUMN_SL, mc.getsL());
+        values.put(Mother.COLUMN_SM, mc.getsM());
+        values.put(Mother.COLUMN_GPSLAT, mc.getGpsLat());
+        values.put(Mother.COLUMN_GPSLNG, mc.getGpsLng());
+        values.put(Mother.COLUMN_GPSDT, mc.getGpsDT());
+        values.put(Mother.COLUMN_GPSACC, mc.getGpsAcc());
+        values.put(Mother.COLUMN_DEVICEID, mc.getDeviceId());
+        values.put(Mother.COLUMN_DEVICETAGID, mc.getDevicetagID());
+        values.put(Mother.COLUMN_SYNCED, mc.getSynced());
+        values.put(Mother.COLUMN_SYNCED_DATE, mc.getSynced_date());
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                FormsContract.singleForm.TABLE_NAME,
+                FormsContract.singleForm.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+
     public Long addHousehold(HouseholdContract hc) {
 
         // Gets the data repository in write mode
@@ -623,6 +693,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // Which row to update, based on the title
         String where = singleForm.COLUMN_ID + " LIKE ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                singleForm.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateMothers(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Mother.COLUMN_SYNCED, true);
+        values.put(Mother.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = Mother.COLUMN_ID + " LIKE ?";
         String[] whereArgs = {id};
 
         int count = db.update(
@@ -791,6 +880,67 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allFC;
+    }
+
+
+    public Collection<MotherContract> getAllMothers() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                Mother._ID,
+                Mother.COLUMN_UID,
+                Mother.COLUMN_UID,
+                Mother.COLUMN_SF,
+                Mother.COLUMN_SG,
+                Mother.COLUMN_SH,
+                Mother.COLUMN_SI,
+                Mother.COLUMN_SJ,
+                Mother.COLUMN_SK,
+                Mother.COLUMN_SL,
+                Mother.COLUMN_SM,
+                Mother.COLUMN_GPSLAT,
+                Mother.COLUMN_GPSLNG,
+                Mother.COLUMN_GPSDT,
+                Mother.COLUMN_GPSACC,
+                Mother.COLUMN_DEVICEID,
+                Mother.COLUMN_DEVICETAGID,
+                Mother.COLUMN_SYNCED,
+                Mother.COLUMN_SYNCED_DATE,
+
+
+        };
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                Mother.COLUMN_ID + " ASC";
+
+        Collection<MotherContract> allMC = new ArrayList<MotherContract>();
+        try {
+            c = db.query(
+                    singleForm.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                MotherContract mc = new MotherContract();
+                allMC.add(mc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allMC;
     }
 
     public Collection<CensusContract> getUnsyncedCensus() {
