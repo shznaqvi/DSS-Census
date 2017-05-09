@@ -534,6 +534,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(Mother.COLUMN_UID, mc.get_UID());
         values.put(Mother.COLUMN_ID, mc.get_ID());
         values.put(Mother.COLUMN_UUID, mc.get_UUID());
+        values.put(Mother.COLUMN_FORMDATE, mc.getFormDate());
+        values.put(Mother.COLUMN_USER, mc.getUser());
         values.put(Mother.COLUMN_SF, mc.getsF());
         values.put(Mother.COLUMN_SG, mc.getsG());
         values.put(Mother.COLUMN_SH, mc.getsH());
@@ -892,6 +894,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 Mother._ID,
                 Mother.COLUMN_UID,
                 Mother.COLUMN_UID,
+                Mother.COLUMN_FORMDATE,
+                Mother.COLUMN_USER,
                 Mother.COLUMN_SF,
                 Mother.COLUMN_SG,
                 Mother.COLUMN_SH,

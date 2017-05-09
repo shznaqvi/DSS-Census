@@ -17,6 +17,9 @@ public class MotherContract {
     private String _UID = "";
     private String _UUID = "";
     private String deviceId = "";
+    private String formDate = ""; // Date
+    private String user = ""; // Interviewer
+
     private String sF = "";
     private String sG = "";
     private String sH = "";
@@ -203,12 +206,30 @@ public class MotherContract {
         this.synced_date = synced_date;
     }
 
+    public String getFormDate() {
+        return formDate;
+    }
+
+    public void setFormDate(String formDate) {
+        this.formDate = formDate;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
 
     public MotherContract Sync(JSONObject jsonObject) throws JSONException {
 
         this._ID = jsonObject.getString(Mother.COLUMN_ID);
         this._UUID = jsonObject.getString(Mother.COLUMN_UUID);
         this._UID = jsonObject.getString(Mother.COLUMN_UID);
+        this.formDate = jsonObject.getString(Mother.COLUMN_FORMDATE);
+        this.user = jsonObject.getString(Mother.COLUMN_USER);
         this.sF = jsonObject.getString(Mother.COLUMN_SF);
         this.sG = jsonObject.getString(Mother.COLUMN_SG);
         this.sH = jsonObject.getString(Mother.COLUMN_SH);
@@ -236,6 +257,8 @@ public class MotherContract {
         this._ID = cursor.getString(cursor.getColumnIndex(Mother.COLUMN_ID));
         this._UUID = cursor.getString(cursor.getColumnIndex(Mother.COLUMN_UUID));
         this._UID = cursor.getString(cursor.getColumnIndex(Mother.COLUMN_UID));
+        this.formDate = cursor.getString(cursor.getColumnIndex(Mother.COLUMN_FORMDATE));
+        this.user = cursor.getString(cursor.getColumnIndex(Mother.COLUMN_USER));
         this.sF = cursor.getString(cursor.getColumnIndex(Mother.COLUMN_SF));
         this.sG = cursor.getString(cursor.getColumnIndex(Mother.COLUMN_SG));
         this.sH = cursor.getString(cursor.getColumnIndex(Mother.COLUMN_SH));
@@ -266,6 +289,8 @@ public class MotherContract {
         json.put(Mother.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(Mother.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
         json.put(Mother.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
+        json.put(Mother.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
+        json.put(Mother.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
         json.put(Mother.COLUMN_SF, this.sF == null ? JSONObject.NULL : this.sF);
         json.put(Mother.COLUMN_SG, this.sG == null ? JSONObject.NULL : this.sG);
         json.put(Mother.COLUMN_SH, this.sH == null ? JSONObject.NULL : this.sH);
@@ -296,6 +321,8 @@ public class MotherContract {
         public static final String COLUMN_ID = "id";
         public static final String COLUMN_UUID = "uuid";
         public static final String COLUMN_UID = "uid";
+        public static final String COLUMN_FORMDATE = "formdate";
+        public static final String COLUMN_USER = "user";
         public static final String COLUMN_SF = "sf";
         public static final String COLUMN_SG = "sg";
         public static final String COLUMN_SH = "sh";
