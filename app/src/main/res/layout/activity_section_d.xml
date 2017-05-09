@@ -399,6 +399,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/dcd0602" />
+
+                <RadioButton
+                    android:id="@+id/dcd0603"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dcd0603" />
             </RadioGroup>
 
             <TextView

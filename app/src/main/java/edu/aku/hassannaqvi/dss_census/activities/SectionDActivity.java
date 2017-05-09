@@ -113,6 +113,8 @@ public class SectionDActivity extends Activity {
     RadioButton dcd0601;
     @BindView(R.id.dcd0602)
     RadioButton dcd0602;
+    @BindView(R.id.dcd0603)
+    RadioButton dcd0603;
     @BindView(R.id.dcd07)
     RadioGroup dcd07;
     @BindView(R.id.dcd0701)
@@ -983,7 +985,7 @@ public class SectionDActivity extends Activity {
         sD.put("dcd05", dcd05.getText().toString());
 
 //        03
-        sD.put("dcd06", dcd0601.isChecked() ? "1" : dcd0602.isChecked() ? "2" : "0");
+        sD.put("dcd06", dcd0601.isChecked() ? "1" : dcd0602.isChecked() ? "2" : dcd0603.isChecked() ? "3" : "0");
 
 //        04
         sD.put("dcd07", dcd0701.isChecked() ? "1" : dcd0702.isChecked() ? "2" : dcd0703.isChecked() ? "3"
