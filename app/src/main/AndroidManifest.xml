@@ -86,7 +86,7 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activities.MotherListActivity"
-            android:label="@string/title_activity_mother_list"></activity>
+            android:label="Mothers List"></activity>
     </application>
 
 </manifest>

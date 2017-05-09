@@ -7,17 +7,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:orientation="horizontal"
-        android:weightSum="100"
-        android:layout_margin="5dp">
+        android:weightSum="100">
 
         <TextView
             android:id="@+id/date_of_birth"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:gravity="center"
+            android:layout_marginLeft="2dp"
             android:layout_weight="50"
+            android:gravity="center"
             android:textSize="30sp"
             />
 
@@ -31,7 +32,8 @@
                 android:id="@+id/mother_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center"
+                android:layout_marginBottom="2dp"
                 android:gravity="center"
                 android:textSize="30sp" />
 
@@ -39,11 +41,11 @@
                 android:id="@+id/child_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="top"
                 android:gravity="center"
-                android:textSize="20sp"
+                android:paddingBottom="5dp"
                 android:textColor="@color/pink_100"
-                android:paddingBottom="5dp"/>
+                android:textSize="20sp" />
 
         </LinearLayout>
 
