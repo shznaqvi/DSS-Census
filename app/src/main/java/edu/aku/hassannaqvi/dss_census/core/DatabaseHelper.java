@@ -202,7 +202,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + censusMember.TABLE_NAME;
     private static final String SQL_DELETE_DECEASED =
             "DROP TABLE IF EXISTS " + DeceasedContract.DeceasedMember.TABLE_NAME;
+
+    private static final String SQL_SELECT_MOTHER_BY_CHILD =
+            "SELECT c.name child_name, c.dss_id_member child_id, m.name mother_name, c.dss_id_member mother_id, c.dob date_of_birth, count(*) no_of_children FROM dss.census C join census m on c.dss_id_m = m.dss_id_member where c.member_type =? and m.dss_id_hh =? group by mother_id order by substr(c.dob, 7) desc, substr(dob, 4,2) desc, substr(dob, 1,2) desc;";
+
+
     private final String TAG = "DatabaseHelper";
+
+
     public String spDateT = new SimpleDateFormat("dd-MM-yy").format(new Date().getTime());
 
 
@@ -398,6 +405,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     having,                    // don't filter by row groups
                     orderBy                    // The sort order
             );
+            while (c.moveToNext()) {
+                MembersContract mc = new MembersContract();
+                memList.add(mc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return memList;
+    }
+
+    public Collection<MembersContract> getMotherByHousehold(String dssID) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        // COLUMNS RETURNED: child_name, child_id, mother_name, mother_id, date_of_birth, no_of_children
+        Collection<MembersContract> memList = new ArrayList<MembersContract>();
+        try {
+
+            c = db.rawQuery(SQL_SELECT_MOTHER_BY_CHILD + new String[]{"c", dssID}, null);
             while (c.moveToNext()) {
                 MembersContract mc = new MembersContract();
                 memList.add(mc.Hydrate(c));
