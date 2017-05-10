@@ -29,9 +29,12 @@ import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract.singleMember;
 import edu.aku.hassannaqvi.dss_census.contracts.MotherContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MotherContract.MotherTB;
+import edu.aku.hassannaqvi.dss_census.contracts.SectionKIMContract;
 import edu.aku.hassannaqvi.dss_census.contracts.UsersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.UsersContract.singleUser;
 import edu.aku.hassannaqvi.dss_census.otherClasses.MothersLst;
+
+import static edu.aku.hassannaqvi.dss_census.contracts.SectionKIMContract.singleIm;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -210,7 +213,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             MotherTB.COLUMN_SH + " TEXT," +
             MotherTB.COLUMN_SI + " TEXT," +
             MotherTB.COLUMN_SJ + " TEXT," +
-            MotherTB.COLUMN_SK + " TEXT," +
             MotherTB.COLUMN_SL + " TEXT," +
             MotherTB.COLUMN_SM + " TEXT," +
             MotherTB.COLUMN_GPSLAT + " TEXT," +
@@ -221,6 +223,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             MotherTB.COLUMN_DEVICETAGID + " TEXT," +
             MotherTB.COLUMN_SYNCED + " TEXT," +
             MotherTB.COLUMN_SYNCED_DATE + " TEXT" +
+
+            " );";
+
+    private static final String SQL_CREATE_SEC_K_IM = "CREATE TABLE "
+            + singleIm.TABLE_NAME + "("
+            + singleIm.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            singleIm.COLUMN_ID + " TEXT," +
+            singleIm.COLUMN_UUID + " TEXT," +
+            singleIm.COLUMN_UID + " TEXT," +
+            singleIm.COLUMN_SK + " TEXT," +
+            singleIm.COLUMN_FORMDATE + " TEXT," +
+            singleIm.COLUMN_USER + " TEXT," +
+            singleIm.COLUMN_CHILDID + " TEXT," +
+            singleIm.COLUMN_DSSID + " TEXT," +
+            singleIm.COLUMN_GPSLAT + " TEXT," +
+            singleIm.COLUMN_GPSLNG + " TEXT," +
+            singleIm.COLUMN_GPSDT + " TEXT," +
+            singleIm.COLUMN_GPSACC + " TEXT," +
+            singleIm.COLUMN_DEVICEID + " TEXT," +
+            singleIm.COLUMN_DEVICETAGID + " TEXT," +
+            singleIm.COLUMN_SYNCED + " TEXT," +
+            singleIm.COLUMN_SYNCED_DATE + " TEXT," +
 
             " );";
 
@@ -547,7 +571,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(MotherTB.COLUMN_SH, mc.getsH());
         values.put(MotherTB.COLUMN_SI, mc.getsI());
         values.put(MotherTB.COLUMN_SJ, mc.getsJ());
-        values.put(MotherTB.COLUMN_SK, mc.getsK());
         values.put(MotherTB.COLUMN_SL, mc.getsL());
         values.put(MotherTB.COLUMN_SM, mc.getsM());
         values.put(MotherTB.COLUMN_GPSLAT, mc.getGpsLat());
@@ -572,6 +595,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values);
         return newRowId;
     }
+
+    public Long addChild(SectionKIMContract ims) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+
+        values.put(singleIm.COLUMN_ID, ims.get_ID());
+        values.put(singleIm.COLUMN_UUID, ims.get_UUID());
+        values.put(singleIm.COLUMN_UID, ims.getUID());
+        values.put(singleIm.COLUMN_SK, ims.getsK());
+        values.put(singleIm.COLUMN_FORMDATE, ims.getFormDate());
+        values.put(singleIm.COLUMN_USER, ims.getUser());
+        values.put(singleIm.COLUMN_CHILDID, ims.getChildID());
+        values.put(singleIm.COLUMN_DSSID, ims.getDssID());
+        values.put(singleIm.COLUMN_GPSLAT, ims.getGpsLat());
+        values.put(singleIm.COLUMN_GPSLNG, ims.getGpsLng());
+        values.put(singleIm.COLUMN_GPSDT, ims.getGpsDT());
+        values.put(singleIm.COLUMN_GPSACC, ims.getGpsAcc());
+        values.put(singleIm.COLUMN_DEVICEID, ims.getDeviceID());
+        values.put(singleIm.COLUMN_DEVICETAGID, ims.getDevicetagID());
+        values.put(singleIm.COLUMN_SYNCED, ims.getSynced());
+        values.put(singleIm.COLUMN_SYNCED_DATE, ims.getSynced_date());
+
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                FormsContract.singleForm.TABLE_NAME,
+                FormsContract.singleForm.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
 
 
     public Long addHousehold(HouseholdContract hc) {
@@ -738,6 +797,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs);
     }
 
+    public void updateChild(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(singleIm.COLUMN_SYNCED, true);
+        values.put(singleIm.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = singleIm.COLUMN_ID + " LIKE ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                singleForm.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
     public void updateCensus(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -850,6 +928,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public int updateChildID() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(singleIm.COLUMN_UID, MainApp.ims.getUID());
+
+// Which row to update, based on the ID
+        String selection = singleIm.COLUMN_ID + " LIKE ?";
+        String[] selectionArgs = {String.valueOf(MainApp.ims.get_ID())};
+
+        int count = db.update(singleIm.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
     public Collection<FormsContract> getAllForms() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -930,7 +1026,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 MotherTB.COLUMN_SH,
                 MotherTB.COLUMN_SI,
                 MotherTB.COLUMN_SJ,
-                MotherTB.COLUMN_SK,
                 MotherTB.COLUMN_SL,
                 MotherTB.COLUMN_SM,
                 MotherTB.COLUMN_GPSLAT,
@@ -977,6 +1072,63 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allMC;
+    }
+
+
+    public Collection<SectionKIMContract> getAllChild() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                singleIm.COLUMN_ID,
+                singleIm.COLUMN_UUID,
+                singleIm.COLUMN_UID,
+                singleIm.COLUMN_SK,
+                singleIm.COLUMN_FORMDATE,
+                singleIm.COLUMN_USER,
+                singleIm.COLUMN_CHILDID,
+                singleIm.COLUMN_DSSID,
+                singleIm.COLUMN_GPSLAT,
+                singleIm.COLUMN_GPSLNG,
+                singleIm.COLUMN_GPSDT,
+                singleIm.COLUMN_GPSACC,
+                singleIm.COLUMN_DEVICEID,
+                singleIm.COLUMN_DEVICETAGID,
+                singleIm.COLUMN_SYNCED,
+                singleIm.COLUMN_SYNCED_DATE,
+
+        };
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                singleIm.COLUMN_ID + " ASC";
+
+        Collection<SectionKIMContract> allIM = new ArrayList<SectionKIMContract>();
+        try {
+            c = db.query(
+                    singleForm.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                SectionKIMContract kIm = new SectionKIMContract();
+                allIM.add(kIm.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allIM;
     }
 
     public Collection<CensusContract> getUnsyncedCensus() {
@@ -1423,15 +1575,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(MotherTB.COLUMN_SK, MainApp.mc.getsK());
-        values.put(MotherTB.COLUMN_UID, MainApp.mc.getUID());
+        values.put(singleIm.COLUMN_SK, MainApp.ims.getsK());
+        values.put(singleIm.COLUMN_UID, MainApp.ims.getUID());
 
 
 // Which row to update, based on the ID
-        String selection = MotherTB._ID + " = ?";
-        String[] selectionArgs = {String.valueOf(MainApp.mc.get_ID())};
+        String selection = singleIm._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(MainApp.ims.get_ID())};
 
-        int count = db.update(MotherTB.TABLE_NAME,
+        int count = db.update(singleIm.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);

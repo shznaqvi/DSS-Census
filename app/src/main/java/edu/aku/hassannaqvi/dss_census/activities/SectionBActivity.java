@@ -930,6 +930,17 @@ public class SectionBActivity extends Activity {
         }
 
         if (dcbAge02.isChecked()) {
+
+            if ((Integer.parseInt(dcbhy.getText().toString().isEmpty() ? "0" : dcbhy.getText().toString()) == 0
+                    && Integer.parseInt(dcbhm.getText().toString().isEmpty() ? "0" : dcbhm.getText().toString()) == 0
+                    && Integer.parseInt(dcbhd.getText().toString().isEmpty() ? "0" : dcbhd.getText().toString()) == 0)) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbh), Toast.LENGTH_SHORT).show();
+                dcbhd.setError("Can not be zero");
+                Log.i(TAG, "dcbhd: Can not be zero");
+                return false;
+            } else {
+                dcbhd.setError(null);
+            }
             // ================= Age in years ===========
             if (dcbhy.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbhy), Toast.LENGTH_SHORT).show();

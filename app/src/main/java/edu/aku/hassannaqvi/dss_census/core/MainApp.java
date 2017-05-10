@@ -9,7 +9,6 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.format.DateFormat;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +19,7 @@ import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MotherContract;
 import edu.aku.hassannaqvi.dss_census.contracts.OCsContract;
+import edu.aku.hassannaqvi.dss_census.contracts.SectionKIMContract;
 import edu.aku.hassannaqvi.dss_census.otherClasses.MothersLst;
 
 /**
@@ -73,13 +73,13 @@ public class MainApp extends Application {
     public static CensusContract cc;
     public static DeceasedContract dc;
     public static MotherContract mc;
+    public static SectionKIMContract ims;
     public static int memFlag = 0;
     public static List<Integer> memClicked;
-    protected static LocationManager locationManager;
-    Location location;
-
     public static ArrayList<MothersLst> lstMothers;
     public static int position = 0;
+    protected static LocationManager locationManager;
+    Location location;
 
     @Override
     public void onCreate() {

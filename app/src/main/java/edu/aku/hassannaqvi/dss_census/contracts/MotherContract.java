@@ -26,7 +26,7 @@ public class MotherContract {
     private String sH = "";
     private String sI = "";
     private String sJ = "";
-    private String sK = "";
+    //private String sK = "";
     private String sL = "";
     private String sM = "";
     private String gpsLat = "";
@@ -119,13 +119,13 @@ public class MotherContract {
         this.sJ = sJ;
     }
 
-    public String getsK() {
+   /* public String getsK() {
         return sK;
     }
 
     public void setsK(String sK) {
         this.sK = sK;
-    }
+    }*/
 
     public String getsL() {
         return sL;
@@ -259,7 +259,7 @@ public class MotherContract {
         this.sH = jsonObject.getString(MotherTB.COLUMN_SH);
         this.sI = jsonObject.getString(MotherTB.COLUMN_SI);
         this.sJ = jsonObject.getString(MotherTB.COLUMN_SJ);
-        this.sK = jsonObject.getString(MotherTB.COLUMN_SK);
+        //this.sK = jsonObject.getString(MotherTB.COLUMN_SK);
         this.sL = jsonObject.getString(MotherTB.COLUMN_SL);
         this.sM = jsonObject.getString(MotherTB.COLUMN_SM);
         this.gpsLat = jsonObject.getString(MotherTB.COLUMN_GPSLAT);
@@ -292,7 +292,7 @@ public class MotherContract {
         this.sH = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SH));
         this.sI = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SI));
         this.sJ = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SJ));
-        this.sK = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SK));
+        //this.sK = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SK));
         this.sL = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SL));
         this.sM = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SM));
         this.gpsLat = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_GPSLAT));
@@ -328,7 +328,7 @@ public class MotherContract {
         json.put(MotherTB.COLUMN_SH, this.sH == null ? JSONObject.NULL : this.sH);
         json.put(MotherTB.COLUMN_SI, this.sI == null ? JSONObject.NULL : this.sI);
         json.put(MotherTB.COLUMN_SJ, this.sJ == null ? JSONObject.NULL : this.sJ);
-        json.put(MotherTB.COLUMN_SK, this.sK == null ? JSONObject.NULL : this.sK);
+        //json.put(MotherTB.COLUMN_SK, this.sK == null ? JSONObject.NULL : this.sK);
         json.put(MotherTB.COLUMN_SL, this.sL == null ? JSONObject.NULL : this.sL);
         json.put(MotherTB.COLUMN_SM, this.sM == null ? JSONObject.NULL : this.sM);
         json.put(MotherTB.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
@@ -363,7 +363,7 @@ public class MotherContract {
         public static final String COLUMN_SH = "sh";
         public static final String COLUMN_SI = "si";
         public static final String COLUMN_SJ = "sj";
-        public static final String COLUMN_SK = "sk";
+        //public static final String COLUMN_SK = "sk";
         public static final String COLUMN_SL = "sl";
         public static final String COLUMN_SM = "sm";
         public static final String COLUMN_GPSLAT = "gpslat";

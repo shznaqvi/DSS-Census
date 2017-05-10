@@ -20,19 +20,12 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.R;
-import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
-import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
-import edu.aku.hassannaqvi.dss_census.otherClasses.MothersLst;
 
 public class SectionDActivity extends Activity {
 
@@ -591,13 +584,23 @@ public class SectionDActivity extends Activity {
         }
 
         if (dcd0101.isChecked()) {
-            if (dcd02.getText().toString().isEmpty()) {
+            if (dcd02.getText().toString().isEmpty() || Integer.parseInt(dcd02.getText().toString().isEmpty() ? "0" : dcd02.getText().toString()) == 0) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd02), Toast.LENGTH_SHORT).show();
                 dcd02.setError("This data is Required!");    // Set Error on last radio button
                 Log.i(TAG, "dcd02: This data is Required!");
                 return false;
             } else {
                 dcd02.setError(null);
+            }
+
+            if ((Integer.parseInt(dcd03m.getText().toString().isEmpty() ? "0" : dcd03m.getText().toString()) == 0
+                    && Integer.parseInt(dcd03y.getText().toString().isEmpty() ? "0" : dcd03y.getText().toString()) == 0)) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd03), Toast.LENGTH_SHORT).show();
+                dcd03m.setError("Can not be zero");
+                Log.i(TAG, "dcd03m: Can not be zero");
+                return false;
+            } else {
+                dcd03m.setError(null);
             }
 
             if (dcd03y.getText().toString().isEmpty()) {
