@@ -274,7 +274,7 @@ public class SectionKActivity extends Activity  {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
 
             MainApp.ims.setUID(
-                    (MainApp.ims.getDeviceID() + MainApp.ims.get_ID()));
+                    (MainApp.fc.getDeviceID() + MainApp.ims.get_ID()));
             db.updateChildID();
             return true;
         } else {

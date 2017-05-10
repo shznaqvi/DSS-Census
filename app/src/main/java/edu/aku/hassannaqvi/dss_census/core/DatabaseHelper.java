@@ -231,7 +231,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_SEC_K_IM = "CREATE TABLE "
             + singleIm.TABLE_NAME + "("
             + singleIm.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            singleIm.COLUMN_ID + " TEXT," +
+            singleIm.COLUMN_PROJECT_NAME + " TEXT," +
             singleIm.COLUMN_UUID + " TEXT," +
             singleIm.COLUMN_UID + " TEXT," +
             singleIm.COLUMN_SK + " TEXT," +
@@ -265,6 +265,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + DeceasedContract.DeceasedMember.TABLE_NAME;
     private static final String SQL_DELETE_MOTHER =
             "DROP TABLE IF EXISTS " + MotherTB.TABLE_NAME;
+    private static final String SQL_DELETE_SEC_K_IM =
+            "DROP TABLE IF EXISTS " + singleIm.TABLE_NAME;
 
     private static final String SQL_SELECT_MOTHER_BY_CHILD =
             "SELECT c.serial serial, c.name child_name, c.dss_id_member child_id, m.name mother_name, c.dss_id_member mother_id, c.dob date_of_birth FROM census C join census m on c.dss_id_m = m.dss_id_member where c.member_type =? and m.dss_id_hh =? group by mother_id order by substr(c.dob, 7) desc, substr(c.dob, 4,2) desc, substr(c.dob, 1,2) desc;";
@@ -292,6 +294,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_CENSUS);
         db.execSQL(SQL_CREATE_DECEASED);
         db.execSQL(SQL_CREATE_MOTHER);
+        db.execSQL(SQL_CREATE_SEC_K_IM);
 
     }
 
@@ -304,6 +307,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_CENSUS);
         db.execSQL(SQL_DELETE_DECEASED);
         db.execSQL(SQL_DELETE_MOTHER);
+        db.execSQL(SQL_DELETE_SEC_K_IM);
     }
 
     public void syncUser(JSONArray userlist) {
@@ -627,8 +631,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
         newRowId = db.insert(
-                SectionKIMContract.singleIm.TABLE_NAME,
-                SectionKIMContract.singleIm.COLUMN_NAME_NULLABLE,
+                singleIm.TABLE_NAME,
+                singleIm.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
