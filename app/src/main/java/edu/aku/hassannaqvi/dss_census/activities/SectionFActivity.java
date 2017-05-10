@@ -819,13 +819,12 @@ public class SectionFActivity extends Activity {
         Long updcount = db.addMother(MainApp.mc);
         MainApp.mc.set_ID(String.valueOf(updcount));
 
-        if (updcount != 0) {
+        if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
 
             MainApp.mc.setUID(
                     (MainApp.mc.getDeviceID() + MainApp.mc.get_ID()));
-                db.updateMotherID();
-
+            db.updateMotherID();
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
