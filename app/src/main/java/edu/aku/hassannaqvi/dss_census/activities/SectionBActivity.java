@@ -642,6 +642,9 @@ public class SectionBActivity extends Activity {
         MainApp.cc.setDeviceId(MainApp.fc.getDeviceID());
         MainApp.cc.setDss_id_hh(MainApp.fc.getDSSID());
         MainApp.cc.setUser(MainApp.fc.getUser());
+
+        MainApp.cc.setSerialNo(String.valueOf(position));
+
         if (dataFlag) {
             MainApp.cc.setDss_id_h(MainApp.familyMembersList.get(position).getDss_id_h());
             MainApp.cc.setPrevs_dss_id_member(MainApp.familyMembersList.get(position).getPrevs_dss_id_member());

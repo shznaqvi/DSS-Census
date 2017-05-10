@@ -52,6 +52,8 @@ public class CensusContract {
     private String syncedDate = "";
     private String remarks = "";
 
+    private String serialNo = "";
+
 
     public CensusContract() {
     }
@@ -364,6 +366,14 @@ public class CensusContract {
         this.remarks = remarks;
     }
 
+    public String getSerialNo() {
+        return serialNo;
+    }
+
+    public void setSerialNo(String serialNo) {
+        this.serialNo = serialNo;
+    }
+
     public CensusContract Sync(JSONObject jsonObject) throws JSONException {
 
         this._ID= jsonObject.getString(censusMember.COLUMN_ID);
@@ -401,6 +411,7 @@ public class CensusContract {
         this.member_type= jsonObject.getString(censusMember.COLUMN_MEMBER_TYPE);
         this.update_flag= jsonObject.getString(censusMember.COLUMN_UPDATE_FLAG);
         this.update_dt= jsonObject.getString(censusMember.COLUMN_UPDATE_DT);
+        this.serialNo= jsonObject.getString(censusMember.COLUMN_SERIAL_NO);
         this.synced= jsonObject.getString(censusMember.COLUMN_SYNCED);
         this.syncedDate= jsonObject.getString(censusMember.COLUMN_SYNCED_DATE);
         this.remarks= jsonObject.getString(censusMember.COLUMN_REMARKS);
@@ -446,6 +457,7 @@ public class CensusContract {
         this.member_type = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_MEMBER_TYPE));
         this.update_flag = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_UPDATE_FLAG));
         this.update_dt = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_UPDATE_DT));
+        this.serialNo = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SERIAL_NO));
         this.synced = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SYNCED));
         this.syncedDate = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SYNCED_DATE));
         this.remarks = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_REMARKS));
@@ -494,6 +506,7 @@ public class CensusContract {
         json.put(censusMember.COLUMN_MEMBER_TYPE, this.member_type == null ? JSONObject.NULL : this.member_type);
         json.put(censusMember.COLUMN_UPDATE_FLAG, this.update_flag == null ? JSONObject.NULL : this.update_flag);
         json.put(censusMember.COLUMN_UPDATE_DT, this.update_dt == null ? JSONObject.NULL : this.update_dt);
+        json.put(censusMember.COLUMN_SERIAL_NO, this.serialNo == null ? JSONObject.NULL : this.serialNo);
         json.put(censusMember.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
         json.put(censusMember.COLUMN_SYNCED_DATE, this.syncedDate == null ? JSONObject.NULL : this.syncedDate);
         json.put(censusMember.COLUMN_REMARKS, this.remarks == null ? JSONObject.NULL : this.remarks);
@@ -547,6 +560,9 @@ public class CensusContract {
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "sync_date";
         public static final String COLUMN_REF_ID = "refid";
+
+
+        public static final String COLUMN_SERIAL_NO = "serial";
 
         public static String _URL = "census.php";
     }

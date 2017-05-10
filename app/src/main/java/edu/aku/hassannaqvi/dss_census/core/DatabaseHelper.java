@@ -138,6 +138,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             censusMember.COLUMN_REMARKS + " TEXT," +
             censusMember.COLUMN_UPDATE_FLAG + " TEXT," +
             censusMember.COLUMN_UPDATE_DT + " TEXT," +
+            censusMember.COLUMN_SERIAL_NO + " TEXT," +
             censusMember.COLUMN_SYNCED + " TEXT," +
             censusMember.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
@@ -192,8 +193,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             DeceasedMember.COLUMN_DOD + " TEXT," +
             DeceasedMember.COLUMN_REMARKS + " TEXT," +
             DeceasedMember.COLUMN_WRA + " TEXT," +
-            censusMember.COLUMN_SYNCED + " TEXT," +
-            censusMember.COLUMN_SYNCED_DATE + " TEXT" +
+            DeceasedMember.COLUMN_SYNCED + " TEXT," +
+            DeceasedMember.COLUMN_SYNCED_DATE + " TEXT" +
             " );";
 
 
@@ -266,7 +267,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + MotherTB.TABLE_NAME;
 
     private static final String SQL_SELECT_MOTHER_BY_CHILD =
-            "SELECT c.name child_name, c.dss_id_member child_id, m.name mother_name, c.dss_id_member mother_id, c.dob date_of_birth FROM census C join census m on c.dss_id_m = m.dss_id_member where c.member_type =? and m.dss_id_hh =? group by mother_id order by substr(c.dob, 7) desc, substr(c.dob, 4,2) desc, substr(c.dob, 1,2) desc;";
+            "SELECT c.serial serial, c.name child_name, c.dss_id_member child_id, m.name mother_name, c.dss_id_member mother_id, c.dob date_of_birth FROM census C join census m on c.dss_id_m = m.dss_id_member where c.member_type =? and m.dss_id_hh =? group by mother_id order by substr(c.dob, 7) desc, substr(c.dob, 4,2) desc, substr(c.dob, 1,2) desc;";
 
 
     private final String TAG = "DatabaseHelper";
@@ -488,7 +489,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
-        // COLUMNS RETURNED: child_name, child_id, mother_name, mother_id, date_of_birth, no_of_children
+        // COLUMNS RETURNED: child_name, child_id, mother_name, mother_id, date_of_birth, serial
         Collection<MothersLst> memList = new ArrayList<>();
         try {
 
@@ -605,7 +606,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
 
-        values.put(singleIm.COLUMN_ID, ims.get_ID());
         values.put(singleIm.COLUMN_UUID, ims.get_UUID());
         values.put(singleIm.COLUMN_UID, ims.getUID());
         values.put(singleIm.COLUMN_SK, ims.getsK());
@@ -631,7 +631,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values);
         return newRowId;
     }
-
 
 
     public Long addHousehold(HouseholdContract hc) {
@@ -705,6 +704,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(censusMember.COLUMN_REMARKS, mc.getRemarks());
         values.put(censusMember.COLUMN_UPDATE_FLAG, mc.getUpdate_flag());
         values.put(censusMember.COLUMN_UPDATE_DT, mc.getUpdate_dt());
+        values.put(censusMember.COLUMN_SERIAL_NO, mc.getSerialNo());
         values.put(censusMember.COLUMN_SYNCED, mc.getSynced());
         values.put(censusMember.COLUMN_SYNCED_DATE, mc.getSyncedDate());
 
@@ -1172,6 +1172,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_MEMBER_TYPE,
                 censusMember.COLUMN_UPDATE_FLAG,
                 censusMember.COLUMN_UPDATE_DT,
+                censusMember.COLUMN_SERIAL_NO,
                 censusMember.COLUMN_REMARKS,
                 censusMember.COLUMN_SYNCED,
                 censusMember.COLUMN_SYNCED_DATE

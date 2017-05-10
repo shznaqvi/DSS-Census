@@ -151,6 +151,9 @@ public class SectionFActivity extends Activity {
 
         MainApp.position = getIntent().getExtras().getInt("position");
 
+        dcfa.setText(MainApp.lstMothers.get(MainApp.position).getSerial());
+        dcfa.setEnabled(false);
+
         dcfAgeDob.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
