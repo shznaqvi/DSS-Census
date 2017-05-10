@@ -414,8 +414,7 @@
                 android:id="@+id/fldGrpdci13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
+                android:orientation="vertical">
 
 
                 <TextView
@@ -461,8 +460,7 @@
                 android:id="@+id/fldGrpdci14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -692,8 +690,7 @@
                 android:id="@+id/fldGrpdci17b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
+                android:orientation="vertical">
 
 
                 <TextView
@@ -711,8 +708,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:inputType="number"
-                android:maxLength="2"
-                android:visibility="gone" />
+                android:maxLength="2" />
 
             </LinearLayout>
 
@@ -755,8 +751,7 @@
                 android:id="@+id/fldGrpdci17c"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -886,8 +881,7 @@
                 android:id="@+id/fldGrpdci17f"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -904,8 +898,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:inputType="number"
-                android:maxLength="2"
-                android:visibility="gone" />
+                android:maxLength="2" />
 
             </LinearLayout>
 
@@ -1664,8 +1657,7 @@
                 android:id="@+id/fldGrpdci19"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
+                android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"

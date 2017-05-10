@@ -226,6 +226,9 @@ public class SectionKActivity extends Activity  {
                 e.printStackTrace();
             }
             if (UpdateDB()) {*/
+
+        finish();
+
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
                 Intent endSec = new Intent(this, EndingActivity.class);
                 endSec.putExtra("check", false);
@@ -250,10 +253,14 @@ public class SectionKActivity extends Activity  {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 if (MainApp.mm < MainApp.totalChild) {
+
+                    finish();
+
                     Intent intent = new Intent(this, SectionKActivity.class);
                     MainApp.mm++;
                     startActivity(intent);
                 } else {
+                    finish();
                     startActivity(new Intent(this, SectionLActivity.class));
                 }
 
