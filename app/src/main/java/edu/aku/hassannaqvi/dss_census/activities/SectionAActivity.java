@@ -627,7 +627,9 @@ public class SectionAActivity extends Activity {
 
                 MainApp.NoMembersCount = Integer.parseInt(dca0701.getText().toString());
 
-                startActivity(new Intent(this, FamilyMembersActivity.class));
+                MainApp.totalChild = Integer.parseInt(dca0801.getText().toString());
+
+                startActivity(new Intent(this, SectionKActivity.class));
             } else {
 
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -1117,6 +1119,10 @@ public class SectionAActivity extends Activity {
         sa.put("dca10a", dca10a.getText().toString());
         sa.put("dca10b", dca10b.getText().toString());
         sa.put("dca11", dca1101.isChecked() ? "1" : dca1102.isChecked() ? "2" : "0");
+
+        /*if (!dca0801.getText().toString().isEmpty()) {
+            MainApp.totalChild = Integer.parseInt(dca0801.getText().toString());
+        }*/
 
         MainApp.fc.setsA(String.valueOf(sa));
 

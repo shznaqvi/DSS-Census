@@ -176,6 +176,7 @@ public class SectionKIMContract {
     }
 
     public SectionKIMContract Sync(JSONObject jsonObject) throws Exception {
+
         this._ID = jsonObject.getString(singleIm.COLUMN_ID);
         this._UUID = jsonObject.getString(singleIm.COLUMN_UUID);
         this.UID = jsonObject.getString(singleIm.COLUMN_UID);
@@ -248,6 +249,7 @@ public class SectionKIMContract {
         public static final String TABLE_NAME = "ims";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
 
+        public static final String COLUMN_PROJECT_NAME = "project_name";
         public static final String COLUMN_ID = "id";
         public static final String COLUMN_UUID = "uuid";
         public static final String COLUMN_UID = "uid";

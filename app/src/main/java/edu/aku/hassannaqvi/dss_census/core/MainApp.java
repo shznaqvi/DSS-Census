@@ -74,6 +74,8 @@ public class MainApp extends Application {
     public static DeceasedContract dc;
     public static MotherContract mc;
     public static SectionKIMContract ims;
+    public static int mm = 0;
+    public static int totalChild = 0;
     public static int memFlag = 0;
     public static List<Integer> memClicked;
     public static ArrayList<MothersLst> lstMothers;

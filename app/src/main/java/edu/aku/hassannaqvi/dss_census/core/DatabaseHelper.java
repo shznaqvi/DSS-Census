@@ -606,6 +606,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
 
+        values.put(singleIm.COLUMN_PROJECT_NAME, ims.getProjectName());
         values.put(singleIm.COLUMN_UUID, ims.get_UUID());
         values.put(singleIm.COLUMN_UID, ims.getUID());
         values.put(singleIm.COLUMN_SK, ims.getsK());
@@ -626,8 +627,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
         newRowId = db.insert(
-                FormsContract.singleForm.TABLE_NAME,
-                FormsContract.singleForm.COLUMN_NAME_NULLABLE,
+                SectionKIMContract.singleIm.TABLE_NAME,
+                SectionKIMContract.singleIm.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
