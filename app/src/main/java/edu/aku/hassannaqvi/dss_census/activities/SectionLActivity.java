@@ -56,144 +56,108 @@ public class SectionLActivity extends Activity  {
     CheckBox dcl02am;
     @BindView(R.id.fldGrpa1)
     LinearLayout fldGrpa1;
-    @BindView(R.id.dcl02a1days)
-    EditText dcl02a1days;
     @BindView(R.id.dcl02a1fr)
     EditText dcl02a1fr;
     @BindView(R.id.dcl02ac)
     CheckBox dcl02ac;
     @BindView(R.id.fldGrpa2)
     LinearLayout fldGrpa2;
-    @BindView(R.id.dcl02a2days)
-    EditText dcl02a2days;
     @BindView(R.id.dcl02a2fr)
     EditText dcl02a2fr;
     @BindView(R.id.dcl02bm)
     CheckBox dcl02bm;
     @BindView(R.id.fldGrpb1)
     LinearLayout fldGrpb1;
-    @BindView(R.id.dcl02b1days)
-    EditText dcl02b1days;
     @BindView(R.id.dcl02b1fr)
     EditText dcl02b1fr;
     @BindView(R.id.dcl02bc)
     CheckBox dcl02bc;
     @BindView(R.id.fldGrpb2)
     LinearLayout fldGrpb2;
-    @BindView(R.id.dcl02b2days)
-    EditText dcl02b2days;
     @BindView(R.id.dcl02b2fr)
     EditText dcl02b2fr;
     @BindView(R.id.dcl02cm)
     CheckBox dcl02cm;
     @BindView(R.id.fldGrpc1)
     LinearLayout fldGrpc1;
-    @BindView(R.id.dcl02c1days)
-    EditText dcl02c1days;
     @BindView(R.id.dcl02c1fr)
     EditText dcl02c1fr;
     @BindView(R.id.dcl02cc)
     CheckBox dcl02cc;
     @BindView(R.id.fldGrpc2)
     LinearLayout fldGrpc2;
-    @BindView(R.id.dcl02c2days)
-    EditText dcl02c2days;
     @BindView(R.id.dcl02c2fr)
     EditText dcl02c2fr;
     @BindView(R.id.dcl02dm)
     CheckBox dcl02dm;
     @BindView(R.id.fldGrpd1)
     LinearLayout fldGrpd1;
-    @BindView(R.id.dcl02d1days)
-    EditText dcl02d1days;
     @BindView(R.id.dcl02d1fr)
     EditText dcl02d1fr;
     @BindView(R.id.dcl02dc)
     CheckBox dcl02dc;
     @BindView(R.id.fldGrpd2)
     LinearLayout fldGrpd2;
-    @BindView(R.id.dcl02d2days)
-    EditText dcl02d2days;
     @BindView(R.id.dcl02d2fr)
     EditText dcl02d2fr;
     @BindView(R.id.dcl02em)
     CheckBox dcl02em;
     @BindView(R.id.fldGrpe1)
     LinearLayout fldGrpe1;
-    @BindView(R.id.dcl02e1days)
-    EditText dcl02e1days;
     @BindView(R.id.dcl02e1fr)
     EditText dcl02e1fr;
     @BindView(R.id.dcl02ec)
     CheckBox dcl02ec;
     @BindView(R.id.fldGrpe2)
     LinearLayout fldGrpe2;
-    @BindView(R.id.dcl02e2days)
-    EditText dcl02e2days;
     @BindView(R.id.dcl02e2fr)
     EditText dcl02e2fr;
     @BindView(R.id.dcl02fm)
     CheckBox dcl02fm;
     @BindView(R.id.fldGrpf1)
     LinearLayout fldGrpf1;
-    @BindView(R.id.dcl02f1days)
-    EditText dcl02f1days;
     @BindView(R.id.dcl02f1fr)
     EditText dcl02f1fr;
     @BindView(R.id.dcl02fc)
     CheckBox dcl02fc;
     @BindView(R.id.fldGrpf2)
     LinearLayout fldGrpf2;
-    @BindView(R.id.dcl02f2days)
-    EditText dcl02f2days;
     @BindView(R.id.dcl02f2fr)
     EditText dcl02f2fr;
     @BindView(R.id.dcl02gm)
     CheckBox dcl02gm;
     @BindView(R.id.fldGrpg1)
     LinearLayout fldGrpg1;
-    @BindView(R.id.dcl02g1days)
-    EditText dcl02g1days;
     @BindView(R.id.dcl02g1fr)
     EditText dcl02g1fr;
     @BindView(R.id.dcl02gc)
     CheckBox dcl02gc;
     @BindView(R.id.fldGrpg2)
     LinearLayout fldGrpg2;
-    @BindView(R.id.dcl02g2days)
-    EditText dcl02g2days;
     @BindView(R.id.dcl02g2fr)
     EditText dcl02g2fr;
     @BindView(R.id.dcl02hm)
     CheckBox dcl02hm;
     @BindView(R.id.fldGrh1)
     LinearLayout fldGrh1;
-    @BindView(R.id.dcl02h1days)
-    EditText dcl02h1days;
     @BindView(R.id.dcl02h1fr)
     EditText dcl02h1fr;
     @BindView(R.id.dcl02hc)
     CheckBox dcl02hc;
     @BindView(R.id.fldGrph2)
     LinearLayout fldGrph2;
-    @BindView(R.id.dcl02h2days)
-    EditText dcl02h2days;
     @BindView(R.id.dcl02h2fr)
     EditText dcl02h2fr;
     @BindView(R.id.dcl02im)
     CheckBox dcl02im;
     @BindView(R.id.fldGrpi1)
     LinearLayout fldGrpi1;
-    @BindView(R.id.dcl02i1days)
-    EditText dcl02i1days;
     @BindView(R.id.dcl02i1fr)
     EditText dcl02i1fr;
     @BindView(R.id.dcl02ic)
     CheckBox dcl02ic;
     @BindView(R.id.fldGrpi2)
     LinearLayout fldGrpi2;
-    @BindView(R.id.dcl02i2days)
-    EditText dcl02i2days;
     @BindView(R.id.dcl02i2fr)
     EditText dcl02i2fr;
     @BindView(R.id.dcl03a)
@@ -229,6 +193,7 @@ public class SectionLActivity extends Activity  {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -246,7 +211,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpa1.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpa1.setVisibility(View.GONE);
-                    dcl02a1days.setText(null);
+                    //dcl02a1days.setText(null);
                     dcl02a1fr.setText(null);
                 }
             }
@@ -261,7 +226,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpa2.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpa2.setVisibility(View.GONE);
-                    dcl02a2days.setText(null);
+                    //dcl02a2days.setText(null);
                     dcl02a2fr.setText(null);
                 }
             }
@@ -277,7 +242,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpb1.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpb1.setVisibility(View.GONE);
-                    dcl02b1days.setText(null);
+                    //dcl02b1days.setText(null);
                     dcl02b1fr.setText(null);
                 }
             }
@@ -292,7 +257,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpb2.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpb2.setVisibility(View.GONE);
-                    dcl02b2days.setText(null);
+                    //dcl02b2days.setText(null);
                     dcl02b2fr.setText(null);
                 }
             }
@@ -308,7 +273,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpc1.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpc1.setVisibility(View.GONE);
-                    dcl02c1days.setText(null);
+                    //dcl02c1days.setText(null);
                     dcl02c1fr.setText(null);
                 }
             }
@@ -323,7 +288,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpc2.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpc2.setVisibility(View.GONE);
-                    dcl02c2days.setText(null);
+                    //dcl02c2days.setText(null);
                     dcl02c2fr.setText(null);
                 }
             }
@@ -339,7 +304,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpd1.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpd1.setVisibility(View.GONE);
-                    dcl02d1days.setText(null);
+                    //dcl02d1days.setText(null);
                     dcl02d1fr.setText(null);
                 }
             }
@@ -354,7 +319,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpd2.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpd2.setVisibility(View.GONE);
-                    dcl02d2days.setText(null);
+                    //dcl02d2days.setText(null);
                     dcl02d2fr.setText(null);
                 }
             }
@@ -370,7 +335,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpe1.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpe1.setVisibility(View.GONE);
-                    dcl02e1days.setText(null);
+                    //dcl02e1days.setText(null);
                     dcl02e1fr.setText(null);
                 }
             }
@@ -385,7 +350,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpe2.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpe2.setVisibility(View.GONE);
-                    dcl02e2days.setText(null);
+                    //dcl02e2days.setText(null);
                     dcl02e2fr.setText(null);
                 }
             }
@@ -401,7 +366,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpf1.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpf1.setVisibility(View.GONE);
-                    dcl02f1days.setText(null);
+                    //dcl02f1days.setText(null);
                     dcl02f1fr.setText(null);
                 }
             }
@@ -416,7 +381,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpf2.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpf2.setVisibility(View.GONE);
-                    dcl02f2days.setText(null);
+                    //dcl02f2days.setText(null);
                     dcl02f2fr.setText(null);
                 }
             }
@@ -432,7 +397,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpg1.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpg1.setVisibility(View.GONE);
-                    dcl02g1days.setText(null);
+                    //dcl02g1days.setText(null);
                     dcl02g1fr.setText(null);
                 }
             }
@@ -447,7 +412,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpg2.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpg2.setVisibility(View.GONE);
-                    dcl02g2days.setText(null);
+                    //dcl02g2days.setText(null);
                     dcl02g2fr.setText(null);
                 }
             }
@@ -463,7 +428,7 @@ public class SectionLActivity extends Activity  {
                     fldGrh1.setVisibility(View.VISIBLE);
                 } else {
                     fldGrh1.setVisibility(View.GONE);
-                    dcl02h1days.setText(null);
+                    //dcl02h1days.setText(null);
                     dcl02h1fr.setText(null);
                 }
             }
@@ -478,7 +443,7 @@ public class SectionLActivity extends Activity  {
                     fldGrph2.setVisibility(View.VISIBLE);
                 } else {
                     fldGrph2.setVisibility(View.GONE);
-                    dcl02h2days.setText(null);
+                    //dcl02h2days.setText(null);
                     dcl02h2fr.setText(null);
                 }
             }
@@ -494,7 +459,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpi1.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpi1.setVisibility(View.GONE);
-                    dcl02i1days.setText(null);
+                    //dcl02i1days.setText(null);
                     dcl02i1fr.setText(null);
                 }
             }
@@ -509,7 +474,7 @@ public class SectionLActivity extends Activity  {
                     fldGrpi2.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpi2.setVisibility(View.GONE);
-                    dcl02i2days.setText(null);
+                    //dcl02i2days.setText(null);
                     dcl02i2fr.setText(null);
                 }
             }
@@ -601,58 +566,58 @@ public class SectionLActivity extends Activity  {
         sL.put("dcl01im", dcl01im.isChecked() ? "1" : "0");
         sL.put("dcl01ic", dcl01ic.isChecked() ? "1" : "0");
         sL.put("dcl02am", dcl02am.isChecked() ? "1" : "0");
-        sL.put("dcl02a1days", dcl02a1days.getText().toString());
+        //sL.put("dcl02a1days", dcl02a1days.getText().toString());
         sL.put("dcl02a1fr", dcl02a1fr.getText().toString());
         sL.put("dcl02ac", dcl02ac.isChecked() ? "1" : "0");
-        sL.put("dcl02a2days", dcl02a2days.getText().toString());
+        //sL.put("dcl02a2days", dcl02a2days.getText().toString());
         sL.put("dcl02a2fr", dcl02a2fr.getText().toString());
         sL.put("dcl02bm", dcl02bm.isChecked() ? "1" : "0");
-        sL.put("dcl02b1days", dcl02b1days.getText().toString());
+        //sL.put("dcl02b1days", dcl02b1days.getText().toString());
         sL.put("dcl02b1fr", dcl02b1fr.getText().toString());
         sL.put("dcl02bc", dcl02bc.isChecked() ? "1" : "0");
-        sL.put("dcl02b2days", dcl02b2days.getText().toString());
+        //sL.put("dcl02b2days", dcl02b2days.getText().toString());
         sL.put("dcl02b2fr", dcl02b2fr.getText().toString());
         sL.put("dcl02cm", dcl02cm.isChecked() ? "1" : "0");
-        sL.put("dcl02c1days", dcl02c1days.getText().toString());
+        //sL.put("dcl02c1days", dcl02c1days.getText().toString());
         sL.put("dcl02c1fr", dcl02c1fr.getText().toString());
         sL.put("dcl02cc", dcl02cc.isChecked() ? "1" : "0");
-        sL.put("dcl02c2days", dcl02c2days.getText().toString());
+        //sL.put("dcl02c2days", dcl02c2days.getText().toString());
         sL.put("dcl02c2fr", dcl02c2fr.getText().toString());
         sL.put("dcl02dm", dcl02dm.isChecked() ? "1" : "0");
-        sL.put("dcl02d1days", dcl02d1days.getText().toString());
+        //sL.put("dcl02d1days", dcl02d1days.getText().toString());
         sL.put("dcl02d1fr", dcl02d1fr.getText().toString());
         sL.put("dcl02dc", dcl02dc.isChecked() ? "1" : "0");
-        sL.put("dcl02d2days", dcl02d2days.getText().toString());
+        //sL.put("dcl02d2days", dcl02d2days.getText().toString());
         sL.put("dcl02d2fr", dcl02d2fr.getText().toString());
         sL.put("dcl02em", dcl02em.isChecked() ? "1" : "0");
-        sL.put("dcl02e1days", dcl02e1days.getText().toString());
+        //sL.put("dcl02e1days", dcl02e1days.getText().toString());
         sL.put("dcl02e1fr", dcl02e1fr.getText().toString());
         sL.put("dcl02ec", dcl02ec.isChecked() ? "1" : "0");
-        sL.put("dcl02e2days", dcl02e2days.getText().toString());
+        //sL.put("dcl02e2days", dcl02e2days.getText().toString());
         sL.put("dcl02e2fr", dcl02e2fr.getText().toString());
         sL.put("dcl02fm", dcl02fm.isChecked() ? "1" : "0");
-        sL.put("dcl02f1days", dcl02f1days.getText().toString());
+        //sL.put("dcl02f1days", dcl02f1days.getText().toString());
         sL.put("dcl02f1fr", dcl02f1fr.getText().toString());
         sL.put("dcl02fc", dcl02fc.isChecked() ? "1" : "0");
-        sL.put("dcl02f2days", dcl02f2days.getText().toString());
+        //sL.put("dcl02f2days", dcl02f2days.getText().toString());
         sL.put("dcl02f2fr", dcl02f2fr.getText().toString());
         sL.put("dcl02gm", dcl02gm.isChecked() ? "1" : "0");
-        sL.put("dcl02g1days", dcl02g1days.getText().toString());
+        //sL.put("dcl02g1days", dcl02g1days.getText().toString());
         sL.put("dcl02g1fr", dcl02g1fr.getText().toString());
         sL.put("dcl02gc", dcl02gc.isChecked() ? "1" : "0");
-        sL.put("dcl02g2days", dcl02g2days.getText().toString());
+        //sL.put("dcl02g2days", dcl02g2days.getText().toString());
         sL.put("dcl02g2fr", dcl02g2fr.getText().toString());
         sL.put("dcl02hm", dcl02hm.isChecked() ? "1" : "0");
-        sL.put("dcl02h1days", dcl02h1days.getText().toString());
+        //sL.put("dcl02h1days", dcl02h1days.getText().toString());
         sL.put("dcl02h1fr", dcl02h1fr.getText().toString());
         sL.put("dcl02hc", dcl02hc.isChecked() ? "1" : "0");
-        sL.put("dcl02h2days", dcl02h2days.getText().toString());
+        //sL.put("dcl02h2days", dcl02h2days.getText().toString());
         sL.put("dcl02h2fr", dcl02h2fr.getText().toString());
         sL.put("dcl02im", dcl02im.isChecked() ? "1" : "0");
-        sL.put("dcl02i1days", dcl02i1days.getText().toString());
+        //sL.put("dcl02i1days", dcl02i1days.getText().toString());
         sL.put("dcl02i1fr", dcl02i1fr.getText().toString());
         sL.put("dcl02ic", dcl02ic.isChecked() ? "1" : "0");
-        sL.put("dcl02i2days", dcl02i2days.getText().toString());
+        //sL.put("dcl02i2days", dcl02i2days.getText().toString());
         sL.put("dcl02i2fr", dcl02i2fr.getText().toString());
         sL.put("dcl03a", dcl03a.getText().toString());
         sL.put("dcl03b", dcl03b.getText().toString());
@@ -677,7 +642,7 @@ public class SectionLActivity extends Activity  {
 
         // ================= Q1A / MotherTB =============
         if (dcl02am.isChecked()) {
-            if (dcl02a1days.getText().toString().isEmpty()) {
+            /*if (dcl02a1days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02a1days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -686,7 +651,7 @@ public class SectionLActivity extends Activity  {
             } else {
                 dcl02a1days.setError(null);
             }
-
+*/
             if (dcl02a1fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
                 dcl02a1fr.setError("This data is Required!");    // Set Error on last radio button
@@ -701,7 +666,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1A / Child ================
 
         if (dcl02ac.isChecked()) {
-            if (dcl02a2days.getText().toString().isEmpty()) {
+            /*if (dcl02a2days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02a2days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -710,7 +675,7 @@ public class SectionLActivity extends Activity  {
             } else {
                 dcl02a2days.setError(null);
             }
-
+*/
             if (dcl02a2fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
                 dcl02a2fr.setError("This data is Required!");    // Set Error on last radio button
@@ -726,7 +691,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1B / MotherTB ================
 
         if (dcl02bm.isChecked()) {
-            if (dcl02b1days.getText().toString().isEmpty()) {
+            /*if (dcl02b1days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02b1days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -734,7 +699,7 @@ public class SectionLActivity extends Activity  {
                 return false;
             } else {
                 dcl02b1days.setError(null);
-            }
+            }*/
 
             if (dcl02b1fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -751,7 +716,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1B / Child ================
 
         if (dcl02bc.isChecked()) {
-            if (dcl02b2days.getText().toString().isEmpty()) {
+            /*if (dcl02b2days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02b2days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -759,7 +724,7 @@ public class SectionLActivity extends Activity  {
                 return false;
             } else {
                 dcl02b2days.setError(null);
-            }
+            }*/
 
             if (dcl02b2fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -776,7 +741,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1C / MotherTB ================
 
         if (dcl02cm.isChecked()) {
-            if (dcl02c1days.getText().toString().isEmpty()) {
+            /*if (dcl02c1days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02c1days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -784,7 +749,7 @@ public class SectionLActivity extends Activity  {
                 return false;
             } else {
                 dcl02c1days.setError(null);
-            }
+            }*/
 
             if (dcl02c1fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -801,7 +766,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1C / Child ================
 
         if (dcl02cc.isChecked()) {
-            if (dcl02c2days.getText().toString().isEmpty()) {
+            /*if (dcl02c2days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02c2days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -809,7 +774,7 @@ public class SectionLActivity extends Activity  {
                 return false;
             } else {
                 dcl02c2days.setError(null);
-            }
+            }*/
 
             if (dcl02c2fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -826,7 +791,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1D / MotherTB ================
 
         if (dcl02dm.isChecked()) {
-            if (dcl02d1days.getText().toString().isEmpty()) {
+            /*if (dcl02d1days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02d1days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -834,7 +799,7 @@ public class SectionLActivity extends Activity  {
                 return false;
             } else {
                 dcl02d1days.setError(null);
-            }
+            }*/
 
             if (dcl02d1fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -851,7 +816,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1C / Child ================
 
         if (dcl02dc.isChecked()) {
-            if (dcl02d2days.getText().toString().isEmpty()) {
+            /*if (dcl02d2days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02d2days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -859,7 +824,7 @@ public class SectionLActivity extends Activity  {
                 return false;
             } else {
                 dcl02d2days.setError(null);
-            }
+            }*/
 
             if (dcl02d2fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -876,7 +841,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1E / MotherTB ================
 
         if (dcl02em.isChecked()) {
-            if (dcl02e1days.getText().toString().isEmpty()) {
+           /* if (dcl02e1days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02e1days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -884,7 +849,7 @@ public class SectionLActivity extends Activity  {
                 return false;
             } else {
                 dcl02e1days.setError(null);
-            }
+            }*/
 
             if (dcl02e1fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -901,7 +866,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1E / Child ================
 
         if (dcl02ec.isChecked()) {
-            if (dcl02e2days.getText().toString().isEmpty()) {
+            /*if (dcl02e2days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02e2days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -909,7 +874,7 @@ public class SectionLActivity extends Activity  {
                 return false;
             } else {
                 dcl02e2days.setError(null);
-            }
+            }*/
 
             if (dcl02e2fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -926,7 +891,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1C / MotherTB ================
 
         if (dcl02fm.isChecked()) {
-            if (dcl02f1days.getText().toString().isEmpty()) {
+           /* if (dcl02f1days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02f1days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -935,7 +900,7 @@ public class SectionLActivity extends Activity  {
             } else {
                 dcl02f1days.setError(null);
             }
-
+*/
             if (dcl02f1fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
                 dcl02f1fr.setError("This data is Required!");    // Set Error on last radio button
@@ -951,7 +916,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1C / Child ================
 
         if (dcl02fc.isChecked()) {
-            if (dcl02f2days.getText().toString().isEmpty()) {
+            /*if (dcl02f2days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02f2days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -959,7 +924,7 @@ public class SectionLActivity extends Activity  {
                 return false;
             } else {
                 dcl02f2days.setError(null);
-            }
+            }*/
 
             if (dcl02f2fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -976,7 +941,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1G / MotherTB ================
 
         if (dcl02gm.isChecked()) {
-            if (dcl02g1days.getText().toString().isEmpty()) {
+            /*if (dcl02g1days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02g1days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -985,7 +950,7 @@ public class SectionLActivity extends Activity  {
             } else {
                 dcl02g1days.setError(null);
             }
-
+*/
             if (dcl02g1fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
                 dcl02g1fr.setError("This data is Required!");    // Set Error on last radio button
@@ -1001,7 +966,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1G / Child ================
 
         if (dcl02gc.isChecked()) {
-            if (dcl02g2days.getText().toString().isEmpty()) {
+            /*if (dcl02g2days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02g2days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -1009,7 +974,7 @@ public class SectionLActivity extends Activity  {
                 return false;
             } else {
                 dcl02g2days.setError(null);
-            }
+            }*/
 
             if (dcl02g2fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -1026,7 +991,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1H / MotherTB ================
 
         if (dcl02hm.isChecked()) {
-            if (dcl02h1days.getText().toString().isEmpty()) {
+            /*if (dcl02h1days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02h1days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -1034,7 +999,7 @@ public class SectionLActivity extends Activity  {
                 return false;
             } else {
                 dcl02h1days.setError(null);
-            }
+            }*/
 
             if (dcl02h1fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -1051,7 +1016,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1H / Child ================
 
         if (dcl02hc.isChecked()) {
-            if (dcl02h2days.getText().toString().isEmpty()) {
+            /*if (dcl02h2days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02h2days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -1059,7 +1024,7 @@ public class SectionLActivity extends Activity  {
                 return false;
             } else {
                 dcl02h2days.setError(null);
-            }
+            }*/
 
             if (dcl02h2fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -1076,7 +1041,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1I / MotherTB ================
 
         if (dcl02im.isChecked()) {
-            if (dcl02i1days.getText().toString().isEmpty()) {
+            /*if (dcl02i1days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02i1days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -1084,7 +1049,7 @@ public class SectionLActivity extends Activity  {
                 return false;
             } else {
                 dcl02i1days.setError(null);
-            }
+            }*/
 
             if (dcl02i1fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -1101,7 +1066,7 @@ public class SectionLActivity extends Activity  {
         // ================ Q1I / Child ================
 
         if (dcl02ic.isChecked()) {
-            if (dcl02i2days.getText().toString().isEmpty()) {
+            /*if (dcl02i2days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
                 dcl02i2days.setError("This data is Required!");    // Set Error on last radio button
 
@@ -1110,7 +1075,7 @@ public class SectionLActivity extends Activity  {
             } else {
                 dcl02i2days.setError(null);
             }
-
+*/
             if (dcl02i2fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
                 dcl02i2fr.setError("This data is Required!");    // Set Error on last radio button
