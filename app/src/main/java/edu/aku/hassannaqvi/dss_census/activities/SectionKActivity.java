@@ -177,7 +177,7 @@ public class SectionKActivity extends Activity  {
         appHeader.setText("DSS - > Section K: Vaccination");
 
         dckd.setMaxDate(new Date().getTime());
-        dckd.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_5YEAR) + MainApp.MILLISECONDS_IN_DAY)));
+        //dckd.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_5YEAR) + MainApp.MILLISECONDS_IN_DAY)));
         /*dckdate0.setMaxDate(new Date().getTime());
         dckdate0.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
         dckdate1.setMaxDate(new Date().getTime());
