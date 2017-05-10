@@ -826,7 +826,7 @@ public class SectionFActivity extends Activity {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
 
             MainApp.mc.setUID(
-                    (MainApp.mc.getDeviceID() + MainApp.mc.get_ID()));
+                    (MainApp.fc.getDeviceID() + MainApp.mc.get_ID()));
             db.updateMotherID();
             return true;
         } else {
