@@ -251,17 +251,19 @@ public class SectionKActivity extends Activity  {
 
     private boolean UpdateDB() {
 
-        DatabaseHelper db = new DatabaseHelper(this);
+//        DatabaseHelper db = new DatabaseHelper(this);
+//
+//        int updcount = db.updateSK();
+//
+//        if (updcount == 1) {
+//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+//            return true;
+//        } else {
+//            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
 
-        int updcount = db.updateSK();
-
-        if (updcount == 1) {
-            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-            return true;
-        } else {
-            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-            return false;
-        }
+        return true;
 
     }
 
@@ -314,7 +316,7 @@ public class SectionKActivity extends Activity  {
         //sk.put("dckdate5", new SimpleDateFormat("dd-MM-yyyy").format(dckdate5.getCalendarView().getDate()));
 
 
-        MainApp.mc.setsK(String.valueOf(sK));
+//        MainApp.mc.setsK(String.valueOf(sK));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
