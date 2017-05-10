@@ -538,7 +538,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(MotherTB.COLUMN_PROJECT_NAME, mc.getProjectName());
         values.put(MotherTB.COLUMN_UID, mc.getUID());
-        values.put(MotherTB.COLUMN_ID, mc.get_ID());
         values.put(MotherTB.COLUMN_UUID, mc.get_UUID());
         values.put(MotherTB.COLUMN_FORMDATE, mc.getFormDate());
         values.put(MotherTB.COLUMN_USER, mc.getUser());
@@ -567,8 +566,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
         newRowId = db.insert(
-                FormsContract.singleForm.TABLE_NAME,
-                FormsContract.singleForm.COLUMN_NAME_NULLABLE,
+                MotherTB.TABLE_NAME,
+                MotherTB.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
@@ -1344,8 +1343,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(MotherTB.COLUMN_SG, MainApp.mc.getsG());
-        values.put(MotherTB.COLUMN_UID, MainApp.mc.getUID());
-
 
 // Which row to update, based on the ID
         String selection = MotherTB.COLUMN_ID + " = ?";
@@ -1364,8 +1361,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(MotherTB.COLUMN_SH, MainApp.mc.getsH());
-        values.put(MotherTB.COLUMN_UID, MainApp.mc.getUID());
-
 
 // Which row to update, based on the ID
         String selection = MotherTB.COLUMN_ID + " = ?";
@@ -1384,8 +1379,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(MotherTB.COLUMN_SI, MainApp.mc.getsI());
-        values.put(MotherTB.COLUMN_UID, MainApp.mc.getUID());
-
 
 // Which row to update, based on the ID
         String selection = MotherTB.COLUMN_ID + " = ?";
@@ -1404,8 +1397,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(MotherTB.COLUMN_SJ, MainApp.mc.getsJ());
-        values.put(MotherTB.COLUMN_UID, MainApp.mc.getUID());
-
 
 // Which row to update, based on the ID
         String selection = MotherTB.COLUMN_ID + " = ?";
@@ -1444,8 +1435,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(MotherTB.COLUMN_SL, MainApp.mc.getsL());
-        values.put(MotherTB.COLUMN_UID, MainApp.mc.getUID());
-
 
 // Which row to update, based on the ID
         String selection = MotherTB.COLUMN_ID + " = ?";
@@ -1464,8 +1453,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(MotherTB.COLUMN_SM, MainApp.mc.getsM());
-        values.put(MotherTB.COLUMN_UID, MainApp.mc.getUID());
-
 
 // Which row to update, based on the ID
         String selection = MotherTB.COLUMN_ID + " = ?";
