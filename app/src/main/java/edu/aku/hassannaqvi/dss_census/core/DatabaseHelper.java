@@ -213,6 +213,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             MotherTB.COLUMN_SH + " TEXT," +
             MotherTB.COLUMN_SI + " TEXT," +
             MotherTB.COLUMN_SJ + " TEXT," +
+//            MotherTB.COLUMN_SK + " TEXT," +
             MotherTB.COLUMN_SL + " TEXT," +
             MotherTB.COLUMN_SM + " TEXT," +
             MotherTB.COLUMN_GPSLAT + " TEXT," +
@@ -571,6 +572,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(MotherTB.COLUMN_SH, mc.getsH());
         values.put(MotherTB.COLUMN_SI, mc.getsI());
         values.put(MotherTB.COLUMN_SJ, mc.getsJ());
+//        values.put(MotherTB.COLUMN_SK, mc.getsK());
         values.put(MotherTB.COLUMN_SL, mc.getsL());
         values.put(MotherTB.COLUMN_SM, mc.getsM());
         values.put(MotherTB.COLUMN_GPSLAT, mc.getGpsLat());
@@ -1016,7 +1018,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                MotherTB._ID,
+                MotherTB.COLUMN_ID,
                 MotherTB.COLUMN_UID,
                 MotherTB.COLUMN_UID,
                 MotherTB.COLUMN_FORMDATE,
@@ -1026,6 +1028,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 MotherTB.COLUMN_SH,
                 MotherTB.COLUMN_SI,
                 MotherTB.COLUMN_SJ,
+//                MotherTB.COLUMN_SK,
                 MotherTB.COLUMN_SL,
                 MotherTB.COLUMN_SM,
                 MotherTB.COLUMN_GPSLAT,
@@ -1480,7 +1483,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 // Which row to update, based on the ID
-        String selection = MotherTB._ID + " = ?";
+        String selection = MotherTB.COLUMN_ID + " = ?";
         String[] selectionArgs = {String.valueOf(MainApp.mc.get_ID())};
 
         int count = db.update(MotherTB.TABLE_NAME,
@@ -1495,15 +1498,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(MotherTB.COLUMN_SG, MainApp.fc.getsG());
-        values.put(MotherTB.COLUMN_UID, MainApp.fc.getUID());
+        values.put(MotherTB.COLUMN_SG, MainApp.mc.getsG());
+        values.put(MotherTB.COLUMN_UID, MainApp.mc.getUID());
 
 
 // Which row to update, based on the ID
-        String selection = MotherTB._ID + " = ?";
-        String[] selectionArgs = {String.valueOf(MainApp.fc.get_ID())};
+        String selection = MotherTB.COLUMN_ID + " = ?";
+        String[] selectionArgs = {String.valueOf(MainApp.mc.get_ID())};
 
-        int count = db.update(singleForm.TABLE_NAME,
+        int count = db.update(MotherTB.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -1520,7 +1523,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 // Which row to update, based on the ID
-        String selection = MotherTB._ID + " = ?";
+        String selection = MotherTB.COLUMN_ID + " = ?";
         String[] selectionArgs = {String.valueOf(MainApp.mc.get_ID())};
 
         int count = db.update(MotherTB.TABLE_NAME,
@@ -1540,7 +1543,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 // Which row to update, based on the ID
-        String selection = MotherTB._ID + " = ?";
+        String selection = MotherTB.COLUMN_ID + " = ?";
         String[] selectionArgs = {String.valueOf(MainApp.mc.get_ID())};
 
         int count = db.update(MotherTB.TABLE_NAME,
@@ -1560,7 +1563,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 // Which row to update, based on the ID
-        String selection = MotherTB._ID + " = ?";
+        String selection = MotherTB.COLUMN_ID + " = ?";
         String[] selectionArgs = {String.valueOf(MainApp.mc.get_ID())};
 
         int count = db.update(MotherTB.TABLE_NAME,
@@ -1600,7 +1603,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 // Which row to update, based on the ID
-        String selection = MotherTB._ID + " = ?";
+        String selection = MotherTB.COLUMN_ID + " = ?";
         String[] selectionArgs = {String.valueOf(MainApp.mc.get_ID())};
 
         int count = db.update(MotherTB.TABLE_NAME,
@@ -1620,7 +1623,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 // Which row to update, based on the ID
-        String selection = MotherTB._ID + " = ?";
+        String selection = MotherTB.COLUMN_ID + " = ?";
         String[] selectionArgs = {String.valueOf(MainApp.mc.get_ID())};
 
         int count = db.update(MotherTB.TABLE_NAME,
