@@ -348,7 +348,7 @@ public class SectionGActivity extends Activity {
         sG.put("dcg0512", dcg0512.isChecked() ? "12" : "0");
         sG.put("dcg0513", dcg0513.isChecked() ? "13" : "0");
 
-        MainApp.fc.setsG(String.valueOf(sG));
+        MainApp.mc.setsG(String.valueOf(sG));
 
         Toast.makeText(this, "Validation SuccessGul! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

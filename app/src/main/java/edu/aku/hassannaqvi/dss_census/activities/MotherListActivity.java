@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,6 +20,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
@@ -43,20 +45,32 @@ public class MotherListActivity extends Activity {
 
         Collection<MothersLst> mo = db.getMotherByHousehold(MainApp.fc.getDSSID());
 
-        ArrayList<MothersLst> lstMothers = new ArrayList<>();
+        MainApp.lstMothers = new ArrayList<>();
 
         for (MothersLst m : mo){
 
             Log.d("Mothers",String.valueOf(m));
 
-            lstMothers.add(new MothersLst(m));
+            MainApp.lstMothers.add(new MothersLst(m));
         }
 
 
-        listAdapter motherAdapter = new listAdapter(this,android.R.layout.simple_list_item_1,lstMothers);
+        listAdapter motherAdapter = new listAdapter(this,android.R.layout.simple_list_item_1,MainApp.lstMothers);
 
         motherList.setAdapter(motherAdapter);
 
+    }
+
+
+    @OnClick(R.id.btn_End) void onBtnEndClick() {
+        //TODO implement
+
+        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+        finish();
+        Intent endSec = new Intent(this, EndingActivity.class);
+        endSec.putExtra("check", false);
+        startActivity(endSec);
     }
 
     public class listAdapter extends ArrayAdapter {
@@ -90,22 +104,23 @@ public class MotherListActivity extends Activity {
                 @Override
                 public void onClick(View view) {
 
-//                    AppMain.currentParticipantName = (String) participantList.getItemAtPosition(position);
-//
-//                    participantList.getChildAt(position).setEnabled(false);
-//                    participantList.getChildAt(position).setBackgroundColor(getResources().getColor(R.color.gray));
-//
-////                Toast.makeText(getApplicationContext(),AppMain.currentParticipantName,Toast.LENGTH_LONG).show();
-////                Toast.makeText(getApplicationContext(),""+position,Toast.LENGTH_LONG).show();
-//
-//                    Intent cb = new Intent(getApplicationContext(), SectionCBActivity.class);
-//                    cb.putExtra("l_uid",AppMain.Eparticipant.get(position).getL_uid());
-//                    startActivity(cb);
+                    finish();
+
+                    motherList.getChildAt(position).setEnabled(false);
+                    motherList.getChildAt(position).setBackgroundColor(getResources().getColor(R.color.gray));
+
+//                Toast.makeText(getApplicationContext(),AppMain.currentParticipantName,Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),""+position,Toast.LENGTH_LONG).show();
+
+                    Intent cb = new Intent(getApplicationContext(), SectionFActivity.class);
+                    cb.putExtra("position",position);
+                    startActivity(cb);
                 }
             });
 
             return v;
         }
     }
+
 
 }

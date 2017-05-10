@@ -626,8 +626,8 @@ public class SectionAActivity extends Activity {
                 finish();
 
                 MainApp.NoMembersCount = Integer.parseInt(dca0701.getText().toString());
-                startActivity(new Intent(this, MotherListActivity.class));
-//                startActivity(new Intent(this, FamilyMembersActivity.class));
+
+                startActivity(new Intent(this, FamilyMembersActivity.class));
             } else {
 
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

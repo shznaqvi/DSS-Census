@@ -380,7 +380,7 @@ public class SectionHActivity extends Activity {
         //sh.put("dch13", dch1301.isChecked() ? "1" : dch1302.isChecked() ? "2" : "0");
 
 
-        MainApp.fc.setsH(String.valueOf(sH));
+        MainApp.mc.setsH(String.valueOf(sH));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 

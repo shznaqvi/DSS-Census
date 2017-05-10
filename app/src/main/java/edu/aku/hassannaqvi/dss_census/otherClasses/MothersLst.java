@@ -7,7 +7,7 @@ import android.database.Cursor;
  */
 
 public class MothersLst {
-   String child_name, child_id, mother_name, mother_id, date_of_birth, no_of_children;
+   String child_name, child_id, mother_name, mother_id, date_of_birth;
 
     public String getChild_name() {
         return child_name;
@@ -27,10 +27,6 @@ public class MothersLst {
 
     public String getDate_of_birth() {
         return date_of_birth;
-    }
-
-    public String getNo_of_children() {
-        return no_of_children;
     }
 
     public MothersLst Hydrate(Cursor cursor) {

@@ -585,7 +585,7 @@ public class SectionLActivity extends Activity  {
         sL.put("dcl05", dcl0588.isChecked() ? "88" : dcl0501.isChecked() ? "1" : dcl0502.isChecked() ? "2"
                 : dcl0503.isChecked() ? "3" : "0");
 
-        MainApp.fc.setsL(String.valueOf(sL));
+        MainApp.mc.setsL(String.valueOf(sL));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
@@ -594,7 +594,7 @@ public class SectionLActivity extends Activity  {
     public boolean formValidation() {
         Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
 
-        // ================= Q1A / Mother =============
+        // ================= Q1A / MotherTB =============
         if (dcl01am.isChecked()) {
             if (dcl01a1days.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
@@ -642,7 +642,7 @@ public class SectionLActivity extends Activity  {
 
         }
 
-        // ================ Q1B / Mother ================
+        // ================ Q1B / MotherTB ================
 
         if (dcl01bm.isChecked()) {
             if (dcl01b1days.getText().toString().isEmpty()) {
@@ -692,7 +692,7 @@ public class SectionLActivity extends Activity  {
 
         }
 
-        // ================ Q1C / Mother ================
+        // ================ Q1C / MotherTB ================
 
         if (dcl01cm.isChecked()) {
             if (dcl01c1days.getText().toString().isEmpty()) {
@@ -742,7 +742,7 @@ public class SectionLActivity extends Activity  {
 
         }
 
-        // ================ Q1D / Mother ================
+        // ================ Q1D / MotherTB ================
 
         if (dcl01dm.isChecked()) {
             if (dcl01d1days.getText().toString().isEmpty()) {
@@ -792,7 +792,7 @@ public class SectionLActivity extends Activity  {
 
         }
 
-        // ================ Q1E / Mother ================
+        // ================ Q1E / MotherTB ================
 
         if (dcl01em.isChecked()) {
             if (dcl01e1days.getText().toString().isEmpty()) {
@@ -842,7 +842,7 @@ public class SectionLActivity extends Activity  {
 
         }
 
-        // ================ Q1C / Mother ================
+        // ================ Q1C / MotherTB ================
 
         if (dcl01fm.isChecked()) {
             if (dcl01f1days.getText().toString().isEmpty()) {
@@ -892,7 +892,7 @@ public class SectionLActivity extends Activity  {
 
         }
 
-        // ================ Q1G / Mother ================
+        // ================ Q1G / MotherTB ================
 
         if (dcl01gm.isChecked()) {
             if (dcl01g1days.getText().toString().isEmpty()) {
@@ -942,7 +942,7 @@ public class SectionLActivity extends Activity  {
 
         }
 
-        // ================ Q1H / Mother ================
+        // ================ Q1H / MotherTB ================
 
         if (dcl01hm.isChecked()) {
             if (dcl01h1days.getText().toString().isEmpty()) {
@@ -992,7 +992,7 @@ public class SectionLActivity extends Activity  {
 
         }
 
-        // ================ Q1I / Mother ================
+        // ================ Q1I / MotherTB ================
 
         if (dcl01im.isChecked()) {
             if (dcl01i1days.getText().toString().isEmpty()) {

@@ -381,8 +381,9 @@ public class SectionEActivity extends Activity {
 
                 finish();
 
-                Intent secNext = new Intent(this, SectionFActivity.class);
-                startActivity(secNext);
+                startActivity(new Intent(this, MotherListActivity.class));
+//                Intent secNext = new Intent(this, SectionFActivity.class);
+//                startActivity(secNext);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }

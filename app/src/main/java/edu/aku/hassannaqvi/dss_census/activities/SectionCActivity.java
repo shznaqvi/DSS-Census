@@ -382,7 +382,7 @@ public class SectionCActivity extends Activity {
             dccbfid.setError(null);
         }
 
-        // ============== Mother ID ===================
+        // ============== MotherTB ID ===================
 
         if (dccbmid.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbbmid), Toast.LENGTH_SHORT).show();

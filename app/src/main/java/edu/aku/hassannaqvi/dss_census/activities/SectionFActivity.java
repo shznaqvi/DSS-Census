@@ -1,10 +1,13 @@
 package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -28,6 +31,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.R;
+import edu.aku.hassannaqvi.dss_census.contracts.MotherContract;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
@@ -143,7 +147,9 @@ public class SectionFActivity extends Activity {
         setContentView(R.layout.activity_section_f);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section F: Reproductive History of Selected Mother");
+        appHeader.setText("DSS - > Section F: Reproductive History of Selected MotherTB");
+
+        MainApp.position = getIntent().getExtras().getInt("position");
 
         dcfAgeDob.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -675,6 +681,19 @@ public class SectionFActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
+        SharedPreferences sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
+
+        MainApp.mc =new MotherContract();
+
+        MainApp.mc.set_UUID(MainApp.fc.getUID());
+        MainApp.mc.setFormDate(MainApp.fc.getFormDate());
+        MainApp.mc.setDeviceId(MainApp.fc.getDeviceID());
+        MainApp.mc.setUser(MainApp.fc.getUser());
+        MainApp.mc.setDevicetagID(sharedPref.getString("tagName",null));
+        MainApp.mc.setChildID(MainApp.lstMothers.get(MainApp.position).getChild_id());
+        MainApp.mc.setMotherID(MainApp.lstMothers.get(MainApp.position).getMother_id());
+        MainApp.mc.setDssID(MainApp.fc.getDSSID());
+
         JSONObject sF = new JSONObject();
 
         // Edit Text
@@ -752,9 +771,44 @@ public class SectionFActivity extends Activity {
         // Edit Text
         sF.put("dcf12", dcf12.getText().toString());
 
-        MainApp.fc.setsF(String.valueOf(sF));
+        MainApp.mc.setsF(String.valueOf(sF));
+
+        setGPS();
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void setGPS() {
+        SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
+
+//        String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
+
+        try {
+            String lat = GPSPref.getString("Latitude", "0");
+            String lang = GPSPref.getString("Longitude", "0");
+            String acc = GPSPref.getString("Accuracy", "0");
+            String dt = GPSPref.getString("Time", "0");
+
+            if (lat == "0" && lang == "0") {
+                Toast.makeText(this, "Could not obtained GPS points", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
+            }
+
+            String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
+
+            MainApp.mc.setGpsLat(GPSPref.getString("Latitude", "0"));
+            MainApp.mc.setGpsLng(GPSPref.getString("Longitude", "0"));
+            MainApp.mc.setGpsAcc(GPSPref.getString("Accuracy", "0"));
+//            AppMain.fc.setGpsTime(GPSPref.getString(date, "0")); // Timestamp is converted to date above
+            MainApp.mc.setGpsDT(date); // Timestamp is converted to date above
+
+            Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
+
+        } catch (Exception e) {
+            Log.e(TAG, "setGPS: " + e.getMessage());
+        }
 
     }
 
@@ -762,10 +816,16 @@ public class SectionFActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateSF();
+        Long updcount = db.addMother(MainApp.mc);
+        MainApp.mc.set_ID(String.valueOf(updcount));
 
-        if (updcount == 1) {
+        if (updcount != 0) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+
+            MainApp.mc.setUID(
+                    (MainApp.mc.getDeviceID() + MainApp.mc.get_ID()));
+                db.updateMotherID();
+
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();

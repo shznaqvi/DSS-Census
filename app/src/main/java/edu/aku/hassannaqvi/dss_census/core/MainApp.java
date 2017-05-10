@@ -18,7 +18,9 @@ import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
 import edu.aku.hassannaqvi.dss_census.contracts.DeceasedContract;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
+import edu.aku.hassannaqvi.dss_census.contracts.MotherContract;
 import edu.aku.hassannaqvi.dss_census.contracts.OCsContract;
+import edu.aku.hassannaqvi.dss_census.otherClasses.MothersLst;
 
 /**
  * Created by hassan.naqvi on 11/30/2016.
@@ -70,10 +72,14 @@ public class MainApp extends Application {
     public static List<MembersContract> familyMembersList;
     public static CensusContract cc;
     public static DeceasedContract dc;
+    public static MotherContract mc;
     public static int memFlag = 0;
     public static List<Integer> memClicked;
     protected static LocationManager locationManager;
     Location location;
+
+    public static ArrayList<MothersLst> lstMothers;
+    public static int position = 0;
 
     @Override
     public void onCreate() {
@@ -215,12 +221,12 @@ public class MainApp extends Application {
                 editor.putString("Accuracy", String.valueOf(location.getAccuracy()));
                 editor.putString("Time", String.valueOf(location.getTime()));
                 String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString();
-                Toast.makeText(getApplicationContext(),
-                        "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) +
-                                " LNG: " + String.valueOf(location.getLatitude()) +
-                                " Accuracy: " + String.valueOf(location.getAccuracy()) +
-                                " Time: " + date,
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),
+//                        "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) +
+//                                " LNG: " + String.valueOf(location.getLatitude()) +
+//                                " Accuracy: " + String.valueOf(location.getAccuracy()) +
+//                                " Time: " + date,
+//                        Toast.LENGTH_SHORT).show();
 
                 editor.apply();
             }

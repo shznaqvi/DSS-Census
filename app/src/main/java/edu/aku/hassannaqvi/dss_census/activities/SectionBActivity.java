@@ -303,15 +303,15 @@ public class SectionBActivity extends Activity {
 
                 dcbd.check(MainApp.familyMembersList.get(position).getGender() == "0" ? dcbd01.getId() : dcbd02.getId());
 
-                if (((Integer.parseInt(MainApp.familyMembersList.get(position).getGender())) - 1) == 0){
-                    dcbm01.setEnabled(false);
-                    dcbm02.setEnabled(true);
-                    dcbm01.setChecked(false);
-                }else {
-                    dcbm01.setEnabled(true);
-                    dcbm02.setEnabled(false);
-                    dcbm02.setChecked(false);
-                }
+//                if (((Integer.parseInt(MainApp.familyMembersList.get(position).getGender())) - 1) == 0){
+//                    dcbm01.setEnabled(false);
+//                    dcbm02.setEnabled(true);
+//                    dcbm01.setChecked(false);
+//                }else {
+//                    dcbm01.setEnabled(true);
+//                    dcbm02.setEnabled(false);
+//                    dcbm02.setChecked(false);
+//                }
             }
 
             if (!MainApp.familyMembersList.get(position).getEducation().contains("null")) {
@@ -632,13 +632,6 @@ public class SectionBActivity extends Activity {
         }
     }
 
-    public boolean dodCheck(String dt){
-
-
-
-        return true;
-    }
-
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
@@ -832,7 +825,7 @@ public class SectionBActivity extends Activity {
             dcbbfid.setError(null);
         }
 
-        // ============== Mother ID ===================
+        // ============== MotherTB ID ===================
 
         if (dcbbmid.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbbmid), Toast.LENGTH_SHORT).show();
