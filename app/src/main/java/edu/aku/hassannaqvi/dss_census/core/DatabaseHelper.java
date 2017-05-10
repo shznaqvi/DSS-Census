@@ -238,6 +238,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleIm.COLUMN_FORMDATE + " TEXT," +
             singleIm.COLUMN_USER + " TEXT," +
             singleIm.COLUMN_CHILDID + " TEXT," +
+            singleIm.COLUMN_MM + " TEXT," +
             singleIm.COLUMN_DSSID + " TEXT," +
             singleIm.COLUMN_GPSLAT + " TEXT," +
             singleIm.COLUMN_GPSLNG + " TEXT," +
@@ -246,7 +247,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleIm.COLUMN_DEVICEID + " TEXT," +
             singleIm.COLUMN_DEVICETAGID + " TEXT," +
             singleIm.COLUMN_SYNCED + " TEXT," +
-            singleIm.COLUMN_SYNCED_DATE + " TEXT," +
+            singleIm.COLUMN_SYNCED_DATE + " TEXT" +
 
             " );";
 
@@ -616,7 +617,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(singleIm.COLUMN_SK, ims.getsK());
         values.put(singleIm.COLUMN_FORMDATE, ims.getFormDate());
         values.put(singleIm.COLUMN_USER, ims.getUser());
-        values.put(singleIm.COLUMN_CHILDID, ims.getChildID());
+        values.put(singleIm.COLUMN_MM, ims.getMm());
+        //values.put(singleIm.COLUMN_CHILDID, ims.getChildID());
         values.put(singleIm.COLUMN_DSSID, ims.getDssID());
         values.put(singleIm.COLUMN_GPSLAT, ims.getGpsLat());
         values.put(singleIm.COLUMN_GPSLNG, ims.getGpsLng());
@@ -1093,6 +1095,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleIm.COLUMN_FORMDATE,
                 singleIm.COLUMN_USER,
                 singleIm.COLUMN_CHILDID,
+                singleIm.COLUMN_MM,
                 singleIm.COLUMN_DSSID,
                 singleIm.COLUMN_GPSLAT,
                 singleIm.COLUMN_GPSLNG,

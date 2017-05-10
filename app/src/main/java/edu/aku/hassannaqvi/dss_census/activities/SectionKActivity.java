@@ -1,8 +1,11 @@
 package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -25,6 +28,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.R;
+import edu.aku.hassannaqvi.dss_census.contracts.SectionKIMContract;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
@@ -188,8 +192,9 @@ public class SectionKActivity extends Activity  {
         dckdate5.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
 */
         //mm = MainApp.totalChild;
+        //MainApp.mm = 1;
 
-        count.setText("Child" + MainApp.totalChild);
+        count.setText("Child: " + MainApp.mm + "out of " + MainApp.totalChild);
 
         dckdob.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -249,7 +254,6 @@ public class SectionKActivity extends Activity  {
                     MainApp.mm++;
                     startActivity(intent);
                 } else {
-                    finish();
                     startActivity(new Intent(this, SectionLActivity.class));
                 }
 
@@ -270,7 +274,7 @@ public class SectionKActivity extends Activity  {
         Long updcount = db.addChild(MainApp.ims);
         MainApp.ims.set_ID(String.valueOf(updcount));
 
-        if (updcount == 1) {
+        if (updcount != null) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
 
             MainApp.ims.setUID(
@@ -287,6 +291,19 @@ public class SectionKActivity extends Activity  {
 
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+
+        SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
+        MainApp.ims = new SectionKIMContract();
+
+        MainApp.ims.set_UUID(MainApp.fc.getUID());
+        MainApp.ims.setFormDate(MainApp.fc.getFormDate());
+        MainApp.ims.setDeviceId(MainApp.fc.getDeviceID());
+        MainApp.ims.setUser(MainApp.fc.getUser());
+        MainApp.ims.setDevicetagID(sharedPref.getString("tagName", null));
+        //MainApp.mc.setChildID(MainApp.lstMothers.get(MainApp.position).getChild_id());
+        MainApp.ims.setMm(String.valueOf(MainApp.mm));
+        MainApp.ims.setDssID(MainApp.fc.getDSSID());
+
 
         JSONObject sK = new JSONObject();
 
@@ -334,9 +351,44 @@ public class SectionKActivity extends Activity  {
         //sk.put("dckdate5", new SimpleDateFormat("dd-MM-yyyy").format(dckdate5.getCalendarView().getDate()));
 
 
-        //MainApp.ims.setsK(String.valueOf(sK));
+        MainApp.ims.setsK(String.valueOf(sK));
+
+        setGPS();
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void setGPS() {
+        SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
+
+//        String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
+
+        try {
+            String lat = GPSPref.getString("Latitude", "0");
+            String lang = GPSPref.getString("Longitude", "0");
+            String acc = GPSPref.getString("Accuracy", "0");
+            String dt = GPSPref.getString("Time", "0");
+
+            if (lat == "0" && lang == "0") {
+                Toast.makeText(this, "Could not obtained GPS points", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
+            }
+
+            String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
+
+            MainApp.mc.setGpsLat(GPSPref.getString("Latitude", "0"));
+            MainApp.mc.setGpsLng(GPSPref.getString("Longitude", "0"));
+            MainApp.mc.setGpsAcc(GPSPref.getString("Accuracy", "0"));
+//            AppMain.fc.setGpsTime(GPSPref.getString(date, "0")); // Timestamp is converted to date above
+            MainApp.mc.setGpsDT(date); // Timestamp is converted to date above
+
+            Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
+
+        } catch (Exception e) {
+            Log.e(TAG, "setGPS: " + e.getMessage());
+        }
 
     }
 

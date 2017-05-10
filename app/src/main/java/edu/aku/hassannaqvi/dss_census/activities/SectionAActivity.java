@@ -629,7 +629,7 @@ public class SectionAActivity extends Activity {
 
                 MainApp.totalChild = Integer.parseInt(dca0801.getText().toString());
 
-                startActivity(new Intent(this, SectionKActivity.class));
+                startActivity(new Intent(this, FamilyMembersActivity.class));
             } else {
 
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

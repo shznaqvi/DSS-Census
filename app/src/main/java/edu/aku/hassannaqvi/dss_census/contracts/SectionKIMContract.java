@@ -19,7 +19,9 @@ public class SectionKIMContract {
     private String deviceId = "";
     private String formDate = ""; // Date
     private String user = ""; // Interviewer
-    private String childID = "", dssID = "";
+    //private String childID = "";
+    private String dssID = "";
+    private String mm = "";
     private String sK = "";
     private String gpsLat = "";
     private String gpsLng = "";
@@ -32,6 +34,15 @@ public class SectionKIMContract {
 
     public SectionKIMContract() {
 
+    }
+
+    public String getMm() {
+
+        return mm;
+    }
+
+    public void setMm(String mm) {
+        this.mm = mm;
     }
 
     public String getProjectName() {
@@ -87,13 +98,13 @@ public class SectionKIMContract {
         this.user = user;
     }
 
-    public String getChildID() {
+    /*public String getChildID() {
         return childID;
     }
 
     public void setChildID(String childID) {
         this.childID = childID;
-    }
+    }*/
 
     public String getDssID() {
         return dssID;
@@ -183,7 +194,8 @@ public class SectionKIMContract {
         this.sK = jsonObject.getString(singleIm.COLUMN_SK);
         this.formDate = jsonObject.getString(singleIm.COLUMN_FORMDATE);
         this.user = jsonObject.getString(singleIm.COLUMN_USER);
-        this.childID = jsonObject.getString(singleIm.COLUMN_CHILDID);
+        //this.childID = jsonObject.getString(singleIm.COLUMN_CHILDID);
+        this.mm = jsonObject.getString(singleIm.COLUMN_MM);
         this.dssID = jsonObject.getString(singleIm.COLUMN_DSSID);
         this.gpsLat = jsonObject.getString(singleIm.COLUMN_GPSLAT);
         this.gpsLng = jsonObject.getString(singleIm.COLUMN_GPSLNG);
@@ -205,7 +217,8 @@ public class SectionKIMContract {
         this.sK = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_SK));
         this.formDate = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_FORMDATE));
         this.user = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_USER));
-        this.childID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_CHILDID));
+        //this.childID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_CHILDID));
+        this.mm = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_MM));
         this.dssID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_DSSID));
         this.gpsLat = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_GPSLAT));
         this.gpsLng = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_GPSLNG));
@@ -230,7 +243,8 @@ public class SectionKIMContract {
         json.put(singleIm.COLUMN_SK, this.sK == null ? JSONObject.NULL : this.sK);
         json.put(singleIm.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(singleIm.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
-        json.put(singleIm.COLUMN_CHILDID, this.childID == null ? JSONObject.NULL : this.childID);
+        //json.put(singleIm.COLUMN_CHILDID, this.childID == null ? JSONObject.NULL : this.childID);
+        json.put(singleIm.COLUMN_MM, this.mm == null ? JSONObject.NULL : this.mm);
         json.put(singleIm.COLUMN_DSSID, this.dssID == null ? JSONObject.NULL : this.dssID);
         json.put(singleIm.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(singleIm.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
@@ -257,6 +271,7 @@ public class SectionKIMContract {
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_USER = "user";
         public static final String COLUMN_CHILDID = "childid";
+        public static final String COLUMN_MM = "mm";
         public static final String COLUMN_DSSID = "dssid";
         public static final String COLUMN_GPSLAT = "gpslat";
         public static final String COLUMN_GPSLNG = "gpslng";
