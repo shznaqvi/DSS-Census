@@ -58,6 +58,209 @@
                 android:layout_marginBottom="1dp"
                 android:text="@string/dcl01a1" />
 
+            <CheckBox
+                android:id="@+id/dcl01ac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a2" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/dcl01b"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <CheckBox
+                android:id="@+id/dcl01bm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a1" />
+
+            <CheckBox
+                android:id="@+id/dcl01bc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/dcl01c"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <CheckBox
+                android:id="@+id/dcl01cm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a1" />
+
+            <CheckBox
+                android:id="@+id/dcl01cc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/dcl01d"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <CheckBox
+                android:id="@+id/dcl01dm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a1" />
+
+            <CheckBox
+                android:id="@+id/dcl01dc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/dcl01e"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <CheckBox
+                android:id="@+id/dcl01em"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a1" />
+
+            <CheckBox
+                android:id="@+id/dcl01ec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a2" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/dcl01f"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <CheckBox
+                android:id="@+id/dcl01fm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a1" />
+
+            <CheckBox
+                android:id="@+id/dcl01fc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/dcl01g"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <CheckBox
+                android:id="@+id/dcl01gm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a1" />
+
+            <CheckBox
+                android:id="@+id/dcl01gc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/dcl01h"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <CheckBox
+                android:id="@+id/dcl01hm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a1" />
+
+            <CheckBox
+                android:id="@+id/dcl01hc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/dcl01i"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <CheckBox
+                android:id="@+id/dcl01im"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a1" />
+
+            <CheckBox
+                android:id="@+id/dcl01ic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a2" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/pink_100"
+                android:text="@string/dcl02"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/colorPrimaryDark" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/dcl01a"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <CheckBox
+                android:id="@+id/dcl02am"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcl01a1" />
+
+
             <LinearLayout
                 android:id="@+id/fldGrpa1"
                 android:layout_width="match_parent"
@@ -78,7 +281,7 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01a1days"
+                    android:id="@+id/dcl02a1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -94,7 +297,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01a1fr"
+                    android:id="@+id/dcl02a1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -103,7 +306,7 @@
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/dcl01ac"
+                android:id="@+id/dcl02ac"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -128,7 +331,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01a2days"
+                    android:id="@+id/dcl02a2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -144,7 +347,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01a2fr"
+                    android:id="@+id/dcl02a2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -162,7 +365,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
-                android:id="@+id/dcl01bm"
+                android:id="@+id/dcl02bm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -187,7 +390,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01b1days"
+                    android:id="@+id/dcl02b1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -203,14 +406,14 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01b1fr"
+                    android:id="@+id/dcl02b1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
             <CheckBox
-                android:id="@+id/dcl01bc"
+                android:id="@+id/dcl02bc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -235,7 +438,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01b2days"
+                    android:id="@+id/dcl02b2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -251,7 +454,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01b2fr"
+                    android:id="@+id/dcl02b2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -266,7 +469,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
-                android:id="@+id/dcl01cm"
+                android:id="@+id/dcl02cm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -292,7 +495,7 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01c1days"
+                    android:id="@+id/dcl02c1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -309,14 +512,14 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01c1fr"
+                    android:id="@+id/dcl02c1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
             <CheckBox
-                android:id="@+id/dcl01cc"
+                android:id="@+id/dcl02cc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -341,7 +544,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01c2days"
+                    android:id="@+id/dcl02c2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -358,7 +561,7 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01c2fr"
+                    android:id="@+id/dcl02c2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -373,7 +576,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
-                android:id="@+id/dcl01dm"
+                android:id="@+id/dcl02dm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -398,7 +601,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01d1days"
+                    android:id="@+id/dcl02d1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -415,7 +618,7 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01d1fr"
+                    android:id="@+id/dcl02d1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -423,7 +626,7 @@
 
             </LinearLayout>
             <CheckBox
-                android:id="@+id/dcl01dc"
+                android:id="@+id/dcl02dc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -448,7 +651,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01d2days"
+                    android:id="@+id/dcl02d2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -465,7 +668,7 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01d2fr"
+                    android:id="@+id/dcl02d2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -480,7 +683,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
-                android:id="@+id/dcl01em"
+                android:id="@+id/dcl02em"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -505,7 +708,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01e1days"
+                    android:id="@+id/dcl02e1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -522,7 +725,7 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01e1fr"
+                    android:id="@+id/dcl02e1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -530,7 +733,7 @@
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/dcl01ec"
+                android:id="@+id/dcl02ec"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -556,7 +759,7 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01e2days"
+                    android:id="@+id/dcl02e2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -572,7 +775,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01e2fr"
+                    android:id="@+id/dcl02e2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -586,7 +789,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
-                android:id="@+id/dcl01fm"
+                android:id="@+id/dcl02fm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -611,7 +814,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01f1days"
+                    android:id="@+id/dcl02f1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -628,14 +831,14 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01f1fr"
+                    android:id="@+id/dcl02f1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:maxLength="2" />
             </LinearLayout>
             <CheckBox
-                android:id="@+id/dcl01fc"
+                android:id="@+id/dcl02fc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -661,7 +864,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01f2days"
+                    android:id="@+id/dcl02f2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -678,7 +881,7 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01f2fr"
+                    android:id="@+id/dcl02f2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -693,7 +896,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
-                android:id="@+id/dcl01gm"
+                android:id="@+id/dcl02gm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -718,7 +921,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01g1days"
+                    android:id="@+id/dcl02g1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -734,7 +937,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01g1fr"
+                    android:id="@+id/dcl02g1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -742,7 +945,7 @@
 
             </LinearLayout>
             <CheckBox
-                android:id="@+id/dcl01gc"
+                android:id="@+id/dcl02gc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -768,7 +971,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01g2days"
+                    android:id="@+id/dcl02g2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -785,7 +988,7 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01g2fr"
+                    android:id="@+id/dcl02g2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -799,7 +1002,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
-                android:id="@+id/dcl01hm"
+                android:id="@+id/dcl02hm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -824,7 +1027,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01h1days"
+                    android:id="@+id/dcl02h1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -832,7 +1035,7 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01h1fr"
+                    android:id="@+id/dcl02h1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -840,7 +1043,7 @@
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/dcl01hc"
+                android:id="@+id/dcl02hc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -865,7 +1068,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01h2days"
+                    android:id="@+id/dcl02h2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -882,7 +1085,7 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01h2fr"
+                    android:id="@+id/dcl02h2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -897,7 +1100,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
-                android:id="@+id/dcl01im"
+                android:id="@+id/dcl02im"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -923,14 +1126,14 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01i1days"
+                    android:id="@+id/dcl02i1days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:maxLength="2" />
 
                 <EditText
-                    android:id="@+id/dcl01i1fr"
+                    android:id="@+id/dcl02i1fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -938,7 +1141,7 @@
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/dcl01ic"
+                android:id="@+id/dcl02ic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -964,7 +1167,7 @@
 
 
                 <EditText
-                    android:id="@+id/dcl01i2days"
+                    android:id="@+id/dcl02i2days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -980,7 +1183,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/dcl01i2fr"
+                    android:id="@+id/dcl02i2fr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -1000,7 +1203,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/pink_100"
-                android:text="@string/dcl02"
+                android:text="@string/dcl03"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/colorPrimaryDark" />
 
@@ -1008,11 +1211,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dcl02a"
+                android:text="@string/dcl03a"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/dcl02a"
+                android:id="@+id/dcl03a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -1023,11 +1226,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dcl02b"
+                android:text="@string/dcl03b"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/dcl02b"
+                android:id="@+id/dcl03b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -1038,11 +1241,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dcl02c"
+                android:text="@string/dcl03c"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/dcl02c"
+                android:id="@+id/dcl03c"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -1053,11 +1256,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dcl02d"
+                android:text="@string/dcl03d"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/dcl02d"
+                android:id="@+id/dcl03d"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -1068,11 +1271,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dcl02e"
+                android:text="@string/dcl03e"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/dcl02e"
+                android:id="@+id/dcl03e"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
@@ -1095,51 +1298,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:text="@string/dcl03"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <RadioGroup
-                android:id="@+id/dcl03"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/dcl0388"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:text="@string/dcl0388" />
-
-                <RadioButton
-                    android:id="@+id/dcl0301"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:text="@string/dcl0301" />
-
-                <RadioButton
-                    android:id="@+id/dcl0302"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:text="@string/dcl0302" />
-
-                <RadioButton
-                    android:id="@+id/dcl0303"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:text="@string/dcl0303" />
-
-
-            </RadioGroup>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
                 android:text="@string/dcl04"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
@@ -1154,12 +1312,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/dcl0388" />
+                    android:text="@string/dcl0488" />
 
                 <RadioButton
                     android:id="@+id/dcl0401"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:text="@string/dcl0401" />
 
                 <RadioButton
@@ -1198,13 +1357,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/dcl0388" />
+                    android:text="@string/dcl0488" />
 
                 <RadioButton
                     android:id="@+id/dcl0501"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
                     android:text="@string/dcl0501" />
 
                 <RadioButton
@@ -1220,6 +1378,51 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
                     android:text="@string/dcl0503" />
+
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/dcl06"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <RadioGroup
+                android:id="@+id/dcl06"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/dcl0688"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcl0488" />
+
+                <RadioButton
+                    android:id="@+id/dcl0601"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcl0601" />
+
+                <RadioButton
+                    android:id="@+id/dcl0602"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcl0602" />
+
+                <RadioButton
+                    android:id="@+id/dcl0603"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcl0603" />
 
             </RadioGroup>
 

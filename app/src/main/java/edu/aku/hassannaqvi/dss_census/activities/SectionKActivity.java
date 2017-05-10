@@ -177,7 +177,7 @@ public class SectionKActivity extends Activity  {
         appHeader.setText("DSS - > Section K: Vaccination");
 
         dckd.setMaxDate(new Date().getTime());
-        dckd.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
+        dckd.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_5YEAR) + MainApp.MILLISECONDS_IN_DAY)));
         /*dckdate0.setMaxDate(new Date().getTime());
         dckdate0.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
         dckdate1.setMaxDate(new Date().getTime());
@@ -442,6 +442,17 @@ public class SectionKActivity extends Activity  {
                 dckey.setError(null);
             }
 
+            // ================= Age in years ===========
+            if (Integer.parseInt(dckey.getText().toString().isEmpty() ? "0" : dckey.getText().toString()) > 5) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dckey), Toast.LENGTH_SHORT).show();
+                dckey.setError("Range is 0 to 5 years");    // Set Error on last radio button
+
+                Log.i(TAG, "dckey: Range is 0 to 5 year ");
+                return false;
+            } else {
+                dckey.setError(null);
+            }
+
             // ================= Age in months ===========
             if (dckem.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dckem), Toast.LENGTH_SHORT).show();
@@ -453,12 +464,34 @@ public class SectionKActivity extends Activity  {
                 dckem.setError(null);
             }
 
+            if (Integer.parseInt(dckem.getText().toString().isEmpty() ? "0" : dckem.getText().toString()) > 11) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dckem), Toast.LENGTH_SHORT).show();
+                dckem.setError("Range is 0 to 11 months");    // Set Error on last radio button
+
+                Log.i(TAG, "dckem: Range is 0 to 11 months ");
+                return false;
+            } else {
+                dckem.setError(null);
+            }
+
+
+
             // ================= Age in days ===========
             if (dcked.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcked), Toast.LENGTH_SHORT).show();
                 dcked.setError("This data is Required! Please enter some value or zero");    // Set Error on last radio button
 
                 Log.i(TAG, "dcked: This data is Required!");
+                return false;
+            } else {
+                dcked.setError(null);
+            }
+
+            if (Integer.parseInt(dcked.getText().toString().isEmpty() ? "0" : dcked.getText().toString()) > 11) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcked), Toast.LENGTH_SHORT).show();
+                dcked.setError("Range is 0 to 29 days");    // Set Error on last radio button
+
+                Log.i(TAG, "dcked: Range is 0 to 29 days ");
                 return false;
             } else {
                 dcked.setError(null);
