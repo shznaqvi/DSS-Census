@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
@@ -31,7 +32,7 @@ import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
-public class SectionBActivity extends Activity {
+public class SectionBActivity extends Activity implements View.OnKeyListener {
 
     private static final String TAG = SectionBActivity.class.getSimpleName();
 
@@ -334,7 +335,16 @@ public class SectionBActivity extends Activity {
 
         } else {
             dcba.setEnabled(true);
-            dcbid.setEnabled(false);
+            dcbid.setEnabled(true);
+
+            dcbid.setText(MainApp.fc.getDSSID()+"-");
+            dcbbfid.setText(MainApp.fc.getDSSID()+"-");
+            dcbbmid.setText(MainApp.fc.getDSSID()+"-");
+
+            dcbid.setOnKeyListener(this);
+            dcbbfid.setOnKeyListener(this);
+            dcbbmid.setOnKeyListener(this);
+
             dcbd.setEnabled(true);
         }
 
@@ -516,8 +526,34 @@ public class SectionBActivity extends Activity {
                 }
             }
         });
+    }
 
+    @Override
+    public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
+        if(keyCode == KeyEvent.KEYCODE_DEL ){
+            //do nothing
+            if (view == dcbid){
+                if (dcbid.getText().length() == (MainApp.fc.getDSSID().length()+1)){
 
+                }else {
+                    return false;
+                }
+            }else if (view == dcbbfid){
+                if (dcbbfid.getText().length() == (MainApp.fc.getDSSID().length()+1)){
+
+                }else {
+                    return false;
+                }
+            }else if (view == dcbbmid){
+                if (dcbbmid.getText().length() == (MainApp.fc.getDSSID().length()+1)){
+
+                }else {
+                    return false;
+                }
+            }
+
+        }
+        return true;
     }
 
     @OnClick(R.id.btn_End)
@@ -649,10 +685,20 @@ public class SectionBActivity extends Activity {
             MainApp.cc.set_DATE(MainApp.familyMembersList.get(position).get_DATE());
 
             MainApp.cc.setUpdate_dt(new SimpleDateFormat("dd-MM-yy").format(new Date()));
+            MainApp.cc.setDss_id_member(dcbid.getText().toString());
+            MainApp.cc.setDss_id_f(dcbbfid.getText().toString());
+            MainApp.cc.setDss_id_m(dcbbmid.getText().toString());
             MainApp.cc.setUpdate_flag("true");
+        }else {
+            String id = dcbid.getText().toString();
+            MainApp.cc.setDss_id_member(id.replaceAll("\\+",""));
+            id = dcbbfid.getText().toString();
+            MainApp.cc.setDss_id_f(id.replaceAll("\\+",""));
+            id = dcbbmid.getText().toString();
+            MainApp.cc.setDss_id_m(id.replaceAll("\\+",""));
         }
         MainApp.cc.setName(dcba.getText().toString());
-        MainApp.cc.setDss_id_member(dcbid.getText().toString());
+
         MainApp.cc.setRelation_hh(dcbbrhh01.isChecked() ? "1" : dcbbrhh02.isChecked() ? "2" : dcbbrhh03.isChecked() ? "3"
                 : dcbbrhh04.isChecked() ? "4" : dcbbrhh05.isChecked() ? "5" : dcbbrhh06.isChecked() ? "6"
                 : dcbbrhh07.isChecked() ? "7" : dcbbrhh08.isChecked() ? "8" : dcbbrhh09.isChecked() ? "9" : dcbbrhh10.isChecked() ? "10"
@@ -791,15 +837,15 @@ public class SectionBActivity extends Activity {
 
         //=============== ID =============
 
-//        if (dcbid.getText().toString().isEmpty()) {
-//            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();
-//            dcbid.setError("This data is Required!");    // Set Error on last radio button
-//
-//            Log.i(TAG, "dcbid: This data is Required!");
-//            return false;
-//        } else {
-//            dcbid.setError(null);
-//        }
+        if (dcbid.getText().length() == MainApp.fc.getDSSID().length()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();
+            dcbid.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbid: This data is Required!");
+            return false;
+        } else {
+            dcbid.setError(null);
+        }
 
         // ===================== Relation with HH ==============
         if (dcbbrhh.getCheckedRadioButtonId() == -1) {
@@ -814,7 +860,7 @@ public class SectionBActivity extends Activity {
 
         //============= Father ID ====================
 
-        if (dcbbfid.getText().toString().isEmpty()) {
+        if (dcbbfid.getText().length() == MainApp.fc.getDSSID().length()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbbfid), Toast.LENGTH_SHORT).show();
             dcbbfid.setError("This data is Required!");    // Set Error on last radio button
 
@@ -826,7 +872,7 @@ public class SectionBActivity extends Activity {
 
         // ============== MotherTB ID ===================
 
-        if (dcbbmid.getText().toString().isEmpty()) {
+        if (dcbbmid.getText().length() == MainApp.fc.getDSSID().length()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbbmid), Toast.LENGTH_SHORT).show();
             dcbbmid.setError("This data is Required!");    // Set Error on last radio button
 
@@ -871,6 +917,32 @@ public class SectionBActivity extends Activity {
         } else {
             dcbm03.setError(null);
         }
+
+        // ============== Check Mother Equality ===================
+
+        if  (!dcbm01.isChecked()){
+
+            char m = dcbbmid.getText().toString().charAt(12);
+            if (m!=dcbid.getText().toString().charAt(12)){
+                dcbid.setError("Not match with Mother ID");
+
+                Log.i(TAG, "dcbid: Not match with Mother ID.");
+                return false;
+            }else {
+                dcbid.setError(null);
+            }
+
+            if (m!=dcbbfid.getText().toString().charAt(12)){
+                dcbbfid.setError("Not match with Mother ID");
+
+                Log.i(TAG, "dcbbfid: Not match with Mother ID.");
+                return false;
+            }else {
+                dcbbfid.setError(null);
+            }
+
+        }
+
 
         // ============== Education ===================
 
@@ -1072,6 +1144,5 @@ public class SectionBActivity extends Activity {
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
-
 
 }

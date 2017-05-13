@@ -275,7 +275,7 @@ public class SectionKActivity extends Activity  {
         Long updcount = db.addChild(MainApp.ims);
         MainApp.ims.set_ID(String.valueOf(updcount));
 
-        if (updcount != null) {
+        if (updcount != -1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
 
             MainApp.ims.setUID(

@@ -57,9 +57,12 @@
 
             <EditText
                 android:id="@+id/dcbid"
+                android:maxLength="13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"></EditText>
+
+                android:inputType="number"
+                ></EditText>
 
             <TextView
                 android:layout_width="match_parent"
@@ -189,8 +192,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-                android:maxLength="11" />
+                android:inputType="number"
+                android:maxLength="13" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -205,8 +208,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-                android:maxLength="11" />
+                android:inputType="number"
+                android:maxLength="12" />
 
 
             <TextView
