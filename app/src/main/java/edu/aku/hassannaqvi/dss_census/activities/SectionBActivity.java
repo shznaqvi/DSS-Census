@@ -294,7 +294,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
             if (!MainApp.familyMembersList.get(position).getGender().contains("null")) {
 //                ((RadioButton) dcbd.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getGender().isEmpty() ? "1" : MainApp.familyMembersList.get(position).getGender())) - 1)).setChecked(true);
 
-                dcbd.check(MainApp.familyMembersList.get(position).getGender() == "1" ? dcbd01.getId() : dcbd02.getId());
+                dcbd.check(MainApp.familyMembersList.get(position).getGender().equals("1") ? dcbd01.getId() : dcbd02.getId());
 
 //                if (((Integer.parseInt(MainApp.familyMembersList.get(position).getGender())) - 1) == 0){
 //                    dcbm01.setEnabled(false);
