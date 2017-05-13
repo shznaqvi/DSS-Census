@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_section_b"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.aku.hassannaqvi.dss_census.activities.SectionBActivity">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
+        android:id="@+id/scrollView01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:scrollbars="horizontal"
-        tools:context="edu.aku.hassannaqvi.dss_census.activities.SectionBActivity">
+        android:scrollbars="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -16,6 +21,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/app_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -57,11 +63,10 @@
 
             <EditText
                 android:id="@+id/dcbid"
-                android:maxLength="13"
+                android:maxLength="12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:inputType="number"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                 ></EditText>
 
             <TextView
@@ -192,8 +197,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:inputType="number"
-                android:maxLength="13" />
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                android:maxLength="12" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -208,8 +213,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:inputType="number"
-                android:maxLength="12" />
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                android:maxLength="11" />
 
 
             <TextView
@@ -462,6 +467,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
                     android:text="@string/dcbm03" />
+
+                <RadioButton
+                    android:id="@+id/dcbm04"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:visibility="gone"
+                    android:text="@string/dcbm04" />
 
 
             </RadioGroup>
@@ -913,5 +926,11 @@
                 <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 
             </LinearLayout>
+
+
         </LinearLayout>
+
     </ScrollView>
+
+
+</RelativeLayout>

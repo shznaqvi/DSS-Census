@@ -1055,7 +1055,7 @@ public class SectionAActivity extends Activity {
         MainApp.fc = new FormsContract();
 
         MainApp.fc.setDevicetagID(sharedPref.getString("tagName",null));
-        MainApp.fc.setDSSID(dca03.getText().toString());
+        MainApp.fc.setDSSID(dca03.getText().toString().toUpperCase());
         MainApp.fc.setFormDate(new SimpleDateFormat("dd-MM-yy").format(new Date()));
         MainApp.fc.setUser(MainApp.userName);
         MainApp.fc.setDeviceID(Settings.Secure.getString(getApplicationContext().getContentResolver(),

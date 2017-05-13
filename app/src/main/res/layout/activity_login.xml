@@ -58,8 +58,9 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="0dp"
                 android:contentDescription="Aga Khan LOGO"
-                android:onClick="gotoMain"
                 android:src="@drawable/agakhan" />
+
+            <!--android:onClick="gotoMain"-->
 
             <AutoCompleteTextView
                 android:id="@+id/email"
