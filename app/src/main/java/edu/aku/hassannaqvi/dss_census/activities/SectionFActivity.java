@@ -17,9 +17,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -40,12 +37,7 @@ public class SectionFActivity extends Activity {
 
     private static final String TAG = SectionFActivity.class.getSimpleName();
 
-    @BindView(R.id.activity_section_f)
-    RelativeLayout activitySectionF;
-    @BindView(R.id.scrollView01)
-    ScrollView scrollView01;
-    @BindView(R.id.app_header)
-    TextView appHeader;
+
     @BindView(R.id.dcfa)
     EditText dcfa;
     @BindView(R.id.dcf01)
@@ -147,7 +139,6 @@ public class SectionFActivity extends Activity {
         setContentView(R.layout.activity_section_f);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section F: Reproductive History of Selected MotherTB");
 
         MainApp.position = getIntent().getExtras().getInt("position");
 
@@ -821,7 +812,7 @@ public class SectionFActivity extends Activity {
 
         Long updcount = db.addMother(MainApp.mc);
         MainApp.mc.set_ID(String.valueOf(updcount));
-
+        db.close();
         if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
 

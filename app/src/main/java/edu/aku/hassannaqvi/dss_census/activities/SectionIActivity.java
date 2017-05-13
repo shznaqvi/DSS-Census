@@ -12,9 +12,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -37,12 +34,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
 
     private static final String TAG = SectionIActivity.class.getSimpleName();
 
-    @BindView(R.id.activity_section_i)
-    RelativeLayout activitySectionI;
-    @BindView(R.id.scrollView01)
-    ScrollView scrollView01;
-    @BindView(R.id.app_header)
-    TextView appHeader;
+
     @BindView(R.id.dci01)
     EditText dci01;
     @BindView(R.id.dci02)
@@ -422,8 +414,6 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         setContentView(R.layout.activity_section_i);
         ButterKnife.bind(this);
 
-
-        appHeader.setText("DSS - > Section I: IYCF (0-23 Month)");
 
 
         dci05.setMaxDate(new Date().getTime());

@@ -19,7 +19,7 @@ public class MotherContract {
     private String deviceId = "";
     private String formDate = ""; // Date
     private String user = ""; // Interviewer
-    private String childID = "",motherID = "",dssID = "";
+    private String childID = "", motherID = "", dssID = "";
 
     private String sF = "";
     private String sG = "";

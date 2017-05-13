@@ -10,9 +10,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -29,12 +26,7 @@ public class SectionHActivity extends Activity {
 
     private static final String TAG = SectionHActivity.class.getSimpleName();
 
-    @BindView(R.id.activity_sectionH)
-    RelativeLayout activitySectionH;
-    @BindView(R.id.scrollView01)
-    ScrollView scrollView01;
-    @BindView(R.id.app_header)
-    TextView appHeader;
+
     @BindView(R.id.dch01)
     RadioGroup dch01;
     @BindView(R.id.dch0101)
@@ -160,7 +152,6 @@ public class SectionHActivity extends Activity {
         setContentView(R.layout.activity_section_h);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section H: UNMET NEED");
 
         // ================ Q 9 Skip Check =================
 

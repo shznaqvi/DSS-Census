@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_section_a"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="edu.aku.hassannaqvi.dss_census.activities.SectionAActivity">
-
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/scrollView01"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:scrollbars="horizontal">
+        android:scrollbars="horizontal"
+        tools:context="edu.aku.hassannaqvi.dss_census.activities.SectionAActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +15,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/app_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -1157,10 +1150,7 @@
                 <RadioGroup
                     android:id="@+id/dca11"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-
-                    >
+                    android:layout_height="wrap_content">
 
                     <RadioButton
                         android:id="@+id/dca1101"
@@ -1174,9 +1164,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:text="@string/dca1102"
-
-                        />
+                        android:text="@string/dca1102" />
 
                 </RadioGroup>
 
@@ -1210,14 +1198,6 @@
                     android:text="@string/start_interview"
                     android:textColor="#1ed61e" />
                 <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
-
             </LinearLayout>
-
-
         </LinearLayout>
-
-
     </ScrollView>
-
-
-</RelativeLayout>

@@ -12,9 +12,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -31,12 +28,7 @@ public class SectionDActivity extends Activity {
 
     private static final String TAG = SectionDActivity.class.getSimpleName();
 
-    @BindView(R.id.activity_section_d)
-    RelativeLayout activitySectionD;
-    @BindView(R.id.scrollView01)
-    ScrollView scrollView01;
-    @BindView(R.id.app_header)
-    TextView appHeader;
+
     @BindView(R.id.dcd01)
     RadioGroup dcd01;
     @BindView(R.id.dcd0101)
@@ -294,8 +286,6 @@ public class SectionDActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_d);
         ButterKnife.bind(this);
-
-        appHeader.setText("DSS - > Section D: Household Construction");
 
         dcd0988.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

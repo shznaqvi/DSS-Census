@@ -12,9 +12,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -31,9 +28,7 @@ public class SectionJActivity extends Activity  {
 
     private static final String TAG = SectionJActivity.class.getSimpleName();
 
-    @BindView(R.id.activity_section_j) RelativeLayout activitySectionJ;
-    @BindView(R.id.scrollView01) ScrollView scrollView01;
-    @BindView(R.id.app_header) TextView appHeader;
+
     @BindView(R.id.dcj01) RadioGroup dcj01;
     @BindView(R.id.dcj0101) RadioButton dcj0101;
     @BindView(R.id.dcj0102) RadioButton dcj0102;
@@ -128,7 +123,6 @@ public class SectionJActivity extends Activity  {
         setContentView(R.layout.activity_section_j);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section J: Child Health Status (Index Child)");
 
         dcj0677.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

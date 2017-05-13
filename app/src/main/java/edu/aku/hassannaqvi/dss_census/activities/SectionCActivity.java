@@ -10,9 +10,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -32,12 +29,7 @@ public class SectionCActivity extends Activity {
 
     private static final String TAG = SectionCActivity.class.getSimpleName();
 
-    @BindView(R.id.activity_section_c)
-    RelativeLayout activitySectionC;
-    @BindView(R.id.scrollView01)
-    ScrollView scrollView01;
-    @BindView(R.id.app_header)
-    TextView appHeader;
+
     @BindView(R.id.dcca)
     EditText dcca;
     @BindView(R.id.dccbrhh)
@@ -129,8 +121,6 @@ public class SectionCActivity extends Activity {
         dccd.setMaxDate(new Date().getTime());
         dccf.setMaxDate(new Date().getTime());
         dccf.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
-
-        appHeader.setText("DSS - > Section C: People Deceased in Last One Year");
 
         position = getIntent().getExtras().getInt("position");
 

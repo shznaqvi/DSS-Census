@@ -240,7 +240,7 @@ public class SectionKIMContract {
         json.put(singleIm.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(singleIm.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
         json.put(singleIm.COLUMN_UID, this.UID == null ? JSONObject.NULL : this.UID);
-        json.put(singleIm.COLUMN_SK, this.sK == null ? JSONObject.NULL : this.sK);
+        json.put(singleIm.COLUMN_SK, this.sK == null ? JSONObject.NULL : new JSONObject(this.sK));
         json.put(singleIm.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(singleIm.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
         //json.put(singleIm.COLUMN_CHILDID, this.childID == null ? JSONObject.NULL : this.childID);

@@ -500,7 +500,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             c = db.rawQuery(SQL_SELECT_MOTHER_BY_CHILD, new String[]{"c", dssID});
 
-
             while (c.moveToNext()) {
 
                 MothersLst mc = new MothersLst();
@@ -586,8 +585,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(MotherTB.COLUMN_GPSACC, mc.getGpsAcc());
         values.put(MotherTB.COLUMN_DEVICEID, mc.getDeviceId());
         values.put(MotherTB.COLUMN_DEVICETAGID, mc.getDevicetagID());
-        values.put(MotherTB.COLUMN_SYNCED, mc.getSynced());
-        values.put(MotherTB.COLUMN_SYNCED_DATE, mc.getSynced_date());
+
+        // SYNCED INFORMATION IS NEVER INSERTED WITH NEW RECORD.
+     /*   values.put(MotherTB.COLUMN_SYNCED, mc.getSynced());
+        values.put(MotherTB.COLUMN_SYNCED_DATE, mc.getSynced_date());*/
 
         values.put(MotherTB.COLUMN_CHILDID, mc.getChildID());
         values.put(MotherTB.COLUMN_DSSID, mc.getDssID());

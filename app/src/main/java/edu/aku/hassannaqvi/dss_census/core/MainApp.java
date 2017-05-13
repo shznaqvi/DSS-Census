@@ -18,7 +18,6 @@ import edu.aku.hassannaqvi.dss_census.contracts.DeceasedContract;
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MotherContract;
-import edu.aku.hassannaqvi.dss_census.contracts.OCsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.SectionKIMContract;
 import edu.aku.hassannaqvi.dss_census.otherClasses.MothersLst;
 
@@ -60,7 +59,6 @@ public class MainApp extends Application {
     public static int loginFieldArea = -1;
     public static String child_name = "TEST";
     public static FormsContract fc;
-    public static OCsContract im;
     public static String userName = "0000";
     public static String areaCode;
 //    Total No of members got from Section A

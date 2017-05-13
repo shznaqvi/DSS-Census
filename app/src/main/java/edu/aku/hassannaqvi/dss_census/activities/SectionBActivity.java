@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,12 +35,9 @@ public class SectionBActivity extends Activity {
 
     private static final String TAG = SectionBActivity.class.getSimpleName();
 
-    @BindView(R.id.activity_section_b)
-    RelativeLayout activitySectionB;
+
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
-    @BindView(R.id.app_header)
-    TextView appHeader;
     @BindView(R.id.dcba)
     EditText dcba;
     @BindView(R.id.dcbid)
@@ -301,7 +297,7 @@ public class SectionBActivity extends Activity {
             if (!MainApp.familyMembersList.get(position).getGender().contains("null")) {
 //                ((RadioButton) dcbd.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getGender().isEmpty() ? "1" : MainApp.familyMembersList.get(position).getGender())) - 1)).setChecked(true);
 
-                dcbd.check(MainApp.familyMembersList.get(position).getGender() == "0" ? dcbd01.getId() : dcbd02.getId());
+                dcbd.check(MainApp.familyMembersList.get(position).getGender() == "1" ? dcbd01.getId() : dcbd02.getId());
 
 //                if (((Integer.parseInt(MainApp.familyMembersList.get(position).getGender())) - 1) == 0){
 //                    dcbm01.setEnabled(false);

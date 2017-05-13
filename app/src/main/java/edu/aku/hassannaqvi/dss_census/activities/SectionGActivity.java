@@ -9,9 +9,6 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -28,12 +25,6 @@ public class SectionGActivity extends Activity {
 
     private static final String TAG = SectionGActivity.class.getSimpleName();
 
-    @BindView(R.id.activity_sectionG)
-    RelativeLayout activitySectionG;
-    @BindView(R.id.scrollView01)
-    ScrollView scrollView01;
-    @BindView(R.id.app_header)
-    TextView appHeader;
     @BindView(R.id.dcg01)
     RadioGroup dcg01;
     @BindView(R.id.dcg0101)
@@ -114,8 +105,6 @@ public class SectionGActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_g);
         ButterKnife.bind(this);
-
-        appHeader.setText("DSS - > Section G: Family Planning");
 
         //================= Q2  Skip Pattern==================
 

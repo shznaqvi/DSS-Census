@@ -13,8 +13,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,10 +34,7 @@ public class SectionKActivity extends Activity  {
 
     private static final String TAG = SectionKActivity.class.getSimpleName();
 
-    @BindView(R.id.activity_section_k)
-    RelativeLayout activitySectionK;
-    @BindView(R.id.scrollView01) ScrollView scrollView01;
-    @BindView(R.id.app_header) TextView appHeader;
+
     @BindView(R.id.dcka) EditText dcka;
     @BindView(R.id.dckb) RadioGroup dckb;
     @BindView(R.id.dckb01) RadioButton dckb01;
@@ -174,7 +169,6 @@ public class SectionKActivity extends Activity  {
         setContentView(R.layout.activity_section_k);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section K: Vaccination");
 
         dckd.setMaxDate(new Date().getTime());
         //dckd.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_5YEAR) + MainApp.MILLISECONDS_IN_DAY)));

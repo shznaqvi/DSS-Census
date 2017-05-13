@@ -12,9 +12,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -30,12 +27,7 @@ import edu.aku.hassannaqvi.dss_census.core.MainApp;
 public class SectionEActivity extends Activity {
 
     private static final String TAG = SectionEActivity.class.getSimpleName();
-    @BindView(R.id.activity_section_e)
-    RelativeLayout activitySectionE;
-    @BindView(R.id.scrollView01)
-    ScrollView scrollView01;
-    @BindView(R.id.app_header)
-    TextView appHeader;
+
     @BindView(R.id.dce01)
     RadioGroup dce01;
     @BindView(R.id.dce0101)
@@ -205,8 +197,6 @@ public class SectionEActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_e);
         ButterKnife.bind(this);
-
-        appHeader.setText("DSS - > Section E: Hand Washing");
 
         // ========================= Q 1 Others============================
         dce01.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

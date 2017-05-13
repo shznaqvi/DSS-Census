@@ -11,9 +11,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -31,9 +28,6 @@ public class SectionLActivity extends Activity  {
     private static final String TAG = SectionLActivity.class.getSimpleName();
 
 
-    @BindView(R.id.activity_section_l) RelativeLayout activitySectionL;
-    @BindView(R.id.scrollView01) ScrollView scrollView01;
-    @BindView(R.id.app_header) TextView appHeader;
     @BindView(R.id.dcl01am) CheckBox dcl01am;
     @BindView(R.id.dcl01ac) CheckBox dcl01ac;
     @BindView(R.id.dcl01bm) CheckBox dcl01bm;
@@ -200,8 +194,6 @@ public class SectionLActivity extends Activity  {
         setContentView(R.layout.activity_section_l);
         ButterKnife.bind(this);
 
-        appHeader.setText("DSS - > Section L : Household Food Insecurity");
-
         // ============== A1 ==============
 
         dcl02am.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -310,7 +302,7 @@ public class SectionLActivity extends Activity  {
             }
         });
 
-        // ============== A2 ==============
+        // ============== D2 ==============
 
         dcl02dc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -372,7 +364,7 @@ public class SectionLActivity extends Activity  {
             }
         });
 
-        // ============== A2 ==============
+        // ============== F2 ==============
 
         dcl02fc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -403,7 +395,7 @@ public class SectionLActivity extends Activity  {
             }
         });
 
-        // ============== A2 ==============
+        // ============== G2 ==============
 
         dcl02gc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

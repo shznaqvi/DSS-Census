@@ -10,9 +10,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -29,12 +26,7 @@ public class SectionMActivity extends Activity {
 
     private static final String TAG = SectionMActivity.class.getSimpleName();
 
-    @BindView(R.id.activity_section_m)
-    RelativeLayout activitySectionM;
-    @BindView(R.id.scrollView01)
-    ScrollView scrollView01;
-    @BindView(R.id.app_header)
-    TextView appHeader;
+
     @BindView(R.id.dcm01)
     RadioGroup dcm01;
     @BindView(R.id.dcm0101)
@@ -215,8 +207,6 @@ public class SectionMActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_m);
         ButterKnife.bind(this);
-
-        appHeader.setText("DSS - > Section M : Home Environment");
 
 //        Skip
         dcm17.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
