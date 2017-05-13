@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,9 +35,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
 
     private static final String TAG = SectionBActivity.class.getSimpleName();
 
-
-    @BindView(R.id.scrollView01)
-    ScrollView scrollView01;
     @BindView(R.id.dcba)
     EditText dcba;
     @BindView(R.id.dcbid)

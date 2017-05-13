@@ -17,9 +17,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -40,12 +37,6 @@ public class SectionFActivity extends Activity {
 
     private static final String TAG = SectionFActivity.class.getSimpleName();
 
-//    @BindView(R.id.activity_section_f)
-//    RelativeLayout activitySectionF;
-    @BindView(R.id.scrollView01)
-    ScrollView scrollView01;
-//    @BindView(R.id.app_header)
-//    TextView appHeader;
     @BindView(R.id.dcfa)
     EditText dcfa;
     @BindView(R.id.dcf01)
