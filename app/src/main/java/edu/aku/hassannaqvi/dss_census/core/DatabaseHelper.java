@@ -800,7 +800,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] whereArgs = {id};
 
         int count = db.update(
-                singleForm.TABLE_NAME,
+                MotherTB.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
@@ -819,7 +819,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] whereArgs = {id};
 
         int count = db.update(
-                singleForm.TABLE_NAME,
+                singleIm.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
