@@ -623,7 +623,7 @@ public class SectionLActivity extends Activity  {
         sL.put("dcl06", dcl0688.isChecked() ? "88" : dcl0601.isChecked() ? "1" : dcl0602.isChecked() ? "2"
                 : dcl0603.isChecked() ? "3" : "0");
 
-        MainApp.mc.setsL(String.valueOf(sL));
+        MainApp.fc.setsL(String.valueOf(sL));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
