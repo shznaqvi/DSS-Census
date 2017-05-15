@@ -235,8 +235,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
         setContentView(R.layout.activity_section_b);
         ButterKnife.bind(this);
 
-
-
         Calendar cal = Calendar.getInstance();
         dcbg.setMaxDate(new Date().getTime());
         dcbidob.setMaxDate(new Date().getTime());
@@ -851,14 +849,16 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
 
         //=============== ID =============
 
-        if (dcbid.getText().length() == MainApp.fc.getDSSID().length()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();
-            dcbid.setError("This data is Required!");    // Set Error on last radio button
+        if(!dataFlag) {
+            if (dcbid.getText().length() == MainApp.fc.getDSSID().length()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();
+                dcbid.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dcbid: This data is Required!");
-            return false;
-        } else {
-            dcbid.setError(null);
+                Log.i(TAG, "dcbid: This data is Required!");
+                return false;
+            } else {
+                dcbid.setError(null);
+            }
         }
 
         // ===================== Relation with HH ==============
@@ -958,16 +958,18 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
                 dcbid.setError(null);
             }
 
-            char m = dcbbmid.getText().toString().charAt(10);
-            if (m != dcbid.getText().toString().charAt(10)) {
-                dcbid.setError("Not match with Mother ID");
+            if (dcbm03.isChecked()) {
+                char m = dcbbmid.getText().toString().charAt(10);
+                if (m != dcbid.getText().toString().charAt(10)) {
+                    Toast.makeText(this, "ERROR(Invalid): Mother ID not match", Toast.LENGTH_SHORT).show();
+                    dcbid.setError("Not match with Mother ID");
 
-                Log.i(TAG, "dcbid: Not match with Mother ID.");
-                return false;
-            } else {
-                dcbid.setError(null);
+                    Log.i(TAG, "dcbid: Not match with Mother ID.");
+                    return false;
+                } else {
+                    dcbid.setError(null);
+                }
             }
-
         }
 
 //        }
