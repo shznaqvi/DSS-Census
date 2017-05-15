@@ -235,6 +235,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
         setContentView(R.layout.activity_section_b);
         ButterKnife.bind(this);
 
+
+
         Calendar cal = Calendar.getInstance();
         dcbg.setMaxDate(new Date().getTime());
         dcbidob.setMaxDate(new Date().getTime());
@@ -276,6 +278,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
         dataFlag = getIntent().getBooleanExtra("dataFlag", false);
 
         if (dataFlag) {
+
+            MainApp.memFlag++;
 
             position = getIntent().getExtras().getInt("position");
 
@@ -606,8 +610,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
 
 //        Check Member Flag
 
-                MainApp.memFlag++;
-
+                if (!dataFlag) {
+                    MainApp.memFlag++;
+                }
                 if (!dcbis05.isChecked()) {
 
                     if (!dataFlag) {

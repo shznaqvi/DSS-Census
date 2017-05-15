@@ -1601,13 +1601,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(MotherTB.COLUMN_SL, MainApp.mc.getsL());
+        values.put(singleForm.COLUMN_SL, MainApp.fc.getsL());
 
 // Which row to update, based on the ID
-        String selection = MotherTB.COLUMN_ID + " = ?";
-        String[] selectionArgs = {String.valueOf(MainApp.mc.get_ID())};
+        String selection = singleForm.COLUMN_ID + " = ?";
+        String[] selectionArgs = {String.valueOf(MainApp.fc.get_ID())};
 
-        int count = db.update(MotherTB.TABLE_NAME,
+        int count = db.update(singleForm.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -1619,13 +1619,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(MotherTB.COLUMN_SM, MainApp.mc.getsM());
+        values.put(singleForm.COLUMN_SM, MainApp.fc.getsM());
 
 // Which row to update, based on the ID
-        String selection = MotherTB.COLUMN_ID + " = ?";
-        String[] selectionArgs = {String.valueOf(MainApp.mc.get_ID())};
+        String selection = singleForm.COLUMN_ID + " = ?";
+        String[] selectionArgs = {String.valueOf(MainApp.fc.get_ID())};
 
-        int count = db.update(MotherTB.TABLE_NAME,
+        int count = db.update(singleForm.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
