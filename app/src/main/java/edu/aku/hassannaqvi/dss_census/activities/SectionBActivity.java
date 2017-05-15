@@ -235,10 +235,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
         setContentView(R.layout.activity_section_b);
         ButterKnife.bind(this);
 
-//        Check Member Flag
-
-        MainApp.memFlag++;
-
         Calendar cal = Calendar.getInstance();
         dcbg.setMaxDate(new Date().getTime());
         dcbidob.setMaxDate(new Date().getTime());
@@ -571,9 +567,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
 //            }
 //            if (UpdateDB()) {
 
-        if (!dataFlag) {
-            MainApp.currentStatusCount += 1;
-        }
+//        if (!dataFlag) {
+//            MainApp.currentStatusCount += 1;
+//        }
 
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
 
@@ -607,6 +603,10 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
 //                        dcbid.getText().toString()));
 
                 finish();
+
+//        Check Member Flag
+
+                MainApp.memFlag++;
 
                 if (!dcbis05.isChecked()) {
 
