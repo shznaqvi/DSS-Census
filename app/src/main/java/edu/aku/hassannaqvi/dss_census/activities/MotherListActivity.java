@@ -70,6 +70,18 @@ public class MotherListActivity extends Activity {
         startActivity(endSec);
     }
 
+
+    @OnClick(R.id.btn_continue) void onBtnContinueClick() {
+        //TODO implement
+        Toast.makeText(this, "Next Section", Toast.LENGTH_SHORT).show();
+        finish();
+        if (MainApp.totalChild > 0) {
+            startActivity(new Intent(this, SectionKActivity.class));
+        }else {
+            startActivity(new Intent(this, SectionLActivity.class));
+        }
+    }
+
     public class listAdapter extends ArrayAdapter {
 
         ArrayList<MothersLst> list = new ArrayList<>();
