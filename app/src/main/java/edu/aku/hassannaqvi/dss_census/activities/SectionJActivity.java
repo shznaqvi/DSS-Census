@@ -24,27 +24,43 @@ import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
-public class SectionJActivity extends Activity  {
+public class SectionJActivity extends Activity {
 
     private static final String TAG = SectionJActivity.class.getSimpleName();
 
 
-    @BindView(R.id.dcj01) RadioGroup dcj01;
-    @BindView(R.id.dcj0101) RadioButton dcj0101;
-    @BindView(R.id.dcj0102) RadioButton dcj0102;
-    @BindView(R.id.dcj0199) RadioButton dcj0199;
-    @BindView(R.id.dcj02) RadioGroup dcj02;
-    @BindView(R.id.dcj0201) RadioButton dcj0201;
-    @BindView(R.id.dcj0202) RadioButton dcj0202;
-    @BindView(R.id.dcj0299) RadioButton dcj0299;
-    @BindView(R.id.dcj03) RadioGroup dcj03;
-    @BindView(R.id.dcj0301) RadioButton dcj0301;
-    @BindView(R.id.dcj0302) RadioButton dcj0302;
-    @BindView(R.id.dcj0399) RadioButton dcj0399;
-    @BindView(R.id.dcj04) RadioGroup dcj04;
-    @BindView(R.id.dcj0401) RadioButton dcj0401;
-    @BindView(R.id.dcj0402) RadioButton dcj0402;
-    @BindView(R.id.dcj0499) RadioButton dcj0499;
+    @BindView(R.id.dcj01)
+    RadioGroup dcj01;
+    @BindView(R.id.dcj0101)
+    RadioButton dcj0101;
+    @BindView(R.id.dcj0102)
+    RadioButton dcj0102;
+    @BindView(R.id.dcj0199)
+    RadioButton dcj0199;
+    @BindView(R.id.dcj02)
+    RadioGroup dcj02;
+    @BindView(R.id.dcj0201)
+    RadioButton dcj0201;
+    @BindView(R.id.dcj0202)
+    RadioButton dcj0202;
+    @BindView(R.id.dcj0299)
+    RadioButton dcj0299;
+    @BindView(R.id.dcj03)
+    RadioGroup dcj03;
+    @BindView(R.id.dcj0301)
+    RadioButton dcj0301;
+    @BindView(R.id.dcj0302)
+    RadioButton dcj0302;
+    @BindView(R.id.dcj0399)
+    RadioButton dcj0399;
+    @BindView(R.id.dcj04)
+    RadioGroup dcj04;
+    @BindView(R.id.dcj0401)
+    RadioButton dcj0401;
+    @BindView(R.id.dcj0402)
+    RadioButton dcj0402;
+    @BindView(R.id.dcj0499)
+    RadioButton dcj0499;
     @BindView(R.id.dcj05)
     RadioGroup dcj05;
     @BindView(R.id.dcj0501)
@@ -77,10 +93,14 @@ public class SectionJActivity extends Activity  {
     CheckBox dcj0696;
     @BindView(R.id.dcj0696x)
     EditText dcj0696x;
-    @BindView(R.id.dcj07) RadioGroup dcj07;
-    @BindView(R.id.dcj0701) RadioButton dcj0701;
-    @BindView(R.id.dcj0702) RadioButton dcj0702;
-    @BindView(R.id.dcj0799) RadioButton dcj0799;
+    @BindView(R.id.dcj07)
+    RadioGroup dcj07;
+    @BindView(R.id.dcj0701)
+    RadioButton dcj0701;
+    @BindView(R.id.dcj0702)
+    RadioButton dcj0702;
+    @BindView(R.id.dcj0799)
+    RadioButton dcj0799;
     @BindView(R.id.dcj08)
     RadioGroup dcj08;
     @BindView(R.id.dcj0801)
@@ -95,14 +115,22 @@ public class SectionJActivity extends Activity  {
     EditText dcj0902;
     @BindView(R.id.dcj0903)
     EditText dcj0903;
-    @BindView(R.id.dcj10) RadioGroup dcj10;
-    @BindView(R.id.dcj1001) RadioButton dcj1001;
-    @BindView(R.id.dcj1002) RadioButton dcj1002;
-    @BindView(R.id.dcj1099) RadioButton dcj1099;
-    @BindView(R.id.dcj11) RadioGroup dcj11;
-    @BindView(R.id.dcj1101) RadioButton dcj1101;
-    @BindView(R.id.dcj1102) RadioButton dcj1102;
-    @BindView(R.id.dcj1199) RadioButton dcj1199;
+    @BindView(R.id.dcj10)
+    RadioGroup dcj10;
+    @BindView(R.id.dcj1001)
+    RadioButton dcj1001;
+    @BindView(R.id.dcj1002)
+    RadioButton dcj1002;
+    @BindView(R.id.dcj1099)
+    RadioButton dcj1099;
+    @BindView(R.id.dcj11)
+    RadioGroup dcj11;
+    @BindView(R.id.dcj1101)
+    RadioButton dcj1101;
+    @BindView(R.id.dcj1102)
+    RadioButton dcj1102;
+    @BindView(R.id.dcj1199)
+    RadioButton dcj1199;
     @BindView(R.id.dcj12)
     RadioGroup dcj12;
     @BindView(R.id.dcj1201)
@@ -227,28 +255,20 @@ public class SectionJActivity extends Activity  {
         });
     }
 
-    @OnClick(R.id.btn_End) void onBtnEndClick() {
+    @OnClick(R.id.btn_End)
+    void onBtnEndClick() {
         //TODO implement
 
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
-        /*if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {*/
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-                Intent endSec = new Intent(this, EndingActivity.class);
-                endSec.putExtra("check", false);
-        startActivity(endSec);
-            /*} else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-        }*/
+        finish();
+//        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+//        Intent endSec = new Intent(this, EndingActivity.class);
+//        endSec.putExtra("check", false);
+//        startActivity(endSec);
     }
 
-    @OnClick(R.id.btn_Continue) void onBtnContinueClick() {
+    @OnClick(R.id.btn_Continue)
+    void onBtnContinueClick() {
 
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {
@@ -261,10 +281,11 @@ public class SectionJActivity extends Activity  {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
+                finish();
 
                 if (MainApp.totalChild > 0) {
                     startActivity(new Intent(this, SectionKActivity.class));
-                }else {
+                } else {
                     startActivity(new Intent(this, SectionLActivity.class));
                 }
 
@@ -382,7 +403,6 @@ public class SectionJActivity extends Activity  {
         } else {
             dcj0899.setError(null);
         }
-
 
 
 //        09
@@ -503,6 +523,11 @@ public class SectionJActivity extends Activity  {
         }
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 
 }

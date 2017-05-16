@@ -63,6 +63,7 @@ public class MainApp extends Application {
     public static String areaCode;
 //    Total No of members got from Section A
     public static int NoMembersCount = 0;
+    public static int TotalMembersCount = 0;
 //    Total No of Alive members got from Section B
     public static int currentStatusCount = 0;
     public static List<deadMemberClass> deadMembers = new ArrayList<deadMemberClass>();

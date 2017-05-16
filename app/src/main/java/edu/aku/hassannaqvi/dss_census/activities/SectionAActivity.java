@@ -350,7 +350,7 @@ public class SectionAActivity extends Activity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (dca0903.isChecked()) {
                     fldGrpdca0901.setVisibility(View.VISIBLE);
-                    fldGrpdca10.setVisibility(View.VISIBLE);
+                    fldGrpdca10.setVisibility(View.GONE);
                 } else if (dca0902.isChecked()) {
                     fldGrpdca0901.setVisibility(View.GONE);
                     fldGrpdca10.setVisibility(View.VISIBLE);
@@ -575,6 +575,8 @@ public class SectionAActivity extends Activity {
 //                flag = true;
 
                 MainApp.currentStatusCount = MainApp.familyMembersList.size();
+
+                MainApp.TotalMembersCount = MainApp.familyMembersList.size();
 
                 checkMembers.setEnabled(true);
 
@@ -982,7 +984,32 @@ public class SectionAActivity extends Activity {
 
 //        16
 
-            if (dca0902.isChecked() || dca0903.isChecked()) {
+            if (dca0902.isChecked()) {
+
+                if (dca10a.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca10a), Toast.LENGTH_SHORT).show();
+                    dca10a.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "dca10a: This data is Required!");
+                    return false;
+                } else {
+                    dca10a.setError(null);
+                }
+
+//        18
+                if (dca10b.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca10b), Toast.LENGTH_SHORT).show();
+                    dca10b.setError("This data is Required!");    // Set Error on last radio button
+
+                    Log.i(TAG, "dca10b: This data is Required!");
+                    return false;
+                } else {
+                    dca10b.setError(null);
+                }
+
+            }
+
+            if (dca0903.isChecked()) {
                 if (dca09m.getText().toString().isEmpty()) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca09m), Toast.LENGTH_SHORT).show();
                     dca09m.setError("This data is Required!");    // Set Error on last radio button
@@ -1006,28 +1033,6 @@ public class SectionAActivity extends Activity {
                 } else {
                     dca09y.setError(null);
                 }
-
-                if (dca10a.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca10a), Toast.LENGTH_SHORT).show();
-                    dca10a.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "dca10a: This data is Required!");
-                    return false;
-                } else {
-                    dca10a.setError(null);
-                }
-
-//        18
-                if (dca10b.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca10b), Toast.LENGTH_SHORT).show();
-                    dca10b.setError("This data is Required!");    // Set Error on last radio button
-
-                    Log.i(TAG, "dca10b: This data is Required!");
-                    return false;
-                } else {
-                    dca10b.setError(null);
-                }
-
             }
 
 //        17

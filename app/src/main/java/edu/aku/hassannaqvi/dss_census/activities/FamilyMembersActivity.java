@@ -136,6 +136,8 @@ public class FamilyMembersActivity extends Activity {
 
 //        MainApp.memFlag++;
 
+        MainApp.memClicked.add(MainApp.TotalMembersCount++);
+
         startActivity(new Intent(this, SectionBActivity.class).putExtra("dataFlag", false));
 
     }
@@ -285,6 +287,11 @@ public class FamilyMembersActivity extends Activity {
                 year = (TextView) view.findViewById(R.id.year);
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 
 }

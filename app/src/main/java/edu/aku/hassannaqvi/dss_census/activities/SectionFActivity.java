@@ -299,22 +299,13 @@ public class SectionFActivity extends Activity {
     void onBtnEndClick() {
         //TODO implement
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
-        /*if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {*/
+
         finish();
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-                Intent endSec = new Intent(this, EndingActivity.class);
-                endSec.putExtra("check", false);
-        startActivity(endSec);
-            /*} else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-        }*/
+//        Intent endSec = new Intent(this, EndingActivity.class);
+//        endSec.putExtra("check", false);
+//        startActivity(endSec);
+
     }
 
     @OnClick(R.id.btn_Continue)
@@ -409,9 +400,6 @@ public class SectionFActivity extends Activity {
         } else {
             dcf0202.setError(null);
         }
-
-
-
 
 
 //        02-03
@@ -676,15 +664,15 @@ public class SectionFActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        SharedPreferences sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
-        MainApp.mc =new MotherContract();
+        MainApp.mc = new MotherContract();
 
         MainApp.mc.set_UUID(MainApp.fc.getUID());
         MainApp.mc.setFormDate(MainApp.fc.getFormDate());
         MainApp.mc.setDeviceId(MainApp.fc.getDeviceID());
         MainApp.mc.setUser(MainApp.fc.getUser());
-        MainApp.mc.setDevicetagID(sharedPref.getString("tagName",null));
+        MainApp.mc.setDevicetagID(sharedPref.getString("tagName", null));
         MainApp.mc.setChildID(MainApp.lstMothers.get(MainApp.position).getChild_id());
         MainApp.mc.setMotherID(MainApp.lstMothers.get(MainApp.position).getMother_id());
         MainApp.mc.setDssID(MainApp.fc.getDSSID());
@@ -826,6 +814,11 @@ public class SectionFActivity extends Activity {
             return false;
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 
 }

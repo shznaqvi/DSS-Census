@@ -31,6 +31,8 @@ public class MotherListActivity extends Activity {
     @BindView(R.id.motherList)
     ListView motherList;
 
+    Boolean flag = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,7 +115,9 @@ public class MotherListActivity extends Activity {
                 @Override
                 public void onClick(View view) {
 
-                    finish();
+//                    finish();
+
+                    flag = true;
 
                     motherList.getChildAt(position).setEnabled(false);
                     motherList.getChildAt(position).setBackgroundColor(getResources().getColor(R.color.gray));
@@ -129,6 +133,11 @@ public class MotherListActivity extends Activity {
 
             return v;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 
 
