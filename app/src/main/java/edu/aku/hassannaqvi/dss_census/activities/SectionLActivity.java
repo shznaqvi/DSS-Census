@@ -194,6 +194,242 @@ public class SectionLActivity extends Activity  {
         setContentView(R.layout.activity_section_l);
         ButterKnife.bind(this);
 
+        dcl01am.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02am.setEnabled(false);
+                    dcl02am.setChecked(false);
+                } else {
+                    dcl02am.setEnabled(true);
+
+                }
+            }
+        });
+
+        dcl01ac.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02ac.setEnabled(false);
+                    dcl02ac.setChecked(false);
+
+                } else {
+                    dcl02ac.setEnabled(true);
+                }
+            }
+        });
+
+        dcl01bm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02bm.setEnabled(false);
+                    dcl02bm.setChecked(false);
+                } else {
+                    dcl02bm.setEnabled(true);
+
+                }
+            }
+        });
+
+        dcl01bc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02bc.setEnabled(false);
+                    dcl02bc.setChecked(false);
+
+                } else {
+                    dcl02bc.setEnabled(true);
+                }
+            }
+        });
+
+        dcl01cm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02cm.setEnabled(false);
+                    dcl02cm.setChecked(false);
+                } else {
+                    dcl02cm.setEnabled(true);
+
+                }
+            }
+        });
+
+        dcl01cc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02cc.setEnabled(false);
+                    dcl02cc.setChecked(false);
+
+                } else {
+                    dcl02cc.setEnabled(true);
+                }
+            }
+        });
+
+        dcl01dm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02dm.setEnabled(false);
+                    dcl02dm.setChecked(false);
+                } else {
+                    dcl02dm.setEnabled(true);
+
+                }
+            }
+        });
+
+        dcl01dc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02dc.setEnabled(false);
+                    dcl02dc.setChecked(false);
+
+                } else {
+                    dcl02dc.setEnabled(true);
+                }
+            }
+        });
+
+        dcl01em.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02em.setEnabled(false);
+                    dcl02em.setChecked(false);
+                } else {
+                    dcl02em.setEnabled(true);
+
+                }
+            }
+        });
+
+        dcl01ec.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02ec.setEnabled(false);
+                    dcl02ec.setChecked(false);
+
+                } else {
+                    dcl02ec.setEnabled(true);
+                }
+            }
+        });
+
+        dcl01fm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02fm.setEnabled(false);
+                    dcl02fm.setChecked(false);
+                } else {
+                    dcl02fm.setEnabled(true);
+
+                }
+            }
+        });
+
+        dcl01fc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02fc.setEnabled(false);
+                    dcl02fc.setChecked(false);
+
+                } else {
+                    dcl02fc.setEnabled(true);
+                }
+            }
+        });
+
+        dcl01gm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02gm.setEnabled(false);
+                    dcl02gm.setChecked(false);
+                } else {
+                    dcl02gm.setEnabled(true);
+
+                }
+            }
+        });
+
+        dcl01gc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02gc.setEnabled(false);
+                    dcl02gc.setChecked(false);
+
+                } else {
+                    dcl02gc.setEnabled(true);
+                }
+            }
+        });
+
+        dcl01hm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02hm.setEnabled(false);
+                    dcl02hm.setChecked(false);
+                } else {
+                    dcl02hm.setEnabled(true);
+
+                }
+            }
+        });
+
+        dcl01hc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02hc.setEnabled(false);
+                    dcl02hc.setChecked(false);
+
+                } else {
+                    dcl02hc.setEnabled(true);
+                }
+            }
+        });
+
+        dcl01im.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02im.setEnabled(false);
+                    dcl02im.setChecked(false);
+                } else {
+                    dcl02im.setEnabled(true);
+
+                }
+            }
+        });
+
+        dcl01ic.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    dcl02ic.setEnabled(false);
+                    dcl02ic.setChecked(false);
+
+                } else {
+                    dcl02ic.setEnabled(true);
+                }
+            }
+        });
+
+
+
         // ============== A1 ==============
 
         dcl02am.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -633,17 +869,10 @@ public class SectionLActivity extends Activity  {
         Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
 
         // ================= Q1A / MotherTB =============
-        if (dcl02am.isChecked()) {
-            /*if (dcl02a1days.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
-                dcl02a1days.setError("This data is Required!");    // Set Error on last radio button
 
-                Log.i(TAG, "dcl02a1days: This data is Required!");
-                return false;
-            } else {
-                dcl02a1days.setError(null);
-            }
-*/
+
+        if (dcl02am.isChecked()) {
+
             if (dcl02a1fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
                 dcl02a1fr.setError("This data is Required!");    // Set Error on last radio button
@@ -653,9 +882,11 @@ public class SectionLActivity extends Activity  {
             } else {
                 dcl02a1fr.setError(null);
             }
-        }
+            }
+
 
         // ================ Q1A / Child ================
+
 
         if (dcl02ac.isChecked()) {
             /*if (dcl02a2days.getText().toString().isEmpty()) {
@@ -678,9 +909,11 @@ public class SectionLActivity extends Activity  {
                 dcl02a2fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1B / MotherTB ================
+
 
         if (dcl02bm.isChecked()) {
             /*if (dcl02b1days.getText().toString().isEmpty()) {
@@ -703,20 +936,13 @@ public class SectionLActivity extends Activity  {
                 dcl02b1fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1B / Child ================
 
-        if (dcl02bc.isChecked()) {
-            /*if (dcl02b2days.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
-                dcl02b2days.setError("This data is Required!");    // Set Error on last radio button
 
-                Log.i(TAG, "dcl02b2days: This data is Required!");
-                return false;
-            } else {
-                dcl02b2days.setError(null);
-            }*/
+        if (dcl02bc.isChecked()) {
 
             if (dcl02b2fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -728,9 +954,11 @@ public class SectionLActivity extends Activity  {
                 dcl02b2fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1C / MotherTB ================
+
 
         if (dcl02cm.isChecked()) {
             /*if (dcl02c1days.getText().toString().isEmpty()) {
@@ -753,9 +981,11 @@ public class SectionLActivity extends Activity  {
                 dcl02c1fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1C / Child ================
+
 
         if (dcl02cc.isChecked()) {
             /*if (dcl02c2days.getText().toString().isEmpty()) {
@@ -778,9 +1008,11 @@ public class SectionLActivity extends Activity  {
                 dcl02c2fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1D / MotherTB ================
+
 
         if (dcl02dm.isChecked()) {
             /*if (dcl02d1days.getText().toString().isEmpty()) {
@@ -803,20 +1035,14 @@ public class SectionLActivity extends Activity  {
                 dcl02d1fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1C / Child ================
 
-        if (dcl02dc.isChecked()) {
-            /*if (dcl02d2days.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
-                dcl02d2days.setError("This data is Required!");    // Set Error on last radio button
 
-                Log.i(TAG, "dcl02d2days: This data is Required!");
-                return false;
-            } else {
-                dcl02d2days.setError(null);
-            }*/
+        if (dcl02dc.isChecked()) {
+
 
             if (dcl02d2fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
@@ -828,9 +1054,11 @@ public class SectionLActivity extends Activity  {
                 dcl02d2fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1E / MotherTB ================
+
 
         if (dcl02em.isChecked()) {
            /* if (dcl02e1days.getText().toString().isEmpty()) {
@@ -853,34 +1081,25 @@ public class SectionLActivity extends Activity  {
                 dcl02e1fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1E / Child ================
 
-        if (dcl02ec.isChecked()) {
-            /*if (dcl02e2days.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
-                dcl02e2days.setError("This data is Required!");    // Set Error on last radio button
 
-                Log.i(TAG, "dcl02e2days: This data is Required!");
-                return false;
-            } else {
-                dcl02e2days.setError(null);
-            }*/
+        if (dcl02e2fr.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
+            dcl02e2fr.setError("This data is Required!");    // Set Error on last radio button
 
-            if (dcl02e2fr.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
-                dcl02e2fr.setError("This data is Required!");    // Set Error on last radio button
-
-                Log.i(TAG, "dcl02e2fr: This data is Required!");
-                return false;
-            } else {
-                dcl02e2fr.setError(null);
-            }
-
+            Log.i(TAG, "dcl02e2fr: This data is Required!");
+            return false;
+        } else {
+            dcl02e2fr.setError(null);
         }
 
+
         // ================ Q1C / MotherTB ================
+
 
         if (dcl02fm.isChecked()) {
            /* if (dcl02f1days.getText().toString().isEmpty()) {
@@ -903,9 +1122,11 @@ public class SectionLActivity extends Activity  {
                 dcl02f1fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1C / Child ================
+
 
         if (dcl02fc.isChecked()) {
             /*if (dcl02f2days.getText().toString().isEmpty()) {
@@ -928,21 +1149,15 @@ public class SectionLActivity extends Activity  {
                 dcl02f2fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1G / MotherTB ================
 
-        if (dcl02gm.isChecked()) {
-            /*if (dcl02g1days.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.days), Toast.LENGTH_SHORT).show();
-                dcl02g1days.setError("This data is Required!");    // Set Error on last radio button
 
-                Log.i(TAG, "dcl02g1days: This data is Required!");
-                return false;
-            } else {
-                dcl02g1days.setError(null);
-            }
-*/
+        if (dcl02gm.isChecked()) {
+
+
             if (dcl02g1fr.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
                 dcl02g1fr.setError("This data is Required!");    // Set Error on last radio button
@@ -953,9 +1168,11 @@ public class SectionLActivity extends Activity  {
                 dcl02g1fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1G / Child ================
+
 
         if (dcl02gc.isChecked()) {
             /*if (dcl02g2days.getText().toString().isEmpty()) {
@@ -978,9 +1195,11 @@ public class SectionLActivity extends Activity  {
                 dcl02g2fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1H / MotherTB ================
+
 
         if (dcl02hm.isChecked()) {
             /*if (dcl02h1days.getText().toString().isEmpty()) {
@@ -1003,9 +1222,11 @@ public class SectionLActivity extends Activity  {
                 dcl02h1fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1H / Child ================
+
 
         if (dcl02hc.isChecked()) {
             /*if (dcl02h2days.getText().toString().isEmpty()) {
@@ -1028,9 +1249,11 @@ public class SectionLActivity extends Activity  {
                 dcl02h2fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1I / MotherTB ================
+
 
         if (dcl02im.isChecked()) {
             /*if (dcl02i1days.getText().toString().isEmpty()) {
@@ -1053,9 +1276,11 @@ public class SectionLActivity extends Activity  {
                 dcl02i1fr.setError(null);
             }
 
-        }
+            }
+
 
         // ================ Q1I / Child ================
+
 
         if (dcl02ic.isChecked()) {
             /*if (dcl02i2days.getText().toString().isEmpty()) {
@@ -1078,7 +1303,8 @@ public class SectionLActivity extends Activity  {
                 dcl02i2fr.setError(null);
             }
 
-        }
+            }
+
 
         //======================== Q2A==================
         if (dcl03a.getText().toString().isEmpty()) {

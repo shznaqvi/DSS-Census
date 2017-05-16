@@ -111,6 +111,7 @@ public class SectionCActivity extends Activity {
 
     int position = 0;
     boolean dataFlag = false;
+    int ageInYears = 0;
 
 
     @Override
@@ -119,7 +120,7 @@ public class SectionCActivity extends Activity {
         setContentView(R.layout.activity_section_c);
         ButterKnife.bind(this);
         dccd.setMaxDate(new Date().getTime());
-        dccf.setMaxDate(new Date().getTime());
+        //dccf.setMaxDate(new Date().getTime());
         dccf.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
 
         position = getIntent().getExtras().getInt("position");
@@ -172,14 +173,15 @@ public class SectionCActivity extends Activity {
         dccc.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (dccc01.isChecked()) {
+                if (dccc02.isChecked()) {
+                    fldGrpdcch.setVisibility(View.VISIBLE);
+                } else {
                     fldGrpdcch.setVisibility(View.GONE);
                     dcch.clearCheck();
-                } else {
-                    fldGrpdcch.setVisibility(View.VISIBLE);
                 }
             }
         });
+
 
         dccbrhh96.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
