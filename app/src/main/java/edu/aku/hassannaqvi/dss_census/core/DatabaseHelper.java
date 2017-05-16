@@ -464,7 +464,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                singleMember.COLUMN_ID + " ASC";
+                singleMember.COLUMN_DSS_ID_MEMBER + " ASC";
 
         Collection<MembersContract> memList = new ArrayList<MembersContract>();
         try {

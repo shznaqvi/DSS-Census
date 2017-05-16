@@ -681,7 +681,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
         MainApp.cc.setDss_id_hh(MainApp.fc.getDSSID());
         MainApp.cc.setUser(MainApp.fc.getUser());
 
-        MainApp.cc.setSerialNo(String.valueOf(position));
+        MainApp.cc.setSerialNo(String.valueOf(position + 1));
 
         if (dataFlag) {
             MainApp.cc.setDss_id_h(MainApp.familyMembersList.get(position).getDss_id_h());

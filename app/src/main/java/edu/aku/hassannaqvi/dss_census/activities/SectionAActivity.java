@@ -38,6 +38,7 @@ import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
+import edu.aku.hassannaqvi.dss_census.otherClasses.MothersLst;
 
 
 public class SectionAActivity extends Activity {

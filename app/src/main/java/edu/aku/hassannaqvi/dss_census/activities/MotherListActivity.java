@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -30,8 +31,10 @@ public class MotherListActivity extends Activity {
     ScrollView scrollView01;
     @BindView(R.id.motherList)
     ListView motherList;
-
-    Boolean flag = false;
+    @BindView(R.id.btn_continue)
+    Button btn_continue;
+    @BindView(R.id.lblNoMother)
+    TextView lblNoMother;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,13 @@ public class MotherListActivity extends Activity {
             MainApp.lstMothers.add(new MothersLst(m));
         }
 
+        if (MainApp.lstMothers.size() == 0){
+            btn_continue.setEnabled(true);
+            lblNoMother.setVisibility(View.VISIBLE);
+        }else {
+            btn_continue.setEnabled(false);
+            lblNoMother.setVisibility(View.GONE);
+        }
 
         listAdapter motherAdapter = new listAdapter(this,android.R.layout.simple_list_item_1,MainApp.lstMothers);
 
@@ -103,7 +113,7 @@ public class MotherListActivity extends Activity {
             View v = view;
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = inflater.inflate(R.layout.lstview, null);
-            TextView mother_name = (TextView) v.findViewById(R.id.mother_name);
+            final TextView mother_name = (TextView) v.findViewById(R.id.mother_name);
             TextView child_name = (TextView) v.findViewById(R.id.child_name);
             TextView date_of_birth = (TextView) v.findViewById(R.id.date_of_birth);
 
@@ -117,10 +127,10 @@ public class MotherListActivity extends Activity {
 
 //                    finish();
 
-                    flag = true;
-
                     motherList.getChildAt(position).setEnabled(false);
                     motherList.getChildAt(position).setBackgroundColor(getResources().getColor(R.color.gray));
+
+                    btn_continue.setEnabled(true);
 
 //                Toast.makeText(getApplicationContext(),AppMain.currentParticipantName,Toast.LENGTH_LONG).show();
 //                Toast.makeText(getApplicationContext(),""+position,Toast.LENGTH_LONG).show();
