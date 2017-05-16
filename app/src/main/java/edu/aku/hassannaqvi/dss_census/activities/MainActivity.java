@@ -39,6 +39,8 @@ public class MainActivity extends Activity {
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
     @BindView(R.id.adminsec)
     LinearLayout adminsec;
+    @BindView(R.id.lblheader)
+    TextView lblheader;
     @BindView(R.id.recordSummary)
     TextView recordSummary;
     @BindView(R.id.areaCode)
@@ -59,6 +61,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+
+        lblheader.setText("Assigned to "+MainApp.regionDss+" Block");
+
 
         if (MainApp.admin) {
             adminsec.setVisibility(View.VISIBLE);
