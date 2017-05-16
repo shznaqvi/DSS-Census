@@ -28,6 +28,17 @@
                 android:text="Screened Mother List"
                 android:textSize="30sp" />
 
+            <TextView
+                android:id="@+id/lblNoMother"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="No Mother Found"
+                android:background="@color/dullBlack"
+                android:textSize="20sp" />
+
             <ListView
                 android:id="@+id/motherList"
                 android:layout_width="match_parent"
