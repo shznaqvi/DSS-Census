@@ -37,8 +37,8 @@ public class SectionFActivity extends Activity {
 
     private static final String TAG = SectionFActivity.class.getSimpleName();
 
-    @BindView(R.id.dcfa)
-    EditText dcfa;
+//    @BindView(R.id.dcfa)
+//    EditText dcfa;
     @BindView(R.id.dcf01)
     EditText dcf01;
     @BindView(R.id.dcf0201)
@@ -142,8 +142,8 @@ public class SectionFActivity extends Activity {
 
         MainApp.position = getIntent().getExtras().getInt("position");
 
-        dcfa.setText(MainApp.lstMothers.get(MainApp.position).getSerial());
-        dcfa.setEnabled(false);
+//        dcfa.setText(MainApp.lstMothers.get(MainApp.position).getSerialm());
+//        dcfa.setEnabled(false);
 
         dcfAgeDob.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -335,15 +335,15 @@ public class SectionFActivity extends Activity {
         Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
 
 //        A
-        if (dcfa.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcfa), Toast.LENGTH_SHORT).show();
-            dcfa.setError("This data is Required!");    // Set Error on last radio button
-
-            Log.i(TAG, "dcfa: This data is Required!");
-            return false;
-        } else {
-            dcfa.setError(null);
-        }
+//        if (dcfa.getText().toString().isEmpty()) {
+//            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcfa), Toast.LENGTH_SHORT).show();
+//            dcfa.setError("This data is Required!");    // Set Error on last radio button
+//
+//            Log.i(TAG, "dcfa: This data is Required!");
+//            return false;
+//        } else {
+//            dcfa.setError(null);
+//        }
 
 //        01
         if (dcf01.getText().toString().isEmpty()) {
@@ -682,7 +682,7 @@ public class SectionFActivity extends Activity {
         // Edit Text
 
 //        A
-        sF.put("dcfa", dcfa.getText().toString());
+        sF.put("dcfa", MainApp.lstMothers.get(MainApp.position).getSerialm());
 //        01
         sF.put("dcf01", dcf01.getText().toString());
 

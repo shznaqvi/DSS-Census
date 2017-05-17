@@ -7,7 +7,7 @@ import android.database.Cursor;
  */
 
 public class MothersLst {
-   String child_name, child_id, mother_name, mother_id, date_of_birth, serial;
+   String child_name, child_id, mother_name, mother_id, date_of_birth, serial, serialm;
 
     public String getChild_name() {
         return child_name;
@@ -33,6 +33,10 @@ public class MothersLst {
         return serial;
     }
 
+    public String getSerialm() {
+        return serialm;
+    }
+
     public MothersLst Hydrate(Cursor cursor) {
         this.child_name = cursor.getString(cursor.getColumnIndex("child_name"));
         this.child_id = cursor.getString(cursor.getColumnIndex("child_id"));
@@ -40,6 +44,7 @@ public class MothersLst {
         this.mother_id = cursor.getString(cursor.getColumnIndex("mother_id"));
         this.date_of_birth = cursor.getString(cursor.getColumnIndex("date_of_birth"));
         this.serial = cursor.getString(cursor.getColumnIndex("serial"));
+        this.serialm = cursor.getString(cursor.getColumnIndex("serialm"));
 
         return this;
     }
@@ -51,6 +56,7 @@ public class MothersLst {
         this.mother_id = m.mother_id;
         this.date_of_birth = m.date_of_birth;
         this.serial = m.serial;
+        this.serialm = m.serialm;
     }
 
     public MothersLst() {

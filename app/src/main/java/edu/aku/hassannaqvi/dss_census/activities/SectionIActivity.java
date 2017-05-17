@@ -43,10 +43,10 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
     RadioButton dci0201;
     @BindView(R.id.dci0202)
     RadioButton dci0202;
-    @BindView(R.id.dci03)
-    EditText dci03;
-    @BindView(R.id.dci04)
-    EditText dci04;
+//    @BindView(R.id.dci03)
+//    EditText dci03;
+//    @BindView(R.id.dci04)
+//    EditText dci04;
     @BindView(R.id.dci05)
     DatePicker dci05;
     @BindView(R.id.dci06)
@@ -588,8 +588,8 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
 
         sI.put("dci01", dci01.getText().toString());
         sI.put("dci02", dci0201.isChecked() ? "1" : dci0202.isChecked() ? "2" : "0");
-        sI.put("dci03", dci03.getText().toString());
-        sI.put("dci04", dci04.getText().toString());
+        sI.put("dci03", MainApp.lstMothers.get(MainApp.position).getSerial());
+        sI.put("dci04", MainApp.lstMothers.get(MainApp.position).getSerialm());
         sI.put("dci05", dob);
         sI.put("dci06", dci0601.isChecked() ? "1" : dci0602.isChecked() ? "2" : dci0699.isChecked() ? "99" : "0");
         sI.put("dci07d", dci07d.getText().toString());
@@ -665,24 +665,24 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         }
 
         // ====================== Q 3 ==============
-        if (dci03.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci03), Toast.LENGTH_SHORT).show();
-            dci03.setError("This data is Required!");
-            Log.i(TAG, "dci03: This data is Required!");
-            return false;
-        } else {
-            dci03.setError(null);
-        }
-
-        // ====================== Q 4 ==============
-        if (dci04.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci04), Toast.LENGTH_SHORT).show();
-            dci04.setError("This data is Required!");
-            Log.i(TAG, "dci05: This data is Required!");
-            return false;
-        } else {
-            dci04.setError(null);
-        }
+//        if (dci03.getText().toString().isEmpty()) {
+//            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci03), Toast.LENGTH_SHORT).show();
+//            dci03.setError("This data is Required!");
+//            Log.i(TAG, "dci03: This data is Required!");
+//            return false;
+//        } else {
+//            dci03.setError(null);
+//        }
+//
+//        // ====================== Q 4 ==============
+//        if (dci04.getText().toString().isEmpty()) {
+//            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci04), Toast.LENGTH_SHORT).show();
+//            dci04.setError("This data is Required!");
+//            Log.i(TAG, "dci05: This data is Required!");
+//            return false;
+//        } else {
+//            dci04.setError(null);
+//        }
 
         // ====================== Q 6 ==============
         if (dci06.getCheckedRadioButtonId() == -1) {

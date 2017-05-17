@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.dss_census.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -96,6 +97,7 @@ public class FamilyMembersActivity extends Activity {
 
                             MainApp.memClicked.add(position);
 
+                            recycler_noMembers.getChildAt(position).setBackgroundColor(Color.BLACK);
                             Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
                             i.putExtra("dataFlag", true);
                             i.putExtra("position", position);

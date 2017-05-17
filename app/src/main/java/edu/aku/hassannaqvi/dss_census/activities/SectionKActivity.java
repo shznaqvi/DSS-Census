@@ -292,7 +292,7 @@ public class SectionKActivity extends Activity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 position = i;
 
-                dckb.check(chm.get(position).equals("1") ? dckb01.getId() : dckb02.getId());
+                dckb.check(chm.get(position).getGender().equals("1") ? dckb01.getId() : dckb02.getId());
                 try {
 
                     dckdob01.setChecked(true);
