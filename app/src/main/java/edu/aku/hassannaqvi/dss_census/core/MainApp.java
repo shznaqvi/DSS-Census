@@ -81,6 +81,8 @@ public class MainApp extends Application {
     public static ArrayList<MothersLst> lstMothers;
     public static int position = 0;
     protected static LocationManager locationManager;
+
+    public static double selectedCHILD = 24;
     Location location;
 
     @Override

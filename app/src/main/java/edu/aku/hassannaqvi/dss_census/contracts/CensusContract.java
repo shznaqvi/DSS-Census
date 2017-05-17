@@ -58,6 +58,20 @@ public class CensusContract {
     public CensusContract() {
     }
 
+    public CensusContract(CensusContract cc){
+        this.dss_id_hh = cc.dss_id_hh;
+        this.dss_id_m = cc.dss_id_m;
+        this.dss_id_member = cc.dss_id_member;
+        this.name = cc.name;
+        this.dob = cc.dob;
+        this.ageY = cc.ageY;
+        this.ageM = cc.ageM;
+        this.ageD = cc.ageD;
+        this.gender = cc.gender;
+        this.member_type = cc.member_type;
+        this.serialNo = cc.serialNo;
+    }
+
     public String getProjectName() {
         return projectName;
     }

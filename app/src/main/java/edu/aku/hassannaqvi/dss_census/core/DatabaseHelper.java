@@ -273,6 +273,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String SQL_SELECT_MOTHER_BY_CHILD =
             "SELECT c.serial serial, c.name child_name, c.dss_id_member child_id, m.name mother_name, c.dss_id_member mother_id, c.dob date_of_birth FROM census C join census m on c.dss_id_m = m.dss_id_member where c.member_type =? and m.dss_id_hh =? group by mother_id order by substr(c.dob, 7) desc, substr(c.dob, 4,2) desc, substr(c.dob, 1,2) desc;";
+    private static final String SQL_SELECT_CHILD =
+            "SELECT * from census where member_type =? and dss_id_hh =?";
 
 
     private final String TAG = "DatabaseHelper";
@@ -505,6 +507,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
 
                 MothersLst mc = new MothersLst();
+                memList.add(mc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return memList;
+    }
+
+    public Collection<CensusContract> getChildFromMember(String dssID) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        // COLUMNS RETURNED: child_name, child_id, mother_name, mother_id, date_of_birth, serial
+        Collection<CensusContract> memList = new ArrayList<>();
+        try {
+
+            c = db.rawQuery(SQL_SELECT_CHILD, new String[]{"c", dssID});
+
+            while (c.moveToNext()) {
+                CensusContract mc = new CensusContract();
                 memList.add(mc.Hydrate(c));
             }
         } finally {
@@ -777,6 +804,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(singleForm.COLUMN_SYNCED, true);
         values.put(singleForm.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = singleForm.COLUMN_ID + " LIKE ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                singleForm.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateMotherCount(String memCount,String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(singleForm.COLUMN_SF, memCount);
 
 // Which row to update, based on the title
         String where = singleForm.COLUMN_ID + " LIKE ?";

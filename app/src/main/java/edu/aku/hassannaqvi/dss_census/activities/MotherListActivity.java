@@ -15,8 +15,13 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,36 +47,91 @@ public class MotherListActivity extends Activity {
         setContentView(R.layout.activity_mother_list);
         ButterKnife.bind(this);
 
-
         DatabaseHelper db = new DatabaseHelper(this);
+        try {
+            Collection<MothersLst> mo = db.getMotherByHousehold(MainApp.fc.getDSSID());
 
-        Collection<MothersLst> mo = db.getMotherByHousehold(MainApp.fc.getDSSID());
+            MainApp.lstMothers = new ArrayList<>();
 
-        MainApp.lstMothers = new ArrayList<>();
+            for (MothersLst m : mo) {
 
-        for (MothersLst m : mo){
+                Log.d("Mothers", String.valueOf(m));
 
-            Log.d("Mothers",String.valueOf(m));
+                if (checkChild(m.getDate_of_birth())) {
+                    MainApp.lstMothers.add(new MothersLst(m));
+                }
+            }
 
-            MainApp.lstMothers.add(new MothersLst(m));
+            if (MainApp.lstMothers.size() == 0) {
+                btn_continue.setEnabled(true);
+                lblNoMother.setVisibility(View.VISIBLE);
+            } else {
+                btn_continue.setEnabled(false);
+                lblNoMother.setVisibility(View.GONE);
+            }
+
+            MainApp.fc.setsF(String.valueOf(MainApp.lstMothers.size()));
+
+            db.updateMotherCount(MainApp.fc.getsF(), MainApp.fc.get_ID());
+
+            listAdapter motherAdapter = new listAdapter(this, android.R.layout.simple_list_item_1, MainApp.lstMothers);
+
+            motherList.setAdapter(motherAdapter);
+        } catch (Exception ex) {
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
-
-        if (MainApp.lstMothers.size() == 0){
-            btn_continue.setEnabled(true);
-            lblNoMother.setVisibility(View.VISIBLE);
-        }else {
-            btn_continue.setEnabled(false);
-            lblNoMother.setVisibility(View.GONE);
-        }
-
-        listAdapter motherAdapter = new listAdapter(this,android.R.layout.simple_list_item_1,MainApp.lstMothers);
-
-        motherList.setAdapter(motherAdapter);
 
     }
 
+    public Boolean checkChild(String dob) {
 
-    @OnClick(R.id.btn_End) void onBtnEndClick() {
+        try {
+            Date dt = new SimpleDateFormat("dd-MM-yy").parse(dob);
+            double current_age = ((new Date().getTime() - dt.getTime()) / 30.44) - 1;
+
+            if (monthsBetweenDates(dt,new Date()) < MainApp.selectedCHILD) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return true;
+
+    }
+
+    public int monthsBetweenDates(Date startDate, Date endDate){
+
+        Calendar start = Calendar.getInstance();
+        start.setTime(startDate);
+
+        Calendar end = Calendar.getInstance();
+        end.setTime(endDate);
+
+        int monthsBetween = 0;
+        int dateDiff = end.get(Calendar.DAY_OF_MONTH)-start.get(Calendar.DAY_OF_MONTH);
+
+        if(dateDiff<0) {
+            int borrrow = end.getActualMaximum(Calendar.DAY_OF_MONTH);
+            dateDiff = (end.get(Calendar.DAY_OF_MONTH)+borrrow)-start.get(Calendar.DAY_OF_MONTH);
+            monthsBetween--;
+
+            if(dateDiff>0) {
+                monthsBetween++;
+            }
+        }
+
+        monthsBetween += end.get(Calendar.MONTH)-start.get(Calendar.MONTH);
+        monthsBetween  += (end.get(Calendar.YEAR)-start.get(Calendar.YEAR))*12;
+        return monthsBetween;
+    }
+
+
+    @OnClick(R.id.btn_End)
+    void onBtnEndClick() {
         //TODO implement
 
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
@@ -83,13 +143,14 @@ public class MotherListActivity extends Activity {
     }
 
 
-    @OnClick(R.id.btn_continue) void onBtnContinueClick() {
+    @OnClick(R.id.btn_continue)
+    void onBtnContinueClick() {
         //TODO implement
         Toast.makeText(this, "Next Section", Toast.LENGTH_SHORT).show();
         finish();
         if (MainApp.totalChild > 0) {
             startActivity(new Intent(this, SectionKActivity.class));
-        }else {
+        } else {
             startActivity(new Intent(this, SectionLActivity.class));
         }
     }
@@ -136,7 +197,7 @@ public class MotherListActivity extends Activity {
 //                Toast.makeText(getApplicationContext(),""+position,Toast.LENGTH_LONG).show();
 
                     Intent cb = new Intent(getApplicationContext(), SectionFActivity.class);
-                    cb.putExtra("position",position);
+                    cb.putExtra("position", position);
                     startActivity(cb);
                 }
             });

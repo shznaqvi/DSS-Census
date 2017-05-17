@@ -199,7 +199,7 @@ public class MainActivity extends Activity {
     }
 
     public void openMembers(View v) {
-        Intent iMem = new Intent(this, FamilyMembersActivity.class);
+        Intent iMem = new Intent(this, MotherListActivity.class);
         startActivity(iMem);
     }
 

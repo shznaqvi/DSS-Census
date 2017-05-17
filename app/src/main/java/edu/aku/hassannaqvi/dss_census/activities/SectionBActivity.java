@@ -36,7 +36,7 @@ import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
-public class SectionBActivity extends Activity implements View.OnKeyListener {
+public class SectionBActivity extends Activity implements View.OnKeyListener, TextWatcher {
 
     private static final String TAG = SectionBActivity.class.getSimpleName();
 
@@ -265,14 +265,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
         });
 */
 
-        dcbid.setOnKeyListener(this);
-        dcbbfid.setOnKeyListener(this);
-        dcbbmid.setOnKeyListener(this);
-
-        dcbid.setInputType(InputType.TYPE_CLASS_NUMBER);
-        dcbbfid.setInputType(InputType.TYPE_CLASS_NUMBER);
-        dcbbmid.setInputType(InputType.TYPE_CLASS_NUMBER);
-
         dataFlag = getIntent().getBooleanExtra("dataFlag", false);
 
         if (dataFlag) {
@@ -291,8 +283,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
             Log.d(TAG, "onCreate: " + MainApp.familyMembersList.get(position).getDss_id_member());
             dcbid.setEnabled(false);
 
-            dcbbfid.setText(MainApp.familyMembersList.get(position).getDss_id_f().contains("null") ? MainApp.fc.getDSSID() : MainApp.familyMembersList.get(position).getDss_id_f());
-            dcbbmid.setText(MainApp.familyMembersList.get(position).getDss_id_m().contains("null") ? MainApp.fc.getDSSID() : MainApp.familyMembersList.get(position).getDss_id_m());
+            dcbbfid.setText(MainApp.familyMembersList.get(position).getDss_id_f());
+            dcbbmid.setText(MainApp.familyMembersList.get(position).getDss_id_m());
 
             if (!MainApp.familyMembersList.get(position).getM_status().contains("null")) {
 
@@ -342,14 +334,32 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
                 ((RadioButton) dcbm.getChildAt(mt.equals("mw") ? 0 : mt.equals("h") ? 1 : 2)).setChecked(true);
             }
 
+            dcbbfid.setEnabled(false);
+            dcbbmid.setEnabled(false);
+
         } else {
             dcba.setEnabled(true);
             dcbid.setEnabled(true);
+            dcbbfid.setEnabled(false);
+            dcbbmid.setEnabled(false);
+
+            dcbbfid.setText("null");
+            dcbbmid.setText("null");
+
+            dcbm04.setChecked(true);
 
             dcbid.setText(MainApp.fc.getDSSID());
-            dcbbfid.setText(MainApp.fc.getDSSID());
-            dcbbmid.setText(MainApp.fc.getDSSID());
 
+            dcbid.setOnKeyListener(SectionBActivity.this);
+            dcbid.addTextChangedListener(SectionBActivity.this);
+            dcbbfid.setOnKeyListener(SectionBActivity.this);
+            dcbbfid.addTextChangedListener(SectionBActivity.this);
+            dcbbmid.setOnKeyListener(SectionBActivity.this);
+            dcbbmid.addTextChangedListener(SectionBActivity.this);
+
+            dcbid.setInputType(InputType.TYPE_CLASS_NUMBER);
+            dcbbfid.setInputType(InputType.TYPE_CLASS_NUMBER);
+            dcbbmid.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         }
 
@@ -527,6 +537,81 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
                 }
             }
         });
+
+        dcbm.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                dcbid.setOnKeyListener(SectionBActivity.this);
+                dcbid.addTextChangedListener(SectionBActivity.this);
+
+                if (!dcbm03.isChecked()) {
+                    dcbbfid.setText("null");
+                    dcbbmid.setText("null");
+
+                    dcbbfid.setEnabled(false);
+                    dcbbmid.setEnabled(false);
+                }else if (dcbm04.isChecked()) {
+                    dcbbfid.setText("null");
+                    dcbbmid.setText("null");
+
+                    dcbbfid.setEnabled(false);
+                    dcbbmid.setEnabled(false);
+                } else {
+
+                    dcbbfid.setOnKeyListener(SectionBActivity.this);
+                    dcbbfid.addTextChangedListener(SectionBActivity.this);
+                    dcbbmid.setOnKeyListener(SectionBActivity.this);
+                    dcbbmid.addTextChangedListener(SectionBActivity.this);
+
+                    dcbid.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    dcbbfid.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    dcbbmid.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+                    dcbbfid.setEnabled(true);
+                    dcbbmid.setEnabled(true);
+
+                    dcbbfid.setText(MainApp.fc.getDSSID());
+                    dcbbmid.setText(MainApp.fc.getDSSID());
+                }
+            }
+        });
+    }
+
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        if (dcbid.getText().length() < MainApp.fc.getDSSID().length()) {
+            dcbid.setText(MainApp.fc.getDSSID());
+        }
+        else if (dcbbfid.getText().length() < MainApp.fc.getDSSID().length()) {
+            dcbbfid.setText(MainApp.fc.getDSSID());
+        }
+        else if (dcbbmid.getText().length() < MainApp.fc.getDSSID().length()) {
+            dcbbmid.setText(MainApp.fc.getDSSID());
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+
+        if (editable == dcbid.getEditableText()) {
+            if (dcbid.getText().length() == 0) {
+                dcbid.setText(MainApp.fc.getDSSID());
+            }
+        } else if (editable == dcbbfid.getEditableText()) {
+            if (dcbbfid.getText().length() == 0) {
+                dcbbfid.setText(MainApp.fc.getDSSID());
+            }
+        } else if (editable == dcbbmid.getEditableText()) {
+            if (dcbbmid.getText().length() == 0) {
+                dcbbmid.setText(MainApp.fc.getDSSID());
+            }
+        }
     }
 
     @Override
@@ -534,25 +619,24 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
         if (keyCode == KeyEvent.KEYCODE_DEL) {
             //do nothing
             if (view == dcbid) {
-                if (dcbid.getText().length() == (MainApp.fc.getDSSID().length())) {
+                if (dcbid.getText().length() == MainApp.fc.getDSSID().length()) {
 
                 } else {
                     return false;
                 }
             } else if (view == dcbbfid) {
-                if (dcbbfid.getText().length() == (MainApp.fc.getDSSID().length())) {
+                if (dcbbfid.getText().length() == MainApp.fc.getDSSID().length()) {
 
                 } else {
                     return false;
                 }
             } else if (view == dcbbmid) {
-                if (dcbbmid.getText().length() == (MainApp.fc.getDSSID().length())) {
+                if (dcbbmid.getText().length() == MainApp.fc.getDSSID().length()) {
 
                 } else {
                     return false;
                 }
             }
-
         }
         return true;
     }
@@ -561,30 +645,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
     void onBtnEndClick() {
 
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
-//        if (formValidation()) {
-//            try {
-//                SaveDraft();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//            if (UpdateDB()) {
-
-//        if (!dataFlag) {
-//            MainApp.currentStatusCount += 1;
-//        }
 
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-
-//        Intent end_intent = new Intent(this, EndingActivity.class);
-//        end_intent.putExtra("check", false);
-//        startActivity(end_intent);
-
         finish();
-
-//            } else {
-//                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-//            }
-//        }
 
     }
 
@@ -741,59 +804,10 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
                 : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : "0");
         MainApp.cc.setCurrent_statusX(dcbis06x.getText().toString());
         MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-        MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c": dcbm04.isChecked() ? "ot" : "0");
+        MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : dcbm04.isChecked() ? "ot" : "0");
         MainApp.cc.setRemarks(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
 
         Log.d(TAG, "SaveDraft: " + MainApp.cc.toJSONObject());
-
-        /*JSONObject sB = new JSONObject();
-
-        sB.put("dcba", dcba.getText().toString());
-        sB.put("dcbid", dcbid.getText().toString());
-        sB.put("dcbbrhh", dcbbrhh01.isChecked() ? "1" : dcbbrhh02.isChecked() ? "2" : dcbbrhh03.isChecked() ? "3"
-                : dcbbrhh04.isChecked() ? "4" : dcbbrhh05.isChecked() ? "5" : dcbbrhh06.isChecked() ? "6"
-                : dcbbrhh07.isChecked() ? "7" : dcbbrhh08.isChecked() ? "8" : dcbbrhh09.isChecked() ? "9" : dcbbrhh10.isChecked() ? "10"
-                : dcbbrhh11.isChecked() ? "11" : dcbbrhh99.isChecked() ? "99" : dcbbrhh88.isChecked() ? "88" : "0");
-        sB.put("dcbbfid", dcbbfid.getText().toString());
-        sB.put("dcbbmid", dcbbmid.getText().toString());
-        sB.put("dcbc", dcbc01.isChecked() ? "1" : dcbc02.isChecked() ? "2" : dcbc03.isChecked() ? "3"
-                : dcbc04.isChecked() ? "4" : dcbc88.isChecked() ? "88" : "0");
-
-        sB.put("dcbd", dcbd01.isChecked() ? "1" : dcbd02.isChecked() ? "2" : "0");
-        sB.put("dcbe", dcbe01.isChecked() ? "1" : dcbe02.isChecked() ? "2" : dcbe03.isChecked() ? "3"
-                : dcbe04.isChecked() ? "4" : dcbe05.isChecked() ? "5" : dcbe06.isChecked() ? "6"
-                : dcbe07.isChecked() ? "7" : dcbe08.isChecked() ? "8" : dcbe96.isChecked() ? "96"
-                : dcbe99.isChecked() ? "99" : dcbe88.isChecked() ? "88" : "0");
-        sB.put("dcbe96x", dcbe96x.getText().toString());
-        sB.put("dcbf", dcbf01.isChecked() ? "1" : dcbf02.isChecked() ? "2" : dcbf03.isChecked() ? "3"
-                : dcbf04.isChecked() ? "4" : dcbf05.isChecked() ? "5" : dcbf06.isChecked() ? "6"
-                : dcbf07.isChecked() ? "7" : dcbf08.isChecked() ? "8" : dcbf09.isChecked() ? "9"
-                : dcbf10.isChecked() ? "10" : dcbf11.isChecked() ? "11" : dcbf12.isChecked() ? "12"
-                : dcbf13.isChecked() ? "13" : dcbf14.isChecked() ? "14" : dcbf15.isChecked() ? "15"
-                : dcbf16.isChecked() ? "16" : dcbf17.isChecked() ? "17" : dcbf96.isChecked() ? "96"
-                : dcbf88.isChecked() ? "88" : "0");
-        sB.put("dcbf96x", dcbf96x.getText().toString());
-        sB.put("dcbg", new SimpleDateFormat("dd-MM-yyyy").format(dcbg.getCalendarView().getDate()));
-        sB.put("dcbhy", dcbhy.getText().toString());
-        sB.put("dcbhm", dcbhm.getText().toString());
-        sB.put("dcbhd", dcbhd.getText().toString());
-        sB.put("dcbis", dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
-                : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : "0");
-        sB.put("dcbis06x", dcbis06x.getText().toString());
-        *//*B.put("dcbidt",  dcbidt02.isChecked() ? "2" : dcbidt03.isChecked() ? "3"
-                : dcbidt04.isChecked() ? "4" : dcbidt05.isChecked() ? "5" : "0");*//*
-        sB.put("dcbidob", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-        *//*sB.put("dcbimid", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-        sB.put("dcbimod", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-        sB.put("dcbiimd", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-        sB.put("dcbidod", new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-*//*
-        sB.put("dcbir", dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
-        sB.put("dcbirm", dcbirm.getText().toString());
-        sB.put("dcbm", dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : "0");
-*/
-
-        //DCEApp.fc.setROW_Sb(String.valueOf(sb));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
@@ -849,7 +863,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
 
         //=============== ID =============
 
-        if(!dataFlag) {
+        if (!dataFlag) {
             if (dcbid.getText().length() == MainApp.fc.getDSSID().length()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();
                 dcbid.setError("This data is Required!");    // Set Error on last radio button
@@ -872,38 +886,40 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
             dcbbrhh99.setError(null);
         }
 
-        //============= Father ID ====================
 
-        if (dcbbfid.getText().length() == MainApp.fc.getDSSID().length()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbbfid), Toast.LENGTH_SHORT).show();
-            dcbbfid.setError("This data is Required!");    // Set Error on last radio button
+        if (dcbm03.isChecked()) {
+            //============= Father ID ====================
+            if (dcbbfid.getText().length() == MainApp.fc.getDSSID().length()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbbfid), Toast.LENGTH_SHORT).show();
+                dcbbfid.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dcbbfid: This data is Required!");
-            return false;
-        } else {
-            dcbbfid.setError(null);
-        }
+                Log.i(TAG, "dcbbfid: This data is Required!");
+                return false;
+            } else {
+                dcbbfid.setError(null);
+            }
 
-        if (dcbbfid.getText().length() != 12) {
-            Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dcbbfid), Toast.LENGTH_SHORT).show();
-            dcbbfid.setError("This data is Invalid!");    // Set Error on last radio button
+            if (dcbbfid.getText().length() != 12) {
+                Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dcbbfid), Toast.LENGTH_SHORT).show();
+                dcbbfid.setError("This data is Invalid!");    // Set Error on last radio button
 
-            Log.i(TAG, "dcbbfid: This data is Invalid!");
-            return false;
-        } else {
-            dcbbfid.setError(null);
-        }
+                Log.i(TAG, "dcbbfid: This data is Invalid!");
+                return false;
+            } else {
+                dcbbfid.setError(null);
+            }
 
-        // ============== MotherTB ID ===================
+            // ============== MotherTB ID ===================
 
-        if (dcbbmid.getText().length() == MainApp.fc.getDSSID().length()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbbmid), Toast.LENGTH_SHORT).show();
-            dcbbmid.setError("This data is Required!");    // Set Error on last radio button
+            if (dcbbmid.getText().length() == MainApp.fc.getDSSID().length()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbbmid), Toast.LENGTH_SHORT).show();
+                dcbbmid.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dcbbmid: This data is Required!");
-            return false;
-        } else {
-            dcbbmid.setError(null);
+                Log.i(TAG, "dcbbmid: This data is Required!");
+                return false;
+            } else {
+                dcbbmid.setError(null);
+            }
         }
 
         // ============== Marital Status ===================
@@ -959,15 +975,16 @@ public class SectionBActivity extends Activity implements View.OnKeyListener {
             }
 
             if (dcbm03.isChecked()) {
+
                 char m = dcbbmid.getText().toString().charAt(10);
                 if (m != dcbid.getText().toString().charAt(10)) {
-                    Toast.makeText(this, "ERROR(Invalid): Mother ID not match", Toast.LENGTH_SHORT).show();
-                    dcbid.setError("Not match with Mother ID");
+                    Toast.makeText(this, "ERROR(Invalid): Member ID not match", Toast.LENGTH_SHORT).show();
+                    dcbbmid.setError("Not match with Member ID");
 
-                    Log.i(TAG, "dcbid: Not match with Mother ID.");
+                    Log.i(TAG, "dcbbmid: Not match with Member ID.");
                     return false;
                 } else {
-                    dcbid.setError(null);
+                    dcbbmid.setError(null);
                 }
             }
         }
