@@ -1087,14 +1087,16 @@ public class SectionLActivity extends Activity  {
         // ================ Q1E / Child ================
 
 
-        if (dcl02e2fr.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
-            dcl02e2fr.setError("This data is Required!");    // Set Error on last radio button
+        if (dcl02ec.isChecked()) {
+            if (dcl02e2fr.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.Frequency), Toast.LENGTH_SHORT).show();
+                dcl02e2fr.setError("This data is Required!");    // Set Error on last radio button
 
-            Log.i(TAG, "dcl02e2fr: This data is Required!");
-            return false;
-        } else {
-            dcl02e2fr.setError(null);
+                Log.i(TAG, "dcl02e2fr: This data is Required!");
+                return false;
+            } else {
+                dcl02e2fr.setError(null);
+            }
         }
 
 
