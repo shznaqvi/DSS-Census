@@ -266,12 +266,11 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 */
 
         dataFlag = getIntent().getBooleanExtra("dataFlag", false);
+        position = getIntent().getExtras().getInt("position");
 
         if (dataFlag) {
 
             MainApp.memFlag++;
-
-            position = getIntent().getExtras().getInt("position");
 
 //            Log.d("Member fetched", String.valueOf(MainApp.familyMembersList.get(position)));
 

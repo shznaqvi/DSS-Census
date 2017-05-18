@@ -33,6 +33,8 @@ import edu.aku.hassannaqvi.dss_census.get.GetMembers;
 import edu.aku.hassannaqvi.dss_census.sync.SyncCensus;
 import edu.aku.hassannaqvi.dss_census.sync.SyncDeceased;
 import edu.aku.hassannaqvi.dss_census.sync.SyncForms;
+import edu.aku.hassannaqvi.dss_census.sync.SyncIM;
+import edu.aku.hassannaqvi.dss_census.sync.SyncMother;
 
 public class MainActivity extends Activity {
 
@@ -305,6 +307,12 @@ public class MainActivity extends Activity {
 
             Toast.makeText(getApplicationContext(), "Syncing Deceased", Toast.LENGTH_SHORT).show();
             new SyncDeceased(this).execute();
+
+            Toast.makeText(getApplicationContext(), "Syncing Mother", Toast.LENGTH_SHORT).show();
+            new SyncMother(this).execute();
+
+            Toast.makeText(getApplicationContext(), "Syncing IM", Toast.LENGTH_SHORT).show();
+            new SyncIM(this).execute();
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = syncPref.edit();

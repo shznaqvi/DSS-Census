@@ -220,14 +220,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             MotherTB.COLUMN_SI + " TEXT," +
             MotherTB.COLUMN_SJ + " TEXT," +
 //            MotherTB.COLUMN_SK + " TEXT," +
-            MotherTB.COLUMN_SL + " TEXT," +
-            MotherTB.COLUMN_SM + " TEXT," +
-            MotherTB.COLUMN_GPSLAT + " TEXT," +
-            MotherTB.COLUMN_GPSLNG + " TEXT," +
-            MotherTB.COLUMN_GPSDT + " TEXT," +
-            MotherTB.COLUMN_GPSACC + " TEXT," +
             MotherTB.COLUMN_DEVICEID + " TEXT," +
-            MotherTB.COLUMN_DEVICETAGID + " TEXT," +
             MotherTB.COLUMN_SYNCED + " TEXT," +
             MotherTB.COLUMN_SYNCED_DATE + " TEXT" +
 
@@ -245,12 +238,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleIm.COLUMN_CHILDID + " TEXT," +
             singleIm.COLUMN_MM + " TEXT," +
             singleIm.COLUMN_DSSID + " TEXT," +
-            singleIm.COLUMN_GPSLAT + " TEXT," +
-            singleIm.COLUMN_GPSLNG + " TEXT," +
-            singleIm.COLUMN_GPSDT + " TEXT," +
-            singleIm.COLUMN_GPSACC + " TEXT," +
             singleIm.COLUMN_DEVICEID + " TEXT," +
-            singleIm.COLUMN_DEVICETAGID + " TEXT," +
             singleIm.COLUMN_ISTATUS + " TEXT," +
             singleIm.COLUMN_SYNCED + " TEXT," +
             singleIm.COLUMN_SYNCED_DATE + " TEXT" +
@@ -608,14 +596,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(MotherTB.COLUMN_SI, mc.getsI());
         values.put(MotherTB.COLUMN_SJ, mc.getsJ());
 //        values.put(MotherTB.COLUMN_SK, mc.getsK());
-        values.put(MotherTB.COLUMN_SL, mc.getsL());
-        values.put(MotherTB.COLUMN_SM, mc.getsM());
-        values.put(MotherTB.COLUMN_GPSLAT, mc.getGpsLat());
-        values.put(MotherTB.COLUMN_GPSLNG, mc.getGpsLng());
-        values.put(MotherTB.COLUMN_GPSDT, mc.getGpsDT());
-        values.put(MotherTB.COLUMN_GPSACC, mc.getGpsAcc());
         values.put(MotherTB.COLUMN_DEVICEID, mc.getDeviceId());
-        values.put(MotherTB.COLUMN_DEVICETAGID, mc.getDevicetagID());
 
         // SYNCED INFORMATION IS NEVER INSERTED WITH NEW RECORD.
      /*   values.put(MotherTB.COLUMN_SYNCED, mc.getSynced());
@@ -652,12 +633,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(singleIm.COLUMN_MM, ims.getMm());
         //values.put(singleIm.COLUMN_CHILDID, ims.getChildID());
         values.put(singleIm.COLUMN_DSSID, ims.getDssID());
-        values.put(singleIm.COLUMN_GPSLAT, ims.getGpsLat());
-        values.put(singleIm.COLUMN_GPSLNG, ims.getGpsLng());
-        values.put(singleIm.COLUMN_GPSDT, ims.getGpsDT());
-        values.put(singleIm.COLUMN_GPSACC, ims.getGpsAcc());
-        values.put(singleIm.COLUMN_DEVICEID, ims.getDeviceID());
-        values.put(singleIm.COLUMN_DEVICETAGID, ims.getDevicetagID());
+        values.put(singleIm.COLUMN_DEVICEID, ims.getDeviceId());
 
 
         // Insert the new row, returning the primary key value of the new row
@@ -902,6 +878,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 where,
                 whereArgs);
     }
+    public void updateMother(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(MotherTB.COLUMN_SYNCED, true);
+        values.put(MotherTB.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = MotherTB.COLUMN_ID + " LIKE ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                MotherTB.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+    public void updateIM(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(singleIm.COLUMN_SYNCED, true);
+        values.put(singleIm.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = singleIm.COLUMN_ID + " LIKE ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                singleIm.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
 
     public int updateDeceasedID() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -1061,7 +1073,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Collection<MotherContract> getAllMothers() {
+    public Collection<MotherContract> getUnsyncedMother() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -1076,16 +1088,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 MotherTB.COLUMN_SI,
                 MotherTB.COLUMN_SJ,
 //                MotherTB.COLUMN_SK,
-                MotherTB.COLUMN_SL,
-                MotherTB.COLUMN_SM,
-                MotherTB.COLUMN_GPSLAT,
-                MotherTB.COLUMN_GPSLNG,
-                MotherTB.COLUMN_GPSDT,
-                MotherTB.COLUMN_GPSACC,
                 MotherTB.COLUMN_DEVICEID,
-                MotherTB.COLUMN_DEVICETAGID,
-                MotherTB.COLUMN_SYNCED,
-                MotherTB.COLUMN_SYNCED_DATE,
                 MotherTB.COLUMN_CHILDID,
                 MotherTB.COLUMN_DSSID,
                 MotherTB.COLUMN_ISTATUS,
@@ -1126,7 +1129,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Collection<SectionKIMContract> getAllChild() {
+    public Collection<SectionKIMContract> getUnsyncedIM() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -1139,14 +1142,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleIm.COLUMN_CHILDID,
                 singleIm.COLUMN_MM,
                 singleIm.COLUMN_DSSID,
-                singleIm.COLUMN_GPSLAT,
-                singleIm.COLUMN_GPSLNG,
-                singleIm.COLUMN_GPSDT,
-                singleIm.COLUMN_GPSACC,
                 singleIm.COLUMN_DEVICEID,
-                singleIm.COLUMN_DEVICETAGID,
-                singleIm.COLUMN_SYNCED,
-                singleIm.COLUMN_SYNCED_DATE,
                 singleIm.COLUMN_ISTATUS
 
         };

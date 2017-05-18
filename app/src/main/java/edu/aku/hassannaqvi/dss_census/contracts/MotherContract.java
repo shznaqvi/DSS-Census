@@ -27,14 +27,7 @@ public class MotherContract {
     private String sI = "";
     private String sJ = "";
     //private String sK = "";
-    private String sL = "";
-    private String sM = "";
-    private String gpsLat = "";
-    private String gpsLng = "";
-    private String gpsDT = "";
-    private String gpsAcc = "";
     private String deviceID = "";
-    private String devicetagID = "";
     private String synced = "";
     private String synced_date = "";
     private String istatus = "";
@@ -128,62 +121,6 @@ public class MotherContract {
         this.sK = sK;
     }*/
 
-    public String getsL() {
-        return sL;
-    }
-
-    public void setsL(String sL) {
-        this.sL = sL;
-    }
-
-    public String getsM() {
-        return sM;
-    }
-
-    public void setsM(String sM) {
-        this.sM = sM;
-    }
-
-    public String getGpsLat() {
-        return gpsLat;
-    }
-
-    public void setGpsLat(String gpsLat) {
-        this.gpsLat = gpsLat;
-    }
-
-    public String getGpsLng() {
-        return gpsLng;
-    }
-
-    public void setGpsLng(String gpsLng) {
-        this.gpsLng = gpsLng;
-    }
-
-    public String getGpsDT() {
-        return gpsDT;
-    }
-
-    public void setGpsDT(String gpsDT) {
-        this.gpsDT = gpsDT;
-    }
-
-    public String getGpsAcc() {
-        return gpsAcc;
-    }
-
-    public void setGpsAcc(String gpsAcc) {
-        this.gpsAcc = gpsAcc;
-    }
-
-    public String getDevicetagID() {
-        return devicetagID;
-    }
-
-    public void setDevicetagID(String devicetagID) {
-        this.devicetagID = devicetagID;
-    }
-
     public String getSynced() {
         return synced;
     }
@@ -261,14 +198,7 @@ public class MotherContract {
         this.sI = jsonObject.getString(MotherTB.COLUMN_SI);
         this.sJ = jsonObject.getString(MotherTB.COLUMN_SJ);
         //this.sK = jsonObject.getString(MotherTB.COLUMN_SK);
-        this.sL = jsonObject.getString(MotherTB.COLUMN_SL);
-        this.sM = jsonObject.getString(MotherTB.COLUMN_SM);
-        this.gpsLat = jsonObject.getString(MotherTB.COLUMN_GPSLAT);
-        this.gpsLng = jsonObject.getString(MotherTB.COLUMN_GPSLNG);
-        this.gpsDT = jsonObject.getString(MotherTB.COLUMN_GPSDT);
-        this.gpsAcc = jsonObject.getString(MotherTB.COLUMN_GPSACC);
         this.deviceID = jsonObject.getString(MotherTB.COLUMN_DEVICEID);
-        this.devicetagID = jsonObject.getString(MotherTB.COLUMN_DEVICETAGID);
         this.synced = jsonObject.getString(MotherTB.COLUMN_SYNCED);
         this.synced_date = jsonObject.getString(MotherTB.COLUMN_SYNCED_DATE);
 
@@ -295,14 +225,7 @@ public class MotherContract {
         this.sI = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SI));
         this.sJ = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SJ));
         //this.sK = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SK));
-        this.sL = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SL));
-        this.sM = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SM));
-        this.gpsLat = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_GPSLAT));
-        this.gpsLng = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_GPSLNG));
-        this.gpsDT = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_GPSDT));
-        this.gpsAcc = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_GPSACC));
         this.deviceID = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_DEVICEID));
-        this.devicetagID = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_DEVICETAGID));
         this.synced = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SYNCED));
         this.synced_date = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SYNCED_DATE));
 
@@ -332,14 +255,7 @@ public class MotherContract {
         json.put(MotherTB.COLUMN_SI, this.sI == null ? JSONObject.NULL : this.sI);
         json.put(MotherTB.COLUMN_SJ, this.sJ == null ? JSONObject.NULL : this.sJ);
         //json.put(MotherTB.COLUMN_SK, this.sK == null ? JSONObject.NULL : this.sK);
-        json.put(MotherTB.COLUMN_SL, this.sL == null ? JSONObject.NULL : this.sL);
-        json.put(MotherTB.COLUMN_SM, this.sM == null ? JSONObject.NULL : this.sM);
-        json.put(MotherTB.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
-        json.put(MotherTB.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
-        json.put(MotherTB.COLUMN_GPSDT, this.gpsDT == null ? JSONObject.NULL : this.gpsDT);
-        json.put(MotherTB.COLUMN_GPSACC, this.gpsAcc == null ? JSONObject.NULL : this.gpsAcc);
         json.put(MotherTB.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
-        json.put(MotherTB.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
         json.put(MotherTB.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
         json.put(MotherTB.COLUMN_SYNCED_DATE, this.synced_date == null ? JSONObject.NULL : this.synced_date);
 
@@ -368,14 +284,7 @@ public class MotherContract {
         public static final String COLUMN_SI = "si";
         public static final String COLUMN_SJ = "sj";
         //public static final String COLUMN_SK = "sk";
-        public static final String COLUMN_SL = "sl";
-        public static final String COLUMN_SM = "sm";
-        public static final String COLUMN_GPSLAT = "gpslat";
-        public static final String COLUMN_GPSLNG = "gpslng";
-        public static final String COLUMN_GPSDT = "gpsdt";
-        public static final String COLUMN_GPSACC = "gpsacc";
         public static final String COLUMN_DEVICEID = "deviceid";
-        public static final String COLUMN_DEVICETAGID = "devicetagid";
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
 

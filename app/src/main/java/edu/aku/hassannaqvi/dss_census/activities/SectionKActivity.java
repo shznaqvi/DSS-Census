@@ -400,7 +400,6 @@ public class SectionKActivity extends Activity {
         MainApp.ims.setFormDate(MainApp.fc.getFormDate());
         MainApp.ims.setDeviceId(MainApp.fc.getDeviceID());
         MainApp.ims.setUser(MainApp.fc.getUser());
-        MainApp.ims.setDevicetagID(sharedPref.getString("tagName", null));
         //MainApp.mc.setChildID(MainApp.lstMothers.get(MainApp.position).getChild_id());
         MainApp.ims.setMm(String.valueOf(MainApp.mm));
         MainApp.ims.setDssID(MainApp.fc.getDSSID());
@@ -459,45 +458,8 @@ public class SectionKActivity extends Activity {
 
         MainApp.ims.setsK(String.valueOf(sK));
 
-        setGPS();
-
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
-
     }
-
-    public void setGPS() {
-        SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
-
-//        String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
-
-        try {
-            String lat = GPSPref.getString("Latitude", "0");
-            String lang = GPSPref.getString("Longitude", "0");
-            String acc = GPSPref.getString("Accuracy", "0");
-            String dt = GPSPref.getString("Time", "0");
-
-            if (lat == "0" && lang == "0") {
-                Toast.makeText(this, "Could not obtained GPS points", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
-            }
-
-            String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
-
-            MainApp.mc.setGpsLat(GPSPref.getString("Latitude", "0"));
-            MainApp.mc.setGpsLng(GPSPref.getString("Longitude", "0"));
-            MainApp.mc.setGpsAcc(GPSPref.getString("Accuracy", "0"));
-//            AppMain.fc.setGpsTime(GPSPref.getString(date, "0")); // Timestamp is converted to date above
-            MainApp.mc.setGpsDT(date); // Timestamp is converted to date above
-
-            Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
-
-        } catch (Exception e) {
-            Log.e(TAG, "setGPS: " + e.getMessage());
-        }
-
-    }
-
 
     public boolean formValidation() {
         Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();

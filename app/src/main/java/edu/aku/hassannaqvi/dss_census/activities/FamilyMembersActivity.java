@@ -142,7 +142,7 @@ public class FamilyMembersActivity extends Activity {
 
         MainApp.memClicked.add(MainApp.TotalMembersCount++);
 
-        startActivity(new Intent(this, SectionBActivity.class).putExtra("dataFlag", false));
+        startActivity(new Intent(this, SectionBActivity.class).putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount - 1));
 
     }
 

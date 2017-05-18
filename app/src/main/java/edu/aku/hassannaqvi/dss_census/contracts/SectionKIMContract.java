@@ -23,12 +23,7 @@ public class SectionKIMContract {
     private String dssID = "";
     private String mm = "";
     private String sK = "";
-    private String gpsLat = "";
-    private String gpsLng = "";
-    private String gpsDT = "";
-    private String gpsAcc = "";
     private String deviceID = "";
-    private String devicetagID = "";
     private String synced = "";
     private String synced_date = "";
     private String istatus = "";
@@ -124,54 +119,6 @@ public class SectionKIMContract {
         this.sK = sK;
     }
 
-    public String getGpsLat() {
-        return gpsLat;
-    }
-
-    public void setGpsLat(String gpsLat) {
-        this.gpsLat = gpsLat;
-    }
-
-    public String getGpsLng() {
-        return gpsLng;
-    }
-
-    public void setGpsLng(String gpsLng) {
-        this.gpsLng = gpsLng;
-    }
-
-    public String getGpsDT() {
-        return gpsDT;
-    }
-
-    public void setGpsDT(String gpsDT) {
-        this.gpsDT = gpsDT;
-    }
-
-    public String getGpsAcc() {
-        return gpsAcc;
-    }
-
-    public void setGpsAcc(String gpsAcc) {
-        this.gpsAcc = gpsAcc;
-    }
-
-    public String getDeviceID() {
-        return deviceID;
-    }
-
-    public void setDeviceID(String deviceID) {
-        this.deviceID = deviceID;
-    }
-
-    public String getDevicetagID() {
-        return devicetagID;
-    }
-
-    public void setDevicetagID(String devicetagID) {
-        this.devicetagID = devicetagID;
-    }
-
     public String getSynced() {
         return synced;
     }
@@ -207,12 +154,7 @@ public class SectionKIMContract {
         //this.childID = jsonObject.getString(singleIm.COLUMN_CHILDID);
         this.mm = jsonObject.getString(singleIm.COLUMN_MM);
         this.dssID = jsonObject.getString(singleIm.COLUMN_DSSID);
-        this.gpsLat = jsonObject.getString(singleIm.COLUMN_GPSLAT);
-        this.gpsLng = jsonObject.getString(singleIm.COLUMN_GPSLNG);
-        this.gpsDT = jsonObject.getString(singleIm.COLUMN_GPSDT);
-        this.gpsAcc = jsonObject.getString(singleIm.COLUMN_GPSACC);
         this.deviceID = jsonObject.getString(singleIm.COLUMN_DEVICEID);
-        this.devicetagID = jsonObject.getString(singleIm.COLUMN_DEVICETAGID);
         this.synced = jsonObject.getString(singleIm.COLUMN_SYNCED);
         this.synced_date = jsonObject.getString(singleIm.COLUMN_SYNCED_DATE);
         this.istatus = jsonObject.getString(singleIm.COLUMN_ISTATUS);
@@ -231,12 +173,7 @@ public class SectionKIMContract {
         //this.childID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_CHILDID));
         this.mm = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_MM));
         this.dssID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_DSSID));
-        this.gpsLat = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_GPSLAT));
-        this.gpsLng = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_GPSLNG));
-        this.gpsDT = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_GPSDT));
-        this.gpsAcc = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_GPSACC));
         this.deviceID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_DEVICEID));
-        this.devicetagID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_DEVICETAGID));
         this.synced = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_SYNCED));
         this.synced_date = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_SYNCED_DATE));
         this.istatus = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_ISTATUS));
@@ -258,12 +195,7 @@ public class SectionKIMContract {
         //json.put(singleIm.COLUMN_CHILDID, this.childID == null ? JSONObject.NULL : this.childID);
         json.put(singleIm.COLUMN_MM, this.mm == null ? JSONObject.NULL : this.mm);
         json.put(singleIm.COLUMN_DSSID, this.dssID == null ? JSONObject.NULL : this.dssID);
-        json.put(singleIm.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
-        json.put(singleIm.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
-        json.put(singleIm.COLUMN_GPSDT, this.gpsDT == null ? JSONObject.NULL : this.gpsDT);
-        json.put(singleIm.COLUMN_GPSACC, this.gpsAcc == null ? JSONObject.NULL : this.gpsAcc);
         json.put(singleIm.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
-        json.put(singleIm.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
         json.put(singleIm.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
         json.put(singleIm.COLUMN_SYNCED_DATE, this.synced_date == null ? JSONObject.NULL : this.synced_date);
         json.put(singleIm.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
@@ -286,17 +218,12 @@ public class SectionKIMContract {
         public static final String COLUMN_CHILDID = "childid";
         public static final String COLUMN_MM = "mm";
         public static final String COLUMN_DSSID = "dssid";
-        public static final String COLUMN_GPSLAT = "gpslat";
-        public static final String COLUMN_GPSLNG = "gpslng";
-        public static final String COLUMN_GPSDT = "gpsdt";
-        public static final String COLUMN_GPSACC = "gpsacc";
         public static final String COLUMN_DEVICEID = "deviceid";
-        public static final String COLUMN_DEVICETAGID = "devicetagid";
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
         public static final String COLUMN_ISTATUS = "istatus";
 
-        //public static String _URL = "mother.php";
+        public static String _URL = "im.php";
 
     }
 }
