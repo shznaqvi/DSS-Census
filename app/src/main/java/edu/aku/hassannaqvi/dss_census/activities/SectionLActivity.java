@@ -23,29 +23,47 @@ import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
-public class SectionLActivity extends Activity  {
+public class SectionLActivity extends Activity {
 
     private static final String TAG = SectionLActivity.class.getSimpleName();
 
 
-    @BindView(R.id.dcl01am) CheckBox dcl01am;
-    @BindView(R.id.dcl01ac) CheckBox dcl01ac;
-    @BindView(R.id.dcl01bm) CheckBox dcl01bm;
-    @BindView(R.id.dcl01bc) CheckBox dcl01bc;
-    @BindView(R.id.dcl01cm) CheckBox dcl01cm;
-    @BindView(R.id.dcl01cc) CheckBox dcl01cc;
-    @BindView(R.id.dcl01dm) CheckBox dcl01dm;
-    @BindView(R.id.dcl01dc) CheckBox dcl01dc;
-    @BindView(R.id.dcl01em) CheckBox dcl01em;
-    @BindView(R.id.dcl01ec) CheckBox dcl01ec;
-    @BindView(R.id.dcl01fm) CheckBox dcl01fm;
-    @BindView(R.id.dcl01fc) CheckBox dcl01fc;
-    @BindView(R.id.dcl01gm) CheckBox dcl01gm;
-    @BindView(R.id.dcl01gc) CheckBox dcl01gc;
-    @BindView(R.id.dcl01hm) CheckBox dcl01hm;
-    @BindView(R.id.dcl01hc) CheckBox dcl01hc;
-    @BindView(R.id.dcl01im) CheckBox dcl01im;
-    @BindView(R.id.dcl01ic) CheckBox dcl01ic;
+    @BindView(R.id.dcl01am)
+    CheckBox dcl01am;
+    @BindView(R.id.dcl01ac)
+    CheckBox dcl01ac;
+    @BindView(R.id.dcl01bm)
+    CheckBox dcl01bm;
+    @BindView(R.id.dcl01bc)
+    CheckBox dcl01bc;
+    @BindView(R.id.dcl01cm)
+    CheckBox dcl01cm;
+    @BindView(R.id.dcl01cc)
+    CheckBox dcl01cc;
+    @BindView(R.id.dcl01dm)
+    CheckBox dcl01dm;
+    @BindView(R.id.dcl01dc)
+    CheckBox dcl01dc;
+    @BindView(R.id.dcl01em)
+    CheckBox dcl01em;
+    @BindView(R.id.dcl01ec)
+    CheckBox dcl01ec;
+    @BindView(R.id.dcl01fm)
+    CheckBox dcl01fm;
+    @BindView(R.id.dcl01fc)
+    CheckBox dcl01fc;
+    @BindView(R.id.dcl01gm)
+    CheckBox dcl01gm;
+    @BindView(R.id.dcl01gc)
+    CheckBox dcl01gc;
+    @BindView(R.id.dcl01hm)
+    CheckBox dcl01hm;
+    @BindView(R.id.dcl01hc)
+    CheckBox dcl01hc;
+    @BindView(R.id.dcl01im)
+    CheckBox dcl01im;
+    @BindView(R.id.dcl01ic)
+    CheckBox dcl01ic;
     @BindView(R.id.dcl02am)
     CheckBox dcl02am;
     @BindView(R.id.fldGrpa1)
@@ -164,16 +182,26 @@ public class SectionLActivity extends Activity  {
     EditText dcl03d;
     @BindView(R.id.dcl03e)
     EditText dcl03e;
-    @BindView(R.id.dcl04) RadioGroup dcl04;
-    @BindView(R.id.dcl0488) RadioButton dcl0488;
-    @BindView(R.id.dcl0401) RadioButton dcl0401;
-    @BindView(R.id.dcl0402) RadioButton dcl0402;
-    @BindView(R.id.dcl0403) RadioButton dcl0403;
-    @BindView(R.id.dcl05) RadioGroup dcl05;
-    @BindView(R.id.dcl0588) RadioButton dcl0588;
-    @BindView(R.id.dcl0501) RadioButton dcl0501;
-    @BindView(R.id.dcl0502) RadioButton dcl0502;
-    @BindView(R.id.dcl0503) RadioButton dcl0503;
+    @BindView(R.id.dcl04)
+    RadioGroup dcl04;
+    @BindView(R.id.dcl0488)
+    RadioButton dcl0488;
+    @BindView(R.id.dcl0401)
+    RadioButton dcl0401;
+    @BindView(R.id.dcl0402)
+    RadioButton dcl0402;
+    @BindView(R.id.dcl0403)
+    RadioButton dcl0403;
+    @BindView(R.id.dcl05)
+    RadioGroup dcl05;
+    @BindView(R.id.dcl0588)
+    RadioButton dcl0588;
+    @BindView(R.id.dcl0501)
+    RadioButton dcl0501;
+    @BindView(R.id.dcl0502)
+    RadioButton dcl0502;
+    @BindView(R.id.dcl0503)
+    RadioButton dcl0503;
     @BindView(R.id.dcl06)
     RadioGroup dcl06;
     @BindView(R.id.dcl0688)
@@ -184,8 +212,6 @@ public class SectionLActivity extends Activity  {
     RadioButton dcl0602;
     @BindView(R.id.dcl0603)
     RadioButton dcl0603;
-
-
 
 
     @Override
@@ -427,7 +453,6 @@ public class SectionLActivity extends Activity  {
                 }
             }
         });
-
 
 
         // ============== A1 ==============
@@ -709,30 +734,21 @@ public class SectionLActivity extends Activity  {
         });
     }
 
-    @OnClick(R.id.btn_End) void onBtnEndClick() {
+    @OnClick(R.id.btn_End)
+    void onBtnEndClick() {
 
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
-        /*if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {*/
-
-        finish();
 
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-                Intent endSec = new Intent(this, EndingActivity.class);
-                endSec.putExtra("check", false);
-        startActivity(endSec);
-            /*} else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-        }*/
+//        finish();
+//        Intent endSec = new Intent(this, EndingActivity.class);
+//        endSec.putExtra("check", false);
+//        startActivity(endSec);
+        MainApp.endActivity(this,this);
     }
 
-    @OnClick(R.id.btn_Continue) void onBtnContinueClick() {
+    @OnClick(R.id.btn_Continue)
+    void onBtnContinueClick() {
 
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {
@@ -742,11 +758,11 @@ public class SectionLActivity extends Activity  {
                 e.printStackTrace();
             }
             if (UpdateDB()) {
-        Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
-        finish();
+                finish();
 
-        startActivity(new Intent(this, SectionMActivity.class));
+                startActivity(new Intent(this, SectionMActivity.class));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -882,7 +898,7 @@ public class SectionLActivity extends Activity  {
             } else {
                 dcl02a1fr.setError(null);
             }
-            }
+        }
 
 
         // ================ Q1A / Child ================
@@ -909,7 +925,7 @@ public class SectionLActivity extends Activity  {
                 dcl02a2fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1B / MotherTB ================
@@ -936,7 +952,7 @@ public class SectionLActivity extends Activity  {
                 dcl02b1fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1B / Child ================
@@ -954,7 +970,7 @@ public class SectionLActivity extends Activity  {
                 dcl02b2fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1C / MotherTB ================
@@ -981,7 +997,7 @@ public class SectionLActivity extends Activity  {
                 dcl02c1fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1C / Child ================
@@ -1008,7 +1024,7 @@ public class SectionLActivity extends Activity  {
                 dcl02c2fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1D / MotherTB ================
@@ -1035,7 +1051,7 @@ public class SectionLActivity extends Activity  {
                 dcl02d1fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1C / Child ================
@@ -1054,7 +1070,7 @@ public class SectionLActivity extends Activity  {
                 dcl02d2fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1E / MotherTB ================
@@ -1081,7 +1097,7 @@ public class SectionLActivity extends Activity  {
                 dcl02e1fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1E / Child ================
@@ -1124,7 +1140,7 @@ public class SectionLActivity extends Activity  {
                 dcl02f1fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1C / Child ================
@@ -1151,7 +1167,7 @@ public class SectionLActivity extends Activity  {
                 dcl02f2fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1G / MotherTB ================
@@ -1170,7 +1186,7 @@ public class SectionLActivity extends Activity  {
                 dcl02g1fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1G / Child ================
@@ -1197,7 +1213,7 @@ public class SectionLActivity extends Activity  {
                 dcl02g2fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1H / MotherTB ================
@@ -1224,7 +1240,7 @@ public class SectionLActivity extends Activity  {
                 dcl02h1fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1H / Child ================
@@ -1251,7 +1267,7 @@ public class SectionLActivity extends Activity  {
                 dcl02h2fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1I / MotherTB ================
@@ -1278,7 +1294,7 @@ public class SectionLActivity extends Activity  {
                 dcl02i1fr.setError(null);
             }
 
-            }
+        }
 
 
         // ================ Q1I / Child ================
@@ -1305,7 +1321,7 @@ public class SectionLActivity extends Activity  {
                 dcl02i2fr.setError(null);
             }
 
-            }
+        }
 
 
         //======================== Q2A==================

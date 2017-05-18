@@ -652,8 +652,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
 
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        finish();
-
+//        finish();
+        MainApp.finishActivity(this,this);
     }
 
 

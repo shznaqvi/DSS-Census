@@ -271,7 +271,6 @@ public class SectionMActivity extends Activity {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
         }
-
     }
 
 
@@ -279,22 +278,13 @@ public class SectionMActivity extends Activity {
     void onBtnEndClick() {
 
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
-        /*if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {*/
-        finish();
         Toast.makeText(this, "Complete Sections", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, EndingActivity.class);
-        endSec.putExtra("check", false);
-        startActivity(endSec);
-            /*} else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-        }*/
+//        finish();
+//        Intent endSec = new Intent(this, EndingActivity.class);
+//        endSec.putExtra("check", false);
+//        startActivity(endSec);
+
+        MainApp.endActivity(this,this);
 
     }
 

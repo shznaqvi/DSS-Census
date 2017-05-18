@@ -300,12 +300,9 @@ public class SectionFActivity extends Activity {
         //TODO implement
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
 
-        finish();
+//        finish();
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-//        Intent endSec = new Intent(this, EndingActivity.class);
-//        endSec.putExtra("check", false);
-//        startActivity(endSec);
-
+        MainApp.finishActivity(this,this);
     }
 
     @OnClick(R.id.btn_Continue)

@@ -631,9 +631,11 @@ public class SectionAActivity extends Activity {
 
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
 
-                Intent end_intent = new Intent(this, EndingActivity.class);
-                end_intent.putExtra("check", false);
-                startActivity(end_intent);
+//                Intent end_intent = new Intent(this, EndingActivity.class);
+//                end_intent.putExtra("check", false);
+//                startActivity(end_intent);
+
+                MainApp.endActivity(this,this);
             }
         }
 

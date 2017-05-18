@@ -136,10 +136,12 @@ public class MotherListActivity extends Activity {
 
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        finish();
-        Intent endSec = new Intent(this, EndingActivity.class);
-        endSec.putExtra("check", false);
-        startActivity(endSec);
+//        finish();
+//        Intent endSec = new Intent(this, EndingActivity.class);
+//        endSec.putExtra("check", false);
+//        startActivity(endSec);
+
+        MainApp.endActivity(this,this);
     }
 
 

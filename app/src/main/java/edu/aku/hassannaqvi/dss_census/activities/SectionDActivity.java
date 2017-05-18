@@ -517,22 +517,13 @@ public class SectionDActivity extends Activity {
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
-//        if (formValidation()) {
-//            try {
-//                SaveDraft();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//            if (UpdateDB()) {
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-                Intent end_intent = new Intent(this, EndingActivity.class);
-                end_intent.putExtra("check", false);
-                startActivity(end_intent);
 
-//            } else {
-//                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-//            }
-//        }
+        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+//        Intent end_intent = new Intent(this, EndingActivity.class);
+//        end_intent.putExtra("check", false);
+//        startActivity(end_intent);
+
+        MainApp.endActivity(this,this);
     }
 
     @OnClick(R.id.btn_Continue)
@@ -914,15 +905,15 @@ public class SectionDActivity extends Activity {
 //                        dcd1899.setError(null);
 //                    }
 
-                    // Others
-                    if (dcd1896.isChecked() && dcd1896x.getText().toString().isEmpty()) {
-                        Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd18) + " - " + getString(R.string.dcother), Toast.LENGTH_LONG).show();
-                        dcd1896x.setError("This data is Required!");    // Set Error on last radio button
-                        Log.i(TAG, "dcd1896x: This data is Required!");
-                        return false;
-                    } else {
-                        dcd1896x.setError(null);
-                    }
+                // Others
+                if (dcd1896.isChecked() && dcd1896x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcd18) + " - " + getString(R.string.dcother), Toast.LENGTH_LONG).show();
+                    dcd1896x.setError("This data is Required!");    // Set Error on last radio button
+                    Log.i(TAG, "dcd1896x: This data is Required!");
+                    return false;
+                } else {
+                    dcd1896x.setError(null);
+                }
 //                }
             }
         }
