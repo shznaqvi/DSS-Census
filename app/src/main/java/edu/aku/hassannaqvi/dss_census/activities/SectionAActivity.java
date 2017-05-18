@@ -296,6 +296,7 @@ public class SectionAActivity extends Activity {
 
         MainApp.memFlag = 0;
 
+        MainApp.familyMembersList = new ArrayList<>();
 
         db = new DatabaseHelper(this);
 
@@ -555,7 +556,7 @@ public class SectionAActivity extends Activity {
 
             mp02_count.setText("Members found = " + members.size());
 
-            MainApp.familyMembersList = new ArrayList<>();
+
 
             if (members.size() != 0) {
 

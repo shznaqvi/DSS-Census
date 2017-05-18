@@ -550,12 +550,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                     dcbbfid.setEnabled(false);
                     dcbbmid.setEnabled(false);
-                }else if (dcbm04.isChecked()) {
-                    dcbbfid.setText("null");
-                    dcbbmid.setText("null");
-
-                    dcbbfid.setEnabled(false);
-                    dcbbmid.setEnabled(false);
                 } else {
 
                     dcbbfid.setOnKeyListener(SectionBActivity.this);
@@ -585,31 +579,42 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
     @Override
     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        if (dcbid.getText().length() < MainApp.fc.getDSSID().length()) {
-            dcbid.setText(MainApp.fc.getDSSID());
-        }
-        else if (dcbbfid.getText().length() < MainApp.fc.getDSSID().length()) {
-            dcbbfid.setText(MainApp.fc.getDSSID());
-        }
-        else if (dcbbmid.getText().length() < MainApp.fc.getDSSID().length()) {
-            dcbbmid.setText(MainApp.fc.getDSSID());
+        if (dcbm03.isChecked()) {
+            if (dcbid.getText().length() < MainApp.fc.getDSSID().length()) {
+                dcbid.setText(MainApp.fc.getDSSID());
+            } else if (dcbbfid.getText().length() < MainApp.fc.getDSSID().length()) {
+                dcbbfid.setText(MainApp.fc.getDSSID());
+            } else if (dcbbmid.getText().length() < MainApp.fc.getDSSID().length()) {
+                dcbbmid.setText(MainApp.fc.getDSSID());
+            }
+        }else {
+            if (dcbid.getText().length() < MainApp.fc.getDSSID().length()) {
+                dcbid.setText(MainApp.fc.getDSSID());
+            }
         }
     }
 
     @Override
     public void afterTextChanged(Editable editable) {
-
-        if (editable == dcbid.getEditableText()) {
-            if (dcbid.getText().length() == 0) {
-                dcbid.setText(MainApp.fc.getDSSID());
+        if (dcbm03.isChecked()) {
+            if (editable == dcbid.getEditableText()) {
+                if (dcbid.getText().length() < MainApp.fc.getDSSID().length()) {
+                    dcbid.setText(MainApp.fc.getDSSID());
+                }
+            } else if (editable == dcbbfid.getEditableText()) {
+                if (dcbbfid.getText().length() < MainApp.fc.getDSSID().length()) {
+                    dcbbfid.setText(MainApp.fc.getDSSID());
+                }
+            } else if (editable == dcbbmid.getEditableText()) {
+                if (dcbbmid.getText().length() < MainApp.fc.getDSSID().length()) {
+                    dcbbmid.setText(MainApp.fc.getDSSID());
+                }
             }
-        } else if (editable == dcbbfid.getEditableText()) {
-            if (dcbbfid.getText().length() == 0) {
-                dcbbfid.setText(MainApp.fc.getDSSID());
-            }
-        } else if (editable == dcbbmid.getEditableText()) {
-            if (dcbbmid.getText().length() == 0) {
-                dcbbmid.setText(MainApp.fc.getDSSID());
+        }else {
+            if (editable == dcbid.getEditableText()) {
+                if (dcbid.getText().length() < MainApp.fc.getDSSID().length()) {
+                    dcbid.setText(MainApp.fc.getDSSID());
+                }
             }
         }
     }
