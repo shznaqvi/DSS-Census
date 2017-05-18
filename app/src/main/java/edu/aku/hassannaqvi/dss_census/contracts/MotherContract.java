@@ -37,6 +37,7 @@ public class MotherContract {
     private String devicetagID = "";
     private String synced = "";
     private String synced_date = "";
+    private String istatus = "";
 
 
     public MotherContract() {
@@ -175,14 +176,6 @@ public class MotherContract {
         this.gpsAcc = gpsAcc;
     }
 
-    public String getDeviceID() {
-        return deviceID;
-    }
-
-    public void setDeviceID(String deviceID) {
-        this.deviceID = deviceID;
-    }
-
     public String getDevicetagID() {
         return devicetagID;
     }
@@ -247,6 +240,14 @@ public class MotherContract {
         this.dssID = dssID;
     }
 
+    public String getIstatus() {
+        return istatus;
+    }
+
+    public void setIstatus(String istatus) {
+        this.istatus = istatus;
+    }
+
     public MotherContract Sync(JSONObject jsonObject) throws JSONException {
 
         this._ID = jsonObject.getString(MotherTB.COLUMN_ID);
@@ -274,6 +275,7 @@ public class MotherContract {
         this.childID= jsonObject.getString(MotherTB.COLUMN_CHILDID);
         this.dssID= jsonObject.getString(MotherTB.COLUMN_DSSID);
         this.motherID= jsonObject.getString(MotherTB.COLUMN_MOTHERID);
+        this.istatus= jsonObject.getString(MotherTB.COLUMN_ISTATUS);
 
 
         return this;
@@ -307,6 +309,7 @@ public class MotherContract {
         this.childID = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_CHILDID));
         this.dssID = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_DSSID));
         this.motherID = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_MOTHERID));
+        this.istatus = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_ISTATUS));
 
 
         return this;
@@ -343,6 +346,7 @@ public class MotherContract {
         json.put(MotherTB.COLUMN_CHILDID, this.childID == null ? JSONObject.NULL : this.childID);
         json.put(MotherTB.COLUMN_DSSID, this.dssID == null ? JSONObject.NULL : this.dssID);
         json.put(MotherTB.COLUMN_MOTHERID, this.motherID == null ? JSONObject.NULL : this.motherID);
+        json.put(MotherTB.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
 
         return json;
     }
@@ -378,6 +382,7 @@ public class MotherContract {
         public static final String COLUMN_CHILDID = "childid";
         public static final String COLUMN_DSSID = "dssid";
         public static final String COLUMN_MOTHERID = "motherid";
+        public static final String COLUMN_ISTATUS = "istatus";
 
 
         public static String _URL = "mother.php";

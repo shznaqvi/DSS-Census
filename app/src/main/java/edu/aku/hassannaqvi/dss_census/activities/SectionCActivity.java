@@ -132,7 +132,9 @@ public class SectionCActivity extends Activity {
         ((RadioButton) dccbrhh.getChildAt((Integer.parseInt(MainApp.cc.getRelation_hh())) - 1)).setChecked(true);
 
         dccbfid.setText(MainApp.cc.getDss_id_f());
+        dccbfid.setEnabled(false);
         dccbmid.setText(MainApp.cc.getDss_id_m());
+        dccbmid.setEnabled(false);
 
         ((RadioButton) dccc.getChildAt((Integer.parseInt(MainApp.cc.getGender())) - 1)).setChecked(true);
 
@@ -228,6 +230,8 @@ public class SectionCActivity extends Activity {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
+
+                MainApp.currentDeceasedCheck = 1;
 
                 MainApp.currentStatusCount -= 1;
 

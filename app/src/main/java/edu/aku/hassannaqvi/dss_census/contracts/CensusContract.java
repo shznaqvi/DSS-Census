@@ -51,6 +51,7 @@ public class CensusContract {
     private String synced = "";
     private String syncedDate = "";
     private String remarks = "";
+    private String istatus = "";
 
     private String serialNo = "";
 
@@ -388,6 +389,14 @@ public class CensusContract {
         this.serialNo = serialNo;
     }
 
+    public String getIstatus() {
+        return istatus;
+    }
+
+    public void setIstatus(String istatus) {
+        this.istatus = istatus;
+    }
+
     public CensusContract Sync(JSONObject jsonObject) throws JSONException {
 
         this._ID= jsonObject.getString(censusMember.COLUMN_ID);
@@ -429,6 +438,7 @@ public class CensusContract {
         this.synced= jsonObject.getString(censusMember.COLUMN_SYNCED);
         this.syncedDate= jsonObject.getString(censusMember.COLUMN_SYNCED_DATE);
         this.remarks= jsonObject.getString(censusMember.COLUMN_REMARKS);
+        this.istatus= jsonObject.getString(censusMember.COLUMN_ISTATUS);
 
         return this;
 
@@ -475,6 +485,7 @@ public class CensusContract {
         this.synced = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SYNCED));
         this.syncedDate = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SYNCED_DATE));
         this.remarks = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_REMARKS));
+        this.istatus = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_ISTATUS));
 
         return this;
 
@@ -525,6 +536,7 @@ public class CensusContract {
         json.put(censusMember.COLUMN_SYNCED_DATE, this.syncedDate == null ? JSONObject.NULL : this.syncedDate);
         json.put(censusMember.COLUMN_REMARKS, this.remarks == null ? JSONObject.NULL : this.remarks);
         json.put(censusMember.COLUMN_PROJECT_NAME, this.projectName == null ? JSONObject.NULL : this.projectName);
+        json.put(censusMember.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
 
 
         return json;
@@ -574,6 +586,7 @@ public class CensusContract {
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "sync_date";
         public static final String COLUMN_REF_ID = "refid";
+        public static final String COLUMN_ISTATUS = "istatus";
 
 
         public static final String COLUMN_SERIAL_NO = "serial";

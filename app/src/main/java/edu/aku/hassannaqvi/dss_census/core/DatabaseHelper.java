@@ -137,6 +137,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             censusMember.COLUMN_OCCUPATION + " TEXT," +
             censusMember.COLUMN_OCCUPATIONX + " TEXT," +
             censusMember.COLUMN_MEMBER_TYPE + " TEXT," +
+            censusMember.COLUMN_ISTATUS + " TEXT," +
             censusMember.COLUMN_REMARKS + " TEXT," +
             censusMember.COLUMN_UPDATE_FLAG + " TEXT," +
             censusMember.COLUMN_UPDATE_DT + " TEXT," +
@@ -195,6 +196,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             DeceasedMember.COLUMN_DOD + " TEXT," +
             DeceasedMember.COLUMN_REMARKS + " TEXT," +
             DeceasedMember.COLUMN_WRA + " TEXT," +
+            DeceasedMember.COLUMN_ISTATUS + " TEXT," +
             DeceasedMember.COLUMN_SYNCED + " TEXT," +
             DeceasedMember.COLUMN_SYNCED_DATE + " TEXT" +
             " );";
@@ -211,6 +213,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             MotherTB.COLUMN_CHILDID + " TEXT,"+
             MotherTB.COLUMN_DSSID + " TEXT,"+
             MotherTB.COLUMN_MOTHERID + " TEXT,"+
+            MotherTB.COLUMN_ISTATUS + " TEXT,"+
             MotherTB.COLUMN_SF + " TEXT," +
             MotherTB.COLUMN_SG + " TEXT," +
             MotherTB.COLUMN_SH + " TEXT," +
@@ -248,6 +251,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleIm.COLUMN_GPSACC + " TEXT," +
             singleIm.COLUMN_DEVICEID + " TEXT," +
             singleIm.COLUMN_DEVICETAGID + " TEXT," +
+            singleIm.COLUMN_ISTATUS + " TEXT," +
             singleIm.COLUMN_SYNCED + " TEXT," +
             singleIm.COLUMN_SYNCED_DATE + " TEXT" +
 
@@ -576,8 +580,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(singleForm.COLUMN_GPSACC, fc.getGpsAcc());
         values.put(singleForm.COLUMN_DEVICETAGID, fc.getDevicetagID());
         values.put(singleForm.COLUMN_DEVICEID, fc.getDeviceID());
-        values.put(singleForm.COLUMN_SYNCED, fc.getSynced());
-        values.put(singleForm.COLUMN_SYNCED_DATE, fc.getSynced_date());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
@@ -656,8 +658,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(singleIm.COLUMN_GPSACC, ims.getGpsAcc());
         values.put(singleIm.COLUMN_DEVICEID, ims.getDeviceID());
         values.put(singleIm.COLUMN_DEVICETAGID, ims.getDevicetagID());
-        values.put(singleIm.COLUMN_SYNCED, ims.getSynced());
-        values.put(singleIm.COLUMN_SYNCED_DATE, ims.getSynced_date());
 
 
         // Insert the new row, returning the primary key value of the new row
@@ -687,8 +687,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(householdForm.COLUMN_GPSTIME, hc.getGpsTime());
         values.put(householdForm.COLUMN_GPSACC, hc.getGpsAcc());
         values.put(householdForm.COLUMN_DEVICEID, hc.getDeviceID());
-        values.put(householdForm.COLUMN_SYNCED, hc.getSynced());
-        values.put(householdForm.COLUMN_SYNCED_DATE, hc.getSynced_date());
 
         long newRowId;
         newRowId = db.insert(
@@ -742,8 +740,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(censusMember.COLUMN_UPDATE_FLAG, mc.getUpdate_flag());
         values.put(censusMember.COLUMN_UPDATE_DT, mc.getUpdate_dt());
         values.put(censusMember.COLUMN_SERIAL_NO, mc.getSerialNo());
-        values.put(censusMember.COLUMN_SYNCED, mc.getSynced());
-        values.put(censusMember.COLUMN_SYNCED_DATE, mc.getSyncedDate());
 
 
         long newRowId;
@@ -784,9 +780,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(DeceasedMember.COLUMN_DOD, dc.getDod());
         values.put(DeceasedMember.COLUMN_REMARKS, dc.getRemarks());
         values.put(DeceasedMember.COLUMN_WRA, dc.getWra());
-        values.put(DeceasedMember.COLUMN_SYNCED, dc.getSynced());
-        values.put(DeceasedMember.COLUMN_SYNCED_DATE, dc.getSyncedDate());
-
 
         long newRowId;
         newRowId = db.insert(
@@ -1095,6 +1088,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 MotherTB.COLUMN_SYNCED_DATE,
                 MotherTB.COLUMN_CHILDID,
                 MotherTB.COLUMN_DSSID,
+                MotherTB.COLUMN_ISTATUS,
                 MotherTB.COLUMN_MOTHERID
         };
         String whereClause = null;
@@ -1153,6 +1147,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleIm.COLUMN_DEVICETAGID,
                 singleIm.COLUMN_SYNCED,
                 singleIm.COLUMN_SYNCED_DATE,
+                singleIm.COLUMN_ISTATUS
 
         };
         String whereClause = null;
@@ -1195,6 +1190,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 censusMember.COLUMN_ID,
                 censusMember.COLUMN_REF_ID,
+                censusMember.COLUMN_ISTATUS,
                 censusMember.COLUMN_UID,
                 censusMember.COLUMN_UUID,
                 censusMember.COLUMN_DATE,
@@ -1229,9 +1225,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_UPDATE_FLAG,
                 censusMember.COLUMN_UPDATE_DT,
                 censusMember.COLUMN_SERIAL_NO,
-                censusMember.COLUMN_REMARKS,
-                censusMember.COLUMN_SYNCED,
-                censusMember.COLUMN_SYNCED_DATE
+                censusMember.COLUMN_REMARKS
         };
         String whereClause = null;
         String[] whereArgs = null;
@@ -1293,8 +1287,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 DeceasedMember.COLUMN_RELATION_HH,
                 DeceasedMember.COLUMN_DOD,
                 DeceasedMember.COLUMN_REMARKS,
-                DeceasedMember.COLUMN_SYNCED,
-                DeceasedMember.COLUMN_SYNCED_DATE,
+                DeceasedMember.COLUMN_ISTATUS,
                 DeceasedMember.COLUMN_WRA
         };
         String whereClause = null;
@@ -1359,9 +1352,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_GPSDATE,
                 singleForm.COLUMN_GPSACC,
                 singleForm.COLUMN_DEVICETAGID,
-                singleForm.COLUMN_DEVICEID,
-                singleForm.COLUMN_SYNCED,
-                singleForm.COLUMN_SYNCED_DATE,
+                singleForm.COLUMN_DEVICEID
         };
         String whereClause = null;
         String[] whereArgs = null;
@@ -1694,6 +1685,76 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 null);
         return count;
     }
+
+    public int updateCensus() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(censusMember.COLUMN_ISTATUS, MainApp.fc.getIstatus());
+
+// Which row to update, based on the ID
+        String selection = " uuid=?";
+        String[] selectionArgs = {String.valueOf(MainApp.fc.getUID())};
+
+        int count = db.update(censusMember.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+    public int updateDeceased() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(DeceasedMember.COLUMN_ISTATUS, MainApp.fc.getIstatus());
+
+// Which row to update, based on the ID
+        String selection = " uuid=?";
+        String[] selectionArgs = {String.valueOf(MainApp.fc.getUID())};
+
+        int count = db.update(DeceasedMember.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+    public int updateMother() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(MotherTB.COLUMN_ISTATUS, MainApp.fc.getIstatus());
+
+// Which row to update, based on the ID
+        String selection = " uuid=?";
+        String[] selectionArgs = {String.valueOf(MainApp.fc.getUID())};
+
+        int count = db.update(MotherTB.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+    public int updateIM() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(singleIm.COLUMN_ISTATUS, MainApp.fc.getIstatus());
+
+// Which row to update, based on the ID
+        String selection = " uuid=?";
+        String[] selectionArgs = {String.valueOf(MainApp.fc.getUID())};
+
+        int count = db.update(singleIm.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
 
 
 }

@@ -318,6 +318,9 @@ public class SectionFActivity extends Activity {
             if (UpdateDB()) {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
+
+                MainApp.currentMotherCheck = 1;
+
                 finish();
 
                 startActivity(new Intent(this, SectionGActivity.class));

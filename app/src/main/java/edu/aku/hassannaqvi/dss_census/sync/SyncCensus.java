@@ -84,7 +84,7 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
             DatabaseHelper db = new DatabaseHelper(mContext);
             for (int i = 0; i < json.length(); i++) {
                 JSONObject jsonObject = new JSONObject(json.getString(i));
-                if (jsonObject.getString("status").equals("1")) {
+                if (jsonObject.getString("istatus").equals("1")) {
                     db.updateCensus(jsonObject.getString("id"));
                     sSynced++;
                 }
@@ -132,7 +132,9 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
 
                     for (CensusContract fc : Census) {
 
-                        jsonSync.put(fc.toJSONObject());
+                        if (fc.getIstatus().equals("1")) {
+                            jsonSync.put(fc.toJSONObject());
+                        }
 
                     }
                     wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");

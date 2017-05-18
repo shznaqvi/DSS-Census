@@ -38,6 +38,7 @@ public class DeceasedContract {
     private String syncedDate = "";
     private String remarks = "";
     private String wra = "";
+    private String istatus = "";
 
 
     public DeceasedContract() {
@@ -251,6 +252,13 @@ public class DeceasedContract {
         this.wra = wra;
     }
 
+    public String getIstatus() {
+        return istatus;
+    }
+
+    public void setIstatus(String istatus) {
+        this.istatus = istatus;
+    }
 
     public DeceasedContract Sync(JSONObject jsonObject) throws JSONException {
 
@@ -279,6 +287,7 @@ public class DeceasedContract {
         this.syncedDate = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_SYNCED_DATE);
         this.remarks = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_REMARKS);
         this.wra = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_WRA);
+        this.istatus = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_ISTATUS);
 
         return this;
 
@@ -311,6 +320,7 @@ public class DeceasedContract {
         this.syncedDate = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_SYNCED_DATE));
         this.remarks = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_REMARKS));
         this.remarks = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_WRA));
+        this.istatus = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_ISTATUS));
 
         return this;
 
@@ -346,6 +356,7 @@ public class DeceasedContract {
         json.put(DeceasedContract.DeceasedMember.COLUMN_SYNCED_DATE, this.syncedDate == null ? JSONObject.NULL : this.syncedDate);
         json.put(DeceasedContract.DeceasedMember.COLUMN_REMARKS, this.remarks == null ? JSONObject.NULL : this.remarks);
         json.put(DeceasedContract.DeceasedMember.COLUMN_WRA, this.wra == null ? JSONObject.NULL : this.wra);
+        json.put(DeceasedContract.DeceasedMember.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
 
         return json;
     }
@@ -381,6 +392,7 @@ public class DeceasedContract {
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "sync_date";
         public static final String COLUMN_WRA = "wra";
+        public static final String COLUMN_ISTATUS = "istatus";
 
         public static String _URL = "deceased.php";
     }

@@ -72,6 +72,8 @@ public class MainApp extends Application {
     public static int TotalMembersCount = 0;
 //    Total No of Alive members got from Section B
     public static int currentStatusCount = 0;
+    public static int currentDeceasedCheck = 0;
+    public static int currentMotherCheck = 0;
     public static List<deadMemberClass> deadMembers = new ArrayList<deadMemberClass>();
     //    Ali
     public static String regionDss = "";
