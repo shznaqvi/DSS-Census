@@ -109,8 +109,6 @@ public class FormsContract {
         this.gpsAcc = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_GPSACC));
         this.deviceID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DEVICEID));
         this.devicetagID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DEVICETAGID));
-        this.synced = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SYNCED));
-        this.synced_date = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SYNCED_DATE));
 
         // TODO:
 
@@ -147,8 +145,6 @@ public class FormsContract {
         json.put(singleForm.COLUMN_GPSACC, this.gpsAcc == null ? JSONObject.NULL : this.gpsAcc);
         json.put(singleForm.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
         json.put(singleForm.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
-        json.put(singleForm.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
-        json.put(singleForm.COLUMN_SYNCED_DATE, this.synced_date == null ? JSONObject.NULL : this.synced_date);
 
 
         return json;

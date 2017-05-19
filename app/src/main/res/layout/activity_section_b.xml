@@ -17,6 +17,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
             android:layoutDirection="rtl"
             android:orientation="vertical">
 
@@ -63,10 +64,10 @@
 
             <EditText
                 android:id="@+id/dcbid"
-                android:maxLength="12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                android:maxLength="12"
                 ></EditText>
 
             <TextView

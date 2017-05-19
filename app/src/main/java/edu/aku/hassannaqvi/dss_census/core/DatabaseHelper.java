@@ -8,7 +8,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -18,7 +17,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-import edu.aku.hassannaqvi.dss_census.activities.LoginActivity;
 import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
 import edu.aku.hassannaqvi.dss_census.contracts.CensusContract.censusMember;
 import edu.aku.hassannaqvi.dss_census.contracts.DeceasedContract;
@@ -1035,8 +1033,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_GPSACC,
                 singleForm.COLUMN_DEVICETAGID,
                 singleForm.COLUMN_DEVICEID,
-                singleForm.COLUMN_SYNCED,
-                singleForm.COLUMN_SYNCED_DATE
+
         };
         String whereClause = null;
         String[] whereArgs = null;
