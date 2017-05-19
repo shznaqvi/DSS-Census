@@ -84,7 +84,7 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
             DatabaseHelper db = new DatabaseHelper(mContext);
             for (int i = 0; i < json.length(); i++) {
                 JSONObject jsonObject = new JSONObject(json.getString(i));
-                if (jsonObject.getString("istatus").equals("1")) {
+                if (jsonObject.getString("status").equals("1")) {
                     db.updateCensus(jsonObject.getString("id"));
                     sSynced++;
                 }

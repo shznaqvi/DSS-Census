@@ -131,12 +131,12 @@ public class FormsContract {
         json.put(singleForm.COLUMN_SA, this.sA.equals("") ? JSONObject.NULL : new JSONObject(this.sA));
         json.put(singleForm.COLUMN_SD, this.sD.equals("") ? JSONObject.NULL : new JSONObject(this.sD));
         json.put(singleForm.COLUMN_SE, this.sE.equals("") ? JSONObject.NULL : new JSONObject(this.sE));
-        json.put(singleForm.COLUMN_SF, this.sF.equals("") ? JSONObject.NULL : new JSONObject(this.sF));
-        json.put(singleForm.COLUMN_SG, this.sG.equals("") ? JSONObject.NULL : new JSONObject(this.sG));
-        json.put(singleForm.COLUMN_SH, this.sH.equals("") ? JSONObject.NULL : new JSONObject(this.sH));
-        json.put(singleForm.COLUMN_SI, this.sI.equals("") ? JSONObject.NULL : new JSONObject(this.sI));
-        json.put(singleForm.COLUMN_SJ, this.sJ.equals("") ? JSONObject.NULL : new JSONObject(this.sJ));
-        json.put(singleForm.COLUMN_SK, this.sK.equals("") ? JSONObject.NULL : new JSONObject(this.sK));
+//        json.put(singleForm.COLUMN_SF, this.sF.equals("") ? JSONObject.NULL : new JSONObject(this.sF));
+//        json.put(singleForm.COLUMN_SG, this.sG.equals("") ? JSONObject.NULL : new JSONObject(this.sG));
+//        json.put(singleForm.COLUMN_SH, this.sH.equals("") ? JSONObject.NULL : new JSONObject(this.sH));
+//        json.put(singleForm.COLUMN_SI, this.sI.equals("") ? JSONObject.NULL : new JSONObject(this.sI));
+//        json.put(singleForm.COLUMN_SJ, this.sJ.equals("") ? JSONObject.NULL : new JSONObject(this.sJ));
+//        json.put(singleForm.COLUMN_SK, this.sK.equals("") ? JSONObject.NULL : new JSONObject(this.sK));
         json.put(singleForm.COLUMN_SL, this.sL.equals("") ? JSONObject.NULL : new JSONObject(this.sL));
         json.put(singleForm.COLUMN_SM, this.sM.equals("") ? JSONObject.NULL : new JSONObject(this.sM));
         json.put(singleForm.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);

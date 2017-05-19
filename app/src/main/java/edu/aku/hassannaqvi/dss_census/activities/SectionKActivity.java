@@ -270,7 +270,7 @@ public class SectionKActivity extends Activity {
 
         DatabaseHelper db = new DatabaseHelper(this);
 
-        Collection<CensusContract> child = db.getChildFromMember(MainApp.fc.getDSSID());
+        Collection<CensusContract> child = db.getChildFromMember(MainApp.fc.getDSSID(),MainApp.fc.getUID());
         chm = new ArrayList<>();
         ArrayList<String> chmName = new ArrayList<>();
 

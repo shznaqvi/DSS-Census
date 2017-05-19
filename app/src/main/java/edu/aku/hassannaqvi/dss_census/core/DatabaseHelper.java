@@ -264,7 +264,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String SQL_SELECT_MOTHER_BY_CHILD =
             "SELECT c.serial serial, m.serial serialm, c.name child_name, c.dss_id_member child_id, m.name mother_name, c.dss_id_member mother_id, c.dob date_of_birth FROM census C join census m on c.dss_id_m = m.dss_id_member where c.member_type =? and m.dss_id_hh =? group by mother_id order by substr(c.dob, 7) desc, substr(c.dob, 4,2) desc, substr(c.dob, 1,2) desc;";
     private static final String SQL_SELECT_CHILD =
-            "SELECT * from census where member_type =? and dss_id_hh =?";
+            "SELECT * from census where member_type =? and dss_id_hh =? and uuid =?";
 
 
     private final String TAG = "DatabaseHelper";
@@ -510,7 +510,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return memList;
     }
 
-    public Collection<CensusContract> getChildFromMember(String dssID) {
+    public Collection<CensusContract> getChildFromMember(String dssID,String uuid) {
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -518,7 +518,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Collection<CensusContract> memList = new ArrayList<>();
         try {
 
-            c = db.rawQuery(SQL_SELECT_CHILD, new String[]{"c", dssID});
+            c = db.rawQuery(SQL_SELECT_CHILD, new String[]{"c", dssID, uuid});
 
             while (c.moveToNext()) {
                 CensusContract mc = new CensusContract();
@@ -764,7 +764,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void updateForms(String id) {
+    public void updateSyncedForms(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
@@ -1091,7 +1091,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 MotherTB.COLUMN_ISTATUS,
                 MotherTB.COLUMN_MOTHERID
         };
-        String whereClause = null;
+        String whereClause = MotherTB.COLUMN_SYNCED + " is null";
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;
@@ -1143,7 +1143,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleIm.COLUMN_ISTATUS
 
         };
-        String whereClause = null;
+        String whereClause = singleIm.COLUMN_SYNCED + " is null";
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;
@@ -1220,7 +1220,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_SERIAL_NO,
                 censusMember.COLUMN_REMARKS
         };
-        String whereClause = null;
+        String whereClause = censusMember.COLUMN_SYNCED + " is null";
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;
@@ -1283,7 +1283,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 DeceasedMember.COLUMN_ISTATUS,
                 DeceasedMember.COLUMN_WRA
         };
-        String whereClause = null;
+        String whereClause = DeceasedMember.COLUMN_SYNCED + " is null";
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;
@@ -1332,12 +1332,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_SA,
                 singleForm.COLUMN_SD,
                 singleForm.COLUMN_SE,
-                singleForm.COLUMN_SF,
-                singleForm.COLUMN_SG,
-                singleForm.COLUMN_SH,
-                singleForm.COLUMN_SI,
-                singleForm.COLUMN_SJ,
-                singleForm.COLUMN_SK,
                 singleForm.COLUMN_SL,
                 singleForm.COLUMN_SM,
                 singleForm.COLUMN_GPSLAT,
@@ -1347,7 +1341,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_DEVICETAGID,
                 singleForm.COLUMN_DEVICEID
         };
-        String whereClause = null;
+        String whereClause = singleForm.COLUMN_SYNCED + " is null";
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;
