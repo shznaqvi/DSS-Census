@@ -226,8 +226,6 @@ public class MotherContract {
         this.sJ = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SJ));
         //this.sK = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SK));
         this.deviceID = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_DEVICEID));
-        this.synced = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SYNCED));
-        this.synced_date = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_SYNCED_DATE));
 
         this.childID = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_CHILDID));
         this.dssID = cursor.getString(cursor.getColumnIndex(MotherTB.COLUMN_DSSID));
@@ -256,8 +254,6 @@ public class MotherContract {
         json.put(MotherTB.COLUMN_SJ, this.sJ == null ? JSONObject.NULL : this.sJ);
         //json.put(MotherTB.COLUMN_SK, this.sK == null ? JSONObject.NULL : this.sK);
         json.put(MotherTB.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
-        json.put(MotherTB.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
-        json.put(MotherTB.COLUMN_SYNCED_DATE, this.synced_date == null ? JSONObject.NULL : this.synced_date);
 
         json.put(MotherTB.COLUMN_CHILDID, this.childID == null ? JSONObject.NULL : this.childID);
         json.put(MotherTB.COLUMN_DSSID, this.dssID == null ? JSONObject.NULL : this.dssID);

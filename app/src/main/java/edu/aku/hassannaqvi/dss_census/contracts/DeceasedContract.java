@@ -316,8 +316,6 @@ public class DeceasedContract {
         this.gender = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_GENDER));
         this.relation_hh = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_RELATION_HH));
         this.dod = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_DOD));
-        this.synced = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_SYNCED));
-        this.syncedDate = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_SYNCED_DATE));
         this.remarks = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_REMARKS));
         this.remarks = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_WRA));
         this.istatus = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_ISTATUS));
@@ -352,8 +350,6 @@ public class DeceasedContract {
         json.put(DeceasedContract.DeceasedMember.COLUMN_GENDER, this.gender == null ? JSONObject.NULL : this.gender);
         json.put(DeceasedContract.DeceasedMember.COLUMN_RELATION_HH, this.relation_hh == null ? JSONObject.NULL : this.relation_hh);
         json.put(DeceasedContract.DeceasedMember.COLUMN_DOD, this.dod == null ? JSONObject.NULL : this.dod);
-        json.put(DeceasedContract.DeceasedMember.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
-        json.put(DeceasedContract.DeceasedMember.COLUMN_SYNCED_DATE, this.syncedDate == null ? JSONObject.NULL : this.syncedDate);
         json.put(DeceasedContract.DeceasedMember.COLUMN_REMARKS, this.remarks == null ? JSONObject.NULL : this.remarks);
         json.put(DeceasedContract.DeceasedMember.COLUMN_WRA, this.wra == null ? JSONObject.NULL : this.wra);
         json.put(DeceasedContract.DeceasedMember.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);

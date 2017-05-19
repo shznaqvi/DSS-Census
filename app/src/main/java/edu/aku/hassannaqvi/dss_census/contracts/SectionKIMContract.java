@@ -174,8 +174,6 @@ public class SectionKIMContract {
         this.mm = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_MM));
         this.dssID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_DSSID));
         this.deviceID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_DEVICEID));
-        this.synced = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_SYNCED));
-        this.synced_date = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_SYNCED_DATE));
         this.istatus = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_ISTATUS));
 
         return this;
@@ -196,8 +194,6 @@ public class SectionKIMContract {
         json.put(singleIm.COLUMN_MM, this.mm == null ? JSONObject.NULL : this.mm);
         json.put(singleIm.COLUMN_DSSID, this.dssID == null ? JSONObject.NULL : this.dssID);
         json.put(singleIm.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
-        json.put(singleIm.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
-        json.put(singleIm.COLUMN_SYNCED_DATE, this.synced_date == null ? JSONObject.NULL : this.synced_date);
         json.put(singleIm.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
 
         return json;

@@ -1076,7 +1076,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 MotherTB.COLUMN_ID,
                 MotherTB.COLUMN_UID,
-                MotherTB.COLUMN_UID,
+                MotherTB.COLUMN_UUID,
                 MotherTB.COLUMN_FORMDATE,
                 MotherTB.COLUMN_USER,
                 MotherTB.COLUMN_SF,
