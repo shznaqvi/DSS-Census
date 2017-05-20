@@ -268,6 +268,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         dataFlag = getIntent().getBooleanExtra("dataFlag", false);
         position = getIntent().getExtras().getInt("position");
 
+        MainApp.selectedPos = position;
+
         if (dataFlag) {
 
             MainApp.memFlag++;
@@ -758,6 +760,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 //                MainApp.deadMembers.add(new MainApp.deadMemberClass(Integer.parseInt(getIntent().getExtras().get("position").toString()),
 //                        dcbid.getText().toString()));
 
+                MainApp.selectedPos = -1;
+
                 finish();
 
 //        Check Member Flag
@@ -804,15 +808,24 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                         if (crDt < dt) {
 
+                            MainApp.selectedPos = -1;
+
                             MainApp.currentStatusCount -= 1;
                             finish();
+
 //                            startActivity(new Intent(this, FamilyMembersActivity.class).putExtra("position", position));
                         } else {
+
+                            MainApp.selectedPos = -1;
+
                             startActivity(new Intent(this, SectionCActivity.class).putExtra("position", position));
                         }
                     }
                 }
             } else {
+
+                MainApp.selectedPos = -1;
+
                 MainApp.currentStatusCount -= 1;
                 finish();
             }
@@ -948,6 +961,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : "0");
         MainApp.cc.setCurrent_statusX(dcbis06x.getText().toString());
         MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        if (dcbis05.isChecked()) {
+            MainApp.cc.setDod(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        }
         MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : dcbm04.isChecked() ? "ot" : "0");
         MainApp.cc.setRemarks(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
 

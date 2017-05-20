@@ -102,6 +102,7 @@ public class MainApp extends Application {
     protected static LocationManager locationManager;
 
     public static double selectedCHILD = 24;
+    public static int selectedPos = -1;
     Location location;
 
     @Override

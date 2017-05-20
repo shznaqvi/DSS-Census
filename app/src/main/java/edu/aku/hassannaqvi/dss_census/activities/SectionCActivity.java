@@ -120,7 +120,7 @@ public class SectionCActivity extends Activity {
         setContentView(R.layout.activity_section_c);
         ButterKnife.bind(this);
         dccd.setMaxDate(new Date().getTime());
-        //dccf.setMaxDate(new Date().getTime());
+        dccf.setMaxDate(new Date().getTime());
         dccf.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
 
         position = getIntent().getExtras().getInt("position");

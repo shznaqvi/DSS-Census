@@ -99,7 +99,7 @@ public class FamilyMembersActivity extends Activity {
 
         mAdapter.notifyDataSetChanged();
 
-        MainApp.memClicked = new ArrayList<Integer>();
+        MainApp.memClicked = new ArrayList<>();
 
         recycler_noMembers.addOnItemTouchListener(
                 new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
@@ -149,7 +149,7 @@ public class FamilyMembersActivity extends Activity {
     @OnClick(R.id.minusMen) void onMinusMenClick() {
         //TODO implement
 
-        if ((Integer.parseInt(totalMem.getText().toString())-1) > 0) {
+        if ((Integer.parseInt(totalMem.getText().toString())-1) > 0 && ((MainApp.NoMaleCount-1) >= MainApp.NoBoyCount) || MainApp.NoBoyCount == 0) {
             if (MainApp.NoMaleCount > 0) {
                 if (MainApp.TotalMaleCount >= MainApp.NoMaleCount) {
                     MainApp.errorCheck(this, "You have already added:" + MainApp.NoMaleCount + " Males");
@@ -179,7 +179,7 @@ public class FamilyMembersActivity extends Activity {
     @OnClick(R.id.minusFemale) void onMinusWomenClick() {
         //TODO implement
 
-        if ((Integer.parseInt(totalMem.getText().toString())-1) > 0) {
+        if ((Integer.parseInt(totalMem.getText().toString())-1) > 0 && ((MainApp.NoFemaleCount-1) >= MainApp.NoGirlCount) || MainApp.NoGirlCount == 0) {
             if (MainApp.NoFemaleCount > 0) {
                 if (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount) {
                     MainApp.errorCheck(this, "You have already added:" + MainApp.NoFemaleCount + " Female");
@@ -202,7 +202,9 @@ public class FamilyMembersActivity extends Activity {
         countBoy.setText(String.valueOf(MainApp.NoBoyCount));
 
         MainApp.NoMembersCount++;
+        MainApp.NoMaleCount++;
         MainApp.totalChild++ ;
+        countMen.setText(String.valueOf(MainApp.NoMaleCount));
         totalMem.setText(String.valueOf(MainApp.NoMembersCount));
         totalChild.setText(String.valueOf(MainApp.totalChild));
         resumeWork();
@@ -215,8 +217,10 @@ public class FamilyMembersActivity extends Activity {
                 if (MainApp.TotalBoyCount >= MainApp.NoBoyCount) {
                     MainApp.errorCheck(this, "You have already added:" + MainApp.NoBoyCount + " Boys");
                 } else {
+                    MainApp.NoMaleCount--;
                     MainApp.NoBoyCount--;
                     countBoy.setText(String.valueOf(MainApp.NoBoyCount));
+                    countMen.setText(String.valueOf(MainApp.NoMaleCount));
                     MainApp.NoMembersCount--;
                     MainApp.totalChild--;
                     totalMem.setText(String.valueOf(MainApp.NoMembersCount));
@@ -235,7 +239,9 @@ public class FamilyMembersActivity extends Activity {
         countGirl.setText(String.valueOf(MainApp.NoGirlCount));
 
         MainApp.NoMembersCount++;
+        MainApp.NoFemaleCount++;
         MainApp.totalChild++;
+        countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
         totalMem.setText(String.valueOf(MainApp.NoMembersCount));
         totalChild.setText(String.valueOf(MainApp.totalChild));
 
@@ -249,10 +255,12 @@ public class FamilyMembersActivity extends Activity {
                 if (MainApp.TotalGirlCount >= MainApp.NoGirlCount) {
                     MainApp.errorCheck(this, "You have already added:" + MainApp.NoGirlCount + " Girls");
                 } else {
+                    MainApp.NoFemaleCount--;
                     MainApp.NoGirlCount--;
                     countGirl.setText(String.valueOf(MainApp.NoGirlCount));
                     MainApp.NoMembersCount--;
                     MainApp.totalChild--;
+                    countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
                     totalMem.setText(String.valueOf(MainApp.NoMembersCount));
                     totalChild.setText(String.valueOf(MainApp.totalChild));
                 }
@@ -315,6 +323,19 @@ public class FamilyMembersActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        if (MainApp.selectedPos != -1){
+            for (int mem=0;mem<MainApp.memClicked.size();mem++) {
+                if (MainApp.memClicked.get(mem) == MainApp.selectedPos) {
+                    MainApp.memClicked.remove(mem);
+                    MainApp.memFlag-=1;
+
+                    recycler_noMembers.getChildAt(mem).setBackgroundColor(Color.WHITE);
+
+                    break;
+                }
+            }
+        }
 
         resumeWork();
     }
