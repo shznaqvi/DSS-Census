@@ -274,9 +274,9 @@ public class SectionCActivity extends Activity {
         MainApp.dc.setDeviceId(MainApp.fc.getDeviceID());
         MainApp.dc.setUser(MainApp.fc.getUser());
         MainApp.dc.setDss_id_hh(MainApp.fc.getDSSID());
-        MainApp.dc.setDss_id_h(MainApp.familyMembersList.get(position).getDss_id_h());
-        MainApp.dc.setSite_code(MainApp.familyMembersList.get(position).getSite_code());
-        MainApp.dc.set_DATE(MainApp.familyMembersList.get(position).get_DATE());
+        MainApp.dc.setDss_id_h(MainApp.cc.getDss_id_h());
+        MainApp.dc.setSite_code(MainApp.cc.getSite_code());
+        MainApp.dc.set_DATE(MainApp.cc.get_DATE());
 
         MainApp.dc.setDss_id_f(dccbfid.getText().toString());
         MainApp.dc.setDss_id_m(dccbmid.getText().toString());

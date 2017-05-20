@@ -780,6 +780,28 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                         Log.d("Current Date", "" + new SimpleDateFormat().format(new Date(dt)));
                         Log.d("Selected Date", " " + crDt.toString());
 
+                        if (dcbm01.isChecked()) {
+                            MainApp.TotalFemaleCount--;
+                        } else if (dcbm02.isChecked()) {
+                            MainApp.TotalMaleCount--;
+                        } else if (dcbm03.isChecked() && dcbd01.isChecked()) {
+                            if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
+                                MainApp.TotalBoyCount--;
+                            } else {
+                                MainApp.TotalMaleCount--;
+                            }
+                        } else if (dcbm03.isChecked() && dcbd02.isChecked()) {
+                            if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
+                                MainApp.TotalGirlCount--;
+                            } else {
+                                MainApp.TotalFemaleCount--;
+                            }
+                        } else if (dcbm04.isChecked() && dcbd01.isChecked()) {
+                            MainApp.TotalMaleCount--;
+                        } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
+                            MainApp.TotalFemaleCount--;
+                        }
+
                         if (crDt < dt) {
 
                             MainApp.currentStatusCount -= 1;
