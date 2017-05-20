@@ -623,8 +623,12 @@ public class SectionAActivity extends Activity {
                 finish();
 
                 MainApp.NoMembersCount = Integer.parseInt(dca0701.getText().toString());
+                MainApp.NoMaleCount = Integer.parseInt(dca0702.getText().toString());
+                MainApp.NoFemaleCount = Integer.parseInt(dca0703.getText().toString());
 
                 MainApp.totalChild = Integer.parseInt(dca0801.getText().toString());
+                MainApp.NoBoyCount = Integer.parseInt(dca0802.getText().toString());
+                MainApp.NoGirlCount = Integer.parseInt(dca0803.getText().toString());
 
                 startActivity(new Intent(this, FamilyMembersActivity.class));
             } else {

@@ -2,9 +2,7 @@ package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.icu.lang.UCharacter;
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
 import android.support.annotation.IdRes;
 import android.text.Editable;
 import android.text.InputType;
@@ -301,6 +299,14 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 //                ((RadioButton) dcbd.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getGender().isEmpty() ? "1" : MainApp.familyMembersList.get(position).getGender())) - 1)).setChecked(true);
 
                 dcbd.check(MainApp.familyMembersList.get(position).getGender().equals("1") ? dcbd01.getId() : dcbd02.getId());
+
+                if (MainApp.familyMembersList.get(position).getGender().equals("1")) {
+                    dcbd02.setEnabled(false);
+                    dcbd01.setEnabled(true);
+                } else {
+                    dcbd01.setEnabled(false);
+                    dcbd02.setEnabled(true);
+                }
 
 //                if (((Integer.parseInt(MainApp.familyMembersList.get(position).getGender())) - 1) == 0){
 //                    dcbm01.setEnabled(false);
@@ -665,13 +671,89 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     void onBtnContinueClick() {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (dcbm01.isChecked() && (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || MainApp.NoFemaleCount == 0)) {
+                MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
+            } else if (dcbm02.isChecked() && (MainApp.TotalMaleCount >= MainApp.NoMaleCount || MainApp.NoMaleCount == 0)) {
+                MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
+            } else if (dcbm03.isChecked() && dcbd01.isChecked()) {
+                if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
+                    if ((MainApp.TotalBoyCount >= MainApp.NoBoyCount) || MainApp.NoBoyCount == 0) {
+                        MainApp.errorCountDialog(this, this, "Need to increase no of Boys's in Family Member Activity.");
+                    } else {
+                        contFunc();
+                    }
+                } else {
+                    if ((MainApp.TotalMaleCount >= MainApp.NoMaleCount) || MainApp.NoMaleCount == 0) {
+                        MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
+                    } else {
+                        contFunc();
+                    }
+                }
+            } else if (dcbm03.isChecked() && dcbd02.isChecked()) {
+                if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
+                    if ((MainApp.TotalGirlCount >= MainApp.NoGirlCount) || MainApp.NoGirlCount == 0) {
+                        MainApp.errorCountDialog(this, this, "Need to increase no of Girls's in Family Member Activity.");
+                    } else {
+                        contFunc();
+                    }
+                } else {
+                    if ((MainApp.TotalFemaleCount >= MainApp.NoFemaleCount) || MainApp.NoFemaleCount == 0) {
+                        MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
+                    } else {
+                        contFunc();
+                    }
+                }
+            } else if (dcbm04.isChecked() && dcbd01.isChecked()) {
+                if ((MainApp.TotalMaleCount >= MainApp.NoMaleCount) || MainApp.NoMaleCount == 0) {
+                    MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
+                } else {
+                    contFunc();
+                }
+            } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
+                if ((MainApp.TotalFemaleCount >= MainApp.NoFemaleCount) || MainApp.NoFemaleCount == 0) {
+                    MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
+                } else {
+                    contFunc();
+                }
+            } else {
+                contFunc();
             }
-            if (UpdateDB()) {
-                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void contFunc() {
+
+        try {
+            SaveDraft();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (UpdateDB()) {
+            Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
+            if (!dcbis03.isChecked()) {
+
+                if (dcbm01.isChecked()) {
+                    MainApp.TotalFemaleCount++;
+                } else if (dcbm02.isChecked()) {
+                    MainApp.TotalMaleCount++;
+                } else if (dcbm03.isChecked() && dcbd01.isChecked()) {
+                    if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
+                        MainApp.TotalBoyCount++;
+                    } else {
+                        MainApp.TotalMaleCount++;
+                    }
+                } else if (dcbm03.isChecked() && dcbd02.isChecked()) {
+                    if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
+                        MainApp.TotalGirlCount++;
+                    } else {
+                        MainApp.TotalFemaleCount++;
+                    }
+                } else if (dcbm04.isChecked() && dcbd01.isChecked()) {
+                    MainApp.TotalMaleCount++;
+                } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
+                    MainApp.TotalFemaleCount++;
+                }
 
 //                MainApp.deadMembers.add(new MainApp.deadMemberClass(Integer.parseInt(getIntent().getExtras().get("position").toString()),
 //                        dcbid.getText().toString()));
@@ -684,14 +766,10 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     MainApp.memFlag++;
                 }
                 if (!dcbis05.isChecked()) {
-
-                    if (!dcbis03.isChecked()) {
-                        if (!dataFlag) {
-                            MainApp.currentStatusCount += 1;
-                        }
-                    }else {
-                        MainApp.currentStatusCount -= 1;
+                    if (!dataFlag) {
+                        MainApp.currentStatusCount += 1;
                     }
+
                 } else {
                     if (MainApp.NoMembersCount != 0) {
 
@@ -712,14 +790,45 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                         }
                     }
                 }
-
             } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-
-
+                MainApp.currentStatusCount -= 1;
+                finish();
             }
+
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+
+    public boolean checkChildLessThenFive(int i) {
+
+        if (i == 1) {
+
+            Calendar cal = Calendar.getInstance();
+            cal.set(dcbg.getYear(), dcbg.getMonth(), dcbg.getDayOfMonth());
+            Date date1 = new Date();
+            Date date2 = cal.getTime();
+            long diff = date1.getTime() - date2.getTime();
+            long ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
+//
+//            if (ageInYears > 5) {
+//                return false;
+//            } else {
+//                return true;
+//            }
+//
+            return ageInYears > 5 ? false : true;
+
+        } else {
+
+            if (Integer.parseInt(dcbhy.getText().toString()) > 5) {
+                return false;
+            } else {
+                return true;
+            }
+        }
     }
 
     private boolean UpdateDB() {

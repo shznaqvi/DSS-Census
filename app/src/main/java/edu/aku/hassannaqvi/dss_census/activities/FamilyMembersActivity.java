@@ -17,6 +17,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,11 +28,12 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
+import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
 public class FamilyMembersActivity extends Activity {
 
-//    @BindView(R.id.activity_family_members) RelativeLayout activityFamilyMembers;
+//    @BindViewView(R.id.activity_family_members) RelativeLayout activityFamilyMembers;
 //    @BindView(R.id.lst_noMembers) ListView lstNoMembers;
 
 
@@ -41,17 +45,36 @@ public class FamilyMembersActivity extends Activity {
     Button btn_addMember;
     @BindView(R.id.btn_End)
     Button btn_End;
-    //    private RecyclerView recycler_noMembers;
-    private familyMembersAdapter mAdapter;
+    familyMembersAdapter mAdapter;
 
-//    String[] mStatus = {"Single", "Married", "Divorced"};
-//    String[] gender = {"Male", "Female"};
+    @BindView(R.id.TotalMem)
+    TextView totalMem;
+    @BindView(R.id.TotalChild)
+    TextView totalChild;
+    @BindView(R.id.countMen)
+    TextView countMen;
+    @BindView(R.id.countFemale)
+    TextView countFemale;
+    @BindView(R.id.countBoy)
+    TextView countBoy;
+    @BindView(R.id.countGirl)
+    TextView countGirl;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_family_members);
         ButterKnife.bind(this);
+
+//        Setting
+
+        totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+        totalChild.setText(String.valueOf(MainApp.totalChild));
+        countMen.setText(String.valueOf(MainApp.NoMaleCount));
+        countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
+        countBoy.setText(String.valueOf(MainApp.NoBoyCount));
+        countGirl.setText(String.valueOf(MainApp.NoGirlCount));
 
         //Set Enable for Next Section
         if (MainApp.familyMembersList.size() == MainApp.memFlag) {
@@ -112,18 +135,140 @@ public class FamilyMembersActivity extends Activity {
 
     }
 
+    @OnClick(R.id.addMen) void onAddMenClick() {
+        //TODO implement
+
+        MainApp.NoMaleCount++;
+        countMen.setText(String.valueOf(MainApp.NoMaleCount));
+
+        MainApp.NoMembersCount++;
+        totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+
+        resumeWork();
+    }
+    @OnClick(R.id.minusMen) void onMinusMenClick() {
+        //TODO implement
+
+        if ((Integer.parseInt(totalMem.getText().toString())-1) > 0) {
+            if (MainApp.NoMaleCount > 0) {
+                if (MainApp.TotalMaleCount >= MainApp.NoMaleCount) {
+                    MainApp.errorCheck(this, "You have already added:" + MainApp.NoMaleCount + " Males");
+                } else {
+                    MainApp.NoMaleCount--;
+                    countMen.setText(String.valueOf(MainApp.NoMaleCount));
+                    MainApp.NoMembersCount--;
+                    totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+                }
+                resumeWork();
+            }
+        }
+
+    }
+
+    @OnClick(R.id.addFemale) void onAddWomenClick() {
+        //TODO implement
+
+        MainApp.NoFemaleCount++;
+        countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
+
+        MainApp.NoMembersCount++;
+        totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+
+        resumeWork();
+    }
+    @OnClick(R.id.minusFemale) void onMinusWomenClick() {
+        //TODO implement
+
+        if ((Integer.parseInt(totalMem.getText().toString())-1) > 0) {
+            if (MainApp.NoFemaleCount > 0) {
+                if (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount) {
+                    MainApp.errorCheck(this, "You have already added:" + MainApp.NoFemaleCount + " Female");
+                } else {
+                    MainApp.NoFemaleCount--;
+                    countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
+                    MainApp.NoMembersCount--;
+                    totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+                }
+
+                resumeWork();
+            }
+        }
+    }
+
+    @OnClick(R.id.addBoy) void onAddBoyClick() {
+        //TODO implement
+
+        MainApp.NoBoyCount++;
+        countBoy.setText(String.valueOf(MainApp.NoBoyCount));
+
+        MainApp.NoMembersCount++;
+        MainApp.totalChild++ ;
+        totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+        totalChild.setText(String.valueOf(MainApp.totalChild));
+        resumeWork();
+    }
+    @OnClick(R.id.minusBoy) void onMinusBoyClick() {
+        //TODO implement
+
+        if ((Integer.parseInt(totalMem.getText().toString())-1) > 0) {
+            if (MainApp.NoBoyCount > 0) {
+                if (MainApp.TotalBoyCount >= MainApp.NoBoyCount) {
+                    MainApp.errorCheck(this, "You have already added:" + MainApp.NoBoyCount + " Boys");
+                } else {
+                    MainApp.NoBoyCount--;
+                    countBoy.setText(String.valueOf(MainApp.NoBoyCount));
+                    MainApp.NoMembersCount--;
+                    MainApp.totalChild--;
+                    totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+                    totalChild.setText(String.valueOf(MainApp.totalChild));
+                }
+
+                resumeWork();
+            }
+        }
+    }
+
+    @OnClick(R.id.addGirl) void onAddGirlClick() {
+        //TODO implement
+
+        MainApp.NoGirlCount++;
+        countGirl.setText(String.valueOf(MainApp.NoGirlCount));
+
+        MainApp.NoMembersCount++;
+        MainApp.totalChild++;
+        totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+        totalChild.setText(String.valueOf(MainApp.totalChild));
+
+        resumeWork();
+    }
+    @OnClick(R.id.minusGirl) void onMinusGirlClick() {
+        //TODO implement
+
+        if ((Integer.parseInt(totalMem.getText().toString())-1) > 0) {
+            if (MainApp.NoGirlCount > 0) {
+                if (MainApp.TotalGirlCount >= MainApp.NoGirlCount) {
+                    MainApp.errorCheck(this, "You have already added:" + MainApp.NoGirlCount + " Girls");
+                } else {
+                    MainApp.NoGirlCount--;
+                    countGirl.setText(String.valueOf(MainApp.NoGirlCount));
+                    MainApp.NoMembersCount--;
+                    MainApp.totalChild--;
+                    totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+                    totalChild.setText(String.valueOf(MainApp.totalChild));
+                }
+
+                resumeWork();
+            }
+        }
+    }
+
+
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
 
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-//        finish();
-//        Intent endSec = new Intent(this, EndingActivity.class);
-//        endSec.putExtra("check", false);
-//        startActivity(endSec);
-        MainApp.endActivity(this,this);
-
-
+        MainApp.endActivity(this, this);
     }
 
 
@@ -131,8 +276,29 @@ public class FamilyMembersActivity extends Activity {
     void onBtnContinueClick() {
 
         finish();
+
+        try {
+            saveDT();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         startActivity(new Intent(this, SectionDActivity.class));
 
+    }
+
+    public void saveDT() throws JSONException {
+        JSONObject sG = new JSONObject();
+        sG.put("dca0701", totalMem.getText().toString());
+        sG.put("dca0702", countMen.getText().toString());
+        sG.put("dca0703", countFemale.getText().toString());
+        sG.put("dca0801", totalChild.getText().toString());
+        sG.put("dca0802", countBoy.getText().toString());
+        sG.put("dca0803", countGirl.getText().toString());
+
+        MainApp.fc.setsG(String.valueOf(sG));
+
+        DatabaseHelper db = new DatabaseHelper(this);
+        db.updateSA();
     }
 
     @OnClick(R.id.btn_addMember)
@@ -150,9 +316,13 @@ public class FamilyMembersActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
+        resumeWork();
+    }
+
+    public void resumeWork(){
         mAdapter.notifyDataSetChanged();
 
-        Toast.makeText(this,"Mem flag:"+MainApp.memFlag,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Mem flag:" + MainApp.memFlag, Toast.LENGTH_SHORT).show();
 
 //        Set Enable for Next Section
         if (MainApp.familyMembersList.size() == MainApp.memFlag) {
@@ -167,12 +337,6 @@ public class FamilyMembersActivity extends Activity {
             btn_Continue.setEnabled(false);
             btn_addMember.setEnabled(false);
         }
-
-//        Death Members
-
-//        for (MainApp.deadMemberClass curVal : MainApp.deadMembers){
-//            lstNoMembers.getChildAt(curVal.position - 1).setBackgroundColor(getResources().getColor(R.color.gray));
-//        }
     }
 
     public static class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
@@ -245,9 +409,9 @@ public class FamilyMembersActivity extends Activity {
         }
 
 
-        public String setStatus(String i){
+        public String setStatus(String i) {
             String st = "";
-            switch (i){
+            switch (i) {
                 case "1":
                     st = getString(R.string.dcbis01);
                     break;

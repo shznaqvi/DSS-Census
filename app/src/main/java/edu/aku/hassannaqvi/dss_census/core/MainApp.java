@@ -69,7 +69,18 @@ public class MainApp extends Application {
     public static String areaCode;
 //    Total No of members got from Section A
     public static int NoMembersCount = 0;
+    public static int NoMaleCount = 0;
+    public static int NoFemaleCount = 0;
+    public static int NoBoyCount = 0;
+    public static int NoGirlCount = 0;
+
     public static int TotalMembersCount = 0;
+    public static int TotalMaleCount = 0;
+    public static int TotalFemaleCount = 0;
+    public static int TotalBoyCount = 0;
+    public static int TotalGirlCount = 0;
+    public static int TotalOthersCount = 0;
+
 //    Total No of Alive members got from Section B
     public static int currentStatusCount = 0;
     public static int currentDeceasedCheck = 0;
@@ -117,6 +128,46 @@ public class MainApp extends Application {
 //        Initialize Dead Member List
 //        deadMembers = new ArrayList<String>();
 
+    }
+
+    public static void errorCheck(final Context context, String error){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+        alertDialogBuilder
+                .setMessage(error)
+                .setCancelable(false)
+                .setPositiveButton("Ok",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
+    }
+
+    public static void errorCountDialog(final Context context, final Activity activity, String error){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+        alertDialogBuilder
+                .setMessage(error)
+                .setCancelable(false)
+                .setPositiveButton("Discard",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
+                                activity.finish();
+                            }
+                        });
+        alertDialogBuilder.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
 
     public static void finishActivity(final Context context, final Activity activity){
