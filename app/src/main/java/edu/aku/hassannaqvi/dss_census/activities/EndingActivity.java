@@ -67,6 +67,28 @@ public class EndingActivity extends Activity {
                 MainApp.familyMembersList.clear();
                 MainApp.memFlag = 0;
 
+                MainApp.NoMembersCount = 0;
+                MainApp.NoMaleCount = 0;
+                MainApp.NoFemaleCount = 0;
+                MainApp.NoBoyCount = 0;
+                MainApp.NoGirlCount = 0;
+
+                MainApp.TotalMembersCount = 0;
+                MainApp.TotalMaleCount = 0;
+                MainApp.TotalFemaleCount = 0;
+                MainApp.TotalBoyCount = 0;
+                MainApp.TotalGirlCount = 0;
+
+//    Total No of Alive members got from Section B
+                MainApp.currentStatusCount = 0;
+                MainApp.currentDeceasedCheck = 0;
+                MainApp.currentMotherCheck = 0;
+
+                MainApp.selectedPos = -1;
+
+                MainApp.memClicked.clear();
+                MainApp.insertMem.clear();
+
                 finish();
 
                 Intent endSec = new Intent(this, MainActivity.class);

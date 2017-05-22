@@ -79,7 +79,6 @@ public class MainApp extends Application {
     public static int TotalFemaleCount = 0;
     public static int TotalBoyCount = 0;
     public static int TotalGirlCount = 0;
-    public static int TotalOthersCount = 0;
 
 //    Total No of Alive members got from Section B
     public static int currentStatusCount = 0;
@@ -103,6 +102,10 @@ public class MainApp extends Application {
 
     public static double selectedCHILD = 24;
     public static int selectedPos = -1;
+
+
+    public static List<String> insertMem;
+
     Location location;
 
     @Override
@@ -158,6 +161,7 @@ public class MainApp extends Application {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,
                                                 int id) {
+//                                MainApp.memFlag--;
                                 activity.finish();
                             }
                         });

@@ -264,7 +264,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String SQL_SELECT_MOTHER_BY_CHILD =
             "SELECT c.serial serial, m.serial serialm, c.name child_name, c.dss_id_member child_id, m.name mother_name, c.dss_id_member mother_id, c.dob date_of_birth FROM census C join census m on c.dss_id_m = m.dss_id_member where c.member_type =? and m.dss_id_hh =? group by mother_id order by substr(c.dob, 7) desc, substr(c.dob, 4,2) desc, substr(c.dob, 1,2) desc;";
     private static final String SQL_SELECT_CHILD =
-            "SELECT * from census where member_type =? and dss_id_hh =? and uuid =?";
+            "SELECT * from census where member_type =? and dss_id_hh =? and uuid =? and (dob=date('now','-5 years') or agey<6)";
 
 
     private final String TAG = "DatabaseHelper";

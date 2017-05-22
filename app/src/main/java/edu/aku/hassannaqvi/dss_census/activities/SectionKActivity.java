@@ -27,6 +27,7 @@ import org.json.JSONObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 
@@ -224,6 +225,9 @@ public class SectionKActivity extends Activity {
     private int position = 0;
 
     private ArrayList<CensusContract> chm;
+    ArrayList<String> chmName;
+
+    ArrayAdapter<String> adapt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -272,7 +276,7 @@ public class SectionKActivity extends Activity {
 
         Collection<CensusContract> child = db.getChildFromMember(MainApp.fc.getDSSID(),MainApp.fc.getUID());
         chm = new ArrayList<>();
-        ArrayList<String> chmName = new ArrayList<>();
+        chmName = new ArrayList<>();
 
 
 //        First Index Null
@@ -281,11 +285,16 @@ public class SectionKActivity extends Activity {
 
 
         for (CensusContract ch : child) {
-            chm.add(new CensusContract(ch));
-            chmName.add(ch.getName());
+
+            if (ch.getAgeY().equals("")?checkChildLessThenFive(ch.getDob(),1):checkChildLessThenFive(ch.getAgeY(),2)) {
+                chm.add(new CensusContract(ch));
+                chmName.add(ch.getName());
+            }
         }
 
-        dcka.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, chmName));
+        adapt = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, chmName);
+
+        dcka.setAdapter(adapt);
 
         dcka.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -295,11 +304,17 @@ public class SectionKActivity extends Activity {
                 dckb.check(chm.get(position).getGender().equals("1") ? dckb01.getId() : dckb02.getId());
                 try {
 
+                    if (chm.get(position).getGender().equals("1"))
                     dckdob01.setChecked(true);
 
-                    Date dt = new SimpleDateFormat("dd-MM-yy").parse(chm.get(position).getDob());
-                    dckd.updateDate(dt.getYear(), dt.getMonth(), dt.getDay());
-                } catch (ParseException e) {
+                    dckd.setMaxDate(new Date().getTime());
+
+                    String[] dt = chm.get(position).getDob().split("-");
+
+                    dckd.updateDate(Integer.parseInt(dt[2]),Integer.parseInt(dt[1]) - 1,Integer.parseInt(dt[0]));
+
+
+                } catch (Exception e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
@@ -313,6 +328,37 @@ public class SectionKActivity extends Activity {
         });
 
 
+    }
+
+    public boolean checkChildLessThenFive(String dob,int i) {
+
+        if (i == 1) {
+
+            String[] dt = dob.split("-");
+
+            Calendar cal = Calendar.getInstance();
+            cal.set(Integer.parseInt(dt[2]), Integer.parseInt(dt[1]) - 1, Integer.parseInt(dt[0]));
+            Date date1 = new Date();
+            Date date2 = cal.getTime();
+            long diff = date1.getTime() - date2.getTime();
+            long ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
+//
+//            if (ageInYears > 5) {
+//                return false;
+//            } else {
+//                return true;
+//            }
+//
+            return ageInYears > 5 ? false : true;
+
+        } else {
+
+            if (Integer.parseInt(dob) > 5) {
+                return false;
+            } else {
+                return true;
+            }
+        }
     }
 
     @OnClick(R.id.btn_End)
@@ -341,6 +387,13 @@ public class SectionKActivity extends Activity {
             }
             if (UpdateDB()) {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
+                chm.remove(position);
+                chmName.remove(position);
+
+                adapt = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, chmName);
+                dcka.setAdapter(adapt);
+                adapt.notifyDataSetChanged();
 
                 if (MainApp.mm < MainApp.totalChild) {
 

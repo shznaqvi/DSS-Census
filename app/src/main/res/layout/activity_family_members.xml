@@ -10,9 +10,9 @@
         android:id="@+id/scrollView01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:scrollbars="vertical">
+        android:scrollbars="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -136,6 +136,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/counts"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -255,7 +256,7 @@
                 android:id="@+id/recycler_noMembers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/heading"
+                android:layout_alignBottom="@+id/counts"
                 android:scrollbars="vertical" />
 
             <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
@@ -271,22 +272,22 @@
                     android:id="@+id/btn_addMember"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add Member"
+                    android:layout_weight="1"
+                    android:text="@string/addMember"
                     android:textColor="#1ed61e" />
 
                 <Button
                     android:id="@+id/btn_Continue"
+                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Next Section"
+                    android:text="@string/nextSection"
                     android:textColor="#ff1e1e" />
 
                 <Button
                     android:id="@+id/btn_End"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/end_interview"
                     android:textColor="#ff1e1e" />
 

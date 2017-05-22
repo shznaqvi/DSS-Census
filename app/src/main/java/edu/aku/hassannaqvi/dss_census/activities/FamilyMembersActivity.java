@@ -69,6 +69,8 @@ public class FamilyMembersActivity extends Activity {
 
 //        Setting
 
+        MainApp.insertMem = new ArrayList<>();
+
         totalMem.setText(String.valueOf(MainApp.NoMembersCount));
         totalChild.setText(String.valueOf(MainApp.totalChild));
         countMen.setText(String.valueOf(MainApp.NoMaleCount));
@@ -107,25 +109,29 @@ public class FamilyMembersActivity extends Activity {
                     public void onItemClick(View view, int position) {
                         // TODO Handle item click
 
-                        boolean flag = true;
-                        for (int mem : MainApp.memClicked) {
-                            if (mem == position) {
-                                flag = false;
-                                break;
+                        if (position != -1) {
+                            boolean flag = true;
+                            for (int mem : MainApp.memClicked) {
+                                if (mem == position) {
+                                    flag = false;
+                                    break;
+                                }
                             }
-                        }
 
-                        if (flag) {
+                            if (flag) {
 
+                                MainApp.selectedPos = -1;
 
-                            MainApp.memClicked.add(position);
+                                MainApp.memClicked.add(position);
 
-                            recycler_noMembers.getChildAt(position).setBackgroundColor(Color.BLACK);
-                            Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
-                            i.putExtra("dataFlag", true);
-                            i.putExtra("position", position);
+//                                recycler_noMembers.getChildAt(position).setBackgroundColor(Color.BLACK);
+                                Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
+                                i.putExtra("dataFlag", true);
+                                i.putExtra("position", position);
 
-                            startActivity(i);
+                                startActivity(i);
+
+                            }
                         }
 
 //                        Toast.makeText(getApplicationContext(),familyMembersList.get(position).getMemberName(),Toast.LENGTH_SHORT).show();
@@ -135,7 +141,8 @@ public class FamilyMembersActivity extends Activity {
 
     }
 
-    @OnClick(R.id.addMen) void onAddMenClick() {
+    @OnClick(R.id.addMen)
+    void onAddMenClick() {
         //TODO implement
 
         MainApp.NoMaleCount++;
@@ -146,10 +153,12 @@ public class FamilyMembersActivity extends Activity {
 
         resumeWork();
     }
-    @OnClick(R.id.minusMen) void onMinusMenClick() {
+
+    @OnClick(R.id.minusMen)
+    void onMinusMenClick() {
         //TODO implement
 
-        if ((Integer.parseInt(totalMem.getText().toString())-1) > 0 && ((MainApp.NoMaleCount-1) >= MainApp.NoBoyCount) || MainApp.NoBoyCount == 0) {
+        if ((Integer.parseInt(totalMem.getText().toString()) - 1) > 0 && ((MainApp.NoMaleCount - 1) >= MainApp.NoBoyCount) || MainApp.NoBoyCount == 0) {
             if (MainApp.NoMaleCount > 0) {
                 if (MainApp.TotalMaleCount >= MainApp.NoMaleCount) {
                     MainApp.errorCheck(this, "You have already added:" + MainApp.NoMaleCount + " Males");
@@ -165,7 +174,8 @@ public class FamilyMembersActivity extends Activity {
 
     }
 
-    @OnClick(R.id.addFemale) void onAddWomenClick() {
+    @OnClick(R.id.addFemale)
+    void onAddWomenClick() {
         //TODO implement
 
         MainApp.NoFemaleCount++;
@@ -176,10 +186,12 @@ public class FamilyMembersActivity extends Activity {
 
         resumeWork();
     }
-    @OnClick(R.id.minusFemale) void onMinusWomenClick() {
+
+    @OnClick(R.id.minusFemale)
+    void onMinusWomenClick() {
         //TODO implement
 
-        if ((Integer.parseInt(totalMem.getText().toString())-1) > 0 && ((MainApp.NoFemaleCount-1) >= MainApp.NoGirlCount) || MainApp.NoGirlCount == 0) {
+        if ((Integer.parseInt(totalMem.getText().toString()) - 1) > 0 && ((MainApp.NoFemaleCount - 1) >= MainApp.NoGirlCount) || MainApp.NoGirlCount == 0) {
             if (MainApp.NoFemaleCount > 0) {
                 if (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount) {
                     MainApp.errorCheck(this, "You have already added:" + MainApp.NoFemaleCount + " Female");
@@ -195,7 +207,8 @@ public class FamilyMembersActivity extends Activity {
         }
     }
 
-    @OnClick(R.id.addBoy) void onAddBoyClick() {
+    @OnClick(R.id.addBoy)
+    void onAddBoyClick() {
         //TODO implement
 
         MainApp.NoBoyCount++;
@@ -203,28 +216,38 @@ public class FamilyMembersActivity extends Activity {
 
         MainApp.NoMembersCount++;
         MainApp.NoMaleCount++;
-        MainApp.totalChild++ ;
+        MainApp.totalChild++;
         countMen.setText(String.valueOf(MainApp.NoMaleCount));
         totalMem.setText(String.valueOf(MainApp.NoMembersCount));
         totalChild.setText(String.valueOf(MainApp.totalChild));
         resumeWork();
     }
-    @OnClick(R.id.minusBoy) void onMinusBoyClick() {
+
+    @OnClick(R.id.minusBoy)
+    void onMinusBoyClick() {
         //TODO implement
 
-        if ((Integer.parseInt(totalMem.getText().toString())-1) > 0) {
+        if ((Integer.parseInt(totalMem.getText().toString()) - 1) > 0) {
             if (MainApp.NoBoyCount > 0) {
                 if (MainApp.TotalBoyCount >= MainApp.NoBoyCount) {
                     MainApp.errorCheck(this, "You have already added:" + MainApp.NoBoyCount + " Boys");
                 } else {
-                    MainApp.NoMaleCount--;
-                    MainApp.NoBoyCount--;
-                    countBoy.setText(String.valueOf(MainApp.NoBoyCount));
-                    countMen.setText(String.valueOf(MainApp.NoMaleCount));
-                    MainApp.NoMembersCount--;
-                    MainApp.totalChild--;
-                    totalMem.setText(String.valueOf(MainApp.NoMembersCount));
-                    totalChild.setText(String.valueOf(MainApp.totalChild));
+
+                    if (!(MainApp.TotalMaleCount >= MainApp.NoMaleCount)) {
+                        MainApp.NoMaleCount--;
+                        MainApp.NoBoyCount--;
+                        countBoy.setText(String.valueOf(MainApp.NoBoyCount));
+                        countMen.setText(String.valueOf(MainApp.NoMaleCount));
+                        MainApp.NoMembersCount--;
+                        MainApp.totalChild--;
+                        totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+                        totalChild.setText(String.valueOf(MainApp.totalChild));
+                    }else {
+                        MainApp.NoBoyCount--;
+                        countBoy.setText(String.valueOf(MainApp.NoBoyCount));
+                        MainApp.totalChild--;
+                        totalChild.setText(String.valueOf(MainApp.totalChild));
+                    }
                 }
 
                 resumeWork();
@@ -232,7 +255,8 @@ public class FamilyMembersActivity extends Activity {
         }
     }
 
-    @OnClick(R.id.addGirl) void onAddGirlClick() {
+    @OnClick(R.id.addGirl)
+    void onAddGirlClick() {
         //TODO implement
 
         MainApp.NoGirlCount++;
@@ -247,22 +271,32 @@ public class FamilyMembersActivity extends Activity {
 
         resumeWork();
     }
-    @OnClick(R.id.minusGirl) void onMinusGirlClick() {
+
+    @OnClick(R.id.minusGirl)
+    void onMinusGirlClick() {
         //TODO implement
 
-        if ((Integer.parseInt(totalMem.getText().toString())-1) > 0) {
+        if ((Integer.parseInt(totalMem.getText().toString()) - 1) > 0) {
             if (MainApp.NoGirlCount > 0) {
                 if (MainApp.TotalGirlCount >= MainApp.NoGirlCount) {
                     MainApp.errorCheck(this, "You have already added:" + MainApp.NoGirlCount + " Girls");
                 } else {
-                    MainApp.NoFemaleCount--;
-                    MainApp.NoGirlCount--;
-                    countGirl.setText(String.valueOf(MainApp.NoGirlCount));
-                    MainApp.NoMembersCount--;
-                    MainApp.totalChild--;
-                    countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
-                    totalMem.setText(String.valueOf(MainApp.NoMembersCount));
-                    totalChild.setText(String.valueOf(MainApp.totalChild));
+
+                    if (!(MainApp.TotalFemaleCount >= MainApp.NoFemaleCount)) {
+                        MainApp.NoFemaleCount--;
+                        MainApp.NoGirlCount--;
+                        countGirl.setText(String.valueOf(MainApp.NoGirlCount));
+                        MainApp.NoMembersCount--;
+                        MainApp.totalChild--;
+                        countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
+                        totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+                        totalChild.setText(String.valueOf(MainApp.totalChild));
+                    }else {
+                        MainApp.NoGirlCount--;
+                        countGirl.setText(String.valueOf(MainApp.NoGirlCount));
+                        MainApp.totalChild--;
+                        totalChild.setText(String.valueOf(MainApp.totalChild));
+                    }
                 }
 
                 resumeWork();
@@ -324,23 +358,30 @@ public class FamilyMembersActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
-        if (MainApp.selectedPos != -1){
-            for (int mem=0;mem<MainApp.memClicked.size();mem++) {
+        if (MainApp.selectedPos != -1) {
+            for (int mem = 0; mem < MainApp.memClicked.size(); mem++) {
                 if (MainApp.memClicked.get(mem) == MainApp.selectedPos) {
                     MainApp.memClicked.remove(mem);
-                    MainApp.memFlag-=1;
+                    MainApp.memFlag -= 1;
 
-                    recycler_noMembers.getChildAt(mem).setBackgroundColor(Color.WHITE);
+//                    recycler_noMembers.getChildAt(mem).setBackgroundColor(Color.GRAY);
 
                     break;
                 }
             }
         }
 
+        countBoy.setText(String.valueOf(MainApp.NoBoyCount));
+        countMen.setText(String.valueOf(MainApp.NoMaleCount));
+        countGirl.setText(String.valueOf(MainApp.NoGirlCount));
+        countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
+        totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+        totalChild.setText(String.valueOf(MainApp.totalChild));
+
         resumeWork();
     }
 
-    public void resumeWork(){
+    public void resumeWork() {
         mAdapter.notifyDataSetChanged();
 
         Toast.makeText(this, "Mem flag:" + MainApp.memFlag, Toast.LENGTH_SHORT).show();

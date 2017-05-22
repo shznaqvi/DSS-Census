@@ -1,6 +1,8 @@
 package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -347,6 +349,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             dcbbmid.setEnabled(false);
 
         } else {
+
+            MainApp.memFlag++;
+
             dcba.setEnabled(true);
             dcbid.setEnabled(true);
             dcbbfid.setEnabled(false);
@@ -665,6 +670,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
 //        finish();
+
+//        MainApp.selectedPos = -1;
+
         MainApp.finishActivity(this, this);
     }
 
@@ -673,52 +681,93 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     void onBtnContinueClick() {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {
-            if (dcbm01.isChecked() && (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || MainApp.NoFemaleCount == 0)) {
-                MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
-            } else if (dcbm02.isChecked() && (MainApp.TotalMaleCount >= MainApp.NoMaleCount || MainApp.NoMaleCount == 0)) {
-                MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
-            } else if (dcbm03.isChecked() && dcbd01.isChecked()) {
-                if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
-                    if ((MainApp.TotalBoyCount >= MainApp.NoBoyCount) || MainApp.NoBoyCount == 0) {
-                        MainApp.errorCountDialog(this, this, "Need to increase no of Boys's in Family Member Activity.");
-                    } else {
-                        contFunc();
-                    }
-                } else {
-                    if ((MainApp.TotalMaleCount >= MainApp.NoMaleCount) || MainApp.NoMaleCount == 0) {
-                        MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
-                    } else {
-                        contFunc();
-                    }
+
+            boolean flag = true;
+            for (String mem : MainApp.insertMem) {
+                if (mem.equals(dcbid.getText().toString())) {
+                    flag = false;
+                    break;
                 }
-            } else if (dcbm03.isChecked() && dcbd02.isChecked()) {
-                if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
-                    if ((MainApp.TotalGirlCount >= MainApp.NoGirlCount) || MainApp.NoGirlCount == 0) {
-                        MainApp.errorCountDialog(this, this, "Need to increase no of Girls's in Family Member Activity.");
-                    } else {
-                        contFunc();
-                    }
-                } else {
-                    if ((MainApp.TotalFemaleCount >= MainApp.NoFemaleCount) || MainApp.NoFemaleCount == 0) {
+            }
+            if (flag) {
+
+                if (!dcbis03.isChecked()) {
+
+                    if (dcbm01.isChecked() && (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || MainApp.NoFemaleCount == 0)) {
                         MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
+                    } else if (dcbm02.isChecked() && (MainApp.TotalMaleCount >= MainApp.NoMaleCount || MainApp.NoMaleCount == 0)) {
+                        MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
+                    } else if (dcbm03.isChecked() && dcbd01.isChecked()) {
+
+                        if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
+                            if ((MainApp.TotalBoyCount >= MainApp.NoBoyCount) || MainApp.NoBoyCount == 0) {
+                                MainApp.errorCountDialog(this, this, "Need to increase no of Boys's in Family Member Activity.");
+                            } else {
+                                contFunc();
+                            }
+                        } else {
+                            if ((MainApp.TotalMaleCount >= MainApp.NoMaleCount) || MainApp.NoMaleCount == 0) {
+                                MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
+                            } else {
+                                contFunc();
+                            }
+                        }
+
+                    } else if (dcbm03.isChecked() && dcbd02.isChecked()) {
+                        if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
+                            if ((MainApp.TotalGirlCount >= MainApp.NoGirlCount) || MainApp.NoGirlCount == 0) {
+                                MainApp.errorCountDialog(this, this, "Need to increase no of Girls's in Family Member Activity.");
+                            } else {
+                                contFunc();
+                            }
+                        } else {
+                            if ((MainApp.TotalFemaleCount >= MainApp.NoFemaleCount) || MainApp.NoFemaleCount == 0) {
+                                MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
+                            } else {
+                                contFunc();
+                            }
+                        }
+                    } else if (dcbm04.isChecked() && dcbd01.isChecked()) {
+                        if ((MainApp.TotalMaleCount >= MainApp.NoMaleCount) || MainApp.NoMaleCount == 0) {
+                            MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
+                        } else {
+                            contFunc();
+                        }
+                    } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
+                        if ((MainApp.TotalFemaleCount >= MainApp.NoFemaleCount) || MainApp.NoFemaleCount == 0) {
+                            MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
+                        } else {
+                            contFunc();
+                        }
                     } else {
                         contFunc();
                     }
-                }
-            } else if (dcbm04.isChecked() && dcbd01.isChecked()) {
-                if ((MainApp.TotalMaleCount >= MainApp.NoMaleCount) || MainApp.NoMaleCount == 0) {
-                    MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
                 } else {
                     contFunc();
                 }
-            } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
-                if ((MainApp.TotalFemaleCount >= MainApp.NoFemaleCount) || MainApp.NoFemaleCount == 0) {
-                    MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
-                } else {
-                    contFunc();
+            }else {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                        this);
+
+                String memberID="";
+                for (byte i=0;i < MainApp.insertMem.size();i++){
+
+                    memberID+="ID: "+MainApp.insertMem.get(i)+"\n";
                 }
-            } else {
-                contFunc();
+
+
+                alertDialogBuilder
+                        .setTitle("memberIDs Already Exist")
+                        .setMessage(memberID)
+                        .setCancelable(false);
+                alertDialogBuilder.setNegativeButton("Ok",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = alertDialogBuilder.create();
+                alert.show();
             }
         }
     }
@@ -733,6 +782,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         if (UpdateDB()) {
             Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
+            MainApp.insertMem.add(dcbid.getText().toString());
+
+
             if (!dcbis03.isChecked()) {
 
                 if (dcbm01.isChecked()) {
@@ -742,13 +794,30 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 } else if (dcbm03.isChecked() && dcbd01.isChecked()) {
                     if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
                         MainApp.TotalBoyCount++;
+
+                        MainApp.TotalMaleCount++;
+
                     } else {
+
+                        MainApp.totalChild--;
+
+                        MainApp.NoBoyCount--;
+//                        MainApp.TotalBoyCount--;
+
                         MainApp.TotalMaleCount++;
                     }
                 } else if (dcbm03.isChecked() && dcbd02.isChecked()) {
                     if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
                         MainApp.TotalGirlCount++;
+
+                        MainApp.TotalFemaleCount++;
                     } else {
+
+                        MainApp.totalChild--;
+
+                        MainApp.NoGirlCount--;
+//                        MainApp.TotalGirlCount--;
+
                         MainApp.TotalFemaleCount++;
                     }
                 } else if (dcbm04.isChecked() && dcbd01.isChecked()) {
@@ -766,9 +835,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
 //        Check Member Flag
 
-                if (!dataFlag) {
-                    MainApp.memFlag++;
-                }
+//                if (!dataFlag) {
+//                    MainApp.memFlag++;
+//                }
                 if (!dcbis05.isChecked()) {
                     if (!dataFlag) {
                         MainApp.currentStatusCount += 1;
