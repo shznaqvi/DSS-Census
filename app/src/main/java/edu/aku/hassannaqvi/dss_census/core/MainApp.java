@@ -103,6 +103,8 @@ public class MainApp extends Application {
     public static double selectedCHILD = 24;
     public static int selectedPos = -1;
 
+    public static int selectedCh = -1;
+
 
     public static List<String> insertMem;
 

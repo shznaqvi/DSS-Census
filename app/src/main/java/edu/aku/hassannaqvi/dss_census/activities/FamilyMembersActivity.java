@@ -158,7 +158,7 @@ public class FamilyMembersActivity extends Activity {
     void onMinusMenClick() {
         //TODO implement
 
-        if ((Integer.parseInt(totalMem.getText().toString()) - 1) > 0 && ((MainApp.NoMaleCount - 1) >= MainApp.NoBoyCount) || MainApp.NoBoyCount == 0) {
+        if ((Integer.parseInt(totalMem.getText().toString()) - 1) > 0 && ((MainApp.NoMaleCount) > MainApp.NoBoyCount) || MainApp.NoBoyCount == 0) {
             if (MainApp.NoMaleCount > 0) {
                 if (MainApp.TotalMaleCount >= MainApp.NoMaleCount) {
                     MainApp.errorCheck(this, "You have already added:" + MainApp.NoMaleCount + " Males");
@@ -191,7 +191,7 @@ public class FamilyMembersActivity extends Activity {
     void onMinusWomenClick() {
         //TODO implement
 
-        if ((Integer.parseInt(totalMem.getText().toString()) - 1) > 0 && ((MainApp.NoFemaleCount - 1) >= MainApp.NoGirlCount) || MainApp.NoGirlCount == 0) {
+        if ((Integer.parseInt(totalMem.getText().toString()) - 1) > 0 && ((MainApp.NoFemaleCount) > MainApp.NoGirlCount) || MainApp.NoGirlCount == 0) {
             if (MainApp.NoFemaleCount > 0) {
                 if (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount) {
                     MainApp.errorCheck(this, "You have already added:" + MainApp.NoFemaleCount + " Female");

@@ -272,9 +272,11 @@ public class SectionKActivity extends Activity {
             }
         });
 
+
         DatabaseHelper db = new DatabaseHelper(this);
 
         Collection<CensusContract> child = db.getChildFromMember(MainApp.fc.getDSSID(),MainApp.fc.getUID());
+//        Collection<CensusContract> child = db.getChildFromMember(MainApp.fc.getDSSID(),"98c4a79aec06a40e74");
         chm = new ArrayList<>();
         chmName = new ArrayList<>();
 
@@ -290,6 +292,15 @@ public class SectionKActivity extends Activity {
                 chm.add(new CensusContract(ch));
                 chmName.add(ch.getName());
             }
+        }
+
+        if (MainApp.selectedCh != -1){
+            chm.remove(MainApp.selectedCh);
+            chmName.remove(MainApp.selectedCh);
+
+//            adapt = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, chmName);
+//            dcka.setAdapter(adapt);
+//            adapt.notifyDataSetChanged();
         }
 
         adapt = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, chmName);
@@ -375,6 +386,8 @@ public class SectionKActivity extends Activity {
 
     }
 
+
+
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
 
@@ -388,21 +401,19 @@ public class SectionKActivity extends Activity {
             if (UpdateDB()) {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
-                chm.remove(position);
-                chmName.remove(position);
-
-                adapt = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, chmName);
-                dcka.setAdapter(adapt);
-                adapt.notifyDataSetChanged();
-
                 if (MainApp.mm < MainApp.totalChild) {
 
                     finish();
+
+                    MainApp.selectedCh = position;
 
                     Intent intent = new Intent(this, SectionKActivity.class);
                     MainApp.mm++;
                     startActivity(intent);
                 } else {
+
+                    MainApp.selectedCh = -1;
+
                     finish();
                     startActivity(new Intent(this, SectionLActivity.class));
                 }

@@ -285,7 +285,7 @@ public class SectionAActivity extends Activity {
 
     Boolean isNew = false;
 
-    boolean checked = false;
+    boolean checked = false,flag = false;
 
 
     @Override
@@ -448,6 +448,7 @@ public class SectionAActivity extends Activity {
                 checked = false;
 
                 if (!checked) {
+                    flag = false;
                     dca03.setError("Please Check DSS ID...");
                 } else {
                     checked = true;
@@ -550,6 +551,9 @@ public class SectionAActivity extends Activity {
 
         if (!dca03.getText().toString().isEmpty()) {
 
+            flag = true;
+
+
             dca03.setError(null);
 
             members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
@@ -611,38 +615,42 @@ public class SectionAActivity extends Activity {
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
 
-        if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {
-                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+        if (flag) {
+            if (formValidation()) {
+                try {
+                    SaveDraft();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                if (UpdateDB()) {
+                    Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
-                finish();
+                    finish();
 
-                MainApp.NoMembersCount = Integer.parseInt(dca0701.getText().toString());
-                MainApp.NoMaleCount = Integer.parseInt(dca0702.getText().toString());
-                MainApp.NoFemaleCount = Integer.parseInt(dca0703.getText().toString());
+                    MainApp.NoMembersCount = Integer.parseInt(dca0701.getText().toString());
+                    MainApp.NoMaleCount = Integer.parseInt(dca0702.getText().toString());
+                    MainApp.NoFemaleCount = Integer.parseInt(dca0703.getText().toString());
 
-                MainApp.totalChild = Integer.parseInt(dca0801.getText().toString());
-                MainApp.NoBoyCount = Integer.parseInt(dca0802.getText().toString());
-                MainApp.NoGirlCount = Integer.parseInt(dca0803.getText().toString());
+                    MainApp.totalChild = Integer.parseInt(dca0801.getText().toString());
+                    MainApp.NoBoyCount = Integer.parseInt(dca0802.getText().toString());
+                    MainApp.NoGirlCount = Integer.parseInt(dca0803.getText().toString());
 
-                startActivity(new Intent(this, FamilyMembersActivity.class));
-            } else {
+                    startActivity(new Intent(this, FamilyMembersActivity.class));
+                } else {
 
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
 
 //                Intent end_intent = new Intent(this, EndingActivity.class);
 //                end_intent.putExtra("check", false);
 //                startActivity(end_intent);
 
-                MainApp.endActivity(this,this);
+                    MainApp.endActivity(this, this);
+                }
             }
-        }
 
+        }else {
+            Toast.makeText(this, "Click on DSS button!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public boolean formValidation() {
