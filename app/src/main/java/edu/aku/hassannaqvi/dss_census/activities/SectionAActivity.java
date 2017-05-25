@@ -293,7 +293,8 @@ public class SectionAActivity extends Activity {
         MainApp.memFlag = 0;
 
         MainApp.familyMembersList = new ArrayList<>();
-
+        MainApp.familyMembersList.clear();
+        Log.d(TAG, "onCreate: " + MainApp.familyMembersList.size());
         db = new DatabaseHelper(this);
 
         //==================== Permission Skip Check =================
