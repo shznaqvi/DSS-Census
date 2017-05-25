@@ -86,8 +86,8 @@ public class EndingActivity extends Activity {
 
                 MainApp.selectedPos = -1;
 
-                MainApp.memClicked.clear();
-                MainApp.insertMem.clear();
+
+
 
                 finish();
 

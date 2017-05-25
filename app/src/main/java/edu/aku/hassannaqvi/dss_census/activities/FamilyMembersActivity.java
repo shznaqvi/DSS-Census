@@ -327,6 +327,10 @@ public class FamilyMembersActivity extends Activity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        MainApp.memClicked.clear();
+        MainApp.insertMem.clear();
+
         startActivity(new Intent(this, SectionDActivity.class));
 
     }
