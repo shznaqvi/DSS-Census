@@ -141,6 +141,9 @@
         <item name="android:typeface">serif</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:padding">16dp</item>
+        <item name="android:radius">2dp</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:background">@drawable/background_grad</item>
     </style>
 
     <style name="checkbox" parent="android:Widget.Material.Light.CompoundButton.CheckBox">
