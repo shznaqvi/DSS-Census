@@ -26,6 +26,7 @@ import org.json.JSONException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -307,9 +308,13 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 if (MainApp.familyMembersList.get(position).getGender().equals("1")) {
                     dcbd02.setEnabled(false);
                     dcbd01.setEnabled(true);
+
+                    dcbf09.setEnabled(false);
                 } else {
                     dcbd01.setEnabled(false);
                     dcbd02.setEnabled(true);
+
+                    dcbf09.setEnabled(true);
                 }
 
 //                if (((Integer.parseInt(MainApp.familyMembersList.get(position).getGender())) - 1) == 0){
@@ -404,17 +409,17 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         });
 
 
-        dcbd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (dcbd01.isChecked()) {
-                    dcbf09.setEnabled(false);
-                    dcbf09.setChecked(false);
-                } else {
-                    dcbf09.setEnabled(true);
-                }
-            }
-        });
+//        dcbd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                if (dcbd01.isChecked()) {
+//                    dcbf09.setEnabled(false);
+//                    dcbf09.setChecked(false);
+//                } else {
+//                    dcbf09.setEnabled(true);
+//                }
+//            }
+//        });
 
         dcbdob.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -547,10 +552,15 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbm01.setEnabled(false);
                     dcbm02.setEnabled(true);
                     dcbm01.setChecked(false);
+
+                    dcbf09.setEnabled(false);
+                    dcbf09.setChecked(false);
                 } else {
                     dcbm01.setEnabled(true);
                     dcbm02.setEnabled(false);
                     dcbm02.setChecked(false);
+
+                    dcbf09.setEnabled(true);
                 }
             }
         });
@@ -685,7 +695,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 // Insert into array for showing in alert if same member id wants to enter
             boolean flag = true;
             for (String mem : MainApp.insertMem) {
-                if (mem.equals(dcbid.getText().toString())) {
+//                if (mem == dcbid.getText().toString()) {
+                if (Objects.equals(mem, new String(dcbid.getText().toString()))) {
                     flag = false;
                     break;
                 }
@@ -694,11 +705,16 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                 if (!dcbis03.isChecked() && !dcbis05.isChecked()) {
 
-                    if (dcbm01.isChecked() && (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || MainApp.NoFemaleCount == 0
-                            || MainApp.NoFemaleCount == MainApp.NoGirlCount)) {
+//                    if (dcbm01.isChecked() && (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || MainApp.NoFemaleCount == 0
+//                            || MainApp.NoFemaleCount == MainApp.NoGirlCount)) {
+                        if (dcbm01.isChecked() && (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || MainApp.NoFemaleCount == 0
+                                ||  MainApp.NoFemaleCount - (MainApp.TotalFemaleCount - MainApp.TotalGirlCount) == MainApp.NoGirlCount)) {
                         MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
+//                    } else if (dcbm02.isChecked() && (MainApp.TotalMaleCount >= MainApp.NoMaleCount || MainApp.NoMaleCount == 0
+//                            || MainApp.NoMaleCount == MainApp.NoBoyCount)) {
+
                     } else if (dcbm02.isChecked() && (MainApp.TotalMaleCount >= MainApp.NoMaleCount || MainApp.NoMaleCount == 0
-                            || MainApp.NoMaleCount == MainApp.NoBoyCount)) {
+                            ||  MainApp.NoMaleCount - (MainApp.TotalMaleCount - MainApp.TotalBoyCount) == MainApp.NoBoyCount)) {
                         MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
                     } else if (dcbm03.isChecked() && dcbd01.isChecked()) {
                         if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
@@ -730,13 +746,15 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                             }
                         }
                     } else if (dcbm04.isChecked() && dcbd01.isChecked()) {
-                        if ((MainApp.TotalMaleCount >= MainApp.NoMaleCount) || MainApp.NoMaleCount == 0) {
+                        if (MainApp.TotalMaleCount >= MainApp.NoMaleCount || MainApp.NoMaleCount == 0
+                                    ||  MainApp.NoMaleCount - (MainApp.TotalMaleCount - MainApp.TotalBoyCount) == MainApp.NoBoyCount) {
                             MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
                         } else {
                             contFunc();
                         }
                     } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
-                        if ((MainApp.TotalFemaleCount >= MainApp.NoFemaleCount) || MainApp.NoFemaleCount == 0) {
+                        if (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || MainApp.NoFemaleCount == 0
+                                ||  MainApp.NoFemaleCount - (MainApp.TotalFemaleCount - MainApp.TotalGirlCount) == MainApp.NoGirlCount) {
                             MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
                         } else {
                             contFunc();
