@@ -8,8 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
@@ -25,7 +23,6 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -38,7 +35,6 @@ import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
-import edu.aku.hassannaqvi.dss_census.otherClasses.MothersLst;
 
 
 public class SectionAActivity extends Activity {
@@ -285,7 +281,7 @@ public class SectionAActivity extends Activity {
 
     Boolean isNew = false;
 
-    boolean checked = false,flag = false;
+    boolean checked = false;
 
 
     @Override
@@ -436,33 +432,6 @@ public class SectionAActivity extends Activity {
             }
         });
 
-        dca03.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                checked = false;
-
-                if (!checked) {
-                    flag = false;
-                    dca03.setError("Please Check DSS ID...");
-                } else {
-                    checked = true;
-                    dca03.setError(null);
-                }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
         dca050496.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -550,72 +519,38 @@ public class SectionAActivity extends Activity {
         membersExists.setVisibility(View.VISIBLE);
 
         if (!dca03.getText().toString().isEmpty()) {
-
-            flag = true;
-
-
             dca03.setError(null);
-
             members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
-
             mp02_count.setText("Members found = " + members.size());
 
-
-
             if (members.size() != 0) {
-
-//                MainApp.familyMembersList = new ArrayList<>();
-
                 for (MembersContract ec : members) {
-//                    MainApp.familyMembersList.add(new familyMembers(ec.getName(),ec.getDss_id_member(),ec.getCurrent_status(),ec.getDob()));
 
                     MainApp.familyMembersList.add(new MembersContract(ec));
                 }
 
                 Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
-
-
-//                fldGrpmp02a007.setVisibility(View.VISIBLE);
-//                btn_Continue.setVisibility(View.VISIBLE);
-
-//                flag = true;
-
                 MainApp.currentStatusCount = MainApp.familyMembersList.size();
-
                 MainApp.TotalMembersCount = MainApp.familyMembersList.size();
-
                 checkMembers.setEnabled(true);
-
                 isNew = false;
 
             } else {
 
-//                fldGrpmp02a007.setVisibility(View.GONE);
-//                btn_Continue.setVisibility(View.GONE);
-
-//                flag = false;
-
                 isNew = true;
-
                 checkMembers.setEnabled(false);
-
                 Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
             }
-
-
         } else {
             dca03.setError("This data is Required!");
         }
         checked = true;
-
-
-
     }
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
 
-        if (flag) {
+
             if (formValidation()) {
                 try {
                     SaveDraft();
@@ -634,23 +569,31 @@ public class SectionAActivity extends Activity {
                     MainApp.totalChild = Integer.parseInt(dca0801.getText().toString());
                     MainApp.NoBoyCount = Integer.parseInt(dca0802.getText().toString());
                     MainApp.NoGirlCount = Integer.parseInt(dca0803.getText().toString());
+                    members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
+                    Log.d(TAG, "onBtnContinueClick: " + members.size());
+                    if (members.size() != 0 && MainApp.familyMembersList.size() < 1) {
 
+                        for (MembersContract ec : members) {
+                            MainApp.familyMembersList.add(new MembersContract(ec));
+                        }
+
+                        Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
+                        MainApp.currentStatusCount = MainApp.familyMembersList.size();
+                        MainApp.TotalMembersCount = MainApp.familyMembersList.size();
+                        checkMembers.setEnabled(true);
+                        isNew = false;
+
+                    } else {
+
+                        isNew = true;
+                        checkMembers.setEnabled(false);
+                        Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
+                    }
                     startActivity(new Intent(this, FamilyMembersActivity.class));
                 } else {
-
                     Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-
-//                Intent end_intent = new Intent(this, EndingActivity.class);
-//                end_intent.putExtra("check", false);
-//                startActivity(end_intent);
-
-                    MainApp.endActivity(this, this);
                 }
             }
-
-        }else {
-            Toast.makeText(this, "Click on DSS button!", Toast.LENGTH_SHORT).show();
-        }
     }
 
     public boolean formValidation() {
@@ -661,6 +604,15 @@ public class SectionAActivity extends Activity {
         if (dca03.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca03), Toast.LENGTH_SHORT).show();
             dca03.setError("This data is Required!");    // Set Error on last radio button
+            return false;
+        } else {
+            dca03.setError(null);
+        }
+
+        if (!dca03.getText().toString().substring(0, MainApp.regionDss.length()).toUpperCase().equals(MainApp.regionDss)) {
+            Toast.makeText(this, dca03.getText().toString().substring(0, MainApp.regionDss.length()).toUpperCase() + "-" + MainApp.regionDss, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(not matched): " + getString(R.string.dca03), Toast.LENGTH_LONG).show();
+            dca03.setError("Did not match your block!");    // Set Error on last radio button
             return false;
         } else {
             dca03.setError(null);
