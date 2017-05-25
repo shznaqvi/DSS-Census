@@ -842,8 +842,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 // Insert into array for showing in alert if same member id wants to enter
             boolean flag = true;
             for (String mem : MainApp.insertMem) {
-//                if (mem == dcbid.getText().toString()) {
-                if (Objects.equals(mem, new String(dcbid.getText().toString()))) {
+
+                if (!dcbm04.isChecked() && Objects.equals(mem, new String(dcbid.getText().toString()))) {
                     flag = false;
                     break;
                 }

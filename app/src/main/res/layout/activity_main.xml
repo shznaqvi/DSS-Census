@@ -22,10 +22,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="16dp"
+            android:background="@color/dullWhile"
             android:text="Main Menu"
-            android:background="@color/dullBlack"
-            android:textAlignment="center"
-            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
             android:textStyle="bold" />
 
         <TextView

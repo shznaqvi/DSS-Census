@@ -493,9 +493,9 @@ public class SectionAActivity extends Activity {
         String member="";
         for (byte i=0;i < MainApp.familyMembersList.size();i++){
 
-            member+=MainApp.familyMembersList.get(i).getName()+" Type:"+
-                    (MainApp.familyMembersList.get(i).getMember_type().contains("mw") ? "Married Women" :
-                            (MainApp.familyMembersList.get(i).getMember_type().contains("h") ? "Male" : "Child"))+"\n";
+            member += MainApp.familyMembersList.get(i).getName() + " - " +
+                    (MainApp.familyMembersList.get(i).getMember_type().equals("mw") ? "(Married Women)" :
+                            MainApp.familyMembersList.get(i).getMember_type().equals("h") ? "(Male)" : "(Child)") + "\n";
         }
 
 

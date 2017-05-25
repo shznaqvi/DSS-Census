@@ -33,8 +33,6 @@ import edu.aku.hassannaqvi.dss_census.get.GetMembers;
 import edu.aku.hassannaqvi.dss_census.sync.SyncCensus;
 import edu.aku.hassannaqvi.dss_census.sync.SyncDeceased;
 import edu.aku.hassannaqvi.dss_census.sync.SyncForms;
-import edu.aku.hassannaqvi.dss_census.sync.SyncIM;
-import edu.aku.hassannaqvi.dss_census.sync.SyncMother;
 
 public class MainActivity extends Activity {
 
@@ -64,7 +62,7 @@ public class MainActivity extends Activity {
 
         ButterKnife.bind(this);
 
-        lblheader.setText("Assigned to "+MainApp.regionDss+" Block");
+        lblheader.setText("Welcome! You're assigned to block ' " + MainApp.regionDss + " '");
 
 
         if (MainApp.admin) {
