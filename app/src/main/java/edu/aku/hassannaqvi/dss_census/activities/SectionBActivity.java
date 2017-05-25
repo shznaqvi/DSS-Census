@@ -310,11 +310,22 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbd01.setEnabled(true);
 
                     dcbf09.setEnabled(false);
+                    dcbf09.setChecked(false);
+
+                    dcbm01.setEnabled(false);
+                    dcbm01.setChecked(false);
+
+                    dcbm02.setEnabled(true);
+
                 } else {
                     dcbd01.setEnabled(false);
                     dcbd02.setEnabled(true);
 
                     dcbf09.setEnabled(true);
+                    dcbm01.setEnabled(true);
+
+                    dcbm02.setEnabled(false);
+                    dcbm02.setChecked(false);
                 }
 
 //                if (((Integer.parseInt(MainApp.familyMembersList.get(position).getGender())) - 1) == 0){
@@ -348,6 +359,72 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                 String mt = MainApp.familyMembersList.get(position).getMember_type();
                 ((RadioButton) dcbm.getChildAt(mt.equals("mw") ? 0 : mt.equals("h") ? 1 : 2)).setChecked(true);
+
+                if (mt.equals("ch")){
+
+                    dcbbrhh01.setEnabled(false);
+                    dcbbrhh01.setChecked(false);
+
+                    dcbbrhh02.setEnabled(false);
+                    dcbbrhh02.setChecked(false);
+
+                    dcbbrhh04.setEnabled(false);
+                    dcbbrhh04.setChecked(false);
+
+                    dcbbrhh06.setEnabled(false);
+                    dcbbrhh06.setChecked(false);
+
+                    dcbbrhh07.setEnabled(false);
+                    dcbbrhh07.setChecked(false);
+
+                    dcbc01.setEnabled(false);
+                    dcbc01.setChecked(false);
+                    dcbc02.setEnabled(false);
+                    dcbc02.setChecked(false);
+                    dcbc03.setEnabled(false);
+                    dcbc03.setChecked(false);
+                    dcbc04.setEnabled(false);
+                    dcbc04.setChecked(false);
+
+                    dcbe07.setEnabled(false);
+                    dcbe07.setChecked(false);
+
+                    dcbf01.setEnabled(false);
+                    dcbf01.setChecked(false);
+                    dcbf02.setEnabled(false);
+                    dcbf02.setChecked(false);
+                    dcbf06.setEnabled(false);
+                    dcbf06.setChecked(false);
+                    dcbf07.setEnabled(false);
+                    dcbf07.setChecked(false);
+                    dcbf11.setEnabled(false);
+                    dcbf11.setChecked(false);
+                    dcbf12.setEnabled(false);
+                    dcbf12.setChecked(false);
+                    dcbf14.setEnabled(false);
+                    dcbf14.setChecked(false);
+                }else {
+                    dcbbrhh01.setEnabled(true);
+                    dcbbrhh02.setEnabled(true);
+                    dcbbrhh04.setEnabled(true);
+                    dcbbrhh06.setEnabled(true);
+                    dcbbrhh07.setEnabled(true);
+
+                    dcbc01.setEnabled(true);
+                    dcbc02.setEnabled(true);
+                    dcbc03.setEnabled(true);
+                    dcbc04.setEnabled(true);
+
+                    dcbe07.setEnabled(true);
+
+                    dcbf01.setEnabled(true);
+                    dcbf02.setEnabled(true);
+                    dcbf06.setEnabled(true);
+                    dcbf07.setEnabled(true);
+                    dcbf11.setEnabled(true);
+                    dcbf12.setEnabled(true);
+                    dcbf14.setEnabled(true);
+                }
             }
 
             dcbbfid.setEnabled(false);
@@ -555,12 +632,22 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                     dcbf09.setEnabled(false);
                     dcbf09.setChecked(false);
+
+                    dcbm01.setEnabled(false);
+                    dcbm01.setChecked(false);
+
+                    dcbm02.setEnabled(true);
                 } else {
                     dcbm01.setEnabled(true);
                     dcbm02.setEnabled(false);
                     dcbm02.setChecked(false);
 
                     dcbf09.setEnabled(true);
+
+                    dcbm02.setEnabled(false);
+                    dcbm02.setChecked(false);
+
+                    dcbm01.setEnabled(true);
                 }
             }
         });
@@ -577,7 +664,67 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                     dcbbfid.setEnabled(false);
                     dcbbmid.setEnabled(false);
+
+                    dcbbrhh01.setEnabled(true);
+                    dcbbrhh02.setEnabled(true);
+                    dcbbrhh04.setEnabled(true);
+                    dcbbrhh06.setEnabled(true);
+                    dcbbrhh07.setEnabled(true);
+
+                    dcbc01.setEnabled(true);
+                    dcbc02.setEnabled(true);
+                    dcbc03.setEnabled(true);
+                    dcbc04.setEnabled(true);
+
+                    dcbe07.setEnabled(true);
+
+                    dcbf01.setEnabled(true);
+                    dcbf02.setEnabled(true);
+                    dcbf06.setEnabled(true);
+                    dcbf07.setEnabled(true);
+                    dcbf11.setEnabled(true);
+                    dcbf12.setEnabled(true);
+                    dcbf14.setEnabled(true);
+
                 } else {
+
+                    dcbbrhh01.setEnabled(false);
+                    dcbbrhh01.setChecked(false);
+                    dcbbrhh02.setEnabled(false);
+                    dcbbrhh02.setChecked(false);
+                    dcbbrhh04.setEnabled(false);
+                    dcbbrhh04.setChecked(false);
+                    dcbbrhh06.setEnabled(false);
+                    dcbbrhh06.setChecked(false);
+                    dcbbrhh07.setEnabled(false);
+                    dcbbrhh07.setChecked(false);
+
+                    dcbc01.setEnabled(false);
+                    dcbc01.setChecked(false);
+                    dcbc02.setEnabled(false);
+                    dcbc02.setChecked(false);
+                    dcbc03.setEnabled(false);
+                    dcbc03.setChecked(false);
+                    dcbc04.setEnabled(false);
+                    dcbc04.setChecked(false);
+
+                    dcbe07.setEnabled(false);
+                    dcbe07.setChecked(false);
+
+                    dcbf01.setEnabled(false);
+                    dcbf01.setChecked(false);
+                    dcbf02.setEnabled(false);
+                    dcbf02.setChecked(false);
+                    dcbf06.setEnabled(false);
+                    dcbf06.setChecked(false);
+                    dcbf07.setEnabled(false);
+                    dcbf07.setChecked(false);
+                    dcbf11.setEnabled(false);
+                    dcbf11.setChecked(false);
+                    dcbf12.setEnabled(false);
+                    dcbf12.setChecked(false);
+                    dcbf14.setEnabled(false);
+                    dcbf14.setChecked(false);
 
                     dcbbfid.setOnKeyListener(SectionBActivity.this);
                     dcbbfid.addTextChangedListener(SectionBActivity.this);
