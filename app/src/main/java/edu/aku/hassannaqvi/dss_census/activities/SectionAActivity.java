@@ -293,7 +293,7 @@ public class SectionAActivity extends Activity {
         MainApp.memFlag = 0;
 
         MainApp.familyMembersList = new ArrayList<>();
-        MainApp.familyMembersList.clear();
+
         Log.d(TAG, "onCreate: " + MainApp.familyMembersList.size());
         db = new DatabaseHelper(this);
 
@@ -525,6 +525,9 @@ public class SectionAActivity extends Activity {
             mp02_count.setText("Members found = " + members.size());
 
             if (members.size() != 0) {
+
+                MainApp.familyMembersList.clear();
+
                 for (MembersContract ec : members) {
 
                     MainApp.familyMembersList.add(new MembersContract(ec));
@@ -573,6 +576,8 @@ public class SectionAActivity extends Activity {
                     members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
                     Log.d(TAG, "onBtnContinueClick: " + members.size());
                     if (members.size() != 0 && MainApp.familyMembersList.size() < 1) {
+
+                        MainApp.familyMembersList.clear();
 
                         for (MembersContract ec : members) {
                             MainApp.familyMembersList.add(new MembersContract(ec));

@@ -1021,6 +1021,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                         Log.d("Current Date", "" + dt.toString());
                         Log.d("Current Date", "" + new SimpleDateFormat().format(new Date(dt)));
                         Log.d("Selected Date", " " + crDt.toString());
+                        Log.d("Selected Date", " " + new SimpleDateFormat().format(new Date(crDt)));
 
 //                        if (dcbm01.isChecked()) {
 //                            MainApp.TotalFemaleCount--;
