@@ -17,18 +17,16 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collection;
 
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
+import edu.aku.hassannaqvi.dss_census.contracts.FormsContract.singleForm;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
-import edu.aku.hassannaqvi.dss_census.contracts.FormsContract.*;
 
 /**
  * Created by hassan.naqvi on 7/26/2016.
@@ -103,9 +101,9 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
 //            pd.setMessage("Total Forms: " );
 
             for (FormsContract fc : Forms) {
-                if (fc.getIstatus().equals("1")) {
+                //if (fc.getIstatus().equals("1")) {
                     jsonSync.put(fc.toJSONObject());
-                }
+                //}
             }
             wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
             longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");

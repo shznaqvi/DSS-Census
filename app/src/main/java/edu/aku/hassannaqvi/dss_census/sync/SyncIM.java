@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.Collection;
 
 import edu.aku.hassannaqvi.dss_census.contracts.SectionKIMContract;
-import edu.aku.hassannaqvi.dss_census.contracts.SectionKIMContract.*;
+import edu.aku.hassannaqvi.dss_census.contracts.SectionKIMContract.singleIm;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
@@ -130,9 +130,9 @@ public class SyncIM extends AsyncTask<Void, Void, String> {
 
                     for (SectionKIMContract fc : IM) {
 
-                        if (fc.getIstatus().equals("1")) {
+                        //if (fc.getIstatus().equals("1")) {
                             jsonSync.put(fc.toJSONObject());
-                        }
+                        //}
 
                     }
                     wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");

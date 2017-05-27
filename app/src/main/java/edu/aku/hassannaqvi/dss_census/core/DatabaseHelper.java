@@ -1283,7 +1283,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 DeceasedMember.COLUMN_ISTATUS,
                 DeceasedMember.COLUMN_WRA
         };
-        String whereClause = DeceasedMember.COLUMN_SYNCED + " is null";
+        //String whereClause = DeceasedMember.COLUMN_SYNCED + " is null";
+        String whereClause = null;
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;

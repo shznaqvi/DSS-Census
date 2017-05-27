@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.Collection;
 
 import edu.aku.hassannaqvi.dss_census.contracts.MotherContract;
-import edu.aku.hassannaqvi.dss_census.contracts.MotherContract.*;
+import edu.aku.hassannaqvi.dss_census.contracts.MotherContract.MotherTB;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
@@ -130,9 +130,9 @@ public class SyncMother extends AsyncTask<Void, Void, String> {
 
                     for (MotherContract fc : Mother) {
 
-                        if (fc.getIstatus().equals("1")) {
+                        //if (fc.getIstatus().equals("1")) {
                             jsonSync.put(fc.toJSONObject());
-                        }
+                        // }
 
                     }
                     wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
