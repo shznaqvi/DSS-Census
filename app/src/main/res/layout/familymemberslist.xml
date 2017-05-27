@@ -65,6 +65,7 @@
     <!-- Family Member Name-->
     <TextView
         android:id="@+id/memberName"
+        style="@style/listItems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -79,6 +80,7 @@
     <!-- DSSID -->
     <TextView
         android:id="@+id/DSSid"
+        style="@style/listItems"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -91,6 +93,7 @@
     <!-- Year -->
     <TextView
         android:id="@+id/year"
+        style="@style/listItems"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -103,6 +106,7 @@
     <!-- Status -->
     <TextView
         android:id="@+id/currentStatus"
+        style="@style/listItems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
