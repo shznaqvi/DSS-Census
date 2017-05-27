@@ -397,12 +397,12 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbf06.setChecked(false);
                     dcbf07.setEnabled(false);
                     dcbf07.setChecked(false);
-                    dcbf11.setEnabled(false);
-                    dcbf11.setChecked(false);
                     dcbf12.setEnabled(false);
                     dcbf12.setChecked(false);
-                    dcbf14.setEnabled(false);
-                    dcbf14.setChecked(false);
+                    dcbf13.setEnabled(false);
+                    dcbf13.setChecked(false);
+                    dcbf15.setEnabled(false);
+                    dcbf15.setChecked(false);
                 } else {
                     dcbbrhh01.setEnabled(true);
                     dcbbrhh02.setEnabled(true);
@@ -421,9 +421,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbf02.setEnabled(true);
                     dcbf06.setEnabled(true);
                     dcbf07.setEnabled(true);
-                    dcbf11.setEnabled(true);
                     dcbf12.setEnabled(true);
-                    dcbf14.setEnabled(true);
+                    dcbf13.setEnabled(true);
+                    dcbf15.setEnabled(true);
                 }
             }
 
@@ -561,11 +561,12 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 } else if (dcbis05.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
                     fldGrpdcbir.setVisibility(View.GONE);
+                    fldgrpmigout.setVisibility(View.GONE);
 
                     dcbir.clearCheck();
                     dcbirm.setText(null);
 
-                    dcbidtTxt.setText(" " + getString(R.string.dcbidt1));
+                    dcbidtTxt.setText(" " + getString(R.string.dccf));
 
                     dcbbrhh01.setChecked(false);
                     dcbbrhh01.setEnabled(false);
@@ -688,9 +689,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbf02.setEnabled(true);
                     dcbf06.setEnabled(true);
                     dcbf07.setEnabled(true);
-                    dcbf11.setEnabled(true);
                     dcbf12.setEnabled(true);
-                    dcbf14.setEnabled(true);
+                    dcbf13.setEnabled(true);
+                    dcbf15.setEnabled(true);
 
                 } else {
 
@@ -725,12 +726,12 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbf06.setChecked(false);
                     dcbf07.setEnabled(false);
                     dcbf07.setChecked(false);
-                    dcbf11.setEnabled(false);
-                    dcbf11.setChecked(false);
                     dcbf12.setEnabled(false);
                     dcbf12.setChecked(false);
-                    dcbf14.setEnabled(false);
-                    dcbf14.setChecked(false);
+                    dcbf13.setEnabled(false);
+                    dcbf13.setChecked(false);
+                    dcbf15.setEnabled(false);
+                    dcbf15.setChecked(false);
 
                     dcbbfid.setOnKeyListener(SectionBActivity.this);
                     dcbbfid.addTextChangedListener(SectionBActivity.this);
@@ -958,9 +959,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             MainApp.insertMem.add(dcbid.getText().toString());
 
 
-            if (!dcbis03.isChecked()) {
+            if (!dcbis03.isChecked() && !dcbis05.isChecked()) {
 
-                if (!dcbis05.isChecked()) {
+//                if () {
                     if (dcbm01.isChecked()) {
                         MainApp.TotalFemaleCount++;
                     } else if (dcbm02.isChecked()) {
@@ -999,26 +1000,28 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
                         MainApp.TotalFemaleCount++;
                     }
-                }
-
-//                MainApp.deadMembers.add(new MainApp.deadMemberClass(Integer.parseInt(getIntent().getExtras().get("position").toString()),
-//                        dcbid.getText().toString()));
+//                }
 
                 MainApp.selectedPos = -1;
-
-                finish();
 
 //        Check Member Flag
 
 //                if (!dataFlag) {
 //                    MainApp.memFlag++;
 //                }
-                if (!dcbis05.isChecked()) {
+//                if (!dcbis05.isChecked()) {
                     if (!dataFlag) {
                         MainApp.currentStatusCount += 1;
                     }
 
-                } else {
+                finish();
+
+//                } else {
+//
+//                }
+            } else {
+
+                if (dcbis05.isChecked()){
                     if (MainApp.NoMembersCount != 0) {
 
                         Long dt = new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY);
@@ -1028,28 +1031,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                         Log.d("Current Date", "" + new SimpleDateFormat().format(new Date(dt)));
                         Log.d("Selected Date", " " + crDt.toString());
                         Log.d("Selected Date", " " + new SimpleDateFormat().format(new Date(crDt)));
-
-//                        if (dcbm01.isChecked()) {
-//                            MainApp.TotalFemaleCount--;
-//                        } else if (dcbm02.isChecked()) {
-//                            MainApp.TotalMaleCount--;
-//                        } else if (dcbm03.isChecked() && dcbd01.isChecked()) {
-//                            if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
-//                                MainApp.TotalBoyCount--;
-//                            } else {
-//                                MainApp.TotalMaleCount--;
-//                            }
-//                        } else if (dcbm03.isChecked() && dcbd02.isChecked()) {
-//                            if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
-//                                MainApp.TotalGirlCount--;
-//                            } else {
-//                                MainApp.TotalFemaleCount--;
-//                            }
-//                        } else if (dcbm04.isChecked() && dcbd01.isChecked()) {
-//                            MainApp.TotalMaleCount--;
-//                        } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
-//                            MainApp.TotalFemaleCount--;
-//                        }
 
                         if (crDt < dt) {
 
@@ -1063,16 +1044,18 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                             MainApp.selectedPos = -1;
 
+                            finish();
                             startActivity(new Intent(this, SectionCActivity.class).putExtra("position", position));
                         }
                     }
+                }else {
+                    MainApp.selectedPos = -1;
+
+                    MainApp.currentStatusCount -= 1;
+                    finish();
                 }
-            } else {
 
-                MainApp.selectedPos = -1;
 
-                MainApp.currentStatusCount -= 1;
-                finish();
             }
 
         } else {
@@ -1335,7 +1318,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         }
 
 
-        if (!dcbis03.isChecked()) {
+        if (!dcbis03.isChecked() && !dcbis05.isChecked()) {
 
             // ===================== Relation with HH ==============
             if (dcbbrhh.getCheckedRadioButtonId() == -1) {

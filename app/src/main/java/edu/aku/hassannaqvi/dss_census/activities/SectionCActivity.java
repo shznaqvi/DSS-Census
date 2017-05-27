@@ -129,29 +129,41 @@ public class SectionCActivity extends Activity {
         dcca.setText(MainApp.cc.getName());
         dcca.setEnabled(false);
 
-        ((RadioButton) dccbrhh.getChildAt((Integer.parseInt(MainApp.cc.getRelation_hh())) - 1)).setChecked(true);
+//        ((RadioButton) dccbrhh.getChildAt((Integer.parseInt(MainApp.cc.getRelation_hh())) - 1)).setChecked(true);
 
         dccbfid.setText(MainApp.cc.getDss_id_f());
         dccbfid.setEnabled(false);
         dccbmid.setText(MainApp.cc.getDss_id_m());
         dccbmid.setEnabled(false);
 
-        ((RadioButton) dccc.getChildAt((Integer.parseInt(MainApp.cc.getGender())) - 1)).setChecked(true);
+        if (!MainApp.cc.getGender().equals("")) {
+            ((RadioButton) dccc.getChildAt((Integer.parseInt(MainApp.cc.getGender())) - 1)).setChecked(true);
 
-        if (((Integer.parseInt(MainApp.cc.getGender())) - 1) == 1){
-            fldGrpdcch.setVisibility(View.VISIBLE);
-        }else {
-            fldGrpdcch.setVisibility(View.GONE);
-            dcch.clearCheck();
+            if (((Integer.parseInt(MainApp.cc.getGender())) - 1) == 1) {
+                fldGrpdcch.setVisibility(View.VISIBLE);
+            } else {
+                fldGrpdcch.setVisibility(View.GONE);
+                dcch.clearCheck();
+            }
         }
 
-        String[] dt = MainApp.cc.getDob().split("-");
-
-        dccd.updateDate(Integer.parseInt(dt[2]),Integer.parseInt(dt[1]) - 1,Integer.parseInt(dt[0]));
 
         String[] dt1 = MainApp.cc.getCurrent_date().split("-");
 
-        dccf.updateDate(Integer.parseInt(dt[2]), Integer.parseInt(dt[1]) - 1, Integer.parseInt(dt1[0]));
+        dccf.updateDate(Integer.parseInt(dt1[2]), Integer.parseInt(dt1[1]) - 1, Integer.parseInt(dt1[0]));
+
+//        if (MainApp.cc.getAgeY().equals("")) {
+//            dccdod02.setChecked(true);
+//            String[] dt = MainApp.cc.getDob().split("-");
+//            dccd.updateDate(Integer.parseInt(dt[2]), Integer.parseInt(dt[1]) - 1, Integer.parseInt(dt[0]));
+//        } else {
+//
+//            dccage01.setChecked(true);
+//            dccey.setText(MainApp.cc.getAgeY());
+//            dccem.setText(MainApp.cc.getAgeM());
+//            dcced.setText(MainApp.cc.getAgeD());
+//        }
+
 
         /* End Fields */
 
@@ -198,8 +210,6 @@ public class SectionCActivity extends Activity {
         });
 
 
-
-
     }
 
     @OnClick(R.id.btn_End)
@@ -212,7 +222,7 @@ public class SectionCActivity extends Activity {
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
 
 //        finish();
-        MainApp.finishActivity(this,this);
+        MainApp.finishActivity(this, this);
 
     }
 

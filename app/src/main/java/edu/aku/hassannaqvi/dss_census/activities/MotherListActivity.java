@@ -32,8 +32,8 @@ import edu.aku.hassannaqvi.dss_census.core.MainApp;
 import edu.aku.hassannaqvi.dss_census.otherClasses.MothersLst;
 
 public class MotherListActivity extends Activity {
-    @BindView(R.id.scrollView01)
-    ScrollView scrollView01;
+//    @BindView(R.id.scrollView01)
+//    ScrollView scrollView01;
     @BindView(R.id.motherList)
     ListView motherList;
     @BindView(R.id.btn_continue)
@@ -41,6 +41,7 @@ public class MotherListActivity extends Activity {
     @BindView(R.id.lblNoMother)
     TextView lblNoMother;
 
+    int leftChild = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,10 +65,12 @@ public class MotherListActivity extends Activity {
 
             if (MainApp.lstMothers.size() == 0) {
                 btn_continue.setEnabled(true);
-                lblNoMother.setVisibility(View.VISIBLE);
+                lblNoMother.setText("No Mother Found");
+//                lblNoMother.setVisibility(View.VISIBLE);
             } else {
                 btn_continue.setEnabled(false);
-                lblNoMother.setVisibility(View.GONE);
+                lblNoMother.setText("Child Above Age 2:" + leftChild);
+//                lblNoMother.setVisibility(View.GONE);
             }
 
             MainApp.fc.setsF(String.valueOf(MainApp.lstMothers.size()));
@@ -92,6 +95,7 @@ public class MotherListActivity extends Activity {
             if (monthsBetweenDates(dt,new Date()) < MainApp.selectedCHILD) {
                 return true;
             } else {
+                leftChild++;
                 return false;
             }
         } catch (ParseException e) {

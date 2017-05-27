@@ -100,7 +100,7 @@ public class MainApp extends Application {
     public static int position = 0;
     protected static LocationManager locationManager;
 
-    public static double selectedCHILD = 24;
+    public static double selectedCHILD = 23;
     public static int selectedPos = -1;
 
     public static int selectedCh = -1;

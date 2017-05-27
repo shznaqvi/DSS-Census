@@ -471,10 +471,11 @@ public class FamilyMembersActivity extends Activity {
 //            holder.currentStatus.setText(familyMembers.getcStatus());
             holder.memberName.setText(familyMembers.getName().toUpperCase());
 
-            holder.DSSidm.setText(familyMembers.getDss_id_member());
+            holder.DSSidm.setText(familyMembers.getDss_id_member()+" Type:"+ (
+                    familyMembers.getMember_type().equals("mw") ? "(Married Women)" : familyMembers.getMember_type().equals("h") ? "(Male)" : "(Child)"));
 
             holder.currentStatus.setText(setStatus(familyMembers.getCurrent_status()));
-            holder.year.setText(familyMembers.getDob());
+            holder.year.setText(familyMembers.getAge().equals("--") ?familyMembers.getDob() : familyMembers.getAge());
         }
 
 
