@@ -293,7 +293,6 @@ public class SectionAActivity extends Activity {
         MainApp.memFlag = 0;
 
         MainApp.familyMembersList = new ArrayList<>();
-
         Log.d(TAG, "onCreate: " + MainApp.familyMembersList.size());
         db = new DatabaseHelper(this);
 
@@ -526,8 +525,7 @@ public class SectionAActivity extends Activity {
 
             if (members.size() != 0) {
 
-                MainApp.familyMembersList.clear();
-
+                MainApp.familyMembersList = new ArrayList<>();
                 for (MembersContract ec : members) {
 
                     MainApp.familyMembersList.add(new MembersContract(ec));
@@ -536,13 +534,11 @@ public class SectionAActivity extends Activity {
                 Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
                 MainApp.currentStatusCount = MainApp.familyMembersList.size();
                 MainApp.TotalMembersCount = MainApp.familyMembersList.size();
-                checkMembers.setEnabled(true);
                 isNew = false;
 
             } else {
 
                 isNew = true;
-                checkMembers.setEnabled(false);
                 Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
             }
         } else {
@@ -573,26 +569,24 @@ public class SectionAActivity extends Activity {
                     MainApp.totalChild = Integer.parseInt(dca0801.getText().toString());
                     MainApp.NoBoyCount = Integer.parseInt(dca0802.getText().toString());
                     MainApp.NoGirlCount = Integer.parseInt(dca0803.getText().toString());
+
                     members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
-                    Log.d(TAG, "onBtnContinueClick: " + members.size());
-                    if (members.size() != 0 && MainApp.familyMembersList.size() < 1) {
-
-                        MainApp.familyMembersList.clear();
-
+                    if (members.size() != 0) {
+                        MainApp.familyMembersList = new ArrayList<>();
                         for (MembersContract ec : members) {
                             MainApp.familyMembersList.add(new MembersContract(ec));
                         }
+                    }
 
+                    if (MainApp.familyMembersList.size() > 1) {
                         Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
                         MainApp.currentStatusCount = MainApp.familyMembersList.size();
                         MainApp.TotalMembersCount = MainApp.familyMembersList.size();
-                        checkMembers.setEnabled(true);
                         isNew = false;
 
                     } else {
 
                         isNew = true;
-                        checkMembers.setEnabled(false);
                         Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
                     }
                     startActivity(new Intent(this, FamilyMembersActivity.class));
