@@ -533,7 +533,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                 fldgrpmigout.setVisibility(View.VISIBLE);
 
-                dcbbrhh01.setChecked(true);
+//                dcbbrhh01.setChecked(true);
                 dcbbrhh01.setEnabled(true);
 
                 if (dcbis01.isChecked()) {
