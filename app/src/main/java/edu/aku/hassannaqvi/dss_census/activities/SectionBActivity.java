@@ -533,6 +533,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                 fldgrpmigout.setVisibility(View.VISIBLE);
 
+                dcbbrhh01.setChecked(true);
+                dcbbrhh01.setEnabled(true);
+
                 if (dcbis01.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.GONE);
                     //dcbidt.clearCheck();
@@ -563,6 +566,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbirm.setText(null);
 
                     dcbidtTxt.setText(" " + getString(R.string.dcbidt1));
+
+                    dcbbrhh01.setChecked(false);
+                    dcbbrhh01.setEnabled(false);
 
                 }
             }
