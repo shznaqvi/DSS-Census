@@ -123,8 +123,9 @@ public class FamilyMembersActivity extends Activity {
                                 MainApp.selectedPos = -1;
 
                                 MainApp.memClicked.add(position);
-
-//                                recycler_noMembers.getChildAt(position).setBackgroundColor(Color.BLACK);
+                                for (int item : MainApp.memClicked) {
+                                    recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
+                                }
                                 Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
                                 i.putExtra("dataFlag", true);
                                 i.putExtra("position", position);
@@ -138,7 +139,9 @@ public class FamilyMembersActivity extends Activity {
                     }
                 })
         );
-
+        for (int item : MainApp.memClicked) {
+            recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
+        }
     }
 
     @OnClick(R.id.addMen)
@@ -408,6 +411,11 @@ public class FamilyMembersActivity extends Activity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+    }
+
     public static class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
         GestureDetector mGestureDetector;
         private OnItemClickListener mListener;
@@ -471,9 +479,8 @@ public class FamilyMembersActivity extends Activity {
 //            holder.currentStatus.setText(familyMembers.getcStatus());
             holder.memberName.setText(familyMembers.getName().toUpperCase());
 
-            holder.DSSidm.setText(familyMembers.getDss_id_member()+" Type:"+ (
-                    familyMembers.getMember_type().equals("mw") ? "(Married Women)" : familyMembers.getMember_type().equals("h") ? "(Male)" : "(Child)"));
-
+            holder.DSSidm.setText(familyMembers.getDss_id_member());
+            holder.memberType.setText(familyMembers.getMember_type().equals("mw") ? "(Married Women)" : familyMembers.getMember_type().equals("h") ? "(Male)" : "(Child)");
             holder.currentStatus.setText(setStatus(familyMembers.getCurrent_status()));
             holder.year.setText(familyMembers.getAge().equals("--") ?familyMembers.getDob() : familyMembers.getAge());
         }
@@ -515,21 +522,17 @@ public class FamilyMembersActivity extends Activity {
         }
 
         public class MyViewHolder extends RecyclerView.ViewHolder {
-            public TextView memberName, DSSidm, year, currentStatus;
+            public TextView memberName, DSSidm, year, currentStatus, memberType;
 
             public MyViewHolder(View view) {
                 super(view);
                 this.memberName = (TextView) view.findViewById(R.id.memberName);
                 this.DSSidm = (TextView) view.findViewById(R.id.DSSid);
                 this.currentStatus = (TextView) view.findViewById(R.id.currentStatus);
+                this.memberType = (TextView) view.findViewById(R.id.memberType);
                 year = (TextView) view.findViewById(R.id.year);
             }
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 
 }

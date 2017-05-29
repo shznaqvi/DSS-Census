@@ -121,7 +121,7 @@
     <string name="dcbbrhh02"> میاں یا بیوی </string>
   <string name="dcbbrhh03"> بیٹا یا بیٹی </string>
   <string name="dcbbrhh04"> داماد/ بہو </string>
-    <string name="dcbbrhh05"> پوتا </string>
+    <string name="dcbbrhh05"> پوتا/ پوتی </string>
     <string name="dcbbrhh06"> ماں باپ </string>
   <string name="dcbbrhh07"> ساس سسر </string>
     <string name="dcbbrhh08"> بھائی بہن </string>
@@ -131,7 +131,7 @@
     <string name="dcbbfid"> والد </string>
     <string name="dcbbmid"> والدہ </string>
     <string name="dcbc"> ازدواجی حیثیت </string>
-    <string name="dcbc01"> شادی شدہ یا ایک ساتھ رہنا </string>
+    <string name="dcbc01"> شادی شدہ </string>
     <string name="dcbc02"> طلاق یافتہ یا الگ رہنا </string>
     <string name="dcbc03"> بیوہ </string>
     <string name="dcbc04"> غیر شادی شدہ </string>

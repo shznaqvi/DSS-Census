@@ -91,6 +91,8 @@
         <item name="android:paddingBottom">8dp</item>
         <item name="android:paddingStart">8dp</item>
         <item name="android:paddingEnd">8dp</item>
+        <item name="android:textColorHint">@color/colorPrimaryAlpha</item>
+
     </style>
 
     <style name="spinner">

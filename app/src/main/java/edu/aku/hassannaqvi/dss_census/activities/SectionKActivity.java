@@ -1,13 +1,10 @@
 package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,7 +21,6 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -36,7 +32,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
-import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.SectionKIMContract;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
@@ -221,13 +216,10 @@ public class SectionKActivity extends Activity {
     //@BindView(R.id.dckm2src01) RadioButton dckm2src01;
     //@BindView(R.id.dckm2src02) RadioButton dckm2src02;
     //@BindView(R.id.dckdate5) DatePicker dckdate5;
-
-    private int position = 0;
-
-    private ArrayList<CensusContract> chm;
     ArrayList<String> chmName;
-
     ArrayAdapter<String> adapt;
+    private int position = 0;
+    private ArrayList<CensusContract> chm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -254,7 +246,7 @@ public class SectionKActivity extends Activity {
         //mm = MainApp.totalChild;
         //MainApp.mm = 1;
 
-        count.setText("Child: " + MainApp.mm + "out of " + MainApp.totalChild);
+        count.setText("Child: " + MainApp.mm + " out of " + MainApp.totalChild);
 
         dckdob.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -360,15 +352,11 @@ public class SectionKActivity extends Activity {
 //                return true;
 //            }
 //
-            return ageInYears > 5 ? false : true;
+            return ageInYears <= 5;
 
         } else {
 
-            if (Integer.parseInt(dob) > 5) {
-                return false;
-            } else {
-                return true;
-            }
+            return Integer.parseInt(dob) <= 5;
         }
     }
 

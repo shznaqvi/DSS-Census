@@ -289,7 +289,8 @@ public class SectionAActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
-
+        dca03.setText(MainApp.regionDss);
+        dca03.setSelection(dca03.getText().length());
         MainApp.memFlag = 0;
 
         MainApp.familyMembersList = new ArrayList<>();
@@ -517,15 +518,16 @@ public class SectionAActivity extends Activity {
     void onBtnDSSIDClick() {
 
         membersExists.setVisibility(View.VISIBLE);
+        MainApp.familyMembersList = new ArrayList<>();
 
         if (!dca03.getText().toString().isEmpty()) {
             dca03.setError(null);
             members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
-            mp02_count.setText("Members found = " + members.size());
+            mp02_count.setText(members.size() + " members found.");
 
             if (members.size() != 0) {
 
-                MainApp.familyMembersList = new ArrayList<>();
+
                 for (MembersContract ec : members) {
 
                     MainApp.familyMembersList.add(new MembersContract(ec));
@@ -569,10 +571,10 @@ public class SectionAActivity extends Activity {
                     MainApp.totalChild = Integer.parseInt(dca0801.getText().toString());
                     MainApp.NoBoyCount = Integer.parseInt(dca0802.getText().toString());
                     MainApp.NoGirlCount = Integer.parseInt(dca0803.getText().toString());
+                    MainApp.familyMembersList = new ArrayList<>();
 
                     members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
                     if (members.size() != 0) {
-                        MainApp.familyMembersList = new ArrayList<>();
                         for (MembersContract ec : members) {
                             MainApp.familyMembersList.add(new MembersContract(ec));
                         }

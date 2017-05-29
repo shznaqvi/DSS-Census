@@ -73,7 +73,7 @@
         android:layout_alignParentTop="true"
         android:text="Memeber Name"
         android:textColor="#efefef"
-        android:textSize="16sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:typeface="sans" />
 
@@ -87,8 +87,8 @@
         android:layout_below="@id/memberName"
         android:layout_marginTop="1dip"
         android:text="AAAA99999X"
-        android:textColor="#d6d6d6"
-        android:textSize="10sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
 
     <!-- Year -->
     <TextView
@@ -100,8 +100,8 @@
         android:layout_below="@id/DSSid"
         android:layout_marginTop="1dip"
         android:text="1999"
-        android:textColor="#d6d6d6"
-        android:textSize="10sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
 
     <!-- Status -->
     <TextView
@@ -112,11 +112,27 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="false"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="8dp"
         android:gravity="right"
         android:text="Status"
-        android:textColor="#10bcc9"
-        android:textSize="10sp"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Status -->
+    <TextView
+        android:id="@+id/memberType"
+        style="@style/listItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="false"
+        android:layout_below="@id/currentStatus"
+        android:layout_marginRight="8dp"
+        android:gravity="right"
+        android:text="Status"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <!-- Rightend Arrow -->

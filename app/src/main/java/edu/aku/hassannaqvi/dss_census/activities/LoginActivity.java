@@ -25,6 +25,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -432,7 +433,15 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     }
 
-
+    @OnClick(R.id.showPassword)
+    void onShowPasswordClick() {
+        //TODO implement
+        if (mPasswordView.getTransformationMethod() == null) {
+            mPasswordView.setTransformationMethod(new PasswordTransformationMethod());
+        } else {
+            mPasswordView.setTransformationMethod(null);
+        }
+    }
 
     public void gotoMain(View v) {
 
@@ -509,9 +518,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                         Intent iLogin = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(iLogin);
 
-                        Toast.makeText(LoginActivity.this,"You are assigned to "+MainApp.regionDss+" Block",Toast.LENGTH_SHORT).show();
-                    }else {
-                        Toast.makeText(LoginActivity.this,"You are not assigned to any block",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "You are assigned to " + MainApp.regionDss + " Block", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "You are not assigned to any block", Toast.LENGTH_SHORT).show();
                     }
 
                 } else {
