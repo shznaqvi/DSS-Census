@@ -610,6 +610,14 @@ public class SectionAActivity extends Activity {
         } else {
             dca03.setError(null);
         }
+        if (dca03.getText().toString().length() < MainApp.regionDss.length() + 4) {
+            Toast.makeText(this, dca03.getText().toString().substring(0, MainApp.regionDss.length()).toUpperCase() + "-" + MainApp.regionDss, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dca03), Toast.LENGTH_LONG).show();
+            dca03.setError("Did not match your block!");    // Set Error on last radio button
+            return false;
+        } else {
+            dca03.setError(null);
+        }
 
         if (!dca03.getText().toString().substring(0, MainApp.regionDss.length()).toUpperCase().equals(MainApp.regionDss)) {
             Toast.makeText(this, dca03.getText().toString().substring(0, MainApp.regionDss.length()).toUpperCase() + "-" + MainApp.regionDss, Toast.LENGTH_SHORT).show();
