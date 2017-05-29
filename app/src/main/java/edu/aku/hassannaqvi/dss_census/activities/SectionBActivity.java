@@ -383,8 +383,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbc02.setChecked(false);
                     dcbc03.setEnabled(false);
                     dcbc03.setChecked(false);
-                    dcbc04.setEnabled(false);
-                    dcbc04.setChecked(false);
+//                    dcbc04.setEnabled(false);
+//                    dcbc04.setChecked(false);
 
                     dcbe07.setEnabled(false);
                     dcbe07.setChecked(false);
@@ -413,7 +413,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbc01.setEnabled(true);
                     dcbc02.setEnabled(true);
                     dcbc03.setEnabled(true);
-                    dcbc04.setEnabled(true);
+//                    dcbc04.setEnabled(true);
 
                     dcbe07.setEnabled(true);
 
@@ -681,7 +681,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbc01.setEnabled(true);
                     dcbc02.setEnabled(true);
                     dcbc03.setEnabled(true);
-                    dcbc04.setEnabled(true);
+//                    dcbc04.setEnabled(true);
 
                     dcbe07.setEnabled(true);
 
@@ -712,8 +712,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbc02.setChecked(false);
                     dcbc03.setEnabled(false);
                     dcbc03.setChecked(false);
-                    dcbc04.setEnabled(false);
-                    dcbc04.setChecked(false);
+//                    dcbc04.setEnabled(false);
+//                    dcbc04.setChecked(false);
 
                     dcbe07.setEnabled(false);
                     dcbe07.setChecked(false);

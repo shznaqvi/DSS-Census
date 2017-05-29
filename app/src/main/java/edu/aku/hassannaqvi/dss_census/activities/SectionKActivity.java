@@ -1,10 +1,13 @@
 package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +17,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,17 +25,21 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
+import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.contracts.SectionKIMContract;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
@@ -41,6 +49,8 @@ public class SectionKActivity extends Activity {
     private static final String TAG = SectionKActivity.class.getSimpleName();
 
 
+    @BindView(R.id.scroll)
+    ScrollView scroll;
     @BindView(R.id.dcka)
     Spinner dcka;
     @BindView(R.id.dckb)
@@ -216,10 +226,14 @@ public class SectionKActivity extends Activity {
     //@BindView(R.id.dckm2src01) RadioButton dckm2src01;
     //@BindView(R.id.dckm2src02) RadioButton dckm2src02;
     //@BindView(R.id.dckdate5) DatePicker dckdate5;
-    ArrayList<String> chmName;
-    ArrayAdapter<String> adapt;
+
     private int position = 0;
+
     private ArrayList<CensusContract> chm;
+    ArrayList<String> chmName;
+    Map<String, String> ch;
+
+    ArrayAdapter<String> adapt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -267,33 +281,36 @@ public class SectionKActivity extends Activity {
 
         DatabaseHelper db = new DatabaseHelper(this);
 
-        Collection<CensusContract> child = db.getChildFromMember(MainApp.fc.getDSSID(),MainApp.fc.getUID());
-//        Collection<CensusContract> child = db.getChildFromMember(MainApp.fc.getDSSID(),"98c4a79aec06a40e74");
+//        Collection<CensusContract> child = db.getChildFromMember(MainApp.fc.getDSSID(),MainApp.fc.getUID());
+        Collection<CensusContract> child = db.getChildFromMember("AGHN21011A", "d5eab42f17960f2c1");
         chm = new ArrayList<>();
         chmName = new ArrayList<>();
+        ch = new HashMap<>();
 
 
 //        First Index Null
         chmName.add("....");
         chm.add(new CensusContract());
 
+//        for (CensusContract ch : child) {
+//
+//            if (ch.getAgeY().equals("")?checkChildLessThenFive(ch.getDob(),1):checkChildLessThenFive(ch.getAgeY(),2)) {
+//                chm.add(new CensusContract(ch));
+//                chmName.add(ch.getName());
+//            }
+//        }
 
         for (CensusContract ch : child) {
-
-            if (ch.getAgeY().equals("")?checkChildLessThenFive(ch.getDob(),1):checkChildLessThenFive(ch.getAgeY(),2)) {
+            if (ch.getAgeY().equals("") ? checkChildLessThenFive(ch.getDob(), 1) : checkChildLessThenFive(ch.getAgeY(), 2)) {
                 chm.add(new CensusContract(ch));
                 chmName.add(ch.getName());
             }
         }
 
-        if (MainApp.selectedCh != -1){
-            chm.remove(MainApp.selectedCh);
-            chmName.remove(MainApp.selectedCh);
-
-//            adapt = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, chmName);
-//            dcka.setAdapter(adapt);
-//            adapt.notifyDataSetChanged();
-        }
+//        if (MainApp.selectedCh != -1){
+//            chm.remove(MainApp.selectedCh);
+//            chmName.remove(MainApp.selectedCh);
+//        }
 
         adapt = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, chmName);
 
@@ -304,22 +321,24 @@ public class SectionKActivity extends Activity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 position = i;
 
-                dckb.check(chm.get(position).getGender().equals("1") ? dckb01.getId() : dckb02.getId());
-                try {
+                if (position!=0) {
+                    dckb.check(chm.get(position).getGender().equals("1") ? dckb01.getId() : dckb02.getId());
+                    try {
 
-                    if (chm.get(position).getGender().equals("1"))
-                    dckdob01.setChecked(true);
+                        if (chm.get(position).getGender().equals("1"))
+                            dckdob01.setChecked(true);
 
-                    dckd.setMaxDate(new Date().getTime());
+                        dckd.setMaxDate(new Date().getTime());
 
-                    String[] dt = chm.get(position).getDob().split("-");
+                        String[] dt = chm.get(position).getDob().split("-");
 
-                    dckd.updateDate(Integer.parseInt(dt[2]),Integer.parseInt(dt[1]) - 1,Integer.parseInt(dt[0]));
+                        dckd.updateDate(Integer.parseInt(dt[2]), Integer.parseInt(dt[1]) - 1, Integer.parseInt(dt[0]));
 
 
-                } catch (Exception e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
                 }
 
             }
@@ -333,7 +352,7 @@ public class SectionKActivity extends Activity {
 
     }
 
-    public boolean checkChildLessThenFive(String dob,int i) {
+    public boolean checkChildLessThenFive(String dob, int i) {
 
         if (i == 1) {
 
@@ -375,7 +394,6 @@ public class SectionKActivity extends Activity {
     }
 
 
-
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
 
@@ -391,16 +409,30 @@ public class SectionKActivity extends Activity {
 
                 if (MainApp.mm < MainApp.totalChild) {
 
-                    finish();
+//                    finish();
 
                     MainApp.selectedCh = position;
 
-                    Intent intent = new Intent(this, SectionKActivity.class);
+//                    MainApp.selectedC.add(position);
+
+                    clearFields();
+
+//                    Intent intent = new Intent(this, SectionKActivity.class);
                     MainApp.mm++;
-                    startActivity(intent);
+                    count.setText("Child: " + MainApp.mm + "out of " + MainApp.totalChild);
+
+                    chm.remove(position);
+                    chmName.remove(position);
+                    dcka.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, chmName));
+
+                    scroll.setScrollY(0);
+
+//                    startActivity(intent);
                 } else {
 
                     MainApp.selectedCh = -1;
+
+                    MainApp.mm = 1;
 
                     finish();
                     startActivity(new Intent(this, SectionLActivity.class));
@@ -412,6 +444,31 @@ public class SectionKActivity extends Activity {
             }
         }
 
+
+    }
+
+    public void clearFields() {
+        dckb.clearCheck();
+        dckc.clearCheck();
+        dckdob.clearCheck();
+        dckey.setText(null);
+        dckem.setText(null);
+        dcked.setText(null);
+        dckf.clearCheck();
+        dcki.clearCheck();
+        dckbcg.clearCheck();
+        dckopv0.clearCheck();
+        dckp1.clearCheck();
+        dckpcv1.clearCheck();
+        dckopv1.clearCheck();
+        dckp2.clearCheck();
+        dckpcv2.clearCheck();
+        dckopv2.clearCheck();
+        dckp3.clearCheck();
+        dckpcv3.clearCheck();
+        dckopv3.clearCheck();
+        dckm1.clearCheck();
+        dckm2.clearCheck();
 
     }
 
@@ -502,11 +559,11 @@ public class SectionKActivity extends Activity {
         //sK.put("dckm2src", dckm2src01.isChecked() ? "1" : dckm2src02.isChecked() ? "2" : "0");
         //sk.put("dckdate5", new SimpleDateFormat("dd-MM-yyyy").format(dckdate5.getCalendarView().getDate()));
 
-        sK.put("dss_id_hh",chm.get(position).getDss_id_hh());
-        sK.put("dss_id_m",chm.get(position).getDss_id_m());
-        sK.put("dss_id_member",chm.get(position).getDss_id_member());
-        sK.put("member_type",chm.get(position).getMember_type());
-        sK.put("serial",chm.get(position).getSerialNo());
+        sK.put("dss_id_hh", chm.get(position).getDss_id_hh());
+        sK.put("dss_id_m", chm.get(position).getDss_id_m());
+        sK.put("dss_id_member", chm.get(position).getDss_id_member());
+        sK.put("member_type", chm.get(position).getMember_type());
+        sK.put("serial", chm.get(position).getSerialNo());
 
         MainApp.ims.setsK(String.valueOf(sK));
 
