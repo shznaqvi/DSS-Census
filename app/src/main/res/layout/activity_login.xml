@@ -86,21 +86,21 @@
 
 
                 <EditText
-                android:id="@+id/password"
+                    android:id="@+id/password"
                     android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                android:drawablePadding="8dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="0.99"
+                    android:drawablePadding="8dp"
                     android:drawableStart="@drawable/ic_lock_black_24dp"
-                android:hint="@string/prompt_password"
-                android:imeActionId="@+id/login"
-                android:imeActionLabel="@string/action_sign_in_short"
-                android:imeOptions="actionUnspecified"
-                android:inputType="textPassword"
-                android:maxLines="1"
+                    android:hint="@string/prompt_password"
+                    android:imeActionId="@+id/login"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
                     android:paddingEnd="4dp"
-                android:paddingStart="4dp"
+                    android:paddingStart="4dp"
                     android:singleLine="true"
                     android:textSize="18sp"
 
@@ -112,11 +112,13 @@
                     android:layout_width="24dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:gravity="center"
                     android:background="#d6d6d6"
                     android:drawableStart="@drawable/ic_remove_red_eye_black_24dp"
                     android:padding="0dp"
                     android:textSize="18sp" />
             </LinearLayout>
+
             <Spinner
                 android:id="@+id/spUC"
                 android:layout_width="fill_parent"
@@ -124,7 +126,7 @@
                 android:layout_marginTop="14dp"
                 android:gravity="center"
                 android:popupBackground="#3d3d3d"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -143,18 +145,19 @@
                     android:text="Sync Users"
 
                     android:textStyle="bold" />
-            <Button
-                android:id="@+id/email_sign_in_button"
-                style="?android:textAppearanceSmall"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-                android:layout_weight="3"
-                android:background="@android:color/holo_green_dark"
-                android:padding="16dp"
-                android:text="@string/action_sign_in"
 
-                android:textStyle="bold" />
+                <Button
+                    android:id="@+id/email_sign_in_button"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70dp"
+                    android:layout_weight="3"
+                    android:background="@android:color/holo_green_dark"
+                    android:padding="16dp"
+                    android:text="@string/action_sign_in"
+
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <TextView

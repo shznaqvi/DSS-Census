@@ -7,7 +7,7 @@ import android.database.Cursor;
  */
 
 public class MothersLst {
-   String child_name, child_id, mother_name, mother_id, date_of_birth, serial, serialm;
+    String child_name, child_id, mother_name, mother_id, date_of_birth, serial, serialm, agey, agem, aged, gender;
 
     public String getChild_name() {
         return child_name;
@@ -37,6 +37,22 @@ public class MothersLst {
         return serialm;
     }
 
+    public String getAgey() {
+        return agey;
+    }
+
+    public String getAgem() {
+        return agem;
+    }
+
+    public String getAged() {
+        return aged;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
     public MothersLst Hydrate(Cursor cursor) {
         this.child_name = cursor.getString(cursor.getColumnIndex("child_name"));
         this.child_id = cursor.getString(cursor.getColumnIndex("child_id"));
@@ -45,6 +61,10 @@ public class MothersLst {
         this.date_of_birth = cursor.getString(cursor.getColumnIndex("date_of_birth"));
         this.serial = cursor.getString(cursor.getColumnIndex("serial"));
         this.serialm = cursor.getString(cursor.getColumnIndex("serialm"));
+        this.agey = cursor.getString(cursor.getColumnIndex("cy"));
+        this.agem = cursor.getString(cursor.getColumnIndex("cm"));
+        this.aged = cursor.getString(cursor.getColumnIndex("cd"));
+        this.gender = cursor.getString(cursor.getColumnIndex("gender"));
 
         return this;
     }
@@ -57,6 +77,10 @@ public class MothersLst {
         this.date_of_birth = m.date_of_birth;
         this.serial = m.serial;
         this.serialm = m.serialm;
+        this.agey = m.agey;
+        this.agem = m.agem;
+        this.aged = m.aged;
+        this.gender = m.gender;
     }
 
     public MothersLst() {

@@ -976,7 +976,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                             MainApp.totalChild--;
 
-                            MainApp.NoBoyCount--;
+                            if(MainApp.NoBoyCount > MainApp.TotalBoyCount) {
+                                MainApp.NoBoyCount--;
+                            }
 //                        MainApp.TotalBoyCount--;
 
                             MainApp.TotalMaleCount++;
@@ -1213,7 +1215,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         m.setSite_code(c.getSite_code());
         m.setName(c.getName());
         m.setDob(c.getDob());
-        m.setAge(c.getAgeY() + "-" + c.getAgeM() + "-" + c.getAgeD());
+        m.setAge(c.getAgeY() + "y " + c.getAgeM() + "m " + c.getAgeD()+"d");
         m.setGender(c.getGender());
         m.setIs_head(c.getIs_head());
         m.setRelation_hh(c.getRelation_hh());

@@ -17,6 +17,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -43,7 +44,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
     RadioButton dci0201;
     @BindView(R.id.dci0202)
     RadioButton dci0202;
-//    @BindView(R.id.dci03)
+    //    @BindView(R.id.dci03)
 //    EditText dci03;
 //    @BindView(R.id.dci04)
 //    EditText dci04;
@@ -386,7 +387,6 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
     LinearLayout fldGrpdci17f;
 
 
-
     @BindViews({R.id.dci18a, R.id.dci18b, R.id.dci18c, R.id.dci18d, R.id.dci18e, R.id.dci18f, R.id.dci18g,
             R.id.dci18h, R.id.dci18i, R.id.dci18j, R.id.dci18k, R.id.dci18l, R.id.dci18m, R.id.dci18n, R.id.dci18o,
             R.id.dci18p, R.id.dci18q})
@@ -415,10 +415,37 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         ButterKnife.bind(this);
 
 
+        if (MainApp.lstMothers.get(MainApp.position).getAgey().equals("")) {
+            try {
+                if (MainApp.monthsBetweenDates(new SimpleDateFormat("dd-MM-yy").parse(MainApp.lstMothers.get(MainApp.position).getDate_of_birth()),
+                        new Date()) < MainApp.selectedCHILD) {
+
+                    String[] dt = MainApp.lstMothers.get(MainApp.position).getDate_of_birth().split("-");
+
+                    dci05.updateDate(Integer.parseInt(dt[2]), Integer.parseInt(dt[1]) - 1, Integer.parseInt(dt[0]));
+
+                } else {
+                    startActivity(new Intent(this, SectionJActivity.class));
+                }
+            } catch (ParseException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        } else {
+            if (Integer.parseInt(MainApp.lstMothers.get(MainApp.position).getAgey())*12 +
+                    Integer.parseInt(MainApp.lstMothers.get(MainApp.position).getAgem()) < MainApp.selectedCHILD){
+                dci07y.setText(MainApp.lstMothers.get(MainApp.position).getAgey());
+                dci07m.setText(MainApp.lstMothers.get(MainApp.position).getAgem());
+                dci07d.setText(MainApp.lstMothers.get(MainApp.position).getAged());
+            }else {
+                startActivity(new Intent(this, SectionJActivity.class));
+            }
+        }
+
 
         dci05.setMaxDate(new Date().getTime());
         dci05.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + (MainApp.MILLISECONDS_IN_YEAR) - (MainApp.MILLISECONDS_IN_MONTH) + MainApp.MILLISECONDS_IN_DAY)));
-        dob = new SimpleDateFormat("dd-MM-yyyy").format(dci05.getCalendarView().getDate());
+//        dob = new SimpleDateFormat("dd-MM-yyyy").format(dci05.getCalendarView().getDate());
 
         // ============= Q 18 B =============
         dci17b.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -527,6 +554,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         dci01.setText(MainApp.lstMothers.get(MainApp.position).getChild_name());
         dci01.setEnabled(false);
 
+        dci02.check(MainApp.lstMothers.get(MainApp.position).getGender().equals("1") ? dci0201.getId() : dci0202.getId());
 
 
     }
@@ -535,7 +563,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
     void onBtnEndClick() {
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
 //        finish();
-        MainApp.finishActivity(this,this);
+        MainApp.finishActivity(this, this);
     }
 
 
@@ -586,7 +614,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         sI.put("dci02", dci0201.isChecked() ? "1" : dci0202.isChecked() ? "2" : "0");
         sI.put("dci03", MainApp.lstMothers.get(MainApp.position).getSerial());
         sI.put("dci04", MainApp.lstMothers.get(MainApp.position).getSerialm());
-        sI.put("dci05", dob);
+        sI.put("dci05", new SimpleDateFormat("dd-MM-yyyy").format(dci05.getCalendarView().getDate()));
         sI.put("dci06", dci0601.isChecked() ? "1" : dci0602.isChecked() ? "2" : dci0699.isChecked() ? "99" : "0");
         sI.put("dci07d", dci07d.getText().toString());
         sI.put("dci07m", dci07m.getText().toString());

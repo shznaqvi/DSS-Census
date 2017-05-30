@@ -58,7 +58,7 @@ public class MotherListActivity extends Activity {
 
                 Log.d("Mothers", String.valueOf(m));
 
-                if (checkChild(m.getDate_of_birth())) {
+                if (m.getAgey().equals("")? checkChild(m.getDate_of_birth()): checkChildAge(m.getAgey(),m.getAgem(),m.getAged())) {
                     MainApp.lstMothers.add(new MothersLst(m));
                 }
             }
@@ -90,9 +90,8 @@ public class MotherListActivity extends Activity {
 
         try {
             Date dt = new SimpleDateFormat("dd-MM-yy").parse(dob);
-            double current_age = ((new Date().getTime() - dt.getTime()) / 30.44) - 1;
 
-            if (monthsBetweenDates(dt,new Date()) < MainApp.selectedCHILD) {
+            if (MainApp.monthsBetweenDates(dt,new Date()) < MainApp.selectedCHILD) {
                 return true;
             } else {
                 leftChild++;
@@ -107,31 +106,14 @@ public class MotherListActivity extends Activity {
 
     }
 
-    public int monthsBetweenDates(Date startDate, Date endDate){
+    public Boolean checkChildAge(String y,String m,String d){
 
-        Calendar start = Calendar.getInstance();
-        start.setTime(startDate);
+        int age = Integer.parseInt(y) *12 + Integer.parseInt(m) + (Integer.parseInt(d)/29);
 
-        Calendar end = Calendar.getInstance();
-        end.setTime(endDate);
+        return age < MainApp.selectedCHILD;
 
-        int monthsBetween = 0;
-        int dateDiff = end.get(Calendar.DAY_OF_MONTH)-start.get(Calendar.DAY_OF_MONTH);
-
-        if(dateDiff<0) {
-            int borrrow = end.getActualMaximum(Calendar.DAY_OF_MONTH);
-            dateDiff = (end.get(Calendar.DAY_OF_MONTH)+borrrow)-start.get(Calendar.DAY_OF_MONTH);
-            monthsBetween--;
-
-            if(dateDiff>0) {
-                monthsBetween++;
-            }
-        }
-
-        monthsBetween += end.get(Calendar.MONTH)-start.get(Calendar.MONTH);
-        monthsBetween  += (end.get(Calendar.YEAR)-start.get(Calendar.YEAR))*12;
-        return monthsBetween;
     }
+
 
 
     @OnClick(R.id.btn_End)
@@ -186,7 +168,8 @@ public class MotherListActivity extends Activity {
 
             mother_name.setText(list.get(position).getMother_name());
             child_name.setText(list.get(position).getChild_name());
-            date_of_birth.setText(list.get(position).getDate_of_birth());
+            date_of_birth.setText(list.get(position).getAgey().equals("")?list.get(position).getDate_of_birth():
+                    list.get(position).getAgey()+"y "+list.get(position).getAgem()+"m "+list.get(position).getAged()+"d");
 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
