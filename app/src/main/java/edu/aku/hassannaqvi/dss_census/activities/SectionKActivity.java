@@ -281,8 +281,8 @@ public class SectionKActivity extends Activity {
 
         DatabaseHelper db = new DatabaseHelper(this);
 
-//        Collection<CensusContract> child = db.getChildFromMember(MainApp.fc.getDSSID(),MainApp.fc.getUID());
-        Collection<CensusContract> child = db.getChildFromMember("AGHN21011A", "d5eab42f17960f2c1");
+        Collection<CensusContract> child = db.getChildFromMember(MainApp.fc.getDSSID(),MainApp.fc.getUID());
+//        Collection<CensusContract> child = db.getChildFromMember("AGHN21011A", "d5eab42f17960f2c1");
         chm = new ArrayList<>();
         chmName = new ArrayList<>();
         ch = new HashMap<>();
