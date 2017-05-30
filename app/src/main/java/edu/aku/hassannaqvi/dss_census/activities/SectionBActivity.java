@@ -1047,7 +1047,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                             MainApp.selectedPos = -1;
 
                             finish();
-                            startActivity(new Intent(this, SectionCActivity.class).putExtra("position", position));
+                            startActivity(new Intent(this, SectionCActivity.class).putExtra("position", position).
+                                    putExtra("dataFlag",dataFlag));
                         }
                     }
                 }else {
