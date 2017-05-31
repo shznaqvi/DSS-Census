@@ -11,15 +11,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 
@@ -50,7 +47,7 @@ public class MotherListActivity extends Activity {
 
         DatabaseHelper db = new DatabaseHelper(this);
         try {
-            Collection<MothersLst> mo = db.getMotherByHousehold(MainApp.fc.getDSSID());
+            Collection<MothersLst> mo = db.getMotherByUUID(MainApp.fc.getUID());
 
             MainApp.lstMothers = new ArrayList<>();
 
@@ -143,6 +140,11 @@ public class MotherListActivity extends Activity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+    }
+
     public class listAdapter extends ArrayAdapter {
 
         ArrayList<MothersLst> list = new ArrayList<>();
@@ -193,11 +195,6 @@ public class MotherListActivity extends Activity {
 
             return v;
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 
 
