@@ -262,9 +262,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + singleIm.TABLE_NAME;
 
     private static final String SQL_SELECT_MOTHER_BY_CHILD =
-            "SELECT c.agem cm, c.agey cy, c.aged cd, c.gender, c.serial serial, m.serial serialm, c.name child_name, c.dss_id_member child_id, m.name mother_name, c.dss_id_member mother_id, c.dob date_of_birth FROM census C join census m on c.dss_id_m = m.dss_id_member where c.member_type =? and c.uuid = m.uuid and c.current_status in (?, ?) and c.uuid = ? group by mother_id order by substr(c.dob, 7) desc, substr(c.dob, 4,2) desc, substr(c.dob, 1,2) desc;";
+            "SELECT c.agem cm, c.agey cy, c.aged cd, c.gender, c.serial serial, m.serial serialm, c.name child_name, c.dss_id_member child_id, m.name mother_name, c.dss_id_member mother_id, c.dob date_of_birth FROM census C join census m on c.dss_id_m = m.dss_id_member where c.member_type =? and c.uuid = m.uuid and c.current_status IN (?, ?) and c.uuid = ? group by mother_id order by substr(c.dob, 7) desc, substr(c.dob, 4,2) desc, substr(c.dob, 1,2) desc;";
     private static final String SQL_SELECT_CHILD =
-            "SELECT * from census where member_type =? and dss_id_hh =? and uuid =? and and c.current_status in (?, ?)";
+            "SELECT * from census where member_type =? and dss_id_hh =? and uuid =? and current_status in (?, ?)";
 
 
     private final String TAG = "DatabaseHelper";
