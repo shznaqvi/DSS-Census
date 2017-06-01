@@ -133,12 +133,13 @@ public class SectionCActivity extends Activity {
 
 //        ((RadioButton) dccbrhh.getChildAt((Integer.parseInt(MainApp.cc.getRelation_hh())) - 1)).setChecked(true);
 
+        dccbfid.setEnabled(false);
+        dccbmid.setEnabled(false);
+
         if (dataFlag) {
 
             dccbfid.setText(MainApp.cc.getDss_id_f());
-            dccbfid.setEnabled(false);
             dccbmid.setText(MainApp.cc.getDss_id_m());
-            dccbmid.setEnabled(false);
 
             dccc.check(MainApp.cc.getGender().equals("1") ? dccc01.getId() : dccc02.getId());
 
@@ -151,6 +152,9 @@ public class SectionCActivity extends Activity {
                 dcch.clearCheck();
 
             }
+        }else {
+            dccbfid.setText("null");
+            dccbmid.setText("null");
         }
 
         String[] dt1 = MainApp.cc.getCurrent_date().split("-");

@@ -850,7 +850,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             boolean flag = true;
             for (String mem : MainApp.insertMem) {
 
-                if (!dcbm04.isChecked() && Objects.equals(mem, new String(dcbid.getText().toString()))) {
+//                if (!dcbm04.isChecked() && Objects.equals(mem, new String(dcbid.getText().toString()))) {
+                if (mem.equals(dcbid.getText().toString())) {
                     flag = false;
                     break;
                 }
@@ -1022,6 +1023,10 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 //
 //                }
             } else {
+
+                if (!dataFlag) {
+                    MainApp.currentStatusCount += 1;
+                }
 
                 if (dcbis05.isChecked()){
                     if (MainApp.NoMembersCount != 0) {

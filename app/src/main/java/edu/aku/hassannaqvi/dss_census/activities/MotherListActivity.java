@@ -78,7 +78,8 @@ public class MotherListActivity extends Activity {
 
             motherList.setAdapter(motherAdapter);
         } catch (Exception ex) {
-            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+            Log.e("Fetch mother", ex.getMessage());
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
         }
 
     }
