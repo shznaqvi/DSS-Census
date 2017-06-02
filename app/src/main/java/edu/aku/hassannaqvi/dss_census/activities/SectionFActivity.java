@@ -23,6 +23,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,7 +38,7 @@ public class SectionFActivity extends Activity {
 
     private static final String TAG = SectionFActivity.class.getSimpleName();
 
-//    @BindView(R.id.dcfa)
+    //    @BindView(R.id.dcfa)
 //    EditText dcfa;
     @BindView(R.id.dcf01)
     EditText dcf01;
@@ -141,6 +142,22 @@ public class SectionFActivity extends Activity {
 //        appHeader.setText("DSS - > Section F: Reproductive History of Selected MotherTB");
 
         MainApp.position = getIntent().getExtras().getInt("position");
+
+        if (MainApp.lstMothers.get(MainApp.position).getAgey().equals("")) {
+            dcfDob.setChecked(true);
+
+            dcf04dob.setMaxDate(new Date().getTime());
+
+            String[] dt = MainApp.lstMothers.get(MainApp.position).getDate_of_birth().split("-");
+
+            dcf04dob.updateDate(Integer.parseInt(dt[2]), Integer.parseInt(dt[1]) - 1, Integer.parseInt(dt[0]));
+        }else {
+            dcfAge.setChecked(true);
+
+            dcf0403.setText(MainApp.lstMothers.get(MainApp.position).getAgey());
+            dcf0402.setText(MainApp.lstMothers.get(MainApp.position).getAgem());
+            dcf0401.setText(MainApp.lstMothers.get(MainApp.position).getAged());
+        }
 
 //        dcfa.setText(MainApp.lstMothers.get(MainApp.position).getSerialm());
 //        dcfa.setEnabled(false);
@@ -302,7 +319,7 @@ public class SectionFActivity extends Activity {
 
 //        finish();
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        MainApp.finishActivity(this,this);
+        MainApp.finishActivity(this, this);
     }
 
     @OnClick(R.id.btn_Continue)
@@ -697,11 +714,13 @@ public class SectionFActivity extends Activity {
         sF.put("dcf03", dcf03.getText().toString());
 
 //        04
-        sF.put("dcf04", new SimpleDateFormat("dd-MM-yyyy").format(dcf04dob.getCalendarView().getDate()));
-        sF.put("dcf04d", dcf0401.getText().toString());
-        sF.put("dcf04m", dcf0402.getText().toString());
-        sF.put("dcf04y", dcf0403.getText().toString());
-
+        if (dcfDob.isChecked()) {
+            sF.put("dcf04", new SimpleDateFormat("dd-MM-yyyy").format(dcf04dob.getCalendarView().getDate()));
+        }else {
+            sF.put("dcf04d", dcf0401.getText().toString());
+            sF.put("dcf04m", dcf0402.getText().toString());
+            sF.put("dcf04y", dcf0403.getText().toString());
+        }
 //        05
         sF.put("dcf05", dcf05.getText().toString());
 
