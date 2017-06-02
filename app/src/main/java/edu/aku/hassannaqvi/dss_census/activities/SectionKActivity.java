@@ -674,7 +674,8 @@ public class SectionKActivity extends Activity {
                 dcked.setError(null);
             }
 
-            if (Integer.parseInt(dcked.getText().toString().isEmpty() ? "0" : dcked.getText().toString()) > 11) {
+//            if (Integer.parseInt(dcked.getText().toString().isEmpty() ? "0" : dcked.getText().toString()) > 11) {
+            if (Integer.parseInt(dcked.getText().toString()) < 0 || Integer.parseInt(dcked.getText().toString()) > 29) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcked), Toast.LENGTH_SHORT).show();
                 dcked.setError("Range is 0 to 29 days");    // Set Error on last radio button
 
