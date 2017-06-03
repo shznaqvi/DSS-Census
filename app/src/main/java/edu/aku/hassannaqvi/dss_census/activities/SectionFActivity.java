@@ -716,7 +716,14 @@ public class SectionFActivity extends Activity {
 //        04
         if (dcfDob.isChecked()) {
             sF.put("dcf04", new SimpleDateFormat("dd-MM-yyyy").format(dcf04dob.getCalendarView().getDate()));
+
+            sF.put("dcf04d", "");
+            sF.put("dcf04m", "");
+            sF.put("dcf04y", "");
         }else {
+
+            sF.put("dcf04", "");
+
             sF.put("dcf04d", dcf0401.getText().toString());
             sF.put("dcf04m", dcf0402.getText().toString());
             sF.put("dcf04y", dcf0403.getText().toString());

@@ -527,7 +527,13 @@ public class SectionKActivity extends Activity {
         sK.put("dckc", dckc01.isChecked() ? "1" : dckc02.isChecked() ? "2" : "0");
         if (dckdob01.isChecked()) {
             sK.put("dcbd", new SimpleDateFormat("dd-MM-yyyy").format(dckd.getCalendarView().getDate()));
+
+            sK.put("dckey", "");
+            sK.put("dckem", "");
+            sK.put("dcked", "");
         }else {
+            sK.put("dcbd", "");
+
             sK.put("dckey", dckey.getText().toString());
             sK.put("dckem", dckem.getText().toString());
             sK.put("dcked", dcked.getText().toString());
