@@ -261,7 +261,7 @@ public class SectionJActivity extends Activity {
 
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
 //        finish();
-        MainApp.finishActivity(this,this);
+        MainApp.finishActivity(this, this);
     }
 
     @OnClick(R.id.btn_Continue)
@@ -278,13 +278,14 @@ public class SectionJActivity extends Activity {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
-                finish();
+//                finish();
 
-                if (MainApp.totalChild > 0) {
-                    startActivity(new Intent(this, SectionKActivity.class));
-                } else {
-                    startActivity(new Intent(this, SectionLActivity.class));
-                }
+//                if (MainApp.totalChild > 0) {
+//                    startActivity(new Intent(this, SectionKActivity.class));
+//                } else {
+//                    startActivity(new Intent(this, SectionLActivity.class));
+//                }
+                startActivity(new Intent(this, SectionLActivity.class));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

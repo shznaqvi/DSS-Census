@@ -58,26 +58,25 @@
 
                 <Button
                     android:id="@+id/btn_End"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="30dp"
-                    android:layout_weight="1"
                     android:background="@color/pink_100"
                     android:onClick="endInterview"
                     android:text="@string/end_interview"
                     android:textColor="#ff1e1e"/>
 
 
-                <Button
-                    android:id="@+id/btn_continue"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="30dp"
-                    android:layout_weight="1"
-                    android:background="@color/pink_100"
-                    android:onClick="nextSection"
-                    android:text="@string/nextSection"
-                    android:textColor="#1ed61e"/>
+                <!--<Button-->
+                    <!--android:id="@+id/btn_continue"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="30dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@color/pink_100"-->
+                    <!--android:onClick="nextSection"-->
+                    <!--android:text="@string/nextSection"-->
+                    <!--android:textColor="#1ed61e"/>-->
 
             </LinearLayout>
 

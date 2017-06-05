@@ -33,8 +33,8 @@ public class MotherListActivity extends Activity {
 //    ScrollView scrollView01;
     @BindView(R.id.motherList)
     ListView motherList;
-    @BindView(R.id.btn_continue)
-    Button btn_continue;
+//    @BindView(R.id.btn_End)
+//    Button btn_End;
     @BindView(R.id.lblNoMother)
     TextView lblNoMother;
 
@@ -61,11 +61,11 @@ public class MotherListActivity extends Activity {
             }
 
             if (MainApp.lstMothers.size() == 0) {
-                btn_continue.setEnabled(true);
+//                btn_End.setEnabled(true);
                 lblNoMother.setText("No Mother Found");
 //                lblNoMother.setVisibility(View.VISIBLE);
             } else {
-                btn_continue.setEnabled(false);
+//                btn_End.setEnabled(false);
                 lblNoMother.setText("Child Above Age 2:" + leftChild);
 //                lblNoMother.setVisibility(View.GONE);
             }
@@ -118,28 +118,32 @@ public class MotherListActivity extends Activity {
     void onBtnEndClick() {
         //TODO implement
 
-        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-//        finish();
-//        Intent endSec = new Intent(this, EndingActivity.class);
-//        endSec.putExtra("check", false);
-//        startActivity(endSec);
 
-        MainApp.endActivity(this,this);
-    }
-
-
-    @OnClick(R.id.btn_continue)
-    void onBtnContinueClick() {
-        //TODO implement
-        Toast.makeText(this, "Next Section", Toast.LENGTH_SHORT).show();
         finish();
-        if (MainApp.totalChild > 0) {
-            startActivity(new Intent(this, SectionKActivity.class));
-        } else {
-            startActivity(new Intent(this, SectionLActivity.class));
-        }
+        Intent secNext = new Intent(this, EndingActivity.class);
+        secNext.putExtra("check",true);
+        startActivity(secNext);
+
+//        MainApp.endActivity(this,this);
     }
+
+
+//    @OnClick(R.id.btn_End)
+//    void onBtnContinueClick() {
+//        //TODO implement
+//        Toast.makeText(this, "Next Section", Toast.LENGTH_SHORT).show();
+//        finish();
+////        if (MainApp.totalChild > 0) {
+////            startActivity(new Intent(this, SectionKActivity.class));
+////        } else {
+////            startActivity(new Intent(this, SectionLActivity.class));
+////        }
+//        Intent secNext = new Intent(this, EndingActivity.class);
+//        secNext.putExtra("check",true);
+//        startActivity(secNext);
+//    }
 
     @Override
     public void onBackPressed() {
@@ -183,7 +187,7 @@ public class MotherListActivity extends Activity {
                     motherList.getChildAt(position).setEnabled(false);
                     motherList.getChildAt(position).setBackgroundColor(getResources().getColor(R.color.gray));
 
-                    btn_continue.setEnabled(true);
+//                    btn_End.setEnabled(true);
 
 //                Toast.makeText(getApplicationContext(),AppMain.currentParticipantName,Toast.LENGTH_LONG).show();
 //                Toast.makeText(getApplicationContext(),""+position,Toast.LENGTH_LONG).show();

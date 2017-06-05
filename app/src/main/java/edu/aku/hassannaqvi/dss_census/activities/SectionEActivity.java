@@ -363,9 +363,12 @@ public class SectionEActivity extends Activity {
 
                 finish();
 
-                startActivity(new Intent(this, MotherListActivity.class));
-//                Intent secNext = new Intent(this, SectionFActivity.class);
-//                startActivity(secNext);
+//                startActivity(new Intent(this, MotherListActivity.class));
+                if (MainApp.totalChild > 0) {
+                    startActivity(new Intent(this, SectionKActivity.class));
+                } else {
+                    startActivity(new Intent(this, EndingActivity.class).putExtra("check",true));
+                }
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }

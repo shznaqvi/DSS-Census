@@ -441,7 +441,8 @@ public class SectionKActivity extends Activity {
                     MainApp.mm = 1;
 
                     finish();
-                    startActivity(new Intent(this, SectionLActivity.class));
+//                    startActivity(new Intent(this, SectionLActivity.class));
+                    startActivity(new Intent(this, MotherListActivity.class));
                 }
 
 
