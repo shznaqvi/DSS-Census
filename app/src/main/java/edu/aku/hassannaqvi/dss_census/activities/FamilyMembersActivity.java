@@ -482,7 +482,7 @@ public class FamilyMembersActivity extends Activity {
             holder.DSSidm.setText(familyMembers.getDss_id_member());
             holder.memberType.setText(familyMembers.getMember_type().equals("mw") ? "(Married Women)" : familyMembers.getMember_type().equals("h") ? "(Male)" : "(Child)");
             holder.currentStatus.setText(setStatus(familyMembers.getCurrent_status()));
-            holder.year.setText(familyMembers.getAge().equals("--") ?familyMembers.getDob() : familyMembers.getAge());
+            holder.year.setText(familyMembers.getAge().equals("y m d") ?familyMembers.getDob() : familyMembers.getAge());
         }
 
 

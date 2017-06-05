@@ -325,15 +325,21 @@ public class SectionKActivity extends Activity {
                     dckb.check(chm.get(position).getGender().equals("1") ? dckb01.getId() : dckb02.getId());
                     try {
 
-                        if (chm.get(position).getGender().equals("1"))
+                        if (chm.get(position).getAgeY().equals("")) {
                             dckdob01.setChecked(true);
 
-                        dckd.setMaxDate(new Date().getTime());
+                            dckd.setMaxDate(new Date().getTime());
 
-                        String[] dt = chm.get(position).getDob().split("-");
+                            String[] dt = chm.get(position).getDob().split("-");
 
-                        dckd.updateDate(Integer.parseInt(dt[2]), Integer.parseInt(dt[1]) - 1, Integer.parseInt(dt[0]));
+                            dckd.updateDate(Integer.parseInt(dt[2]), Integer.parseInt(dt[1]) - 1, Integer.parseInt(dt[0]));
+                        }else {
+                            dckAge02.setChecked(true);
 
+                            dckey.setText(chm.get(position).getAgeY());
+                            dckem.setText(chm.get(position).getAgeM());
+                            dcked.setText(chm.get(position).getAgeD());
+                        }
 
                     } catch (Exception e) {
                         // TODO Auto-generated catch block
@@ -435,7 +441,8 @@ public class SectionKActivity extends Activity {
                     MainApp.mm = 1;
 
                     finish();
-                    startActivity(new Intent(this, SectionLActivity.class));
+//                    startActivity(new Intent(this, SectionLActivity.class));
+                    startActivity(new Intent(this, MotherListActivity.class));
                 }
 
 
@@ -519,10 +526,19 @@ public class SectionKActivity extends Activity {
         sK.put("dcka", dcka.getSelectedItem().toString());
         sK.put("dckb", dckb01.isChecked() ? "1" : dckb02.isChecked() ? "2" : "0");
         sK.put("dckc", dckc01.isChecked() ? "1" : dckc02.isChecked() ? "2" : "0");
-        sK.put("dcbd", new SimpleDateFormat("dd-MM-yyyy").format(dckd.getCalendarView().getDate()));
-        sK.put("dckey", dckey.getText().toString());
-        sK.put("dckem", dckem.getText().toString());
-        sK.put("dcked", dcked.getText().toString());
+        if (dckdob01.isChecked()) {
+            sK.put("dcbd", new SimpleDateFormat("dd-MM-yyyy").format(dckd.getCalendarView().getDate()));
+
+            sK.put("dckey", "");
+            sK.put("dckem", "");
+            sK.put("dcked", "");
+        }else {
+            sK.put("dcbd", "");
+
+            sK.put("dckey", dckey.getText().toString());
+            sK.put("dckem", dckem.getText().toString());
+            sK.put("dcked", dcked.getText().toString());
+        }
         sK.put("dckf", dckf01.isChecked() ? "1" : dckf02.isChecked() ? "2" : "0");
         sK.put("dcki", dcki01.isChecked() ? "1" : dcki02.isChecked() ? "2" : "0");
         sK.put("dckbcg", dckbcg01.isChecked() ? "1" : dckbcg02.isChecked() ? "2" : "0");
@@ -665,7 +681,8 @@ public class SectionKActivity extends Activity {
                 dcked.setError(null);
             }
 
-            if (Integer.parseInt(dcked.getText().toString().isEmpty() ? "0" : dcked.getText().toString()) > 11) {
+//            if (Integer.parseInt(dcked.getText().toString().isEmpty() ? "0" : dcked.getText().toString()) > 11) {
+            if (Integer.parseInt(dcked.getText().toString()) < 0 || Integer.parseInt(dcked.getText().toString()) > 29) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcked), Toast.LENGTH_SHORT).show();
                 dcked.setError("Range is 0 to 29 days");    // Set Error on last radio button
 

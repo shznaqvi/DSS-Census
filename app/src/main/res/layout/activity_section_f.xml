@@ -181,6 +181,7 @@
             android:id="@+id/fldGrpdcf04a"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:orientation="vertical">
 
             <DatePicker
@@ -199,6 +200,7 @@
             android:id="@+id/fldGrpdcf04b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:orientation="vertical">
 
             <TextView

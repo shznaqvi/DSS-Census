@@ -133,12 +133,13 @@ public class SectionCActivity extends Activity {
 
 //        ((RadioButton) dccbrhh.getChildAt((Integer.parseInt(MainApp.cc.getRelation_hh())) - 1)).setChecked(true);
 
+        dccbfid.setEnabled(false);
+        dccbmid.setEnabled(false);
+
         if (dataFlag) {
 
             dccbfid.setText(MainApp.cc.getDss_id_f());
-            dccbfid.setEnabled(false);
             dccbmid.setText(MainApp.cc.getDss_id_m());
-            dccbmid.setEnabled(false);
 
             dccc.check(MainApp.cc.getGender().equals("1") ? dccc01.getId() : dccc02.getId());
 
@@ -151,6 +152,9 @@ public class SectionCActivity extends Activity {
                 dcch.clearCheck();
 
             }
+        }else {
+            dccbfid.setText("null");
+            dccbmid.setText("null");
         }
 
         String[] dt1 = MainApp.cc.getCurrent_date().split("-");
@@ -307,10 +311,13 @@ public class SectionCActivity extends Activity {
 
         MainApp.dc.setGender(dccc01.isChecked() ? "1" : dccc02.isChecked() ? "2" : "0");
         MainApp.dc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dccd.getCalendarView().getDate()));
-        MainApp.dc.setAgeY(dccey.getText().toString());
-        MainApp.dc.setAgeM(dccem.getText().toString());
-        MainApp.dc.setAgeD(dcced.getText().toString());
-        MainApp.dc.setDod(new SimpleDateFormat("dd-MM-yyyy").format(dccf.getCalendarView().getDate()));
+        if (dccage01.isChecked()) {
+            MainApp.dc.setDod(new SimpleDateFormat("dd-MM-yyyy").format(dccf.getCalendarView().getDate()));
+        }else {
+            MainApp.dc.setAgeY(dccey.getText().toString());
+            MainApp.dc.setAgeM(dccem.getText().toString());
+            MainApp.dc.setAgeD(dcced.getText().toString());
+        }
         MainApp.dc.setRemarks(dccg.getText().toString());
         MainApp.dc.setWra(dcch01.isChecked() ? "1" : dcch02.isChecked() ? "2" : dcch03.isChecked() ? "3"
                 : dcch04.isChecked() ? "4" : dcch05.isChecked() ? "5" : "0");
