@@ -84,9 +84,11 @@
         <activity
             android:name=".activities.EndingActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity android:name=".FormsList" />
         <activity
             android:name=".activities.MotherListActivity"
-            android:label="Mothers List"></activity>
+            android:label="Mothers List" />
     </application>
 
 </manifest>

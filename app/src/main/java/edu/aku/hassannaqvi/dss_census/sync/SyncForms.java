@@ -24,7 +24,6 @@ import java.net.URL;
 import java.util.Collection;
 
 import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
-import edu.aku.hassannaqvi.dss_census.contracts.FormsContract.singleForm;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
@@ -64,7 +63,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(Void... params) {
         try {
-            String url = MainApp._HOST_URL + singleForm._URL;
+            String url = MainApp._HOST_URL + FormsContract.FormsTable._URL;
             Log.d(TAG, "doInBackground: URL " + url);
             return downloadUrl(url);
         } catch (IOException e) {

@@ -21,13 +21,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import edu.aku.hassannaqvi.dss_census.FormsList;
 import edu.aku.hassannaqvi.dss_census.R;
+import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.core.AndroidDatabaseManager;
+import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 import edu.aku.hassannaqvi.dss_census.get.GetMembers;
 import edu.aku.hassannaqvi.dss_census.sync.SyncCensus;
@@ -36,6 +40,8 @@ import edu.aku.hassannaqvi.dss_census.sync.SyncForms;
 
 public class MainActivity extends Activity {
 
+    private final String TAG = "MainActivity";
+
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
     @BindView(R.id.adminsec)
     LinearLayout adminsec;
@@ -43,14 +49,13 @@ public class MainActivity extends Activity {
     TextView lblheader;
     @BindView(R.id.recordSummary)
     TextView recordSummary;
-    @BindView(R.id.areaCode)
-    EditText areaCode;
+
     @BindView(R.id.syncDevice)
     Button syncDevice;
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     AlertDialog.Builder builder;
-    String m_Text= "";
+    String m_Text = "";
     private ProgressDialog pd;
     private Boolean exit = false;
     private String rSumText = "";
@@ -64,7 +69,6 @@ public class MainActivity extends Activity {
 
         lblheader.setText("Welcome! You're assigned to block ' " + MainApp.regionDss + " '");
 
-
         if (MainApp.admin) {
             adminsec.setVisibility(View.VISIBLE);
         } else {
@@ -74,7 +78,7 @@ public class MainActivity extends Activity {
         // Reset working variables
         MainApp.child_name = "Test";
 
-        sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
+        sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
         editor = sharedPref.edit();
 
         builder = new AlertDialog.Builder(MainActivity.this);
@@ -101,71 +105,63 @@ public class MainActivity extends Activity {
             }
         });
 
-        if (sharedPref.getString("tagName",null) == "" || sharedPref.getString("tagName",null) == null){
+        if (sharedPref.getString("tagName", null) == "" || sharedPref.getString("tagName", null) == null) {
             builder.show();
         }
 
+        DatabaseHelper db = new DatabaseHelper(this);
+        Collection<FormsContract> todaysForms = db.getTodayForms();
 
-//        if (MainApp.admin) {
-//            adminsec.setVisibility(View.VISIBLE);
-//        } else {
-//            adminsec.setVisibility(View.GONE);
-//        }
+        rSumText += "TODAY'S RECORDS SUMMARY\r\n";
+        rSumText += "=======================";
+        rSumText += "\r\n\r\n";
+        rSumText += "Total Forms Today: " + todaysForms.size();
+        rSumText += "\r\n";
+        rSumText += "    Forms List: \r\n";
+        String iStatus;
 
+        for (FormsContract fc : todaysForms) {
 
-//        DatabaseHelper db = new DatabaseHelper(this);
-//        Collection<FormsContract> todaysForms = new ArrayList<>();
-//
-//        todaysForms = db.getTodayForms();
-//
-//        rSumText += "TODAY'S RECORDS SUMMARY\r\n";
-//        rSumText += "=======================";
-//        rSumText += "\r\n\r\n";
-//        rSumText += "Total Forms Today: " + todaysForms.size();
-//        rSumText += "\r\n";
-//        rSumText += "    Forms List: \r\n";
-//        String iStatus = "";
-//        for (FormsContract fc : todaysForms) {
-//
-//            switch (fc.getIstatus()) {
-//                case "1":
-//                    iStatus = "Complete";
-//                    break;
-//                case "2":
-//                    iStatus = "House Locked";
-//                    break;
-//                case "3":
-//                    iStatus = "Refused";
-//                    break;
-//                case "4":
-//                    iStatus = "Refused";
-//                    break;
-//            }
-//
-//            rSumText += fc.getSubareacode() + " " + fc.getHousehold() + " " + iStatus;
-//            rSumText += "\r\n";
-//
-//        }
-//
-//        rSumText += "--------------------------------------------------\r\n";
-//        if (MainApp.admin) {
-//            adminsec.setVisibility(View.VISIBLE);
-//            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
-//            rSumText += "Last Update: " + syncPref.getString("LastUpdate", "Never Updated");
-//            rSumText += "\r\n";
-//            rSumText += "Last Synced(DB): " + syncPref.getString("LastSyncDB", "Never Synced");
-//            rSumText += "\r\n";
-//        }
-//        recordSummary.setText(rSumText);
+            switch (fc.getIstatus()) {
+                case "1":
+                    iStatus = "Complete";
+                    break;
+                case "2":
+                    iStatus = "Incomplete";
+                    break;
+                case "3":
+                    iStatus = "Refused";
+                    break;
+                case "4":
+                    iStatus = "Refused";
+                    break;
+                default:
+                    iStatus = "";
+            }
+            rSumText += fc.getDeviceID() + " " + iStatus;
+            rSumText += "\r\n";
+            rSumText += "--------------------------------------------------\r\n";
+        }
+        if (MainApp.admin) {
+            adminsec.setVisibility(View.VISIBLE);
+            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+            rSumText += "Last Data Download: " + syncPref.getString("LastDownSyncServer", "Never Updated");
+            rSumText += "\r\n";
+            rSumText += "Last Data Upload: " + syncPref.getString("LastUpSyncServer", "Never Synced");
+            rSumText += "\r\n";
+        }
+        Log.d(TAG, "onCreate: " + rSumText);
+        recordSummary.setText(rSumText);
+
 
 
     }
 
     public void openForm(View v) {
-        if (sharedPref.getString("tagName",null) != "" && sharedPref.getString("tagName",null) != null){
+        if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null) {
             Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
             startActivity(oF);
-        }else {
+        } else {
 
             builder = new AlertDialog.Builder(MainActivity.this);
             builder.setTitle("Tag Name");
@@ -284,12 +280,12 @@ public class MainActivity extends Activity {
         startActivity(dbmanager);
     }
 
-    /*public void CheckCluster(View v) {
+    public void CheckCluster(View v) {
         Intent cluster_list = new Intent(getApplicationContext(), FormsList.class);
-        cluster_list.putExtra("areaCode", areaCode.getText().toString());
+        cluster_list.putExtra("dssid", MainApp.regionDss);
         startActivity(cluster_list);
 
-    }*/
+    }
     public void syncServer(View view) {
 
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
@@ -355,7 +351,7 @@ public class MainActivity extends Activity {
         if (exit) {
             finish(); // finish activity
 
-            startActivity(new Intent(this,LoginActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
 
         } else {
             Toast.makeText(this, "Press Back again to Exit.",

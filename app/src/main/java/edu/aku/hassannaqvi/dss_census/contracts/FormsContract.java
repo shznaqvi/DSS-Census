@@ -53,62 +53,62 @@ public class FormsContract {
 
 
     public FormsContract Sync(JSONObject jsonObject) throws JSONException {
-        this._ID= jsonObject.getString(singleForm.COLUMN_ID);
-        this._UID= jsonObject.getString(singleForm.COLUMN_UID);
-        this.ISNEW = jsonObject.getString(singleForm.COLUMN_IS_NEW);
-        this.DSSID= jsonObject.getString(singleForm.COLUMN_DSSID);
-        this.formDate= jsonObject.getString(singleForm.COLUMN_FORMDATE);
-        this.user = jsonObject.getString(singleForm.COLUMN_USER);
-        this.istatus= jsonObject.getString(singleForm.COLUMN_ISTATUS);
-        this.sA= jsonObject.getString(singleForm.COLUMN_SA);
-        this.sD= jsonObject.getString(singleForm.COLUMN_SD);
-        this.sE= jsonObject.getString(singleForm.COLUMN_SE);
-        this.sF= jsonObject.getString(singleForm.COLUMN_SF);
-        this.sG= jsonObject.getString(singleForm.COLUMN_SG);
-        this.sH= jsonObject.getString(singleForm.COLUMN_SH);
-        this.sI= jsonObject.getString(singleForm.COLUMN_SI);
-        this.sJ= jsonObject.getString(singleForm.COLUMN_SJ);
-        this.sK= jsonObject.getString(singleForm.COLUMN_SK);
-        this.sL= jsonObject.getString(singleForm.COLUMN_SL);
-        this.sM= jsonObject.getString(singleForm.COLUMN_SM);
-        this.gpsLat= jsonObject.getString(singleForm.COLUMN_GPSLAT);
-        this.gpsLng= jsonObject.getString(singleForm.COLUMN_GPSLNG);
-        this.gpsDT = jsonObject.getString(singleForm.COLUMN_GPSDATE);
-        this.gpsAcc= jsonObject.getString(singleForm.COLUMN_GPSACC);
-        this.deviceID= jsonObject.getString(singleForm.COLUMN_DEVICEID);
-        this.devicetagID= jsonObject.getString(singleForm.COLUMN_DEVICETAGID);
-        this.synced= jsonObject.getString(singleForm.COLUMN_SYNCED);
-        this.synced_date= jsonObject.getString(singleForm.COLUMN_SYNCED_DATE);
+        this._ID = jsonObject.getString(FormsTable.COLUMN_ID);
+        this._UID = jsonObject.getString(FormsTable.COLUMN_UID);
+        this.ISNEW = jsonObject.getString(FormsTable.COLUMN_IS_NEW);
+        this.DSSID = jsonObject.getString(FormsTable.COLUMN_DSSID);
+        this.formDate = jsonObject.getString(FormsTable.COLUMN_FORMDATE);
+        this.user = jsonObject.getString(FormsTable.COLUMN_USER);
+        this.istatus = jsonObject.getString(FormsTable.COLUMN_ISTATUS);
+        this.sA = jsonObject.getString(FormsTable.COLUMN_SA);
+        this.sD = jsonObject.getString(FormsTable.COLUMN_SD);
+        this.sE = jsonObject.getString(FormsTable.COLUMN_SE);
+        this.sF = jsonObject.getString(FormsTable.COLUMN_SF);
+        this.sG = jsonObject.getString(FormsTable.COLUMN_SG);
+        this.sH = jsonObject.getString(FormsTable.COLUMN_SH);
+        this.sI = jsonObject.getString(FormsTable.COLUMN_SI);
+        this.sJ = jsonObject.getString(FormsTable.COLUMN_SJ);
+        this.sK = jsonObject.getString(FormsTable.COLUMN_SK);
+        this.sL = jsonObject.getString(FormsTable.COLUMN_SL);
+        this.sM = jsonObject.getString(FormsTable.COLUMN_SM);
+        this.gpsLat = jsonObject.getString(FormsTable.COLUMN_GPSLAT);
+        this.gpsLng = jsonObject.getString(FormsTable.COLUMN_GPSLNG);
+        this.gpsDT = jsonObject.getString(FormsTable.COLUMN_GPSDATE);
+        this.gpsAcc = jsonObject.getString(FormsTable.COLUMN_GPSACC);
+        this.deviceID = jsonObject.getString(FormsTable.COLUMN_DEVICEID);
+        this.devicetagID = jsonObject.getString(FormsTable.COLUMN_DEVICETAGID);
+        this.synced = jsonObject.getString(FormsTable.COLUMN_SYNCED);
+        this.synced_date = jsonObject.getString(FormsTable.COLUMN_SYNCED_DATE);
 
         return this;
 
     }
 
     public FormsContract Hydrate(Cursor cursor) {
-        this._ID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_ID));
-        this._UID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_UID));
-        this.ISNEW = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_IS_NEW));
-        this.DSSID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DSSID));
-        this.formDate = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_FORMDATE));
-        this.user = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_USER));
-        this.istatus = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_ISTATUS));
-        this.sA = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SA));
-        this.sD = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SD));
-        this.sE = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SE));
-        this.sF = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SF));
-        this.sG = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SG));
-        this.sH = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SH));
-        this.sI = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SI));
-        this.sJ = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SJ));
-        this.sK = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SK));
-        this.sL = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SL));
-        this.sM = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SM));
-        this.gpsLat = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_GPSLAT));
-        this.gpsLng = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_GPSLNG));
-        this.gpsDT = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_GPSDATE));
-        this.gpsAcc = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_GPSACC));
-        this.deviceID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DEVICEID));
-        this.devicetagID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DEVICETAGID));
+        this._ID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ID));
+        this._UID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UID));
+        this.ISNEW = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_IS_NEW));
+        this.DSSID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DSSID));
+        this.formDate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMDATE));
+        this.user = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_USER));
+        this.istatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS));
+        this.sA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SA));
+        this.sD = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SD));
+        this.sE = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SE));
+        this.sF = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SF));
+        this.sG = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SG));
+        this.sH = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SH));
+        this.sI = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SI));
+        this.sJ = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SJ));
+        this.sK = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SK));
+        this.sL = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SL));
+        this.sM = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SM));
+        this.gpsLat = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLAT));
+        this.gpsLng = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLNG));
+        this.gpsDT = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSDATE));
+        this.gpsAcc = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSACC));
+        this.deviceID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICEID));
+        this.devicetagID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICETAGID));
 
         // TODO:
 
@@ -121,30 +121,30 @@ public class FormsContract {
 
         JSONObject json = new JSONObject();
 
-        json.put(singleForm.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
-        json.put(singleForm.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
-        json.put(singleForm.COLUMN_IS_NEW, this.ISNEW == null ? JSONObject.NULL : this.ISNEW);
-        json.put(singleForm.COLUMN_DSSID, this.DSSID == null ? JSONObject.NULL : this.DSSID);
-        json.put(singleForm.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
-        json.put(singleForm.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
-        json.put(singleForm.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
-        json.put(singleForm.COLUMN_SA, this.sA.equals("") ? JSONObject.NULL : new JSONObject(this.sA));
-        json.put(singleForm.COLUMN_SD, this.sD.equals("") ? JSONObject.NULL : new JSONObject(this.sD));
-        json.put(singleForm.COLUMN_SE, this.sE.equals("") ? JSONObject.NULL : new JSONObject(this.sE));
-//        json.put(singleForm.COLUMN_SF, this.sF.equals("") ? JSONObject.NULL : new JSONObject(this.sF));
-//        json.put(singleForm.COLUMN_SG, this.sG.equals("") ? JSONObject.NULL : new JSONObject(this.sG));
-//        json.put(singleForm.COLUMN_SH, this.sH.equals("") ? JSONObject.NULL : new JSONObject(this.sH));
-//        json.put(singleForm.COLUMN_SI, this.sI.equals("") ? JSONObject.NULL : new JSONObject(this.sI));
-//        json.put(singleForm.COLUMN_SJ, this.sJ.equals("") ? JSONObject.NULL : new JSONObject(this.sJ));
-//        json.put(singleForm.COLUMN_SK, this.sK.equals("") ? JSONObject.NULL : new JSONObject(this.sK));
-        json.put(singleForm.COLUMN_SL, this.sL.equals("") ? JSONObject.NULL : new JSONObject(this.sL));
-        json.put(singleForm.COLUMN_SM, this.sM.equals("") ? JSONObject.NULL : new JSONObject(this.sM));
-        json.put(singleForm.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
-        json.put(singleForm.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
-        json.put(singleForm.COLUMN_GPSDATE, this.gpsDT == null ? JSONObject.NULL : this.gpsDT);
-        json.put(singleForm.COLUMN_GPSACC, this.gpsAcc == null ? JSONObject.NULL : this.gpsAcc);
-        json.put(singleForm.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
-        json.put(singleForm.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
+        json.put(FormsTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
+        json.put(FormsTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
+        json.put(FormsTable.COLUMN_IS_NEW, this.ISNEW == null ? JSONObject.NULL : this.ISNEW);
+        json.put(FormsTable.COLUMN_DSSID, this.DSSID == null ? JSONObject.NULL : this.DSSID);
+        json.put(FormsTable.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
+        json.put(FormsTable.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
+        json.put(FormsTable.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
+        json.put(FormsTable.COLUMN_SA, this.sA.equals("") ? JSONObject.NULL : new JSONObject(this.sA));
+        json.put(FormsTable.COLUMN_SD, this.sD.equals("") ? JSONObject.NULL : new JSONObject(this.sD));
+        json.put(FormsTable.COLUMN_SE, this.sE.equals("") ? JSONObject.NULL : new JSONObject(this.sE));
+//        json.put(FormsTable.COLUMN_SF, this.sF.equals("") ? JSONObject.NULL : new JSONObject(this.sF));
+//        json.put(FormsTable.COLUMN_SG, this.sG.equals("") ? JSONObject.NULL : new JSONObject(this.sG));
+//        json.put(FormsTable.COLUMN_SH, this.sH.equals("") ? JSONObject.NULL : new JSONObject(this.sH));
+//        json.put(FormsTable.COLUMN_SI, this.sI.equals("") ? JSONObject.NULL : new JSONObject(this.sI));
+//        json.put(FormsTable.COLUMN_SJ, this.sJ.equals("") ? JSONObject.NULL : new JSONObject(this.sJ));
+//        json.put(FormsTable.COLUMN_SK, this.sK.equals("") ? JSONObject.NULL : new JSONObject(this.sK));
+        json.put(FormsTable.COLUMN_SL, this.sL.equals("") ? JSONObject.NULL : new JSONObject(this.sL));
+        json.put(FormsTable.COLUMN_SM, this.sM.equals("") ? JSONObject.NULL : new JSONObject(this.sM));
+        json.put(FormsTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
+        json.put(FormsTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
+        json.put(FormsTable.COLUMN_GPSDATE, this.gpsDT == null ? JSONObject.NULL : this.gpsDT);
+        json.put(FormsTable.COLUMN_GPSACC, this.gpsAcc == null ? JSONObject.NULL : this.gpsAcc);
+        json.put(FormsTable.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
+        json.put(FormsTable.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
 
 
         return json;
@@ -362,7 +362,7 @@ public class FormsContract {
         this.synced_date = synced_date;
     }
 
-    public static abstract class singleForm implements BaseColumns {
+    public static abstract class FormsTable implements BaseColumns {
 
         public static final String TABLE_NAME = "forms";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";

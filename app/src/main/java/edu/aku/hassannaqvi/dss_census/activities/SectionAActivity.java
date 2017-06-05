@@ -23,6 +23,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -40,6 +41,7 @@ import edu.aku.hassannaqvi.dss_census.core.MainApp;
 public class SectionAActivity extends Activity {
 
     private static final String TAG = SectionAActivity.class.getSimpleName();
+    String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
 
 
     @BindView(R.id.dca03)
@@ -486,16 +488,16 @@ public class SectionAActivity extends Activity {
 
     @OnClick(R.id.checkMembers)
     void onBtnCheckMemberClick() {
-
+        members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 this);
 
         String member="";
-        for (byte i=0;i < MainApp.familyMembersList.size();i++){
+        for (MembersContract m : members) {
 
-            member += MainApp.familyMembersList.get(i).getName() + " - " +
-                    (MainApp.familyMembersList.get(i).getMember_type().equals("mw") ? "(Married Women)" :
-                            MainApp.familyMembersList.get(i).getMember_type().equals("h") ? "(Male)" : "(Child)") + "\n";
+            member += m.getName() + " - " +
+                    (m.getMember_type().equals("mw") ? "(Married Women)" :
+                            m.getMember_type().equals("h") ? "(Male)" : "(Child)") + "\n";
         }
 
 
@@ -1039,7 +1041,7 @@ public class SectionAActivity extends Activity {
 
         MainApp.fc.setDevicetagID(sharedPref.getString("tagName",null));
         MainApp.fc.setDSSID(dca03.getText().toString().toUpperCase());
-        MainApp.fc.setFormDate(new Date().toString());
+        MainApp.fc.setFormDate(dtToday);
         MainApp.fc.setUser(MainApp.userName);
         MainApp.fc.setDeviceID(Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID));
