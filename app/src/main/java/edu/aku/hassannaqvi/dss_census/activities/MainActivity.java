@@ -111,6 +111,8 @@ public class MainActivity extends Activity {
 
         DatabaseHelper db = new DatabaseHelper(this);
         Collection<FormsContract> todaysForms = db.getTodayForms();
+        Collection<FormsContract> unsyncedForms = db.getUnsyncedForms();
+
 
         rSumText += "TODAY'S RECORDS SUMMARY\r\n";
         rSumText += "=======================\r\n";
@@ -120,7 +122,7 @@ public class MainActivity extends Activity {
         rSumText += "\tFORMS' LIST: \r\n";
         String iStatus;
         rSumText += "--------------------------------------------------\r\n";
-        rSumText += "[ DSS_ID ] \t[Form Status] \t[Sync Status]--------\r\n";
+        rSumText += "[ DSS_ID ] \t[Form Status] \t[Sync Status]----------\r\n";
         rSumText += "--------------------------------------------------\r\n";
 
         for (FormsContract fc : todaysForms) {
@@ -143,7 +145,7 @@ public class MainActivity extends Activity {
             }
 
 
-            rSumText += fc.getDSSID() + " " + iStatus + " " + (fc.getSynced().equals("1") ? "\t\tSynced" : "\t\tNot Synced") + fc.getFormDate();
+            rSumText += fc.getDSSID() + " " + iStatus + " " + (fc.getSynced().equals("1") ? "\t\tSynced" : "\t\tNot Synced");
             rSumText += "\r\n";
         }
         rSumText += "--------------------------------------------------\r\n";
@@ -151,9 +153,12 @@ public class MainActivity extends Activity {
         if (MainApp.admin) {
             adminsec.setVisibility(View.VISIBLE);
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
-            rSumText += "Last Data Download: " + syncPref.getString("LastDownSyncServer", "Never Updated");
+            rSumText += "Last Data Download: \t" + syncPref.getString("LastDownSyncServer", "Never Updated");
             rSumText += "\r\n";
-            rSumText += "Last Data Upload: " + syncPref.getString("LastUpSyncServer", "Never Synced");
+            rSumText += "Last Data Upload: \t" + syncPref.getString("LastUpSyncServer", "Never Synced");
+            rSumText += "\r\n";
+            rSumText += "\r\n";
+            rSumText += "Unsynced Forms: \t" + unsyncedForms.size();
             rSumText += "\r\n";
         }
         Log.d(TAG, "onCreate: " + rSumText);

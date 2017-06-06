@@ -1416,8 +1416,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_SYNCED,
 
         };
-        String whereClause = "substr(" + FormsTable.COLUMN_FORMDATE + ",0,8) =?";
-        String[] whereArgs = {spDateT.substring(0, 8)};
+        String whereClause = FormsTable.COLUMN_FORMDATE + " Like ? ";
+        String[] whereArgs = new String[]{"%" + spDateT.substring(0, 8).trim() + "%"};
         String groupBy = null;
         String having = null;
 
