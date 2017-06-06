@@ -1159,7 +1159,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleIm.COLUMN_SK,
                 singleIm.COLUMN_FORMDATE,
                 singleIm.COLUMN_USER,
-                singleIm.COLUMN_CHILDID,
+//                singleIm.COLUMN_CHILDID,
                 singleIm.COLUMN_MM,
                 singleIm.COLUMN_DSSID,
                 singleIm.COLUMN_DEVICEID,
