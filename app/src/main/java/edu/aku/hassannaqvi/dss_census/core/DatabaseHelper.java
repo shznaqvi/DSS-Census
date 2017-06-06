@@ -796,7 +796,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsContract.FormsTable.COLUMN_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = FormsTable.COLUMN_ID + " LIKE ?";
+        String where = FormsTable.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
 
         int count = db.update(
@@ -814,7 +814,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsContract.FormsTable.COLUMN_SF, memCount);
 
 // Which row to update, based on the title
-        String where = FormsContract.FormsTable.COLUMN_ID + " LIKE ?";
+        String where = FormsContract.FormsTable.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
 
         int count = db.update(
@@ -833,7 +833,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(MotherTB.COLUMN_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = MotherTB.COLUMN_ID + " LIKE ?";
+        String where = MotherTB.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
 
         int count = db.update(
@@ -852,7 +852,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(singleIm.COLUMN_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = singleIm.COLUMN_ID + " LIKE ?";
+        String where = singleIm.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
 
         int count = db.update(
@@ -871,7 +871,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(censusMember.COLUMN_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = censusMember.COLUMN_ID + " LIKE ?";
+        String where = censusMember.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
 
         int count = db.update(
@@ -890,7 +890,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(DeceasedMember.COLUMN_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = DeceasedMember.COLUMN_ID + " LIKE ?";
+        String where = DeceasedMember.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
 
         int count = db.update(
@@ -908,7 +908,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(MotherTB.COLUMN_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = MotherTB.COLUMN_ID + " LIKE ?";
+        String where = MotherTB.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
 
         int count = db.update(
@@ -926,7 +926,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(singleIm.COLUMN_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = singleIm.COLUMN_ID + " LIKE ?";
+        String where = singleIm.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
 
         int count = db.update(
@@ -944,7 +944,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(DeceasedMember.COLUMN_UID, MainApp.dc.get_UID());
 
 // Which row to update, based on the ID
-        String selection = DeceasedMember._ID + " LIKE ?";
+        String selection = DeceasedMember._ID + " = ?";
         String[] selectionArgs = {String.valueOf(MainApp.dc.get_ID())};
 
         int count = db.update(DeceasedMember.TABLE_NAME,
@@ -963,7 +963,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsContract.FormsTable.COLUMN_UID, MainApp.fc.getUID());
 
 // Which row to update, based on the ID
-        String selection = FormsContract.FormsTable._ID + " LIKE ?";
+        String selection = FormsContract.FormsTable._ID + " = ?";
         String[] selectionArgs = {String.valueOf(MainApp.fc.get_ID())};
 
         int count = db.update(FormsContract.FormsTable.TABLE_NAME,
@@ -982,7 +982,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(censusMember.COLUMN_UID, MainApp.cc.get_UID());
 
 // Which row to update, based on the ID
-        String selection = censusMember.COLUMN_ID + " LIKE ?";
+        String selection = censusMember.COLUMN_ID + " = ?";
         String[] selectionArgs = {String.valueOf(MainApp.cc.get_ID())};
 
         int count = db.update(censusMember.TABLE_NAME,
@@ -1000,7 +1000,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(MotherTB.COLUMN_UID, MainApp.mc.getUID());
 
 // Which row to update, based on the ID
-        String selection = MotherTB.COLUMN_ID + " LIKE ?";
+        String selection = MotherTB.COLUMN_ID + " = ?";
         String[] selectionArgs = {String.valueOf(MainApp.mc.get_ID())};
 
         int count = db.update(MotherTB.TABLE_NAME,
@@ -1018,7 +1018,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(singleIm.COLUMN_UID, MainApp.ims.getUID());
 
 // Which row to update, based on the ID
-        String selection = singleIm.COLUMN_ID + " LIKE ?";
+        String selection = singleIm.COLUMN_ID + " = ?";
         String[] selectionArgs = {String.valueOf(MainApp.ims.get_ID())};
 
         int count = db.update(singleIm.TABLE_NAME,
@@ -1406,29 +1406,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Collection<FormsContract> getTodayForms() {
-
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                FormsTable.COLUMN_ID,
+                FormsTable._ID,
                 FormsTable.COLUMN_DSSID,
+                FormsTable.COLUMN_FORMDATE,
                 FormsTable.COLUMN_ISTATUS,
+                FormsTable.COLUMN_SYNCED,
 
         };
-
-        String whereClause = FormsContract.FormsTable.COLUMN_FORMDATE + " LIKE ?";
-        String[] whereArgs = {"'%" + spDateT.substring(0, 8) + "%'"};
-        Log.d(TAG, "getTodayForms: '%" + spDateT.substring(0, 8) + "%'");
+        String whereClause = "substr(" + FormsTable.COLUMN_FORMDATE + ",0,8) =?";
+        String[] whereArgs = {spDateT.substring(0, 8)};
         String groupBy = null;
         String having = null;
 
         String orderBy =
-                FormsContract.FormsTable.COLUMN_ID + " ASC";
+                FormsTable.COLUMN_ID + " ASC";
 
-        Collection<FormsContract> formList = new ArrayList<FormsContract>();
+        Collection<FormsContract> allFC = new ArrayList<>();
         try {
             c = db.query(
-                    FormsContract.FormsTable.TABLE_NAME,  // The table to query
+                    FormsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -1438,7 +1437,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 FormsContract fc = new FormsContract();
-                formList.add(fc.Hydrate(c));
+                fc.set_ID(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
+                fc.setDSSID(c.getString(c.getColumnIndex(FormsTable.COLUMN_DSSID)));
+                fc.setFormDate(c.getString(c.getColumnIndex(FormsTable.COLUMN_FORMDATE)));
+                fc.setIstatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
+                allFC.add(fc);
             }
         } finally {
             if (c != null) {
@@ -1448,10 +1451,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.close();
             }
         }
-
-
-        // return contact list
-        return formList;
+        return allFC;
     }
 
     // ANDROID DATABASE MANAGER

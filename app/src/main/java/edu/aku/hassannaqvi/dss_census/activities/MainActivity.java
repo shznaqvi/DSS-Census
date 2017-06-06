@@ -113,35 +113,41 @@ public class MainActivity extends Activity {
         Collection<FormsContract> todaysForms = db.getTodayForms();
 
         rSumText += "TODAY'S RECORDS SUMMARY\r\n";
-        rSumText += "=======================";
-        rSumText += "\r\n\r\n";
-        rSumText += "Total Forms Today: " + todaysForms.size();
+        rSumText += "=======================\r\n";
         rSumText += "\r\n";
-        rSumText += "    Forms List: \r\n";
+        rSumText += "Total Forms Today: " + todaysForms.size() + "\r\n";
+        rSumText += "\r\n";
+        rSumText += "\tFORMS' LIST: \r\n";
         String iStatus;
+        rSumText += "--------------------------------------------------\r\n";
+        rSumText += "[ DSS_ID ] \t[Form Status] \t[Sync Status]--------\r\n";
+        rSumText += "--------------------------------------------------\r\n";
 
         for (FormsContract fc : todaysForms) {
 
             switch (fc.getIstatus()) {
                 case "1":
-                    iStatus = "Complete";
+                    iStatus = "\tComplete";
                     break;
                 case "2":
-                    iStatus = "Incomplete";
+                    iStatus = "\tIncomplete";
                     break;
                 case "3":
-                    iStatus = "Refused";
+                    iStatus = "\tRefused";
                     break;
                 case "4":
-                    iStatus = "Refused";
+                    iStatus = "\tRefused";
                     break;
                 default:
-                    iStatus = "";
+                    iStatus = "\t";
             }
-            rSumText += fc.getDeviceID() + " " + iStatus;
+
+
+            rSumText += fc.getDSSID() + " " + iStatus + " " + (fc.getSynced().equals("1") ? "\t\tSynced" : "\t\tNot Synced") + fc.getFormDate();
             rSumText += "\r\n";
-            rSumText += "--------------------------------------------------\r\n";
         }
+        rSumText += "--------------------------------------------------\r\n";
+
         if (MainApp.admin) {
             adminsec.setVisibility(View.VISIBLE);
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
