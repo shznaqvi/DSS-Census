@@ -247,11 +247,11 @@ public class MotherContract {
         json.put(MotherTB.COLUMN_UID, this.UID == null ? JSONObject.NULL : this.UID);
         json.put(MotherTB.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(MotherTB.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
-        json.put(MotherTB.COLUMN_SF, this.sF == null ? JSONObject.NULL : this.sF);
-        json.put(MotherTB.COLUMN_SG, this.sG == null ? JSONObject.NULL : this.sG);
-        json.put(MotherTB.COLUMN_SH, this.sH == null ? JSONObject.NULL : this.sH);
-        json.put(MotherTB.COLUMN_SI, this.sI == null ? JSONObject.NULL : this.sI);
-        json.put(MotherTB.COLUMN_SJ, this.sJ == null ? JSONObject.NULL : this.sJ);
+        json.put(MotherTB.COLUMN_SF, this.sF == null ? JSONObject.NULL :  new JSONObject(this.sF));
+        json.put(MotherTB.COLUMN_SG, this.sG == null ? JSONObject.NULL :  new JSONObject(this.sG));
+        json.put(MotherTB.COLUMN_SH, this.sH == null ? JSONObject.NULL :  new JSONObject(this.sH));
+        json.put(MotherTB.COLUMN_SI, this.sI == null ? JSONObject.NULL :  new JSONObject(this.sI));
+        json.put(MotherTB.COLUMN_SJ, this.sJ == null ? JSONObject.NULL :  new JSONObject(this.sJ));
         //json.put(MotherTB.COLUMN_SK, this.sK == null ? JSONObject.NULL : this.sK);
         json.put(MotherTB.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
 
