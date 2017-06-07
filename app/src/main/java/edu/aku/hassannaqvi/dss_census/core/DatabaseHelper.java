@@ -1125,7 +1125,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Collection<MotherContract> allMC = new ArrayList<MotherContract>();
         try {
             c = db.query(
-                    FormsContract.FormsTable.TABLE_NAME,  // The table to query
+                    MotherTB.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -1177,7 +1177,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Collection<SectionKIMContract> allIM = new ArrayList<SectionKIMContract>();
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    singleIm.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
