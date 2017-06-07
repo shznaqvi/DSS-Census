@@ -129,22 +129,25 @@ public class MainActivity extends Activity {
             rSumText += "--------------------------------------------------\r\n";
 
             for (FormsContract fc : todaysForms) {
-
-                switch (fc.getIstatus()) {
-                    case "1":
-                        iStatus = "\tComplete";
-                        break;
-                    case "2":
-                        iStatus = "\tIncomplete";
-                        break;
-                    case "3":
-                        iStatus = "\tRefused";
-                        break;
-                    case "4":
-                        iStatus = "\tRefused";
-                        break;
-                    default:
-                        iStatus = "\t";
+                if (fc.getIstatus() != null) {
+                    switch (fc.getIstatus()) {
+                        case "1":
+                            iStatus = "\tComplete";
+                            break;
+                        case "2":
+                            iStatus = "\tIncomplete";
+                            break;
+                        case "3":
+                            iStatus = "\tRefused";
+                            break;
+                        case "4":
+                            iStatus = "\tRefused";
+                            break;
+                        default:
+                            iStatus = "\tN/A";
+                    }
+                }else {
+                    iStatus = "\tN/A";
                 }
 
                 rSumText += fc.getDSSID();

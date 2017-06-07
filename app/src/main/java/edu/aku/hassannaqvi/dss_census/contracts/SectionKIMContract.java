@@ -219,7 +219,7 @@ public class SectionKIMContract {
         public static final String COLUMN_SYNCED_DATE = "synced_date";
         public static final String COLUMN_ISTATUS = "istatus";
 
-        public static String _URL = "im.php";
+        public static String _URL = "ims.php";
 
     }
 }

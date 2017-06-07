@@ -290,6 +290,6 @@ public class MotherContract {
         public static final String COLUMN_ISTATUS = "istatus";
 
 
-        public static String _URL = "mother.php";
+        public static String _URL = "mothers.php";
     }
 }
