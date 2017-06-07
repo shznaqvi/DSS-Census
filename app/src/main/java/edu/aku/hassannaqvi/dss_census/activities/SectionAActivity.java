@@ -488,23 +488,32 @@ public class SectionAActivity extends Activity {
 
     @OnClick(R.id.checkMembers)
     void onBtnCheckMemberClick() {
-        members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                this);
 
-        String member="";
-        for (MembersContract m : members) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
-            member += m.getName() + " - " +
-                    (m.getMember_type().equals("mw") ? "(Married Women)" :
-                            m.getMember_type().equals("h") ? "(Male)" : "(Child)") + "\n";
+        String member = "";
+        if (dca03.getText().toString().length() > 9) {
+            members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
+            if (members.size() > 0) {
+                int count = 0;
+                for (MembersContract m : members) {
+                    member += (++count) + ")\t " + m.getName() + " \t- \t" +
+                            (m.getMember_type().equals("mw") ? "(Married Women)" :
+                                    m.getMember_type().equals("h") ? "(Husband)" : "(Child)") + "\n";
+
+                }
+            } else {
+                member = "No member registered for this DSSID \r\n\r\n\t\"" + dca03.getText().toString() + "\"";
+            }
+        } else {
+            member = "Invalid DSS ID: " + dca03.getText().toString().toString();
         }
 
-
-        alertDialogBuilder
+        alertDialogBuilder.setIcon(R.drawable.ic_warning_black_24dp)
                 .setTitle("Members Name")
                 .setMessage(member)
                 .setCancelable(false);
+
         alertDialogBuilder.setNegativeButton("Ok",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -555,49 +564,49 @@ public class SectionAActivity extends Activity {
     void onBtnContinueClick() {
 
 
-            if (formValidation()) {
-                try {
-                    SaveDraft();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                if (UpdateDB()) {
-                    Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
-
-                    finish();
-
-                    MainApp.NoMembersCount = Integer.parseInt(dca0701.getText().toString());
-                    MainApp.NoMaleCount = Integer.parseInt(dca0702.getText().toString());
-                    MainApp.NoFemaleCount = Integer.parseInt(dca0703.getText().toString());
-
-                    MainApp.totalChild = Integer.parseInt(dca0801.getText().toString());
-                    MainApp.NoBoyCount = Integer.parseInt(dca0802.getText().toString());
-                    MainApp.NoGirlCount = Integer.parseInt(dca0803.getText().toString());
-                    MainApp.familyMembersList = new ArrayList<>();
-
-                    members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
-                    if (members.size() != 0) {
-                        for (MembersContract ec : members) {
-                            MainApp.familyMembersList.add(new MembersContract(ec));
-                        }
-                    }
-
-                    if (MainApp.familyMembersList.size() > 1) {
-                        Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
-                        MainApp.currentStatusCount = MainApp.familyMembersList.size();
-                        MainApp.TotalMembersCount = MainApp.familyMembersList.size();
-                        isNew = false;
-
-                    } else {
-
-                        isNew = true;
-                        Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
-                    }
-                    startActivity(new Intent(this, FamilyMembersActivity.class));
-                } else {
-                    Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-                }
+        if (formValidation()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
+                finish();
+
+                MainApp.NoMembersCount = Integer.parseInt(dca0701.getText().toString());
+                MainApp.NoMaleCount = Integer.parseInt(dca0702.getText().toString());
+                MainApp.NoFemaleCount = Integer.parseInt(dca0703.getText().toString());
+
+                MainApp.totalChild = Integer.parseInt(dca0801.getText().toString());
+                MainApp.NoBoyCount = Integer.parseInt(dca0802.getText().toString());
+                MainApp.NoGirlCount = Integer.parseInt(dca0803.getText().toString());
+                MainApp.familyMembersList = new ArrayList<>();
+
+                members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
+                if (members.size() != 0) {
+                    for (MembersContract ec : members) {
+                        MainApp.familyMembersList.add(new MembersContract(ec));
+                    }
+                }
+
+                if (MainApp.familyMembersList.size() > 1) {
+                    Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
+                    MainApp.currentStatusCount = MainApp.familyMembersList.size();
+                    MainApp.TotalMembersCount = MainApp.familyMembersList.size();
+                    isNew = false;
+
+                } else {
+
+                    isNew = true;
+                    Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
+                }
+                startActivity(new Intent(this, FamilyMembersActivity.class));
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     public boolean formValidation() {
@@ -615,7 +624,7 @@ public class SectionAActivity extends Activity {
         if (dca03.getText().toString().length() < MainApp.regionDss.length() + 4) {
             Toast.makeText(this, dca03.getText().toString().substring(0, MainApp.regionDss.length()).toUpperCase() + "-" + MainApp.regionDss, Toast.LENGTH_SHORT).show();
             Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dca03), Toast.LENGTH_LONG).show();
-            dca03.setError("Did not match your block!");    // Set Error on last radio button
+            dca03.setError("This ID is Invalid!");    // Set Error on last radio button
             return false;
         } else {
             dca03.setError(null);
@@ -1035,11 +1044,11 @@ public class SectionAActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        SharedPreferences sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
         MainApp.fc = new FormsContract();
 
-        MainApp.fc.setDevicetagID(sharedPref.getString("tagName",null));
+        MainApp.fc.setDevicetagID(sharedPref.getString("tagName", null));
         MainApp.fc.setDSSID(dca03.getText().toString().toUpperCase());
         MainApp.fc.setFormDate(dtToday);
         MainApp.fc.setUser(MainApp.userName);

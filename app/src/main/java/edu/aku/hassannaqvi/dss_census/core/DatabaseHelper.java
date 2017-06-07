@@ -1441,6 +1441,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 fc.setDSSID(c.getString(c.getColumnIndex(FormsTable.COLUMN_DSSID)));
                 fc.setFormDate(c.getString(c.getColumnIndex(FormsTable.COLUMN_FORMDATE)));
                 fc.setIstatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
+                fc.setSynced(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED)));
                 allFC.add(fc);
             }
         } finally {

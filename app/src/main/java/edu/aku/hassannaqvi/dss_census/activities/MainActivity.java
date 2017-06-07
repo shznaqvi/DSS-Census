@@ -115,42 +115,48 @@ public class MainActivity extends Activity {
         Collection<FormsContract> todaysForms = db.getTodayForms();
         Collection<FormsContract> unsyncedForms = db.getUnsyncedForms();
 
-
         rSumText += "TODAY'S RECORDS SUMMARY\r\n";
+
         rSumText += "=======================\r\n";
         rSumText += "\r\n";
         rSumText += "Total Forms Today: " + todaysForms.size() + "\r\n";
         rSumText += "\r\n";
-        rSumText += "\tFORMS' LIST: \r\n";
-        String iStatus;
-        rSumText += "--------------------------------------------------\r\n";
-        rSumText += "[ DSS_ID ] \t[Form Status] \t[Sync Status]----------\r\n";
-        rSumText += "--------------------------------------------------\r\n";
+        if (todaysForms.size() > 0) {
+            rSumText += "\tFORMS' LIST: \r\n";
+            String iStatus;
+            rSumText += "--------------------------------------------------\r\n";
+            rSumText += "[ DSS_ID ] \t[Form Status] \t[Sync Status]----------\r\n";
+            rSumText += "--------------------------------------------------\r\n";
 
-        for (FormsContract fc : todaysForms) {
+            for (FormsContract fc : todaysForms) {
 
-            switch (fc.getIstatus()) {
-                case "1":
-                    iStatus = "\tComplete";
-                    break;
-                case "2":
-                    iStatus = "\tIncomplete";
-                    break;
-                case "3":
-                    iStatus = "\tRefused";
-                    break;
-                case "4":
-                    iStatus = "\tRefused";
-                    break;
-                default:
-                    iStatus = "\t";
+                switch (fc.getIstatus()) {
+                    case "1":
+                        iStatus = "\tComplete";
+                        break;
+                    case "2":
+                        iStatus = "\tIncomplete";
+                        break;
+                    case "3":
+                        iStatus = "\tRefused";
+                        break;
+                    case "4":
+                        iStatus = "\tRefused";
+                        break;
+                    default:
+                        iStatus = "\t";
+                }
+
+                rSumText += fc.getDSSID();
+
+                rSumText += " " + iStatus + " ";
+
+                rSumText += (fc.getSynced() == null ? "\t\tNot Synced" : "\t\tSynced");
+                rSumText += "\r\n";
+                rSumText += "--------------------------------------------------\r\n";
             }
-
-
-            rSumText += fc.getDSSID() + " " + iStatus + " " + (fc.getSynced().equals("1") ? "\t\tSynced" : "\t\tNot Synced");
-            rSumText += "\r\n";
         }
-        rSumText += "--------------------------------------------------\r\n";
+
 
         if (MainApp.admin) {
             adminsec.setVisibility(View.VISIBLE);
@@ -165,7 +171,6 @@ public class MainActivity extends Activity {
         }
         Log.d(TAG, "onCreate: " + rSumText);
         recordSummary.setText(rSumText);
-
 
 
     }
@@ -299,6 +304,7 @@ public class MainActivity extends Activity {
         startActivity(cluster_list);
 
     }
+
     public void syncServer(View view) {
 
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
