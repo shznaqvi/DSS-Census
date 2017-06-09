@@ -108,7 +108,12 @@ public class MotherListActivity extends Activity {
 
         int age = Integer.parseInt(y) *12 + Integer.parseInt(m) + (Integer.parseInt(d)/29);
 
-        return age < MainApp.selectedCHILD;
+        if (age < MainApp.selectedCHILD){
+            return true;
+        }else {
+            leftChild++;
+            return false;
+        }
 
     }
 
