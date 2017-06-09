@@ -76,20 +76,23 @@ public class SyncIM extends AsyncTask<Void, Void, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
         int sSynced = 0;
+        String sSyncedError = "";
         JSONArray json = null;
         try {
             json = new JSONArray(result);
             DatabaseHelper db = new DatabaseHelper(mContext);
             for (int i = 0; i < json.length(); i++) {
                 JSONObject jsonObject = new JSONObject(json.getString(i));
-                if (jsonObject.getString("status").equals("1")) {
+                if (jsonObject.getString("status").equals("1") && jsonObject.getString("error").equals("0")) {
                     db.updateIM(jsonObject.getString("id"));
                     sSynced++;
+                } else {
+                    sSyncedError += jsonObject.getString("message").toString() + "\n";
                 }
             }
-            Toast.makeText(mContext, sSynced + " IM synced." + String.valueOf(json.length() - sSynced) + " Errors.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, sSynced + " IM synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError, Toast.LENGTH_SHORT).show();
 
-            pd.setMessage(sSynced + " IM synced." + String.valueOf(json.length() - sSynced) + " Errors.");
+            pd.setMessage(sSynced + " IM synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError);
             pd.setTitle("Done uploading IM data");
             pd.show();
         } catch (JSONException e) {
