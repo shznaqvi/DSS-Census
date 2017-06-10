@@ -282,7 +282,7 @@ public class SectionKActivity extends Activity {
         DatabaseHelper db = new DatabaseHelper(this);
 
         Collection<CensusContract> child = db.getChildFromMember(MainApp.fc.getDSSID(),MainApp.fc.getUID());
-//        Collection<CensusContract> child = db.getChildFromMember("AGHN21011A", "d5eab42f17960f2c1");
+//        Collection<CensusContract> child = db.getChildFromMember("AGHN21011A", "98c4a79aec06a40e1");
         chm = new ArrayList<>();
         chmName = new ArrayList<>();
         ch = new HashMap<>();
@@ -301,7 +301,8 @@ public class SectionKActivity extends Activity {
 //        }
 
         for (CensusContract ch : child) {
-            if (ch.getAgeY().equals("") ? checkChildLessThenFive(ch.getDob(), 1) : checkChildLessThenFive(ch.getAgeY(), 2)) {
+            if (ch.getAgeY().equals("") ? checkChildLessThenFive(ch.getDob(), 1) :
+                    checkChildLessThenFive(ch.getAgeY()+"-"+ch.getAgeM()+"-"+ch.getAgeD(), 2)) {
                 chm.add(new CensusContract(ch));
                 chmName.add(ch.getName());
             }
@@ -381,7 +382,16 @@ public class SectionKActivity extends Activity {
 
         } else {
 
-            return Integer.parseInt(dob) <= 5;
+            String[] dt = dob.split("-");
+
+            if ((Integer.parseInt(dt[0]) == 5 && Integer.parseInt(dt[1]) == 0 &&
+                    Integer.parseInt(dt[2]) == 0) || Integer.parseInt(dt[0]) < 5) {
+                return true;
+            }else {
+                return false;
+            }
+
+//            return Integer.parseInt(dob) <= 5;
         }
     }
 

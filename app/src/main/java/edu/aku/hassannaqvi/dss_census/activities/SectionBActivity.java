@@ -860,14 +860,14 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
 //                    if (dcbm01.isChecked() && (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || MainApp.NoFemaleCount == 0
 //                            || MainApp.NoFemaleCount == MainApp.NoGirlCount)) {
-                        if (dcbm01.isChecked() && (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || MainApp.NoFemaleCount == 0
-                                ||  MainApp.NoFemaleCount - (MainApp.TotalFemaleCount - MainApp.TotalGirlCount) == MainApp.NoGirlCount)) {
+                    if (dcbm01.isChecked() && (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || MainApp.NoFemaleCount == 0
+                            || MainApp.NoFemaleCount - (MainApp.TotalFemaleCount - MainApp.TotalGirlCount) == MainApp.NoGirlCount)) {
                         MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
 //                    } else if (dcbm02.isChecked() && (MainApp.TotalMaleCount >= MainApp.NoMaleCount || MainApp.NoMaleCount == 0
 //                            || MainApp.NoMaleCount == MainApp.NoBoyCount)) {
 
                     } else if (dcbm02.isChecked() && (MainApp.TotalMaleCount >= MainApp.NoMaleCount || MainApp.NoMaleCount == 0
-                            ||  MainApp.NoMaleCount - (MainApp.TotalMaleCount - MainApp.TotalBoyCount) == MainApp.NoBoyCount)) {
+                            || MainApp.NoMaleCount - (MainApp.TotalMaleCount - MainApp.TotalBoyCount) == MainApp.NoBoyCount)) {
                         MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
                     } else if (dcbm03.isChecked() && dcbd01.isChecked()) {
                         if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
@@ -900,14 +900,14 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                         }
                     } else if (dcbm04.isChecked() && dcbd01.isChecked()) {
                         if (MainApp.TotalMaleCount >= MainApp.NoMaleCount || MainApp.NoMaleCount == 0
-                                    ||  MainApp.NoMaleCount - (MainApp.TotalMaleCount - MainApp.TotalBoyCount) == MainApp.NoBoyCount) {
+                                || MainApp.NoMaleCount - (MainApp.TotalMaleCount - MainApp.TotalBoyCount) == MainApp.NoBoyCount) {
                             MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
                         } else {
                             contFunc();
                         }
                     } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
                         if (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || MainApp.NoFemaleCount == 0
-                                ||  MainApp.NoFemaleCount - (MainApp.TotalFemaleCount - MainApp.TotalGirlCount) == MainApp.NoGirlCount) {
+                                || MainApp.NoFemaleCount - (MainApp.TotalFemaleCount - MainApp.TotalGirlCount) == MainApp.NoGirlCount) {
                             MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
                         } else {
                             contFunc();
@@ -918,14 +918,14 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 } else {
                     contFunc();
                 }
-            }else {
+            } else {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                         this);
 
-                String memberID="";
-                for (byte i=0;i < MainApp.insertMem.size();i++){
+                String memberID = "";
+                for (byte i = 0; i < MainApp.insertMem.size(); i++) {
 
-                    memberID+="ID: "+MainApp.insertMem.get(i)+"\n";
+                    memberID += "ID: " + MainApp.insertMem.get(i) + "\n";
                 }
 
 
@@ -961,48 +961,47 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             if (!dcbis03.isChecked() && !dcbis05.isChecked() && !dcbis04.isChecked()) {
 
 //                if () {
-                    if (dcbm01.isChecked()) {
-                        MainApp.TotalFemaleCount++;
-                    } else if (dcbm02.isChecked()) {
+                if (dcbm01.isChecked()) {
+                    MainApp.TotalFemaleCount++;
+                } else if (dcbm02.isChecked()) {
+                    MainApp.TotalMaleCount++;
+                } else if (dcbm03.isChecked() && dcbd01.isChecked()) {
+                    if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
+                        MainApp.TotalBoyCount++;
+
                         MainApp.TotalMaleCount++;
-                    } else if (dcbm03.isChecked() && dcbd01.isChecked()) {
-                        if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
-                            MainApp.TotalBoyCount++;
 
-                            MainApp.TotalMaleCount++;
+                    } else {
 
-                        } else {
 
+                        if (MainApp.NoBoyCount > MainApp.TotalBoyCount) {
                             MainApp.totalChild--;
-
-                            if(MainApp.NoBoyCount > MainApp.TotalBoyCount) {
-                                MainApp.NoBoyCount--;
-                            }
+                            MainApp.NoBoyCount--;
+                        }
 //                        MainApp.TotalBoyCount--;
 
-                            MainApp.TotalMaleCount++;
-                        }
-                    } else if (dcbm03.isChecked() && dcbd02.isChecked()) {
-                        if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
-                            MainApp.TotalGirlCount++;
+                        MainApp.TotalMaleCount++;
+                    }
+                } else if (dcbm03.isChecked() && dcbd02.isChecked()) {
+                    if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
+                        MainApp.TotalGirlCount++;
 
-                            MainApp.TotalFemaleCount++;
-                        } else {
+                        MainApp.TotalFemaleCount++;
+                    } else {
 
+                        if (MainApp.NoGirlCount > MainApp.TotalGirlCount) {
                             MainApp.totalChild--;
-
-                            if(MainApp.NoGirlCount > MainApp.TotalGirlCount) {
-                                MainApp.NoGirlCount--;
-                            }
+                            MainApp.NoGirlCount--;
+                        }
 //                        MainApp.TotalGirlCount--;
 
-                            MainApp.TotalFemaleCount++;
-                        }
-                    } else if (dcbm04.isChecked() && dcbd01.isChecked()) {
-                        MainApp.TotalMaleCount++;
-                    } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
                         MainApp.TotalFemaleCount++;
                     }
+                } else if (dcbm04.isChecked() && dcbd01.isChecked()) {
+                    MainApp.TotalMaleCount++;
+                } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
+                    MainApp.TotalFemaleCount++;
+                }
 //                }
 
                 MainApp.selectedPos = -1;
@@ -1013,9 +1012,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 //                    MainApp.memFlag++;
 //                }
 //                if (!dcbis05.isChecked()) {
-                    if (!dataFlag) {
-                        MainApp.currentStatusCount += 1;
-                    }
+                if (!dataFlag) {
+                    MainApp.currentStatusCount += 1;
+                }
 
                 finish();
 
@@ -1028,7 +1027,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     MainApp.currentStatusCount += 1;
                 }
 
-                if (dcbis05.isChecked()){
+                if (dcbis05.isChecked()) {
                     if (MainApp.NoMembersCount != 0) {
 
                         Long dt = new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY);
@@ -1053,10 +1052,10 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                             finish();
                             startActivity(new Intent(this, SectionCActivity.class).putExtra("position", position).
-                                    putExtra("dataFlag",dataFlag));
+                                    putExtra("dataFlag", dataFlag));
                         }
                     }
-                }else {
+                } else {
                     MainApp.selectedPos = -1;
 
                     MainApp.currentStatusCount -= 1;
@@ -1093,8 +1092,14 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             return ageInYears <= 5;
 
         } else {
+            if ((Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dcbhm.getText().toString()) == 0 &&
+                    Integer.parseInt(dcbhd.getText().toString()) == 0) || Integer.parseInt(dcbhy.getText().toString()) < 5) {
+                return true;
+            }else {
+                return false;
+            }
 
-            return Integer.parseInt(dcbhy.getText().toString()) <= 5;
+//            return Integer.parseInt(dcbhy.getText().toString()) <= 5;
         }
     }
 
@@ -1187,7 +1192,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         MainApp.cc.setOccupationX(dcbf96x.getText().toString());
         if (dcbdob01.isChecked()) {
             MainApp.cc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dcbg.getCalendarView().getDate()));
-        }else {
+        } else {
             MainApp.cc.setAgeY(dcbhy.getText().toString());
             MainApp.cc.setAgeM(dcbhm.getText().toString());
             MainApp.cc.setAgeD(dcbhd.getText().toString());
@@ -1224,7 +1229,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         m.setSite_code(c.getSite_code());
         m.setName(c.getName());
         m.setDob(c.getDob());
-        m.setAge(c.getAgeY() + "y " + c.getAgeM() + "m " + c.getAgeD()+"d");
+        m.setAge(c.getAgeY() + "y " + c.getAgeM() + "m " + c.getAgeD() + "d");
         m.setGender(c.getGender());
         m.setIs_head(c.getIs_head());
         m.setRelation_hh(c.getRelation_hh());
