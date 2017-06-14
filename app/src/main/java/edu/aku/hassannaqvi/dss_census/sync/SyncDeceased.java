@@ -87,7 +87,7 @@ public class SyncDeceased extends AsyncTask<Void, Void, String> {
                     db.updateDeceased(jsonObject.getString("id"));
                     sSynced++;
                 } else {
-                    sSyncedError += jsonObject.getString("message").toString() + "\n";
+                    sSyncedError += "\nError: " + jsonObject.getString("message").toString();
                 }
             }
             Toast.makeText(mContext, sSynced + " Deceased synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError, Toast.LENGTH_SHORT).show();

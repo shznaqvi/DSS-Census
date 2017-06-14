@@ -87,7 +87,7 @@ public class SyncMother extends AsyncTask<Void, Void, String> {
                     db.updateMother(jsonObject.getString("id"));
                     sSynced++;
                 } else {
-                    sSyncedError += jsonObject.getString("message").toString() + "\n";
+                    sSyncedError += "\nError: " + jsonObject.getString("message").toString();
                 }
             }
             Toast.makeText(mContext, sSynced + " Mother synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError, Toast.LENGTH_SHORT).show();

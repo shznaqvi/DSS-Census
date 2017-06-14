@@ -162,7 +162,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
                     db.updateSyncedForms(jsonObject.getString("id"));
                     sSynced++;
                 } else {
-                    sSyncedError += jsonObject.getString("message").toString() + "\n";
+                    sSyncedError += "\nError: " + jsonObject.getString("message").toString();
                 }
             }
             Toast.makeText(mContext, sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError, Toast.LENGTH_SHORT).show();

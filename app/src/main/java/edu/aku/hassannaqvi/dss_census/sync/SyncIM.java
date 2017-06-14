@@ -87,7 +87,7 @@ public class SyncIM extends AsyncTask<Void, Void, String> {
                     db.updateIM(jsonObject.getString("id"));
                     sSynced++;
                 } else {
-                    sSyncedError += jsonObject.getString("message").toString() + "\n";
+                    sSyncedError += "\nError: " + jsonObject.getString("message").toString();
                 }
             }
             Toast.makeText(mContext, sSynced + " IM synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError, Toast.LENGTH_SHORT).show();

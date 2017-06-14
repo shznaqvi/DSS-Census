@@ -87,7 +87,7 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
                     db.updateCensus(jsonObject.getString("id"));
                     sSynced++;
                 } else {
-                    sSyncedError += jsonObject.getString("message").toString() + "\n";
+                    sSyncedError += "\nError: " + jsonObject.getString("message").toString();
                 }
             }
             Toast.makeText(mContext, sSynced + " Census synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError, Toast.LENGTH_SHORT).show();
