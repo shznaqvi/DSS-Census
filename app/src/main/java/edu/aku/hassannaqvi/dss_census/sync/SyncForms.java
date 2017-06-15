@@ -96,7 +96,8 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
                 connection.setUseCaches(false);
                 connection.connect();
 
-
+                int HttpResult = connection.getResponseCode();
+                if (HttpResult == HttpURLConnection.HTTP_OK) {
                 JSONArray jsonSync = new JSONArray();
 
                 DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
@@ -111,8 +112,8 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
                 wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
                 longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
                 wr.flush();
-                int HttpResult = connection.getResponseCode();
-                if (HttpResult == HttpURLConnection.HTTP_OK) {
+
+
                     BufferedReader br = new BufferedReader(new InputStreamReader(
                             connection.getInputStream(), "utf-8"));
                     StringBuffer sb = new StringBuffer();

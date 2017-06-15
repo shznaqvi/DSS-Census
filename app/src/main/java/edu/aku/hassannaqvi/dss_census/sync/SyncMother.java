@@ -43,10 +43,10 @@ public class SyncMother extends AsyncTask<Void, Void, String> {
 
     public static void longInfo(String str) {
         if (str.length() > 4000) {
-            Log.i("TAG: ", str.substring(0, 4000));
+            Log.i(TAG, str.substring(0, 4000));
             longInfo(str.substring(4000));
         } else
-            Log.i("TAG: ", str);
+            Log.i(TAG, str);
     }
 
     @Override
@@ -127,28 +127,28 @@ public class SyncMother extends AsyncTask<Void, Void, String> {
                 conn.setUseCaches(false);
                 // Starts the query
                 conn.connect();
-                JSONArray jsonSync = new JSONArray();
-                try {
-                    DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
-
-                    for (MotherContract fc : Mother) {
-
-                        //if (fc.getIstatus().equals("1")) {
-                            jsonSync.put(fc.toJSONObject());
-                        // }
-
-                    }
-                    wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
-                    longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
-                    wr.flush();
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-/*===================================================================*/
                 int HttpResult = conn.getResponseCode();
                 if (HttpResult == HttpURLConnection.HTTP_OK) {
+                    JSONArray jsonSync = new JSONArray();
+                    try {
+                        DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
+
+                        for (MotherContract fc : Mother) {
+
+                            //if (fc.getIstatus().equals("1")) {
+                            jsonSync.put(fc.toJSONObject());
+                            // }
+
+                        }
+                        wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
+                        longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
+                        wr.flush();
+                    } catch (JSONException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+               /*===================================================================*/
+
                     BufferedReader br = new BufferedReader(new InputStreamReader(
                             conn.getInputStream(), "utf-8"));
                     StringBuffer sb = new StringBuffer();

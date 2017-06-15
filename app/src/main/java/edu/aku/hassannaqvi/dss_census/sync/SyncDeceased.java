@@ -127,6 +127,8 @@ public class SyncDeceased extends AsyncTask<Void, Void, String> {
                 conn.setUseCaches(false);
                 // Starts the query
                 conn.connect();
+                int HttpResult = conn.getResponseCode();
+                if (HttpResult == HttpURLConnection.HTTP_OK) {
                 JSONArray jsonSync = new JSONArray();
                 try {
                     DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
@@ -147,8 +149,7 @@ public class SyncDeceased extends AsyncTask<Void, Void, String> {
                 }
 
 /*===================================================================*/
-                int HttpResult = conn.getResponseCode();
-                if (HttpResult == HttpURLConnection.HTTP_OK) {
+
                     BufferedReader br = new BufferedReader(new InputStreamReader(
                             conn.getInputStream(), "utf-8"));
                     StringBuffer sb = new StringBuffer();
