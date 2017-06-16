@@ -257,7 +257,7 @@ public class MainApp extends Application {
 
     protected void showCurrentLocation() {
 
-        location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
         if (location != null) {
             String message = String.format(
