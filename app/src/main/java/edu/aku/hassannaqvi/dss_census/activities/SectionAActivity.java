@@ -420,14 +420,14 @@ public class SectionAActivity extends Activity {
 
         // =================== If Respondent is male ===============
 
-        dca0601.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        dca0501.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (dca060101.isChecked()) {
-                    dca060412.setEnabled(false);
-                    dca060412.setChecked(false);
+                if (dca050101.isChecked()) {
+                    dca050509.setEnabled(false);
+                    dca050509.setChecked(false);
                 } else {
-                    dca060412.setEnabled(true);
+                    dca050509.setEnabled(true);
 
                 }
 
