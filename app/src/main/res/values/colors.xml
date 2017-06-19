@@ -5,6 +5,8 @@
     <color name="colorPrimaryAlpha">#66880E4F</color>
     <color name="colorAccent">#F90057</color>
     <color name="pink_100">#fce4ec</color>
+    <color name="colorHeading">#B2DFDB</color>
+
 
     <color name="black">#000000</color>
     <color name="blackOverlay">#66000000</color>
