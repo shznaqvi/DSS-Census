@@ -544,18 +544,18 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     fldGrpdcbir.setVisibility(View.GONE);
                 } else if (dcbis02.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
-                    fldGrpdcbir.setVisibility(View.VISIBLE);
+                    //fldGrpdcbir.setVisibility(View.VISIBLE);
 
                     dcbidtTxt.setText(getString(R.string.dcbis02) + " " + getString(R.string.dcbidt));
                 } else if (dcbis03.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
-                    fldGrpdcbir.setVisibility(View.VISIBLE);
+                    //fldGrpdcbir.setVisibility(View.VISIBLE);
                     fldgrpmigout.setVisibility(View.GONE);
 
                     dcbidtTxt.setText(getString(R.string.dcbis03) + " " + getString(R.string.dcbidt));
                 } else if (dcbis04.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
-                    fldGrpdcbir.setVisibility(View.VISIBLE);
+                    //fldGrpdcbir.setVisibility(View.VISIBLE);
                     fldgrpmigout.setVisibility(View.GONE);
 
                     dcbidtTxt.setText(getString(R.string.dcbis04) + " " + getString(R.string.dcbidt));
@@ -1201,7 +1201,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             MainApp.cc.setDod(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         }
         MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : dcbm04.isChecked() ? "ot" : "0");
-        MainApp.cc.setRemarks(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
+        //MainApp.cc.setRemarks(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
 
         Log.d(TAG, "SaveDraft: " + MainApp.cc.toJSONObject());
 
@@ -1308,7 +1308,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 */
         // ============== Remarks ===================
         if (dcbis02.isChecked() || dcbis03.isChecked() || dcbis04.isChecked()) {
-            if (dcbir.getCheckedRadioButtonId() == -1) {
+            /*if (dcbir.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbir), Toast.LENGTH_SHORT).show();
                 dcbir03.setError("This data is Required!");    // Set Error on last radio button
 
@@ -1316,7 +1316,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 return false;
             } else {
                 dcbir03.setError(null);
-            }
+            }*/
 
 //            if (dcbirm.getText().toString().isEmpty()) {
 //                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbir), Toast.LENGTH_SHORT).show();
