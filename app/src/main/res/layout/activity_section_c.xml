@@ -222,26 +222,6 @@
                 android:text="@string/dccc02" />
         </RadioGroup>
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@color/colorPrimary"
-            android:text="@string/dccd"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/white" />
-
-        <DatePicker
-            android:id="@+id/dccd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:calendarViewShown="false"
-            android:datePickerMode="spinner"
-            android:ems="10"
-            android:spinnersShown="true" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -272,9 +252,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:text="@string/dccf" />
+                android:text="@string/dccd" />
 
         </RadioGroup>
+
 
         <LinearLayout
             android:id="@+id/fldGrpdccage"
@@ -356,9 +337,29 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
-                android:text="@string/dccf"
+                android:text="@string/dccd"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
+
+            <DatePicker
+                android:id="@+id/dccd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                android:ems="10"
+                android:spinnersShown="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/dccd"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
 
             <DatePicker
                 android:id="@+id/dccf"
@@ -368,7 +369,8 @@
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"
                 android:ems="10"
-                android:spinnersShown="true" />
+                android:spinnersShown="true"
+                android:visibility="gone" />
         </LinearLayout>
 
         <TextView

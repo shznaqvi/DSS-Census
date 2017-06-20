@@ -26,7 +26,6 @@ import org.json.JSONException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -242,6 +241,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         dcbg.setMaxDate(new Date().getTime());
         dcbidob.setMaxDate(new Date().getTime());
         cal.setTimeInMillis(System.currentTimeMillis());
+
         dcbg.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
 
             @Override
@@ -1092,12 +1092,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             return ageInYears <= 5;
 
         } else {
-            if ((Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dcbhm.getText().toString()) == 0 &&
-                    Integer.parseInt(dcbhd.getText().toString()) == 0) || Integer.parseInt(dcbhy.getText().toString()) < 5) {
-                return true;
-            }else {
-                return false;
-            }
+            return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dcbhm.getText().toString()) == 0 &&
+                    Integer.parseInt(dcbhd.getText().toString()) == 0) || Integer.parseInt(dcbhy.getText().toString()) < 5;
 
 //            return Integer.parseInt(dcbhy.getText().toString()) <= 5;
         }

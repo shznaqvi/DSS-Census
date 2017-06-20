@@ -172,7 +172,7 @@
     <string name="dcbf17"> فیکٹری میں کام کرنےوالے </string>
     <string name="dcAge"> تاریخ پیدائش  /  عمر </string>
     <string name="dcbg"> تاریخ پیدائش </string>
-    <string name="dcAgeatDeath"> تاریخ وفات / وفات کی عمر </string>
+  <string name="dcAgeatDeath"> تاریخ پیدائش / وفات کی عمر </string>
     <string name="dcbh"> عمر </string>
     <string name="dcbhy"> سال </string>
     <string name="dcbhm"> مہینہ </string>
@@ -644,14 +644,14 @@
     <string name="dckm2"> Measles 2 </string>
     <string name="dckm2src"> Source </string>
     <string name="dclheading"> سیکشن ایل :گھریلو خوراک ی ناقص تحفظ، خوراک کا استعمال اور تبدیل </string>
-    <string name="dclsub"> پچھلے سات دنوں میں (انڈکس) ماں اور بچے نے نیجے دیئے ہوئے خوارک استعمال کئے ہیں
+  <string name="dclsub"> پچھلے سات دنوں میں (منتخب) ماں اور بچے نے نیجے دیئے ہوئے خوارک استعمال کئے ہیں
   مندرجہ ذیل میں دیئے گئے خوراک کے کتنے گروہوں کو استعمال کیا ہے اور کتنے دنوں تک ماں کو خوراک دیا ہے ؟ </string>
     <string name="dcl01">2) نیچے دئے گئے غذائی گروپس میں دی گئی غذا کو کل آپ یا آپ کے بچے نے کھایا ہے؟ </string>
     <string name="dclsub1"> اجتماعی غذا </string>
-    <string name="dcl02"> 1) پچھلے سات دنوں میں (انڈکس) ماں اور بچے نے نیجے دیئے ہوئے خوارک استعمال کئے ہیں </string>
+  <string name="dcl02"> 1) پچھلے سات دنوں میں (منتخب) ماں اور بچے نے نیجے دیئے ہوئے خوارک استعمال کئے ہیں </string>
     <string name="dcl01a"> روٹی </string>
-    <string name="dcl01a1"> اشاری بچے کی ماں </string>
-    <string name="dcl01a2"> چائلڈ سیریل </string>
+  <string name="dcl01a1"> منتخب بچے کی ماں </string>
+  <string name="dcl01a2"> منتخب بچہ </string>
     <string name="dcl01b"> آلو، شکرقندی وغیرہ </string>
     <string name="dcl01b1"> Mother of index child/WRA </string>
     <string name="dcl01b2"> Index child </string>

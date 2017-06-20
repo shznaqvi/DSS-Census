@@ -453,13 +453,30 @@ public class SectionHActivity extends Activity {
 
         if (dch0602.isChecked()) {
             // =================== Q 9 ==================
-            if (dch07m.getText().toString().isEmpty() || dch07y.getText().toString().isEmpty() || dch07.getCheckedRadioButtonId() == -1) {
+            if ((dch07m.getText().toString().isEmpty() || dch07y.getText().toString().isEmpty()) && dch07.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch07), Toast.LENGTH_SHORT).show();
                 dch0799.setError("This data is Required!");
                 Log.i(TAG, "dch07: This data is Required!");
                 return false;
             } else {
                 dch0799.setError(null);
+            }
+
+            if ((Integer.valueOf(dch07m.getText().toString().isEmpty() ? "0" : dch07m.getText().toString()) < 1
+                    || Integer.valueOf(dch07y.getText().toString().isEmpty() ? "0" : dch07y.getText().toString()) < 1)
+                    && dch07.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch07), Toast.LENGTH_SHORT).show();
+                dch0799.setError("This data is Required!");
+                Log.i(TAG, "dch07: This data is Required!");
+                return false;
+            } else {
+                dch0799.setError(null);
+            }
+
+            if ((Integer.valueOf(dch07m.getText().toString().isEmpty() ? "0" : dch07m.getText().toString()) > 0
+                    || Integer.valueOf(dch07y.getText().toString().isEmpty() ? "0" : dch07y.getText().toString()) > 0)
+                    && dch07.getCheckedRadioButtonId() != -1) {
+                dch07.clearCheck();
             }
 
 
