@@ -26,7 +26,6 @@ import org.json.JSONException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -242,6 +241,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         dcbg.setMaxDate(new Date().getTime());
         dcbidob.setMaxDate(new Date().getTime());
         cal.setTimeInMillis(System.currentTimeMillis());
+
         dcbg.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
 
             @Override
@@ -544,18 +544,18 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     fldGrpdcbir.setVisibility(View.GONE);
                 } else if (dcbis02.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
-                    fldGrpdcbir.setVisibility(View.VISIBLE);
+                    //fldGrpdcbir.setVisibility(View.VISIBLE);
 
                     dcbidtTxt.setText(getString(R.string.dcbis02) + " " + getString(R.string.dcbidt));
                 } else if (dcbis03.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
-                    fldGrpdcbir.setVisibility(View.VISIBLE);
+                    //fldGrpdcbir.setVisibility(View.VISIBLE);
                     fldgrpmigout.setVisibility(View.GONE);
 
                     dcbidtTxt.setText(getString(R.string.dcbis03) + " " + getString(R.string.dcbidt));
                 } else if (dcbis04.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
-                    fldGrpdcbir.setVisibility(View.VISIBLE);
+                    //fldGrpdcbir.setVisibility(View.VISIBLE);
                     fldgrpmigout.setVisibility(View.GONE);
 
                     dcbidtTxt.setText(getString(R.string.dcbis04) + " " + getString(R.string.dcbidt));
@@ -1092,12 +1092,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             return ageInYears <= 5;
 
         } else {
-            if ((Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dcbhm.getText().toString()) == 0 &&
-                    Integer.parseInt(dcbhd.getText().toString()) == 0) || Integer.parseInt(dcbhy.getText().toString()) < 5) {
-                return true;
-            }else {
-                return false;
-            }
+            return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dcbhm.getText().toString()) == 0 &&
+                    Integer.parseInt(dcbhd.getText().toString()) == 0) || Integer.parseInt(dcbhy.getText().toString()) < 5;
 
 //            return Integer.parseInt(dcbhy.getText().toString()) <= 5;
         }
@@ -1205,7 +1201,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             MainApp.cc.setDod(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         }
         MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : dcbm04.isChecked() ? "ot" : "0");
-        MainApp.cc.setRemarks(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
+        //MainApp.cc.setRemarks(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
 
         Log.d(TAG, "SaveDraft: " + MainApp.cc.toJSONObject());
 
@@ -1312,7 +1308,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 */
         // ============== Remarks ===================
         if (dcbis02.isChecked() || dcbis03.isChecked() || dcbis04.isChecked()) {
-            if (dcbir.getCheckedRadioButtonId() == -1) {
+            /*if (dcbir.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbir), Toast.LENGTH_SHORT).show();
                 dcbir03.setError("This data is Required!");    // Set Error on last radio button
 
@@ -1320,7 +1316,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 return false;
             } else {
                 dcbir03.setError(null);
-            }
+            }*/
 
 //            if (dcbirm.getText().toString().isEmpty()) {
 //                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbir), Toast.LENGTH_SHORT).show();

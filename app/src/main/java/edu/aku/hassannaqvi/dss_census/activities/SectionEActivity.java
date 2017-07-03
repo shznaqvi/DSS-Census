@@ -191,6 +191,8 @@ public class SectionEActivity extends Activity {
     EditText dce0722;
     @BindView(R.id.fldGrpdce05)
     LinearLayout fldGrpdce05;
+    @BindView(R.id.fldGrpdce02)
+    LinearLayout fldGrpdce02;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -199,18 +201,31 @@ public class SectionEActivity extends Activity {
         ButterKnife.bind(this);
 
         // ========================= Q 1 Others============================
-        dce01.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == dce0196.getId()) {
 
+        dce0196.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
                     dce0196x.setVisibility(View.VISIBLE);
                     dce0196x.requestFocus();
 
                 } else {
-
                     dce0196x.setVisibility(View.GONE);
                     dce0196x.setText(null);
+                }
+            }
+        });
+        dce01.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (dce0101.isChecked()) {
+                    fldGrpdce02.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdce02.setVisibility(View.GONE);
+                    dce02.clearCheck();
+                    dce03.clearCheck();
+                    dce0396x.setText(null);
+
                 }
             }
         });
@@ -477,6 +492,14 @@ public class SectionEActivity extends Activity {
 
         // ====================== Q 1 ==============
 
+        if (dce01.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce01), Toast.LENGTH_SHORT).show();
+            dce0196.setError("This data is Required!");
+            Log.i(TAG, "dce01: This data is Required!");
+            return false;
+        } else {
+            dce0196.setError(null);
+        }
         if (dce0196.isChecked()) {
             if (dce0196x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce01), Toast.LENGTH_SHORT).show();
@@ -488,45 +511,38 @@ public class SectionEActivity extends Activity {
             }
         }
 
-        if (dce01.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce01), Toast.LENGTH_SHORT).show();
-            dce0196.setError("This data is Required!");
-            Log.i(TAG, "dce01: This data is Required!");
-            return false;
-        } else {
-            dce0196.setError(null);
-        }
 
         // ======================  Q 2 =================
-
-        if (dce02.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce02), Toast.LENGTH_SHORT).show();
-            dce0202.setError("This data is Required!");
-            Log.i(TAG, "dce02: This data is Required!");
-            return false;
-        } else {
-            dce0202.setError(null);
-        }
-
-        // ======================  Q 3 =================
-
-        if (dce03.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce03), Toast.LENGTH_SHORT).show();
-            dce0396.setError("This data is Required!");
-            Log.i(TAG, "dce03: This data is Required!");
-            return false;
-        } else {
-            dce0396.setError(null);
-        }
-
-        if (dce0396.isChecked()) {
-            if (dce0396x.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce03), Toast.LENGTH_SHORT).show();
-                dce0396x.setError("This data is Required!");
-                Log.i(TAG, "dce0396x: This data is Required!");
+        if (dce0101.isChecked()) {
+            if (dce02.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce02), Toast.LENGTH_SHORT).show();
+                dce0202.setError("This data is Required!");
+                Log.i(TAG, "dce02: This data is Required!");
                 return false;
             } else {
-                dce0396x.setError(null);
+                dce0202.setError(null);
+            }
+
+            // ======================  Q 3 =================
+
+            if (dce03.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce03), Toast.LENGTH_SHORT).show();
+                dce0396.setError("This data is Required!");
+                Log.i(TAG, "dce03: This data is Required!");
+                return false;
+            } else {
+                dce0396.setError(null);
+            }
+
+            if (dce0396.isChecked()) {
+                if (dce0396x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dce03), Toast.LENGTH_SHORT).show();
+                    dce0396x.setError("This data is Required!");
+                    Log.i(TAG, "dce0396x: This data is Required!");
+                    return false;
+                } else {
+                    dce0396x.setError(null);
+                }
             }
         }
 

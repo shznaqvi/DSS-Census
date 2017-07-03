@@ -2,6 +2,8 @@ package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -14,7 +16,9 @@ import android.widget.Toast;
 
 import org.json.JSONException;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -109,10 +113,11 @@ public class SectionCActivity extends Activity {
     @BindView(R.id.fldGrpdcch)
     LinearLayout fldGrpdcch;
 
+
     int position = 0;
     boolean dataFlag = false;
-    int ageInYears = 0;
-
+    long ageInYears = 0;
+    Calendar cal = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +127,7 @@ public class SectionCActivity extends Activity {
         dccd.setMaxDate(new Date().getTime());
         dccf.setMaxDate(new Date().getTime());
         dccf.setMinDate((new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY)));
+
 
         position = getIntent().getExtras().getInt("position");
 
@@ -145,13 +151,7 @@ public class SectionCActivity extends Activity {
 
 //                ((RadioButton) dccc.getChildAt((Integer.parseInt(MainApp.cc.getGender())) - 1)).setChecked(true);
 
-            if (((Integer.parseInt(MainApp.cc.getGender())) - 1) == 1) {
-                fldGrpdcch.setVisibility(View.VISIBLE);
-            } else {
-                fldGrpdcch.setVisibility(View.GONE);
-                dcch.clearCheck();
 
-            }
         }else {
             dccbfid.setText("null");
             dccbmid.setText("null");
@@ -193,17 +193,30 @@ public class SectionCActivity extends Activity {
             }
         });
 
-        dccc.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        dccey.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (dccc02.isChecked()) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (((Integer.parseInt(MainApp.cc.getGender())) - 1 == 1)
+                        && (Integer.valueOf(dccey.getText().toString().isEmpty() ? "0" : dccey.getText().toString()) >= 15
+                        && Integer.valueOf(dccey.getText().toString().isEmpty() ? "0" : dccey.getText().toString()) <= 49)) {
                     fldGrpdcch.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpdcch.setVisibility(View.GONE);
                     dcch.clearCheck();
                 }
             }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
         });
+
 
 
         dccbrhh96.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -217,6 +230,39 @@ public class SectionCActivity extends Activity {
                 }
             }
         });
+
+        //===================== Calculation of age from Date of Birth
+
+        dccd.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Log.d("Date", "Year=" + year + " Month=" + (monthOfYear + 1) + " day=" + dayOfMonth);
+                cal.set(year, monthOfYear, dayOfMonth);
+
+                Calendar cal2 = Calendar.getInstance();
+                cal2.set(dccd.getYear(), dccd.getMonth(), dccd.getDayOfMonth());
+
+                Date dateofDeath = getDateFrom(MainApp.cc.getCurrent_date());
+
+                Date dateOfBirth = cal2.getTime();
+
+                long diff = dateofDeath.getTime() - dateOfBirth.getTime();
+
+                ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
+
+                if (((Integer.parseInt(MainApp.cc.getGender())) - 1 == 1) && (ageInYears <= 49 && ageInYears >= 15)) {
+                    fldGrpdcch.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdcch.setVisibility(View.GONE);
+                    dcch.clearCheck();
+                }
+
+
+            }
+        });
+
+
+        //===============================
 
 
     }
@@ -310,9 +356,10 @@ public class SectionCActivity extends Activity {
                 : dccbrhh88.isChecked() ? "88" : "0");
 
         MainApp.dc.setGender(dccc01.isChecked() ? "1" : dccc02.isChecked() ? "2" : "0");
-        MainApp.dc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dccd.getCalendarView().getDate()));
+        MainApp.dc.setDod(MainApp.cc.getCurrent_date());
         if (dccage01.isChecked()) {
-            MainApp.dc.setDod(new SimpleDateFormat("dd-MM-yyyy").format(dccf.getCalendarView().getDate()));
+            MainApp.dc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dccd.getCalendarView().getDate()));
+
         }else {
             MainApp.dc.setAgeY(dccey.getText().toString());
             MainApp.dc.setAgeM(dccem.getText().toString());
@@ -471,7 +518,9 @@ public class SectionCActivity extends Activity {
             dccg.setError(null);
         }
 
-        if (dccc02.isChecked()) {
+        if (dccc02.isChecked() && ((ageInYears >= 15 && ageInYears <= 49)
+                || (Integer.valueOf(dccey.getText().toString().isEmpty() ? "0" : dccey.getText().toString()) >= 15
+                && Integer.valueOf(dccey.getText().toString().isEmpty() ? "0" : dccey.getText().toString()) <= 49))) {
 
             // ============== Status of WRA ===================
 
@@ -492,6 +541,17 @@ public class SectionCActivity extends Activity {
     @Override
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+    }
+
+    public Date getDateFrom(String dateStr) {
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = null;
+        try {
+            date = df.parse(dateStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
     }
 
 

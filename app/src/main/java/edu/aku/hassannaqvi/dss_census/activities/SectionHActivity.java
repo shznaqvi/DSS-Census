@@ -33,6 +33,8 @@ public class SectionHActivity extends Activity {
     RadioButton dch0101;
     @BindView(R.id.dch0102)
     RadioButton dch0102;
+    @BindView(R.id.fldGrpdch02)
+    LinearLayout fldGrpdch02;
     @BindView(R.id.dch02)
     RadioGroup dch02;
     @BindView(R.id.dch0201)
@@ -45,8 +47,8 @@ public class SectionHActivity extends Activity {
     RadioButton dch0301;
     @BindView(R.id.dch0302)
     RadioButton dch0302;
-    @BindView(R.id.dch0303)
-    RadioButton dch0303;
+    @BindView(R.id.fldGrpdch04)
+    LinearLayout fldGrpdch04;
     @BindView(R.id.dch04)
     RadioGroup dch04;
     @BindView(R.id.dch0401)
@@ -55,36 +57,54 @@ public class SectionHActivity extends Activity {
     RadioButton dch0402;
     @BindView(R.id.dch0403)
     RadioButton dch0403;
+    @BindView(R.id.fldGrpdch05)
+    LinearLayout fldGrpdch05;
     @BindView(R.id.dch05)
     EditText dch05;
     @BindView(R.id.dch06)
-    EditText dch06;
+    RadioGroup dch06;
+    @BindView(R.id.dch0601)
+    RadioButton dch0601;
+    @BindView(R.id.dch0602)
+    RadioButton dch0602;
+    @BindView(R.id.dch07m)
+    EditText dch07m;
+    @BindView(R.id.dch07y)
+    EditText dch07y;
     @BindView(R.id.dch07)
-    EditText dch07;
+    RadioGroup dch07;
+    @BindView(R.id.dch0701)
+    RadioButton dch0701;
+    @BindView(R.id.dch0702)
+    RadioButton dch0702;
+    @BindView(R.id.dch0703)
+    RadioButton dch0703;
+    @BindView(R.id.dch0796)
+    RadioButton dch0796;
+    @BindView(R.id.dch0799)
+    RadioButton dch0799;
+    @BindView(R.id.dch0796x)
+    EditText dch0796x;
     @BindView(R.id.dch08)
     RadioGroup dch08;
     @BindView(R.id.dch0801)
     RadioButton dch0801;
     @BindView(R.id.dch0802)
     RadioButton dch0802;
-    @BindView(R.id.dch09m)
-    EditText dch09m;
-    @BindView(R.id.dch09y)
-    EditText dch09y;
+    @BindView(R.id.dch0803)
+    RadioButton dch0803;
+    @BindView(R.id.dch0804)
+    RadioButton dch0804;
     @BindView(R.id.dch09)
     RadioGroup dch09;
     @BindView(R.id.dch0901)
     RadioButton dch0901;
     @BindView(R.id.dch0902)
     RadioButton dch0902;
-    @BindView(R.id.dch0903)
-    RadioButton dch0903;
-    @BindView(R.id.dch0996)
-    RadioButton dch0996;
     @BindView(R.id.dch0999)
     RadioButton dch0999;
-    @BindView(R.id.dch0996x)
-    EditText dch0996x;
+    @BindView(R.id.fldGrpdch10)
+    LinearLayout fldGrpdch10;
     @BindView(R.id.dch10)
     RadioGroup dch10;
     @BindView(R.id.dch1001)
@@ -95,54 +115,28 @@ public class SectionHActivity extends Activity {
     RadioButton dch1003;
     @BindView(R.id.dch1004)
     RadioButton dch1004;
+    @BindView(R.id.dch1005)
+    RadioButton dch1005;
+    @BindView(R.id.dch1006)
+    RadioButton dch1006;
+    @BindView(R.id.dch1007)
+    RadioButton dch1007;
+    @BindView(R.id.dch1008)
+    RadioButton dch1008;
+    @BindView(R.id.dch1009)
+    RadioButton dch1009;
+    @BindView(R.id.dch1099)
+    RadioButton dch1099;
+    @BindView(R.id.dch1096)
+    RadioButton dch1096;
+    @BindView(R.id.dch1096x)
+    EditText dch1096x;
     @BindView(R.id.dch11)
-    RadioGroup dch11;
-    @BindView(R.id.dch1101)
-    RadioButton dch1101;
-    @BindView(R.id.dch1102)
-    RadioButton dch1102;
-    @BindView(R.id.dch1199)
-    RadioButton dch1199;
+    EditText dch11;
     @BindView(R.id.dch12)
-    RadioGroup dch12;
-    @BindView(R.id.dch1201)
-    RadioButton dch1201;
-    @BindView(R.id.dch1202)
-    RadioButton dch1202;
-    @BindView(R.id.dch1203)
-    RadioButton dch1203;
-    @BindView(R.id.dch1204)
-    RadioButton dch1204;
-    @BindView(R.id.dch1205)
-    RadioButton dch1205;
-    @BindView(R.id.dch1206)
-    RadioButton dch1206;
-    @BindView(R.id.dch1207)
-    RadioButton dch1207;
-    @BindView(R.id.dch1208)
-    RadioButton dch1208;
-    @BindView(R.id.dch1209)
-    RadioButton dch1209;
-    @BindView(R.id.dch1296)
-    RadioButton dch1296;
-    @BindView(R.id.dch1299)
-    RadioButton dch1299;
-    @BindView(R.id.dch1296x)
-    EditText dch1296x;
-    /*@BindView(R.id.dch13)
-    RadioGroup dch13;
-    @BindView(R.id.dch1301)*/
-    /*RadioButton dch1301;
-    @BindView(R.id.dch1302)
-    RadioButton dch1302;*/
-    @BindView(R.id.fldGrpdch02)
-    LinearLayout fldGrpdch02;
-    @BindView(R.id.fldGrpdch04)
-    LinearLayout fldGrpdch04;
-    @BindView(R.id.fldGrpdch05)
-    LinearLayout fldGrpdch05;
-    @BindView(R.id.fldGrpdch12)
-    LinearLayout fldGrpdch12;
+    EditText dch12;
+    @BindView(R.id.fldGrpdch07)
+    LinearLayout fldGrpdch07;
 
 
 
@@ -155,49 +149,49 @@ public class SectionHActivity extends Activity {
 
         // ================ Q 9 Skip Check =================
 
-        if (dch0901.isChecked() || dch0902.isChecked() || dch0903.isChecked() || dch0999.isChecked() || dch0996.isChecked()) {
-            dch09m.setVisibility(View.GONE);
-            dch09y.setVisibility(View.GONE);
-            dch09m.setText(null);
-            dch09y.setText(null);
+        if (dch0901.isChecked() || dch0902.isChecked() || dch0703.isChecked() || dch0799.isChecked() || dch0796.isChecked()) {
+            dch07m.setVisibility(View.GONE);
+            dch07y.setVisibility(View.GONE);
+            dch07m.setText(null);
+            dch07y.setText(null);
         } else {
-            dch09m.setVisibility(View.VISIBLE);
-            dch09y.setVisibility(View.VISIBLE);
+            dch07m.setVisibility(View.VISIBLE);
+            dch07y.setVisibility(View.VISIBLE);
 
         }
 
         // ================== Q 9 others ============
 
-        dch09.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        dch07.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == dch0996.getId()) {
+                if (checkedId == dch0796.getId()) {
 
-                    dch0996x.setVisibility(View.VISIBLE);
-                    dch0996x.requestFocus();
+                    dch0796x.setVisibility(View.VISIBLE);
+                    dch0796x.requestFocus();
 
                 } else {
 
-                    dch0996x.setVisibility(View.GONE);
-                    dch0996x.setText(null);
+                    dch0796x.setVisibility(View.GONE);
+                    dch0796x.setText(null);
                 }
             }
         });
 
         // ================== Q 12 others ============
 
-        dch12.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        dch10.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == dch1296.getId()) {
+                if (checkedId == dch1096.getId()) {
 
-                    dch1296x.setVisibility(View.VISIBLE);
-                    dch1296x.requestFocus();
+                    dch1096x.setVisibility(View.VISIBLE);
+                    dch1096x.requestFocus();
 
                 } else {
 
-                    dch1296x.setVisibility(View.GONE);
-                    dch1296x.setText(null);
+                    dch1096x.setVisibility(View.GONE);
+                    dch1096x.setText(null);
                 }
             }
         });
@@ -213,11 +207,14 @@ public class SectionHActivity extends Activity {
                 } else {
                     fldGrpdch02.setVisibility(View.GONE);
                     dch02.clearCheck();
+                    dch03.clearCheck();
+                    dch04.clearCheck();
+                    dch05.setText(null);
                 }
             }
         });
 
-        dch03.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        /*dch03.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
 //                if (dch0301.isChecked() || dch0303.isChecked()) {
@@ -237,7 +234,7 @@ public class SectionHActivity extends Activity {
                     fldGrpdch04.setVisibility(View.VISIBLE);
                 }
             }
-        });
+        });*/
 
         dch04.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -264,15 +261,34 @@ public class SectionHActivity extends Activity {
             }
         });*/
 
-        dch11.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        dch09.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                if (dch1102.isChecked()) {
-                    fldGrpdch12.setVisibility(View.VISIBLE);
+                if (dch0902.isChecked()) {
+                    fldGrpdch10.setVisibility(View.VISIBLE);
                 } else {
-                    fldGrpdch12.setVisibility(View.GONE);
-                    dch12.clearCheck();
-                    dch1296x.setText(null);
+                    fldGrpdch10.setVisibility(View.GONE);
+                    dch10.clearCheck();
+                    dch1096x.setText(null);
+                }
+            }
+        });
+
+        dch06.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (dch0602.isChecked()) {
+                    fldGrpdch07.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdch07.setVisibility(View.GONE);
+                    dch07m.setText(null);
+                    dch07y.setText(null);
+                    dch07.clearCheck();
+                    dch0796x.setText(null);
+                    dch08.clearCheck();
+                    dch09.clearCheck();
+                    dch10.clearCheck();
+                    dch1096x.setText(null);
                 }
             }
         });
@@ -335,24 +351,24 @@ public class SectionHActivity extends Activity {
         // Radio Group
         sH.put("dch01", dch0101.isChecked() ? "1" : dch0102.isChecked() ? "2" : "0");
         sH.put("dch02", dch0201.isChecked() ? "1" : dch0202.isChecked() ? "2" : "0");
-        sH.put("dch03", dch0301.isChecked() ? "1" : dch0302.isChecked() ? "2" : dch0303.isChecked() ? "3" : "0");
+        sH.put("dch03", dch0301.isChecked() ? "1" : dch0302.isChecked() ? "2" : "0");
         sH.put("dch04", dch0401.isChecked() ? "1" : dch0402.isChecked() ? "2" : dch0403.isChecked() ? "99" : "0");
         sH.put("dch05", dch05.getText().toString());
-        sH.put("dch06", dch06.getText().toString());
-        sH.put("dch07", dch07.getText().toString());
-        sH.put("dch08", dch0801.isChecked() ? "1" : dch0802.isChecked() ? "2" : "0");
-        sH.put("dch09m", dch09m.getText().toString());
-        sH.put("dch09y", dch09y.getText().toString());
-        sH.put("dch09", dch0901.isChecked() ? "1" : dch0902.isChecked() ? "2" : dch0903.isChecked() ? "3"
-                : dch0996.isChecked() ? "96" : dch0999.isChecked() ? "99" : "0");
-        sH.put("dch0996x", dch0996x.getText().toString());
-        sH.put("dch10", dch1001.isChecked() ? "1" : dch1002.isChecked() ? "2" : dch1003.isChecked() ? "3" : "0");
-        sH.put("dch11", dch1101.isChecked() ? "1" : dch1102.isChecked() ? "2" : dch1199.isChecked() ? "99" : "0");
-        sH.put("dch12", dch1201.isChecked() ? "1" : dch1202.isChecked() ? "2" : dch1203.isChecked() ? "3"
-                : dch1204.isChecked() ? "4" : dch1205.isChecked() ? "5" : dch1206.isChecked() ? "6"
-                : dch1207.isChecked() ? "7" : dch1208.isChecked() ? "8" : dch1209.isChecked() ? "9"
-                : dch1296.isChecked() ? "96" : dch1299.isChecked() ? "99" : "0");
-        sH.put("dch1296x", dch1296x.getText().toString());
+        sH.put("dch11", dch11.getText().toString());
+        sH.put("dch12", dch12.getText().toString());
+        sH.put("dch06", dch0601.isChecked() ? "1" : dch0602.isChecked() ? "2" : "0");
+        sH.put("dch07m", dch07m.getText().toString());
+        sH.put("dch07y", dch07y.getText().toString());
+        sH.put("dch07", dch0701.isChecked() ? "1" : dch0702.isChecked() ? "2" : dch0703.isChecked() ? "3"
+                : dch0796.isChecked() ? "96" : dch0799.isChecked() ? "99" : "0");
+        sH.put("dch0796x", dch0796x.getText().toString());
+        sH.put("dch08", dch0801.isChecked() ? "1" : dch0802.isChecked() ? "2" : dch0803.isChecked() ? "3" : "0");
+        sH.put("dch09", dch0901.isChecked() ? "1" : dch0902.isChecked() ? "2" : dch0999.isChecked() ? "99" : "0");
+        sH.put("dch10", dch1001.isChecked() ? "1" : dch1002.isChecked() ? "2" : dch1003.isChecked() ? "3"
+                : dch1004.isChecked() ? "4" : dch1005.isChecked() ? "5" : dch1006.isChecked() ? "6"
+                : dch1007.isChecked() ? "7" : dch1008.isChecked() ? "8" : dch1009.isChecked() ? "9"
+                : dch1096.isChecked() ? "96" : dch1099.isChecked() ? "99" : "0");
+        sH.put("dch1096x", dch1096x.getText().toString());
         //sh.put("dch13", dch1301.isChecked() ? "1" : dch1302.isChecked() ? "2" : "0");
 
 
@@ -385,22 +401,22 @@ public class SectionHActivity extends Activity {
             } else {
                 dch0202.setError(null);
             }
-        }
-
-        // ==================== Q 3 ==================
-
-        if (dch03.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch03), Toast.LENGTH_SHORT).show();
-            dch0302.setError("This data is Required!");
-            Log.i(TAG, "dch03: This data is Required!");
-            return false;
-        } else {
-            dch0302.setError(null);
-        }
 
 
-        // ================= Q 4 ========================
-        if (!dch0303.isChecked()) {
+            // ==================== Q 3 ==================
+
+            if (dch03.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch03), Toast.LENGTH_SHORT).show();
+                dch0302.setError("This data is Required!");
+                Log.i(TAG, "dch03: This data is Required!");
+                return false;
+            } else {
+                dch0302.setError(null);
+            }
+
+
+            // ================= Q 4 ========================
+            //if (!dch0303.isChecked()) {
             if (dch04.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch04), Toast.LENGTH_SHORT).show();
                 dch0402.setError("This data is Required!");
@@ -409,113 +425,133 @@ public class SectionHActivity extends Activity {
             } else {
                 dch0402.setError(null);
             }
-        }
+            //}
 
-        if (dch0303.isChecked() || dch0402.isChecked()) {
-            if (dch05.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch05), Toast.LENGTH_SHORT).show();
-                dch05.setError("This data is Required!");
-                Log.i(TAG, "dch05: This data is Required!");
-                return false;
-            } else {
-                dch05.setError(null);
+            if (dch0402.isChecked()) {
+                if (dch05.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch05), Toast.LENGTH_SHORT).show();
+                    dch05.setError("This data is Required!");
+                    Log.i(TAG, "dch05: This data is Required!");
+                    return false;
+                } else {
+                    dch05.setError(null);
+                }
             }
         }
-
         //==================== Q 6 ==============
 
-        if (dch06.getText().toString().isEmpty()) {
+
+        // =================== Q 8 ==================
+        if (dch06.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch06), Toast.LENGTH_SHORT).show();
-            dch06.setError("This data is Required!");
+            dch0602.setError("This data is Required!");
             Log.i(TAG, "dch06: This data is Required!");
             return false;
         } else {
-            dch06.setError(null);
+            dch0602.setError(null);
+        }
+
+        if (dch0602.isChecked()) {
+            // =================== Q 9 ==================
+            if ((dch07m.getText().toString().isEmpty() || dch07y.getText().toString().isEmpty()) && dch07.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch07), Toast.LENGTH_SHORT).show();
+                dch0799.setError("This data is Required!");
+                Log.i(TAG, "dch07: This data is Required!");
+                return false;
+            } else {
+                dch0799.setError(null);
+            }
+
+            if ((Integer.valueOf(dch07m.getText().toString().isEmpty() ? "0" : dch07m.getText().toString()) < 1
+                    || Integer.valueOf(dch07y.getText().toString().isEmpty() ? "0" : dch07y.getText().toString()) < 1)
+                    && dch07.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch07), Toast.LENGTH_SHORT).show();
+                dch0799.setError("This data is Required!");
+                Log.i(TAG, "dch07: This data is Required!");
+                return false;
+            } else {
+                dch0799.setError(null);
+            }
+
+            if ((Integer.valueOf(dch07m.getText().toString().isEmpty() ? "0" : dch07m.getText().toString()) > 0
+                    || Integer.valueOf(dch07y.getText().toString().isEmpty() ? "0" : dch07y.getText().toString()) > 0)
+                    && dch07.getCheckedRadioButtonId() != -1) {
+                dch07.clearCheck();
+            }
+
+
+            if (dch0796.isChecked() && dch0796x.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch07) + "- " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
+                dch0796x.setError("This data is Required!");
+                Log.i(TAG, "dch0796x: This data is Required!");
+                return false;
+            } else {
+                dch0796x.setError(null);
+            }
+
+            // =================== Q 10 ==================
+            if (dch08.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch08), Toast.LENGTH_SHORT).show();
+                dch0804.setError("This data is Required!");
+                Log.i(TAG, "dch08: This data is Required!");
+                return false;
+            } else {
+                dch0804.setError(null);
+            }
+
+            // =================== Q 11 ==================
+            if (dch09.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch09), Toast.LENGTH_SHORT).show();
+                dch0999.setError("This data is Required!");
+                Log.i(TAG, "dch09: This data is Required!");
+                return false;
+            } else {
+                dch0999.setError(null);
+            }
+
+            if (dch0902.isChecked()) {
+
+                // =================== Q 12 ==================
+                if (dch10.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch10), Toast.LENGTH_SHORT).show();
+                    dch1099.setError("This data is Required!");
+                    Log.i(TAG, "dch10: This data is Required!");
+                    return false;
+                } else {
+                    dch1099.setError(null);
+                }
+
+                if (dch1096.isChecked() && dch1096x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch10) + "-" + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
+                    dch1096x.setError("This data is Required!");
+                    Log.i(TAG, "dch1096x: This data is Required!");
+                    return false;
+                } else {
+                    dch1096x.setError(null);
+                }
+            }
+        }
+
+        if (dch11.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch11), Toast.LENGTH_SHORT).show();
+            dch11.setError("This data is Required!");
+            Log.i(TAG, "dch11: This data is Required!");
+            return false;
+        } else {
+            dch11.setError(null);
         }
 
         //==================== Q 7 ==============
 
-        if (dch07.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch07), Toast.LENGTH_SHORT).show();
-            dch07.setError("This data is Required!");
-            Log.i(TAG, "dch07: This data is Required!");
+        if (dch12.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch12), Toast.LENGTH_SHORT).show();
+            dch12.setError("This data is Required!");
+            Log.i(TAG, "dch12: This data is Required!");
             return false;
         } else {
-            dch07.setError(null);
+            dch12.setError(null);
         }
 
-        // =================== Q 8 ==================
-        if (dch08.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch08), Toast.LENGTH_SHORT).show();
-            dch0802.setError("This data is Required!");
-            Log.i(TAG, "dch08: This data is Required!");
-            return false;
-        } else {
-            dch0802.setError(null);
-        }
-
-
-        // =================== Q 9 ==================
-        if (dch09m.getText().toString().isEmpty() || dch09y.getText().toString().isEmpty() || dch09.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch09), Toast.LENGTH_SHORT).show();
-            dch0999.setError("This data is Required!");
-            Log.i(TAG, "dch09: This data is Required!");
-            return false;
-        } else {
-            dch0999.setError(null);
-        }
-
-
-        if (dch0996.isChecked() && dch0996x.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch09) + "- " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
-            dch0996x.setError("This data is Required!");
-            Log.i(TAG, "dch0996x: This data is Required!");
-            return false;
-        } else {
-            dch0996x.setError(null);
-        }
-
-        // =================== Q 10 ==================
-        if (dch10.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch10), Toast.LENGTH_SHORT).show();
-            dch1004.setError("This data is Required!");
-            Log.i(TAG, "dch10: This data is Required!");
-            return false;
-        } else {
-            dch1004.setError(null);
-        }
-
-        // =================== Q 11 ==================
-        if (dch11.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch11), Toast.LENGTH_SHORT).show();
-            dch1199.setError("This data is Required!");
-            Log.i(TAG, "dch11: This data is Required!");
-            return false;
-        } else {
-            dch1199.setError(null);
-        }
-
-        if (dch1102.isChecked()) {
-
-            // =================== Q 12 ==================
-            if (dch12.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch12), Toast.LENGTH_SHORT).show();
-                dch1299.setError("This data is Required!");
-                Log.i(TAG, "dch12: This data is Required!");
-                return false;
-            } else {
-                dch1299.setError(null);
-            }
-
-            if (dch1296.isChecked() && dch1296x.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch12) + "-" + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
-                dch1296x.setError("This data is Required!");
-                Log.i(TAG, "dch1296x: This data is Required!");
-                return false;
-            } else {
-                dch1296x.setError(null);
-            }
-        }
 
         // =================== Q 13 ==================
 
