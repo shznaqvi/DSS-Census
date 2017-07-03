@@ -214,7 +214,7 @@ public class SectionHActivity extends Activity {
             }
         });
 
-        /*dch03.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        dch03.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
 //                if (dch0301.isChecked() || dch0303.isChecked()) {
@@ -226,7 +226,7 @@ public class SectionHActivity extends Activity {
 //                    fldGrpdch04.setVisibility(View.GONE);
 //                    dch04.clearCheck();
 //                }
-                if (dch0303.isChecked()) {
+                if (dch0302.isChecked()) {
                     fldGrpdch04.setVisibility(View.GONE);
                     dch04.clearCheck();
                     fldGrpdch05.setVisibility(View.VISIBLE);
@@ -234,7 +234,8 @@ public class SectionHActivity extends Activity {
                     fldGrpdch04.setVisibility(View.VISIBLE);
                 }
             }
-        });*/
+        });
+
 
         dch04.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -416,7 +417,7 @@ public class SectionHActivity extends Activity {
 
 
             // ================= Q 4 ========================
-            //if (!dch0303.isChecked()) {
+            if (!dch0302.isChecked()) {
             if (dch04.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch04), Toast.LENGTH_SHORT).show();
                 dch0402.setError("This data is Required!");
@@ -425,7 +426,7 @@ public class SectionHActivity extends Activity {
             } else {
                 dch0402.setError(null);
             }
-            //}
+            }
 
             if (dch0402.isChecked()) {
                 if (dch05.getText().toString().isEmpty()) {
