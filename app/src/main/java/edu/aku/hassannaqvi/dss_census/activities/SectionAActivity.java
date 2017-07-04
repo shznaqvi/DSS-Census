@@ -56,6 +56,8 @@ public class SectionAActivity extends Activity {
     RadioButton dca0401;
     @BindView(R.id.dca0403)
     RadioButton dca0403;
+    @BindView(R.id.dca0404)
+    RadioButton dca0404;
     @BindView(R.id.fldGrpdca05)
     LinearLayout fldGrpdca05;
     @BindView(R.id.textView)
@@ -476,8 +478,10 @@ public class SectionAActivity extends Activity {
                 finish();
 
                 Intent endSec = new Intent(this, EndingActivity.class);
-                endSec.putExtra("complete", false);
+                endSec.putExtra("check", dca0404.isChecked() ? true : false);
                 startActivity(endSec);
+
+
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -1060,7 +1064,7 @@ public class SectionAActivity extends Activity {
         JSONObject sa = new JSONObject();
 
         sa.put("dca03", dca03.getText().toString());
-        sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : "0");
+        sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : dca0404.isChecked() ? "4" : "0");
         sa.put("dca05", dca05.getText().toString());
         sa.put("dca0501", dca050101.isChecked() ? "1" : dca050102.isChecked() ? "2" : "0");
         //sa.put("dca0502", dca050201.isChecked() ? "1" : dca050202.isChecked() ? "2" : "0");
