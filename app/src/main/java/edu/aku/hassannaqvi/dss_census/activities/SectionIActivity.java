@@ -616,10 +616,10 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         sI.put("dci04", MainApp.lstMothers.get(MainApp.position).getSerialm());
         sI.put("dci05", new SimpleDateFormat("dd-MM-yyyy").format(dci05.getCalendarView().getDate()));
         sI.put("dci06", dci0601.isChecked() ? "1" : dci0602.isChecked() ? "2" : dci0699.isChecked() ? "99" : "0");
-        sI.put("dci07d", dci07d.getText().toString());
+        /*sI.put("dci07d", dci07d.getText().toString());
         sI.put("dci07m", dci07m.getText().toString());
-        sI.put("dci07y", dci07y.getText().toString());
-        sI.put("dci08", dci0801.isChecked() ? "1" : dci0802.isChecked() ? "2" : dci0803.isChecked() ? "3" : "0");
+        sI.put("dci07y", dci07y.getText().toString());*/
+        //sI.put("dci08", dci0801.isChecked() ? "1" : dci0802.isChecked() ? "2" : dci0803.isChecked() ? "3" : "0");
         sI.put("dci09", dci09.getText().toString());
         sI.put("dci10a", dci10a01.isChecked() ? "1" : dci10a02.isChecked() ? "2" : "0");
         sI.put("dci10b", dci10b01.isChecked() ? "1" : dci10b02.isChecked() ? "2" : "0");
@@ -718,7 +718,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
             dci0699.setError(null);
         }
 
-        // ====================== Q 7 ==============
+        /*// ====================== Q 7 ==============
         if (dci07d.getText().toString().isEmpty() && dci07m.getText().toString().isEmpty() && dci07y.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci07), Toast.LENGTH_SHORT).show();
             dci07y.setError("This data is Required!");
@@ -784,7 +784,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         } else {
             dci0803.setError(null);
         }
-
+*/
         // ====================== Q 9 ==============
         if (dci09.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci09), Toast.LENGTH_SHORT).show();
