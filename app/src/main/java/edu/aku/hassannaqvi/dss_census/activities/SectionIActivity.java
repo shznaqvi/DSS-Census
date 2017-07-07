@@ -631,12 +631,17 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         sI.put("dci16", dci1601.isChecked() ? "1" : dci1602.isChecked() ? "2" : dci1699.isChecked() ? "99" : "0");
         sI.put("dci17a", dci17a01.isChecked() ? "1" : dci17a02.isChecked() ? "2" : dci17a99.isChecked() ? "99" : "0");
         sI.put("dci17b", dci17b01.isChecked() ? "1" : dci17b02.isChecked() ? "2" : dci17b99.isChecked() ? "99" : "0");
+        sI.put("dci17btimes", dci17btimes.getText().toString());
         sI.put("dci17c", dci17c01.isChecked() ? "1" : dci17c02.isChecked() ? "2" : dci17c99.isChecked() ? "99" : "0");
+        sI.put("dci17ctimes", dci17ctimes.getText().toString());
         sI.put("dci17d", dci17d01.isChecked() ? "1" : dci17d02.isChecked() ? "2" : dci17d99.isChecked() ? "99" : "0");
         sI.put("dci17e", dci17e01.isChecked() ? "1" : dci17e02.isChecked() ? "2" : dci17e99.isChecked() ? "99" : "0");
         sI.put("dci17f", dci17f01.isChecked() ? "1" : dci17f02.isChecked() ? "2" : dci17f99.isChecked() ? "99" : "0");
+        sI.put("dci17ftimes", dci17ftimes.getText().toString());
         sI.put("dci17g", dci17g01.isChecked() ? "1" : dci17g02.isChecked() ? "2" : dci17g99.isChecked() ? "99" : "0");
         sI.put("dci17h", dci17h01.isChecked() ? "1" : dci17h02.isChecked() ? "2" : dci17h99.isChecked() ? "99" : "0");
+        sI.put("dci17i", dci17i01.isChecked() ? "1" : dci17i02.isChecked() ? "2" : dci17i99.isChecked() ? "99" : "0");
+        sI.put("dci17ix", dci17ix.getText().toString());
         sI.put("dci18a", dci18a01.isChecked() ? "1" : dci18a02.isChecked() ? "2" : dci18a99.isChecked() ? "99" : "0");
         sI.put("dci18b", dci18b01.isChecked() ? "1" : dci18b02.isChecked() ? "2" : dci18b99.isChecked() ? "99" : "0");
         sI.put("dci18c", dci18c01.isChecked() ? "1" : dci18c02.isChecked() ? "2" : dci18c99.isChecked() ? "99" : "0");
