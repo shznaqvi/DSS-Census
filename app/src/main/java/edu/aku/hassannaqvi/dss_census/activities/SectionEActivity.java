@@ -468,7 +468,7 @@ public class SectionEActivity extends Activity {
         sE.put("dce0711", dce0711.getText().toString());
         sE.put("dce0712", dce0712.getText().toString());
         sE.put("dce0713", dce0713.getText().toString());
-        sE.put("dce1011", dce0711.getText().toString());
+        sE.put("dce0711", dce0711.getText().toString());
         sE.put("dce0712", dce0712.getText().toString());
         sE.put("dce0713", dce0713.getText().toString());
         sE.put("dce0714", dce0714.getText().toString());

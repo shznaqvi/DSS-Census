@@ -117,20 +117,25 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
             try {
                 URL url = new URL(myurl);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setReadTimeout(20000 /* milliseconds */);
-                conn.setConnectTimeout(30000 /* milliseconds */);
-                conn.setRequestMethod("POST");
-                conn.setDoOutput(true);
-                conn.setDoInput(true);
-                conn.setRequestProperty("Content-Type", "application/json");
-                conn.setRequestProperty("charset", "utf-8");
-                conn.setUseCaches(false);
-                // Starts the query
                 conn.connect();
                 int HttpResult = conn.getResponseCode();
                 if (HttpResult == HttpURLConnection.HTTP_OK) {
-                JSONArray jsonSync = new JSONArray();
-                try {
+                    JSONArray jsonSync = new JSONArray();
+
+                    conn = (HttpURLConnection) url.openConnection();
+
+                    conn.setReadTimeout(20000 /* milliseconds */);
+                    conn.setConnectTimeout(30000 /* milliseconds */);
+                    conn.setRequestMethod("POST");
+                    conn.setDoOutput(true);
+                    conn.setDoInput(true);
+                    conn.setRequestProperty("Content-Type", "application/json");
+                    conn.setRequestProperty("charset", "utf-8");
+                    conn.setUseCaches(false);
+                    // Starts the query
+                    conn.connect();
+
+                    try {
                     DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
 
                     for (CensusContract fc : Census) {

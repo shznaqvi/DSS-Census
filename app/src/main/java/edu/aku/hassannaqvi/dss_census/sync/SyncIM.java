@@ -117,37 +117,42 @@ public class SyncIM extends AsyncTask<Void, Void, String> {
             try {
                 URL url = new URL(myurl);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setReadTimeout(20000 /* milliseconds */);
-                conn.setConnectTimeout(30000 /* milliseconds */);
-                conn.setRequestMethod("POST");
-                conn.setDoOutput(true);
-                conn.setDoInput(true);
-                conn.setRequestProperty("Content-Type", "application/json");
-                conn.setRequestProperty("charset", "utf-8");
-                conn.setUseCaches(false);
-                // Starts the query
                 conn.connect();
                 int HttpResult = conn.getResponseCode();
                 if (HttpResult == HttpURLConnection.HTTP_OK) {
                     JSONArray jsonSync = new JSONArray();
 
-                try {
-                    DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
+                    conn = (HttpURLConnection) url.openConnection();
 
-                    for (SectionKIMContract fc : IM) {
+                    conn.setReadTimeout(20000 /* milliseconds */);
+                    conn.setConnectTimeout(30000 /* milliseconds */);
+                    conn.setRequestMethod("POST");
+                    conn.setDoOutput(true);
+                    conn.setDoInput(true);
+                    conn.setRequestProperty("Content-Type", "application/json");
+                    conn.setRequestProperty("charset", "utf-8");
+                    conn.setUseCaches(false);
+                    // Starts the query
+                    conn.connect();
 
-                        //if (fc.getIstatus().equals("1")) {
+
+                    try {
+                        DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
+
+                        for (SectionKIMContract fc : IM) {
+
+                            //if (fc.getIstatus().equals("1")) {
                             jsonSync.put(fc.toJSONObject());
-                        //}
+                            //}
 
+                        }
+                        wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
+                        longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
+                        wr.flush();
+                    } catch (JSONException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
                     }
-                    wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
-                    longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
-                    wr.flush();
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
 
 /*===================================================================*/
 
@@ -171,6 +176,7 @@ public class SyncIM extends AsyncTask<Void, Void, String> {
                 e.printStackTrace();
             } catch (IOException e) {
 
+                Log.e(TAG, "errorSynced: " + e.getMessage().toString());
                 e.printStackTrace();
             }
         } else {

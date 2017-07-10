@@ -87,31 +87,34 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
 
                 URL url = new URL(request);
                 connection = (HttpURLConnection) url.openConnection();
-                connection.setDoOutput(true);
-                connection.setDoInput(true);
-                connection.setInstanceFollowRedirects(false);
-                connection.setRequestMethod("POST");
-                connection.setRequestProperty("Content-Type", "application/json");
-                connection.setRequestProperty("charset", "utf-8");
-                connection.setUseCaches(false);
                 connection.connect();
-
                 int HttpResult = connection.getResponseCode();
                 if (HttpResult == HttpURLConnection.HTTP_OK) {
-                JSONArray jsonSync = new JSONArray();
+                    JSONArray jsonSync = new JSONArray();
+                    connection = (HttpURLConnection) url.openConnection();
 
-                DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
+                    connection.setDoOutput(true);
+                    connection.setDoInput(true);
+                    connection.setInstanceFollowRedirects(false);
+                    connection.setRequestMethod("POST");
+                    connection.setRequestProperty("Content-Type", "application/json");
+                    connection.setRequestProperty("charset", "utf-8");
+                    connection.setUseCaches(false);
+                    connection.connect();
+
+
+                    DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
 
 //            pd.setMessage("Total Forms: " );
 
-                for (FormsContract fc : Forms) {
-                    //if (fc.getIstatus().equals("1")) {
-                    jsonSync.put(fc.toJSONObject());
-                    //}
-                }
-                wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
-                longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
-                wr.flush();
+                    for (FormsContract fc : Forms) {
+                        //if (fc.getIstatus().equals("1")) {
+                        jsonSync.put(fc.toJSONObject());
+                        //}
+                    }
+                    wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
+                    longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
+                    wr.flush();
 
 
                     BufferedReader br = new BufferedReader(new InputStreamReader(
