@@ -248,7 +248,7 @@ public class FamilyMembersActivity extends Activity {
                         MainApp.totalChild--;
                         totalMem.setText(String.valueOf(MainApp.NoMembersCount));
                         totalChild.setText(String.valueOf(MainApp.totalChild));
-                    }else {
+                    } else {
                         MainApp.NoBoyCount--;
                         countBoy.setText(String.valueOf(MainApp.NoBoyCount));
                         MainApp.totalChild--;
@@ -297,7 +297,7 @@ public class FamilyMembersActivity extends Activity {
                         countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
                         totalMem.setText(String.valueOf(MainApp.NoMembersCount));
                         totalChild.setText(String.valueOf(MainApp.totalChild));
-                    }else {
+                    } else {
                         MainApp.NoGirlCount--;
                         countGirl.setText(String.valueOf(MainApp.NoGirlCount));
                         MainApp.totalChild--;
@@ -480,9 +480,10 @@ public class FamilyMembersActivity extends Activity {
             holder.memberName.setText(familyMembers.getName().toUpperCase());
 
             holder.DSSidm.setText(familyMembers.getDss_id_member());
-            holder.memberType.setText(familyMembers.getMember_type().equals("mw") ? "(Married Women)" : familyMembers.getMember_type().equals("h") ? "(Male)" : "(Child)");
+            holder.memberType.setText(familyMembers.getMember_type().equals("mw") ? "(Married Women)" : familyMembers.getMember_type().equals("h") ? "(Husband)" :
+                    (familyMembers.getMember_type().equals("c") || familyMembers.getMember_type().equals("ch")) ? "(Child)" : "(Other)");
             holder.currentStatus.setText(setStatus(familyMembers.getCurrent_status()));
-            holder.year.setText(familyMembers.getAge().equals("y m d") ?familyMembers.getDob() : familyMembers.getAge());
+            holder.year.setText(familyMembers.getAge().equals("y m d") ? familyMembers.getDob() : familyMembers.getAge());
         }
 
 

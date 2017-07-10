@@ -86,7 +86,7 @@ public class EndingActivity extends Activity {
 
                 MainApp.selectedPos = -1;
 
-
+                MainApp.randID = 1;
 
 
                 finish();
@@ -112,13 +112,13 @@ public class EndingActivity extends Activity {
         DatabaseHelper db = new DatabaseHelper(this);
 
         int updcount = db.updateEnding();
-        if (MainApp.memFlag!=0) {
+        if (MainApp.memFlag != 0) {
             db.updateCensus();
         }
-        if (MainApp.currentDeceasedCheck !=0) {
+        if (MainApp.currentDeceasedCheck != 0) {
             db.updateDeceased();
         }
-        if (MainApp.currentMotherCheck !=0) {
+        if (MainApp.currentMotherCheck != 0) {
             db.updateMother();
         }
         if (MainApp.totalChild != 0) {

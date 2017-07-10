@@ -143,16 +143,22 @@ public class SectionFActivity extends Activity {
 
         MainApp.position = getIntent().getExtras().getInt("position");
 
+        dcf04dob.setMaxDate(new Date().getTime());
+
         if (MainApp.lstMothers.get(MainApp.position).getAgey().equals("")) {
             dcfDob.setChecked(true);
 
-            dcf04dob.setMaxDate(new Date().getTime());
+            fldGrpdcf04a.setVisibility(View.VISIBLE);
+
+//            dcf04dob.setMaxDate(new Date().getTime());
 
             String[] dt = MainApp.lstMothers.get(MainApp.position).getDate_of_birth().split("-");
 
             dcf04dob.updateDate(Integer.parseInt(dt[2]), Integer.parseInt(dt[1]) - 1, Integer.parseInt(dt[0]));
         }else {
             dcfAge.setChecked(true);
+
+            fldGrpdcf04b.setVisibility(View.VISIBLE);
 
             dcf0403.setText(MainApp.lstMothers.get(MainApp.position).getAgey());
             dcf0402.setText(MainApp.lstMothers.get(MainApp.position).getAgem());

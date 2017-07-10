@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
     private static final String TAG = SectionBActivity.class.getSimpleName();
 
+    @BindView(R.id.scrollView01)
+    ScrollView scroll;
     @BindView(R.id.dcba)
     EditText dcba;
     @BindView(R.id.dcbid)
@@ -442,7 +445,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             dcbbfid.setText("null");
             dcbbmid.setText("null");
 
-            dcbm04.setChecked(true);
+//            dcbm04.setChecked(true);
 
             dcbid.setText(MainApp.fc.getDSSID());
 
@@ -458,6 +461,23 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             dcbbmid.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         }
+
+//        New Functionality
+
+/*        if (!dataFlag) {
+            if (dcbm04.isChecked()) {
+                dcbid.setText(MainApp.fc.getDSSID() + "X" + (MainApp.randID < 10 ? "0" + MainApp.randID : MainApp.randID));
+                dcbid.setEnabled(false);
+
+                scroll.setScrollY(0);
+            } else {
+                dcbid.setText(MainApp.fc.getDSSID());
+                dcbid.setEnabled(true);
+
+                scroll.setScrollY(0);
+                dcbid.requestFocus();
+            }
+        }*/
 
         // ====================== Education Level Others ================
         dcbe.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -552,11 +572,15 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     //fldGrpdcbir.setVisibility(View.VISIBLE);
                     fldgrpmigout.setVisibility(View.GONE);
 
+                    clearFieldsOnStatus();
+
                     dcbidtTxt.setText(getString(R.string.dcbis03) + " " + getString(R.string.dcbidt));
                 } else if (dcbis04.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
                     //fldGrpdcbir.setVisibility(View.VISIBLE);
                     fldgrpmigout.setVisibility(View.GONE);
+
+                    clearFieldsOnStatus();
 
                     dcbidtTxt.setText(getString(R.string.dcbis04) + " " + getString(R.string.dcbidt));
                 } else if (dcbis05.isChecked()) {
@@ -569,9 +593,12 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbbrhh01.setChecked(false);
                     dcbbrhh01.setEnabled(false);
 
+                    clearFieldsOnStatus();
                 }
             }
         });
+
+
 
 //        dcbis02.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            @Override
@@ -663,6 +690,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 dcbid.setOnKeyListener(SectionBActivity.this);
                 dcbid.addTextChangedListener(SectionBActivity.this);
 
+                memberTypeOtherFun();
+
                 if (!dcbm03.isChecked()) {
                     dcbbfid.setText("null");
                     dcbbmid.setText("null");
@@ -690,7 +719,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbf12.setEnabled(true);
                     dcbf13.setEnabled(true);
                     dcbf15.setEnabled(true);
-
                 } else {
 
                     dcbbrhh01.setEnabled(false);
@@ -748,6 +776,49 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 }
             }
         });
+    }
+
+    private void memberTypeOtherFun() {
+
+//        New Functionality
+
+        if (!dataFlag) {
+            if (dcbm04.isChecked()) {
+                dcbid.setText(MainApp.fc.getDSSID() + "X" + (MainApp.randID < 10 ? "0" + MainApp.randID : MainApp.randID));
+                dcbid.setEnabled(false);
+
+                scroll.setScrollY(0);
+            } else {
+                dcbid.setText(MainApp.fc.getDSSID());
+                dcbid.setEnabled(true);
+
+                scroll.setScrollY(0);
+                dcbid.requestFocus();
+            }
+        }
+    }
+
+    public void clearFieldsOnStatus(){
+        if (!dataFlag) {
+            dcbid.setText(null);
+            dcbid.setEnabled(false);
+            dcbd.clearCheck();
+            dcbm.clearCheck();
+            dcbbrhh.clearCheck();
+            dcbbfid.setText(null);
+            dcbbmid.setText(null);
+            dcbdob.clearCheck();
+
+            dcbhy.setText(null);
+            dcbhm.setText(null);
+            dcbhd.setText(null);
+
+            dcbc.clearCheck();
+            dcbe.clearCheck();
+            dcbe96x.setText(null);
+            dcbf.clearCheck();
+            dcbf96x.setText(null);
+        }
     }
 
 
@@ -1014,6 +1085,10 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 //                if (!dcbis05.isChecked()) {
                 if (!dataFlag) {
                     MainApp.currentStatusCount += 1;
+
+                    if (dcbm04.isChecked()) {
+                        MainApp.randID += 1;
+                    }
                 }
 
                 finish();
@@ -1025,6 +1100,10 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                 if (!dataFlag) {
                     MainApp.currentStatusCount += 1;
+
+                    if (dcbm04.isChecked()) {
+                        MainApp.randID += 1;
+                    }
                 }
 
                 if (dcbis05.isChecked()) {
@@ -1419,7 +1498,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
             if (!dcbm01.isChecked()) {
 
-                if (dcbid.getText().length() != 12) {
+                if (dcbm04.isChecked() ? dcbid.getText().length() != 13 : dcbid.getText().length() != 12) {
                     Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();
                     dcbid.setError("This data is Invalid!");    // Set Error on last radio button
 

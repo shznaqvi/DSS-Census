@@ -112,6 +112,8 @@ public class MainApp extends Application {
 
     Location location;
 
+    public static int randID = 1;
+
     @Override
     public void onCreate() {
         super.onCreate();
