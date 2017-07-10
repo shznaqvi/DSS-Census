@@ -355,8 +355,7 @@ public class SectionHActivity extends Activity {
         sH.put("dch03", dch0301.isChecked() ? "1" : dch0302.isChecked() ? "2" : "0");
         sH.put("dch04", dch0401.isChecked() ? "1" : dch0402.isChecked() ? "2" : dch0403.isChecked() ? "99" : "0");
         sH.put("dch05", dch05.getText().toString());
-        sH.put("dch11", dch11.getText().toString());
-        sH.put("dch12", dch12.getText().toString());
+
         sH.put("dch06", dch0601.isChecked() ? "1" : dch0602.isChecked() ? "2" : "0");
         sH.put("dch07m", dch07m.getText().toString());
         sH.put("dch07y", dch07y.getText().toString());
@@ -370,6 +369,8 @@ public class SectionHActivity extends Activity {
                 : dch1007.isChecked() ? "7" : dch1008.isChecked() ? "8" : dch1009.isChecked() ? "9"
                 : dch1096.isChecked() ? "96" : dch1099.isChecked() ? "99" : "0");
         sH.put("dch1096x", dch1096x.getText().toString());
+        sH.put("dch11", dch11.getText().toString());
+        sH.put("dch12", dch12.getText().toString());
         //sh.put("dch13", dch1301.isChecked() ? "1" : dch1302.isChecked() ? "2" : "0");
 
 
