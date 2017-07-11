@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -149,7 +150,14 @@ public class SectionCActivity extends Activity {
 
             dccc.check(MainApp.cc.getGender().equals("1") ? dccc01.getId() : dccc02.getId());
 
-//                ((RadioButton) dccc.getChildAt((Integer.parseInt(MainApp.cc.getGender())) - 1)).setChecked(true);
+            if (MainApp.cc.getGender().equals("1")){
+                dccc02.setEnabled(false);
+            }else {
+                dccc01.setEnabled(false);
+            }
+
+
+//          ((RadioButton) dccc.getChildAt((Integer.parseInt(MainApp.cc.getGender())) - 1)).setChecked(true);
 
 
         }else {
@@ -201,7 +209,7 @@ public class SectionCActivity extends Activity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (((Integer.parseInt(MainApp.cc.getGender())) - 1 == 1)
+                if (dccc02.isChecked()
                         && (Integer.valueOf(dccey.getText().toString().isEmpty() ? "0" : dccey.getText().toString()) >= 15
                         && Integer.valueOf(dccey.getText().toString().isEmpty() ? "0" : dccey.getText().toString()) <= 49)) {
                     fldGrpdcch.setVisibility(View.VISIBLE);
@@ -214,6 +222,25 @@ public class SectionCActivity extends Activity {
             @Override
             public void afterTextChanged(Editable s) {
 
+            }
+        });
+
+
+        dccc.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                if (dccc02.isChecked()){
+                   if ((Integer.valueOf(dccey.getText().toString().isEmpty() ? "0" : dccey.getText().toString()) >= 15
+                            && Integer.valueOf(dccey.getText().toString().isEmpty() ? "0" : dccey.getText().toString()) <= 49)) {
+                        fldGrpdcch.setVisibility(View.VISIBLE);
+                    } else {
+                        fldGrpdcch.setVisibility(View.GONE);
+                        dcch.clearCheck();
+                    }
+                }else {
+                    fldGrpdcch.setVisibility(View.GONE);
+                    dcch.clearCheck();
+                }
             }
         });
 
