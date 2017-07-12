@@ -1,157 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:scrollbars="horizontal"
+    tools:context="edu.aku.hassannaqvi.dss_census.activities.SectionAActivity">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:scrollbars="horizontal"
-        tools:context="edu.aku.hassannaqvi.dss_census.activities.SectionAActivity">
+        android:animateLayoutChanges="true"
+        android:layoutDirection="rtl"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="@string/secALabel"
+            android:textSize="30sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/dca03"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:animateLayoutChanges="true"
-            android:layoutDirection="rtl"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/dca03"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                android:inputType="text"
+                android:maxLength="11" />
+
+            <Button
+                android:id="@+id/checkDSSID"
+                style="@style/buttons"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:elevation="2dp"
+                android:padding="5dp"
+                android:text="CHECK"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/membersExists"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/mp02_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@color/gray"
+                android:padding="2dp"
+                android:text="Eligible Women Found = 0"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/dca04"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white" />
+
+        <RadioGroup
+            android:id="@+id/dca04"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/dca0402"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcno" />
+
+            <RadioButton
+                android:id="@+id/dca0401"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcyes" />
+
+            <RadioButton
+                android:id="@+id/dca0403"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dca0403" />
+
+            <RadioButton
+                android:id="@+id/dca0404"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcbis03" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/fldGrpdca05"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="2dp"
-                android:gravity="center"
-                android:text="@string/secALabel"
-                android:textSize="30sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/colorPrimary" />
-
-            <TextView
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:text="@string/dca03"
+                android:background="@color/pink_100"
+                android:text="@string/sec2A"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/dca03"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-                    android:inputType="text"
-                    android:maxLength="11" />
-
-                <Button
-                    android:id="@+id/checkDSSID"
-                    style="@style/buttons"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorPrimary"
-                    android:elevation="2dp"
-                    android:padding="5dp"
-                    android:text="CHECK"
-                    android:textColor="@color/white" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/membersExists"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/mp02_count"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:background="@color/gray"
-                    android:padding="2dp"
-                    android:text="Eligible Women Found = 0"
-                    android:textAlignment="center"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@android:color/white" />
-
-
-            </LinearLayout>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:text="@string/dca04"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white" />
-
-            <RadioGroup
-                android:id="@+id/dca04"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/dca0402"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:text="@string/dcno" />
-
-                <RadioButton
-                    android:id="@+id/dca0401"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:text="@string/dcyes" />
-
-                <RadioButton
-                    android:id="@+id/dca0403"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:text="@string/dca0403" />
-
-                <RadioButton
-                    android:id="@+id/dca0404"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:text="@string/dcbis03" />
-
-            </RadioGroup>
-
-            <LinearLayout
-                android:id="@+id/fldGrpdca05"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/pink_100"
-                    android:text="@string/sec2A"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/colorPrimary"
-                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -861,40 +867,43 @@
                     android:inputType="textCapWords"
                     android:visibility="gone" />
 
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/dca07"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/checkMembers"
+                style="@style/buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorAccent"
+                android:elevation="2dp"
+                android:paddingBottom="4dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                android:paddingTop="4dp"
+                android:text="SHOW NAMES"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorPrimary"
-                    android:text="@string/dca07"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@android:color/white" />
-
-                <Button
-                    android:id="@+id/checkMembers"
-                    style="@style/buttons"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorAccent"
-                    android:elevation="2dp"
-                    android:paddingBottom="4dp"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp"
-                    android:paddingTop="4dp"
-                    android:text="SHOW NAMES"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="14sp" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
                     android:layout_marginTop="12dp"
-                        android:layout_weight="1"
+                    android:layout_weight="1"
                     android:background="@color/pink_100"
                     android:text="@string/dca0701"
                     android:textColor="@color/colorPrimaryDark" />
@@ -948,21 +957,22 @@
                     android:layout_weight="1"
                     android:inputType="number"
                     android:maxLength="2" />
-                </LinearLayout>
+            </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorPrimary"
-                    android:text="@string/dca08"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@android:color/white" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/dca08"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1020,218 +1030,218 @@
                     android:layout_weight="1"
                     android:inputType="number"
                     android:maxLength="2" />
-                </LinearLayout>
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorPrimary"
-                    android:text="@string/dca09"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@android:color/white" />
-
-                <RadioGroup
-                    android:id="@+id/dca09"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    >
-
-                    <RadioButton
-                        android:id="@+id/dca0901"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/dca0901"
-
-
-                        />
-
-                    <RadioButton
-                        android:id="@+id/dca0902"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/dca0902"
-
-                        />
-
-                    <RadioButton
-                        android:id="@+id/dca0903"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/dca0903"
-
-                        />
-
-                </RadioGroup>
-
-                <LinearLayout
-                    android:id="@+id/fldGrpdca0901"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@color/pink_100"
-                        android:text="@string/dca09m"
-                        android:textColor="@color/colorPrimaryDark" />
-
-                    <EditText
-                        android:id="@+id/dca09m"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:layout_marginTop="1dp"
-                        android:inputType="number"
-                        android:maxLength="2" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@color/pink_100"
-                        android:text="@string/dca09y"
-                        android:textColor="@color/colorPrimaryDark" />
-
-                    <EditText
-                        android:id="@+id/dca09y"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:layout_marginTop="1dp"
-                        android:inputType="number"
-                        android:maxLength="4" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/fldGrpdca10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:visibility="gone"
-                    tools:visibility="visible">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:background="@color/colorPrimary"
-                        android:text="@string/dca10"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textColor="@android:color/white" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@color/pink_100"
-                        android:text="@string/dca10a"
-                        android:textColor="@color/colorPrimaryDark" />
-
-                    <EditText
-                        android:id="@+id/dca10a"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:inputType="textCapWords" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@color/pink_100"
-                        android:text="@string/dca10b"
-                        android:textColor="@color/colorPrimaryDark" />
-
-                    <EditText
-                        android:id="@+id/dca10b"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:inputType="textCapWords" />
-
-                </LinearLayout>
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorPrimary"
-                    android:text="@string/dca11"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@android:color/white" />
-
-                <RadioGroup
-                    android:id="@+id/dca11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/dca1101"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:text="@string/dca1101" />
-
-                    <RadioButton
-                        android:id="@+id/dca1102"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:text="@string/dca1102" />
-
-                </RadioGroup>
-
             </LinearLayout>
 
-            <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/dca09"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <RadioGroup
+                android:id="@+id/dca09"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <RadioButton
+                    android:id="@+id/dca0901"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dca0901"
+
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/dca0902"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dca0902"
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/dca0903"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dca0903"
+
+                    />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/fldGrpdca0901"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/dca09m"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/dca09m"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/dca09y"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/dca09y"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
+                    android:inputType="number"
+                    android:maxLength="4" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fldGrpdca10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/dca10"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/dca10a"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/dca10a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:inputType="textCapWords" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/pink_100"
+                    android:text="@string/dca10b"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/dca10b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:inputType="textCapWords" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/dca11"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+            <RadioGroup
+                android:id="@+id/dca11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btn_End"
+                <RadioButton
+                    android:id="@+id/dca1101"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@color/red"
-                    android:enabled="false"
-                    android:onClick="endInterview"
-                    android:text="@string/end_interview"
-                    android:textColor="#ff1e1e" />
+                    android:text="@string/dca1101" />
 
-                <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
-
-                <Button
-                    android:id="@+id/btn_Continue"
+                <RadioButton
+                    android:id="@+id/dca1102"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@color/green"
-                    android:onClick="startInterview"
-                    android:text="@string/start_interview"
-                    android:textColor="#1ed61e" />
-                <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
-            </LinearLayout>
+                    android:text="@string/dca1102" />
+
+            </RadioGroup>
+
         </LinearLayout>
-    </ScrollView>
+
+        <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_End"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/red"
+                android:enabled="false"
+                android:onClick="endInterview"
+                android:text="@string/end_interview"
+                android:textColor="#ff1e1e" />
+
+            <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+
+            <Button
+                android:id="@+id/btn_Continue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/green"
+                android:onClick="startInterview"
+                android:text="@string/start_interview"
+                android:textColor="#1ed61e" />
+            <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

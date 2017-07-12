@@ -394,7 +394,7 @@ public class SectionAActivity extends Activity {
 */
         //=============== Others Occupation ==============
 
-        dca0505.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+/*        dca0505.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (dca050596.isChecked()) {
@@ -404,11 +404,11 @@ public class SectionAActivity extends Activity {
                     dca050596x.setText(null);
                 }
             }
-        });
+        });*/
 
         //=============== Others Occupation ==============
 
-        dca0604.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+/*        dca0604.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (dca060496.isChecked()) {
@@ -418,11 +418,11 @@ public class SectionAActivity extends Activity {
                     dca060496x.setText(null);
                 }
             }
-        });
+        });*/
 
         // =================== If Respondent is male ===============
 
-        dca0501.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+/*        dca0501.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (dca050101.isChecked()) {
@@ -432,8 +432,6 @@ public class SectionAActivity extends Activity {
                     dca050509.setEnabled(true);
 
                 }
-
-
             }
         });
 
@@ -459,7 +457,7 @@ public class SectionAActivity extends Activity {
                     dca060396x.setText(null);
                 }
             }
-        });
+        });*/
     }
 
     @OnClick(R.id.btn_End)
@@ -656,7 +654,7 @@ public class SectionAActivity extends Activity {
 
 //        03
         if (dca0401.isChecked()) {
-            if (dca05.getText().toString().isEmpty()) {
+ /*           if (dca05.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca05), Toast.LENGTH_SHORT).show();
                 dca05.setError("This data is Required!");    // Set Error on last radio button
                 return false;
@@ -676,7 +674,7 @@ public class SectionAActivity extends Activity {
             }
 
 //        05
-            /*if (dca0502.getCheckedRadioButtonId() == -1) {
+            *//*if (dca0502.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0502), Toast.LENGTH_SHORT).show();
                 dca050202.setError("This data is Required!");    // Set Error on last radio button
 
@@ -684,7 +682,7 @@ public class SectionAActivity extends Activity {
                 return false;
             } else {
                 dca050202.setError(null);
-            }*/
+            }*//*
 
 //        06
             if (dca0503.getText().toString().isEmpty()) {
@@ -828,7 +826,7 @@ public class SectionAActivity extends Activity {
                 return false;
             } else {
                 dca060496x.setError(null);
-            }
+            }*/
 
 //        13
             if (dca0701.getText().toString().isEmpty()) {
@@ -1065,7 +1063,7 @@ public class SectionAActivity extends Activity {
 
         sa.put("dca03", dca03.getText().toString());
         sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : dca0404.isChecked() ? "4" : "0");
-        sa.put("dca05", dca05.getText().toString());
+        /*sa.put("dca05", dca05.getText().toString());
         sa.put("dca0501", dca050101.isChecked() ? "1" : dca050102.isChecked() ? "2" : "0");
         //sa.put("dca0502", dca050201.isChecked() ? "1" : dca050202.isChecked() ? "2" : "0");
         sa.put("dca0503", dca0503.getText().toString());
@@ -1097,7 +1095,7 @@ public class SectionAActivity extends Activity {
                 : dca060413.isChecked() ? "13" : dca060414.isChecked() ? "14" : dca060415.isChecked() ? "15"
                 : dca060416.isChecked() ? "16" : dca060417.isChecked() ? "17" : dca060488.isChecked() ? "88"
                 : dca060496.isChecked() ? "96" : "0");
-        sa.put("dca060496x", dca060496x.getText().toString());
+        sa.put("dca060496x", dca060496x.getText().toString());*/
         sa.put("dca0701", dca0701.getText().toString());
         sa.put("dca0702", dca0702.getText().toString());
         sa.put("dca0703", dca0703.getText().toString());

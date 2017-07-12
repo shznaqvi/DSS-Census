@@ -789,21 +789,28 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                 scroll.setScrollY(0);
             } else {
-                dcbid.setText(MainApp.fc.getDSSID());
-                dcbid.setEnabled(true);
 
-                scroll.setScrollY(0);
-                dcbid.requestFocus();
+                if (dcbid.getText().toString().length() > 10) {
+                    if (dcbid.getText().toString().charAt(10) == 'X') {
+                        dcbid.setText(MainApp.fc.getDSSID());
+                        dcbid.setEnabled(true);
+
+                        scroll.setScrollY(0);
+                        dcbid.requestFocus();
+                    }
+                }
             }
         }
     }
 
     public void clearFieldsOnStatus(){
         if (!dataFlag) {
-            dcbid.setText(null);
-            dcbid.setEnabled(false);
+//            dcbid.setText(null);
+//            dcbid.setEnabled(false);
             dcbd.clearCheck();
-            dcbm.clearCheck();
+            if (dcbm.getCheckedRadioButtonId()!=-1) {
+                dcbm.clearCheck();
+            }
             dcbbrhh.clearCheck();
             dcbbfid.setText(null);
             dcbbmid.setText(null);

@@ -190,6 +190,8 @@ public class SectionCActivity extends Activity {
                 if (dccage01.isChecked()) {
                     fldGrpdccage.setVisibility(View.VISIBLE);
                     fldGrpdccdod.setVisibility(View.GONE);
+                    Calendar c=Calendar.getInstance();
+                    dccd.updateDate(c.get(Calendar.YEAR),c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
 
                 } else {
                     fldGrpdccdod.setVisibility(View.VISIBLE);
@@ -225,6 +227,36 @@ public class SectionCActivity extends Activity {
             }
         });
 
+        /*dccd.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (dccc02.isChecked()
+                        && ((dccd.getYear() - new Date().getYear()) >= 15
+                        && (dccd.getYear() - new Date().getYear()) <= 49)) {
+                    fldGrpdcch.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdcch.setVisibility(View.GONE);
+                    dcch.clearCheck();
+                }
+            }
+        });*/
+
+        dccd.init(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
+
+            @Override
+            public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                Log.d("Date", "Year=" + year + " Month=" + (month + 1) + " day=" + dayOfMonth);
+
+                if (dccc02.isChecked()
+                        && ((dccd.getYear() - new Date().getYear()) >= 15
+                        && (dccd.getYear() - new Date().getYear()) <= 49)) {
+                    fldGrpdcch.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdcch.setVisibility(View.GONE);
+                    dcch.clearCheck();
+                }
+            }
+        });
 
         dccc.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

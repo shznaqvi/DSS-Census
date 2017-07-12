@@ -618,12 +618,12 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         sI.put("dci06", dci0601.isChecked() ? "1" : dci0602.isChecked() ? "2" : dci0699.isChecked() ? "99" : "0");
         /*sI.put("dci07d", dci07d.getText().toString());
         sI.put("dci07m", dci07m.getText().toString());
-        sI.put("dci07y", dci07y.getText().toString());*/
-        //sI.put("dci08", dci0801.isChecked() ? "1" : dci0802.isChecked() ? "2" : dci0803.isChecked() ? "3" : "0");
+        sI.put("dci07y", dci07y.getText().toString());
+        sI.put("dci08", dci0801.isChecked() ? "1" : dci0802.isChecked() ? "2" : dci0803.isChecked() ? "3" : "0");
         sI.put("dci09", dci09.getText().toString());
         sI.put("dci10a", dci10a01.isChecked() ? "1" : dci10a02.isChecked() ? "2" : "0");
         sI.put("dci10b", dci10b01.isChecked() ? "1" : dci10b02.isChecked() ? "2" : "0");
-        sI.put("dci11", dci1101.isChecked() ? "1" : dci1102.isChecked() ? "2" : dci1199.isChecked() ? "99" : "0");
+        sI.put("dci11", dci1101.isChecked() ? "1" : dci1102.isChecked() ? "2" : dci1199.isChecked() ? "99" : "0");*/
         sI.put("dci12", dci1201.isChecked() ? "1" : dci1202.isChecked() ? "2" : dci1299.isChecked() ? "99" : "0");
         sI.put("dci13", dci1301.isChecked() ? "1" : dci1302.isChecked() ? "2" : dci1399.isChecked() ? "99" : "0");
         sI.put("dci14", dci1401.isChecked() ? "1" : dci1402.isChecked() ? "2" : dci1499.isChecked() ? "99" : "0");
@@ -789,7 +789,7 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         } else {
             dci0803.setError(null);
         }
-*/
+
         // ====================== Q 9 ==============
         if (dci09.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci09), Toast.LENGTH_SHORT).show();
@@ -840,6 +840,9 @@ public class SectionIActivity extends Activity implements RadioGroup.OnCheckedCh
         } else {
             dci1199.setError(null);
         }
+
+*/
+
         // ====================== Q 12 ==============
         if (dci12.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dci12), Toast.LENGTH_SHORT).show();
