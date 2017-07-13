@@ -88,6 +88,9 @@ public class EndingActivity extends Activity {
 
                 MainApp.randID = 1;
 
+                MainApp.isRsvp = false;
+                MainApp.isHead = false;
+
 
                 finish();
 

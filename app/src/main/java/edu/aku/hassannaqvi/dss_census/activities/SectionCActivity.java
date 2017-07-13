@@ -150,9 +150,9 @@ public class SectionCActivity extends Activity {
 
             dccc.check(MainApp.cc.getGender().equals("1") ? dccc01.getId() : dccc02.getId());
 
-            if (MainApp.cc.getGender().equals("1")){
+            if (MainApp.cc.getGender().equals("1")) {
                 dccc02.setEnabled(false);
-            }else {
+            } else {
                 dccc01.setEnabled(false);
             }
 
@@ -160,7 +160,7 @@ public class SectionCActivity extends Activity {
 //          ((RadioButton) dccc.getChildAt((Integer.parseInt(MainApp.cc.getGender())) - 1)).setChecked(true);
 
 
-        }else {
+        } else {
             dccbfid.setText("null");
             dccbmid.setText("null");
         }
@@ -190,8 +190,8 @@ public class SectionCActivity extends Activity {
                 if (dccage01.isChecked()) {
                     fldGrpdccage.setVisibility(View.VISIBLE);
                     fldGrpdccdod.setVisibility(View.GONE);
-                    Calendar c=Calendar.getInstance();
-                    dccd.updateDate(c.get(Calendar.YEAR),c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
+                    Calendar c = Calendar.getInstance();
+                    dccd.updateDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
 
                 } else {
                     fldGrpdccdod.setVisibility(View.VISIBLE);
@@ -227,55 +227,59 @@ public class SectionCActivity extends Activity {
             }
         });
 
-        /*dccd.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+/*        dccd.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if (dccc02.isChecked()
-                        && ((dccd.getYear() - new Date().getYear()) >= 15
-                        && (dccd.getYear() - new Date().getYear()) <= 49)) {
-                    fldGrpdcch.setVisibility(View.VISIBLE);
-                } else {
-                    fldGrpdcch.setVisibility(View.GONE);
-                    dcch.clearCheck();
-                }
-            }
-        });*/
-
-        dccd.init(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
-
-            @Override
-            public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                Log.d("Date", "Year=" + year + " Month=" + (month + 1) + " day=" + dayOfMonth);
-
-                if (dccc02.isChecked()
-                        && ((dccd.getYear() - new Date().getYear()) >= 15
-                        && (dccd.getYear() - new Date().getYear()) <= 49)) {
-                    fldGrpdcch.setVisibility(View.VISIBLE);
-                } else {
-                    fldGrpdcch.setVisibility(View.GONE);
-                    dcch.clearCheck();
-                }
-            }
-        });
-
-        dccc.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
-                if (dccc02.isChecked()){
-                   if ((Integer.valueOf(dccey.getText().toString().isEmpty() ? "0" : dccey.getText().toString()) >= 15
-                            && Integer.valueOf(dccey.getText().toString().isEmpty() ? "0" : dccey.getText().toString()) <= 49)) {
+                if (dccc02.isChecked()) {
+//                    Log.d("Date", "Year=" + year + " Month=" + (month + 1) + " day=" + dayOfMonth);
+                    if ((dccd.getYear() - Calendar.getInstance().get(Calendar.YEAR)) >= 15
+                            || (dccd.getYear() - Calendar.getInstance().get(Calendar.YEAR)) <= 49) {
                         fldGrpdcch.setVisibility(View.VISIBLE);
                     } else {
                         fldGrpdcch.setVisibility(View.GONE);
                         dcch.clearCheck();
                     }
-                }else {
+                }
+            }
+        });*/
+
+/*        dccd.init(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
+
+            @Override
+            public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                if (dccc02.isChecked()) {
+                    Log.d("Date", "Year=" + year + " Month=" + (month + 1) + " day=" + dayOfMonth);
+                    if ((year - Calendar.getInstance().get(Calendar.YEAR)) >= 15
+                            || (year - Calendar.getInstance().get(Calendar.YEAR)) <= 49) {
+                        fldGrpdcch.setVisibility(View.VISIBLE);
+                    } else {
+                        fldGrpdcch.setVisibility(View.GONE);
+                        dcch.clearCheck();
+                    }
+                }
+            }
+        });*/
+
+        dccc.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                if (dccc02.isChecked()) {
+
+                    if (dccage01.isChecked() && (Integer.valueOf(dccey.getText().toString().isEmpty() ? "0" : dccey.getText().toString()) >= 15
+                            && Integer.valueOf(dccey.getText().toString().isEmpty() ? "0" : dccey.getText().toString()) <= 49)) {
+                        fldGrpdcch.setVisibility(View.VISIBLE);
+                    } else if (dccdod02.isChecked() && ((dccd.getYear() - new Date().getYear()) >= 15 || (dccd.getYear() - new Date().getYear()) <= 49)) {
+                        fldGrpdcch.setVisibility(View.VISIBLE);
+                    } else {
+                        fldGrpdcch.setVisibility(View.GONE);
+                        dcch.clearCheck();
+                    }
+                } else {
                     fldGrpdcch.setVisibility(View.GONE);
                     dcch.clearCheck();
                 }
             }
         });
-
 
 
         dccbrhh96.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -309,12 +313,23 @@ public class SectionCActivity extends Activity {
 
                 ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
 
-                if (((Integer.parseInt(MainApp.cc.getGender())) - 1 == 1) && (ageInYears <= 49 && ageInYears >= 15)) {
+                if (dccc02.isChecked() && (ageInYears <= 49 && ageInYears >= 15)) {
                     fldGrpdcch.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpdcch.setVisibility(View.GONE);
                     dcch.clearCheck();
                 }
+
+                /*if (dccc02.isChecked()) {
+                    Log.d("Date", "Year=" + year + " Month=" + (monthOfYear + 1) + " day=" + dayOfMonth);
+                    if ((year - Calendar.getInstance().get(Calendar.YEAR)) >= 15
+                            || (year - Calendar.getInstance().get(Calendar.YEAR)) <= 49) {
+                        fldGrpdcch.setVisibility(View.VISIBLE);
+                    } else {
+                        fldGrpdcch.setVisibility(View.GONE);
+                        dcch.clearCheck();
+                    }
+                }*/
 
 
             }
@@ -331,7 +346,8 @@ public class SectionCActivity extends Activity {
 
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
 
-        MainApp.currentStatusCount -= 1;
+//            MainApp.currentStatusCount -= 1;
+
 
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
 
@@ -357,7 +373,8 @@ public class SectionCActivity extends Activity {
 
                 MainApp.currentDeceasedCheck = 1;
 
-                MainApp.currentStatusCount -= 1;
+//                    MainApp.currentStatusCount -= 1;
+
 
 //                Intent secNext = new Intent(this, FamilyMembersActivity.class);
 //                startActivity(secNext);
@@ -419,7 +436,7 @@ public class SectionCActivity extends Activity {
         if (dccage01.isChecked()) {
             MainApp.dc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dccd.getCalendarView().getDate()));
 
-        }else {
+        } else {
             MainApp.dc.setAgeY(dccey.getText().toString());
             MainApp.dc.setAgeM(dccem.getText().toString());
             MainApp.dc.setAgeD(dcced.getText().toString());

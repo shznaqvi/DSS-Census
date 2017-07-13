@@ -219,6 +219,12 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     RadioButton dcbir03;
     @BindView(R.id.dcbirm)
     EditText dcbirm;
+    @BindView(R.id.rsvp)
+    RadioGroup rsvp;
+    @BindView(R.id.rsvp01)
+    RadioButton rsvp01;
+    @BindView(R.id.rsvp02)
+    RadioButton rsvp02;
     @BindView(R.id.dcbm)
     RadioGroup dcbm;
     @BindView(R.id.dcbm01)
@@ -244,6 +250,18 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         dcbg.setMaxDate(new Date().getTime());
         dcbidob.setMaxDate(new Date().getTime());
         cal.setTimeInMillis(System.currentTimeMillis());
+
+//        Check Respondent
+
+        if (MainApp.isRsvp) {
+            rsvp02.setChecked(true);
+            rsvp01.setEnabled(false);
+        }
+
+        if (MainApp.isHead) {
+            dcbbrhh01.setEnabled(false);
+        }
+
 
         dcbg.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
 
@@ -361,7 +379,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             if (!MainApp.familyMembersList.get(position).getMember_type().contains("null")) {
 
                 String mt = MainApp.familyMembersList.get(position).getMember_type();
-                ((RadioButton) dcbm.getChildAt(mt.equals("mw") ? 0 : mt.equals("h") ? 1 : 2)).setChecked(true);
+//                ((RadioButton) dcbm.getChildAt(mt.equals("mw") ? 0 : mt.equals("h") ? 1 : 2)).setChecked(true);
+
+                dcbm.check(mt.equals("mw") ? dcbm01.getId() : mt.equals("h") ? dcbm02.getId() : dcbm03.getId());
 
                 if (mt.equals("ch")) {
 
@@ -562,11 +582,32 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     fldGrpdcbidt.setVisibility(View.GONE);
                     //dcbidt.clearCheck();
                     fldGrpdcbir.setVisibility(View.GONE);
+
+                    if (MainApp.isRsvp) {
+                        rsvp02.setChecked(true);
+                        rsvp01.setEnabled(false);
+                    }
+
+                    if (MainApp.isHead) {
+                        dcbbrhh01.setEnabled(false);
+                    }
+
+
                 } else if (dcbis02.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
                     //fldGrpdcbir.setVisibility(View.VISIBLE);
 
                     dcbidtTxt.setText(getString(R.string.dcbis02) + " " + getString(R.string.dcbidt));
+
+                    if (MainApp.isRsvp) {
+                        rsvp02.setChecked(true);
+                        rsvp01.setEnabled(false);
+                    }
+
+                    if (MainApp.isHead) {
+                        dcbbrhh01.setEnabled(false);
+                    }
+
                 } else if (dcbis03.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
                     //fldGrpdcbir.setVisibility(View.VISIBLE);
@@ -597,7 +638,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 }
             }
         });
-
 
 
 //        dcbis02.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -699,7 +739,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbbfid.setEnabled(false);
                     dcbbmid.setEnabled(false);
 
-                    dcbbrhh01.setEnabled(true);
+//                    dcbbrhh01.setEnabled(true);
                     dcbbrhh02.setEnabled(true);
                     dcbbrhh04.setEnabled(true);
                     dcbbrhh06.setEnabled(true);
@@ -719,6 +759,17 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbf12.setEnabled(true);
                     dcbf13.setEnabled(true);
                     dcbf15.setEnabled(true);
+
+                    if (!MainApp.isRsvp) {
+                        rsvp.clearCheck();
+                        rsvp01.setEnabled(true);
+                    }
+                    if (!MainApp.isHead) {
+                        dcbbrhh01.setEnabled(true);
+                    }else {
+                        dcbbrhh01.setEnabled(false);
+                    }
+
                 } else {
 
                     dcbbrhh01.setEnabled(false);
@@ -773,6 +824,12 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                     dcbbfid.setText(MainApp.fc.getDSSID());
                     dcbbmid.setText(MainApp.fc.getDSSID());
+
+                    if (!MainApp.isRsvp) {
+                        rsvp.clearCheck();
+                        rsvp01.setEnabled(false);
+                        rsvp02.setChecked(true);
+                    }
                 }
             }
         });
@@ -803,12 +860,12 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         }
     }
 
-    public void clearFieldsOnStatus(){
+    public void clearFieldsOnStatus() {
         if (!dataFlag) {
 //            dcbid.setText(null);
 //            dcbid.setEnabled(false);
             dcbd.clearCheck();
-            if (dcbm.getCheckedRadioButtonId()!=-1) {
+            if (dcbm.getCheckedRadioButtonId() != -1) {
                 dcbm.clearCheck();
             }
             dcbbrhh.clearCheck();
@@ -825,7 +882,18 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             dcbe96x.setText(null);
             dcbf.clearCheck();
             dcbf96x.setText(null);
+
+            rsvp.clearCheck();
+            rsvp01.setEnabled(true);
+
+            dcbbrhh01.setEnabled(true);
+
         }
+/*
+        if (!MainApp.isRsvp) {
+            rsvp.clearCheck();
+            rsvp01.setEnabled(true);
+        }*/
     }
 
 
@@ -1135,6 +1203,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                         } else {
 
                             MainApp.selectedPos = -1;
+                            MainApp.currentStatusCount -= 1;
 
                             finish();
                             startActivity(new Intent(this, SectionCActivity.class).putExtra("position", position).
@@ -1289,6 +1358,16 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : dcbm04.isChecked() ? "ot" : "0");
         MainApp.cc.setRemarks(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
 
+        MainApp.cc.setIs_head(dcbbrhh01.isChecked() ? "1" : "null");
+        if (!MainApp.isHead) {
+            MainApp.isHead = dcbbrhh01.isChecked() ? true : false;
+        }
+
+        MainApp.cc.setRsvp(rsvp01.isChecked() ? "1" : rsvp02.isChecked() ? "2" : "0");
+        if (!MainApp.isRsvp) {
+            MainApp.isRsvp = rsvp01.isChecked() ? true : false;
+        }
+
         Log.d(TAG, "SaveDraft: " + MainApp.cc.toJSONObject());
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
@@ -1393,7 +1472,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         }
 */
         // ============== Remarks ===================
-        if (dcbis02.isChecked() || dcbis03.isChecked() || dcbis04.isChecked()) {
+//        if (dcbis02.isChecked() || dcbis03.isChecked() || dcbis04.isChecked()) {
             /*if (dcbir.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbir), Toast.LENGTH_SHORT).show();
                 dcbir03.setError("This data is Required!");    // Set Error on last radio button
@@ -1413,10 +1492,21 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 //            } else {
 //                dcbirm.setError(null);
 //            }
-        }
+//        }
 
 
         if (!dcbis03.isChecked() && !dcbis05.isChecked() && !dcbis04.isChecked()) {
+
+            // ===================== IS_Responder ==============
+            if (rsvp.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.rsvp), Toast.LENGTH_SHORT).show();
+                rsvp02.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "rsvp: This data is Required!");
+                return false;
+            } else {
+                rsvp02.setError(null);
+            }
 
             // ===================== Relation with HH ==============
             if (dcbbrhh.getCheckedRadioButtonId() == -1) {

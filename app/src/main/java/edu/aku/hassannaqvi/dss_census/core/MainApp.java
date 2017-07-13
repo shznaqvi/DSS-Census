@@ -113,6 +113,8 @@ public class MainApp extends Application {
     Location location;
 
     public static int randID = 1;
+    public static Boolean isRsvp = false;
+    public static Boolean isHead = false;
 
     @Override
     public void onCreate() {

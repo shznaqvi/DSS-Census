@@ -136,6 +136,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             censusMember.COLUMN_OCCUPATION + " TEXT," +
             censusMember.COLUMN_OCCUPATIONX + " TEXT," +
             censusMember.COLUMN_MEMBER_TYPE + " TEXT," +
+            censusMember.COLUMN_RSVP + " TEXT," +
             censusMember.COLUMN_ISTATUS + " TEXT," +
             censusMember.COLUMN_REMARKS + " TEXT," +
             censusMember.COLUMN_UPDATE_FLAG + " TEXT," +
@@ -736,6 +737,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(censusMember.COLUMN_REMARKS, mc.getRemarks());
         values.put(censusMember.COLUMN_UPDATE_FLAG, mc.getUpdate_flag());
         values.put(censusMember.COLUMN_UPDATE_DT, mc.getUpdate_dt());
+        values.put(censusMember.COLUMN_RSVP, mc.getRsvp());
         values.put(censusMember.COLUMN_SERIAL_NO, mc.getSerialNo());
 
 
@@ -1240,6 +1242,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_MEMBER_TYPE,
                 censusMember.COLUMN_UPDATE_FLAG,
                 censusMember.COLUMN_UPDATE_DT,
+                censusMember.COLUMN_RSVP,
                 censusMember.COLUMN_SERIAL_NO,
                 censusMember.COLUMN_REMARKS
         };
