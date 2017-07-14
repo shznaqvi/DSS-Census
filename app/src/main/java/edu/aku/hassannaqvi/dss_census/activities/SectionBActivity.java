@@ -698,28 +698,19 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (dcbd01.isChecked()) {
-                    dcbm01.setEnabled(false);
+                    /*dcbm01.setEnabled(false);
                     dcbm02.setEnabled(true);
-                    dcbm01.setChecked(false);
+                    dcbm01.setChecked(false);*/
 
                     dcbf09.setEnabled(false);
                     dcbf09.setChecked(false);
 
-                    dcbm01.setEnabled(false);
-                    dcbm01.setChecked(false);
-
-                    dcbm02.setEnabled(true);
                 } else {
-                    dcbm01.setEnabled(true);
+                    /*dcbm01.setEnabled(true);
                     dcbm02.setEnabled(false);
-                    dcbm02.setChecked(false);
+                    dcbm02.setChecked(false);*/
 
                     dcbf09.setEnabled(true);
-
-                    dcbm02.setEnabled(false);
-                    dcbm02.setChecked(false);
-
-                    dcbm01.setEnabled(true);
                 }
             }
         });
@@ -766,9 +757,26 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     }
                     if (!MainApp.isHead) {
                         dcbbrhh01.setEnabled(true);
-                    }else {
+                    } else {
                         dcbbrhh01.setEnabled(false);
                     }
+
+                    if (dcbm01.isChecked()) {
+                        dcbd01.setChecked(false);
+                        dcbd01.setEnabled(false);
+
+                        dcbd02.setEnabled(true);
+                    } else if (dcbm02.isChecked()) {
+
+                        dcbd01.setEnabled(true);
+
+                        dcbd02.setChecked(false);
+                        dcbd02.setEnabled(false);
+                    }else {
+                        dcbd01.setEnabled(true);
+                        dcbd02.setEnabled(true);
+                    }
+
 
                 } else {
 
@@ -830,6 +838,10 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                         rsvp01.setEnabled(false);
                         rsvp02.setChecked(true);
                     }
+
+
+                    dcbd01.setEnabled(true);
+                    dcbd02.setEnabled(true);
                 }
             }
         });
@@ -865,9 +877,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 //            dcbid.setText(null);
 //            dcbid.setEnabled(false);
             dcbd.clearCheck();
-            if (dcbm.getCheckedRadioButtonId() != -1) {
+            /*if (dcbm.getCheckedRadioButtonId() != -1) {
                 dcbm.clearCheck();
-            }
+            }*/
             dcbbrhh.clearCheck();
             dcbbfid.setText(null);
             dcbbmid.setText(null);
@@ -1422,6 +1434,18 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             dcba.setError(null);
         }
 
+        // ============== Members Status ===================
+
+        if (dcbm.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbm), Toast.LENGTH_SHORT).show();
+            dcbm03.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbm: This data is Required!");
+            return false;
+        } else {
+            dcbm03.setError(null);
+        }
+
         //=============== ID =============
 
         if (!dataFlag) {
@@ -1430,6 +1454,31 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 dcbid.setError("This data is Required!");    // Set Error on last radio button
 
                 Log.i(TAG, "dcbid: This data is Required!");
+                return false;
+            } else {
+                dcbid.setError(null);
+            }
+        }
+
+        // ============== Check Equality - 1 ===================
+
+        if (dcbm01.isChecked() && dcbid.getText().length() != 11) {
+            Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();
+            dcbid.setError("This data is Invalid!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbid: This data is Invalid!");
+            return false;
+        } else {
+            dcbid.setError(null);
+        }
+
+        if (!dcbm01.isChecked()) {
+
+            if (dcbm04.isChecked() ? dcbid.getText().length() != 13 : dcbid.getText().length() != 12) {
+                Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();
+                dcbid.setError("This data is Invalid!");    // Set Error on last radio button
+
+                Log.i(TAG, "dcbid: This data is Invalid!");
                 return false;
             } else {
                 dcbid.setError(null);
@@ -1458,42 +1507,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         } else {
             dcbis06x.setError(null);
         }
-
-        /*// ============== Date ===================
-
-        if (dcbidt.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbidt), Toast.LENGTH_SHORT).show();
-            dcbidt05.setError("This data is Required!");    // Set Error on last radio button
-
-            Log.i(TAG, "dcbidt: This data is Required!");
-            return false;
-        } else {
-            dcbidt05.setError(null);
-        }
-*/
-        // ============== Remarks ===================
-//        if (dcbis02.isChecked() || dcbis03.isChecked() || dcbis04.isChecked()) {
-            /*if (dcbir.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbir), Toast.LENGTH_SHORT).show();
-                dcbir03.setError("This data is Required!");    // Set Error on last radio button
-
-                Log.i(TAG, "dcbir: This data is Required!");
-                return false;
-            } else {
-                dcbir03.setError(null);
-            }*/
-
-//            if (dcbirm.getText().toString().isEmpty()) {
-//                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbir), Toast.LENGTH_SHORT).show();
-//                dcbirm.setError("This data is Required!");    // Set Error on last radio button
-//
-//                Log.i(TAG, "dcbirm: This data is Required!");
-//                return false;
-//            } else {
-//                dcbirm.setError(null);
-//            }
-//        }
-
 
         if (!dcbis03.isChecked() && !dcbis05.isChecked() && !dcbis04.isChecked()) {
 
@@ -1579,47 +1592,23 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 dcbd02.setError(null);
             }
 
-            // ============== Education ===================
 
-            if (dcbm.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbm), Toast.LENGTH_SHORT).show();
-                dcbm03.setError("This data is Required!");    // Set Error on last radio button
+            // ============== Check Mother Equality - 2 ===================
 
-                Log.i(TAG, "dcbm: This data is Required!");
-                return false;
-            } else {
-                dcbm03.setError(null);
-            }
 
-            // ============== Check Mother Equality ===================
+            if (dcbm03.isChecked()) {
 
-            if (!dcbm01.isChecked()) {
+                char m = dcbbmid.getText().toString().charAt(10);
+                if (m != dcbid.getText().toString().charAt(10)) {
+                    Toast.makeText(this, "ERROR(Invalid): Member ID not match", Toast.LENGTH_SHORT).show();
+                    dcbbmid.setError("Not match with Member ID");
 
-                if (dcbm04.isChecked() ? dcbid.getText().length() != 13 : dcbid.getText().length() != 12) {
-                    Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();
-                    dcbid.setError("This data is Invalid!");    // Set Error on last radio button
-
-                    Log.i(TAG, "dcbid: This data is Invalid!");
+                    Log.i(TAG, "dcbbmid: Not match with Member ID.");
                     return false;
                 } else {
-                    dcbid.setError(null);
-                }
-
-                if (dcbm03.isChecked()) {
-
-                    char m = dcbbmid.getText().toString().charAt(10);
-                    if (m != dcbid.getText().toString().charAt(10)) {
-                        Toast.makeText(this, "ERROR(Invalid): Member ID not match", Toast.LENGTH_SHORT).show();
-                        dcbbmid.setError("Not match with Member ID");
-
-                        Log.i(TAG, "dcbbmid: Not match with Member ID.");
-                        return false;
-                    } else {
-                        dcbbmid.setError(null);
-                    }
+                    dcbbmid.setError(null);
                 }
             }
-
 
             // ============== Education ===================
 
