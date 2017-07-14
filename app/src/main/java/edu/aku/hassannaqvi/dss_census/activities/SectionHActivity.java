@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -22,7 +24,7 @@ import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
-public class SectionHActivity extends Activity {
+public class SectionHActivity extends Activity implements TextWatcher {
 
     private static final String TAG = SectionHActivity.class.getSimpleName();
 
@@ -139,7 +141,6 @@ public class SectionHActivity extends Activity {
     LinearLayout fldGrpdch07;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -159,24 +160,6 @@ public class SectionHActivity extends Activity {
             dch07y.setVisibility(View.VISIBLE);
 
         }
-
-        // ================== Q 9 others ============
-
-        dch07.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == dch0796.getId()) {
-
-                    dch0796x.setVisibility(View.VISIBLE);
-                    dch0796x.requestFocus();
-
-                } else {
-
-                    dch0796x.setVisibility(View.GONE);
-                    dch0796x.setText(null);
-                }
-            }
-        });
 
         // ================== Q 12 others ============
 
@@ -295,6 +278,57 @@ public class SectionHActivity extends Activity {
         });
 
 
+        // ================== Q 9 others ============
+
+        dch07.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if (!dch07y.getText().toString().isEmpty() && !dch07m.getText().toString().isEmpty()
+                        && dch07.getCheckedRadioButtonId() != -1) {
+                    dch07m.setText(null);
+                    dch07y.setText(null);
+
+                }
+
+
+                if (checkedId == dch0796.getId()) {
+
+                    dch0796x.setVisibility(View.VISIBLE);
+                    dch0796x.requestFocus();
+
+                } else {
+
+                    dch0796x.setVisibility(View.GONE);
+                    dch0796x.setText(null);
+                }
+            }
+        });
+
+        dch07m.addTextChangedListener(this);
+        dch07y.addTextChangedListener(this);
+
+
+    }
+
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        if (!dch07y.getText().toString().isEmpty() || !dch07m.getText().toString().isEmpty()) {
+            dch07.clearCheck();
+            dch0796x.setText(null);
+            dch0796x.setVisibility(View.GONE);
+        }
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
 
     }
 
@@ -302,7 +336,7 @@ public class SectionHActivity extends Activity {
     void onBtnEndClick() {
         Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
 //        finish();
-        MainApp.finishActivity(this,this);
+        MainApp.finishActivity(this, this);
     }
 
 
@@ -419,14 +453,14 @@ public class SectionHActivity extends Activity {
 
             // ================= Q 4 ========================
             if (!dch0302.isChecked()) {
-            if (dch04.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch04), Toast.LENGTH_SHORT).show();
-                dch0402.setError("This data is Required!");
-                Log.i(TAG, "dch04: This data is Required!");
-                return false;
-            } else {
-                dch0402.setError(null);
-            }
+                if (dch04.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch04), Toast.LENGTH_SHORT).show();
+                    dch0402.setError("This data is Required!");
+                    Log.i(TAG, "dch04: This data is Required!");
+                    return false;
+                } else {
+                    dch0402.setError(null);
+                }
             }
 
             if (dch0402.isChecked()) {
@@ -464,25 +498,25 @@ public class SectionHActivity extends Activity {
                 dch0799.setError(null);
             }
 
-            if (dch07.getCheckedRadioButtonId() == -1){
+            if (dch07.getCheckedRadioButtonId() == -1) {
                 if (dch07m.getText().toString().isEmpty()
-                        && dch07y.getText().toString().isEmpty()) {
+                        || dch07y.getText().toString().isEmpty()) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.dch07), Toast.LENGTH_SHORT).show();
-                    dch0799.setError("This data is Required!");
+                    dch07y.setError("This data is Required!");
                     Log.i(TAG, "dch07: This data is Required!");
                     return false;
                 } else {
-                    dch0799.setError(null);
+                    dch07y.setError(null);
                 }
 
                 if (Integer.valueOf(dch07m.getText().toString()) > 11 || (Integer.valueOf(dch07m.getText().toString()) == 0 &&
                         Integer.valueOf(dch07y.getText().toString()) == 0)) {
                     Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dch07), Toast.LENGTH_SHORT).show();
-                    dch0799.setError("This data is Invalid!");
+                    dch07y.setError("This data is Invalid!");
                     Log.i(TAG, "dch07: This data is Invalid!");
                     return false;
                 } else {
-                    dch0799.setError(null);
+                    dch07y.setError(null);
                 }
             }
 
@@ -595,6 +629,4 @@ public class SectionHActivity extends Activity {
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
-
-
 }
