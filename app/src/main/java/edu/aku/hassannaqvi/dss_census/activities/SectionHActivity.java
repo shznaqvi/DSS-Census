@@ -24,7 +24,7 @@ import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
 
-public class SectionHActivity extends Activity implements TextWatcher {
+public class SectionHActivity extends Activity {
 
     private static final String TAG = SectionHActivity.class.getSimpleName();
 
@@ -284,11 +284,15 @@ public class SectionHActivity extends Activity implements TextWatcher {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                if (!dch07y.getText().toString().isEmpty() && !dch07m.getText().toString().isEmpty()
+                /*if ((!dch07y.getText().toString().isEmpty() || !dch07m.getText().toString().isEmpty())
                         && dch07.getCheckedRadioButtonId() != -1) {
                     dch07m.setText(null);
                     dch07y.setText(null);
 
+                }*/
+                if (dch07.getCheckedRadioButtonId() != -1) {
+                    dch07m.setText(null);
+                    dch07y.setText(null);
                 }
 
 
@@ -305,32 +309,51 @@ public class SectionHActivity extends Activity implements TextWatcher {
             }
         });
 
-        dch07m.addTextChangedListener(this);
-        dch07y.addTextChangedListener(this);
+        dch07m.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (!dch07m.getText().toString().isEmpty()) {
+                    dch07.clearCheck();
+                    dch0796x.setText(null);
+                    dch0796x.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        dch07y.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (!dch07y.getText().toString().isEmpty()) {
+                    dch07.clearCheck();
+                    dch0796x.setText(null);
+                    dch0796x.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
 
     }
 
-
-    @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-    }
-
-    @Override
-    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        if (!dch07y.getText().toString().isEmpty() || !dch07m.getText().toString().isEmpty()) {
-            dch07.clearCheck();
-            dch0796x.setText(null);
-            dch0796x.setVisibility(View.GONE);
-        }
-
-    }
-
-    @Override
-    public void afterTextChanged(Editable editable) {
-
-    }
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
