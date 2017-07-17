@@ -424,7 +424,7 @@ public class SectionEActivity extends Activity {
                 : dce0304.isChecked() ? "4" : dce0396.isChecked() ? "96" : "0");
         // Edit Text
         sE.put("dce0396x", dce0396x.getText().toString());
-        sE.put("dce03", dce0301.isChecked() ? "1" : dce0302.isChecked() ? "2" : "0");
+//        sE.put("dce03", dce0301.isChecked() ? "1" : dce0302.isChecked() ? "2" : "0");
         sE.put("dce04", dce0401.isChecked() ? "1" : dce0402.isChecked() ? "2" : "0");
         sE.put("dce05", dce0501.isChecked() ? "1" : dce0502.isChecked() ? "2" : dce0503.isChecked() ? "3"
                 : dce0504.isChecked() ? "4" : dce0596.isChecked() ? "96" : "0");
@@ -432,16 +432,16 @@ public class SectionEActivity extends Activity {
         sE.put("dce0496x", dce0596x.getText().toString());
         // Checkbox
         sE.put("dce0601", dce0601.isChecked() ? "1" : "0");
-        sE.put("dce0602", dce0602.isChecked() ? "1" : "0");
-        sE.put("dce0603", dce0603.isChecked() ? "1" : "0");
-        sE.put("dce0604", dce0604.isChecked() ? "1" : "0");
-        sE.put("dce0605", dce0605.isChecked() ? "1" : "0");
-        sE.put("dce0606", dce0606.isChecked() ? "1" : "0");
-        sE.put("dce0607", dce0607.isChecked() ? "1" : "0");
-        sE.put("dce0608", dce0608.isChecked() ? "1" : "0");
-        sE.put("dce0609", dce0609.isChecked() ? "1" : "0");
-        sE.put("dce0610", dce0610.isChecked() ? "1" : "0");
-        sE.put("dce0696", dce0696.isChecked() ? "1" : "0");
+        sE.put("dce0602", dce0602.isChecked() ? "2" : "0");
+        sE.put("dce0603", dce0603.isChecked() ? "3" : "0");
+        sE.put("dce0604", dce0604.isChecked() ? "4" : "0");
+        sE.put("dce0605", dce0605.isChecked() ? "5" : "0");
+        sE.put("dce0606", dce0606.isChecked() ? "6" : "0");
+        sE.put("dce0607", dce0607.isChecked() ? "7" : "0");
+        sE.put("dce0608", dce0608.isChecked() ? "8" : "0");
+        sE.put("dce0609", dce0609.isChecked() ? "9" : "0");
+        sE.put("dce0610", dce0610.isChecked() ? "10" : "0");
+        sE.put("dce0696", dce0696.isChecked() ? "96" : "0");
         // Edit Text
         sE.put("dce0696x", dce0696x.getText().toString());
         // Radio Group

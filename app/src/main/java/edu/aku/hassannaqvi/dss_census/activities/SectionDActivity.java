@@ -977,8 +977,8 @@ public class SectionDActivity extends Activity {
 
 //        04
         sD.put("dcd07", dcd0701.isChecked() ? "1" : dcd0702.isChecked() ? "2" : dcd0703.isChecked() ? "3"
-                : dcd0704.isChecked() ? "4" : dcd0705.isChecked() ? "4" : dcd0706.isChecked() ? "4" :
-                dcd0707.isChecked() ? "4" : dcd0796.isChecked() ? "96" : "0");
+                : dcd0704.isChecked() ? "4" : dcd0705.isChecked() ? "5" : dcd0706.isChecked() ? "6" :
+                dcd0707.isChecked() ? "7" : dcd0796.isChecked() ? "96" : "0");
         // Edit Text
         sD.put("dcd0796x", dcd0796x.getText().toString());
 
