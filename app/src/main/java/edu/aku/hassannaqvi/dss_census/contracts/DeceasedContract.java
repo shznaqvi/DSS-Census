@@ -317,7 +317,7 @@ public class DeceasedContract {
         this.relation_hh = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_RELATION_HH));
         this.dod = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_DOD));
         this.remarks = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_REMARKS));
-        this.remarks = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_WRA));
+        this.wra = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_WRA));
         this.istatus = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_ISTATUS));
 
         return this;
