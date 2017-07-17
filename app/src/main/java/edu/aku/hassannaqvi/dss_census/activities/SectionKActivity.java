@@ -452,7 +452,8 @@ public class SectionKActivity extends Activity {
 
                     finish();
 //                    startActivity(new Intent(this, SectionLActivity.class));
-                    startActivity(new Intent(this, MotherListActivity.class));
+//                    startActivity(new Intent(this, MotherListActivity.class));
+                    startActivity(new Intent(this, EndingActivity.class).putExtra("check",true));
                 }
 
 
