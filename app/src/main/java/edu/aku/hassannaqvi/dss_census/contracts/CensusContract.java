@@ -580,7 +580,7 @@ public class CensusContract {
         public static final String COLUMN_RELATION_HH = "relation_hh";
         public static final String COLUMN_CURRENT_STATUS = "current_status";
         public static final String COLUMN_CURRENT_STATUSX = "current_statusx";
-        public static final String COLUMN_CURRENT_DATE = "current_date";
+        public static final String COLUMN_CURRENT_DATE = "status_date";
         public static final String COLUMN_DOD = "dod";
         public static final String COLUMN_M_STATUS = "m_status";
         public static final String COLUMN_EDUCATION = "education";
