@@ -433,7 +433,7 @@ public class SectionCActivity extends Activity {
 
         MainApp.dc.setGender(dccc01.isChecked() ? "1" : dccc02.isChecked() ? "2" : "0");
         MainApp.dc.setDod(MainApp.cc.getCurrent_date());
-        if (dccage01.isChecked()) {
+        if (dccdod02.isChecked()) {
             MainApp.dc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dccd.getCalendarView().getDate()));
 
         } else {
