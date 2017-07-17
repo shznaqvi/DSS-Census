@@ -152,7 +152,7 @@ public class SyncMother extends AsyncTask<Void, Void, String> {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
-               /*===================================================================*/
+                   /*===================================================================*/
 
                     BufferedReader br = new BufferedReader(new InputStreamReader(
                             conn.getInputStream(), "utf-8"));
@@ -180,7 +180,7 @@ public class SyncMother extends AsyncTask<Void, Void, String> {
             return "No new records to sync";
         }
         return line;
-            /*===================================================================*/
+                /*===================================================================*/
 
     }
 }

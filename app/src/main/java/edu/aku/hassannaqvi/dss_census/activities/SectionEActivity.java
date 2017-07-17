@@ -429,7 +429,7 @@ public class SectionEActivity extends Activity {
         sE.put("dce05", dce0501.isChecked() ? "1" : dce0502.isChecked() ? "2" : dce0503.isChecked() ? "3"
                 : dce0504.isChecked() ? "4" : dce0596.isChecked() ? "96" : "0");
         // Edit Text
-        sE.put("dce0496x", dce0596x.getText().toString());
+        sE.put("dce0596x", dce0596x.getText().toString());
         // Checkbox
         sE.put("dce0601", dce0601.isChecked() ? "1" : "0");
         sE.put("dce0602", dce0602.isChecked() ? "2" : "0");
