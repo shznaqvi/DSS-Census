@@ -40,6 +40,7 @@ public class DeceasedContract {
     private String wra = "";
     private String istatus = "";
 
+    private String devicetagID = "";
 
     public DeceasedContract() {
     }
@@ -260,6 +261,14 @@ public class DeceasedContract {
         this.istatus = istatus;
     }
 
+    public String getDevicetagID() {
+        return devicetagID;
+    }
+
+    public void setDevicetagID(String devicetagID) {
+        this.devicetagID = devicetagID;
+    }
+
     public DeceasedContract Sync(JSONObject jsonObject) throws JSONException {
 
         this._ID = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_ID);
@@ -288,6 +297,7 @@ public class DeceasedContract {
         this.remarks = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_REMARKS);
         this.wra = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_WRA);
         this.istatus = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_ISTATUS);
+        this.devicetagID = jsonObject.getString(DeceasedContract.DeceasedMember.COLUMN_DEVICETAGID);
 
         return this;
 
@@ -319,6 +329,7 @@ public class DeceasedContract {
         this.remarks = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_REMARKS));
         this.wra = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_WRA));
         this.istatus = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_ISTATUS));
+        this.devicetagID = cursor.getString(cursor.getColumnIndex(DeceasedContract.DeceasedMember.COLUMN_DEVICETAGID));
 
         return this;
 
@@ -353,6 +364,7 @@ public class DeceasedContract {
         json.put(DeceasedContract.DeceasedMember.COLUMN_REMARKS, this.remarks == null ? JSONObject.NULL : this.remarks);
         json.put(DeceasedContract.DeceasedMember.COLUMN_WRA, this.wra == null ? JSONObject.NULL : this.wra);
         json.put(DeceasedContract.DeceasedMember.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
+        json.put(DeceasedContract.DeceasedMember.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
 
         return json;
     }
@@ -389,6 +401,7 @@ public class DeceasedContract {
         public static final String COLUMN_SYNCED_DATE = "sync_date";
         public static final String COLUMN_WRA = "wra";
         public static final String COLUMN_ISTATUS = "istatus";
+        public static final String COLUMN_DEVICETAGID = "tagid";
 
         public static String _URL = "deceased.php";
     }

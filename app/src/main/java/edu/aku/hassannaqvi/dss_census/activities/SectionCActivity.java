@@ -1,6 +1,7 @@
 package edu.aku.hassannaqvi.dss_census.activities;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.text.Editable;
@@ -409,20 +410,24 @@ public class SectionCActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
+        SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
+
         MainApp.dc = new DeceasedContract();
         MainApp.dc.set_UUID(MainApp.fc.getUID());
         MainApp.dc.setFormDate(MainApp.fc.getFormDate());
         MainApp.dc.setDeviceId(MainApp.fc.getDeviceID());
         MainApp.dc.setUser(MainApp.fc.getUser());
-        MainApp.dc.setDss_id_hh(MainApp.fc.getDSSID());
-        MainApp.dc.setDss_id_h(MainApp.cc.getDss_id_h());
+        MainApp.dc.setDss_id_hh(MainApp.fc.getDSSID().toUpperCase());
+        MainApp.dc.setDss_id_h(MainApp.cc.getDss_id_h().toUpperCase());
         MainApp.dc.setSite_code(MainApp.cc.getSite_code());
         MainApp.dc.set_DATE(MainApp.cc.get_DATE());
 
-        MainApp.dc.setDss_id_f(dccbfid.getText().toString());
-        MainApp.dc.setDss_id_m(dccbmid.getText().toString());
+        MainApp.dc.setDevicetagID(sharedPref.getString("tagName", null));
 
-        MainApp.dc.setDss_id_member(MainApp.cc.getDss_id_member());
+        MainApp.dc.setDss_id_f(dccbfid.getText().toString().toUpperCase());
+        MainApp.dc.setDss_id_m(dccbmid.getText().toString().toUpperCase());
+
+        MainApp.dc.setDss_id_member(MainApp.cc.getDss_id_member().toUpperCase());
 
         MainApp.dc.setName(dcca.getText().toString());
         MainApp.dc.setRelation_hh(dccbrhh01.isChecked() ? "1" : dccbrhh02.isChecked() ? "2" : dccbrhh03.isChecked() ? "3"

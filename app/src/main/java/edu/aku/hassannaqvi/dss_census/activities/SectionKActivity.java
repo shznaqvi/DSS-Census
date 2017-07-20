@@ -531,6 +531,7 @@ public class SectionKActivity extends Activity {
         MainApp.ims.setMm(String.valueOf(MainApp.mm));
         MainApp.ims.setDssID(MainApp.fc.getDSSID());
 
+        MainApp.ims.setDevicetagID(sharedPref.getString("tagName", null));
 
         JSONObject sK = new JSONObject();
 

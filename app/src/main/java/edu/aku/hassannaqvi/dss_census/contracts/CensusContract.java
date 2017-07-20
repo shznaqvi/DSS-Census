@@ -53,8 +53,9 @@ public class CensusContract {
     private String syncedDate = "";
     private String remarks = "";
     private String istatus = "";
-
     private String serialNo = "";
+
+    private String devicetagID = "";
 
 
     public CensusContract() {
@@ -406,6 +407,14 @@ public class CensusContract {
         this.rsvp = rsvp;
     }
 
+    public String getDevicetagID() {
+        return devicetagID;
+    }
+
+    public void setDevicetagID(String devicetagID) {
+        this.devicetagID = devicetagID;
+    }
+
     public CensusContract Sync(JSONObject jsonObject) throws JSONException {
 
         this._ID= jsonObject.getString(censusMember.COLUMN_ID);
@@ -449,6 +458,7 @@ public class CensusContract {
         this.syncedDate= jsonObject.getString(censusMember.COLUMN_SYNCED_DATE);
         this.remarks= jsonObject.getString(censusMember.COLUMN_REMARKS);
         this.istatus= jsonObject.getString(censusMember.COLUMN_ISTATUS);
+        this.devicetagID= jsonObject.getString(censusMember.COLUMN_DEVICETAGID);
 
         return this;
 
@@ -495,6 +505,7 @@ public class CensusContract {
         this.serialNo = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SERIAL_NO));
         this.remarks = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_REMARKS));
         this.istatus = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_ISTATUS));
+        this.devicetagID = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DEVICETAGID));
 
         return this;
 
@@ -545,6 +556,7 @@ public class CensusContract {
         json.put(censusMember.COLUMN_REMARKS, this.remarks == null ? JSONObject.NULL : this.remarks);
         json.put(censusMember.COLUMN_PROJECT_NAME, this.projectName == null ? JSONObject.NULL : this.projectName);
         json.put(censusMember.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
+        json.put(censusMember.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
 
 
         return json;
@@ -597,7 +609,7 @@ public class CensusContract {
         public static final String COLUMN_REF_ID = "refid";
         public static final String COLUMN_ISTATUS = "istatus";
 
-
+        public static final String COLUMN_DEVICETAGID = "tagid";
         public static final String COLUMN_SERIAL_NO = "serial";
 
         public static String _URL = "census.php";

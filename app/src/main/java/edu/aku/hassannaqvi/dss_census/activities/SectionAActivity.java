@@ -58,6 +58,8 @@ public class SectionAActivity extends Activity {
     RadioButton dca0403;
     @BindView(R.id.dca0404)
     RadioButton dca0404;
+    @BindView(R.id.dca0405)
+    RadioButton dca0405;
     @BindView(R.id.fldGrpdca05)
     LinearLayout fldGrpdca05;
     @BindView(R.id.textView)
@@ -476,7 +478,7 @@ public class SectionAActivity extends Activity {
                 finish();
 
                 Intent endSec = new Intent(this, EndingActivity.class);
-                endSec.putExtra("check", dca0404.isChecked() ? true : false);
+                endSec.putExtra("check", dca0404.isChecked() ? true : dca0405.isChecked() ? true : false);
                 startActivity(endSec);
 
 
@@ -1062,7 +1064,7 @@ public class SectionAActivity extends Activity {
         JSONObject sa = new JSONObject();
 
         sa.put("dca03", dca03.getText().toString());
-        sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : dca0404.isChecked() ? "4" : "0");
+        sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : dca0404.isChecked() ? "4" : dca0405.isChecked() ? "5" : "0");
         /*sa.put("dca05", dca05.getText().toString());
         sa.put("dca0501", dca050101.isChecked() ? "1" : dca050102.isChecked() ? "2" : "0");
         //sa.put("dca0502", dca050201.isChecked() ? "1" : dca050202.isChecked() ? "2" : "0");

@@ -104,6 +104,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + censusMember.TABLE_NAME + "("
             + censusMember.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + censusMember.COLUMN_PROJECT_NAME + " TEXT," +
+            censusMember.COLUMN_DEVICETAGID + " TEXT," +
             censusMember.COLUMN_REF_ID + " TEXT," +
             censusMember.COLUMN_UID + " TEXT," +
             censusMember.COLUMN_UUID + " TEXT," +
@@ -174,6 +175,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + DeceasedMember.TABLE_NAME + "("
             + DeceasedMember.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             DeceasedMember.COLUMN_PROJECT_NAME + " TEXT," +
+            DeceasedMember.COLUMN_DEVICETAGID + " TEXT," +
             DeceasedMember.COLUMN_UID + " TEXT," +
             DeceasedMember.COLUMN_UUID + " TEXT," +
             DeceasedMember.COLUMN_DATE + " TEXT," +
@@ -230,6 +232,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + singleIm.TABLE_NAME + "("
             + singleIm.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             singleIm.COLUMN_PROJECT_NAME + " TEXT," +
+            singleIm.COLUMN_DEVICETAGID + " TEXT," +
             singleIm.COLUMN_UUID + " TEXT," +
             singleIm.COLUMN_UID + " TEXT," +
             singleIm.COLUMN_SK + " TEXT," +
@@ -656,6 +659,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //values.put(singleIm.COLUMN_CHILDID, ims.getChildID());
         values.put(singleIm.COLUMN_DSSID, ims.getDssID());
         values.put(singleIm.COLUMN_DEVICEID, ims.getDeviceId());
+        values.put(singleIm.COLUMN_DEVICETAGID, ims.getDevicetagID());
 
 
         // Insert the new row, returning the primary key value of the new row
@@ -739,6 +743,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(censusMember.COLUMN_UPDATE_DT, mc.getUpdate_dt());
         values.put(censusMember.COLUMN_RSVP, mc.getRsvp());
         values.put(censusMember.COLUMN_SERIAL_NO, mc.getSerialNo());
+        values.put(censusMember.COLUMN_DEVICETAGID, mc.getDevicetagID());
 
 
         long newRowId;
@@ -775,6 +780,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(DeceasedMember.COLUMN_AGEM, dc.getAgeM());
         values.put(DeceasedMember.COLUMN_AGED, dc.getAgeD());
         values.put(DeceasedMember.COLUMN_GENDER, dc.getGender());
+        values.put(DeceasedMember.COLUMN_DEVICETAGID, dc.getDevicetagID());
         values.put(DeceasedMember.COLUMN_RELATION_HH, dc.getRelation_hh());
         values.put(DeceasedMember.COLUMN_DOD, dc.getDod());
         values.put(DeceasedMember.COLUMN_REMARKS, dc.getRemarks());
@@ -1164,6 +1170,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //                singleIm.COLUMN_CHILDID,
                 singleIm.COLUMN_MM,
                 singleIm.COLUMN_DSSID,
+                singleIm.COLUMN_DEVICETAGID,
                 singleIm.COLUMN_DEVICEID,
                 singleIm.COLUMN_ISTATUS
 
@@ -1244,6 +1251,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_UPDATE_DT,
                 censusMember.COLUMN_RSVP,
                 censusMember.COLUMN_SERIAL_NO,
+                censusMember.COLUMN_DEVICETAGID,
                 censusMember.COLUMN_REMARKS
         };
         String whereClause = censusMember.COLUMN_SYNCED + " is null";
@@ -1303,6 +1311,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 DeceasedMember.COLUMN_AGEM,
                 DeceasedMember.COLUMN_AGED,
                 DeceasedMember.COLUMN_GENDER,
+                DeceasedMember.COLUMN_DEVICETAGID,
                 DeceasedMember.COLUMN_RELATION_HH,
                 DeceasedMember.COLUMN_DOD,
                 DeceasedMember.COLUMN_REMARKS,

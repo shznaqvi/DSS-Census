@@ -28,6 +28,8 @@ public class SectionKIMContract {
     private String synced_date = "";
     private String istatus = "";
 
+    private String devicetagID = "";
+
 
     public SectionKIMContract() {
 
@@ -143,6 +145,14 @@ public class SectionKIMContract {
         this.istatus = istatus;
     }
 
+    public String getDevicetagID() {
+        return devicetagID;
+    }
+
+    public void setDevicetagID(String devicetagID) {
+        this.devicetagID = devicetagID;
+    }
+
     public SectionKIMContract Sync(JSONObject jsonObject) throws Exception {
 
         this._ID = jsonObject.getString(singleIm.COLUMN_ID);
@@ -158,6 +168,7 @@ public class SectionKIMContract {
         this.synced = jsonObject.getString(singleIm.COLUMN_SYNCED);
         this.synced_date = jsonObject.getString(singleIm.COLUMN_SYNCED_DATE);
         this.istatus = jsonObject.getString(singleIm.COLUMN_ISTATUS);
+        this.devicetagID = jsonObject.getString(singleIm.COLUMN_DEVICETAGID);
 
         return this;
 
@@ -175,6 +186,7 @@ public class SectionKIMContract {
         this.dssID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_DSSID));
         this.deviceID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_DEVICEID));
         this.istatus = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_ISTATUS));
+        this.devicetagID = cursor.getString(cursor.getColumnIndex(singleIm.COLUMN_DEVICETAGID));
 
         return this;
 
@@ -195,6 +207,7 @@ public class SectionKIMContract {
         json.put(singleIm.COLUMN_DSSID, this.dssID == null ? JSONObject.NULL : this.dssID);
         json.put(singleIm.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
         json.put(singleIm.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
+        json.put(singleIm.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
 
         return json;
     }
@@ -218,7 +231,7 @@ public class SectionKIMContract {
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
         public static final String COLUMN_ISTATUS = "istatus";
-
+        public static final String COLUMN_DEVICETAGID = "tagid";
         public static String _URL = "ims.php";
 
     }

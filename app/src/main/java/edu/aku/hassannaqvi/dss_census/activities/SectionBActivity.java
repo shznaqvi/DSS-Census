@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.text.Editable;
@@ -33,6 +34,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census.R;
 import edu.aku.hassannaqvi.dss_census.contracts.CensusContract;
+import edu.aku.hassannaqvi.dss_census.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census.core.MainApp;
@@ -1293,27 +1295,31 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
+        SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
+
         MainApp.cc = new CensusContract();
 
         MainApp.cc.set_UUID(MainApp.fc.getUID());
         MainApp.cc.setFormDate(MainApp.fc.getFormDate());
         MainApp.cc.setDeviceId(MainApp.fc.getDeviceID());
-        MainApp.cc.setDss_id_hh(MainApp.fc.getDSSID());
+        MainApp.cc.setDss_id_hh(MainApp.fc.getDSSID().toUpperCase());
         MainApp.cc.setUser(MainApp.fc.getUser());
+
+        MainApp.cc.setDevicetagID(sharedPref.getString("tagName", null));
 
         MainApp.cc.setSerialNo(String.valueOf(position + 1));
 
         if (dataFlag) {
-            MainApp.cc.setDss_id_h(MainApp.familyMembersList.get(position).getDss_id_h());
+            MainApp.cc.setDss_id_h(MainApp.familyMembersList.get(position).getDss_id_h().toUpperCase());
             MainApp.cc.setPrevs_dss_id_member(MainApp.familyMembersList.get(position).getPrevs_dss_id_member());
             MainApp.cc.setSite_code(MainApp.familyMembersList.get(position).getSite_code());
             MainApp.cc.setREF_ID(MainApp.familyMembersList.get(position).get_ID());
             MainApp.cc.set_DATE(MainApp.familyMembersList.get(position).get_DATE());
 
             MainApp.cc.setUpdate_dt(new SimpleDateFormat("dd-MM-yy").format(new Date()));
-            MainApp.cc.setDss_id_member(dcbid.getText().toString());
-            MainApp.cc.setDss_id_f(dcbbfid.getText().toString());
-            MainApp.cc.setDss_id_m(dcbbmid.getText().toString());
+            MainApp.cc.setDss_id_member(dcbid.getText().toString().toUpperCase());
+            MainApp.cc.setDss_id_f(dcbbfid.getText().toString().toUpperCase());
+            MainApp.cc.setDss_id_m(dcbbmid.getText().toString().toUpperCase());
             MainApp.cc.setUpdate_flag("true");
         }
 //        else {
@@ -1325,9 +1331,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 //            MainApp.cc.setDss_id_m(id.replaceAll("\\+",""));
 //        }
 
-        MainApp.cc.setDss_id_member(dcbid.getText().toString());
-        MainApp.cc.setDss_id_f(dcbbfid.getText().toString());
-        MainApp.cc.setDss_id_m(dcbbmid.getText().toString());
+        MainApp.cc.setDss_id_member(dcbid.getText().toString().toUpperCase());
+        MainApp.cc.setDss_id_f(dcbbfid.getText().toString().toUpperCase());
+        MainApp.cc.setDss_id_m(dcbbmid.getText().toString().toUpperCase());
 
         MainApp.cc.setName(dcba.getText().toString());
 
@@ -1363,7 +1369,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
                 : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : "0");
         MainApp.cc.setCurrent_statusX(dcbis06x.getText().toString());
-        MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        if(!dcbis01.isChecked()) {
+            MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        }
         if (dcbis05.isChecked()) {
             MainApp.cc.setDod(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         }
