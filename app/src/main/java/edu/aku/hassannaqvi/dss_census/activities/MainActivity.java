@@ -80,6 +80,7 @@ public class MainActivity extends Activity {
         // Reset working variables
         MainApp.child_name = "Test";
 
+        /*TagID Start*/
         sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
         editor = sharedPref.edit();
 
@@ -110,6 +111,8 @@ public class MainActivity extends Activity {
         if (sharedPref.getString("tagName", null) == "" || sharedPref.getString("tagName", null) == null) {
             builder.show();
         }
+        /*TagID End*/
+
 
         DatabaseHelper db = new DatabaseHelper(this);
         Collection<FormsContract> todaysForms = db.getTodayForms();
