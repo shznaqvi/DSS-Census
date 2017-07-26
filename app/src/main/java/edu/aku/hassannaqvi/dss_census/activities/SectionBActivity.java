@@ -278,19 +278,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             }
         });
 
-        /*dcbidob.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
-
-            @Override
-            public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                Log.d("Date", "Year=" + year + " Month=" + (month + 1) + " day=" + dayOfMonth);
-
-                Calendar cal = Calendar.getInstance();
-                cal.set(year, month, dayOfMonth);
-                //dcbidob.setMinDate(cal.getTime().getTime());
-            }
-        });
-*/
-
         dataFlag = getIntent().getBooleanExtra("dataFlag", false);
         position = getIntent().getExtras().getInt("position");
 
@@ -641,43 +628,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             }
         });
 
-
-//        dcbis02.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked) {
-//                    dcbidtTxt.setText(getString(R.string.dcbis02) + " " + getString(R.string.dcbidt));
-//                }
-//            }
-//        });
-//
-//        dcbis03.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked) {
-//                    dcbidtTxt.setText(getString(R.string.dcbis03) + " " + getString(R.string.dcbidt));
-//                }
-//            }
-//        });
-//
-//        dcbis04.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked) {
-//                    dcbidtTxt.setText(getString(R.string.dcbis04) + " " + getString(R.string.dcbidt));
-//                }
-//            }
-//        });
-
-//        dcbis05.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked) {
-//                    dcbidtTxt.setText(" " + getString(R.string.dcbidt1));
-//                }
-//            }
-//        });
-
         dcbis06.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -857,12 +807,10 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             if (dcbm04.isChecked()) {
                 dcbid.setText(MainApp.fc.getDSSID() + "X" + (MainApp.randID < 10 ? "0" + MainApp.randID : MainApp.randID));
                 dcbid.setEnabled(false);
-
-                scroll.setScrollY(0);
             } else {
 
-                if (dcbid.getText().toString().length() > 10) {
-                    if (dcbid.getText().toString().charAt(10) == 'X') {
+                if (dcbid.getText().toString().length() > 11) {
+                    if (dcbid.getText().toString().charAt(11) == 'X') {
                         dcbid.setText(MainApp.fc.getDSSID());
                         dcbid.setEnabled(true);
 
@@ -1037,7 +985,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                                 contFunc();
                             }
                         } else {
-                            if ((MainApp.TotalMaleCount >= MainApp.NoMaleCount) || MainApp.NoMaleCount == 0) {
+                            if ((MainApp.TotalMaleCount >= (MainApp.NoMaleCount -1)) || MainApp.NoMaleCount == 0) {
                                 MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
                             } else {
                                 contFunc();
@@ -1052,7 +1000,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                                 contFunc();
                             }
                         } else {
-                            if ((MainApp.TotalFemaleCount >= MainApp.NoFemaleCount) || MainApp.NoFemaleCount == 0) {
+                            if ((MainApp.TotalFemaleCount >= (MainApp.NoFemaleCount - 1)) || MainApp.NoFemaleCount == 0) {
                                 MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
                             } else {
                                 contFunc();
@@ -1120,7 +1068,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
             if (!dcbis03.isChecked() && !dcbis05.isChecked() && !dcbis04.isChecked()) {
 
-//                if () {
                 if (dcbm01.isChecked()) {
                     MainApp.TotalFemaleCount++;
                 } else if (dcbm02.isChecked()) {
@@ -1134,10 +1081,10 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     } else {
 
 
-                        if (MainApp.NoBoyCount > MainApp.TotalBoyCount) {
+                        /*if (MainApp.NoBoyCount > MainApp.TotalBoyCount) {
                             MainApp.totalChild--;
                             MainApp.NoBoyCount--;
-                        }
+                        }*/
 //                        MainApp.TotalBoyCount--;
 
                         MainApp.TotalMaleCount++;
@@ -1149,10 +1096,10 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                         MainApp.TotalFemaleCount++;
                     } else {
 
-                        if (MainApp.NoGirlCount > MainApp.TotalGirlCount) {
+                        /*if (MainApp.NoGirlCount > MainApp.TotalGirlCount) {
                             MainApp.totalChild--;
                             MainApp.NoGirlCount--;
-                        }
+                        }*/
 //                        MainApp.TotalGirlCount--;
 
                         MainApp.TotalFemaleCount++;
@@ -1168,10 +1115,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
 //        Check Member Flag
 
-//                if (!dataFlag) {
-//                    MainApp.memFlag++;
-//                }
-//                if (!dcbis05.isChecked()) {
                 if (!dataFlag) {
                     MainApp.currentStatusCount += 1;
 
@@ -1182,9 +1125,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                 finish();
 
-//                } else {
-//
-//                }
             } else {
 
                 if (!dataFlag) {
@@ -1213,7 +1153,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                             MainApp.currentStatusCount -= 1;
                             finish();
 
-//                            startActivity(new Intent(this, FamilyMembersActivity.class).putExtra("position", position));
                         } else {
 
                             MainApp.selectedPos = -1;
@@ -1251,20 +1190,12 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             Date date2 = cal.getTime();
             long diff = date1.getTime() - date2.getTime();
             long ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
-//
-//            if (ageInYears > 5) {
-//                return false;
-//            } else {
-//                return true;
-//            }
-//
+
             return ageInYears <= 5;
 
         } else {
             return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dcbhm.getText().toString()) == 0 &&
                     Integer.parseInt(dcbhd.getText().toString()) == 0) || Integer.parseInt(dcbhy.getText().toString()) < 5;
-
-//            return Integer.parseInt(dcbhy.getText().toString()) <= 5;
         }
     }
 
@@ -1470,7 +1401,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
         // ============== Check Equality - 1 ===================
 
-        if (dcbm01.isChecked() && dcbid.getText().length() != 11) {
+        if (dcbm01.isChecked() && dcbid.getText().length() != 12) {
             Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();
             dcbid.setError("This data is Invalid!");    // Set Error on last radio button
 
@@ -1482,7 +1413,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
         if (!dcbm01.isChecked()) {
 
-            if (dcbm04.isChecked() ? dcbid.getText().length() != 13 : dcbid.getText().length() != 12) {
+            if (dcbm04.isChecked() ? dcbid.getText().length() != 14 : dcbid.getText().length() != 13) {
                 Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();
                 dcbid.setError("This data is Invalid!");    // Set Error on last radio button
 
@@ -1553,7 +1484,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbbfid.setError(null);
                 }
 
-                if (dcbbfid.getText().length() != 12) {
+                if (dcbbfid.getText().length() != 13) {
                     Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dcbbfid), Toast.LENGTH_SHORT).show();
                     dcbbfid.setError("This data is Invalid!");    // Set Error on last radio button
 
@@ -1606,8 +1537,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
             if (dcbm03.isChecked()) {
 
-                char m = dcbbmid.getText().toString().charAt(10);
-                if (m != dcbid.getText().toString().charAt(10)) {
+                char m = dcbbmid.getText().toString().charAt(11);
+                if (m != dcbid.getText().toString().charAt(11)) {
                     Toast.makeText(this, "ERROR(Invalid): Member ID not match", Toast.LENGTH_SHORT).show();
                     dcbbmid.setError("Not match with Member ID");
 
