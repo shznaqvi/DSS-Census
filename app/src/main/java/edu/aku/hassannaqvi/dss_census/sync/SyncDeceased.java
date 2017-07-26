@@ -140,9 +140,9 @@ public class SyncDeceased extends AsyncTask<Void, Void, String> {
 
                     for (DeceasedContract fc : Deceased) {
 
-                        //if (fc.getIstatus().equals("1")) {
+                        if (fc.getIstatus().equals("")) {
                             jsonSync.put(fc.toJSONObject());
-                        //}
+                        }
 
                     }
                     wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");

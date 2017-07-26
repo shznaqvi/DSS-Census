@@ -212,10 +212,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             MotherTB.COLUMN_UID + " TEXT," +
             MotherTB.COLUMN_FORMDATE + " TEXT," +
             MotherTB.COLUMN_USER + " TEXT," +
-            MotherTB.COLUMN_CHILDID + " TEXT,"+
-            MotherTB.COLUMN_DSSID + " TEXT,"+
-            MotherTB.COLUMN_MOTHERID + " TEXT,"+
-            MotherTB.COLUMN_ISTATUS + " TEXT,"+
+            MotherTB.COLUMN_CHILDID + " TEXT," +
+            MotherTB.COLUMN_DSSID + " TEXT," +
+            MotherTB.COLUMN_MOTHERID + " TEXT," +
+            MotherTB.COLUMN_ISTATUS + " TEXT," +
             MotherTB.COLUMN_SF + " TEXT," +
             MotherTB.COLUMN_SG + " TEXT," +
             MotherTB.COLUMN_SH + " TEXT," +
@@ -536,7 +536,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return memList;
     }
 
-    public Collection<CensusContract> getChildFromMember(String dssID,String uuid) {
+    public Collection<CensusContract> getChildFromMember(String dssID, String uuid) {
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -794,7 +794,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
-
     public void updateSyncedForms(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -814,7 +813,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs);
     }
 
-    public void updateMotherCount(String memCount,String id) {
+    public void updateMotherCount(String memCount, String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
@@ -907,6 +906,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 where,
                 whereArgs);
     }
+
     public void updateMother(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -925,6 +925,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 where,
                 whereArgs);
     }
+
     public void updateIM(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -1755,6 +1756,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
         return count;
     }
+
     public int updateDeceased() {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -1772,6 +1774,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
         return count;
     }
+
     public int updateMother() {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -1789,6 +1792,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
         return count;
     }
+
     public int updateIM() {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -1806,7 +1810,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
         return count;
     }
-
 
 
 }

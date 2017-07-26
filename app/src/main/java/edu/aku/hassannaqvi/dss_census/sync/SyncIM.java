@@ -141,9 +141,9 @@ public class SyncIM extends AsyncTask<Void, Void, String> {
 
                         for (SectionKIMContract fc : IM) {
 
-                            //if (fc.getIstatus().equals("1")) {
+                            if (fc.getIstatus().equals("")) {
                             jsonSync.put(fc.toJSONObject());
-                            //}
+                            }
 
                         }
                         wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");

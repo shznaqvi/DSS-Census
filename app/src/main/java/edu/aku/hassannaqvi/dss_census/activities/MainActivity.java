@@ -38,7 +38,6 @@ import edu.aku.hassannaqvi.dss_census.sync.SyncCensus;
 import edu.aku.hassannaqvi.dss_census.sync.SyncDeceased;
 import edu.aku.hassannaqvi.dss_census.sync.SyncForms;
 import edu.aku.hassannaqvi.dss_census.sync.SyncIM;
-import edu.aku.hassannaqvi.dss_census.sync.SyncMother;
 
 public class MainActivity extends Activity {
 
@@ -146,7 +145,7 @@ public class MainActivity extends Activity {
                         default:
                             iStatus = "\tN/A";
                     }
-                }else {
+                } else {
                     iStatus = "\tN/A";
                 }
 
@@ -199,7 +198,14 @@ public class MainActivity extends Activity {
                         editor.putString("tagName", m_Text);
                         editor.commit();
 
-                        Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
+                        Intent oF;
+
+                        if (MainApp.userName.equals("0000")) {
+                            oF = new Intent(MainActivity.this, LoginActivity.class);
+                        } else {
+                            oF = new Intent(MainActivity.this, SectionAActivity.class);
+                        }
+
                         startActivity(oF);
                     }
                 }

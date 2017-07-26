@@ -108,9 +108,9 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
 //            pd.setMessage("Total Forms: " );
 
                     for (FormsContract fc : Forms) {
-                        //if (fc.getIstatus().equals("1")) {
+                        if (fc.getIstatus().equals("")) {
                         jsonSync.put(fc.toJSONObject());
-                        //}
+                        }
                     }
                     wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
                     longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");

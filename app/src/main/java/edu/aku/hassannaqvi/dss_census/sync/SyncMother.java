@@ -61,8 +61,6 @@ public class SyncMother extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
-
-        String line = "No Response";
         try {
             String url = MainApp._HOST_URL + MotherTB._URL;
             Log.d(TAG, "doInBackground: URL " + url);

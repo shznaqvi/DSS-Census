@@ -140,9 +140,9 @@ public class SyncCensus extends AsyncTask<Void, Void, String> {
 
                     for (CensusContract fc : Census) {
 
-                        //if (fc.getIstatus().equals("1")) {
+                        if (!fc.getIstatus().equals("")) {
                             jsonSync.put(fc.toJSONObject());
-                        //}
+                        }
 
                     }
                     wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
