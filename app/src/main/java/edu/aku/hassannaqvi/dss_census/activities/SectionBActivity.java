@@ -985,7 +985,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                                 contFunc();
                             }
                         } else {
-                            if ((MainApp.TotalMaleCount >= (MainApp.NoMaleCount -1)) || MainApp.NoMaleCount == 0) {
+                            if ((MainApp.TotalMaleCount > (MainApp.NoMaleCount - MainApp.NoBoyCount)) || MainApp.NoMaleCount == 0) {
                                 MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
                             } else {
                                 contFunc();
@@ -1000,7 +1000,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                                 contFunc();
                             }
                         } else {
-                            if ((MainApp.TotalFemaleCount >= (MainApp.NoFemaleCount - 1)) || MainApp.NoFemaleCount == 0) {
+                            if ((MainApp.TotalFemaleCount > (MainApp.NoFemaleCount - MainApp.NoGirlCount)) || MainApp.NoFemaleCount == 0) {
                                 MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
                             } else {
                                 contFunc();
