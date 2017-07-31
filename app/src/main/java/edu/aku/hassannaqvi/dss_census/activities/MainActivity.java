@@ -182,7 +182,7 @@ public class MainActivity extends Activity {
     }
 
     public void openForm(View v) {
-        if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null) {
+        if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null && !MainApp.userName.equals("0000")) {
             Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
             startActivity(oF);
         } else {
@@ -202,8 +202,10 @@ public class MainActivity extends Activity {
                         editor.putString("tagName", m_Text);
                         editor.commit();
 
-                        Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
-                        startActivity(oF);
+                        if (!MainApp.userName.equals("0000")) {
+                            Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
+                            startActivity(oF);
+                        }
                     }
                 }
             });
