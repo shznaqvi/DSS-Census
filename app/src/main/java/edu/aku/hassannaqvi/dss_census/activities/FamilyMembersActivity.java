@@ -164,8 +164,8 @@ public class FamilyMembersActivity extends Activity {
         if ((Integer.parseInt(totalMem.getText().toString()) - 1) > 0 && ((MainApp.NoMaleCount > MainApp.NoBoyCount)
                 && MainApp.NoMaleCount - (MainApp.TotalMaleCount - MainApp.TotalBoyCount) != MainApp.NoBoyCount)) {
             if (MainApp.NoMaleCount > 0) {
-                if (MainApp.TotalMaleCount >= MainApp.NoMaleCount) {
-                    MainApp.errorCheck(this, "You have already added:" + MainApp.NoMaleCount + " Males");
+                if (MainApp.TotalMaleCount >= MainApp.NoMaleCount || (MainApp.TotalMaleCount >= (MainApp.NoMaleCount - MainApp.NoBoyCount))) {
+                    MainApp.errorCheck(this, "Men's can't decrease.");
                 } else {
                     MainApp.NoMaleCount--;
                     countMen.setText(String.valueOf(MainApp.NoMaleCount));
@@ -199,8 +199,8 @@ public class FamilyMembersActivity extends Activity {
         if ((Integer.parseInt(totalMem.getText().toString()) - 1) > 0 && ((MainApp.NoFemaleCount > MainApp.NoGirlCount)
                 && MainApp.NoFemaleCount - (MainApp.TotalFemaleCount - MainApp.TotalGirlCount) != MainApp.NoGirlCount)) {
             if (MainApp.NoFemaleCount > 0) {
-                if (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount) {
-                    MainApp.errorCheck(this, "You have already added:" + MainApp.NoFemaleCount + " Female");
+                if (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || (MainApp.TotalFemaleCount >= (MainApp.NoFemaleCount - MainApp.NoGirlCount))) {
+                    MainApp.errorCheck(this, "Women's can't decrease.");
                 } else {
                     MainApp.NoFemaleCount--;
                     countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
