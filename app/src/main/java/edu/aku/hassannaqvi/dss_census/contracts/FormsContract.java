@@ -132,7 +132,29 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_SD, this.sD.equals("") ? JSONObject.NULL : new JSONObject(this.sD));
         json.put(FormsTable.COLUMN_SE, this.sE.equals("") ? JSONObject.NULL : new JSONObject(this.sE));
 //        json.put(FormsTable.COLUMN_SF, this.sF.equals("") ? JSONObject.NULL : new JSONObject(this.sF));
-//        json.put(FormsTable.COLUMN_SG, this.sG.equals("") ? JSONObject.NULL : new JSONObject(this.sG));
+
+//        Add this only for sG sync
+
+        if(!this.sG.equals("")){
+            JSONObject sg = new JSONObject(this.sG);
+            sg.put("dcg0701", sg.get("dca0701"));
+            sg.remove("dca0701");
+            sg.put("dcg0702", sg.get("dca0702"));
+            sg.remove("dca0702");
+            sg.put("dcg0703", sg.get("dca0703"));
+            sg.remove("dca0703");
+            sg.put("dcg0801", sg.get("dca0801"));
+            sg.remove("dca0801");
+            sg.put("dcg0802", sg.get("dca0802"));
+            sg.remove("dca0802");
+            sg.put("dcg0803", sg.get("dca0803"));
+            sg.remove("dca0803");
+
+            this.sG = String.valueOf(sg);
+
+            json.put(FormsTable.COLUMN_SG, this.sG.equals("") ? JSONObject.NULL : new JSONObject(this.sG));
+        }
+
 //        json.put(FormsTable.COLUMN_SH, this.sH.equals("") ? JSONObject.NULL : new JSONObject(this.sH));
 //        json.put(FormsTable.COLUMN_SI, this.sI.equals("") ? JSONObject.NULL : new JSONObject(this.sI));
 //        json.put(FormsTable.COLUMN_SJ, this.sJ.equals("") ? JSONObject.NULL : new JSONObject(this.sJ));

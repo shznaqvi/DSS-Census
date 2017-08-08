@@ -35,10 +35,12 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
     private static final String TAG = "SyncForms";
     private Context mContext;
     private ProgressDialog pd;
+    Boolean flag = false;
 
 
-    public SyncForms(Context context) {
+    public SyncForms(Context context,Boolean flag) {
         mContext = context;
+        this.flag = flag;
     }
 
     public static void longInfo(String str) {
@@ -63,7 +65,12 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(Void... params) {
         try {
-            String url = MainApp._HOST_URL + FormsContract.FormsTable._URL;
+            String url;
+            if(flag) {
+                url = MainApp._HOST_URL + FormsContract.FormsTable._URL;
+            }else {
+                url = MainApp._HOST_URL + "_" + FormsContract.FormsTable._URL;
+            }
             Log.d(TAG, "doInBackground: URL " + url);
             return downloadUrl(url);
         } catch (IOException e) {
@@ -75,7 +82,13 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
         String line = "No Response";
 
         DatabaseHelper db = new DatabaseHelper(mContext);
-        Collection<FormsContract> Forms = db.getUnsyncedForms();
+        Collection<FormsContract> Forms;
+        if(flag) {
+            Forms = db.getUnsyncedForms();
+        }
+        else {
+            Forms = db.getFormsSg();
+        }
         Log.d(TAG, String.valueOf(Forms.size()));
 
         if (Forms.size() > 0) {
