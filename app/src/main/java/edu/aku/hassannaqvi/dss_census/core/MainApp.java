@@ -116,6 +116,10 @@ public class MainApp extends Application {
     public static Boolean isRsvp = false;
     public static Boolean isHead = false;
 
+    public static Double gpsAccuracy = 17.0;
+    public static int timeAccuracyMin = 7;
+
+
     @Override
     public void onCreate() {
         super.onCreate();

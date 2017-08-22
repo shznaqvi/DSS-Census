@@ -12,6 +12,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputType;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -88,7 +89,7 @@ public class MainActivity extends Activity {
         builder = new AlertDialog.Builder(MainActivity.this);
         ImageView img = new ImageView(getApplicationContext());
         img.setImageResource(R.drawable.tagimg);
-        img.setPadding(0,15,0,15);
+        img.setPadding(0, 15, 0, 15);
         builder.setCustomTitle(img);
 
         final EditText input = new EditText(MainActivity.this);
@@ -153,7 +154,7 @@ public class MainActivity extends Activity {
                         default:
                             iStatus = "\tN/A";
                     }
-                }else {
+                } else {
                     iStatus = "\tN/A";
                 }
 
@@ -185,16 +186,45 @@ public class MainActivity extends Activity {
 
     }
 
+    public Boolean openFormGpsCheck() {
+
+        SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
+        try {
+            String acc = GPSPref.getString("Accuracy", "0");
+            String date = DateFormat.format("HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
+            String curdate = DateFormat.format("HH:mm", new Date()).toString();
+
+            long secs = (new Date().getTime() - Long.parseLong(GPSPref.getString("Time", "0"))) / 1000;
+            secs = secs % 3600;
+            int mins = (int) secs / 60;
+
+
+            if (Double.parseDouble(acc) > MainApp.gpsAccuracy || mins > MainApp.timeAccuracyMin) {
+                return false;
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "setGPS: " + e.getMessage());
+
+            return false;
+        }
+
+        return true;
+    }
+
     public void openForm(View v) {
         if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null && !MainApp.userName.equals("0000")) {
-            Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
-            startActivity(oF);
+            if (openFormGpsCheck()) {
+                Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
+                startActivity(oF);
+            } else {
+                Toast.makeText(getApplicationContext(), "Gps not set accurately", Toast.LENGTH_SHORT).show();
+            }
         } else {
 
             builder = new AlertDialog.Builder(MainActivity.this);
             ImageView img = new ImageView(getApplicationContext());
             img.setImageResource(R.drawable.tagimg);
-            img.setPadding(0,15,0,15);
+            img.setPadding(0, 15, 0, 15);
             builder.setCustomTitle(img);
 
             final EditText input = new EditText(MainActivity.this);
@@ -210,8 +240,12 @@ public class MainActivity extends Activity {
                         editor.commit();
 
                         if (!MainApp.userName.equals("0000")) {
-                            Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
-                            startActivity(oF);
+                            if (openFormGpsCheck()) {
+                                Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
+                                startActivity(oF);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Gps not set accurately", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 }
@@ -328,7 +362,7 @@ public class MainActivity extends Activity {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-            new SyncForms(this,false).execute();
+            new SyncForms(this, false).execute();
 
 /*            Toast.makeText(getApplicationContext(), "Syncing Census", Toast.LENGTH_SHORT).show();
             new SyncCensus(this).execute();
@@ -363,7 +397,7 @@ public class MainActivity extends Activity {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-            new SyncForms(this,true).execute();
+            new SyncForms(this, true).execute();
 
             Toast.makeText(getApplicationContext(), "Syncing Census", Toast.LENGTH_SHORT).show();
             new SyncCensus(this).execute();
