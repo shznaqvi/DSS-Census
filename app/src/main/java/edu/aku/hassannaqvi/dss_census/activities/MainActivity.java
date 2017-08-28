@@ -188,7 +188,7 @@ public class MainActivity extends Activity {
 
     public Boolean openFormGpsCheck() {
 
-        SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
+        /*SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
         try {
             String acc = GPSPref.getString("Accuracy", "0");
             String date = DateFormat.format("HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
@@ -206,7 +206,7 @@ public class MainActivity extends Activity {
             Log.e(TAG, "setGPS: " + e.getMessage());
 
             return false;
-        }
+        }*/
 
         return true;
     }
