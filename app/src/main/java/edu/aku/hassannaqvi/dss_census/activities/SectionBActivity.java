@@ -416,6 +416,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbf15.setEnabled(false);
                     dcbf15.setChecked(false);
                 } else {
+
+                    dcbm03.setEnabled(false);
+
                     dcbbrhh01.setEnabled(true);
                     dcbbrhh02.setEnabled(true);
                     dcbbrhh04.setEnabled(true);
