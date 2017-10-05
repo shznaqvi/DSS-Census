@@ -945,7 +945,7 @@ public class SectionDActivity extends Activity {
         // Radio Group
 
 
-        sD.put("dcd01", dcd0101.isChecked() ? "1" : dcd0102.isChecked() ? "2" : "0");
+        sD.put("dcd01", dcd0101.isChecked() ? "1" : dcd0102.isChecked() ? "2" : dcd0103.isChecked() ? "3" : dcd0104.isChecked() ? "4" : "0");
         sD.put("dcd02", dcd02.getText().toString());
         sD.put("dcd03y", dcd03y.getText().toString());
         sD.put("dcd03m", dcd03m.getText().toString());
