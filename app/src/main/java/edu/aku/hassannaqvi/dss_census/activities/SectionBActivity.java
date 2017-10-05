@@ -1194,11 +1194,12 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             long diff = date1.getTime() - date2.getTime();
             long ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
 
-            return ageInYears <= 5;
+            return ageInYears < 5;
 
         } else {
-            return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dcbhm.getText().toString()) == 0 &&
-                    Integer.parseInt(dcbhd.getText().toString()) == 0) || Integer.parseInt(dcbhy.getText().toString()) < 5;
+            /*return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dcbhm.getText().toString()) == 0 &&
+                    Integer.parseInt(dcbhd.getText().toString()) == 0) || Integer.parseInt(dcbhy.getText().toString()) < 5;*/
+            return Integer.parseInt(dcbhy.getText().toString()) < 5;
         }
     }
 
@@ -1416,14 +1417,16 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
         if (!dcbm01.isChecked()) {
 
-            if (dcbm04.isChecked() ? dcbid.getText().length() != 14 : dcbid.getText().length() != 13) {
-                Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();
-                dcbid.setError("This data is Invalid!");    // Set Error on last radio button
+            if (!dataFlag) {
+                if (dcbm04.isChecked() ? dcbid.getText().length() != 14 : dcbid.getText().length() != 13) {
+                    Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();
+                    dcbid.setError("This data is Invalid!");    // Set Error on last radio button
 
-                Log.i(TAG, "dcbid: This data is Invalid!");
-                return false;
-            } else {
-                dcbid.setError(null);
+                    Log.i(TAG, "dcbid: This data is Invalid!");
+                    return false;
+                } else {
+                    dcbid.setError(null);
+                }
             }
         }
 

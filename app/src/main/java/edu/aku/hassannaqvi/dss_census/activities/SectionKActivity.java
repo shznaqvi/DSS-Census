@@ -378,16 +378,20 @@ public class SectionKActivity extends Activity {
 //                return true;
 //            }
 //
-            return ageInYears <= 5;
+            return ageInYears < 5;
 
         } else {
 
             String[] dt = dob.split("-");
 
-            if ((Integer.parseInt(dt[0]) == 5 && Integer.parseInt(dt[1]) == 0 &&
+            /*if ((Integer.parseInt(dt[0]) == 5 && Integer.parseInt(dt[1]) == 0 &&
                     Integer.parseInt(dt[2]) == 0) || Integer.parseInt(dt[0]) < 5) {
                 return true;
-            }else {
+            }*/
+            if (Integer.parseInt(dt[0]) < 5) {
+                return true;
+            }
+            else {
                 return false;
             }
 
