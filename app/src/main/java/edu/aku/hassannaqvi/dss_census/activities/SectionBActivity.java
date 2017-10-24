@@ -826,7 +826,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     }
 
     public void clearFieldsOnStatus() {
-        if (!dataFlag) {
+//        if (!dataFlag) {
 //            dcbid.setText(null);
 //            dcbid.setEnabled(false);
             dcbd.clearCheck();
@@ -853,7 +853,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
             dcbbrhh01.setEnabled(true);
 
-        }
+//        }
 /*
         if (!MainApp.isRsvp) {
             rsvp.clearCheck();
@@ -1294,13 +1294,17 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 : dcbf16.isChecked() ? "16" : dcbf17.isChecked() ? "17" : dcbf96.isChecked() ? "96"
                 : dcbf88.isChecked() ? "88" : "0");
         MainApp.cc.setOccupationX(dcbf96x.getText().toString());
-        if (dcbdob01.isChecked()) {
-            MainApp.cc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dcbg.getCalendarView().getDate()));
-        } else {
-            MainApp.cc.setAgeY(dcbhy.getText().toString());
-            MainApp.cc.setAgeM(dcbhm.getText().toString());
-            MainApp.cc.setAgeD(dcbhd.getText().toString());
+
+        if(dcbis01.isChecked() || dcbis06.isChecked()) {
+            if (dcbdob01.isChecked()) {
+                MainApp.cc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dcbg.getCalendarView().getDate()));
+            } else {
+                MainApp.cc.setAgeY(dcbhy.getText().toString());
+                MainApp.cc.setAgeM(dcbhm.getText().toString());
+                MainApp.cc.setAgeD(dcbhd.getText().toString());
+            }
         }
+
         MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
                 : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : "0");
         MainApp.cc.setCurrent_statusX(dcbis06x.getText().toString());
