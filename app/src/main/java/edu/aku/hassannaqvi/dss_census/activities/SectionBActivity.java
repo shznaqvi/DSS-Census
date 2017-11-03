@@ -1280,7 +1280,12 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         MainApp.cc.setDss_id_m(dcbbmid.getText().toString());
         MainApp.cc.setM_status(dcbc01.isChecked() ? "1" : dcbc02.isChecked() ? "2" : dcbc03.isChecked() ? "3"
                 : dcbc04.isChecked() ? "4" : dcbc88.isChecked() ? "88" : "0");
-        MainApp.cc.setGender(dcbd01.isChecked() ? "1" : dcbd02.isChecked() ? "2" : "0");
+        if(dcbd01.isChecked()){
+            MainApp.cc.setGender("1");
+        }else if (dcbd02.isChecked()){
+            MainApp.cc.setGender("2");
+        }
+
         MainApp.cc.setEducation(dcbe01.isChecked() ? "1" : dcbe02.isChecked() ? "2" : dcbe03.isChecked() ? "3"
                 : dcbe04.isChecked() ? "4" : dcbe05.isChecked() ? "5" : dcbe06.isChecked() ? "6"
                 : dcbe07.isChecked() ? "7" : dcbe08.isChecked() ? "8" : dcbe96.isChecked() ? "96"
@@ -1295,7 +1300,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 : dcbf88.isChecked() ? "88" : "0");
         MainApp.cc.setOccupationX(dcbf96x.getText().toString());
 
-        if(dcbis01.isChecked() || dcbis06.isChecked()) {
+        if(dcbis01.isChecked() || dcbis02.isChecked() || dcbis06.isChecked()) {
             if (dcbdob01.isChecked()) {
                 MainApp.cc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dcbg.getCalendarView().getDate()));
             } else {

@@ -585,6 +585,17 @@ public class SectionCActivity extends Activity {
             } else {
                 dcced.setError(null);
             }
+
+            if (Integer.valueOf(dccey.getText().toString()) == 0 && Integer.valueOf(dccem.getText().toString()) == 0
+                    && Integer.valueOf(dcced.getText().toString()) == 0 ){
+                Toast.makeText(this, "ERROR(Invalid): Age", Toast.LENGTH_SHORT).show();
+                dccey.setError("This data is invalid! ");    // Set Error on last radio button
+
+                Log.i(TAG, "dccey: This data is invalid!");
+                return false;
+            } else {
+                dccey.setError(null);
+            }
         }
 
         // ============== Remarks ===================
