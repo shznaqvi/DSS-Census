@@ -834,8 +834,10 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 dcbm.clearCheck();
             }*/
             dcbbrhh.clearCheck();
-            dcbbfid.setText(null);
-            dcbbmid.setText(null);
+            if(!dataFlag) {
+                dcbbfid.setText(null);
+                dcbbmid.setText(null);
+            }
             dcbdob.clearCheck();
 
             dcbhy.setText(null);
@@ -1694,6 +1696,40 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     return false;
                 } else {
                     dcbhd.setError(null);
+                }
+
+//                Check for mw and h
+                if (dcbm01.isChecked() || dcbm02.isChecked()){
+                    if (Integer.parseInt(dcbhy.getText().toString()) < 10) {
+                        Toast.makeText(this, "ERROR(Invalid): It would be Greater then 10", Toast.LENGTH_SHORT).show();
+                        dcbhy.setError("It would be Greater then 10");    // Set Error on last radio button
+
+                        Log.i(TAG, "dcbhy: It would be Greater then 10");
+                        return false;
+                    } else {
+                        dcbhy.setError(null);
+                    }
+                }
+            }else {
+                Calendar cal2 = Calendar.getInstance();
+                cal2.set(dcbg.getYear(), dcbg.getMonth(), dcbg.getDayOfMonth());
+
+                Date crrDate = new Date();
+
+                Date dateOfBirth = cal2.getTime();
+
+                long diff = crrDate.getTime() - dateOfBirth.getTime();
+
+                Long ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
+
+                if (ageInYears < 10){
+                    Toast.makeText(this, "ERROR(Invalid): It would be Greater then 10", Toast.LENGTH_SHORT).show();
+                    dcbdob01.setError("It would be Greater then 10");    // Set Error on last radio button
+
+                    Log.i(TAG, "dcbg: It would be Greater then 10");
+                    return false;
+                } else {
+                    dcbdob01.setError(null);
                 }
             }
         }
