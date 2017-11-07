@@ -1700,7 +1700,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
 //                Check for mw and h
                 if (dcbm01.isChecked() || dcbm02.isChecked()) {
-                    if (Integer.parseInt(dcbhy.getText().toString()) < 10) {
+                    if (Integer.parseInt(dcbhy.getText().toString()) < 14) {
                         Toast.makeText(this, "ERROR(Invalid): It would be Greater then 10", Toast.LENGTH_SHORT).show();
                         dcbhy.setError("It would be Greater then 10");    // Set Error on last radio button
 
@@ -1723,7 +1723,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                     Long ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
 
-                    if (ageInYears < 10) {
+                    if (ageInYears < 14) {
                         Toast.makeText(this, "ERROR(Invalid): It would be Greater then 10", Toast.LENGTH_SHORT).show();
                         dcbdob01.setError("It would be Greater then 10");    // Set Error on last radio button
 
