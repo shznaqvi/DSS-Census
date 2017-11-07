@@ -727,7 +727,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                         dcbd02.setChecked(false);
                         dcbd02.setEnabled(false);
-                    }else {
+                    } else {
                         dcbd01.setEnabled(true);
                         dcbd02.setEnabled(true);
                     }
@@ -829,31 +829,31 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 //        if (!dataFlag) {
 //            dcbid.setText(null);
 //            dcbid.setEnabled(false);
-            dcbd.clearCheck();
+        dcbd.clearCheck();
             /*if (dcbm.getCheckedRadioButtonId() != -1) {
                 dcbm.clearCheck();
             }*/
-            dcbbrhh.clearCheck();
-            if(!dataFlag) {
-                dcbbfid.setText(null);
-                dcbbmid.setText(null);
-            }
-            dcbdob.clearCheck();
+        dcbbrhh.clearCheck();
+        if (!dataFlag) {
+            dcbbfid.setText(null);
+            dcbbmid.setText(null);
+        }
+        dcbdob.clearCheck();
 
-            dcbhy.setText(null);
-            dcbhm.setText(null);
-            dcbhd.setText(null);
+        dcbhy.setText(null);
+        dcbhm.setText(null);
+        dcbhd.setText(null);
 
-            dcbc.clearCheck();
-            dcbe.clearCheck();
-            dcbe96x.setText(null);
-            dcbf.clearCheck();
-            dcbf96x.setText(null);
+        dcbc.clearCheck();
+        dcbe.clearCheck();
+        dcbe96x.setText(null);
+        dcbf.clearCheck();
+        dcbf96x.setText(null);
 
-            rsvp.clearCheck();
-            rsvp01.setEnabled(true);
+        rsvp.clearCheck();
+        rsvp01.setEnabled(true);
 
-            dcbbrhh01.setEnabled(true);
+        dcbbrhh01.setEnabled(true);
 
 //        }
 /*
@@ -1282,9 +1282,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         MainApp.cc.setDss_id_m(dcbbmid.getText().toString());
         MainApp.cc.setM_status(dcbc01.isChecked() ? "1" : dcbc02.isChecked() ? "2" : dcbc03.isChecked() ? "3"
                 : dcbc04.isChecked() ? "4" : dcbc88.isChecked() ? "88" : "0");
-        if(dcbd01.isChecked()){
+        if (dcbd01.isChecked()) {
             MainApp.cc.setGender("1");
-        }else if (dcbd02.isChecked()){
+        } else if (dcbd02.isChecked()) {
             MainApp.cc.setGender("2");
         }
 
@@ -1302,7 +1302,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 : dcbf88.isChecked() ? "88" : "0");
         MainApp.cc.setOccupationX(dcbf96x.getText().toString());
 
-        if(dcbis01.isChecked() || dcbis02.isChecked() || dcbis06.isChecked()) {
+        if (dcbis01.isChecked() || dcbis02.isChecked() || dcbis06.isChecked()) {
             if (dcbdob01.isChecked()) {
                 MainApp.cc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dcbg.getCalendarView().getDate()));
             } else {
@@ -1315,7 +1315,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
                 : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : "0");
         MainApp.cc.setCurrent_statusX(dcbis06x.getText().toString());
-        if(!dcbis01.isChecked()) {
+        if (!dcbis01.isChecked()) {
             MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         }
         if (dcbis05.isChecked()) {
@@ -1699,7 +1699,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 }
 
 //                Check for mw and h
-                if (dcbm01.isChecked() || dcbm02.isChecked()){
+                if (dcbm01.isChecked() || dcbm02.isChecked()) {
                     if (Integer.parseInt(dcbhy.getText().toString()) < 10) {
                         Toast.makeText(this, "ERROR(Invalid): It would be Greater then 10", Toast.LENGTH_SHORT).show();
                         dcbhy.setError("It would be Greater then 10");    // Set Error on last radio button
@@ -1710,26 +1710,28 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                         dcbhy.setError(null);
                     }
                 }
-            }else {
-                Calendar cal2 = Calendar.getInstance();
-                cal2.set(dcbg.getYear(), dcbg.getMonth(), dcbg.getDayOfMonth());
+            } else {
+                if (dcbm01.isChecked() || dcbm02.isChecked()) {
+                    Calendar cal2 = Calendar.getInstance();
+                    cal2.set(dcbg.getYear(), dcbg.getMonth(), dcbg.getDayOfMonth());
 
-                Date crrDate = new Date();
+                    Date crrDate = new Date();
 
-                Date dateOfBirth = cal2.getTime();
+                    Date dateOfBirth = cal2.getTime();
 
-                long diff = crrDate.getTime() - dateOfBirth.getTime();
+                    long diff = crrDate.getTime() - dateOfBirth.getTime();
 
-                Long ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
+                    Long ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
 
-                if (ageInYears < 10){
-                    Toast.makeText(this, "ERROR(Invalid): It would be Greater then 10", Toast.LENGTH_SHORT).show();
-                    dcbdob01.setError("It would be Greater then 10");    // Set Error on last radio button
+                    if (ageInYears < 10) {
+                        Toast.makeText(this, "ERROR(Invalid): It would be Greater then 10", Toast.LENGTH_SHORT).show();
+                        dcbdob01.setError("It would be Greater then 10");    // Set Error on last radio button
 
-                    Log.i(TAG, "dcbg: It would be Greater then 10");
-                    return false;
-                } else {
-                    dcbdob01.setError(null);
+                        Log.i(TAG, "dcbg: It would be Greater then 10");
+                        return false;
+                    } else {
+                        dcbdob01.setError(null);
+                    }
                 }
             }
         }
