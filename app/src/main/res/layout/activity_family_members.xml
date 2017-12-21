@@ -4,7 +4,7 @@
     android:id="@+id/activity_family_members"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.aku.hassannaqvi.dss_census.activities.FamilyMembersActivity">
+    tools:context="edu.aku.hassannaqvi.dss_census_sur.activities.FamilyMembersActivity">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -14,7 +14,7 @@
         android:scrollbars="vertical"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        tools:context="edu.aku.hassannaqvi.dss_census.activities.FamilyMembersActivity">
+        tools:context="edu.aku.hassannaqvi.dss_census_sur.activities.FamilyMembersActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,6 +40,7 @@
             <!--android:id="@+id/lst_noMembers"/>-->
 
             <LinearLayout
+                android:visibility="gone"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -87,6 +88,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -138,6 +140,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:id="@+id/counts"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"

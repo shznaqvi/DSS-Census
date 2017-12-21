@@ -17,7 +17,7 @@ android {
         versionProps.store(versionPropsFile.newWriter(), null)
 
         defaultConfig {
-            applicationId "edu.aku.hassannaqvi.dss_census"
+            applicationId "edu.aku.hassannaqvi.dss_census_sur"
             minSdkVersion 22
             targetSdkVersion 22
 
