@@ -1,9 +1,7 @@
 package edu.aku.hassannaqvi.dss_census_sur.activities;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,8 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,7 +43,7 @@ public class SectionAActivity extends Activity {
     EditText dca03;
     @BindView(R.id.membersExists)
     LinearLayout membersExists;
-    @BindView(R.id.dca04)
+    /*@BindView(R.id.dca04)
     RadioGroup dca04;
     @BindView(R.id.dca0402)
     RadioButton dca0402;
@@ -71,12 +67,12 @@ public class SectionAActivity extends Activity {
     RadioButton dca050101;
     @BindView(R.id.dca050102)
     RadioButton dca050102;
-    /*@BindView(R.id.dca0502)
+    *//*@BindView(R.id.dca0502)
     RadioGroup dca0502;
     @BindView(R.id.dca050201)
     RadioButton dca050201;
     @BindView(R.id.dca050202)
-    RadioButton dca050202;*/
+    RadioButton dca050202;*//*
     @BindView(R.id.dca0503)
     EditText dca0503;
     @BindView(R.id.dca0504)
@@ -261,7 +257,7 @@ public class SectionAActivity extends Activity {
     RadioButton dca1101;
     @BindView(R.id.dca1102)
     RadioButton dca1102;
-
+*/
 
     @BindView(R.id.btn_Continue)
     Button btn_Continue;
@@ -269,14 +265,16 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.btn_End)
     Button btn_End;
 
-    @BindView(R.id.fldGrpdca10)
-    LinearLayout fldGrpdca10;
-
     @BindView(R.id.mp02_count)
     TextView mp02_count;
 
+    /*@BindView(R.id.fldGrpdca10)
+    LinearLayout fldGrpdca10;
+
+
+
     @BindView(R.id.checkMembers)
-    Button checkMembers;
+    Button checkMembers;*/
 
     @BindView(R.id.checkDSSID)
     Button checkDSSID;
@@ -303,6 +301,7 @@ public class SectionAActivity extends Activity {
         db = new DatabaseHelper(this);
 
         //==================== Permission Skip Check =================
+/*
 
         dca04.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -371,6 +370,7 @@ public class SectionAActivity extends Activity {
                 }
             }
         });
+*/
 
         /*// =================== If Respondent is male ===============
 
@@ -477,7 +477,7 @@ public class SectionAActivity extends Activity {
                 finish();
 
                 Intent endSec = new Intent(this, EndingActivity.class);
-                endSec.putExtra("check", dca0404.isChecked() ? true : dca0405.isChecked() ? true : false);
+                endSec.putExtra("check", false);
                 startActivity(endSec);
 
 
@@ -489,7 +489,7 @@ public class SectionAActivity extends Activity {
     }
 
 
-    @OnClick(R.id.checkMembers)
+    /*@OnClick(R.id.checkMembers)
     void onBtnCheckMemberClick() {
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -527,7 +527,7 @@ public class SectionAActivity extends Activity {
         alert.show();
 
     }
-
+*/
     @OnClick(R.id.checkDSSID)
     void onBtnDSSIDClick() {
 
@@ -578,13 +578,13 @@ public class SectionAActivity extends Activity {
 
                 finish();
 
-                MainApp.NoMembersCount = Integer.parseInt(dca0701.getText().toString());
+               /* MainApp.NoMembersCount = Integer.parseInt(dca0701.getText().toString());
                 MainApp.NoMaleCount = Integer.parseInt(dca0702.getText().toString());
                 MainApp.NoFemaleCount = Integer.parseInt(dca0703.getText().toString());
 
                 MainApp.totalChild = Integer.parseInt(dca0801.getText().toString());
                 MainApp.NoBoyCount = Integer.parseInt(dca0802.getText().toString());
-                MainApp.NoGirlCount = Integer.parseInt(dca0803.getText().toString());
+                MainApp.NoGirlCount = Integer.parseInt(dca0803.getText().toString());*/
                 MainApp.familyMembersList = new ArrayList<>();
 
                 members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
@@ -644,7 +644,7 @@ public class SectionAActivity extends Activity {
         }
 
 //        02
-        if (dca04.getCheckedRadioButtonId() == -1) {
+        /*if (dca04.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca04), Toast.LENGTH_SHORT).show();
             dca0402.setError("This data is Required!");    // Set Error on last radio button
 
@@ -656,7 +656,7 @@ public class SectionAActivity extends Activity {
 
 //        03
         if (dca0401.isChecked()) {
- /*           if (dca05.getText().toString().isEmpty()) {
+ *//*           if (dca05.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca05), Toast.LENGTH_SHORT).show();
                 dca05.setError("This data is Required!");    // Set Error on last radio button
                 return false;
@@ -676,7 +676,7 @@ public class SectionAActivity extends Activity {
             }
 
 //        05
-            *//*if (dca0502.getCheckedRadioButtonId() == -1) {
+            *//**//*if (dca0502.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca0502), Toast.LENGTH_SHORT).show();
                 dca050202.setError("This data is Required!");    // Set Error on last radio button
 
@@ -684,7 +684,7 @@ public class SectionAActivity extends Activity {
                 return false;
             } else {
                 dca050202.setError(null);
-            }*//*
+            }*//**//*
 
 //        06
             if (dca0503.getText().toString().isEmpty()) {
@@ -828,7 +828,7 @@ public class SectionAActivity extends Activity {
                 return false;
             } else {
                 dca060496x.setError(null);
-            }*/
+            }*//*
 
 //        13
             if (dca0701.getText().toString().isEmpty()) {
@@ -1040,7 +1040,7 @@ public class SectionAActivity extends Activity {
             } else {
                 dca1102.setError(null);
             }
-        }
+        }*/
 
         return true;
     }
@@ -1064,7 +1064,7 @@ public class SectionAActivity extends Activity {
         JSONObject sa = new JSONObject();
 
         sa.put("dca03", dca03.getText().toString());
-        sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : dca0404.isChecked() ? "4" : dca0405.isChecked() ? "5" : "0");
+        //sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : dca0404.isChecked() ? "4" : dca0405.isChecked() ? "5" : "0");
         /*sa.put("dca05", dca05.getText().toString());
         sa.put("dca0501", dca050101.isChecked() ? "1" : dca050102.isChecked() ? "2" : "0");
         //sa.put("dca0502", dca050201.isChecked() ? "1" : dca050202.isChecked() ? "2" : "0");
@@ -1098,7 +1098,7 @@ public class SectionAActivity extends Activity {
                 : dca060416.isChecked() ? "16" : dca060417.isChecked() ? "17" : dca060488.isChecked() ? "88"
                 : dca060496.isChecked() ? "96" : "0");
         sa.put("dca060496x", dca060496x.getText().toString());*/
-        sa.put("dca0701", dca0701.getText().toString());
+        /*sa.put("dca0701", dca0701.getText().toString());
         sa.put("dca0702", dca0702.getText().toString());
         sa.put("dca0703", dca0703.getText().toString());
         sa.put("dca0801", dca0801.getText().toString());
@@ -1110,7 +1110,7 @@ public class SectionAActivity extends Activity {
         sa.put("dca10a", dca10a.getText().toString());
         sa.put("dca10b", dca10b.getText().toString());
         sa.put("dca11", dca1101.isChecked() ? "1" : dca1102.isChecked() ? "2" : "0");
-
+*/
         /*if (!dca0801.getText().toString().isEmpty()) {
             MainApp.totalChild = Integer.parseInt(dca0801.getText().toString());
         }*/
