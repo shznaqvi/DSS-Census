@@ -126,13 +126,8 @@ public class FamilyMembersActivity extends Activity {
                                 for (int item : MainApp.memClicked) {
                                     recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
                                 }
-                                /*Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
-                                i.putExtra("dataFlag", true);
-                                i.putExtra("position", position);
 
-                                startActivity(i);*/
-
-                                startActivity(new Intent(getApplicationContext(),SectionBNewActivity.class));
+                                startActivity(new Intent(getApplicationContext(),SectionBNewActivity.class).putExtra("dataFlag", true).putExtra("position", position));
 
                             }
                         }
