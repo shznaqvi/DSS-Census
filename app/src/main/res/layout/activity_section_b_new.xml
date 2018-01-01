@@ -9,9 +9,9 @@
         android:id="@+id/scrollView01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="horizontal"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:scrollbars="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,21 +34,22 @@
                 android:layout_height="2dp"
                 android:background="@color/colorPrimary" />
 
-            <!--            <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:background="@color/colorPrimary"
-                            android:text="@string/dcba"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:textColor="@android:color/white" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/dcba"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
 
-                        <EditText
-                            android:id="@+id/dcba"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                            android:inputType="textCapWords" />-->
+            <EditText
+                android:id="@+id/dcba"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:inputType="textCapWords"
+                android:enabled="false"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -136,14 +137,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/dcbis01" />
+                    android:text="@string/dcbis07" />
 
                 <RadioButton
                     android:id="@+id/dcbis02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/dcbis02" />
+                    android:text="@string/dcbis08" />
 
                 <RadioButton
                     android:id="@+id/dcbis03"
@@ -157,7 +158,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/dcbis04" />
+                    android:text="@string/dcbis04"
+                    android:visibility="gone" />
 
                 <RadioButton
                     android:id="@+id/dcbis05"
@@ -171,7 +173,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/dcother" />
+                    android:text="@string/dcother"
+                    android:visibility="gone" />
 
             </RadioGroup>
 

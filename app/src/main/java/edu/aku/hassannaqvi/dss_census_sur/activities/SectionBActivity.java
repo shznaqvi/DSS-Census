@@ -3,7 +3,6 @@ package edu.aku.hassannaqvi.dss_census_sur.activities;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -44,8 +43,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
     @BindView(R.id.scrollView01)
     ScrollView scroll;
-    /*@BindView(R.id.dcba)
-    EditText dcba;*/
+    @BindView(R.id.dcba)
+    EditText dcba;
     @BindView(R.id.dcbid)
     EditText dcbid;
     /*@BindView(R.id.dcbbrhh)
@@ -283,149 +282,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
         MainApp.selectedPos = position;
 
-        if (dataFlag) {
-
-            MainApp.memFlag++;
-
-//            dcba.setText(MainApp.familyMembersList.get(position).getName());
-
-            dcbid.setText(MainApp.familyMembersList.get(position).getDss_id_member());
-            Log.d(TAG, "onCreate: " + MainApp.familyMembersList.get(position).getDss_id_member());
-            dcbid.setEnabled(false);
-
-            /*dcbbfid.setText(MainApp.familyMembersList.get(position).getDss_id_f());
-            dcbbmid.setText(MainApp.familyMembersList.get(position).getDss_id_m());
-
-            if (!MainApp.familyMembersList.get(position).getM_status().contains("null")) {
-
-                dcbc.check(MainApp.familyMembersList.get(position).getM_status() == "1" ? dcbc01.getId()
-                        : MainApp.familyMembersList.get(position).getM_status() == "2" ? dcbc02.getId()
-                        : MainApp.familyMembersList.get(position).getM_status() == "3" ? dcbc03.getId()
-                        : MainApp.familyMembersList.get(position).getM_status() == "4" ? dcbc04.getId()
-                        : dcbc88.getId()
-                );
-            }*/
-
-            if (!MainApp.familyMembersList.get(position).getGender().contains("null")) {
-
-//                dcbd.check(MainApp.familyMembersList.get(position).getGender().equals("1") ? dcbd01.getId() : dcbd02.getId());
-
-                if (MainApp.familyMembersList.get(position).getGender().equals("1")) {
-                   /* dcbd02.setEnabled(false);
-                    dcbd01.setEnabled(true);
-
-                    dcbf09.setEnabled(false);
-                    dcbf09.setChecked(false);*/
-
-                    dcbm01.setEnabled(false);
-                    dcbm01.setChecked(false);
-
-                    dcbm02.setEnabled(true);
-
-                } else {
-                   /* dcbd01.setEnabled(false);
-                    dcbd02.setEnabled(true);
-
-                    dcbf09.setEnabled(true);*/
-                    dcbm01.setEnabled(true);
-
-                    dcbm02.setEnabled(false);
-                    dcbm02.setChecked(false);
-                }
-            }
-
-/*            if (!MainApp.familyMembersList.get(position).getEducation().contains("null")) {
-
-                dcbe.check(MainApp.familyMembersList.get(position).getEducation() == "1" ? dcbe01.getId()
-                        : MainApp.familyMembersList.get(position).getEducation() == "2" ? dcbe02.getId()
-                        : MainApp.familyMembersList.get(position).getEducation() == "3" ? dcbe03.getId()
-                        : MainApp.familyMembersList.get(position).getEducation() == "4" ? dcbe04.getId()
-                        : dcbe88.getId());
-
-            }
-            if (!MainApp.familyMembersList.get(position).getOccupation().contains("null")) {
-                ((RadioButton) dcbf.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getOccupation())) - 1)).setChecked(true);
-            }*/
-
-            if (!MainApp.familyMembersList.get(position).getCurrent_status().contains("null")) {
-                ((RadioButton) dcbis.getChildAt((Integer.parseInt(MainApp.familyMembersList.get(position).getCurrent_status())) - 1)).setChecked(true);
-            }
-            if (!MainApp.familyMembersList.get(position).getMember_type().contains("null")) {
-
-                String mt = MainApp.familyMembersList.get(position).getMember_type();
-                dcbm.check(mt.equals("mw") ? dcbm01.getId() : mt.equals("h") ? dcbm02.getId() : dcbm03.getId());
-
-                if (mt.equals("ch")) {
-
-                    /*dcbbrhh01.setEnabled(false);
-                    dcbbrhh01.setChecked(false);
-
-                    dcbbrhh02.setEnabled(false);
-                    dcbbrhh02.setChecked(false);
-
-                    dcbbrhh04.setEnabled(false);
-                    dcbbrhh04.setChecked(false);
-
-                    dcbbrhh06.setEnabled(false);
-                    dcbbrhh06.setChecked(false);
-
-                    dcbbrhh07.setEnabled(false);
-                    dcbbrhh07.setChecked(false);
-
-                    dcbc01.setEnabled(false);
-                    dcbc01.setChecked(false);
-                    dcbc02.setEnabled(false);
-                    dcbc02.setChecked(false);
-                    dcbc03.setEnabled(false);
-                    dcbc03.setChecked(false);
-                    dcbe07.setEnabled(false);
-                    dcbe07.setChecked(false);
-
-                    dcbf01.setEnabled(false);
-                    dcbf01.setChecked(false);
-                    dcbf02.setEnabled(false);
-                    dcbf02.setChecked(false);
-                    dcbf06.setEnabled(false);
-                    dcbf06.setChecked(false);
-                    dcbf07.setEnabled(false);
-                    dcbf07.setChecked(false);
-                    dcbf12.setEnabled(false);
-                    dcbf12.setChecked(false);
-                    dcbf13.setEnabled(false);
-                    dcbf13.setChecked(false);
-                    dcbf15.setEnabled(false);
-                    dcbf15.setChecked(false);*/
-                } else {
-
-                    dcbm03.setEnabled(false);
-
-                    /*dcbbrhh01.setEnabled(true);
-                    dcbbrhh02.setEnabled(true);
-                    dcbbrhh04.setEnabled(true);
-                    dcbbrhh06.setEnabled(true);
-                    dcbbrhh07.setEnabled(true);
-
-                    dcbc01.setEnabled(true);
-                    dcbc02.setEnabled(true);
-                    dcbc03.setEnabled(true);
-                    dcbe07.setEnabled(true);
-                    dcbf01.setEnabled(true);
-                    dcbf02.setEnabled(true);
-                    dcbf06.setEnabled(true);
-                    dcbf07.setEnabled(true);
-                    dcbf12.setEnabled(true);
-                    dcbf13.setEnabled(true);
-                    dcbf15.setEnabled(true);*/
-                }
-            }
-
-          /*  dcbbfid.setEnabled(false);
-            dcbbmid.setEnabled(false);*/
-
-        } else {
-
-            MainApp.memFlag++;
-            dcbid.setEnabled(true);
+        dcbid.setEnabled(true);
 
             /*dcba.setEnabled(true);
             dcbbfid.setEnabled(false);
@@ -433,20 +290,19 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             dcbbfid.setText("null");
             dcbbmid.setText("null");*/
 
-            dcbid.setText(MainApp.fc.getDSSID());
+        dcbid.setText(MainApp.fc.getDSSID());
 
-            dcbid.setOnKeyListener(SectionBActivity.this);
-            dcbid.addTextChangedListener(SectionBActivity.this);
+        dcbid.setOnKeyListener(SectionBActivity.this);
+        dcbid.addTextChangedListener(SectionBActivity.this);
             /*dcbbfid.setOnKeyListener(SectionBActivity.this);
             dcbbfid.addTextChangedListener(SectionBActivity.this);
             dcbbmid.setOnKeyListener(SectionBActivity.this);
             dcbbmid.addTextChangedListener(SectionBActivity.this);*/
 
-            dcbid.setInputType(InputType.TYPE_CLASS_NUMBER);
+        dcbid.setInputType(InputType.TYPE_CLASS_NUMBER);
             /*dcbbfid.setInputType(InputType.TYPE_CLASS_NUMBER);
             dcbbmid.setInputType(InputType.TYPE_CLASS_NUMBER);*/
 
-        }
 
         // ====================== Education Level Others ================
         /*dcbe.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -724,6 +580,13 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 }
             }
         });
+
+        /*Visibility gone*/
+        dcbis03.setVisibility(View.GONE);
+        dcbis04.setVisibility(View.GONE);
+        dcbis05.setVisibility(View.GONE);
+        dcbis06.setVisibility(View.GONE);
+
     }
 
     private void memberTypeOtherFun() {
@@ -775,7 +638,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         dcbbrhh01.setEnabled(true);*/
 
     }
-
 
     @Override
     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -864,7 +726,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         MainApp.finishActivity(this, this);
     }
 
-
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
@@ -936,7 +797,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                         contFunc();
                     }
                 } else {*/
-                    contFunc();
+                contFunc();
 //                }
             } else {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
@@ -977,10 +838,18 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
             MainApp.insertMem.add(dcbid.getText().toString());
 
+            if (dcbm04.isChecked()) {
+                MainApp.randID += 1;
+            }
+            MainApp.selectedPos = -1;
 
-            if (!dcbis03.isChecked() && !dcbis05.isChecked() && !dcbis04.isChecked()) {
+            MainApp.memFlag++;
+            MainApp.currentStatusCount -= 1;
+            finish();
 
-                /*if (dcbm01.isChecked()) {
+            /*if (!dcbis03.isChecked() && !dcbis05.isChecked() && !dcbis04.isChecked()) {
+
+                *//*if (dcbm01.isChecked()) {
                     MainApp.TotalFemaleCount++;
                 } else if (dcbm02.isChecked()) {
                     MainApp.TotalMaleCount++;
@@ -1001,7 +870,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     MainApp.TotalMaleCount++;
                 } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
                     MainApp.TotalFemaleCount++;
-                }*/
+                }*//*
 
                 MainApp.selectedPos = -1;
 
@@ -1045,14 +914,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                             MainApp.currentStatusCount -= 1;
                             finish();
 
-                        } else {
-
-                            MainApp.selectedPos = -1;
-                            MainApp.currentStatusCount -= 1;
-
-                            finish();
-                            startActivity(new Intent(this, SectionCActivity.class).putExtra("position", position).
-                                    putExtra("dataFlag", dataFlag));
                         }
                     }
                 } else {
@@ -1061,7 +922,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     MainApp.currentStatusCount -= 1;
                     finish();
                 }
-            }
+            }*/
 
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -1103,11 +964,9 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
                     (MainApp.cc.getDeviceId() + MainApp.cc.get_ID()));
             db.updateCensusID();
 
-            if (dataFlag) {
-                MainApp.familyMembersList.set(position, new MembersContract(setDataForList(MainApp.cc)));
-            } else {
-                MainApp.familyMembersList.add(new MembersContract(setDataForList(MainApp.cc)));
-            }
+
+            MainApp.familyMembersList.add(new MembersContract(setDataForList(MainApp.cc)));
+
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -1132,25 +991,10 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         MainApp.cc.setSerialNo(String.valueOf(position + 1));
 
-        if (dataFlag) {
-            MainApp.cc.setDss_id_h(MainApp.familyMembersList.get(position).getDss_id_h().toUpperCase());
-            MainApp.cc.setPrevs_dss_id_member(MainApp.familyMembersList.get(position).getPrevs_dss_id_member());
-            MainApp.cc.setSite_code(MainApp.familyMembersList.get(position).getSite_code());
-            MainApp.cc.setREF_ID(MainApp.familyMembersList.get(position).get_ID());
-            MainApp.cc.set_DATE(MainApp.familyMembersList.get(position).get_DATE());
-
-            MainApp.cc.setUpdate_dt(new SimpleDateFormat("dd-MM-yy").format(new Date()));
-            MainApp.cc.setDss_id_member(dcbid.getText().toString().toUpperCase());
-            /*MainApp.cc.setDss_id_f(dcbbfid.getText().toString().toUpperCase());
-            MainApp.cc.setDss_id_m(dcbbmid.getText().toString().toUpperCase());*/
-            MainApp.cc.setUpdate_flag("true");
-        }
-
         MainApp.cc.setDss_id_member(dcbid.getText().toString().toUpperCase());
+        MainApp.cc.setName(dcba.getText().toString());
         /*MainApp.cc.setDss_id_f(dcbbfid.getText().toString().toUpperCase());
         MainApp.cc.setDss_id_m(dcbbmid.getText().toString().toUpperCase());
-
-        MainApp.cc.setName(dcba.getText().toString());
 
         MainApp.cc.setRelation_hh(dcbbrhh01.isChecked() ? "1" : dcbbrhh02.isChecked() ? "2" : dcbbrhh03.isChecked() ? "3"
                 : dcbbrhh04.isChecked() ? "4" : dcbbrhh05.isChecked() ? "5" : dcbbrhh06.isChecked() ? "6"
@@ -1256,7 +1100,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         // ====================== Name ==============
 
-        /*if (dcba.getText().toString().isEmpty()) {
+        if (dcba.getText().toString().isEmpty()) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcba), Toast.LENGTH_SHORT).show();
             dcba.setError("This data is Required!");    // Set Error on last radio button
 
@@ -1264,7 +1108,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             return false;
         } else {
             dcba.setError(null);
-        }*/
+        }
 
         // ============== Members Status ===================
 
@@ -1323,12 +1167,12 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         if (dcbis.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis), Toast.LENGTH_SHORT).show();
-            dcbis06.setError("This data is Required!");    // Set Error on last radio button
+            dcbis02.setError("This data is Required!");    // Set Error on last radio button
 
             Log.i(TAG, "dcbis: This data is Required!");
             return false;
         } else {
-            dcbis06.setError(null);
+            dcbis02.setError(null);
         }
 
         // ================= Other Status ===========

@@ -35,7 +35,7 @@
                 android:layout_height="2dp"
                 android:background="@color/colorPrimary" />
 
-<!--            <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                android:inputType="textCapWords" />-->
+                android:inputType="textCapWords" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -151,28 +151,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/dcbis03" />
+                    android:text="@string/dcbis03"
+                    android:visibility="gone"/>
 
                 <RadioButton
                     android:id="@+id/dcbis04"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/dcbis04" />
+                    android:text="@string/dcbis04"
+                    android:visibility="gone"/>
 
                 <RadioButton
                     android:id="@+id/dcbis05"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/dcbis05" />
+                    android:text="@string/dcbis05"
+                    android:visibility="gone"/>
 
                 <RadioButton
                     android:id="@+id/dcbis06"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/dcother" />
+                    android:text="@string/dcother"
+                    android:visibility="gone"/>
 
             </RadioGroup>
 

@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +45,7 @@ public class SectionAActivity extends Activity {
     EditText dca03;
     @BindView(R.id.membersExists)
     LinearLayout membersExists;
-    /*@BindView(R.id.dca04)
+    @BindView(R.id.dca04)
     RadioGroup dca04;
     @BindView(R.id.dca0402)
     RadioButton dca0402;
@@ -55,7 +57,7 @@ public class SectionAActivity extends Activity {
     RadioButton dca0404;
     @BindView(R.id.dca0405)
     RadioButton dca0405;
-    @BindView(R.id.fldGrpdca05)
+    /*@BindView(R.id.fldGrpdca05)
     LinearLayout fldGrpdca05;
     @BindView(R.id.textView)
     TextView textView;
@@ -301,18 +303,18 @@ public class SectionAActivity extends Activity {
         db = new DatabaseHelper(this);
 
         //==================== Permission Skip Check =================
-/*
+
 
         dca04.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (dca0401.isChecked()) {
-                    fldGrpdca05.setVisibility(View.VISIBLE);
+//                    fldGrpdca05.setVisibility(View.VISIBLE);
 
                     btn_Continue.setEnabled(true);
                     btn_End.setEnabled(false);
                 } else {
-                    fldGrpdca05.setVisibility(View.GONE);
+                    /*fldGrpdca05.setVisibility(View.GONE);
 
                     dca05.setText(null);
                     dca0501.clearCheck();
@@ -340,14 +342,14 @@ public class SectionAActivity extends Activity {
                     dca09y.setText(null);
                     dca10a.setText(null);
                     dca10b.setText(null);
-                    dca11.clearCheck();
+                    dca11.clearCheck();*/
 
                     btn_Continue.setEnabled(false);
                     btn_End.setEnabled(true);
                 }
             }
         });
-
+/*
         dca09.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -644,7 +646,7 @@ public class SectionAActivity extends Activity {
         }
 
 //        02
-        /*if (dca04.getCheckedRadioButtonId() == -1) {
+        if (dca04.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca04), Toast.LENGTH_SHORT).show();
             dca0402.setError("This data is Required!");    // Set Error on last radio button
 
@@ -653,7 +655,7 @@ public class SectionAActivity extends Activity {
         } else {
             dca0402.setError(null);
         }
-
+/*
 //        03
         if (dca0401.isChecked()) {
  *//*           if (dca05.getText().toString().isEmpty()) {
@@ -1064,7 +1066,7 @@ public class SectionAActivity extends Activity {
         JSONObject sa = new JSONObject();
 
         sa.put("dca03", dca03.getText().toString());
-        //sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : dca0404.isChecked() ? "4" : dca0405.isChecked() ? "5" : "0");
+        sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : dca0404.isChecked() ? "4" : dca0405.isChecked() ? "5" : "0");
         /*sa.put("dca05", dca05.getText().toString());
         sa.put("dca0501", dca050101.isChecked() ? "1" : dca050102.isChecked() ? "2" : "0");
         //sa.put("dca0502", dca050201.isChecked() ? "1" : dca050202.isChecked() ? "2" : "0");
