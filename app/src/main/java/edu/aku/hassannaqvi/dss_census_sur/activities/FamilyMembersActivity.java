@@ -126,13 +126,8 @@ public class FamilyMembersActivity extends Activity {
                                 for (int item : MainApp.memClicked) {
                                     recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
                                 }
-                                /*Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
-                                i.putExtra("dataFlag", true);
-                                i.putExtra("position", position);
 
-                                startActivity(i);*/
-
-                                startActivity(new Intent(getApplicationContext(),SectionBNewActivity.class));
+                                startActivity(new Intent(getApplicationContext(),SectionBNewActivity.class).putExtra("dataFlag", true).putExtra("position", position));
 
                             }
                         }
@@ -399,6 +394,7 @@ public class FamilyMembersActivity extends Activity {
         Toast.makeText(this, "Mem flag:" + MainApp.memFlag, Toast.LENGTH_SHORT).show();
 
 //        Set Enable for Next Section
+        if (MainApp.currentStatusCount == 0) {
         /*if (MainApp.familyMembersList.size() == MainApp.memFlag) {
             if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
                 btn_Continue.setEnabled(false);
@@ -406,14 +402,15 @@ public class FamilyMembersActivity extends Activity {
             } else {
                 btn_Continue.setEnabled(true);
                 btn_addMember.setEnabled(false);
-            }
+            }*/
+
+            btn_Continue.setEnabled(true);
+            btn_addMember.setEnabled(false);
+
         } else {
             btn_Continue.setEnabled(false);
             btn_addMember.setEnabled(false);
-        }*/
-
-        btn_Continue.setEnabled(true);
-        btn_addMember.setEnabled(true);
+        }
     }
 
     @Override
@@ -487,8 +484,9 @@ public class FamilyMembersActivity extends Activity {
             holder.DSSidm.setText(familyMembers.getDss_id_member());
             holder.memberType.setText(familyMembers.getMember_type().equals("mw") ? "(Married Women)" : familyMembers.getMember_type().equals("h") ? "(Husband)" :
                     (familyMembers.getMember_type().equals("c") || familyMembers.getMember_type().equals("ch")) ? "(Child)" : "(Other)");
-            holder.currentStatus.setText(setStatus(familyMembers.getCurrent_status()));
-            holder.year.setText(familyMembers.getAge().equals("y m d") ? familyMembers.getDob() : familyMembers.getAge());
+//            holder.currentStatus.setText(setStatus(familyMembers.getCurrent_status()));
+//            holder.year.setText(familyMembers.getAge().equals("y m d") ? familyMembers.getDob() : familyMembers.getAge());
+            holder.year.setText(familyMembers.getCurrent_date());
         }
 
 
@@ -496,10 +494,10 @@ public class FamilyMembersActivity extends Activity {
             String st = "";
             switch (i) {
                 case "1":
-                    st = getString(R.string.dcbis01);
+                    st = getString(R.string.dcbis07);
                     break;
                 case "2":
-                    st = getString(R.string.dcbis02);
+                    st = getString(R.string.dcbis08);
                     break;
                 case "3":
                     st = getString(R.string.dcbis03);
