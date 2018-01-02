@@ -331,7 +331,8 @@ public class FamilyMembersActivity extends Activity {
         MainApp.memClicked.clear();
         MainApp.insertMem.clear();
 
-        startActivity(new Intent(this, SectionDActivity.class));
+//        startActivity(new Intent(this, SectionDActivity.class));
+        startActivity(new Intent(this, EndingActivity.class).putExtra("check",true));
 
     }
 
@@ -378,12 +379,12 @@ public class FamilyMembersActivity extends Activity {
             }
         }
 
-        countBoy.setText(String.valueOf(MainApp.NoBoyCount));
+        /*countBoy.setText(String.valueOf(MainApp.NoBoyCount));
         countMen.setText(String.valueOf(MainApp.NoMaleCount));
         countGirl.setText(String.valueOf(MainApp.NoGirlCount));
         countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
         totalMem.setText(String.valueOf(MainApp.NoMembersCount));
-        totalChild.setText(String.valueOf(MainApp.totalChild));
+        totalChild.setText(String.valueOf(MainApp.totalChild));*/
 
         resumeWork();
     }
@@ -394,7 +395,7 @@ public class FamilyMembersActivity extends Activity {
         Toast.makeText(this, "Mem flag:" + MainApp.memFlag, Toast.LENGTH_SHORT).show();
 
 //        Set Enable for Next Section
-        if (MainApp.currentStatusCount == 0) {
+
         /*if (MainApp.familyMembersList.size() == MainApp.memFlag) {
             if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
                 btn_Continue.setEnabled(false);
@@ -402,15 +403,19 @@ public class FamilyMembersActivity extends Activity {
             } else {
                 btn_Continue.setEnabled(true);
                 btn_addMember.setEnabled(false);
-            }*/
+            }
 
             btn_Continue.setEnabled(true);
-            btn_addMember.setEnabled(false);
+            btn_addMember.setEnabled(true);
 
         } else {
             btn_Continue.setEnabled(false);
             btn_addMember.setEnabled(false);
-        }
+        }*/
+
+        btn_Continue.setEnabled(true);
+        btn_addMember.setEnabled(true);
+
     }
 
     @Override

@@ -1065,6 +1065,7 @@ public class SectionAActivity extends Activity {
 
         JSONObject sa = new JSONObject();
 
+        sa.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
         sa.put("dca03", dca03.getText().toString());
         sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : dca0404.isChecked() ? "4" : dca0405.isChecked() ? "5" : "0");
         /*sa.put("dca05", dca05.getText().toString());

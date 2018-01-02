@@ -858,7 +858,7 @@ public class SectionBNewActivity extends Activity {
 
             MainApp.memFlag++;
 
-            if (!dcbis03.isChecked() && !dcbis05.isChecked() && !dcbis04.isChecked()) {
+            if (!dcbis03.isChecked() && !dcbis05.isChecked()) {
 
                 /*if (dcbm01.isChecked()) {
                     MainApp.TotalFemaleCount++;
@@ -884,13 +884,13 @@ public class SectionBNewActivity extends Activity {
                 }*/
 
                 MainApp.selectedPos = -1;
+                MainApp.currentStatusCount -= 1;
 
                 finish();
 
             } else {
 
                 if (dcbis05.isChecked()) {
-                    if (MainApp.NoMembersCount != 0) {
 
                         Long dt = new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY);
                         Long crDt = dcbidob.getCalendarView().getDate();
@@ -915,7 +915,6 @@ public class SectionBNewActivity extends Activity {
                             finish();
 //                            startActivity(new Intent(this, SectionCActivity.class).putExtra("position", position));
                         }
-                    }
                 } else {
                     MainApp.selectedPos = -1;
 

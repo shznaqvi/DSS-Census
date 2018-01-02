@@ -118,6 +118,8 @@ public class MainApp extends Application {
     public static Double gpsAccuracy = 17.0;
     public static int timeAccuracyMin = 7;
 
+    public static int versionCode;
+    public static String versionName;
 
     @Override
     public void onCreate() {
