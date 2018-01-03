@@ -525,35 +525,35 @@ public class CensusContract {
         json.put(censusMember.COLUMN_DEVICEID, this.deviceId == null ? JSONObject.NULL : this.deviceId);
         json.put(censusMember.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
         json.put(censusMember.COLUMN_DSS_ID_HH, this.dss_id_hh == null ? JSONObject.NULL : this.dss_id_hh);
-        json.put(censusMember.COLUMN_DSS_ID_F, this.dss_id_f == null ? JSONObject.NULL : this.dss_id_f);
+       /* json.put(censusMember.COLUMN_DSS_ID_F, this.dss_id_f == null ? JSONObject.NULL : this.dss_id_f);
         json.put(censusMember.COLUMN_DSS_ID_M, this.dss_id_m == null ? JSONObject.NULL : this.dss_id_m);
-        json.put(censusMember.COLUMN_DSS_ID_H, this.dss_id_h == null ? JSONObject.NULL : this.dss_id_h);
+        json.put(censusMember.COLUMN_DSS_ID_H, this.dss_id_h == null ? JSONObject.NULL : this.dss_id_h);*/
         json.put(censusMember.COLUMN_DSS_ID_MEMBER, this.dss_id_member == null ? JSONObject.NULL : this.dss_id_member);
         json.put(censusMember.COLUMN_PREVS_DSS_ID_MEMBER, this.prevs_dss_id_member == null ? JSONObject.NULL : this.prevs_dss_id_member);
         json.put(censusMember.COLUMN_SITE_CODE, this.site_code == null ? JSONObject.NULL : this.site_code);
         json.put(censusMember.COLUMN_NAME, this.name == null ? JSONObject.NULL : this.name);
-        json.put(censusMember.COLUMN_DOB, this.dob == null ? JSONObject.NULL : this.dob);
+        /*json.put(censusMember.COLUMN_DOB, this.dob == null ? JSONObject.NULL : this.dob);
         json.put(censusMember.COLUMN_AGEY, this.ageY == null ? JSONObject.NULL : this.ageY);
         json.put(censusMember.COLUMN_AGEM, this.ageM == null ? JSONObject.NULL : this.ageM);
         json.put(censusMember.COLUMN_AGED, this.ageD == null ? JSONObject.NULL : this.ageD);
         json.put(censusMember.COLUMN_GENDER, this.gender == null ? JSONObject.NULL : this.gender);
         json.put(censusMember.COLUMN_IS_HEAD, this.is_head == null ? JSONObject.NULL : this.is_head);
-        json.put(censusMember.COLUMN_RELATION_HH, this.relation_hh == null ? JSONObject.NULL : this.relation_hh);
+        json.put(censusMember.COLUMN_RELATION_HH, this.relation_hh == null ? JSONObject.NULL : this.relation_hh);*/
         json.put(censusMember.COLUMN_CURRENT_STATUS, this.current_status == null ? JSONObject.NULL : this.current_status);
-        json.put(censusMember.COLUMN_CURRENT_STATUSX, this.current_statusX == null ? JSONObject.NULL : this.current_statusX);
+//        json.put(censusMember.COLUMN_CURRENT_STATUSX, this.current_statusX == null ? JSONObject.NULL : this.current_statusX);
         json.put(censusMember.COLUMN_CURRENT_DATE, this.current_date == null ? JSONObject.NULL : this.current_date);
         json.put(censusMember.COLUMN_DOD, this.dod == null ? JSONObject.NULL : this.dod);
         json.put(censusMember.COLUMN_M_STATUS, this.m_status == null ? JSONObject.NULL : this.m_status);
-        json.put(censusMember.COLUMN_EDUCATION, this.education == null ? JSONObject.NULL : this.education);
+       /* json.put(censusMember.COLUMN_EDUCATION, this.education == null ? JSONObject.NULL : this.education);
         json.put(censusMember.COLUMN_EDUCATIONX, this.educationX == null ? JSONObject.NULL : this.educationX);
         json.put(censusMember.COLUMN_OCCUPATION, this.occupation == null ? JSONObject.NULL : this.occupation);
-        json.put(censusMember.COLUMN_OCCUPATIONX, this.occupationX == null ? JSONObject.NULL : this.occupationX);
+        json.put(censusMember.COLUMN_OCCUPATIONX, this.occupationX == null ? JSONObject.NULL : this.occupationX);*/
         json.put(censusMember.COLUMN_MEMBER_TYPE, this.member_type == null ? JSONObject.NULL : this.member_type);
-        json.put(censusMember.COLUMN_RSVP, this.rsvp == null ? JSONObject.NULL : this.rsvp);
+//        json.put(censusMember.COLUMN_RSVP, this.rsvp == null ? JSONObject.NULL : this.rsvp);
         json.put(censusMember.COLUMN_UPDATE_FLAG, this.update_flag == null ? JSONObject.NULL : this.update_flag);
         json.put(censusMember.COLUMN_UPDATE_DT, this.update_dt == null ? JSONObject.NULL : this.update_dt);
         json.put(censusMember.COLUMN_SERIAL_NO, this.serialNo == null ? JSONObject.NULL : this.serialNo);
-        json.put(censusMember.COLUMN_REMARKS, this.remarks == null ? JSONObject.NULL : this.remarks);
+//        json.put(censusMember.COLUMN_REMARKS, this.remarks == null ? JSONObject.NULL : this.remarks);
         json.put(censusMember.COLUMN_PROJECT_NAME, this.projectName == null ? JSONObject.NULL : this.projectName);
         json.put(censusMember.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
         json.put(censusMember.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);

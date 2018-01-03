@@ -118,10 +118,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
 
                     DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
 
-//            pd.setMessage("Total Forms: " );
-
                     for (FormsContract fc : Forms) {
-                        //if (fc.getIstatus().equals("1")) {
                         jsonSync.put(fc.toJSONObject());
                         //}
                     }

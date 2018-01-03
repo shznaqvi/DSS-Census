@@ -1034,15 +1034,14 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             }
         }*/
 
-        MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
-                : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : "0");
-        MainApp.cc.setCurrent_statusX(dcbis06x.getText().toString());
+        MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : "0");
+//        MainApp.cc.setCurrent_statusX(dcbis06x.getText().toString());
         if (!dcbis01.isChecked()) {
             MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         }
-        if (dcbis05.isChecked()) {
+        /*if (dcbis05.isChecked()) {
             MainApp.cc.setDod(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-        }
+        }*/
         MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : dcbm04.isChecked() ? "ot" : "0");
         /*MainApp.cc.setRemarks(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
 

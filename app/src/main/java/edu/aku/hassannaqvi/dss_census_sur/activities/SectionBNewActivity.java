@@ -858,70 +858,10 @@ public class SectionBNewActivity extends Activity {
 
             MainApp.memFlag++;
 
-            if (!dcbis03.isChecked() && !dcbis05.isChecked()) {
+            MainApp.selectedPos = -1;
+            MainApp.currentStatusCount -= 1;
 
-                /*if (dcbm01.isChecked()) {
-                    MainApp.TotalFemaleCount++;
-                } else if (dcbm02.isChecked()) {
-                    MainApp.TotalMaleCount++;
-                } else if (dcbm03.isChecked() && dcbd01.isChecked()) {
-                    if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
-                        MainApp.TotalBoyCount++;
-                    } else {
-                        MainApp.TotalMaleCount++;
-                    }
-                } else if (dcbm03.isChecked() && dcbd02.isChecked()) {
-                    if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
-                        MainApp.TotalGirlCount++;
-
-                    } else {
-                        MainApp.TotalFemaleCount++;
-                    }
-                } else if (dcbm04.isChecked() && dcbd01.isChecked()) {
-                    MainApp.TotalMaleCount++;
-                } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
-                    MainApp.TotalFemaleCount++;
-                }*/
-
-                MainApp.selectedPos = -1;
-                MainApp.currentStatusCount -= 1;
-
-                finish();
-
-            } else {
-
-                if (dcbis05.isChecked()) {
-
-                        Long dt = new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY);
-                        Long crDt = dcbidob.getCalendarView().getDate();
-
-                        Log.d("Current Date", "" + dt.toString());
-                        Log.d("Current Date", "" + new SimpleDateFormat().format(new Date(dt)));
-                        Log.d("Selected Date", " " + crDt.toString());
-                        Log.d("Selected Date", " " + new SimpleDateFormat().format(new Date(crDt)));
-
-                        if (crDt < dt) {
-
-                            MainApp.selectedPos = -1;
-
-                            MainApp.currentStatusCount -= 1;
-                            finish();
-
-                        } else {
-
-                            MainApp.selectedPos = -1;
-                            MainApp.currentStatusCount -= 1;
-
-                            finish();
-//                            startActivity(new Intent(this, SectionCActivity.class).putExtra("position", position));
-                        }
-                } else {
-                    MainApp.selectedPos = -1;
-
-                    MainApp.currentStatusCount -= 1;
-                    finish();
-                }
-            }
+            finish();
 
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -989,7 +929,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         MainApp.cc.setSerialNo(String.valueOf(position + 1));
 
-        MainApp.cc.setDss_id_h(MainApp.familyMembersList.get(position).getDss_id_h().toUpperCase());
+//        MainApp.cc.setDss_id_h(MainApp.familyMembersList.get(position).getDss_id_h().toUpperCase());
         MainApp.cc.setPrevs_dss_id_member(MainApp.familyMembersList.get(position).getPrevs_dss_id_member());
         MainApp.cc.setSite_code(MainApp.familyMembersList.get(position).getSite_code());
         MainApp.cc.setREF_ID(MainApp.familyMembersList.get(position).get_ID());
@@ -1047,8 +987,8 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         }*/
 
         MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
-                : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : "0");
-        MainApp.cc.setCurrent_statusX(dcbis06x.getText().toString());
+                : dcbis05.isChecked() ? "4": "0");
+//        MainApp.cc.setCurrent_statusX(dcbis06x.getText().toString());
         if (!dcbis01.isChecked()) {
             MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         }
