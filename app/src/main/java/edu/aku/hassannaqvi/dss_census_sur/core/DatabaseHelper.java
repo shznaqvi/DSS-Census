@@ -1235,8 +1235,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_DSS_ID_M,
                 censusMember.COLUMN_DSS_ID_H,*/
                 censusMember.COLUMN_DSS_ID_MEMBER,
-                censusMember.COLUMN_PREVS_DSS_ID_MEMBER,
-                censusMember.COLUMN_SITE_CODE,
+                /*censusMember.COLUMN_PREVS_DSS_ID_MEMBER,
+                censusMember.COLUMN_SITE_CODE,*/
                 censusMember.COLUMN_NAME,
                 /*censusMember.COLUMN_DOB,
                 censusMember.COLUMN_AGEY,
@@ -1249,16 +1249,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //                censusMember.COLUMN_CURRENT_STATUSX,
                 censusMember.COLUMN_CURRENT_DATE,
                 censusMember.COLUMN_DOD,
-                censusMember.COLUMN_M_STATUS,
-                /*censusMember.COLUMN_EDUCATION,
+               /* censusMember.COLUMN_M_STATUS,
+                censusMember.COLUMN_EDUCATION,
                 censusMember.COLUMN_EDUCATIONX,
                 censusMember.COLUMN_OCCUPATION,
                 censusMember.COLUMN_OCCUPATIONX,*/
                 censusMember.COLUMN_MEMBER_TYPE,
-                censusMember.COLUMN_UPDATE_FLAG,
+                /*censusMember.COLUMN_UPDATE_FLAG,
                 censusMember.COLUMN_UPDATE_DT,
-//                censusMember.COLUMN_RSVP,
-                censusMember.COLUMN_SERIAL_NO,
+                censusMember.COLUMN_RSVP,
+                censusMember.COLUMN_SERIAL_NO,*/
                 censusMember.COLUMN_DEVICETAGID,
 //                censusMember.COLUMN_REMARKS
         };

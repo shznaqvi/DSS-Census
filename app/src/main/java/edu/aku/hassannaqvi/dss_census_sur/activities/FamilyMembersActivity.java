@@ -60,7 +60,6 @@ public class FamilyMembersActivity extends Activity {
     @BindView(R.id.countGirl)
     TextView countGirl;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,7 +126,7 @@ public class FamilyMembersActivity extends Activity {
                                     recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
                                 }
 
-                                startActivity(new Intent(getApplicationContext(),SectionBNewActivity.class).putExtra("dataFlag", true).putExtra("position", position));
+                                startActivity(new Intent(getApplicationContext(), SectionBNewActivity.class).putExtra("dataFlag", true).putExtra("position", position));
 
                             }
                         }
@@ -332,7 +331,7 @@ public class FamilyMembersActivity extends Activity {
         MainApp.insertMem.clear();
 
 //        startActivity(new Intent(this, SectionDActivity.class));
-        startActivity(new Intent(this, EndingActivity.class).putExtra("check",true));
+        startActivity(new Intent(this, EndingActivity.class).putExtra("check", true));
 
     }
 
@@ -392,7 +391,7 @@ public class FamilyMembersActivity extends Activity {
     public void resumeWork() {
         mAdapter.notifyDataSetChanged();
 
-        Toast.makeText(this, "Mem flag:" + MainApp.memFlag, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Mem checkingFlag:" + MainApp.memFlag, Toast.LENGTH_SHORT).show();
 
 //        Set Enable for Next Section
 
@@ -413,8 +412,10 @@ public class FamilyMembersActivity extends Activity {
             btn_addMember.setEnabled(false);
         }*/
 
-        btn_Continue.setEnabled(true);
         btn_addMember.setEnabled(true);
+        if (MainApp.checkingFlag > 0) {
+            btn_Continue.setEnabled(true);
+        }
 
     }
 

@@ -96,6 +96,7 @@ public class MainApp extends Application {
     public static int mm = 1;
     public static int totalChild = 0;
     public static int memFlag = 0;
+    public static int checkingFlag = 0;
     public static List<Integer> memClicked;
     public static ArrayList<MothersLst> lstMothers;
     public static int position = 0;

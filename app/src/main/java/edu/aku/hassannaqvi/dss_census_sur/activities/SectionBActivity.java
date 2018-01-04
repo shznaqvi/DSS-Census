@@ -370,7 +370,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 dcbbrhh01.setEnabled(true);*/
 
                 if (dcbis01.isChecked()) {
-                    fldGrpdcbidt.setVisibility(View.GONE);
+                    fldGrpdcbidt.setVisibility(View.VISIBLE);
+                    dcbidtTxt.setText(getString(R.string.dcbis01) + " " + getString(R.string.dcbidt));
 
                     /*fldGrpdcbir.setVisibility(View.GONE);
 
@@ -844,6 +845,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             MainApp.selectedPos = -1;
 
             MainApp.memFlag++;
+            MainApp.checkingFlag++;
             MainApp.currentStatusCount -= 1;
             finish();
 
@@ -989,7 +991,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         MainApp.cc.setDevicetagID(sharedPref.getString("tagName", null));
 
-        MainApp.cc.setSerialNo(String.valueOf(position + 1));
+//        MainApp.cc.setSerialNo(String.valueOf(position + 1));
 
         MainApp.cc.setDss_id_member(dcbid.getText().toString().toUpperCase());
         MainApp.cc.setName(dcba.getText().toString());
@@ -1034,11 +1036,10 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             }
         }*/
 
-        MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : "0");
+        MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "5" : dcbis02.isChecked() ? "6" : "0");
 //        MainApp.cc.setCurrent_statusX(dcbis06x.getText().toString());
-        if (!dcbis01.isChecked()) {
-            MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-        }
+        MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+
         /*if (dcbis05.isChecked()) {
             MainApp.cc.setDod(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         }*/

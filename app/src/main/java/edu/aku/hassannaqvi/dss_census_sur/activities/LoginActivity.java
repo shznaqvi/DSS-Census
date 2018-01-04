@@ -222,7 +222,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         sharedPref = getSharedPreferences("dss01", MODE_PRIVATE);
         editor = sharedPref.edit();
 
-        if (sharedPref.getBoolean("flag", false)) {
+        if (sharedPref.getBoolean("checkingFlag", false)) {
 
             String dt = sharedPref.getString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()).toString());
 
@@ -598,7 +598,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 @Override
                 public void run() {
 
-                    editor.putBoolean("flag", true);
+                    editor.putBoolean("checkingFlag", true);
                     editor.commit();
 
                     dbBackup();
