@@ -1,8 +1,6 @@
 package edu.aku.hassannaqvi.dss_census_sur.activities;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -232,6 +230,19 @@ public class SectionBNewActivity extends Activity {
     @BindView(R.id.dcbm04)
     RadioButton dcbm04;*/
 
+    @BindView(R.id.fldGrpdcbidt02)
+    LinearLayout fldGrpdcbidt02;
+    @BindView(R.id.dcbis04Out)
+    RadioGroup dcbis04Out;
+    @BindView(R.id.dcbis04Outa)
+    RadioButton dcbis04Outa;
+    @BindView(R.id.dcbis04Outb)
+    RadioButton dcbis04Outb;
+    @BindView(R.id.dcbis04Outc)
+    RadioButton dcbis04Outc;
+    @BindView(R.id.dcbis04Outd)
+    RadioButton dcbis04Outd;
+
 
     int position = 0;
 
@@ -281,6 +292,10 @@ public class SectionBNewActivity extends Activity {
         dcbid.setText(MainApp.familyMembersList.get(position).getDss_id_member());
         Log.d(TAG, "onCreate: " + MainApp.familyMembersList.get(position).getDss_id_member());
         dcbid.setEnabled(false);
+
+        String mt = MainApp.familyMembersList.get(position).getMember_type();
+        dcbis02.setEnabled(mt.equals("h") ? false : true);
+        dcbis04.setEnabled(mt.equals("h") ? false : true);
 
             /*dcbbfid.setText(MainApp.familyMembersList.get(position).getDss_id_f());
             dcbbmid.setText(MainApp.familyMembersList.get(position).getDss_id_m());
@@ -496,6 +511,8 @@ public class SectionBNewActivity extends Activity {
                 if (dcbis01.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.GONE);
 
+                    fldGrpdcbidt02.setVisibility(View.GONE);
+                    dcbis04Out.clearCheck();
                     /*fldGrpdcbir.setVisibility(View.GONE);
 
                     if (MainApp.isRsvp) {
@@ -513,6 +530,8 @@ public class SectionBNewActivity extends Activity {
 
                     dcbidtTxt.setText(getString(R.string.dcbis08) + " " + getString(R.string.dcbidt));
 
+                    fldGrpdcbidt02.setVisibility(View.GONE);
+                    dcbis04Out.clearCheck();
                     /*if (MainApp.isRsvp) {
                         rsvp02.setChecked(true);
                         rsvp01.setEnabled(false);
@@ -526,12 +545,17 @@ public class SectionBNewActivity extends Activity {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
 //                    fldgrpmigout.setVisibility(View.GONE);
 
+                    fldGrpdcbidt02.setVisibility(View.GONE);
+                    dcbis04Out.clearCheck();
+
                     clearFieldsOnStatus();
 
                     dcbidtTxt.setText(getString(R.string.dcbis03) + " " + getString(R.string.dcbidt));
                 } else if (dcbis04.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
 //                    fldgrpmigout.setVisibility(View.GONE);
+
+                    fldGrpdcbidt02.setVisibility(View.VISIBLE);
 
                     clearFieldsOnStatus();
 
@@ -540,6 +564,8 @@ public class SectionBNewActivity extends Activity {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
                     dcbidtTxt.setText(" " + getString(R.string.dccf));
 
+                    fldGrpdcbidt02.setVisibility(View.GONE);
+                    dcbis04Out.clearCheck();
                     /*fldGrpdcbir.setVisibility(View.GONE);
                     fldgrpmigout.setVisibility(View.GONE);
 
@@ -750,7 +776,7 @@ public class SectionBNewActivity extends Activity {
         if (formValidation()) {
 
 // Insert into array for showing in alert if same member id wants to enter
-            boolean flag = true;
+            /*boolean flag = true;
             for (String mem : MainApp.insertMem) {
 
                 if (mem.equals(dcbid.getText().toString())) {
@@ -760,7 +786,7 @@ public class SectionBNewActivity extends Activity {
             }
             if (flag) {
 
-                /*if (!dcbis03.isChecked() && !dcbis05.isChecked() && !dcbis04.isChecked()) {
+                if (!dcbis03.isChecked() && !dcbis05.isChecked() && !dcbis04.isChecked()) {
 
                     if (dcbm01.isChecked() && (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || MainApp.NoFemaleCount == 0
                             || MainApp.NoFemaleCount - (MainApp.TotalFemaleCount - MainApp.TotalGirlCount) == MainApp.NoGirlCount)) {
@@ -814,9 +840,9 @@ public class SectionBNewActivity extends Activity {
                     } else {
                         contFunc();
                     }
-                } else {*/
+                } else {
                 contFunc();
-//                }
+                }
             } else {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                         this);
@@ -840,7 +866,9 @@ public class SectionBNewActivity extends Activity {
                         });
                 AlertDialog alert = alertDialogBuilder.create();
                 alert.show();
-            }
+            }*/
+
+            contFunc();
         }
     }
 
@@ -854,7 +882,7 @@ public class SectionBNewActivity extends Activity {
         if (UpdateDB()) {
             Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
-            MainApp.insertMem.add(dcbid.getText().toString());
+//            MainApp.insertMem.add(dcbid.getText().toString());
 
             MainApp.memFlag++;
             MainApp.checkingFlag++;
@@ -945,6 +973,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         MainApp.cc.setDss_id_member(dcbid.getText().toString().toUpperCase());
         MainApp.cc.setName(dcba.getText().toString());
+        MainApp.cc.setMember_type(MainApp.familyMembersList.get(position).getMember_type());
 
         /*MainApp.cc.setDss_id_f(dcbbfid.getText().toString().toUpperCase());
         MainApp.cc.setDss_id_m(dcbbmid.getText().toString().toUpperCase());
@@ -988,8 +1017,10 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         }*/
 
         MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
-                : dcbis05.isChecked() ? "4" : "0");
-//        MainApp.cc.setCurrent_statusX(dcbis06x.getText().toString());
+                : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : "0");
+        MainApp.cc.setCurrent_statusOutcome(dcbis04Outa.isChecked() ? "1" : dcbis04Outb.isChecked() ? "2" : dcbis04Outc.isChecked() ? "3"
+                : dcbis04Outd.isChecked() ? "4" : "0");
+
         if (!dcbis01.isChecked()) {
             MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         }
@@ -1034,7 +1065,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         m.setRelation_hh(c.getRelation_hh());
         m.setCurrent_status(c.getCurrent_status());
         m.setCurrent_date(c.getCurrent_date());
-        m.setDod(c.getDod());
+        m.setDod(c.getCurrent_time());
         m.setM_status(c.getM_status());
         m.setEducation(c.getEducation());
         m.setOccupation(c.getOccupation());
@@ -1105,6 +1136,18 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             return false;
         } else {
             dcbis06x.setError(null);
+        }
+
+        if (dcbis04.isChecked()){
+            if (dcbis04Out.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis09d), Toast.LENGTH_SHORT).show();
+                dcbis04Outd.setError("This data is Required!");    // Set Error on last radio button
+
+                Log.i(TAG, "dcbis04Out: This data is Required!");
+                return false;
+            } else {
+                dcbis04Outd.setError(null);
+            }
         }
 
         /*if (!dcbis03.isChecked() && !dcbis05.isChecked() && !dcbis04.isChecked()) {

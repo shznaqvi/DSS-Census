@@ -160,8 +160,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/dcbis04"
-                    android:visibility="gone" />
+                    android:text="@string/dcbis09"/>
 
                 <RadioButton
                     android:id="@+id/dcbis05"
@@ -195,7 +194,6 @@
                 android:orientation="vertical"
                 android:visibility="gone">
 
-
                 <TextView
                     android:id="@+id/dcbidtTxt"
                     android:layout_width="match_parent"
@@ -203,7 +201,6 @@
                     android:layout_marginTop="16dp"
                     android:text="@string/dcbidt"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
-
 
                 <DatePicker
                     android:id="@+id/dcbidob"
@@ -215,6 +212,49 @@
                     android:ems="10"
                     android:spinnersShown="true" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fldGrpdcbidt02"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/dcbis0901"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <RadioGroup
+                        android:id="@+id/dcbis04Out"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/dcbis04Outa"
+                            android:text="@string/dcbis09a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <RadioButton
+                            android:id="@+id/dcbis04Outb"
+                            android:text="@string/dcbis09b"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <RadioButton
+                            android:id="@+id/dcbis04Outc"
+                            android:text="@string/dcbis09c"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <RadioButton
+                            android:id="@+id/dcbis04Outd"
+                            android:text="@string/dcbis09d"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
 
             </LinearLayout>
 

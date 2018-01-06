@@ -68,8 +68,6 @@ public class FamilyMembersActivity extends Activity {
 
 //        Setting
 
-        MainApp.insertMem = new ArrayList<>();
-
         totalMem.setText(String.valueOf(MainApp.NoMembersCount));
         totalChild.setText(String.valueOf(MainApp.totalChild));
         countMen.setText(String.valueOf(MainApp.NoMaleCount));
@@ -490,7 +488,7 @@ public class FamilyMembersActivity extends Activity {
             holder.DSSidm.setText(familyMembers.getDss_id_member());
             holder.memberType.setText(familyMembers.getMember_type().equals("mw") ? "(Married Women)" : familyMembers.getMember_type().equals("h") ? "(Husband)" :
                     (familyMembers.getMember_type().equals("c") || familyMembers.getMember_type().equals("ch")) ? "(Child)" : "(Other)");
-//            holder.currentStatus.setText(setStatus(familyMembers.getCurrent_status()));
+            holder.currentStatus.setText(setStatus(familyMembers.getCurrent_status()));
 //            holder.year.setText(familyMembers.getAge().equals("y m d") ? familyMembers.getDob() : familyMembers.getAge());
             holder.year.setText(familyMembers.getCurrent_date());
         }
@@ -509,13 +507,16 @@ public class FamilyMembersActivity extends Activity {
                     st = getString(R.string.dcbis03);
                     break;
                 case "4":
-                    st = getString(R.string.dcbis04);
+                    st = getString(R.string.dcbis09);
                     break;
                 case "5":
                     st = getString(R.string.dcbis05);
                     break;
                 case "6":
-                    st = getString(R.string.dcother);
+                    st = getString(R.string.dcbis01);
+                    break;
+                case "7":
+                    st = getString(R.string.dcbis02);
                     break;
                 default:
                     break;

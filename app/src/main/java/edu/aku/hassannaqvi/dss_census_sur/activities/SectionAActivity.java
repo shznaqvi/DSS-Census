@@ -535,6 +535,7 @@ public class SectionAActivity extends Activity {
 
         membersExists.setVisibility(View.VISIBLE);
         MainApp.familyMembersList = new ArrayList<>();
+        MainApp.insertMem = new ArrayList<>();
 
         if (!dca03.getText().toString().isEmpty()) {
             dca03.setError(null);
@@ -547,6 +548,8 @@ public class SectionAActivity extends Activity {
                 for (MembersContract ec : members) {
 
                     MainApp.familyMembersList.add(new MembersContract(ec));
+
+                    MainApp.insertMem.add(ec.getDss_id_member());
                 }
 
                 Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();

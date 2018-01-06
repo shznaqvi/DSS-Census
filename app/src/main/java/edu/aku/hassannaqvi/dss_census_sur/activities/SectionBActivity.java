@@ -20,6 +20,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -201,10 +202,14 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     EditText dcbis06x;
     @BindView(R.id.fldGrpdcbidt)
     LinearLayout fldGrpdcbidt;
+    @BindView(R.id.fldGrpdcbidttime)
+    LinearLayout fldGrpdcbidttime;
     @BindView(R.id.dcbidtTxt)
     TextView dcbidtTxt;
     @BindView(R.id.dcbidob)
     DatePicker dcbidob;
+    @BindView(R.id.dcbitime)
+    TimePicker dcbitime;
     /*@BindView(R.id.fldGrpdcbir)
     LinearLayout fldGrpdcbir;
     @BindView(R.id.fldgrpmigout)
@@ -371,6 +376,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                 if (dcbis01.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
+                    fldGrpdcbidttime.setVisibility(View.VISIBLE);
                     dcbidtTxt.setText(getString(R.string.dcbis01) + " " + getString(R.string.dcbidt));
 
                     /*fldGrpdcbir.setVisibility(View.GONE);
@@ -387,6 +393,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                 } else if (dcbis02.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
+                    fldGrpdcbidttime.setVisibility(View.GONE);
 
                     dcbidtTxt.setText(getString(R.string.dcbis02) + " " + getString(R.string.dcbidt));
 
@@ -401,6 +408,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                 } else if (dcbis03.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
+                    fldGrpdcbidttime.setVisibility(View.GONE);
 //                    fldgrpmigout.setVisibility(View.GONE);
 
                     clearFieldsOnStatus();
@@ -408,6 +416,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbidtTxt.setText(getString(R.string.dcbis03) + " " + getString(R.string.dcbidt));
                 } else if (dcbis04.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
+                    fldGrpdcbidttime.setVisibility(View.GONE);
 //                    fldgrpmigout.setVisibility(View.GONE);
 
                     clearFieldsOnStatus();
@@ -415,6 +424,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbidtTxt.setText(getString(R.string.dcbis04) + " " + getString(R.string.dcbidt));
                 } else if (dcbis05.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
+                    fldGrpdcbidttime.setVisibility(View.GONE);
                     dcbidtTxt.setText(" " + getString(R.string.dccf));
 
                     /*fldGrpdcbir.setVisibility(View.GONE);
@@ -433,6 +443,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     fldGrpdcbidt.setVisibility(View.GONE);
+                    fldGrpdcbidttime.setVisibility(View.GONE);
                     /*fldGrpdcbir.setVisibility(View.GONE);
 
                     dcbir.clearCheck();
@@ -1004,8 +1015,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
                 : dcbbrhh11.isChecked() ? "11" : dcbbrhh99.isChecked() ? "99" : dcbbrhh88.isChecked() ? "88" : "0");
         MainApp.cc.setDss_id_f(dcbbfid.getText().toString());
         MainApp.cc.setDss_id_m(dcbbmid.getText().toString());
-        MainApp.cc.setM_status(dcbc01.isChecked() ? "1" : dcbc02.isChecked() ? "2" : dcbc03.isChecked() ? "3"
-                : dcbc04.isChecked() ? "4" : dcbc88.isChecked() ? "88" : "0");
+
         if (dcbd01.isChecked()) {
             MainApp.cc.setGender("1");
         } else if (dcbd02.isChecked()) {
@@ -1036,13 +1046,13 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             }
         }*/
 
-        MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "5" : dcbis02.isChecked() ? "6" : "0");
-//        MainApp.cc.setCurrent_statusX(dcbis06x.getText().toString());
+        MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "6" : dcbis02.isChecked() ? "7" : "0");
+//        MainApp.cc.setCurrent_statusOutcome(dcbis06x.getText().toString());
         MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
 
-        /*if (dcbis05.isChecked()) {
-            MainApp.cc.setDod(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
-        }*/
+        if (dcbis01.isChecked()) {
+            MainApp.cc.setCurrent_time(dcbitime.getCurrentHour()+":"+dcbitime.getCurrentMinute());
+        }
         MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : dcbm04.isChecked() ? "ot" : "0");
         /*MainApp.cc.setRemarks(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
 
@@ -1084,7 +1094,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         m.setRelation_hh(c.getRelation_hh());
         m.setCurrent_status(c.getCurrent_status());
         m.setCurrent_date(c.getCurrent_date());
-        m.setDod(c.getDod());
+        m.setDod(c.getCurrent_time());
         m.setM_status(c.getM_status());
         m.setEducation(c.getEducation());
         m.setOccupation(c.getOccupation());

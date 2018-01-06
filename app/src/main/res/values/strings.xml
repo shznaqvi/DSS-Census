@@ -186,6 +186,12 @@
     <string name="dcbis05"> موت </string>
     <string name="dcbis07"> شادی شدہ </string>
     <string name="dcbis08"> حمل سے </string>
+    <string name="dcbis09"> حمل کا نتیجہ </string>
+    <string name="dcbis0901"> نتیجہ </string>
+    <string name="dcbis09a"> Miscarriage </string>
+    <string name="dcbis09b"> Still Birth </string>
+    <string name="dcbis09c"> Live Birth </string>
+    <string name="dcbis09d"> Twin Birth </string>
     <string name="dcbidt"> کی تاریخ</string>
     <string name="dcbidt1"> تاریخ </string>
     <string name="dcbidt01"> پیدائش کی تاریخ </string>
