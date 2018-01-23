@@ -23,6 +23,7 @@ import edu.aku.hassannaqvi.dss_census_sur.activities.EndingActivity;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.CensusContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.DeceasedContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FormsContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.HouseholdContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MotherContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.SectionKIMContract;
@@ -101,17 +102,10 @@ public class MainApp extends Application {
     public static ArrayList<MothersLst> lstMothers;
     public static int position = 0;
     protected static LocationManager locationManager;
-
     public static double selectedCHILD = 24;
     public static int selectedPos = -1;
-
     public static int selectedCh = -1;
-
-
     public static List<String> insertMem;
-
-    Location location;
-
     public static int randID = 1;
     public static Boolean isRsvp = false;
     public static Boolean isHead = false;
@@ -121,6 +115,9 @@ public class MainApp extends Application {
 
     public static int versionCode;
     public static String versionName;
+
+    /*Ali DSS SUR*/
+    public static List<HouseholdContract> householdList;
 
     @Override
     public void onCreate() {

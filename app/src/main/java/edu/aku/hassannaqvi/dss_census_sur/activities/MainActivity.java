@@ -212,7 +212,7 @@ public class MainActivity extends Activity {
     public void openForm(View v) {
         if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null && !MainApp.userName.equals("0000")) {
             if (openFormGpsCheck()) {
-                Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
+                Intent oF = new Intent(MainActivity.this, HouseholdListActivity.class);
                 startActivity(oF);
             } else {
                 Toast.makeText(getApplicationContext(), "Gps not set accurately", Toast.LENGTH_SHORT).show();

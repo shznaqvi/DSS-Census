@@ -17,13 +17,14 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name="edu.aku.hassannaqvi.dss_census_sur.core.MainApp"
+        android:name=".core.MainApp"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SplashscreenActivity"
+        <activity
+            android:name=".activities.SplashscreenActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,88 +33,88 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.LoginActivity"
+            android:name=".activities.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateVisible|adjustPan" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.MainActivity"
+            android:name=".activities.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SectionDActivity"
+            android:name=".activities.SectionDActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SectionEActivity"
+            android:name=".activities.SectionEActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SectionFActivity"
+            android:name=".activities.SectionFActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SectionIActivity"
+            android:name=".activities.SectionIActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SectionJActivity"
+            android:name=".activities.SectionJActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SectionGActivity"
+            android:name=".activities.SectionGActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SectionHActivity"
+            android:name=".activities.SectionHActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SectionAActivity"
+            android:name=".activities.SectionAActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SectionBActivity"
+            android:name=".activities.SectionBActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SectionBNewActivity"
+            android:name=".activities.SectionBNewActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SectionKActivity"
+            android:name=".activities.SectionKActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SectionCActivity"
+            android:name=".activities.SectionCActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SectionLActivity"
+            android:name=".activities.SectionLActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.SectionMActivity"
+            android:name=".activities.SectionMActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.FamilyMembersActivity"
+            android:name=".activities.FamilyMembersActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.core.AndroidDatabaseManager"
+            android:name=".core.AndroidDatabaseManager"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.EndingActivity"
+            android:name=".activities.EndingActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-
-        <activity android:name="edu.aku.hassannaqvi.dss_census_sur.FormsList" />
+        <activity android:name=".FormsList" />
         <activity
-            android:name="edu.aku.hassannaqvi.dss_census_sur.activities.MotherListActivity"
-            android:screenOrientation="portrait"
-            android:label="Mothers List" />
+            android:name=".activities.MotherListActivity"
+            android:label="Mothers List"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activities.HouseholdListActivity"></activity>
     </application>
 
 </manifest>

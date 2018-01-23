@@ -73,6 +73,7 @@
 
     <!-- Strings related to Sections Below -->
 
+    <string name="hhno"> Household no </string>
     <string name="dca03">3) DSS ID </string>
     <string name="dca04">4۔ کیا اجازت مل گئی؟ </string>
     <string name="dca0403"> گھر بند ہے / اجازت دینے والا موجود نہیں ہے۔ </string>

@@ -20,7 +20,7 @@ public class HouseholdContract {
     private String formDate = ""; // Date
     private String user = ""; // Interviewer
 
-    private String center = "";
+    private String totalMem = "";
 
     private String gpsLat = "";
     private String gpsLng = "";
@@ -33,7 +33,10 @@ public class HouseholdContract {
     public HouseholdContract() {
     }
 
-
+    public HouseholdContract(HouseholdContract hc) {
+        this.householdID = hc.householdID;
+        this.totalMem = hc.totalMem;
+    }
 
     public HouseholdContract Sync(JSONObject jsonObject) throws JSONException {
         this._ID= jsonObject.getString(householdForm.COLUMN_ID);
@@ -41,7 +44,7 @@ public class HouseholdContract {
         this.householdID = jsonObject.getString(householdForm.COLUMN_HOUSEHOLDID);
         this.formDate= jsonObject.getString(householdForm.COLUMN_FORMDATE);
         this.user = jsonObject.getString(householdForm.COLUMN_USER);
-        this.center = jsonObject.getString(householdForm.COLUMN_CENTER);
+        this.totalMem = jsonObject.getString(householdForm.COLUMN_TOTAL_MEMBERS);
         this.gpsLat= jsonObject.getString(householdForm.COLUMN_GPSLAT);
         this.gpsLng= jsonObject.getString(householdForm.COLUMN_GPSLNG);
         this.gpsTime= jsonObject.getString(householdForm.COLUMN_GPSTIME);
@@ -55,24 +58,10 @@ public class HouseholdContract {
     }
 
     public HouseholdContract Hydrate(Cursor cursor) {
-        this._ID = cursor.getString(cursor.getColumnIndex(householdForm.COLUMN_ID));
-        this._UID = cursor.getString(cursor.getColumnIndex(householdForm.COLUMN_UID));
         this.householdID = cursor.getString(cursor.getColumnIndex(householdForm.COLUMN_HOUSEHOLDID));
-        this.formDate = cursor.getString(cursor.getColumnIndex(householdForm.COLUMN_FORMDATE));
-        this.user = cursor.getString(cursor.getColumnIndex(householdForm.COLUMN_USER));
-        this.center = cursor.getString(cursor.getColumnIndex(householdForm.COLUMN_CENTER));
-        this.gpsLat = cursor.getString(cursor.getColumnIndex(householdForm.COLUMN_GPSLAT));
-        this.gpsLng = cursor.getString(cursor.getColumnIndex(householdForm.COLUMN_GPSLNG));
-        this.gpsTime = cursor.getString(cursor.getColumnIndex(householdForm.COLUMN_GPSTIME));
-        this.gpsAcc = cursor.getString(cursor.getColumnIndex(householdForm.COLUMN_GPSACC));
-        this.deviceID = cursor.getString(cursor.getColumnIndex(householdForm.COLUMN_DEVICEID));
-        this.synced = cursor.getString(cursor.getColumnIndex(householdForm.COLUMN_SYNCED));
-        this.synced_date = cursor.getString(cursor.getColumnIndex(householdForm.COLUMN_SYNCED_DATE));
-
-        // TODO:
+        this.totalMem = cursor.getString(cursor.getColumnIndex(householdForm.COLUMN_TOTAL_MEMBERS));
 
         return this;
-
     }
 
 
@@ -85,7 +74,7 @@ public class HouseholdContract {
         json.put(householdForm.COLUMN_HOUSEHOLDID, this.householdID == null ? JSONObject.NULL : this.householdID);
         json.put(householdForm.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(householdForm.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
-        json.put(householdForm.COLUMN_CENTER, this.center == null ? JSONObject.NULL : this.center);
+        json.put(householdForm.COLUMN_TOTAL_MEMBERS, this.totalMem == null ? JSONObject.NULL : this.totalMem);
         json.put(householdForm.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(householdForm.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
         json.put(householdForm.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
@@ -134,12 +123,12 @@ public class HouseholdContract {
         this.user = user;
     }
 
-    public String getCenter() {
-        return center;
+    public String getTotalMem() {
+        return totalMem;
     }
 
-    public void setCenter(String center) {
-        this.center = center;
+    public void setTotalMem(String totalMem) {
+        this.totalMem = totalMem;
     }
 
     public String getGpsLat() {
@@ -205,10 +194,10 @@ public class HouseholdContract {
         public static final String COLUMN_PROJECT_NAME = "DSS Census";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
-        public static final String COLUMN_HOUSEHOLDID = "dssid";
+        public static final String COLUMN_HOUSEHOLDID = "dss_id_hh";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_USER = "user";
-        public static final String COLUMN_CENTER = "center";
+        public static final String COLUMN_TOTAL_MEMBERS = "totalmem";
         public static final String COLUMN_GPSLAT = "gpslat";
         public static final String COLUMN_GPSLNG = "gpslng";
         public static final String COLUMN_GPSTIME = "gpstime";
