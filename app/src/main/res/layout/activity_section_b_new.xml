@@ -174,8 +174,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/dcother"
-                    android:visibility="gone" />
+                    android:text="@string/dcbis04" />
+
+                <RadioButton
+                    android:id="@+id/dcbis07"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/dcbis06" />
 
             </RadioGroup>
 

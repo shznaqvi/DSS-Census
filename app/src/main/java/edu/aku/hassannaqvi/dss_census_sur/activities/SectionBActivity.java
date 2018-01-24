@@ -1046,7 +1046,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             }
         }*/
 
-        MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "6" : dcbis02.isChecked() ? "7" : "0");
+        MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "8" : dcbis02.isChecked() ? "9" : "0");
 //        MainApp.cc.setCurrent_statusOutcome(dcbis06x.getText().toString());
         MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
 

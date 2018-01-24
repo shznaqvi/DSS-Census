@@ -191,6 +191,8 @@ public class SectionBNewActivity extends Activity {
     RadioButton dcbis05;
     @BindView(R.id.dcbis06)
     RadioButton dcbis06;
+    @BindView(R.id.dcbis07)
+    RadioButton dcbis07;
     @BindView(R.id.dcbis06x)
     EditText dcbis06x;
     @BindView(R.id.fldGrpdcbidt)
@@ -485,19 +487,6 @@ public class SectionBNewActivity extends Activity {
             }
         });*/
 
-
-        dcbis06.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    dcbis06x.setVisibility(View.VISIBLE);
-                } else {
-                    dcbis06x.setVisibility(View.GONE);
-                    dcbis06x.setText(null);
-                }
-            }
-        });
-
         dcbis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
@@ -559,7 +548,7 @@ public class SectionBNewActivity extends Activity {
 
                     clearFieldsOnStatus();
 
-                    dcbidtTxt.setText(getString(R.string.dcbis04) + " " + getString(R.string.dcbidt));
+                    dcbidtTxt.setText(getString(R.string.dcbis09) + " " + getString(R.string.dcbidt));
                 } else if (dcbis05.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
                     dcbidtTxt.setText(" " + getString(R.string.dccf));
@@ -573,24 +562,24 @@ public class SectionBNewActivity extends Activity {
                     dcbbrhh01.setEnabled(false);*/
 
                     clearFieldsOnStatus();
-                }
-            }
-        });
+                } else if (dcbis06.isChecked()) {
+                    fldGrpdcbidt.setVisibility(View.VISIBLE);
 
-        dcbis06.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    fldGrpdcbidt.setVisibility(View.GONE);
+                    fldGrpdcbidt02.setVisibility(View.GONE);
+                    dcbis04Out.clearCheck();
                     /*fldGrpdcbir.setVisibility(View.GONE);
+                    fldgrpmigout.setVisibility(View.GONE);
 
-                    dcbir.clearCheck();
-                    dcbirm.setText(null);*/
+                    dcbbrhh01.setChecked(false);
+                    dcbbrhh01.setEnabled(false);*/
 
-                    dcbis06x.setVisibility(View.VISIBLE);
-                } else {
-                    dcbis06x.setVisibility(View.GONE);
-                    dcbis06x.setText(null);
+                    clearFieldsOnStatus();
+                    dcbidtTxt.setText(getString(R.string.dcbis04) + " " + getString(R.string.dcbidt));
+                } else if (dcbis07.isChecked()) {
+                    fldGrpdcbidt.setVisibility(View.GONE);
+
+                    fldGrpdcbidt02.setVisibility(View.GONE);
+                    dcbis04Out.clearCheck();
                 }
             }
         });
@@ -725,11 +714,8 @@ public class SectionBNewActivity extends Activity {
                 }
             }
         });
+*/
 
-
-        *//*Visibility gone*//*
-        dcbis04.setVisibility(View.GONE);
-        dcbis06.setVisibility(View.GONE);*/
     }
 
     public void clearFieldsOnStatus() {
@@ -1017,7 +1003,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         }*/
 
         MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
-                : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : "0");
+                : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : dcbis07.isChecked() ? "7" : "0");
         MainApp.cc.setCurrent_statusOutcome(dcbis04Outa.isChecked() ? "1" : dcbis04Outb.isChecked() ? "2" : dcbis04Outc.isChecked() ? "3"
                 : dcbis04Outd.isChecked() ? "4" : "0");
 
@@ -1119,23 +1105,12 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         if (dcbis.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis), Toast.LENGTH_SHORT).show();
-            dcbis05.setError("This data is Required!");    // Set Error on last radio button
+            dcbis07.setError("This data is Required!");    // Set Error on last radio button
 
             Log.i(TAG, "dcbis: This data is Required!");
             return false;
         } else {
-            dcbis05.setError(null);
-        }
-
-        // ================= Other Status ===========
-        if (dcbis06.isChecked() && dcbis06x.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis) + " - " + getString(R.string.dcother), Toast.LENGTH_SHORT).show();
-            dcbis06x.setError("This data is Required!");    // Set Error on last radio button
-
-            Log.i(TAG, "dcbis06x: This data is Required!");
-            return false;
-        } else {
-            dcbis06x.setError(null);
+            dcbis07.setError(null);
         }
 
         if (dcbis04.isChecked()){

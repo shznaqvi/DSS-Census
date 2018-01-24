@@ -114,11 +114,11 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_Continue"
+                android:id="@+id/btn_End"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/nextSection"
+                android:text="@string/end_interview"
                 android:textColor="#ff1e1e" />
 
         </LinearLayout>

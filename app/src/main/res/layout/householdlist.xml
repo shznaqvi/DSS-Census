@@ -50,7 +50,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="8dp"
         android:gravity="right"
-        android:text="View Members"
+        android:text="Start HH"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
         android:textStyle="bold" />

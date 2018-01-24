@@ -94,8 +94,8 @@ public class EndingActivity extends Activity {
 
                 finish();
 
-                Intent endSec = new Intent(this, MainActivity.class);
-                endSec.putExtra("complete", false);
+                Intent endSec = new Intent(this, HouseholdListActivity.class);
+                endSec.putExtra("check", false);
                 startActivity(endSec);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

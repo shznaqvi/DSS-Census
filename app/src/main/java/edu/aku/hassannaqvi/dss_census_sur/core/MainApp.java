@@ -69,7 +69,7 @@ public class MainApp extends Application {
     public static FormsContract fc;
     public static String userName = "0000";
     public static String areaCode;
-//    Total No of members got from Section A
+    //    Total No of members got from Section A
     public static int NoMembersCount = 0;
     public static int NoMaleCount = 0;
     public static int NoFemaleCount = 0;
@@ -82,7 +82,7 @@ public class MainApp extends Application {
     public static int TotalBoyCount = 0;
     public static int TotalGirlCount = 0;
 
-//    Total No of Alive members got from Section B
+    //    Total No of Alive members got from Section B
     public static int currentStatusCount = 0;
     public static int currentDeceasedCheck = 0;
     public static int currentMotherCheck = 0;
@@ -145,7 +145,7 @@ public class MainApp extends Application {
 
     }
 
-    public static int monthsBetweenDates(Date startDate, Date endDate){
+    public static int monthsBetweenDates(Date startDate, Date endDate) {
 
         Calendar start = Calendar.getInstance();
         start.setTime(startDate);
@@ -154,24 +154,24 @@ public class MainApp extends Application {
         end.setTime(endDate);
 
         int monthsBetween = 0;
-        int dateDiff = end.get(Calendar.DAY_OF_MONTH)-start.get(Calendar.DAY_OF_MONTH);
+        int dateDiff = end.get(Calendar.DAY_OF_MONTH) - start.get(Calendar.DAY_OF_MONTH);
 
-        if(dateDiff<0) {
+        if (dateDiff < 0) {
             int borrrow = end.getActualMaximum(Calendar.DAY_OF_MONTH);
-            dateDiff = (end.get(Calendar.DAY_OF_MONTH)+borrrow)-start.get(Calendar.DAY_OF_MONTH);
+            dateDiff = (end.get(Calendar.DAY_OF_MONTH) + borrrow) - start.get(Calendar.DAY_OF_MONTH);
             monthsBetween--;
 
-            if(dateDiff>0) {
+            if (dateDiff > 0) {
                 monthsBetween++;
             }
         }
 
-        monthsBetween += end.get(Calendar.MONTH)-start.get(Calendar.MONTH);
-        monthsBetween  += (end.get(Calendar.YEAR)-start.get(Calendar.YEAR))*12;
+        monthsBetween += end.get(Calendar.MONTH) - start.get(Calendar.MONTH);
+        monthsBetween += (end.get(Calendar.YEAR) - start.get(Calendar.YEAR)) * 12;
         return monthsBetween;
     }
 
-    public static void errorCheck(final Context context, String error){
+    public static void errorCheck(final Context context, String error) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 context);
         alertDialogBuilder
@@ -188,31 +188,7 @@ public class MainApp extends Application {
         alert.show();
     }
 
-    public static void errorCountDialog(final Context context, final Activity activity, String error){
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                context);
-        alertDialogBuilder
-                .setMessage(error)
-                .setCancelable(false)
-                .setPositiveButton("Discard",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog,
-                                                int id) {
-//                                MainApp.memFlag--;
-                                activity.finish();
-                            }
-                        });
-        alertDialogBuilder.setNegativeButton("Cancel",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alert = alertDialogBuilder.create();
-        alert.show();
-    }
-
-    public static void finishActivity(final Context context, final Activity activity){
+    public static void finishActivity(final Context context, final Activity activity) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 context);
         alertDialogBuilder
@@ -235,7 +211,7 @@ public class MainApp extends Application {
         alert.show();
     }
 
-    public static void endActivity(final Context context, final Activity activity){
+    public static void endActivity(final Context context, final Activity activity) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 context);
         alertDialogBuilder
@@ -385,7 +361,6 @@ public class MainApp extends Application {
                 editor.apply();
             }
         }
-
 
 
         public void onStatusChanged(String s, int i, Bundle b) {

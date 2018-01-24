@@ -389,11 +389,11 @@ public class FamilyMembersActivity extends Activity {
     public void resumeWork() {
         mAdapter.notifyDataSetChanged();
 
-//        Toast.makeText(this, "Mem checkingFlag:" + MainApp.memFlag, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Mem checkingFlag:" + MainApp.memFlag, Toast.LENGTH_SHORT).show();
 
 //        Set Enable for Next Section
 
-        /*if (MainApp.familyMembersList.size() == MainApp.memFlag) {
+        if (MainApp.familyMembersList.size() == MainApp.memFlag) {
             if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
                 btn_Continue.setEnabled(false);
                 btn_addMember.setEnabled(true);
@@ -408,12 +408,12 @@ public class FamilyMembersActivity extends Activity {
         } else {
             btn_Continue.setEnabled(false);
             btn_addMember.setEnabled(false);
-        }*/
+        }
 
-        btn_addMember.setEnabled(true);
+        /*btn_addMember.setEnabled(true);
         if (MainApp.checkingFlag > 0) {
             btn_Continue.setEnabled(true);
-        }
+        }*/
 
     }
 
@@ -513,9 +513,15 @@ public class FamilyMembersActivity extends Activity {
                     st = getString(R.string.dcbis05);
                     break;
                 case "6":
-                    st = getString(R.string.dcbis01);
+                    st = getString(R.string.dcbis04);
                     break;
                 case "7":
+                    st = getString(R.string.dcbis06);
+                    break;
+                case "8":
+                    st = getString(R.string.dcbis01);
+                    break;
+                case "9":
                     st = getString(R.string.dcbis02);
                     break;
                 default:

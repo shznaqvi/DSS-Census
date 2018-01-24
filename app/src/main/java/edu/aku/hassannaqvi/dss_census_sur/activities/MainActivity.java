@@ -36,9 +36,7 @@ import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 import edu.aku.hassannaqvi.dss_census_sur.get.GetMembers;
 import edu.aku.hassannaqvi.dss_census_sur.sync.SyncCensus;
-import edu.aku.hassannaqvi.dss_census_sur.sync.SyncDeceased;
 import edu.aku.hassannaqvi.dss_census_sur.sync.SyncForms;
-import edu.aku.hassannaqvi.dss_census_sur.sync.SyncIM;
 
 public class MainActivity extends Activity {
 
@@ -211,12 +209,7 @@ public class MainActivity extends Activity {
 
     public void openForm(View v) {
         if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null && !MainApp.userName.equals("0000")) {
-            if (openFormGpsCheck()) {
-                Intent oF = new Intent(MainActivity.this, HouseholdListActivity.class);
-                startActivity(oF);
-            } else {
-                Toast.makeText(getApplicationContext(), "Gps not set accurately", Toast.LENGTH_SHORT).show();
-            }
+            startActivity();
         } else {
 
             builder = new AlertDialog.Builder(MainActivity.this);
@@ -238,12 +231,7 @@ public class MainActivity extends Activity {
                         editor.commit();
 
                         if (!MainApp.userName.equals("0000")) {
-                            if (openFormGpsCheck()) {
-                                Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
-                                startActivity(oF);
-                            } else {
-                                Toast.makeText(getApplicationContext(), "Gps not set accurately", Toast.LENGTH_SHORT).show();
-                            }
+                            startActivity();
                         }
                     }
                 }
@@ -256,6 +244,15 @@ public class MainActivity extends Activity {
             });
 
             builder.show();
+        }
+    }
+
+    public void startActivity() {
+        if (openFormGpsCheck() && !MainApp.regionDss.equals("")) {
+            Intent oF = new Intent(MainActivity.this, HouseholdListActivity.class);
+            startActivity(oF);
+        } else {
+            Toast.makeText(getApplicationContext(), "Please re-login app!", Toast.LENGTH_SHORT).show();
         }
     }
 

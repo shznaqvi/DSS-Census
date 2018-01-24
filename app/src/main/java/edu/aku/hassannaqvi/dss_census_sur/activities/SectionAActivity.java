@@ -1,7 +1,9 @@
 package edu.aku.hassannaqvi.dss_census_sur.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -288,14 +290,15 @@ public class SectionAActivity extends Activity {
 
     boolean checked = false;
 
+    String dssHH = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
-        dca03.setText(MainApp.regionDss);
-        dca03.setSelection(dca03.getText().length());
+
         MainApp.memFlag = 0;
 
         MainApp.familyMembersList = new ArrayList<>();
@@ -461,6 +464,14 @@ public class SectionAActivity extends Activity {
                 }
             }
         });*/
+
+
+//        DSS-SUR
+
+//        Getting dsshh from Houshold activity
+        dca03.setText(getIntent().getExtras().getString("dssHH"));
+        onBtnDSSIDClick();
+
     }
 
     @OnClick(R.id.btn_End)
@@ -491,7 +502,7 @@ public class SectionAActivity extends Activity {
     }
 
 
-    /*@OnClick(R.id.checkMembers)
+    @OnClick(R.id.checkMembers)
     void onBtnCheckMemberClick() {
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -529,7 +540,6 @@ public class SectionAActivity extends Activity {
         alert.show();
 
     }
-*/
     @OnClick(R.id.checkDSSID)
     void onBtnDSSIDClick() {
 
@@ -1180,5 +1190,8 @@ public class SectionAActivity extends Activity {
 
     }
 
-
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Sorry you can't go back..", Toast.LENGTH_SHORT).show();
+    }
 }
