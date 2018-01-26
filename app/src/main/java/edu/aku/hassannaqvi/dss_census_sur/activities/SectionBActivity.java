@@ -48,6 +48,12 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     EditText dcba;
     @BindView(R.id.dcbid)
     EditText dcbid;
+    @BindView(R.id.dcbd)
+    RadioGroup dcbd;
+    @BindView(R.id.dcbd01)
+    RadioButton dcbd01;
+    @BindView(R.id.dcbd02)
+    RadioButton dcbd02;
     /*@BindView(R.id.dcbbrhh)
     RadioGroup dcbbrhh;
     @BindView(R.id.dcbbrhh01)
@@ -92,12 +98,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     RadioButton dcbc04;
     @BindView(R.id.dcbc88)
     RadioButton dcbc88;
-    @BindView(R.id.dcbd)
-    RadioGroup dcbd;
-    @BindView(R.id.dcbd01)
-    RadioButton dcbd01;
-    @BindView(R.id.dcbd02)
-    RadioButton dcbd02;
+
     @BindView(R.id.dcbe)
     RadioGroup dcbe;
     @BindView(R.id.dcbe01)
@@ -457,17 +458,22 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             }
         });
 
-        /*dcbd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        dcbd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (dcbd01.isChecked()) {
-                    dcbf09.setEnabled(false);
-                    dcbf09.setChecked(false);
+                    dcbm01.setEnabled(false);
+                    dcbm01.setChecked(false);
+
+                    dcbm02.setEnabled(true);
                 } else {
-                    dcbf09.setEnabled(true);
+                    dcbm02.setEnabled(false);
+                    dcbm02.setChecked(false);
+
+                    dcbm01.setEnabled(true);
                 }
             }
-        });*/
+        });
 
         dcbm.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -1006,6 +1012,13 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         MainApp.cc.setDss_id_member(dcbid.getText().toString().toUpperCase());
         MainApp.cc.setName(dcba.getText().toString());
+
+        if (dcbd01.isChecked()) {
+            MainApp.cc.setGender("1");
+        } else if (dcbd02.isChecked()) {
+            MainApp.cc.setGender("2");
+        }
+
         /*MainApp.cc.setDss_id_f(dcbbfid.getText().toString().toUpperCase());
         MainApp.cc.setDss_id_m(dcbbmid.getText().toString().toUpperCase());
 
@@ -1016,11 +1029,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         MainApp.cc.setDss_id_f(dcbbfid.getText().toString());
         MainApp.cc.setDss_id_m(dcbbmid.getText().toString());
 
-        if (dcbd01.isChecked()) {
-            MainApp.cc.setGender("1");
-        } else if (dcbd02.isChecked()) {
-            MainApp.cc.setGender("2");
-        }
+
 
         MainApp.cc.setEducation(dcbe01.isChecked() ? "1" : dcbe02.isChecked() ? "2" : dcbe03.isChecked() ? "3"
                 : dcbe04.isChecked() ? "4" : dcbe05.isChecked() ? "5" : dcbe06.isChecked() ? "6"
@@ -1196,6 +1205,19 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             dcbis06x.setError(null);
         }
 
+        // ============== Sex ===================
+
+        if (dcbd.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbd), Toast.LENGTH_SHORT).show();
+            dcbd02.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "dcbd: This data is Required!");
+            return false;
+        } else {
+            dcbd02.setError(null);
+        }
+
+
         /*if (!dcbis03.isChecked() && !dcbis05.isChecked() && !dcbis04.isChecked()) {
 
             // ===================== IS_Responder ==============
@@ -1268,17 +1290,6 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
                 dcbc88.setError(null);
             }
 
-            // ============== Sex ===================
-
-            if (dcbd.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbd), Toast.LENGTH_SHORT).show();
-                dcbd02.setError("This data is Required!");    // Set Error on last radio button
-
-                Log.i(TAG, "dcbd: This data is Required!");
-                return false;
-            } else {
-                dcbd02.setError(null);
-            }
 
 
             // ============== Check Mother Equality - 2 ===================

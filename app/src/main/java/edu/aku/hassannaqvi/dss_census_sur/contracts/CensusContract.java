@@ -532,11 +532,11 @@ public class CensusContract {
         json.put(censusMember.COLUMN_PREVS_DSS_ID_MEMBER, this.prevs_dss_id_member == null ? JSONObject.NULL : this.prevs_dss_id_member);
         json.put(censusMember.COLUMN_SITE_CODE, this.site_code == null ? JSONObject.NULL : this.site_code);*/
         json.put(censusMember.COLUMN_NAME, this.name == null ? JSONObject.NULL : this.name);
+        json.put(censusMember.COLUMN_GENDER, this.gender == null ? JSONObject.NULL : this.gender);
         /*json.put(censusMember.COLUMN_DOB, this.dob == null ? JSONObject.NULL : this.dob);
         json.put(censusMember.COLUMN_AGEY, this.ageY == null ? JSONObject.NULL : this.ageY);
         json.put(censusMember.COLUMN_AGEM, this.ageM == null ? JSONObject.NULL : this.ageM);
         json.put(censusMember.COLUMN_AGED, this.ageD == null ? JSONObject.NULL : this.ageD);
-        json.put(censusMember.COLUMN_GENDER, this.gender == null ? JSONObject.NULL : this.gender);
         json.put(censusMember.COLUMN_IS_HEAD, this.is_head == null ? JSONObject.NULL : this.is_head);
         json.put(censusMember.COLUMN_RELATION_HH, this.relation_hh == null ? JSONObject.NULL : this.relation_hh);*/
         json.put(censusMember.COLUMN_CURRENT_STATUS, this.current_status == null ? JSONObject.NULL : this.current_status);
