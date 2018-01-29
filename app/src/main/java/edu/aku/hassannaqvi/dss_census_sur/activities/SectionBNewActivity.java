@@ -310,8 +310,8 @@ public class SectionBNewActivity extends Activity {
         dcbid.setEnabled(false);
 
         String mt = MainApp.familyMembersList.get(position).getMember_type();
-        dcbis02.setEnabled(mt.equals("h") ? false : true);
-        dcbis04.setEnabled(mt.equals("h") ? false : true);
+        dcbis02.setEnabled(mt.equals("h") || mt.equals("c") ? false : true);
+        dcbis04.setEnabled(mt.equals("h") || mt.equals("c") ? false : true);
 
             /*dcbbfid.setText(MainApp.familyMembersList.get(position).getDss_id_f());
             dcbbmid.setText(MainApp.familyMembersList.get(position).getDss_id_m());
