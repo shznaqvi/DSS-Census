@@ -560,6 +560,11 @@ public class SectionAActivity extends Activity {
                     MainApp.familyMembersList.add(new MembersContract(ec));
 
                     MainApp.insertMem.add(ec.getDss_id_member());
+
+                    if (ec.getMember_type().equals("ot")) {
+                        String[] st = ec.getDss_id_member().split(String.valueOf(ec.getDss_id_member().charAt(12)));
+                        MainApp.randID = Integer.valueOf(st[1]);
+                    }
                 }
 
                 Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
