@@ -255,8 +255,6 @@ public class SectionBNewActivity extends Activity {
     RadioButton dcbis01Outc;
     @BindView(R.id.dcbis01Outd)
     RadioButton dcbis01Outd;
-    @BindView(R.id.dcbis01Oute)
-    RadioButton dcbis01Oute;
 
 
     int position = 0;
@@ -1013,7 +1011,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
                 : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : dcbis07.isChecked() ? "7" : "0");
         if (dcbis01.isChecked()) {
             MainApp.cc.setCurrent_statusOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "2" : dcbis01Outc.isChecked() ? "3"
-                    : dcbis01Outd.isChecked() ? "4" : dcbis01Oute.isChecked() ? "5" : "0");
+                    : dcbis01Outd.isChecked() ? "4" : "0");
         } else if (dcbis04.isChecked()) {
             MainApp.cc.setCurrent_statusOutcome(dcbis04Outa.isChecked() ? "1" : dcbis04Outb.isChecked() ? "2" : dcbis04Outc.isChecked() ? "3"
                     : dcbis04Outd.isChecked() ? "4" : "0");
@@ -1132,12 +1130,12 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         if (dcbis01.isChecked()) {
             if (dcbis01Out.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis07e), Toast.LENGTH_SHORT).show();
-                dcbis01Oute.setError("This data is Required!");    // Set Error on last radio button
+                dcbis01Outd.setError("This data is Required!");    // Set Error on last radio button
 
                 Log.i(TAG, "dcbis01Out: This data is Required!");
                 return false;
             } else {
-                dcbis01Oute.setError(null);
+                dcbis01Outd.setError(null);
             }
         }
 

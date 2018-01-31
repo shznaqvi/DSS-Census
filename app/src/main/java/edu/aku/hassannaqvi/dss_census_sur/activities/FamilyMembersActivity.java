@@ -523,9 +523,6 @@ public class FamilyMembersActivity extends Activity {
                         case "4":
                             st = getString(R.string.dcbis07d);
                             break;
-                        case "5":
-                            st = getString(R.string.dcbis07e);
-                            break;
                     }
                     break;
 
@@ -581,44 +578,6 @@ public class FamilyMembersActivity extends Activity {
 
             return st;
         }
-
-        public String setStatus(String i) {
-            String st = "";
-            switch (i) {
-                case "1":
-                    st = getString(R.string.dcbis07);
-                    break;
-                case "2":
-                    st = getString(R.string.dcbis08);
-                    break;
-                case "3":
-                    st = getString(R.string.dcbis03);
-                    break;
-                case "4":
-                    st = getString(R.string.dcbis09);
-                    break;
-                case "5":
-                    st = getString(R.string.dcbis05);
-                    break;
-                case "6":
-                    st = getString(R.string.dcbis04);
-                    break;
-                case "7":
-                    st = getString(R.string.dcbis06);
-                    break;
-                case "8":
-                    st = getString(R.string.dcbis01);
-                    break;
-                case "9":
-                    st = getString(R.string.dcbis02);
-                    break;
-                default:
-                    break;
-            }
-
-            return st;
-        }
-
 
         @Override
         public int getItemCount() {
