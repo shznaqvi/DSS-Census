@@ -367,7 +367,6 @@ public class FamilyMembersActivity extends Activity {
             for (int mem = 0; mem < MainApp.memClicked.size(); mem++) {
                 if (MainApp.memClicked.get(mem) == MainApp.selectedPos) {
                     MainApp.memClicked.remove(mem);
-                    MainApp.memFlag -= 1;
 
 //                    recycler_noMembers.getChildAt(mem).setBackgroundColor(Color.GRAY);
 
@@ -488,11 +487,100 @@ public class FamilyMembersActivity extends Activity {
             holder.DSSidm.setText(familyMembers.getDss_id_member());
             holder.memberType.setText(familyMembers.getMember_type().equals("mw") ? "(Married Women)" : familyMembers.getMember_type().equals("h") ? "(Husband)" :
                     (familyMembers.getMember_type().equals("c") || familyMembers.getMember_type().equals("ch")) ? "(Child)" : "(Other)");
-            holder.currentStatus.setText(setStatus(familyMembers.getCurrent_status()));
+
+                holder.currentStatus.setText(checkCurrentStatus(familyMembers.getCurrent_status()));
 //            holder.year.setText(familyMembers.getAge().equals("y m d") ? familyMembers.getDob() : familyMembers.getAge());
             holder.year.setText(familyMembers.getCurrent_date());
         }
 
+        public String checkCurrentStatus(String currStatus) {
+
+            String[] st;
+
+            if (currStatus.contains("_")) {
+                st = currStatus.split("_");
+
+                return setStatus(Integer.valueOf(st[0]), st[1]);
+            } else {
+                return setStatus(0, currStatus);
+            }
+        }
+
+        public String setStatus(int cond, String i) {
+            String st = "";
+            switch (cond) {
+                case 1:
+                    switch (i) {
+                        case "1":
+                            st = getString(R.string.dcbis07a);
+                            break;
+                        case "2":
+                            st = getString(R.string.dcbis07b);
+                            break;
+                        case "3":
+                            st = getString(R.string.dcbis07c);
+                            break;
+                        case "4":
+                            st = getString(R.string.dcbis07d);
+                            break;
+                        case "5":
+                            st = getString(R.string.dcbis07e);
+                            break;
+                    }
+                    break;
+
+                case 4:
+                    switch (i) {
+                        case "1":
+                            st = getString(R.string.dcbis09a);
+                            break;
+                        case "2":
+                            st = getString(R.string.dcbis09b);
+                            break;
+                        case "3":
+                            st = getString(R.string.dcbis09c);
+                            break;
+                        case "4":
+                            st = getString(R.string.dcbis09d);
+                            break;
+                    }
+                    break;
+
+                default:
+                    switch (i) {
+                        case "1":
+                            st = getString(R.string.dcbis07);
+                            break;
+                        case "2":
+                            st = getString(R.string.dcbis08);
+                            break;
+                        case "3":
+                            st = getString(R.string.dcbis03);
+                            break;
+                        case "4":
+                            st = getString(R.string.dcbis09);
+                            break;
+                        case "5":
+                            st = getString(R.string.dcbis05);
+                            break;
+                        case "6":
+                            st = getString(R.string.dcbis04);
+                            break;
+                        case "7":
+                            st = getString(R.string.dcbis06);
+                            break;
+                        case "8":
+                            st = getString(R.string.dcbis01);
+                            break;
+                        case "9":
+                            st = getString(R.string.dcbis02);
+                            break;
+                    }
+                    break;
+            }
+
+            return st;
+        }
 
         public String setStatus(String i) {
             String st = "";

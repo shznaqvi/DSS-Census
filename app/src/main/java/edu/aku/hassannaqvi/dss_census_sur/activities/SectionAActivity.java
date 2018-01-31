@@ -515,7 +515,8 @@ public class SectionAActivity extends Activity {
                 for (MembersContract m : members) {
                     member += (++count) + ")\t " + m.getName() + " \t- \t" +
                             (m.getMember_type().equals("mw") ? "(Married Women)" :
-                                    m.getMember_type().equals("h") ? "(Husband)" : "(Child)") + "\n";
+                                    m.getMember_type().equals("h") ? "(Husband)" : m.getMember_type().equals("ot") ? "(Other)"
+                                            : "(Child)") + "\n";
 
                 }
             } else {
@@ -540,6 +541,7 @@ public class SectionAActivity extends Activity {
         alert.show();
 
     }
+
     @OnClick(R.id.checkDSSID)
     void onBtnDSSIDClick() {
 
@@ -562,8 +564,8 @@ public class SectionAActivity extends Activity {
                     MainApp.insertMem.add(ec.getDss_id_member());
 
                     if (ec.getMember_type().equals("ot")) {
-                        String[] st = ec.getDss_id_member().split(String.valueOf(ec.getDss_id_member().charAt(12)));
-                        MainApp.randID = Integer.valueOf(st[1]);
+                        String[] st = ec.getDss_id_member().split(String.valueOf(ec.getDss_id_member().charAt(11)));
+                        MainApp.randID = Integer.valueOf(st[1]) + 1;
                     }
                 }
 

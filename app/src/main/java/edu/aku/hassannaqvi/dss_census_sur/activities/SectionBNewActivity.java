@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -1012,10 +1011,10 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
                 : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : dcbis07.isChecked() ? "7" : "0");
-        if(dcbis01.isChecked()){
+        if (dcbis01.isChecked()) {
             MainApp.cc.setCurrent_statusOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "2" : dcbis01Outc.isChecked() ? "3"
-                    : dcbis01Outd.isChecked() ? "4": dcbis01Oute.isChecked() ? "5" : "0");
-        }else if (dcbis04.isChecked()){
+                    : dcbis01Outd.isChecked() ? "4" : dcbis01Oute.isChecked() ? "5" : "0");
+        } else if (dcbis04.isChecked()) {
             MainApp.cc.setCurrent_statusOutcome(dcbis04Outa.isChecked() ? "1" : dcbis04Outb.isChecked() ? "2" : dcbis04Outc.isChecked() ? "3"
                     : dcbis04Outd.isChecked() ? "4" : "0");
         }
@@ -1062,7 +1061,11 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         m.setGender(c.getGender());
         m.setIs_head(c.getIs_head());
         m.setRelation_hh(c.getRelation_hh());
-        m.setCurrent_status(c.getCurrent_status());
+        if (dcbis01.isChecked() || dcbis04.isChecked()) {
+            m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_statusOutcome());
+        } else {
+            m.setCurrent_status(c.getCurrent_status());
+        }
         m.setCurrent_date(c.getCurrent_date());
         m.setDod(c.getCurrent_time());
         m.setM_status(c.getM_status());
@@ -1126,7 +1129,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             dcbis07.setError(null);
         }
 
-        if (dcbis01.isChecked()){
+        if (dcbis01.isChecked()) {
             if (dcbis01Out.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis07e), Toast.LENGTH_SHORT).show();
                 dcbis01Oute.setError("This data is Required!");    // Set Error on last radio button
@@ -1138,7 +1141,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             }
         }
 
-        if (dcbis04.isChecked()){
+        if (dcbis04.isChecked()) {
             if (dcbis04Out.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis09d), Toast.LENGTH_SHORT).show();
                 dcbis04Outd.setError("This data is Required!");    // Set Error on last radio button
