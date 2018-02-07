@@ -1129,7 +1129,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         if (dcbis01.isChecked()) {
             if (dcbis01Out.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis07e), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis07d), Toast.LENGTH_SHORT).show();
                 dcbis01Outd.setError("This data is Required!");    // Set Error on last radio button
 
                 Log.i(TAG, "dcbis01Out: This data is Required!");
