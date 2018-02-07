@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -644,6 +645,39 @@ public class SectionAActivity extends Activity {
             dca03.setError(null);
         }
 
+        // Checking DSS ID Format
+
+        String alpha = dca03.getText().toString().substring(2,4);
+        if(!Pattern.matches("[A-Z]+", alpha))
+        {
+            Toast.makeText(this, "ERROR(invalid): " + getString(R.string.dca03), Toast.LENGTH_SHORT).show();
+            dca03.setError("First 4 Characters of ID should be Alphateical");
+            return false;
+        }else{
+            dca03.setError(null);
+        }
+
+        String num = dca03.getText().toString().substring(4,9);
+        if(!Pattern.matches("[0-9]+", num))
+        {
+            Toast.makeText(this, "ERROR(invalid): " + getString(R.string.dca03), Toast.LENGTH_SHORT).show();
+            dca03.setError("Character 5 to 9 of ID should be numric");
+            return false;
+        }else{
+            dca03.setError(null);
+        }
+
+        String dash = dca03.getText().toString().substring(9,10);
+
+        if(Pattern.matches("[0-9]+", dash) && !Pattern.matches("-", dash))
+        {
+            Toast.makeText(this, "ERROR(invalid): " + getString(R.string.dca03), Toast.LENGTH_SHORT).show();
+            dca03.setError("Character 10 of ID should be - or Alphabet ");
+            return false;
+        }else{
+            dca03.setError(null);
+        }
+
 //        02
         if (dca04.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.dca04), Toast.LENGTH_SHORT).show();
@@ -1064,6 +1098,7 @@ public class SectionAActivity extends Activity {
 
         JSONObject sa = new JSONObject();
 
+        sa.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
         sa.put("dca03", dca03.getText().toString());
         sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : dca0404.isChecked() ? "4" : dca0405.isChecked() ? "5" : "0");
         /*sa.put("dca05", dca05.getText().toString());
@@ -1174,6 +1209,10 @@ public class SectionAActivity extends Activity {
         }
 
     }
+
+
+
+
 
 
 }
