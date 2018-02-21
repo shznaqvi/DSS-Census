@@ -612,6 +612,6 @@ public class CensusContract {
         public static final String COLUMN_DEVICETAGID = "tagid";
         public static final String COLUMN_SERIAL_NO = "serial";
 
-        public static String _URL = "census_sur.php";
+        public static String _URL = "sur_data.php";
     }
 }

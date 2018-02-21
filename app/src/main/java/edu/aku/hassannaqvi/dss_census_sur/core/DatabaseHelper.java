@@ -1268,7 +1268,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_DEVICETAGID,
 //                censusMember.COLUMN_REMARKS
         };
-        String whereClause = censusMember.COLUMN_SYNCED + " is null";
+        String whereClause = censusMember.COLUMN_SYNCED + " is null OR " + censusMember.COLUMN_SYNCED + " = ''";
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;
@@ -1399,7 +1399,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_DEVICETAGID,
                 FormsTable.COLUMN_DEVICEID
         };
-        String whereClause = FormsTable.COLUMN_SYNCED + " is null";
+        String whereClause = FormsTable.COLUMN_SYNCED + " is null OR " + FormsTable.COLUMN_SYNCED + " = '' ";
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;
