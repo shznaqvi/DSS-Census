@@ -1047,71 +1047,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public Collection<FormsContract> getAllForms() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
-        String[] columns = {
-                FormsContract.FormsTable._ID,
-                FormsContract.FormsTable.COLUMN_UID,
-                FormsContract.FormsTable.COLUMN_IS_NEW,
-                FormsContract.FormsTable.COLUMN_DSSID,
-                FormsContract.FormsTable.COLUMN_FORMDATE,
-                FormsContract.FormsTable.COLUMN_USER,
-                FormsContract.FormsTable.COLUMN_ISTATUS,
-                FormsContract.FormsTable.COLUMN_SA,
-                FormsContract.FormsTable.COLUMN_SD,
-                FormsContract.FormsTable.COLUMN_SE,
-                FormsContract.FormsTable.COLUMN_SF,
-                FormsContract.FormsTable.COLUMN_SG,
-                FormsContract.FormsTable.COLUMN_SH,
-                FormsContract.FormsTable.COLUMN_SI,
-                FormsContract.FormsTable.COLUMN_SJ,
-                FormsContract.FormsTable.COLUMN_SK,
-                FormsContract.FormsTable.COLUMN_SL,
-                FormsContract.FormsTable.COLUMN_SM,
-                FormsTable.COLUMN_GPSLAT,
-                FormsTable.COLUMN_GPSLNG,
-                FormsContract.FormsTable.COLUMN_GPSDATE,
-                FormsContract.FormsTable.COLUMN_GPSACC,
-                FormsContract.FormsTable.COLUMN_DEVICETAGID,
-                FormsContract.FormsTable.COLUMN_DEVICEID,
-
-        };
-        String whereClause = null;
-        String[] whereArgs = null;
-        String groupBy = null;
-        String having = null;
-
-        String orderBy =
-                FormsContract.FormsTable.COLUMN_ID + " ASC";
-
-        Collection<FormsContract> allFC = new ArrayList<FormsContract>();
-        try {
-            c = db.query(
-                    FormsContract.FormsTable.TABLE_NAME,  // The table to query
-                    columns,                   // The columns to return
-                    whereClause,               // The columns for the WHERE clause
-                    whereArgs,                 // The values for the WHERE clause
-                    groupBy,                   // don't group the rows
-                    having,                    // don't filter by row groups
-                    orderBy                    // The sort order
-            );
-            while (c.moveToNext()) {
-                FormsContract fc = new FormsContract();
-                allFC.add(fc.Hydrate(c));
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
-        return allFC;
-    }
-
-
     public Collection<MotherContract> getUnsyncedMother() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -1228,7 +1163,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 censusMember.COLUMN_ID,
                 censusMember.COLUMN_PROJECT_NAME,
-                censusMember.COLUMN_REF_ID,
+//                censusMember.COLUMN_REF_ID,
                 censusMember.COLUMN_ISTATUS,
                 censusMember.COLUMN_UID,
                 censusMember.COLUMN_UUID,
@@ -1244,11 +1179,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 /*censusMember.COLUMN_PREVS_DSS_ID_MEMBER,
                 censusMember.COLUMN_SITE_CODE,*/
                 censusMember.COLUMN_NAME,
+                censusMember.COLUMN_GENDER,
                 /*censusMember.COLUMN_DOB,
                 censusMember.COLUMN_AGEY,
                 censusMember.COLUMN_AGEM,
                 censusMember.COLUMN_AGED,
-                censusMember.COLUMN_GENDER,
                 censusMember.COLUMN_IS_HEAD,
                 censusMember.COLUMN_RELATION_HH,*/
                 censusMember.COLUMN_CURRENT_STATUS,
@@ -1376,7 +1311,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable._ID,
                 FormsTable.COLUMN_PROJECT_NAME,
                 FormsTable.COLUMN_UID,
-                FormsTable.COLUMN_IS_NEW,
+//                FormsTable.COLUMN_IS_NEW,
                 FormsTable.COLUMN_DSSID,
                 FormsTable.COLUMN_FORMDATE,
                 FormsTable.COLUMN_USER,

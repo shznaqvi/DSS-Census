@@ -956,15 +956,15 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         MainApp.cc.set_DATE(MainApp.familyMembersList.get(position).get_DATE());
 
 //        MainApp.cc.setUpdate_dt(new SimpleDateFormat("dd-MM-yy").format(new Date()));
-        MainApp.cc.setDss_id_member(dcbid.getText().toString().toUpperCase());
         /*MainApp.cc.setDss_id_f(MainApp.familyMembersList.get(position).getDss_id_f());
         MainApp.cc.setDss_id_m(MainApp.familyMembersList.get(position).getDss_id_m());
         MainApp.cc.setUpdate_flag("true");*/
 
-
         MainApp.cc.setDss_id_member(dcbid.getText().toString().toUpperCase());
         MainApp.cc.setName(dcba.getText().toString());
         MainApp.cc.setMember_type(MainApp.familyMembersList.get(position).getMember_type());
+
+        MainApp.cc.setGender(MainApp.familyMembersList.get(position).getGender());
 
         /*MainApp.cc.setDss_id_f(dcbbfid.getText().toString().toUpperCase());
         MainApp.cc.setDss_id_m(dcbbmid.getText().toString().toUpperCase());

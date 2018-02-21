@@ -87,7 +87,7 @@ public class FormsContract {
     public FormsContract Hydrate(Cursor cursor) {
         this._ID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UID));
-        this.ISNEW = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_IS_NEW));
+//        this.ISNEW = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_IS_NEW));
         this.DSSID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DSSID));
         this.formDate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMDATE));
         this.user = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_USER));
@@ -123,7 +123,7 @@ public class FormsContract {
 
         json.put(FormsTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(FormsTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
-        json.put(FormsTable.COLUMN_IS_NEW, this.ISNEW == null ? JSONObject.NULL : this.ISNEW);
+//        json.put(FormsTable.COLUMN_IS_NEW, this.ISNEW == null ? JSONObject.NULL : this.ISNEW);
         json.put(FormsTable.COLUMN_DSSID, this.DSSID == null ? JSONObject.NULL : this.DSSID);
         json.put(FormsTable.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(FormsTable.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
