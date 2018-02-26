@@ -26,6 +26,8 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FormsContract.FormsTable;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.HouseholdContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.HouseholdContract.householdForm;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract.FollowUpTable;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract.singleMember;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MotherContract;
@@ -249,6 +251,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             " );";
 
+    final String SQL_CREATE_FOLLOWUPS = "CREATE TABLE " + FollowUpTable.TABLE_NAME + " (" +
+            FollowUpTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            FollowUpTable.COLUMN_HOUSEHOLDID + " TEXT, " +
+            FollowUpTable.COLUMN_FOLLOWUP_DT + " TEXT, " +
+            FollowUpTable.COLUMN_FOLLOWUP_ROUND + " TEXT " +
+            ");";
+
 
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
@@ -262,6 +271,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + censusMember.TABLE_NAME;
     private static final String SQL_DELETE_DECEASED =
             "DROP TABLE IF EXISTS " + DeceasedContract.DeceasedMember.TABLE_NAME;
+    private static final String SQL_DELETE_FOLLOWUPS =
+            "DROP TABLE IF EXISTS " + FollowUpTable.TABLE_NAME;
     private static final String SQL_DELETE_MOTHER =
             "DROP TABLE IF EXISTS " + MotherTB.TABLE_NAME;
     private static final String SQL_DELETE_SEC_K_IM =
@@ -302,6 +313,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_MOTHER);
         db.execSQL(SQL_CREATE_SEC_K_IM);
 
+        db.execSQL(SQL_CREATE_FOLLOWUPS);
     }
 
     @Override
@@ -314,6 +326,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_DECEASED);
         db.execSQL(SQL_DELETE_MOTHER);
         db.execSQL(SQL_DELETE_SEC_K_IM);
+        db.execSQL(SQL_DELETE_FOLLOWUPS);
     }
 
     public void syncUser(JSONArray userlist) {
@@ -339,6 +352,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         } catch (Exception e) {
             Log.d(TAG, "syncUser(e): " + e);
+        } finally {
+            db.close();
+        }
+    }
+
+    public void syncFollowUps(JSONArray UCslist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(FollowUpTable.TABLE_NAME, null, null);
+        try {
+            JSONArray jsonArray = UCslist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectCC = jsonArray.getJSONObject(i);
+
+                FollowUpsContract Vc = new FollowUpsContract();
+                Vc.Sync(jsonObjectCC);
+
+                ContentValues values = new ContentValues();
+
+                values.put(FollowUpTable.COLUMN_HOUSEHOLDID, Vc.getHhID());
+                values.put(FollowUpTable.COLUMN_FOLLOWUP_DT, Vc.getFollowUpDt());
+                values.put(FollowUpTable.COLUMN_FOLLOWUP_ROUND, Vc.getFollowUpRound());
+
+                db.insert(FollowUpTable.TABLE_NAME, null, values);
+            }
+        } catch (Exception e) {
         } finally {
             db.close();
         }
@@ -496,6 +534,50 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return memList;
+    }
+
+
+    public FollowUpsContract getFollowUpListByHH(String hh) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                FollowUpTable.COLUMN_HOUSEHOLDID,
+                FollowUpTable.COLUMN_FOLLOWUP_ROUND,
+                FollowUpTable.COLUMN_FOLLOWUP_DT,
+
+        };
+        String whereClause = FollowUpTable.COLUMN_HOUSEHOLDID + " Like ? ";
+        String[] whereArgs = new String[]{"%" + hh + "%"};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                FollowUpTable.COLUMN_FOLLOWUP_ROUND + " ASC";
+
+        FollowUpsContract allFUP = new FollowUpsContract();
+        try {
+            c = db.query(
+                    FollowUpTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                FollowUpsContract fc = new FollowUpsContract();
+                allFUP = fc.hydrate(c);
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allFUP;
     }
 
     public List<FormsContract> getFormsByDSS(String dssID) {

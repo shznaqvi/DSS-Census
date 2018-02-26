@@ -31,6 +31,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census_sur.R;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
@@ -1083,7 +1084,13 @@ public class SectionAActivity extends Activity {
 
         MainApp.fc.setISNEW(isNew.toString());
 
+        FollowUpsContract fp = (FollowUpsContract) getIntent().getSerializableExtra("followUpData");
+
         JSONObject sa = new JSONObject();
+
+        sa.put("dss_id_st", fp.getHhID());
+        sa.put("visitdt", fp.getFollowUpDt());
+        sa.put("surround", fp.getFollowUpRound());
 
         sa.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
         sa.put("dca03", dca03.getText().toString());

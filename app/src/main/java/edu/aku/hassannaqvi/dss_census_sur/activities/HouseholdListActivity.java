@@ -31,6 +31,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census_sur.R;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.HouseholdContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
@@ -54,6 +55,7 @@ public class HouseholdListActivity extends Activity {
 
     /*Variables*/
     Collection<HouseholdContract> household;
+    FollowUpsContract followUp;
     DatabaseHelper db;
     HouseholdAdapter mAdapter;
 
@@ -139,7 +141,9 @@ public class HouseholdListActivity extends Activity {
                                                             recyclerHouseholds.getChildAt(item).setBackgroundColor(Color.BLACK);
                                                         }
 
-                                                        startActivity(new Intent(getApplicationContext(), SectionAActivity.class).putExtra("dssHH", MainApp.householdList.get(position).getHouseholdID()));
+                                                        startActivity(new Intent(getApplicationContext(), SectionAActivity.class)
+                                                                .putExtra("dssHH", MainApp.householdList.get(position).getHouseholdID())
+                                                                .putExtra("followUpData", followUp));
 
                                                     }
                                                 });
@@ -165,34 +169,44 @@ public class HouseholdListActivity extends Activity {
 
         if (!hhno.getText().toString().trim().isEmpty()) {
 
-            hhno.setError(null);
-            household = db.getHHListByHH(hhno.getText().toString().toUpperCase());
+            Toast.makeText(this, "FolloUp found..", Toast.LENGTH_SHORT).show();
 
-            fldGrpHHExists.setVisibility(View.VISIBLE);
-            hhCount.setText(household.size() + " Households found.");
+            followUp = db.getFollowUpListByHH(hhno.getText().toString().toUpperCase());
 
-            MainApp.householdList = new ArrayList<>();
+            if (!followUp.getHhID().equals("")) {
 
-            if (household.size() != 0) {
+                hhno.setError(null);
+                household = db.getHHListByHH(hhno.getText().toString().toUpperCase());
 
-                for (HouseholdContract ec : household) {
-                    MainApp.householdList.add(new HouseholdContract(ec));
+                fldGrpHHExists.setVisibility(View.VISIBLE);
+                hhCount.setText("Follow up found \n" + household.size() + " Households found.");
+
+                MainApp.householdList = new ArrayList<>();
+
+                if (household.size() != 0) {
+
+                    for (HouseholdContract ec : household) {
+                        MainApp.householdList.add(new HouseholdContract(ec));
+                    }
+
+                    Toast.makeText(this, "HH Found", Toast.LENGTH_LONG).show();
+
+                    flagHH = true;
+
+                    hhID = hhno.getText().toString();
+
+                    fldGrpMain.setVisibility(View.VISIBLE);
+
+                    new populateRecyclerView(this).execute();
+
+                } else {
+                    flagHH = false;
+                    Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
                 }
-
-                Toast.makeText(this, "HH Found", Toast.LENGTH_LONG).show();
-
-                flagHH = true;
-
-                hhID = hhno.getText().toString();
-
-                fldGrpMain.setVisibility(View.VISIBLE);
-
-                new populateRecyclerView(this).execute();
-
             } else {
-                flagHH = false;
-                Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "No Follow Up Found", Toast.LENGTH_LONG).show();
             }
+
         } else {
             hhno.setError("This data is Required!");
         }
@@ -232,7 +246,7 @@ public class HouseholdListActivity extends Activity {
     public void onBackPressed() {
         if (getIntent().getBooleanExtra("check", true)) {
             super.onBackPressed();
-        }else {
+        } else {
             Toast.makeText(this, "Press End Button!!", Toast.LENGTH_SHORT).show();
         }
     }
