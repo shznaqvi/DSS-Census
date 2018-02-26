@@ -178,6 +178,8 @@ public class SectionBNewActivity extends Activity {
     EditText dcbhd;*/
     @BindView(R.id.dcbis)
     RadioGroup dcbis;
+    @BindView(R.id.dcbis00)
+    RadioButton dcbis00;
     @BindView(R.id.dcbis01)
     RadioButton dcbis01;
     @BindView(R.id.dcbis02)
@@ -508,7 +510,14 @@ public class SectionBNewActivity extends Activity {
 
                 dcbbrhh01.setEnabled(true);*/
 
-                if (dcbis01.isChecked()) {
+                if (dcbis00.isChecked()) {
+                    fldGrpdcbidt.setVisibility(View.GONE);
+
+                    fldGrpdcbidt01.setVisibility(View.GONE);
+                    dcbis01Out.clearCheck();
+                    fldGrpdcbidt02.setVisibility(View.GONE);
+                    dcbis04Out.clearCheck();
+                } else if (dcbis01.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.GONE);
 
                     fldGrpdcbidt01.setVisibility(View.VISIBLE);
@@ -1008,7 +1017,8 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         }*/
 
         MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
-                : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6" : dcbis07.isChecked() ? "7" : "0");
+                : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6"
+                : dcbis07.isChecked() ? "7": dcbis00.isChecked() ? "10" : "0");
         if (dcbis01.isChecked()) {
             MainApp.cc.setCurrent_statusOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "2" : dcbis01Outc.isChecked() ? "3"
                     : dcbis01Outd.isChecked() ? "4" : "0");

@@ -595,6 +595,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                     dcbd01.setEnabled(true);
                     dcbd02.setEnabled(true);*/
+
+                    dcbis01.setEnabled(false);
+                    dcbis01.setChecked(false);
                 }
             }
         });

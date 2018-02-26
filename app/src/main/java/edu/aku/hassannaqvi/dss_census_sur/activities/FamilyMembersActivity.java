@@ -488,7 +488,7 @@ public class FamilyMembersActivity extends Activity {
             holder.memberType.setText(familyMembers.getMember_type().equals("mw") ? "(Married Women)" : familyMembers.getMember_type().equals("h") ? "(Husband)" :
                     (familyMembers.getMember_type().equals("c") || familyMembers.getMember_type().equals("ch")) ? "(Child)" : "(Other)");
 
-                holder.currentStatus.setText(checkCurrentStatus(familyMembers.getCurrent_status()));
+            holder.currentStatus.setText(checkCurrentStatus(familyMembers.getCurrent_status()));
 //            holder.year.setText(familyMembers.getAge().equals("y m d") ? familyMembers.getDob() : familyMembers.getAge());
             holder.year.setText(familyMembers.getCurrent_date());
         }
@@ -571,6 +571,9 @@ public class FamilyMembersActivity extends Activity {
                             break;
                         case "9":
                             st = getString(R.string.dcbis02);
+                            break;
+                        case "10":
+                            st = getString(R.string.dcbis10);
                             break;
                     }
                     break;
