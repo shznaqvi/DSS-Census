@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -26,6 +27,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census_sur.R;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.CensusContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
@@ -1018,7 +1020,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
                 : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6"
-                : dcbis07.isChecked() ? "7": dcbis00.isChecked() ? "10" : "0");
+                : dcbis07.isChecked() ? "7" : dcbis00.isChecked() ? "10" : "0");
         if (dcbis01.isChecked()) {
             MainApp.cc.setCurrent_statusOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "2" : dcbis01Outc.isChecked() ? "3"
                     : dcbis01Outd.isChecked() ? "4" : "0");
@@ -1031,7 +1033,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
         }
         /*MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : dcbm04.isChecked() ? "ot" : "0");
-        MainApp.cc.setRemarks(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
+        MainApp.cc.setsC(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
 
         MainApp.cc.setIs_head(dcbbrhh01.isChecked() ? "1" : "null");
         if (!MainApp.isHead) {
@@ -1043,8 +1045,21 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             MainApp.isRsvp = rsvp01.isChecked() ? true : false;
         }*/
 
-        Log.d(TAG, "SaveDraft: " + MainApp.cc.toJSONObject());
+        FollowUpsContract fp = (FollowUpsContract) getIntent().getSerializableExtra("followUpData");
 
+        JSONObject sC = new JSONObject();
+
+        sC.put("isNew", "2");
+        sC.put("dss_id_st", fp.getHhID());
+        sC.put("visitdt", fp.getFollowUpDt());
+        sC.put("surround", fp.getFollowUpRound());
+
+        sC.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
+
+        MainApp.cc.setsC(String.valueOf(sC));
+
+
+        Log.d(TAG, "SaveDraft: " + MainApp.cc.toJSONObject());
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
 

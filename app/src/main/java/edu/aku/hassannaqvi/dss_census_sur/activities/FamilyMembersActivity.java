@@ -27,6 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census_sur.R;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
@@ -124,7 +125,9 @@ public class FamilyMembersActivity extends Activity {
                                     recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
                                 }
 
-                                startActivity(new Intent(getApplicationContext(), SectionBNewActivity.class).putExtra("dataFlag", true).putExtra("position", position));
+                                startActivity(new Intent(getApplicationContext(), SectionBNewActivity.class)
+                                        .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                        .putExtra("dataFlag", true).putExtra("position", position));
 
                             }
                         }
@@ -355,7 +358,9 @@ public class FamilyMembersActivity extends Activity {
 
         MainApp.memClicked.add(MainApp.TotalMembersCount++);
 
-        startActivity(new Intent(this, SectionBActivity.class).putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount - 1));
+        startActivity(new Intent(this, SectionBActivity.class)
+                .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount - 1));
 
     }
 

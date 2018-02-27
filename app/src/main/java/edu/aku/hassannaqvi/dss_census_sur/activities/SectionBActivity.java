@@ -24,6 +24,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -34,6 +35,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census_sur.R;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.CensusContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
@@ -203,14 +205,14 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     EditText dcbis06x;
     @BindView(R.id.fldGrpdcbidt)
     LinearLayout fldGrpdcbidt;
-    @BindView(R.id.fldGrpdcbidttime)
-    LinearLayout fldGrpdcbidttime;
+/*    @BindView(R.id.fldGrpdcbidttime)
+    LinearLayout fldGrpdcbidttime;*/
     @BindView(R.id.dcbidtTxt)
     TextView dcbidtTxt;
     @BindView(R.id.dcbidob)
     DatePicker dcbidob;
-    @BindView(R.id.dcbitime)
-    TimePicker dcbitime;
+  /*  @BindView(R.id.dcbitime)
+    TimePicker dcbitime;*/
     /*@BindView(R.id.fldGrpdcbir)
     LinearLayout fldGrpdcbir;
     @BindView(R.id.fldgrpmigout)
@@ -377,7 +379,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                 if (dcbis01.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
-                    fldGrpdcbidttime.setVisibility(View.VISIBLE);
+//                    fldGrpdcbidttime.setVisibility(View.VISIBLE);
                     dcbidtTxt.setText(getString(R.string.dcbis01) + " " + getString(R.string.dcbidt));
 
                     /*fldGrpdcbir.setVisibility(View.GONE);
@@ -394,7 +396,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                 } else if (dcbis02.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
-                    fldGrpdcbidttime.setVisibility(View.GONE);
+//                    fldGrpdcbidttime.setVisibility(View.GONE);
 
                     dcbidtTxt.setText(getString(R.string.dcbis02) + " " + getString(R.string.dcbidt));
 
@@ -409,7 +411,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                 } else if (dcbis03.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
-                    fldGrpdcbidttime.setVisibility(View.GONE);
+//                    fldGrpdcbidttime.setVisibility(View.GONE);
 //                    fldgrpmigout.setVisibility(View.GONE);
 
                     clearFieldsOnStatus();
@@ -417,7 +419,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbidtTxt.setText(getString(R.string.dcbis03) + " " + getString(R.string.dcbidt));
                 } else if (dcbis04.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
-                    fldGrpdcbidttime.setVisibility(View.GONE);
+//                    fldGrpdcbidttime.setVisibility(View.GONE);
 //                    fldgrpmigout.setVisibility(View.GONE);
 
                     clearFieldsOnStatus();
@@ -425,7 +427,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbidtTxt.setText(getString(R.string.dcbis04) + " " + getString(R.string.dcbidt));
                 } else if (dcbis05.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
-                    fldGrpdcbidttime.setVisibility(View.GONE);
+//                    fldGrpdcbidttime.setVisibility(View.GONE);
                     dcbidtTxt.setText(" " + getString(R.string.dccf));
 
                     /*fldGrpdcbir.setVisibility(View.GONE);
@@ -444,7 +446,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     fldGrpdcbidt.setVisibility(View.GONE);
-                    fldGrpdcbidttime.setVisibility(View.GONE);
+//                    fldGrpdcbidttime.setVisibility(View.GONE);
                     /*fldGrpdcbir.setVisibility(View.GONE);
 
                     dcbir.clearCheck();
@@ -533,6 +535,10 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                         dcbd02.setEnabled(true);
                     }*/
 
+                    dcbis01.setEnabled(false);
+                    dcbis01.setChecked(false);
+                    fldGrpdcbidt.setVisibility(View.GONE);
+
                 } else {
 
                     /*dcbbrhh01.setEnabled(false);
@@ -596,8 +602,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     dcbd01.setEnabled(true);
                     dcbd02.setEnabled(true);*/
 
-                    dcbis01.setEnabled(false);
-                    dcbis01.setChecked(false);
+                    dcbis01.setEnabled(true);
                 }
             }
         });
@@ -1062,11 +1067,11 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 //        MainApp.cc.setCurrent_statusOutcome(dcbis06x.getText().toString());
         MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
 
-        if (dcbis01.isChecked()) {
+        /*if (dcbis01.isChecked()) {
             MainApp.cc.setCurrent_time(dcbitime.getCurrentHour()+":"+dcbitime.getCurrentMinute());
-        }
+        }*/
         MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : dcbm04.isChecked() ? "ot" : "0");
-        /*MainApp.cc.setRemarks(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
+        /*MainApp.cc.setsC(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
 
         MainApp.cc.setIs_head(dcbbrhh01.isChecked() ? "1" : "null");
         if (!MainApp.isHead) {
@@ -1077,6 +1082,20 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         if (!MainApp.isRsvp) {
             MainApp.isRsvp = rsvp01.isChecked() ? true : false;
         }*/
+
+
+        FollowUpsContract fp = (FollowUpsContract) getIntent().getSerializableExtra("followUpData");
+
+        JSONObject sC = new JSONObject();
+
+        sC.put("isNew", "1");
+        sC.put("dss_id_st", fp.getHhID());
+        sC.put("visitdt", fp.getFollowUpDt());
+        sC.put("surround", fp.getFollowUpRound());
+
+        sC.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
+
+        MainApp.cc.setsC(String.valueOf(sC));
 
         Log.d(TAG, "SaveDraft: " + MainApp.cc.toJSONObject());
 

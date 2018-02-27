@@ -51,7 +51,7 @@ public class CensusContract {
     private String update_dt = "";
     private String synced = "";
     private String syncedDate = "";
-    private String remarks = "";
+    private String sC = "";
     private String istatus = "";
     private String serialNo = "";
 
@@ -375,12 +375,12 @@ public class CensusContract {
         this.occupationX = occupationX;
     }
 
-    public String getRemarks() {
-        return remarks;
+    public String getsC() {
+        return sC;
     }
 
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
+    public void setsC(String sC) {
+        this.sC = sC;
     }
 
     public String getSerialNo() {
@@ -456,7 +456,7 @@ public class CensusContract {
         this.serialNo= jsonObject.getString(censusMember.COLUMN_SERIAL_NO);
         this.synced= jsonObject.getString(censusMember.COLUMN_SYNCED);
         this.syncedDate= jsonObject.getString(censusMember.COLUMN_SYNCED_DATE);
-        this.remarks= jsonObject.getString(censusMember.COLUMN_REMARKS);
+        this.sC = jsonObject.getString(censusMember.COLUMN_SC);
         this.istatus= jsonObject.getString(censusMember.COLUMN_ISTATUS);
         this.devicetagID= jsonObject.getString(censusMember.COLUMN_DEVICETAGID);
 
@@ -502,8 +502,8 @@ public class CensusContract {
         /*this.rsvp = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_RSVP));
         this.update_flag = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_UPDATE_FLAG));
         this.update_dt = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_UPDATE_DT));
-        this.serialNo = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SERIAL_NO));
-        this.remarks = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_REMARKS));*/
+        this.serialNo = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SERIAL_NO));*/
+        this.sC = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SC));
         this.istatus = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_ISTATUS));
         this.devicetagID = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DEVICETAGID));
 
@@ -542,7 +542,7 @@ public class CensusContract {
         json.put(censusMember.COLUMN_CURRENT_STATUS, this.current_status == null ? JSONObject.NULL : this.current_status);
         json.put(censusMember.COLUMN_CURRENT_STATUS_OUTCOME, this.current_statusOutcome == null ? JSONObject.NULL : this.current_statusOutcome);
         json.put(censusMember.COLUMN_CURRENT_DATE, this.current_date == null ? JSONObject.NULL : this.current_date);
-        json.put(censusMember.COLUMN_CURRENT_TIME, this.current_time == null ? JSONObject.NULL : this.current_time);
+//        json.put(censusMember.COLUMN_CURRENT_TIME, this.current_time == null ? JSONObject.NULL : this.current_time);
        /* json.put(censusMember.COLUMN_M_STATUS, this.m_status == null ? JSONObject.NULL : this.m_status);
         json.put(censusMember.COLUMN_EDUCATION, this.education == null ? JSONObject.NULL : this.education);
         json.put(censusMember.COLUMN_EDUCATIONX, this.educationX == null ? JSONObject.NULL : this.educationX);
@@ -552,8 +552,10 @@ public class CensusContract {
 /*        json.put(censusMember.COLUMN_RSVP, this.rsvp == null ? JSONObject.NULL : this.rsvp);
         json.put(censusMember.COLUMN_UPDATE_FLAG, this.update_flag == null ? JSONObject.NULL : this.update_flag);
         json.put(censusMember.COLUMN_UPDATE_DT, this.update_dt == null ? JSONObject.NULL : this.update_dt);
-        json.put(censusMember.COLUMN_SERIAL_NO, this.serialNo == null ? JSONObject.NULL : this.serialNo);
-        json.put(censusMember.COLUMN_REMARKS, this.remarks == null ? JSONObject.NULL : this.remarks);*/
+        json.put(censusMember.COLUMN_SERIAL_NO, this.serialNo == null ? JSONObject.NULL : this.serialNo);*/
+        if (!this.sC.equals("")) {
+            json.put(censusMember.COLUMN_SC, this.sC.equals("") ? JSONObject.NULL : new JSONObject(this.sC));
+        }
         json.put(censusMember.COLUMN_PROJECT_NAME, this.projectName == null ? JSONObject.NULL : this.projectName);
         json.put(censusMember.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
         json.put(censusMember.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
@@ -598,7 +600,7 @@ public class CensusContract {
         public static final String COLUMN_EDUCATIONX = "educationx";
         public static final String COLUMN_OCCUPATION = "occupation";
         public static final String COLUMN_OCCUPATIONX = "occupationx";
-        public static final String COLUMN_REMARKS = "remarks";
+        public static final String COLUMN_SC = "sC";
         public static final String COLUMN_MEMBER_TYPE = "member_type";
         public static final String COLUMN_UPDATE_FLAG = "updated_flag";
         public static final String COLUMN_UPDATE_DT = "update_date";

@@ -141,7 +141,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             censusMember.COLUMN_MEMBER_TYPE + " TEXT," +
             censusMember.COLUMN_RSVP + " TEXT," +
             censusMember.COLUMN_ISTATUS + " TEXT," +
-            censusMember.COLUMN_REMARKS + " TEXT," +
+            censusMember.COLUMN_SC + " TEXT," +
             censusMember.COLUMN_UPDATE_FLAG + " TEXT," +
             censusMember.COLUMN_UPDATE_DT + " TEXT," +
             censusMember.COLUMN_SERIAL_NO + " TEXT," +
@@ -829,7 +829,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(censusMember.COLUMN_OCCUPATION, mc.getOccupation());
         values.put(censusMember.COLUMN_OCCUPATIONX, mc.getOccupationX());
         values.put(censusMember.COLUMN_MEMBER_TYPE, mc.getMember_type());
-        values.put(censusMember.COLUMN_REMARKS, mc.getRemarks());
+        values.put(censusMember.COLUMN_SC, mc.getsC());
         values.put(censusMember.COLUMN_UPDATE_FLAG, mc.getUpdate_flag());
         values.put(censusMember.COLUMN_UPDATE_DT, mc.getUpdate_dt());
         values.put(censusMember.COLUMN_RSVP, mc.getRsvp());
@@ -1283,7 +1283,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_RSVP,
                 censusMember.COLUMN_SERIAL_NO,*/
                 censusMember.COLUMN_DEVICETAGID,
-//                censusMember.COLUMN_REMARKS
+                censusMember.COLUMN_SC
         };
         String whereClause = censusMember.COLUMN_SYNCED + " is null OR " + censusMember.COLUMN_SYNCED + " = ''";
         String[] whereArgs = null;

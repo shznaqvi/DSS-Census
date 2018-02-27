@@ -169,11 +169,11 @@ public class HouseholdListActivity extends Activity {
 
         if (!hhno.getText().toString().trim().isEmpty()) {
 
-            Toast.makeText(this, "FolloUp found..", Toast.LENGTH_SHORT).show();
-
             followUp = db.getFollowUpListByHH(hhno.getText().toString().toUpperCase());
 
-            if (!followUp.getHhID().equals("")) {
+            if (followUp.getHhID() != null) {
+
+                Toast.makeText(this, "FolloUp found..", Toast.LENGTH_SHORT).show();
 
                 hhno.setError(null);
                 household = db.getHHListByHH(hhno.getText().toString().toUpperCase());

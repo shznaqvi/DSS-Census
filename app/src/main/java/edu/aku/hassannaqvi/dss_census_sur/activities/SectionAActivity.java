@@ -43,6 +43,8 @@ public class SectionAActivity extends Activity {
     private static final String TAG = SectionAActivity.class.getSimpleName();
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
 
+    FollowUpsContract fp;
+
 
     @BindView(R.id.dca03)
     EditText dca03;
@@ -628,7 +630,8 @@ public class SectionAActivity extends Activity {
                     isNew = true;
                     Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
                 }
-                startActivity(new Intent(this, FamilyMembersActivity.class));
+                startActivity(new Intent(this, FamilyMembersActivity.class)
+                        .putExtra("followUpData", fp));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -1084,7 +1087,7 @@ public class SectionAActivity extends Activity {
 
         MainApp.fc.setISNEW(isNew.toString());
 
-        FollowUpsContract fp = (FollowUpsContract) getIntent().getSerializableExtra("followUpData");
+        fp = (FollowUpsContract) getIntent().getSerializableExtra("followUpData");
 
         JSONObject sa = new JSONObject();
 
