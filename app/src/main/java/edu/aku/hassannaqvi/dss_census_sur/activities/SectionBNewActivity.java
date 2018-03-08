@@ -260,6 +260,15 @@ public class SectionBNewActivity extends Activity {
     @BindView(R.id.dcbis01Outd)
     RadioButton dcbis01Outd;
 
+    @BindView(R.id.fldGrpdcbidt0201)
+    LinearLayout fldGrpdcbidt0201;
+    @BindView(R.id.dcbis04Outda)
+    EditText dcbis04Outda;
+    @BindView(R.id.dcbis04Outdb)
+    EditText dcbis04Outdb;
+    @BindView(R.id.dcbis04Outdc)
+    EditText dcbis04Outdc;
+
 
     int position = 0;
 
@@ -540,7 +549,7 @@ public class SectionBNewActivity extends Activity {
                 } else if (dcbis02.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
 
-                    dcbidtTxt.setText(getString(R.string.dcbis08) + " " + getString(R.string.dcbidt));
+                    dcbidtTxt.setText("LMP " + getString(R.string.dcbidt));
 
                     fldGrpdcbidt01.setVisibility(View.GONE);
                     dcbis01Out.clearCheck();
@@ -596,6 +605,20 @@ public class SectionBNewActivity extends Activity {
                     dcbis01Out.clearCheck();
                     fldGrpdcbidt02.setVisibility(View.GONE);
                     dcbis04Out.clearCheck();
+                }
+            }
+        });
+
+        dcbis04Out.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (i == R.id.dcbis04Outd) {
+                    fldGrpdcbidt0201.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpdcbidt0201.setVisibility(View.GONE);
+                    dcbis04Outda.setText(null);
+                    dcbis04Outdb.setText(null);
+                    dcbis04Outdc.setText(null);
                 }
             }
         });
@@ -1054,6 +1077,12 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         sC.put("visitdt", fp.getFollowUpDt());
         sC.put("surround", fp.getFollowUpRound());
 
+        if (dcbis04Outd.isChecked()) {
+            sC.put("current_status_outcome_d_a", dcbis04Outda.getText().toString());
+            sC.put("current_status_outcome_d_b", dcbis04Outdb.getText().toString());
+            sC.put("current_status_outcome_d_c", dcbis04Outdc.getText().toString());
+        }
+
         sC.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
 
         MainApp.cc.setsC(String.valueOf(sC));
@@ -1173,6 +1202,55 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
                 return false;
             } else {
                 dcbis04Outd.setError(null);
+            }
+
+
+            if (dcbis04Outd.isChecked()) {
+                if (dcbis04Outda.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis09da), Toast.LENGTH_SHORT).show();
+                    dcbis04Outda.setError("This data is Required!");
+
+                    Log.i(TAG, "dcbis04Outda: This data is Required!");
+                    return false;
+                } else {
+                    dcbis04Outda.setError(null);
+                }
+                if (Integer.valueOf(dcbis04Outda.getText().toString()) < 1) {
+                    Toast.makeText(this, "ERROR(Range): " + getString(R.string.dcbis09da), Toast.LENGTH_SHORT).show();
+                    dcbis04Outda.setError("Range greater then 1!");
+
+                    Log.i(TAG, "dcbis04Outda: Range greater then 1!");
+                    return false;
+                } else {
+                    dcbis04Outda.setError(null);
+                }
+                if (dcbis04Outdb.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis09db), Toast.LENGTH_SHORT).show();
+                    dcbis04Outdb.setError("This data is Required!");
+
+                    Log.i(TAG, "dcbis04Outdb: This data is Required!");
+                    return false;
+                } else {
+                    dcbis04Outdb.setError(null);
+                }
+                if (dcbis04Outdc.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis09dc), Toast.LENGTH_SHORT).show();
+                    dcbis04Outdc.setError("This data is Required!");
+
+                    Log.i(TAG, "dcbis04Outdc: This data is Required!");
+                    return false;
+                } else {
+                    dcbis04Outdc.setError(null);
+                }
+                if (Integer.valueOf(dcbis04Outdb.getText().toString()) + Integer.valueOf(dcbis04Outdc.getText().toString()) != Integer.valueOf(dcbis04Outda.getText().toString())) {
+                    Toast.makeText(this, "ERROR(Range): " + getString(R.string.dcbis09da), Toast.LENGTH_SHORT).show();
+                    dcbis04Outda.setError("Total is not correct!");
+
+                    Log.i(TAG, "dcbis04Outda: Total is not correct!");
+                    return false;
+                } else {
+                    dcbis04Outda.setError(null);
+                }
             }
         }
 

@@ -211,8 +211,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     TextView dcbidtTxt;
     @BindView(R.id.dcbidob)
     DatePicker dcbidob;
-  /*  @BindView(R.id.dcbitime)
-    TimePicker dcbitime;*/
+    @BindView(R.id.dcbitime)
+    TimePicker dcbitime;
     /*@BindView(R.id.fldGrpdcbir)
     LinearLayout fldGrpdcbir;
     @BindView(R.id.fldgrpmigout)
@@ -1067,9 +1067,9 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 //        MainApp.cc.setCurrent_statusOutcome(dcbis06x.getText().toString());
         MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
 
-        /*if (dcbis01.isChecked()) {
+        if (dcbis01.isChecked()) {
             MainApp.cc.setCurrent_time(dcbitime.getCurrentHour()+":"+dcbitime.getCurrentMinute());
-        }*/
+        }
         MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : dcbm04.isChecked() ? "ot" : "0");
         /*MainApp.cc.setsC(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
 
