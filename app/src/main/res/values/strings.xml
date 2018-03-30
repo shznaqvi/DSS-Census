@@ -198,7 +198,11 @@
     <string name="dcbis09a"> Miscarriage </string>
     <string name="dcbis09b"> Still Birth </string>
     <string name="dcbis09c"> Live Birth </string>
-    <string name="dcbis09d"> Twin Birth </string>
+    <string name="dcbis09d"> Multiple Birth </string>
+    <string name="dcbis09d01"> Birth Info </string>
+    <string name="dcbis09da"> Total Birth </string>
+    <string name="dcbis09db"> Still Birth </string>
+    <string name="dcbis09dc"> Live Birth </string>
     <string name="dcbis10"> کوئی تبدیلی نہیں </string>
     <string name="dcbidt"> کی تاریخ</string>
     <string name="dcbidt1"> تاریخ </string>
