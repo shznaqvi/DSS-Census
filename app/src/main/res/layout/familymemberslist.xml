@@ -7,8 +7,8 @@
     android:focusable="true"
     android:orientation="vertical"
     android:paddingBottom="10dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
     android:paddingTop="10dp">
 
     <!-- <TextView
@@ -112,8 +112,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="false"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="8dp"
-        android:gravity="right"
+        android:layout_marginEnd="8dp"
+        android:gravity="end"
         android:text="Status"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
@@ -128,8 +128,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="false"
         android:layout_below="@id/currentStatus"
-        android:layout_marginRight="8dp"
-        android:gravity="right"
+        android:layout_marginEnd="8dp"
+        android:gravity="end"
         android:text="Status"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"

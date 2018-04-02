@@ -114,8 +114,19 @@
             android:name=".activities.MotherListActivity"
             android:label="Mothers List"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.HouseholdListActivity" />
-        <activity android:name=".activities.NewBornAssessmentActivity"></activity>
+        <activity
+            android:name=".activities.HouseholdListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activities.NewBornAssessmentActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activities.ChildDeathRegActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
     </application>
 
 </manifest>
