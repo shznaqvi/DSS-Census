@@ -114,7 +114,8 @@
             android:name=".activities.MotherListActivity"
             android:label="Mothers List"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.HouseholdListActivity"></activity>
+        <activity android:name=".activities.HouseholdListActivity" />
+        <activity android:name=".activities.NewBornAssessmentActivity"></activity>
     </application>
 
 </manifest>

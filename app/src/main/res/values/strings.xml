@@ -36,6 +36,10 @@
     <string name="secLLabel">سیکشن ایل :گھریلو خوراک کی غیر محفوظی ، خوراک کا استعمال اور تبدل</string>
     <string name="dcl2heading"> خاندان کی غذا کی کمی سے نمنٹے کی حکمت عملی </string>
     <string name="dcl3heading"> بھوک کا پیمانہ ( گزشتہ ایک ماہ کے متعلق) </string>
+    <string name="dnbheading">نومولود میں خطرناک علامات کی جانچ</string>
+    <string name="dnbsubheading1">اگر یہ دوسر ی یا تیسری وزٹ ے</string>
+    <string name="dnbsubheading2"> طبی مع</string>
+    <string name="dstudyid">Study ID</string>
     <string name="secMLabel">سیکشن ایم: گھر کا ماحول</string>
 
 
@@ -54,6 +58,8 @@
     <string name="dctimes">تعداد</string>
     <string name="dcmale"> مرد </string>
     <string name="dcfemale"> عورت </string>
+    <string name="dnbboy"> لڑکا</string>
+    <string name="dnbgirl"> لڑکی </string>
     <string name="Frequency"> تعداد </string>
 
     <string name="dcpro01">پروفیشنل / ٹیکنیکل / مینیجریل</string>
@@ -767,6 +773,36 @@
     <string name="dcm19"> 19) کیا گھر میں روزانہ سولڈ جیل ڈسپینسر استعمال کرتے ہیں (مہنے میں کم سے کم ایک دفعہ) </string>
     <string name="dcm20"> 20) کیا باقاعدگی سے دیگر ائیر فریشر کی چیزیں مثلاً خوشبودار موم بتیاں(اگر بتیاں) وغیرہ استعمال کرتے ہیں؟ </string>
 
+  <!--new Born-->
+  <string name="dnb01"> ورکر کا نام </string>
+  <string name="dnb02"> ورکر کا کوڈ </string>
+  <string name="dnb03"> چے کا نام   </string>
+  <string name="dnb04"> جنس </string>
+  <string name="dnb05"> والدہ کا نام </string>
+  <string name="dnb06"> والد کا نام </string>
+  <string name="dnb07"> خ پ یدا </string>
+  <string name="dnb08"> ار ن </string>
+  <string name="dnb09"> چ ے کا ن </string>
+  <string name="dnb10">  </string>
+  <string name="dnb11">  </string>
+  <string name="dnb12">  </string>
+  <string name="dnb13">  </string>
+  <string name="dnb14">  </string>
+  <string name="dnb15">  </string>
+  <string name="dnb16">  </string>
+  <string name="dnb17">  </string>
+  <string name="dnb18">  </string>
+  <string name="dnb19">  </string>
+  <string name="dnb20">  </string>
+  <string name="dnb21">  </string>
+  <string name="dnb22">  </string>
+  <string name="dnb23">  </string>
+  <string name="dnb24">  </string>
+  <string name="dnb25">  </string>
+  <string name="dnb26">  </string>
+  <string name="dnb27">  </string>
+  <string name="dnb28">  </string>
+  <string name="dnb29">  </string>
 
     <string name="rsvp"> کیا آپ جواب دہندہ ہیں؟ </string>
 </resources>

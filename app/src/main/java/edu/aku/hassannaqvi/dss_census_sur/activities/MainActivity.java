@@ -326,6 +326,10 @@ public class MainActivity extends Activity {
         Intent iEnd = new Intent(this, SectionMActivity.class);
         startActivity(iEnd);
     }
+    public void openNB(View v) {
+        Intent iEnd = new Intent(this, NewBornAssessmentActivity.class);
+        startActivity(iEnd);
+    }
 
     public void testGPS(View v) {
 
