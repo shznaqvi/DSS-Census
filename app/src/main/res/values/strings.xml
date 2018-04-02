@@ -44,6 +44,8 @@
 
 
     <string name="days">دنوں کی تعداد</string>
+    <string name="correct">    ہ</string>
+    <string name="notcorrect"> ے ہیح  پ  ح ہ</string>
 
 
     <!-- Strings that are fixed for all apps -->

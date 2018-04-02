@@ -196,6 +196,20 @@ android:scrollbars="horizontal">
             android:ems="10"
             android:spinnersShown="true" />
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/dnb10"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white" />
+
+    <TimePicker
+        android:id="@+id/dnb10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -990,8 +1004,6 @@ android:scrollbars="horizontal">
         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         />
 </LinearLayout>
-
-
 </LinearLayout>
 </ScrollView>
 </layout>

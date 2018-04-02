@@ -4,6 +4,9 @@ android {
     compileSdkVersion 27
 
     def versionPropsFile = file('version.properties')
+    dataBinding {
+        enabled = true
+    }
 
     if (versionPropsFile.canRead()) {
         Properties versionProps = new Properties()
