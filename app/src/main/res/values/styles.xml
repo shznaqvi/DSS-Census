@@ -10,6 +10,15 @@
         <item name="android:radioButtonStyle">@style/radiobutton</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="AppTheme1" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:scrollViewStyle">@style/BackgroundStyle</item>
+        <item name="android:textViewStyle">@style/labels</item>
+        <item name="android:editTextStyle">@style/textInput</item>
+        <item name="android:buttonStyle">@style/buttons</item>
+        <item name="android:checkboxStyle">@style/checkbox</item>
+        <item name="android:radioButtonStyle">@style/radiobutton1</item>
+        <!-- Customize your theme here. -->
+    </style>
 
     <style name="BackgroundStyle" parent="android:Widget.ScrollView">
         <item name="android:background">#efefef</item>
@@ -143,6 +152,17 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:button">@null</item>
         <item name="android:drawableRight">@android:drawable/btn_radio</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:background">#d6d6d6</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+    <style name="radiobutton1" parent="android:Widget.Material.Light.CompoundButton.RadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawableLeft">@android:drawable/btn_radio</item>
         <item name="android:textSize">24sp</item>
         <item name="android:typeface">serif</item>
         <item name="android:background">#d6d6d6</item>

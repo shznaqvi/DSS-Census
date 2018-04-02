@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DSS-Census.iml" filepath="$PROJECT_DIR$/DSS-Census.iml" />
-      <module fileurl="file://C:\Projects\DSS-Census\DSS-Census.iml" filepath="C:\Projects\DSS-Census\DSS-Census.iml" />
+      <module fileurl="file://C:/Projects/DSS-Census/DSS-Census.iml" filepath="C:/Projects/DSS-Census/DSS-Census.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Projects\DSS-Census\app\app.iml" filepath="C:\Projects\DSS-Census\app\app.iml" />
+      <module fileurl="file://C:/Projects/DSS-Census/app/app.iml" filepath="C:/Projects/DSS-Census/app/app.iml" />
     </modules>
   </component>
 </project>

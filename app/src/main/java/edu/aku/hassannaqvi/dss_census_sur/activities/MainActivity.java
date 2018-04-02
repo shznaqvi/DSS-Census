@@ -257,6 +257,23 @@ public class MainActivity extends Activity {
         }
     }
 
+    public void openNB(View v) {
+        Intent iMem = new Intent(this, NewBornAssessmentActivity.class);
+        startActivity(iMem);
+    }
+
+    public void openCBA(View v) {
+        Intent iMem = new Intent(this, ChildDeathRegActivity.class);
+        iMem.putExtra("type", 1);
+        startActivity(iMem);
+    }
+
+    public void openCBB(View v) {
+        Intent iMem = new Intent(this, ChildDeathRegActivity.class);
+        iMem.putExtra("type", 2);
+        startActivity(iMem);
+    }
+
     public void openMembers(View v) {
         Intent iMem = new Intent(this, MotherListActivity.class);
         startActivity(iMem);
@@ -324,10 +341,6 @@ public class MainActivity extends Activity {
 
     public void openM(View v) {
         Intent iEnd = new Intent(this, SectionMActivity.class);
-        startActivity(iEnd);
-    }
-    public void openNB(View v) {
-        Intent iEnd = new Intent(this, NewBornAssessmentActivity.class);
         startActivity(iEnd);
     }
 
