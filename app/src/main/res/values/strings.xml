@@ -776,14 +776,14 @@
     <!--new Born-->
     <string name="dnb01"> ورکر کا نام </string>
     <string name="dnb02"> ورکر کا کوڈ </string>
-    <string name="dnb03"> چے کا نام   </string>
+    <string name="dnb03"> بچےٕ کا نام </string>
     <string name="dnb04"> جنس </string>
     <string name="dnb05"> والدہ کا نام </string>
     <string name="dnb06"> والد کا نام </string>
-    <string name="dnb07"> خ پ یدا </string>
-    <string name="dnb08"> ار ن </string>
-    <string name="dnb09"> چ ے کا ن </string>
-    <string name="dnb10">  </string>
+    <string name="dnb07"> بچے کی تاریخ پیدإءش </string>
+    <string name="dnb08"> پیدإءش کا وقت </string>
+    <string name="dnb09"> یگر بچہ فوت ہوا ہے تو تاریخ وفات لکہیے </string>
+    <string name="dnb10"> وفات کا وقت </string>
     <string name="dnb11">  </string>
     <string name="dnb11a">  </string>
     <string name="dnb11b">  </string>
