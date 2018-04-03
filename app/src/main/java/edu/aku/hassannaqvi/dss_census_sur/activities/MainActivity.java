@@ -261,6 +261,18 @@ public class MainActivity extends Activity {
         Intent iMem = new Intent(this, NewBornAssessmentActivity.class);
         startActivity(iMem);
     }
+    public void openADR(View v) {
+        Intent iMem = new Intent(this, AdultDeathReportActivity.class);
+        startActivity(iMem);
+    }
+    public void openSBR(View v) {
+        Intent iMem = new Intent(this, StillBirthReportActivity.class);
+        startActivity(iMem);
+    }
+    public void openUCR(View v) {
+        Intent iMem = new Intent(this, NewBornAssessmentActivity.class);
+        startActivity(iMem);
+    }
 
     public void openCBA(View v) {
         Intent iMem = new Intent(this, ChildDeathRegActivity.class);

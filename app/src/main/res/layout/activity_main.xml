@@ -98,7 +98,24 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="16dp"
             android:onClick="openNB"
-            android:text="New Born Assesment" />
+            android:text="New Born Assessment" />
+        <Button
+            android:id="@+id/openUCR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="16dp"
+            android:onClick="openUCR"
+            android:text="Under 5 Child Registration" />
+
+        <Button
+            android:id="@+id/openSBR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="16dp"
+            android:onClick="openSBR"
+            android:text="Still Birth Reporting" />
 
         <Button
             android:id="@+id/openChildDeathA"
@@ -117,7 +134,14 @@
             android:layout_marginTop="16dp"
             android:onClick="openCBB"
             android:text="Child Death (3-59 Months)" />
-
+        <Button
+            android:id="@+id/openADR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="16dp"
+            android:onClick="openADR"
+            android:text="Adult Female Death Reporting" />
         <LinearLayout
             android:id="@+id/adminsec"
             android:layout_width="match_parent"

@@ -788,9 +788,11 @@
     <string name="dnb10"> وفات کا وقت </string>
     <string name="dnb11">  </string>
     <string name="dnb11a">  </string>
+    <string name="dnb11ax">  </string>
     <string name="dnb11b">  </string>
     <string name="dnb11c">  </string>
     <string name="dnb1196">  </string>
+    <string name="dnb1196x">  </string>
     <string name="dnb12">  </string>
     <string name="dnb12a">  </string>
     <string name="dnb12b">  </string>
@@ -803,18 +805,43 @@
     <string name="dnb15">  </string>
     <string name="dnb16">  </string>
     <string name="dnb17">  </string>
+    <string name="dnb17a">  </string>
+    <string name="dnb17b">  </string>
+    <string name="dnb17c">  </string>
     <string name="dnb18">  </string>
+    <string name="dnb18a">  </string>
+    <string name="dnb18b">  </string>
+    <string name="dnb18c">  </string>
     <string name="dnb19">  </string>
+    <string name="dnb19a">  </string>
+    <string name="dnb19b">  </string>
+    <string name="dnb1901">  </string>
+    <string name="dnb1901a">  </string>
+    <string name="dnb1901b">  </string>
+    <string name="dnb1902">  </string>
+    <string name="dnb1902a">  </string>
+    <string name="dnb1902b">  </string>
+    <string name="dnb21a">  </string>
+    <string name="dnb21b">  </string>
+    <string name="dnb21c">  </string>
+    <string name="dnb21d">  </string>
     <string name="dnb20">  </string>
     <string name="dnb21">  </string>
     <string name="dnb22">  </string>
+    <string name="dnb22a">  </string>
+    <string name="dnb22b">  </string>
+    <string name="dnb22c">  </string>
     <string name="dnb23">  </string>
     <string name="dnb24">  </string>
     <string name="dnb25">  </string>
     <string name="dnb26">  </string>
+    <string name="dnb26a">  </string>
+    <string name="dnb26b">  </string>
     <string name="dnb27">  </string>
     <string name="dnb28">  </string>
     <string name="dnb29">  </string>
+    <string name="dnb14subtxt">  </string>
+    <string name="dnb16subtxt">  </string>
 
     <!--Child Death-->
     <string name="dcdrHeading1"> Child Death (0-59 Days) </string>
@@ -853,6 +880,24 @@
     <string name="dcdr14"> Age of last follow-ups </string>
     <string name="dcdr15"> Sign of Illness identified during last follow-ups if any: </string>
     <string name="dcdr15a"> Sign of Illness </string>
+    <string name="dcdr16"> Last Day of Physician Assessment </string>
+    <string name="dcdr17">Enrolled as Sepsis</string>
+    <string name="dcdr18">Blood Culture</string>
+    <string name="dcdr19">NPOP </string>
+    <string name="date">Date </string>
+    <string name="gram">Grams </string>
+    <string name="year">Years </string>
+    <string name="month">Months </string>
+    <string name="week">Weeks </string>
+    <string name="day">Days </string>
+    <string name="other">Others </string>
+    <string name="number">Number </string>
+
+
+  <string name="dssid">DSS ID</string>
+    <string name="dadr02">Women Name</string>
+    <string name="dadr03">Husband\'s Name</string>
+
 
     <string name="dcdr20"> Cause of Death </string>
     <string name="dcdr21"> Did Interviewer inform verbal autopsy team? </string>
