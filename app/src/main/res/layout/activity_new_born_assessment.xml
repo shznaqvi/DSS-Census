@@ -275,7 +275,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/dnb1196" />
+                    android:text="@string/otherurdu" />
 
                 <EditText
                     android:id="@+id/dnb1196x"
@@ -283,7 +283,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
                     android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                    android:hint="@string/dnb1196x"
+                    android:hint="@string/otherurdu"
                     android:inputType="text"
                     android:maxLength="20"
                     android:text='@{dnb1196.checked ? dnb1196x.getText.toString : "" }'
@@ -376,7 +376,7 @@
                 android:digits="1234567890."
                 android:inputType="numberDecimal"
                 android:maxLength="4"
-                android:text="@string/gram" />
+                android:text="@string/gramurdu" />
 
 
             <TextView
@@ -1110,6 +1110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/end_interview"
+                    android:onClick="@{() -> callback.BtnEnd()}"
                     android:textColor="#ff1e1e" />
 
                 <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
@@ -1119,6 +1120,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="@{() -> callback.BtnContinue()}"
                     android:text="@string/nextSection"
                     android:textColor="#1ed61e" />
                 <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->

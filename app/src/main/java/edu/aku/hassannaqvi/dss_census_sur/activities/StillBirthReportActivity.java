@@ -3,6 +3,8 @@ package edu.aku.hassannaqvi.dss_census_sur.activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import edu.aku.hassannaqvi.dss_census_sur.R;
+
 public class StillBirthReportActivity extends AppCompatActivity {
 
     @Override

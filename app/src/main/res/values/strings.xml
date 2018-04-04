@@ -36,11 +36,11 @@
     <string name="secLLabel">سیکشن ایل :گھریلو خوراک کی غیر محفوظی ، خوراک کا استعمال اور تبدل</string>
     <string name="dcl2heading"> خاندان کی غذا کی کمی سے نمنٹے کی حکمت عملی </string>
     <string name="dcl3heading"> بھوک کا پیمانہ ( گزشتہ ایک ماہ کے متعلق) </string>
-    <string name="dnbheading">نومولود میں خطرناک علامات کی جانچ</string>
-    <string name="dnbsubheading1">اگر یہ دوسر ی یا تیسری وزٹ ے</string>
-    <string name="dnbsubheading2"> طبی مع</string>
-    <string name="dstudyid">Study ID</string>
-    <string name="secMLabel">سیکشن ایم: گھر کا ماحول</string>
+  <string name="secMLabel">سیکشن ایم: گھر کا ماحول</string>
+
+  <string name="dstudyid">Study ID</string>
+
+
 
 
     <string name="days">دنوں کی تعداد</string>
@@ -775,44 +775,64 @@
     <string name="dcm19"> 19) کیا گھر میں روزانہ سولڈ جیل ڈسپینسر استعمال کرتے ہیں (مہنے میں کم سے کم ایک دفعہ) </string>
     <string name="dcm20"> 20) کیا باقاعدگی سے دیگر ائیر فریشر کی چیزیں مثلاً خوشبودار موم بتیاں(اگر بتیاں) وغیرہ استعمال کرتے ہیں؟ </string>
 
-    <!--new Born-->
-    <string name="dnb01"> ورکر کا نام </string>
-    <string name="dnb02"> ورکر کا کوڈ </string>
-    <string name="dnb03"> بچےٕ کا نام </string>
-    <string name="dnb04"> جنس </string>
-    <string name="dnb05"> والدہ کا نام </string>
-    <string name="dnb06"> والد کا نام </string>
-    <string name="dnb07"> بچے کی تاریخ پیدإءش </string>
-    <string name="dnb08"> پیدإءش کا وقت </string>
-    <string name="dnb09"> یگر بچہ فوت ہوا ہے تو تاریخ وفات لکہیے </string>
-    <string name="dnb10"> وفات کا وقت </string>
-    <string name="dnb11">  </string>
-    <string name="dnb11a">  </string>
-    <string name="dnb11ax">  </string>
-    <string name="dnb11b">  </string>
-    <string name="dnb11c">  </string>
+    <string name="otherurdu"> کوئ اور (وضاحت کر یں)</string>
+  <!--New Born String-->
+  <string name="dnbheading">نومولود میں خطرناک علامات کی جانچ</string>
+  <string name="dnbsubheading1">اگر یہ دوسر ی یا تیسری وزٹ ے</string>
+  <string name="dnbsubheading2"> طبی معا تینہ</string>
+  <string name="dnb01"> ورکر کا نا م </string>
+  <string name="dnb02"> ورکر کا کوڈ </string>
+  <string name="dnb03"> بچے ٕکا نام </string>
+  <string name="dnb04"> جنس </string>
+  <string name="dnb05"> والدہ کا نام </string>
+  <string name="dnb06"> والد کا نام </string>
+  <string name="dnb07"> بچے کی تاریخ پیدائش </string>
+  <string name="dnb08"> پیدائش کا وقت </string>
+  <string name="dnb09"> کیا بچی فوت ہوا تو تاریخ لکھیں </string>
+  <string name="dnb10"> وفات کا وقت </string>
+  <string name="dnb11"> بچے کے پیدائش کی جگہ </string>
+  <string name="dnb11a"> ہسپتال </string>
+  <string name="dnb11ax"> نام لکھے </string>
+  <string name="dnb11b"> کلینک </string>
+  <string name="dnb11c"> گھر </string>
+  <string name="dnb12"> زچگی کس نے کرائی </string>
+  <string name="dnb12a"> ڈاکٹر </string>
+  <string name="dnb12b"> نرس </string>
+  <string name="dnb12c"> تربیت یافتہ دائ </string>
+  <string name="dnb12d"> دائ </string>
+  <string name="dnb12e"> رشتہ دار </string>
+  <string name="dnb13"> بچے کا وزن </string>
+  <string name="dnb14"> سانس کی رفتار </string>
+  <string name="dnb14m"> سانس/ منٹ </string>
+  <string name="dnb15"> پسلیوں کا تیز چلنا </string>
+  <string name="dnb16"> بعل کا درجہِ حرارت </string>
+  <string name="dnb17"> بچے کی حرکت اور ہوش کی سطح کیا ہے؟ </string>
+  <string name="dnb18"> جھٹکے لگنا </string>
+  <string name="dnb19"> ماں سے پوچھیں کہ بچی کو دودہ پینے میں کوئی دشواری تو نہیں ہے؟ </string>
+  <string name="dnb20"> ماں سے کہیں کے بچے کو دودھ پلائے اور آپ اس کا مشائدہ کریں؟ </string>
+  <string name="dnb21"> ماں کو دودھ پلانے کی اور بچے کو دودھ سے لگانے کی پوزیشن صحیح کریں اور پھر دودھ پلانے کا مشاہدہ کریں۔ </string>
+  <string name="dnb22"> جلد پر پھوڑے </string>
+  <string name="dnb23"> ناف کا لال ہونا یا پیپ کا نکلنا </string>
+  <string name="dnb24"> پیلیا ہونا </string>
+  <string name="dnb25"> پیدائشی نقص کی موجودگی </string>
+  <string name="dnb26"> کوئی اور پیچیدگی </string>
+  <string name="dnb27"> کیا بچے کو ریفر کیا گیا تھا ؟ </string>
+  <string name="dnb28"> بچے کو ریفر کرنے کی وجہ کیا تھی؟ </string>
+  <string name="dnb29"> کیا بچے کا خیال رکھنے والوں نے اس ریفرل کو قبول کیا؟ </string>
+  <string name="dnb30"> ریفرل سے انکار کی وجہ؟ </string>
+  <string name="dnb31"> انٹرویو کے اختتام کا وقت </string>
+
+
+  <!--remaining strings-->
     <string name="dnb1196">  </string>
     <string name="dnb1196x">  </string>
-    <string name="dnb12">  </string>
-    <string name="dnb12a">  </string>
-    <string name="dnb12b">  </string>
-    <string name="dnb12c">  </string>
-    <string name="dnb12d">  </string>
-    <string name="dnb12e">  </string>
     <string name="dnb1296">  </string>
-    <string name="dnb13">  </string>
-    <string name="dnb14">  </string>
-    <string name="dnb15">  </string>
-    <string name="dnb16">  </string>
-    <string name="dnb17">  </string>
     <string name="dnb17a">  </string>
     <string name="dnb17b">  </string>
     <string name="dnb17c">  </string>
-    <string name="dnb18">  </string>
     <string name="dnb18a">  </string>
     <string name="dnb18b">  </string>
     <string name="dnb18c">  </string>
-    <string name="dnb19">  </string>
     <string name="dnb19a">  </string>
     <string name="dnb19b">  </string>
     <string name="dnb1901">  </string>
@@ -825,21 +845,11 @@
     <string name="dnb21b">  </string>
     <string name="dnb21c">  </string>
     <string name="dnb21d">  </string>
-    <string name="dnb20">  </string>
-    <string name="dnb21">  </string>
-    <string name="dnb22">  </string>
     <string name="dnb22a">  </string>
     <string name="dnb22b">  </string>
     <string name="dnb22c">  </string>
-    <string name="dnb23">  </string>
-    <string name="dnb24">  </string>
-    <string name="dnb25">  </string>
-    <string name="dnb26">  </string>
     <string name="dnb26a">  </string>
     <string name="dnb26b">  </string>
-    <string name="dnb27">  </string>
-    <string name="dnb28">  </string>
-    <string name="dnb29">  </string>
     <string name="dnb14subtxt">  </string>
     <string name="dnb16subtxt">  </string>
 
@@ -895,11 +905,82 @@
 
 
   <string name="dssid">DSS ID</string>
-    <string name="dadr02">Women Name</string>
-    <string name="dadr03">Husband\'s Name</string>
+  <string name="dadrHeading"> ADULT FEMALE DEATH REPORTING FORM </string>
+  <string name="dadr02"> Woman Name </string>
+  <string name="dadr03"> Husband’s Name </string>
+  <string name="dadr04"> Respondent’s Name </string>
+  <string name="dadr05"> Interviewer’s Name &amp; Code </string>
+  <string name="dadr06"> Date of Interview </string>
+  <string name="dadr07"> Age at death </string>
+  <string name="dadr08"> Date of Death </string>
+  <string name="dadr09"> Place of death </string>
+  <string name="dadr09a"> Home </string>
+  <string name="dadr09b"> Hospital </string>
+  <string name="dadr09c"> Clinic </string>
+  <string name="dadr10"> Date of Delivery/ Abortion </string>
+  <string name="dadr11"> Plurality </string>
+  <string name="dadr11a"> Single </string>
+  <string name="dadr11b"> Multiple </string>
+  <string name="dadr11bx"> If multiple then no </string>
+  <string name="dadr12"> Type of delivery </string>
+  <string name="dadr12a"> Spontaneous vaginal </string>
+  <string name="dadr12b"> Elective Caesarean section </string>
+  <string name="dadr12c"> Emergency Caesarean section </string>
+  <string name="dadr13"> Parity (including current pregnancy if delivered) </string>
+  <string name="dadr14"> If death occurred antepartum; gestational week </string>
+  <string name="dadr15"> If death occurred postpartum; number of days postpartum at death </string>
+  <string name="dadr16"> No of antenatal visits </string>
+  <string name="dadr17"> No of post natal visits </string>
+  <string name="dadr18"> Baby outcome </string>
+  <string name="dadr18a"> Live birth </string>
+  <string name="dadr18b"> Stillbirth </string>
+  <string name="dadr18c"> Neonatal death </string>
+  <string name="dadr19"> Cause of Death: </string>
+  <string name="dadr20"> Comments: </string>
+
+  <string name="dsbrHeading"> STILL BIRTH REPORTING FORM </string>
+  <string name="dsbr02"> AMANHI ID </string>
+  <string name="dsbr03"> Mother Name </string>
+  <string name="dsbr04"> Father Name </string>
+  <string name="dsbr05"> Respondent’s Name </string>
+  <string name="dsbr06"> Interviewer’s Name &amp; Code </string>
+  <string name="dsbr08"> Date of Interview </string>
+  <string name="dsbr09"> Time of still birth </string>
+  <string name="dsbr10"> Date of outcome </string>
+  <string name="dsbr11"> Place of Birth </string>
+  <string name="dsbr11a"> Home </string>
+  <string name="dsbr11b"> Hospital </string>
+  <string name="dsbr11c"> Clinic </string>
+  <string name="dsbr12"> EDD </string>
+  <string name="dsbr13"> No of outcome in delivery </string>
+  <string name="dsbr13a"> Single </string>
+  <string name="dsbr13b"> Multiple </string>
+  <string name="dsbr13bx"> If multiple then no </string>
+  <string name="dsbr14"> Type of delivery </string>
+  <string name="dsbr14a"> Spontaneous vaginal </string>
+  <string name="dsbr14b"> Elective Caesarean section </string>
+  <string name="dsbr14c"> Emergency Caesarean section </string>
+  <string name="dsbr15"> Child order (if twin or triplets) </string>
+  <string name="dsbr16"> Gender of baby </string>
+  <string name="dsbr16a"> Male </string>
+  <string name="dsbr16b"> Female </string>
+  <string name="dsbr17"> Was the baby premature </string>
+  <string name="dsbr18"> If yes then write </string>
+  <string name="dsbr19"> Birth weight (if done) </string>
+  <string name="dsbr20"> Did the baby breathe after birth, even a little? </string>
+  <string name="dsbr21"> Did the baby ever cry after birth, even a little? </string>
+  <string name="dsbr22"> Did the baby ever move, even a little? </string>
+  <string name="dsbr23"> If the baby did not breathe, cried or moved, was it born dead? </string>
+  <string name="dsbr24"> Was the baby macerated, that is shows sign of decay? </string>
+  <string name="dsbr25"> Cause of Death (if Known) </string>
+  <string name="dsbr26"> Comments (if any): </string>
 
 
-    <string name="dcdr20"> Cause of Death </string>
+
+
+  <string name="gramurdu">گرام </string>
+
+  <string name="dcdr20"> Cause of Death </string>
     <string name="dcdr21"> Did Interviewer inform verbal autopsy team? </string>
 
     <string name="rsvp"> کیا آپ جواب دہندہ ہیں؟ </string>

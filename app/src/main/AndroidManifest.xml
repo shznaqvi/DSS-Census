@@ -127,8 +127,16 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity android:name=".activities.AdultDeathReportActivity" />
-        <activity android:name=".activities.StillBirthReportActivity"></activity>
+        <activity android:name=".activities.AdultDeathReportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            />
+        <activity android:name=".activities.StillBirthReportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            />
     </application>
 
 </manifest>
