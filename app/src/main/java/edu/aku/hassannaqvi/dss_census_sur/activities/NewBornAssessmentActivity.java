@@ -14,6 +14,7 @@ import edu.aku.hassannaqvi.dss_census_sur.R;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 import edu.aku.hassannaqvi.dss_census_sur.databinding.ActivityNewBornAssessmentBinding;
+import edu.aku.hassannaqvi.dss_census_sur.validation.validatorClass;
 
 public class NewBornAssessmentActivity extends Activity {
     ActivityNewBornAssessmentBinding bi;
@@ -78,6 +79,7 @@ public class NewBornAssessmentActivity extends Activity {
     public boolean formValidation() {
 
         Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
+        if (!validatorClass.EmptyTextBox(this, bi.dstudyid, getString(R.string.dstudyid))) {return false;}
 
         return true;
     }

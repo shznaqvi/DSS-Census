@@ -145,14 +145,14 @@
                 android:inputType="text"
                 android:maxLength="20" />
 
-            <TextView
+         <!--   <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/pink_100"
                 android:text="@string/dnbsubheading1"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimaryDark" />-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -385,6 +385,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@color/pink_100"
                 android:text="@string/dnbsubheading2"
+                android:layout_gravity="center"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/colorPrimaryDark" />
 
@@ -404,6 +405,7 @@
                 android:layout_marginBottom="1dp"
                 android:digits="1234567890"
                 android:inputType="number"
+                android:hint="@string/dnb14m"
                 android:maxLength="2" />
 
             <TextView
@@ -422,6 +424,7 @@
                 android:layout_marginBottom="1dp"
                 android:digits="1234567890"
                 android:inputType="number"
+                android:hint="@string/dnb14m"
                 android:maxLength="2" />
 
             <TextView

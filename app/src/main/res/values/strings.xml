@@ -44,8 +44,8 @@
 
 
     <string name="days">دنوں کی تعداد</string>
-    <string name="correct">    ہ</string>
-    <string name="notcorrect"> ے ہیح  پ  ح ہ</string>
+    <string name="correct"> صحیح ہے </string>
+    <string name="notcorrect"> صحیح نہیں ہے </string>
 
 
     <!-- Strings that are fixed for all apps -->
@@ -827,31 +827,31 @@
     <string name="dnb1196">  </string>
     <string name="dnb1196x">  </string>
     <string name="dnb1296">  </string>
-    <string name="dnb17a">  </string>
-    <string name="dnb17b">  </string>
-    <string name="dnb17c">  </string>
-    <string name="dnb18a">  </string>
-    <string name="dnb18b">  </string>
-    <string name="dnb18c">  </string>
-    <string name="dnb19a">  </string>
-    <string name="dnb19b">  </string>
-    <string name="dnb1901">  </string>
-    <string name="dnb1901a">  </string>
-    <string name="dnb1901b">  </string>
-    <string name="dnb1902">  </string>
-    <string name="dnb1902a">  </string>
-    <string name="dnb1902b">  </string>
-    <string name="dnb21a">  </string>
-    <string name="dnb21b">  </string>
-    <string name="dnb21c">  </string>
-    <string name="dnb21d">  </string>
-    <string name="dnb22a">  </string>
-    <string name="dnb22b">  </string>
-    <string name="dnb22c">  </string>
-    <string name="dnb26a">  </string>
-    <string name="dnb26b">  </string>
-    <string name="dnb14subtxt">  </string>
-    <string name="dnb16subtxt">  </string>
+    <string name="dnb17a"> نارمل حرکت </string>
+    <string name="dnb17b"> صرف ہلانے جھلانے پر حرکت </string>
+    <string name="dnb17c"> بلکل حرکت نہ کرنا یا بے ہوش </string>
+    <string name="dnb18a">گھر والوں کے مطابق بچے کو جھٹکے لگے ہیں  </string>
+    <string name="dnb18b"> آپ کے سامنے بچے کو جھٹکے لگے ہیں </string>
+    <string name="dnb18c">کوئی جھٹکے نہیں لگے  </string>
+    <string name="dnb19a">ماں نے بتایا کہ دودھ پینے میں دشواری ہے  </string>
+    <string name="dnb19b"> دودھ پینے میں دشواری نہیں ہے </string>
+    <string name="dnb1901"> ماں سے کہیں کے بچے کو دودھ پلائے اور آپ اس کا مشائدہ کریں؟ </string>
+    <string name="dnb1901a">  پوزیشن</string>
+    <string name="dnb1901b">  بچے کا دودھ سے لگنا</string>
+    <string name="dnb1902"> ماں کو دودھ پلانے کی اور بچے کو دودھ سے لگانے کی پوزیشن صحیح کریں اور پھر دودھ پلانے کا مشاہدہ کریں۔</string>
+    <string name="dnb1902a"> بچے کا دودھ سے لگنا </string>
+    <string name="dnb1902b"> بچے کا دودھ پینا </string>
+    <string name="dnb21a"> کوئی نہیں </string>
+    <string name="dnb21b"> لالی موجودہے </string>
+    <string name="dnb21c"> پیپ نکلنا </string>
+    <string name="dnb21d">  دونوں موجود ہیں</string>
+    <string name="dnb22a"> پیلیا نہیں ہے </string>
+    <string name="dnb22b"> پیلیا </string>
+    <string name="dnb22c"> شدید پیلیا </string>
+    <string name="dnb26a"> مشتبہ </string>
+    <string name="dnb26b"> دوسری بیماری </string>
+    <string name="dnb14subtxt"> اگر 60 RR یا اس سے زیادہ ہو تو دوبارہ گنتی کریں </string>
+    <string name="dnb16subtxt">بغل کا تیز درجہ حرارت (38.0 یا اس سے زیادہ )  </string>
 
     <!--Child Death-->
     <string name="dcdrHeading1"> Child Death (0-59 Days) </string>

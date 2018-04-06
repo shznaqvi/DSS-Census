@@ -517,7 +517,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/end_interview"
+                    android:text="End Interview"
                     android:textColor="#ff1e1e" />
 
                 <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
@@ -527,7 +527,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/nextSection"
+                    android:text="Next Section"
                     android:textColor="#1ed61e" />
                 <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 
