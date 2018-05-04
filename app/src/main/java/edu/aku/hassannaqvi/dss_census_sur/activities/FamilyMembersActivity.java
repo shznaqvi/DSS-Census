@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +16,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,28 +30,23 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census_sur.R;
-import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 
 public class FamilyMembersActivity extends Activity {
 
-//    @BindViewView(R.id.activity_family_members) RelativeLayout activityFamilyMembers;
-//    @BindView(R.id.lst_noMembers) ListView lstNoMembers;
-
-
     @BindView(R.id.recycler_noMembers)
     RecyclerView recycler_noMembers;
-    @BindView(R.id.btn_Continue)
-    Button btn_Continue;
+    /*    @BindView(R.id.btn_Continue)
+        Button btn_Continue;*/
     @BindView(R.id.btn_addMember)
-    Button btn_addMember;
-    @BindView(R.id.btn_End)
-    Button btn_End;
+    FloatingActionButton btn_addMember;
+    /*    @BindView(R.id.btn_End)
+        Button btn_End;*/
     familyMembersAdapter mAdapter;
 
-    @BindView(R.id.TotalMem)
+/*    @BindView(R.id.TotalMem)
     TextView totalMem;
     @BindView(R.id.TotalChild)
     TextView totalChild;
@@ -59,34 +57,46 @@ public class FamilyMembersActivity extends Activity {
     @BindView(R.id.countBoy)
     TextView countBoy;
     @BindView(R.id.countGirl)
-    TextView countGirl;
+    TextView countGirl;*/
+
+    @BindView(R.id.collapsing_toolbar)
+    CollapsingToolbarLayout collapsingToolbar;
+
+    @BindView(R.id.progress)
+    ProgressBar progressDialog;
+
+    static int progress = 0;
+    int progressStatus = 0;
+    Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_family_members);
+        setContentView(R.layout.activity_family_members_new);
         ButterKnife.bind(this);
+
+        collapsingToolbar.setTitle("FAMILY MEMBERS");
 
 //        Setting
 
-        totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+        /*totalMem.setText(String.valueOf(MainApp.NoMembersCount));
         totalChild.setText(String.valueOf(MainApp.totalChild));
         countMen.setText(String.valueOf(MainApp.NoMaleCount));
         countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
         countBoy.setText(String.valueOf(MainApp.NoBoyCount));
-        countGirl.setText(String.valueOf(MainApp.NoGirlCount));
+        countGirl.setText(String.valueOf(MainApp.NoGirlCount));*/
 
         //Set Enable for Next Section
         if (MainApp.familyMembersList.size() == MainApp.memFlag) {
             if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
-                btn_Continue.setEnabled(false);
+//                btn_Continue.setEnabled(false);
                 btn_addMember.setEnabled(true);
             } else {
-                btn_Continue.setEnabled(true);
+//                btn_Continue.setEnabled(true);
                 btn_addMember.setEnabled(false);
             }
         } else {
-            btn_Continue.setEnabled(false);
+//            btn_Continue.setEnabled(false);
             btn_addMember.setEnabled(false);
         }
 
@@ -141,7 +151,7 @@ public class FamilyMembersActivity extends Activity {
         }
     }
 
-    @OnClick(R.id.addMen)
+/*    @OnClick(R.id.addMen)
     void onAddMenClick() {
         //TODO implement
 
@@ -334,16 +344,18 @@ public class FamilyMembersActivity extends Activity {
 //        startActivity(new Intent(this, SectionDActivity.class));
         startActivity(new Intent(this, EndingActivity.class).putExtra("check", true));
 
-    }
+    }*/
 
     public void saveDT() throws JSONException {
         JSONObject sG = new JSONObject();
+/*
         sG.put("dca0701", totalMem.getText().toString());
         sG.put("dca0702", countMen.getText().toString());
         sG.put("dca0703", countFemale.getText().toString());
         sG.put("dca0801", totalChild.getText().toString());
         sG.put("dca0802", countBoy.getText().toString());
         sG.put("dca0803", countGirl.getText().toString());
+*/
 
         MainApp.fc.setsG(String.valueOf(sG));
 
@@ -356,17 +368,55 @@ public class FamilyMembersActivity extends Activity {
 
 //        MainApp.memFlag++;
 
-        MainApp.memClicked.add(MainApp.TotalMembersCount++);
+/*        MainApp.memClicked.add(MainApp.TotalMembersCount++);
 
         startActivity(new Intent(this, SectionBActivity.class)
                 .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
-                .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount - 1));
+                .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount - 1));*/
+
+        progressDialog.setVisibility(View.VISIBLE);
+
+        new Thread(new Runnable() {
+            public void run() {
+                while (progressStatus < 100) {
+                    progressStatus = doSomeWork();
+                    handler.post(new Runnable() {
+                        public void run() {
+                            progressDialog.setProgress(progressStatus);
+                        }
+                    });
+                }
+                handler.post(new Runnable() {
+                    public void run() {
+                        MainApp.memClicked.add(MainApp.TotalMembersCount++);
+
+                        startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
+                                .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount - 1));
+                    }
+                });
+            }
+
+            private int doSomeWork() {
+                try {
+                    // ---simulate doing some work---
+                    Thread.sleep(25);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                return ++progress;
+            }
+        }).start();
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        progress = 0;
+        progressStatus = 0;
+        progressDialog.setVisibility(View.GONE);
 
         if (MainApp.selectedPos != -1) {
             for (int mem = 0; mem < MainApp.memClicked.size(); mem++) {
@@ -399,18 +449,18 @@ public class FamilyMembersActivity extends Activity {
 
         if (MainApp.familyMembersList.size() == MainApp.memFlag) {
             if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
-                btn_Continue.setEnabled(false);
+//                btn_Continue.setEnabled(false);
                 btn_addMember.setEnabled(true);
             } else {
-                btn_Continue.setEnabled(true);
+//                btn_Continue.setEnabled(true);
                 btn_addMember.setEnabled(false);
             }
 
-            btn_Continue.setEnabled(true);
+//            btn_Continue.setEnabled(true);
             btn_addMember.setEnabled(true);
 
         } else {
-            btn_Continue.setEnabled(false);
+//            btn_Continue.setEnabled(false);
             btn_addMember.setEnabled(false);
         }
 

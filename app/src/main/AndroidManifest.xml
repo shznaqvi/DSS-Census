@@ -100,6 +100,7 @@
         <activity
             android:name=".activities.FamilyMembersActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme2"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".core.AndroidDatabaseManager"
@@ -127,16 +128,16 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity android:name=".activities.AdultDeathReportActivity"
+        <activity
+            android:name=".activities.AdultDeathReportActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="adjustResize|stateHidden"
-            />
-        <activity android:name=".activities.StillBirthReportActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activities.StillBirthReportActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="adjustResize|stateHidden"
-            />
+            android:windowSoftInputMode="adjustResize|stateHidden" />
     </application>
 
 </manifest>
