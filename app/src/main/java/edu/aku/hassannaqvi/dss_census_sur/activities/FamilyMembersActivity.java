@@ -131,11 +131,8 @@ public class FamilyMembersActivity extends Activity {
                                 MainApp.selectedPos = -1;
 
                                 MainApp.memClicked.add(position);
-                                for (int item : MainApp.memClicked) {
-                                    recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
-                                }
 
-                                startActivity(new Intent(getApplicationContext(), SectionBNewActivity.class)
+                                startActivity(new Intent(getApplicationContext(), SectionBNewPrevActivity.class)
                                         .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
                                         .putExtra("dataFlag", true).putExtra("position", position));
 
@@ -418,16 +415,17 @@ public class FamilyMembersActivity extends Activity {
         progressStatus = 0;
         progressDialog.setVisibility(View.GONE);
 
-        if (MainApp.selectedPos != -1) {
+        /*if (MainApp.selectedPos != -1) {
             for (int mem = 0; mem < MainApp.memClicked.size(); mem++) {
                 if (MainApp.memClicked.get(mem) == MainApp.selectedPos) {
                     MainApp.memClicked.remove(mem);
-
-//                    recycler_noMembers.getChildAt(mem).setBackgroundColor(Color.GRAY);
-
                     break;
                 }
             }
+        }*/
+
+        for (int item : MainApp.memClicked) {
+            recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
         }
 
         /*countBoy.setText(String.valueOf(MainApp.NoBoyCount));
@@ -443,7 +441,7 @@ public class FamilyMembersActivity extends Activity {
     public void resumeWork() {
         mAdapter.notifyDataSetChanged();
 
-        Toast.makeText(this, "Mem checkingFlag:" + MainApp.memFlag, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Mem checkingFlag:" + MainApp.memFlag, Toast.LENGTH_SHORT).show();
 
 //        Set Enable for Next Section
 
@@ -584,16 +582,16 @@ public class FamilyMembersActivity extends Activity {
                 case 4:
                     switch (i) {
                         case "1":
-                            st = getString(R.string.dcbis09a);
+                            st = getString(R.string.dcbis04Outa);
                             break;
                         case "2":
-                            st = getString(R.string.dcbis09b);
+                            st = getString(R.string.dcbis04Outb);
                             break;
                         case "3":
-                            st = getString(R.string.dcbis09c);
+                            st = getString(R.string.dcbis04Outc);
                             break;
                         case "4":
-                            st = getString(R.string.dcbis09d);
+                            st = getString(R.string.dcbis04Outd);
                             break;
                     }
                     break;
@@ -628,7 +626,7 @@ public class FamilyMembersActivity extends Activity {
                             st = getString(R.string.dcbis02);
                             break;
                         case "10":
-                            st = getString(R.string.dcbis10);
+                            st = getString(R.string.dcbist01);
                             break;
                     }
                     break;

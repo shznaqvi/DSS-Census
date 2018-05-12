@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.aku.hassannaqvi.dss_census_sur.activities.SectionBNewActivity">
+    tools:context="edu.aku.hassannaqvi.dss_census_sur.activities.SectionBNewPrevActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:layoutDirection="rtl"
         android:orientation="vertical">
@@ -25,7 +25,7 @@
         <ScrollView
             android:id="@+id/scrollView01"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:scrollbars="horizontal">
@@ -114,16 +114,6 @@
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                     android:maxLength="14" />
 
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/pink_100"
-                    android:text="@string/dcbi"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/colorPrimaryDark" />
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -141,7 +131,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:text="@string/dcbis10" />
+                        android:text="@string/dcbist01" />
 
                     <RadioButton
                         android:id="@+id/dcbis01"
@@ -155,7 +145,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:text="@string/dcbis08" />
+                        android:text="@string/dcbis08"
+                        android:visibility="gone" />
 
                     <RadioButton
                         android:id="@+id/dcbis03"
@@ -169,7 +160,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:text="@string/dcbis09" />
+                        android:text="@string/dcbis09"
+                        android:visibility="gone" />
 
                     <RadioButton
                         android:id="@+id/dcbis05"
@@ -183,7 +175,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:text="@string/dcbis04" />
+                        android:text="@string/dcbis04"
+                        android:visibility="gone" />
 
                     <RadioButton
                         android:id="@+id/dcbis07"
@@ -194,14 +187,6 @@
                         android:visibility="gone" />
 
                 </RadioGroup>
-
-                <EditText
-                    android:id="@+id/dcbis06x"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:hint="@string/dcother"
-                    android:visibility="gone" />
 
                 <LinearLayout
                     android:id="@+id/fldGrpdcbidt01"
@@ -280,7 +265,149 @@
                         android:spinnersShown="true" />
 
                     <LinearLayout
-                        android:id="@+id/fldGrpdcbidt02"
+                        android:id="@+id/fldGrpdcbis05"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <EditText
+                            android:id="@+id/dcbis05Age"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:hint="@string/dcbis05Age"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/pink_100"
+                            android:text="@string/dcbis05Place"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/colorPrimaryDark" />
+
+                        <RadioGroup
+                            android:id="@+id/dcbis05Place"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RadioButton
+                                android:id="@+id/dcbis05Placea"
+                                style="@style/radiobutton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_weight="1"
+                                android:text="@string/dcbis05Placea" />
+
+                            <RadioButton
+                                android:id="@+id/dcbis05Placeb"
+                                style="@style/radiobutton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_weight="1"
+                                android:text="@string/dcbis05Placeb" />
+
+                            <RadioButton
+                                android:id="@+id/dcbis05Placec"
+                                style="@style/radiobutton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_weight="1"
+                                android:text="@string/dcbis05Placec" />
+
+                            <RadioButton
+                                android:id="@+id/dcbis05Place96"
+                                style="@style/radiobutton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_weight="1"
+                                android:text="@string/dcbis05Place96" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fldGrpdcbidt02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/dcbis09"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <RadioGroup
+                        android:id="@+id/dcbis09"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/dcbis09a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dcbis09a" />
+
+                        <RadioButton
+                            android:id="@+id/dcbis09b"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dcbis09b" />
+
+                        <CheckBox
+                            android:id="@+id/dcbis09c"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dcbis09c" />
+
+                    </RadioGroup>
+
+                    <LinearLayout
+                        android:id="@+id/fldGrpdcbis09b"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/dcbis09bTxt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/pink_100"
+                            android:text="@string/dcbidt"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/colorPrimaryDark" />
+
+                        <DatePicker
+                            android:id="@+id/dcbis09bdt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:calendarViewShown="false"
+                            android:datePickerMode="spinner"
+                            android:ems="10"
+                            android:spinnersShown="true" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/fldGrpdcbidt02a"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -290,8 +417,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
+                            android:background="@color/pink_100"
                             android:text="@string/dcbis0901"
-                            android:textAppearance="?android:attr/textAppearanceLarge" />
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/colorPrimaryDark" />
 
                         <RadioGroup
                             android:id="@+id/dcbis04Out"
@@ -302,25 +431,25 @@
                                 android:id="@+id/dcbis04Outa"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/dcbis09a" />
+                                android:text="@string/dcbis04Outa" />
 
                             <RadioButton
                                 android:id="@+id/dcbis04Outb"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/dcbis09b" />
+                                android:text="@string/dcbis04Outb" />
 
                             <RadioButton
                                 android:id="@+id/dcbis04Outc"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/dcbis09c" />
+                                android:text="@string/dcbis04Outc" />
 
                             <RadioButton
                                 android:id="@+id/dcbis04Outd"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/dcbis09d" />
+                                android:text="@string/dcbis04Outd" />
 
                         </RadioGroup>
 
