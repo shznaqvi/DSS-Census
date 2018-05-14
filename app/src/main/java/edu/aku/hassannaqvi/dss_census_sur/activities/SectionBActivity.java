@@ -826,7 +826,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     startActivity(new Intent(SectionBActivity.this, SectionBActivity.class)
                             .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
                             .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
-                            .putExtra("chCount", childCount));
+                            .putExtra("chCount", childCount)
+                            .putExtra("mothDSSID", MainApp.cc.getDss_id_member()));
                 } else {
                     childCounter = 1;
                 }
