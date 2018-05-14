@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -480,7 +481,7 @@ public class SectionAActivity extends Activity {
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
 
-        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {
             try {
                 SaveDraft();
@@ -488,12 +489,12 @@ public class SectionAActivity extends Activity {
                 e.printStackTrace();
             }
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
 
                 finish();
 
                 Intent endSec = new Intent(this, EndingActivity.class);
-                endSec.putExtra("check", false);
+                endSec.putExtra("check", true);
                 startActivity(endSec);
 
 
@@ -520,7 +521,6 @@ public class SectionAActivity extends Activity {
                             (m.getMember_type().equals("mw") ? "(Married Women)" :
                                     m.getMember_type().equals("h") ? "(Husband)" : m.getMember_type().equals("ot") ? "(Other)"
                                             : "(Child)") + "\n";
-
                 }
             } else {
                 member = "No member registered for this DSSID \r\n\r\n\t\"" + dca03.getText().toString() + "\"";
@@ -559,6 +559,7 @@ public class SectionAActivity extends Activity {
 
             if (members.size() != 0) {
 
+                MainApp.MotherChildList = new HashMap<>();
 
                 for (MembersContract ec : members) {
 
@@ -569,12 +570,20 @@ public class SectionAActivity extends Activity {
                     if (ec.getMember_type().equals("ot")) {
                         String[] st = ec.getDss_id_member().split(String.valueOf(ec.getDss_id_member().charAt(11)));
                         MainApp.randID = Integer.valueOf(st[1]) + 1;
+                    } else if (ec.getMember_type().equals("mw")) {
+
+                        MembersContract mc = db.getMaxChildByDSS(dca03.getText().toString().toUpperCase(),
+                                ec.getDss_id_member().toUpperCase());
+
+                        if (mc != null) {
+                            MainApp.MotherChildList.put(ec.getDss_id_member().toUpperCase(), mc.getDss_id_member().toUpperCase());
+                        }
                     }
                 }
 
                 Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
                 MainApp.currentStatusCount = MainApp.familyMembersList.size();
-                MainApp.TotalMembersCount = MainApp.familyMembersList.size();
+                MainApp.TotalMembersCount = MainApp.familyMembersList.size() - 1;
                 isNew = false;
 
             } else {
@@ -599,7 +608,7 @@ public class SectionAActivity extends Activity {
                 e.printStackTrace();
             }
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
 
@@ -614,6 +623,7 @@ public class SectionAActivity extends Activity {
 
                 members = db.getMembersByDSS(dca03.getText().toString().toUpperCase());
                 if (members.size() != 0) {
+
                     for (MembersContract ec : members) {
                         MainApp.familyMembersList.add(new MembersContract(ec));
                     }
@@ -622,7 +632,7 @@ public class SectionAActivity extends Activity {
                 if (MainApp.familyMembersList.size() > 1) {
                     Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
                     MainApp.currentStatusCount = MainApp.familyMembersList.size();
-                    MainApp.TotalMembersCount = MainApp.familyMembersList.size();
+                    MainApp.TotalMembersCount = MainApp.familyMembersList.size() - 1;
                     isNew = false;
 
                 } else {
@@ -640,7 +650,7 @@ public class SectionAActivity extends Activity {
 
     public boolean formValidation() {
 
-        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
 
 //        01
         if (dca03.getText().toString().isEmpty()) {
@@ -1152,7 +1162,7 @@ public class SectionAActivity extends Activity {
 
         setGPS();
 
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
 
     private boolean UpdateDB() {
@@ -1161,7 +1171,7 @@ public class SectionAActivity extends Activity {
         MainApp.fc.set_ID(String.valueOf(updcount));
 
         if (updcount != 0) {
-            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
 
             MainApp.fc.setUID(
                     (MainApp.fc.getDeviceID() + MainApp.fc.get_ID()));

@@ -15,11 +15,22 @@
 
         <TextView
             android:id="@+id/app_header"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:text="@string/secBLabel"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/childCounterlbl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/pink_100"
+            android:gravity="center_horizontal"
+            android:text=""
+            android:textColor="@color/colorPrimary"
             android:textSize="30sp" />
 
         <ScrollView
@@ -138,8 +149,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-                    android:maxLength="14"></EditText>
+                    android:maxLength="14" />
 
+
+                <LinearLayout
+                    android:id="@+id/mothDssID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/dcbbmid"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <EditText
+                        android:id="@+id/dcbbmid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                        android:maxLength="12" />
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -479,22 +514,6 @@
                                     android:layout_marginBottom="1dp"
                                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                                     android:maxLength="13" />
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="1dp"
-                                    android:layout_marginTop="16dp"
-                                    android:text="@string/dcbbmid"
-                                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                                <EditText
-                                    android:id="@+id/dcbbmid"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="1dp"
-                                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-                                    android:maxLength="12" />
 
 
                                 <TextView

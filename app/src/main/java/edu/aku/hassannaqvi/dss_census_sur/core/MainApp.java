@@ -18,8 +18,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import edu.aku.hassannaqvi.dss_census_sur.activities.EndingActivity;
+import edu.aku.hassannaqvi.dss_census_sur.activities.FamilyMembersActivity;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.CensusContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.DeceasedContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FormsContract;
@@ -118,6 +120,7 @@ public class MainApp extends Application {
 
     /*Ali DSS SUR*/
     public static List<HouseholdContract> householdList;
+    public static Map<String,String> MotherChildList;
 
     @Override
     public void onCreate() {

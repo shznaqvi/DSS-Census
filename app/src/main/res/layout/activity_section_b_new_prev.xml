@@ -278,8 +278,7 @@
                             android:layout_marginBottom="1dp"
                             android:hint="@string/dcbis05Age"
                             android:inputType="number"
-                            android:maxLength="2"
-                            android:visibility="visible" />
+                            android:maxLength="2" />
 
                         <TextView
                             android:layout_width="match_parent"

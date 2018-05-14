@@ -22,12 +22,12 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.CensusContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.CensusContract.censusMember;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.DeceasedContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.DeceasedContract.DeceasedMember;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract.FollowUpTable;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FormsContract.FormsTable;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.HouseholdContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.HouseholdContract.householdForm;
-import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
-import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract.FollowUpTable;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract.singleMember;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MotherContract;
@@ -500,6 +500,68 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
                 MembersContract mc = new MembersContract();
                 memList.add(mc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return memList;
+    }
+
+    public MembersContract getMaxChildByDSS(String dssID, String mID) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                "max(substr(" + singleMember.COLUMN_DSS_ID_MEMBER + ",12,2))",
+                singleMember.COLUMN_ID,
+                singleMember.COLUMN_DATE,
+                singleMember.COLUMN_DSS_ID_HH,
+                singleMember.COLUMN_DSS_ID_F,
+                singleMember.COLUMN_DSS_ID_M,
+                singleMember.COLUMN_DSS_ID_H,
+                singleMember.COLUMN_DSS_ID_MEMBER,
+                singleMember.COLUMN_PREVS_DSS_ID_MEMBER,
+                singleMember.COLUMN_SITE_CODE,
+                singleMember.COLUMN_NAME,
+                singleMember.COLUMN_DOB,
+//                singleMember.COLUMN_AGE,
+                singleMember.COLUMN_GENDER,
+                singleMember.COLUMN_IS_HEAD,
+                singleMember.COLUMN_RELATION_HH,
+                singleMember.COLUMN_CURRENT_STATUS,
+                singleMember.COLUMN_CURRENT_DATE,
+                singleMember.COLUMN_DOD,
+                singleMember.COLUMN_M_STATUS,
+                singleMember.COLUMN_EDUCATION,
+                singleMember.COLUMN_OCCUPATION,
+                singleMember.COLUMN_MEMBER_TYPE,
+                singleMember.COLUMN_UUID,
+        };
+
+        String whereClause = singleMember.COLUMN_DSS_ID_HH + " =? AND " + singleMember.COLUMN_DSS_ID_M + " =?";
+        String[] whereArgs = {dssID, mID};
+        String groupBy = singleMember.COLUMN_DSS_ID_MEMBER;
+        String having = null;
+        String orderBy = singleMember.COLUMN_DSS_ID_MEMBER + " DESC LIMIT 1";
+
+        MembersContract memList = null;
+        try {
+            c = db.query(
+                    singleMember.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                memList = new MembersContract().Hydrate(c);
             }
         } finally {
             if (c != null) {
@@ -1272,11 +1334,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_CURRENT_STATUS_OUTCOME,
                 censusMember.COLUMN_CURRENT_DATE,
                 censusMember.COLUMN_CURRENT_TIME,
-               /* censusMember.COLUMN_M_STATUS,
-                censusMember.COLUMN_EDUCATION,
-                censusMember.COLUMN_EDUCATIONX,
-                censusMember.COLUMN_OCCUPATION,
-                censusMember.COLUMN_OCCUPATIONX,*/
+                /* censusMember.COLUMN_M_STATUS,
+                 censusMember.COLUMN_EDUCATION,
+                 censusMember.COLUMN_EDUCATIONX,
+                 censusMember.COLUMN_OCCUPATION,
+                 censusMember.COLUMN_OCCUPATIONX,*/
                 censusMember.COLUMN_MEMBER_TYPE,
                 /*censusMember.COLUMN_UPDATE_FLAG,
                 censusMember.COLUMN_UPDATE_DT,

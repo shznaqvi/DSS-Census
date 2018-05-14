@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.dss_census_sur.activities;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -205,8 +206,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     EditText dcbis06x;
     @BindView(R.id.fldGrpdcbidt)
     LinearLayout fldGrpdcbidt;
-/*    @BindView(R.id.fldGrpdcbidttime)
-    LinearLayout fldGrpdcbidttime;*/
+    /*    @BindView(R.id.fldGrpdcbidttime)
+        LinearLayout fldGrpdcbidttime;*/
     @BindView(R.id.dcbidtTxt)
     TextView dcbidtTxt;
     @BindView(R.id.dcbidob)
@@ -244,9 +245,18 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     @BindView(R.id.dcbm04)
     RadioButton dcbm04;
 
+    @BindView(R.id.childCounterlbl)
+    TextView childCounterlbl;
+
+    @BindView(R.id.mothDssID)
+    LinearLayout mothDssID;
+    @BindView(R.id.dcbbmid)
+    EditText dcbbmid;
 
     int position = 0;
     boolean dataFlag = false;
+    int childCount;
+    static int childCounter = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -446,11 +456,6 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     fldGrpdcbidt.setVisibility(View.GONE);
-//                    fldGrpdcbidttime.setVisibility(View.GONE);
-                    /*fldGrpdcbir.setVisibility(View.GONE);
-
-                    dcbir.clearCheck();
-                    dcbirm.setText(null);*/
 
                     dcbis06x.setVisibility(View.VISIBLE);
                 } else {
@@ -486,122 +491,11 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 memberTypeOtherFun();
 
                 if (!dcbm03.isChecked()) {
-                    /*dcbbfid.setText("null");
-                    dcbbmid.setText("null");
-
-                    dcbbfid.setEnabled(false);
-                    dcbbmid.setEnabled(false);
-                    dcbbrhh02.setEnabled(true);
-                    dcbbrhh04.setEnabled(true);
-                    dcbbrhh06.setEnabled(true);
-                    dcbbrhh07.setEnabled(true);
-
-                    dcbc01.setEnabled(true);
-                    dcbc02.setEnabled(true);
-                    dcbc03.setEnabled(true);
-                    dcbe07.setEnabled(true);
-
-                    dcbf01.setEnabled(true);
-                    dcbf02.setEnabled(true);
-                    dcbf06.setEnabled(true);
-                    dcbf07.setEnabled(true);
-                    dcbf12.setEnabled(true);
-                    dcbf13.setEnabled(true);
-                    dcbf15.setEnabled(true);
-
-                    if (!MainApp.isRsvp) {
-                        rsvp.clearCheck();
-                        rsvp01.setEnabled(true);
-                    }
-                    if (!MainApp.isHead) {
-                        dcbbrhh01.setEnabled(true);
-                    } else {
-                        dcbbrhh01.setEnabled(false);
-                    }
-
-                    if (dcbm01.isChecked()) {
-                        dcbd01.setChecked(false);
-                        dcbd01.setEnabled(false);
-
-                        dcbd02.setEnabled(true);
-                    } else if (dcbm02.isChecked()) {
-
-                        dcbd01.setEnabled(true);
-
-                        dcbd02.setChecked(false);
-                        dcbd02.setEnabled(false);
-                    } else {
-                        dcbd01.setEnabled(true);
-                        dcbd02.setEnabled(true);
-                    }*/
-
                     dcbis01.setEnabled(false);
                     dcbis01.setChecked(false);
                     fldGrpdcbidt.setVisibility(View.GONE);
-
                 } else {
-
-                    /*dcbbrhh01.setEnabled(false);
-                    dcbbrhh01.setChecked(false);
-                    dcbbrhh02.setEnabled(false);
-                    dcbbrhh02.setChecked(false);
-                    dcbbrhh04.setEnabled(false);
-                    dcbbrhh04.setChecked(false);
-                    dcbbrhh06.setEnabled(false);
-                    dcbbrhh06.setChecked(false);
-                    dcbbrhh07.setEnabled(false);
-                    dcbbrhh07.setChecked(false);
-
-                    dcbc01.setEnabled(false);
-                    dcbc01.setChecked(false);
-                    dcbc02.setEnabled(false);
-                    dcbc02.setChecked(false);
-                    dcbc03.setEnabled(false);
-                    dcbc03.setChecked(false);
-
-                    dcbe07.setEnabled(false);
-                    dcbe07.setChecked(false);
-
-                    dcbf01.setEnabled(false);
-                    dcbf01.setChecked(false);
-                    dcbf02.setEnabled(false);
-                    dcbf02.setChecked(false);
-                    dcbf06.setEnabled(false);
-                    dcbf06.setChecked(false);
-                    dcbf07.setEnabled(false);
-                    dcbf07.setChecked(false);
-                    dcbf12.setEnabled(false);
-                    dcbf12.setChecked(false);
-                    dcbf13.setEnabled(false);
-                    dcbf13.setChecked(false);
-                    dcbf15.setEnabled(false);
-                    dcbf15.setChecked(false);
-
-                    dcbbfid.setOnKeyListener(SectionBActivity.this);
-                    dcbbfid.addTextChangedListener(SectionBActivity.this);
-                    dcbbmid.setOnKeyListener(SectionBActivity.this);
-                    dcbbmid.addTextChangedListener(SectionBActivity.this);*/
-
                     dcbid.setInputType(InputType.TYPE_CLASS_NUMBER);
-                    /*dcbbfid.setInputType(InputType.TYPE_CLASS_NUMBER);
-                    dcbbmid.setInputType(InputType.TYPE_CLASS_NUMBER);
-
-                    dcbbfid.setEnabled(true);
-                    dcbbmid.setEnabled(true);
-
-                    dcbbfid.setText(MainApp.fc.getDSSID());
-                    dcbbmid.setText(MainApp.fc.getDSSID());
-
-                    if (!MainApp.isRsvp) {
-                        rsvp.clearCheck();
-                        rsvp01.setEnabled(false);
-                        rsvp02.setChecked(true);
-                    }
-
-
-                    dcbd01.setEnabled(true);
-                    dcbd02.setEnabled(true);*/
-
                     dcbis01.setEnabled(true);
                 }
             }
@@ -612,6 +506,41 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         dcbis04.setVisibility(View.GONE);
         dcbis05.setVisibility(View.GONE);
         dcbis06.setVisibility(View.GONE);
+
+
+//        Checking live birth of child
+        childCount = getIntent().getIntExtra("chCount", 0);
+        if (childCount > 0) {
+            childCounterlbl.setVisibility(View.VISIBLE);
+            childCounterlbl.setText("Child " + childCounter + " out of " + childCount);
+
+            dcbm01.setEnabled(false);
+            dcbm02.setEnabled(false);
+            dcbm04.setEnabled(false);
+            dcbm03.setChecked(true);
+
+            dcbis03.setEnabled(false);
+
+            mothDssID.setVisibility(View.VISIBLE);
+            String motherDSSID = getIntent().getStringExtra("mothDSSID");
+            dcbbmid.setText(motherDSSID);
+            dcbbmid.setEnabled(false);
+
+            if (MainApp.MotherChildList.get(motherDSSID) != null) {
+                String chID = MainApp.MotherChildList.get(motherDSSID).substring(motherDSSID.length());
+                MainApp.MotherChildList.put(motherDSSID, motherDSSID + (Integer.valueOf(chID) + 1));
+            } else {
+                MainApp.MotherChildList.put(motherDSSID, motherDSSID + "1");
+            }
+
+            dcbid.setText(MainApp.MotherChildList.get(motherDSSID));
+            dcbid.setEnabled(false);
+
+        } else {
+            childCounterlbl.setVisibility(View.GONE);
+            mothDssID.setVisibility(View.GONE);
+            dcbbmid.setText(null);
+        }
 
     }
 
@@ -745,16 +674,33 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
 
-        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
+        if (childCount > 0) {
+            dcba.setText("Not Complete Child!!");
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+            if (childCount != childCounter) {
+                childCounter++;
+                MainApp.TotalMembersCount++;
+                startActivity(new Intent(SectionBActivity.this, SectionBActivity.class)
+                        .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                        .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
+                        .putExtra("chCount", childCount));
+            } else {
+                // reseting child counter
+                childCounter = 1;
+            }
+        }
 
         MainApp.finishActivity(this, this);
     }
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {
 
 // Insert into array for showing in alert if same member id wants to enter
@@ -860,96 +806,31 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             e.printStackTrace();
         }
         if (UpdateDB()) {
-            Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
+            MainApp.memClicked.add(position);
 
             MainApp.insertMem.add(dcbid.getText().toString());
 
             if (dcbm04.isChecked()) {
                 MainApp.randID += 1;
             }
-            MainApp.selectedPos = -1;
 
             MainApp.memFlag++;
-            MainApp.checkingFlag++;
-            MainApp.currentStatusCount -= 1;
             finish();
 
-            /*if (!dcbis03.isChecked() && !dcbis05.isChecked() && !dcbis04.isChecked()) {
-
-                *//*if (dcbm01.isChecked()) {
-                    MainApp.TotalFemaleCount++;
-                } else if (dcbm02.isChecked()) {
-                    MainApp.TotalMaleCount++;
-                } else if (dcbm03.isChecked() && dcbd01.isChecked()) {
-                    if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
-                        MainApp.TotalBoyCount++;
-                    } else {
-                        MainApp.TotalMaleCount++;
-                    }
-                } else if (dcbm03.isChecked() && dcbd02.isChecked()) {
-                    if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
-                        MainApp.TotalGirlCount++;
-
-                    } else {
-                        MainApp.TotalFemaleCount++;
-                    }
-                } else if (dcbm04.isChecked() && dcbd01.isChecked()) {
-                    MainApp.TotalMaleCount++;
-                } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
-                    MainApp.TotalFemaleCount++;
-                }*//*
-
-                MainApp.selectedPos = -1;
-
-//        Check Member Flag
-
-                if (!dataFlag) {
-                    MainApp.currentStatusCount += 1;
-
-                    if (dcbm04.isChecked()) {
-                        MainApp.randID += 1;
-                    }
-                }
-
-                finish();
-
-            } else {
-
-                if (!dataFlag) {
-                    MainApp.currentStatusCount += 1;
-
-                    if (dcbm04.isChecked()) {
-                        MainApp.randID += 1;
-                    }
-                }
-
-                if (dcbis05.isChecked()) {
-                    if (MainApp.NoMembersCount != 0) {
-
-                        Long dt = new Date().getTime() - ((MainApp.MILLISECONDS_IN_YEAR) + MainApp.MILLISECONDS_IN_DAY);
-                        Long crDt = dcbidob.getCalendarView().getDate();
-
-                        Log.d("Current Date", "" + dt.toString());
-                        Log.d("Current Date", "" + new SimpleDateFormat().format(new Date(dt)));
-                        Log.d("Selected Date", " " + crDt.toString());
-                        Log.d("Selected Date", " " + new SimpleDateFormat().format(new Date(crDt)));
-
-                        if (crDt < dt) {
-
-                            MainApp.selectedPos = -1;
-
-                            MainApp.currentStatusCount -= 1;
-                            finish();
-
-                        }
-                    }
+            if (childCount > 0) {
+                if (childCount != childCounter) {
+                    childCounter++;
+                    MainApp.TotalMembersCount++;
+                    startActivity(new Intent(SectionBActivity.this, SectionBActivity.class)
+                            .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                            .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
+                            .putExtra("chCount", childCount));
                 } else {
-                    MainApp.selectedPos = -1;
-
-                    MainApp.currentStatusCount -= 1;
-                    finish();
+                    childCounter = 1;
                 }
-            }*/
+            }
 
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -985,7 +866,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         MainApp.cc.set_ID(String.valueOf(updcount));
 
         if (updcount != 0) {
-            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
 
             MainApp.cc.set_UID(
                     (MainApp.cc.getDeviceId() + MainApp.cc.get_ID()));
@@ -1002,7 +883,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
     }
 
     private void SaveDraft() throws JSONException {
-        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
         SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
@@ -1020,6 +901,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         MainApp.cc.setDss_id_member(dcbid.getText().toString().toUpperCase());
         MainApp.cc.setName(dcba.getText().toString());
+        MainApp.cc.setDss_id_m(dcbbmid.getText().toString());
 
         if (dcbd01.isChecked()) {
             MainApp.cc.setGender("1");
@@ -1068,7 +950,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
 
         if (dcbis01.isChecked()) {
-            MainApp.cc.setCurrent_time(dcbitime.getCurrentHour()+":"+dcbitime.getCurrentMinute());
+            MainApp.cc.setCurrent_time(dcbitime.getCurrentHour() + ":" + dcbitime.getCurrentMinute());
         }
         MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : dcbm04.isChecked() ? "ot" : "0");
         /*MainApp.cc.setsC(dcbir01.isChecked() ? "1" : dcbir02.isChecked() ? "2" : dcbir03.isChecked() ? "3" : "0");
@@ -1099,7 +981,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         Log.d(TAG, "SaveDraft: " + MainApp.cc.toJSONObject());
 
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
 
     }
@@ -1137,7 +1019,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
     public boolean formValidation() {
 
-        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
 
         // ====================== Name ==============
 

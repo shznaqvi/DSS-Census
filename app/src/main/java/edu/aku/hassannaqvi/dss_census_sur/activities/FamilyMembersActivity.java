@@ -88,13 +88,7 @@ public class FamilyMembersActivity extends Activity {
 
         //Set Enable for Next Section
         if (MainApp.familyMembersList.size() == MainApp.memFlag) {
-            if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
-//                btn_Continue.setEnabled(false);
-                btn_addMember.setEnabled(true);
-            } else {
-//                btn_Continue.setEnabled(true);
-                btn_addMember.setEnabled(false);
-            }
+            btn_addMember.setEnabled(true);
         } else {
 //            btn_Continue.setEnabled(false);
             btn_addMember.setEnabled(false);
@@ -127,10 +121,6 @@ public class FamilyMembersActivity extends Activity {
                             }
 
                             if (flag) {
-
-                                MainApp.selectedPos = -1;
-
-                                MainApp.memClicked.add(position);
 
                                 startActivity(new Intent(getApplicationContext(), SectionBNewPrevActivity.class)
                                         .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
@@ -385,11 +375,12 @@ public class FamilyMembersActivity extends Activity {
                 }
                 handler.post(new Runnable() {
                     public void run() {
-                        MainApp.memClicked.add(MainApp.TotalMembersCount++);
+//                        MainApp.memClicked.add(MainApp.TotalMembersCount++);
 
+                        MainApp.TotalMembersCount++;
                         startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
                                 .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
-                                .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount - 1));
+                                .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
                     }
                 });
             }
@@ -424,9 +415,7 @@ public class FamilyMembersActivity extends Activity {
             }
         }*/
 
-        for (int item : MainApp.memClicked) {
-            recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
-        }
+        resumeWork();
 
         /*countBoy.setText(String.valueOf(MainApp.NoBoyCount));
         countMen.setText(String.valueOf(MainApp.NoMaleCount));
@@ -435,7 +424,17 @@ public class FamilyMembersActivity extends Activity {
         totalMem.setText(String.valueOf(MainApp.NoMembersCount));
         totalChild.setText(String.valueOf(MainApp.totalChild));*/
 
-        resumeWork();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                for (int item : MainApp.memClicked) {
+                    recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
+                }
+            }
+        }, 800);
+
     }
 
     public void resumeWork() {
@@ -446,14 +445,6 @@ public class FamilyMembersActivity extends Activity {
 //        Set Enable for Next Section
 
         if (MainApp.familyMembersList.size() == MainApp.memFlag) {
-            if (MainApp.NoMembersCount != MainApp.currentStatusCount) {
-//                btn_Continue.setEnabled(false);
-                btn_addMember.setEnabled(true);
-            } else {
-//                btn_Continue.setEnabled(true);
-                btn_addMember.setEnabled(false);
-            }
-
 //            btn_Continue.setEnabled(true);
             btn_addMember.setEnabled(true);
 
