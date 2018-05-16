@@ -37,7 +37,10 @@ public class CensusContract {
     private String is_head = "";
     private String relation_hh = "";
     private String current_status = "";
+    private String current_maritalOutcome = "";
+    private String current_childOutcome = "";
     private String current_statusOutcome = "";
+    private String current_pregOutcomeDT = "";
     private String current_date = "";
     private String current_time = "";
     private String m_status = "";
@@ -415,6 +418,30 @@ public class CensusContract {
         this.devicetagID = devicetagID;
     }
 
+    public String getCurrent_pregOutcomeDT() {
+        return current_pregOutcomeDT;
+    }
+
+    public void setCurrent_pregOutcomeDT(String current_pregOutcomeDT) {
+        this.current_pregOutcomeDT = current_pregOutcomeDT;
+    }
+
+    public String getCurrent_maritalOutcome() {
+        return current_maritalOutcome;
+    }
+
+    public void setCurrent_maritalOutcome(String current_maritalOutcome) {
+        this.current_maritalOutcome = current_maritalOutcome;
+    }
+
+    public String getCurrent_childOutcome() {
+        return current_childOutcome;
+    }
+
+    public void setCurrent_childOutcome(String current_childOutcome) {
+        this.current_childOutcome = current_childOutcome;
+    }
+
     public CensusContract Sync(JSONObject jsonObject) throws JSONException {
 
         this._ID= jsonObject.getString(censusMember.COLUMN_ID);
@@ -441,7 +468,10 @@ public class CensusContract {
         this.is_head= jsonObject.getString(censusMember.COLUMN_IS_HEAD);
         this.relation_hh= jsonObject.getString(censusMember.COLUMN_RELATION_HH);
         this.current_status= jsonObject.getString(censusMember.COLUMN_CURRENT_STATUS);
+        this.current_maritalOutcome = jsonObject.getString(censusMember.COLUMN_CURRENT_MARITAL_STATUS);
+        this.current_childOutcome = jsonObject.getString(censusMember.COLUMN_CURRENT_CHILD_STATUS);
         this.current_statusOutcome = jsonObject.getString(censusMember.COLUMN_CURRENT_STATUS_OUTCOME);
+        this.current_pregOutcomeDT = jsonObject.getString(censusMember.COLUMN_CURRENT_PREG_OUTCOME_DT);
         this.current_date= jsonObject.getString(censusMember.COLUMN_CURRENT_DATE);
         this.current_time = jsonObject.getString(censusMember.COLUMN_CURRENT_TIME);
         this.m_status= jsonObject.getString(censusMember.COLUMN_M_STATUS);
@@ -490,7 +520,10 @@ public class CensusContract {
         this.is_head = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_IS_HEAD));
         this.relation_hh = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_RELATION_HH))*/;
         this.current_status = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_CURRENT_STATUS));
+        this.current_maritalOutcome = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_CURRENT_MARITAL_STATUS));
+        this.current_childOutcome = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_CURRENT_CHILD_STATUS));
         this.current_statusOutcome = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_CURRENT_STATUS_OUTCOME));
+        this.current_pregOutcomeDT = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_CURRENT_PREG_OUTCOME_DT));
         this.current_date = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_CURRENT_DATE));
         this.current_time = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_CURRENT_TIME));
        /*this.m_status = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_M_STATUS));
@@ -540,7 +573,10 @@ public class CensusContract {
         json.put(censusMember.COLUMN_IS_HEAD, this.is_head == null ? JSONObject.NULL : this.is_head);
         json.put(censusMember.COLUMN_RELATION_HH, this.relation_hh == null ? JSONObject.NULL : this.relation_hh);*/
         json.put(censusMember.COLUMN_CURRENT_STATUS, this.current_status == null ? JSONObject.NULL : this.current_status);
+        json.put(censusMember.COLUMN_CURRENT_MARITAL_STATUS, this.current_maritalOutcome == null ? JSONObject.NULL : this.current_maritalOutcome);
+        json.put(censusMember.COLUMN_CURRENT_CHILD_STATUS, this.current_childOutcome == null ? JSONObject.NULL : this.current_childOutcome);
         json.put(censusMember.COLUMN_CURRENT_STATUS_OUTCOME, this.current_statusOutcome == null ? JSONObject.NULL : this.current_statusOutcome);
+        json.put(censusMember.COLUMN_CURRENT_PREG_OUTCOME_DT, this.current_pregOutcomeDT == null ? JSONObject.NULL : this.current_pregOutcomeDT);
         json.put(censusMember.COLUMN_CURRENT_DATE, this.current_date == null ? JSONObject.NULL : this.current_date);
 //        json.put(censusMember.COLUMN_CURRENT_TIME, this.current_time == null ? JSONObject.NULL : this.current_time);
        /* json.put(censusMember.COLUMN_M_STATUS, this.m_status == null ? JSONObject.NULL : this.m_status);
@@ -592,7 +628,10 @@ public class CensusContract {
         public static final String COLUMN_IS_HEAD = "is_head";
         public static final String COLUMN_RELATION_HH = "relation_hh";
         public static final String COLUMN_CURRENT_STATUS = "current_status";
+        public static final String COLUMN_CURRENT_MARITAL_STATUS = "current_marital_outcome";
+        public static final String COLUMN_CURRENT_CHILD_STATUS = "current_child_outcome";
         public static final String COLUMN_CURRENT_STATUS_OUTCOME = "current_status_outcome";
+        public static final String COLUMN_CURRENT_PREG_OUTCOME_DT = "current_preg_outcome_dt";
         public static final String COLUMN_CURRENT_DATE = "status_date";
         public static final String COLUMN_CURRENT_TIME = "current_time";
         public static final String COLUMN_M_STATUS = "m_status";

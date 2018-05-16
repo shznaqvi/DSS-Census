@@ -130,7 +130,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             censusMember.COLUMN_IS_HEAD + " TEXT," +
             censusMember.COLUMN_RELATION_HH + " TEXT," +
             censusMember.COLUMN_CURRENT_STATUS + " TEXT," +
+            censusMember.COLUMN_CURRENT_MARITAL_STATUS + " TEXT," +
+            censusMember.COLUMN_CURRENT_CHILD_STATUS + " TEXT," +
             censusMember.COLUMN_CURRENT_STATUS_OUTCOME + " TEXT," +
+            censusMember.COLUMN_CURRENT_PREG_OUTCOME_DT + " TEXT," +
             censusMember.COLUMN_CURRENT_DATE + " TEXT," +
             censusMember.COLUMN_CURRENT_TIME + " TEXT," +
             censusMember.COLUMN_M_STATUS + " TEXT," +
@@ -882,7 +885,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(censusMember.COLUMN_IS_HEAD, mc.getIs_head());
         values.put(censusMember.COLUMN_RELATION_HH, mc.getRelation_hh());
         values.put(censusMember.COLUMN_CURRENT_STATUS, mc.getCurrent_status());
+        values.put(censusMember.COLUMN_CURRENT_MARITAL_STATUS, mc.getCurrent_maritalOutcome());
+        values.put(censusMember.COLUMN_CURRENT_CHILD_STATUS, mc.getCurrent_childOutcome());
         values.put(censusMember.COLUMN_CURRENT_STATUS_OUTCOME, mc.getCurrent_statusOutcome());
+        values.put(censusMember.COLUMN_CURRENT_PREG_OUTCOME_DT, mc.getCurrent_pregOutcomeDT());
         values.put(censusMember.COLUMN_CURRENT_DATE, mc.getCurrent_date());
         values.put(censusMember.COLUMN_CURRENT_TIME, mc.getCurrent_time());
         values.put(censusMember.COLUMN_M_STATUS, mc.getM_status());
@@ -1331,7 +1337,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_IS_HEAD,
                 censusMember.COLUMN_RELATION_HH,*/
                 censusMember.COLUMN_CURRENT_STATUS,
+                censusMember.COLUMN_CURRENT_MARITAL_STATUS,
+                censusMember.COLUMN_CURRENT_CHILD_STATUS,
                 censusMember.COLUMN_CURRENT_STATUS_OUTCOME,
+                censusMember.COLUMN_CURRENT_PREG_OUTCOME_DT,
                 censusMember.COLUMN_CURRENT_DATE,
                 censusMember.COLUMN_CURRENT_TIME,
                 /* censusMember.COLUMN_M_STATUS,

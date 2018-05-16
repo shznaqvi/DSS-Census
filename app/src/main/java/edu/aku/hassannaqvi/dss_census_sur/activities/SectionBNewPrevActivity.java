@@ -652,6 +652,7 @@ public class SectionBNewPrevActivity extends Activity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.dcbis01Outa) {
                     dcbis09.clearCheck();
+                    dcbis09a.setChecked(false);
                     dcbis04Out.clearCheck();
                     fldGrpdcbidt02.setVisibility(View.GONE);
                 } else {
@@ -668,7 +669,7 @@ public class SectionBNewPrevActivity extends Activity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.dcbis09b) {
                     fldGrpdcbis09b.setVisibility(View.VISIBLE);
-                    dcbis09bTxt.setText("LMP/EDT " + getString(R.string.dcbidt));
+                    dcbis09bTxt.setText("LMP " + getString(R.string.dcbidt));
                 } else {
                     fldGrpdcbis09b.setVisibility(View.GONE);
                 }
@@ -1109,24 +1110,27 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         sC.put("surround", fp.getFollowUpRound());
         sC.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
 
-        MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "1" : dcbis02.isChecked() ? "2" : dcbis03.isChecked() ? "3"
-                : dcbis04.isChecked() ? "4" : dcbis05.isChecked() ? "5" : dcbis06.isChecked() ? "6"
-                : dcbis07.isChecked() ? "7" : dcbis00.isChecked() ? "10" : "0");
+        MainApp.cc.setCurrent_status(dcbis00.isChecked() ? "1" : dcbis01.isChecked() ? "2" : dcbis03.isChecked() ? "3"
+                : dcbis05.isChecked() ? "4" : "0");
         if (dcbis01.isChecked()) {
-            MainApp.cc.setCurrent_statusOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "2" : dcbis01Outc.isChecked() ? "3"
+            MainApp.cc.setCurrent_maritalOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "2" : dcbis01Outc.isChecked() ? "3"
                     : dcbis01Outd.isChecked() ? "4" : "0");
 
-            if (!dcbis01Outa.isChecked() && dcbis09c.isChecked()) {
-                MainApp.cc.setCurrent_statusOutcome(dcbis04Outa.isChecked() ? "1" : dcbis04Outb.isChecked() ? "2" : dcbis04Outc.isChecked() ? "3"
-                        : dcbis04Outd.isChecked() ? "4" : "0");
+            if (!dcbis01Outa.isChecked()) {
+                if (dcbis09c.isChecked()) {
+                    MainApp.cc.setCurrent_statusOutcome(dcbis04Outa.isChecked() ? "1" : dcbis04Outb.isChecked() ? "2" : dcbis04Outc.isChecked() ? "3"
+                            : dcbis04Outd.isChecked() ? "4" : "0");
 
-                if (dcbis04Outd.isChecked()) {
-                    sC.put("current_status_outcome_d_a", dcbis04Outda.getText().toString());
-                    sC.put("current_status_outcome_d_b", dcbis04Outdb.getText().toString());
-                    sC.put("current_status_outcome_d_c", dcbis04Outdc.getText().toString());
+                    if (dcbis04Outd.isChecked()) {
+                        sC.put("current_status_outcome_d_a", dcbis04Outda.getText().toString());
+                        sC.put("current_status_outcome_d_b", dcbis04Outdb.getText().toString());
+                        sC.put("current_status_outcome_d_c", dcbis04Outdc.getText().toString());
+                    }
                 }
-            } else {
-                MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+
+                if (dcbis09b.isChecked()) {
+                    MainApp.cc.setCurrent_pregOutcomeDT(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+                }
             }
         } else if (dcbis03.isChecked()) {
             MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));

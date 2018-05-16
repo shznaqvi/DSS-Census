@@ -590,34 +590,25 @@ public class FamilyMembersActivity extends Activity {
                 default:
                     switch (i) {
                         case "1":
-                            st = getString(R.string.dcbis07);
+                            st = getString(R.string.dcbist01);
                             break;
                         case "2":
-                            st = getString(R.string.dcbis08);
+                            st = getString(R.string.dcbis07);
                             break;
                         case "3":
                             st = getString(R.string.dcbis03);
                             break;
                         case "4":
-                            st = getString(R.string.dcbis09);
-                            break;
-                        case "5":
                             st = getString(R.string.dcbis05);
                             break;
-                        case "6":
-                            st = getString(R.string.dcbis04);
-                            break;
-                        case "7":
-                            st = getString(R.string.dcbis06);
-                            break;
-                        case "8":
+                        case "5":
                             st = getString(R.string.dcbis01);
                             break;
-                        case "9":
+                        case "6":
                             st = getString(R.string.dcbis02);
                             break;
-                        case "10":
-                            st = getString(R.string.dcbist01);
+                        case "7":
+                            st = getString(R.string.dcbis04);
                             break;
                     }
                     break;
