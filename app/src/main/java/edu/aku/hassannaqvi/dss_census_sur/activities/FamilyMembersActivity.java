@@ -8,11 +8,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +35,9 @@ import edu.aku.hassannaqvi.dss_census_sur.R;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
+import ru.whalemare.sheetmenu.SheetMenu;
 
-public class FamilyMembersActivity extends Activity {
+public class FamilyMembersActivity extends AppCompatActivity {
 
     @BindView(R.id.recycler_noMembers)
     RecyclerView recycler_noMembers;
@@ -377,10 +380,33 @@ public class FamilyMembersActivity extends Activity {
                     public void run() {
 //                        MainApp.memClicked.add(MainApp.TotalMembersCount++);
 
-                        MainApp.TotalMembersCount++;
+                        /*MainApp.TotalMembersCount++;
                         startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
                                 .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
-                                .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
+                                .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));*/
+
+                        SheetMenu.with(FamilyMembersActivity.this)
+                                .setTitle("Select Option")
+                                .setMenu(R.menu.activity_menu)
+                                .setAutoCancel(false)
+                                .setClick(new MenuItem.OnMenuItemClickListener() {
+                                    @Override
+                                    public boolean onMenuItemClick(MenuItem item) {
+
+                                        progress = 0;
+                                        progressStatus = 0;
+                                        progressDialog.setVisibility(View.GONE);
+
+                                        if (item.getItemId() == R.id.add_member){
+                                            MainApp.TotalMembersCount++;
+                                            startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
+                                                    .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                                    .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
+                                        }
+
+                                        return false;
+                                    }
+                                }).show();
                     }
                 });
             }
