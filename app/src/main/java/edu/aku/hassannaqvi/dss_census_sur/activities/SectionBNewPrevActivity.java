@@ -315,6 +315,7 @@ public class SectionBNewPrevActivity extends Activity {
         Calendar cal = Calendar.getInstance();
 //        dcbg.setMaxDate(new Date().getTime());
         dcbidob.setMaxDate(new Date().getTime());
+        dcbis09bdt.setMaxDate(new Date().getTime());
         cal.setTimeInMillis(System.currentTimeMillis());
 
 //        Check Respondent
@@ -356,7 +357,7 @@ public class SectionBNewPrevActivity extends Activity {
         String mt = MainApp.familyMembersList.get(position).getMember_type();
         dcbis02.setEnabled(mt.equals("h") || mt.equals("c") ? false : true);
         dcbis04.setEnabled(mt.equals("h") || mt.equals("c") ? false : true);
-        dcbis01Outa.setEnabled(!mt.equals("mw"));
+        dcbis01Outa.setEnabled(!(mt.equals("mw") || mt.equals("h")));
 
             /*dcbbfid.setText(MainApp.familyMembersList.get(position).getDss_id_f());
             dcbbmid.setText(MainApp.familyMembersList.get(position).getDss_id_m());
@@ -652,7 +653,7 @@ public class SectionBNewPrevActivity extends Activity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.dcbis01Outa) {
                     dcbis09.clearCheck();
-                    dcbis09a.setChecked(false);
+                    dcbis09c.setChecked(false);
                     dcbis04Out.clearCheck();
                     fldGrpdcbidt02.setVisibility(View.GONE);
                 } else {
@@ -832,6 +833,7 @@ public class SectionBNewPrevActivity extends Activity {
         dcbis01Out.clearCheck();
 
         dcbis09.clearCheck();
+        dcbis09c.setChecked(false);
 
     }
 
@@ -1110,6 +1112,10 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         sC.put("surround", fp.getFollowUpRound());
         sC.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
 
+        if (dcbis09b.isChecked()){
+            sC.put("lmp_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis09bdt.getCalendarView().getDate()));
+        }
+
         MainApp.cc.setCurrent_status(dcbis00.isChecked() ? "1" : dcbis01.isChecked() ? "2" : dcbis03.isChecked() ? "3"
                 : dcbis05.isChecked() ? "4" : "0");
         if (dcbis01.isChecked()) {
@@ -1181,13 +1187,17 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         m.setIs_head(c.getIs_head());
         m.setRelation_hh(c.getRelation_hh());
         if (dcbis01.isChecked()) {
-            m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_statusOutcome());
+            m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_maritalOutcome());
             if (!dcbis01Outa.isChecked() && dcbis09c.isChecked()) {
                 m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_statusOutcome());
             }
+        } else if (dcbis05.isChecked()) {
+            m.setCurrent_status(c.getCurrent_status() + "_" + (dcbis05Placea.isChecked() ? "1" : dcbis05Placeb.isChecked() ? "2" : dcbis05Placec.isChecked() ? "3"
+                    : dcbis05Place96.isChecked() ? "96" : ""));
         } else {
             m.setCurrent_status(c.getCurrent_status());
         }
+
         m.setCurrent_date(c.getCurrent_date());
         m.setDod(c.getCurrent_time());
         m.setM_status(c.getM_status());

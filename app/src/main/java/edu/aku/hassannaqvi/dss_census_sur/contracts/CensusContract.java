@@ -505,8 +505,8 @@ public class CensusContract {
         this.deviceId = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DEVICEID));
         this.user = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_USER));
         this.dss_id_hh = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DSS_ID_HH));
-        /*this.dss_id_f = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DSS_ID_F));
         this.dss_id_m = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DSS_ID_M));
+        /*this.dss_id_f = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DSS_ID_F));
         this.dss_id_h = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DSS_ID_H));*/
         this.dss_id_member = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DSS_ID_MEMBER));
         /*this.prevs_dss_id_member = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_PREVS_DSS_ID_MEMBER));
@@ -559,8 +559,8 @@ public class CensusContract {
         json.put(censusMember.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
         json.put(censusMember.COLUMN_DSS_ID_HH, this.dss_id_hh == null ? JSONObject.NULL : this.dss_id_hh);
         json.put(censusMember.COLUMN_DSS_ID_MEMBER, this.dss_id_member == null ? JSONObject.NULL : this.dss_id_member);
-/*        json.put(censusMember.COLUMN_DSS_ID_F, this.dss_id_f == null ? JSONObject.NULL : this.dss_id_f);
         json.put(censusMember.COLUMN_DSS_ID_M, this.dss_id_m == null ? JSONObject.NULL : this.dss_id_m);
+/*        json.put(censusMember.COLUMN_DSS_ID_F, this.dss_id_f == null ? JSONObject.NULL : this.dss_id_f);
         json.put(censusMember.COLUMN_DSS_ID_H, this.dss_id_h == null ? JSONObject.NULL : this.dss_id_h);
         json.put(censusMember.COLUMN_PREVS_DSS_ID_MEMBER, this.prevs_dss_id_member == null ? JSONObject.NULL : this.prevs_dss_id_member);
         json.put(censusMember.COLUMN_SITE_CODE, this.site_code == null ? JSONObject.NULL : this.site_code);*/

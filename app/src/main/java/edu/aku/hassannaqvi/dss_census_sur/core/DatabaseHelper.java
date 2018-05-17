@@ -1322,8 +1322,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_DEVICEID,
                 censusMember.COLUMN_USER,
                 censusMember.COLUMN_DSS_ID_HH,
-                /*censusMember.COLUMN_DSS_ID_F,
                 censusMember.COLUMN_DSS_ID_M,
+                /*censusMember.COLUMN_DSS_ID_F,
                 censusMember.COLUMN_DSS_ID_H,*/
                 censusMember.COLUMN_DSS_ID_MEMBER,
                 /*censusMember.COLUMN_PREVS_DSS_ID_MEMBER,
@@ -1365,6 +1365,70 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_ID + " ASC";
 
         Collection<CensusContract> allCC = new ArrayList<CensusContract>();
+        try {
+            c = db.query(
+                    censusMember.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                CensusContract cc = new CensusContract();
+                allCC.add(cc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allCC;
+    }
+
+    public Collection<CensusContract> getMWRAsCensus(String hhID, String formDate) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                censusMember.COLUMN_ID,
+                censusMember.COLUMN_PROJECT_NAME,
+                censusMember.COLUMN_ISTATUS,
+                censusMember.COLUMN_UID,
+                censusMember.COLUMN_UUID,
+                censusMember.COLUMN_DATE,
+                censusMember.COLUMN_FORMDATE,
+                censusMember.COLUMN_DEVICEID,
+                censusMember.COLUMN_USER,
+                censusMember.COLUMN_DSS_ID_HH,
+                censusMember.COLUMN_DSS_ID_M,
+                censusMember.COLUMN_DSS_ID_MEMBER,
+                censusMember.COLUMN_NAME,
+                censusMember.COLUMN_GENDER,
+                censusMember.COLUMN_CURRENT_STATUS,
+                censusMember.COLUMN_CURRENT_MARITAL_STATUS,
+                censusMember.COLUMN_CURRENT_CHILD_STATUS,
+                censusMember.COLUMN_CURRENT_STATUS_OUTCOME,
+                censusMember.COLUMN_CURRENT_PREG_OUTCOME_DT,
+                censusMember.COLUMN_CURRENT_DATE,
+                censusMember.COLUMN_CURRENT_TIME,
+                censusMember.COLUMN_MEMBER_TYPE,
+                censusMember.COLUMN_DEVICETAGID,
+                censusMember.COLUMN_SC
+        };
+        String whereClause = censusMember.COLUMN_MEMBER_TYPE + "=? AND " + censusMember.COLUMN_DSS_ID_HH + "=? AND " +
+                censusMember.COLUMN_FORMDATE + "=?";
+        String[] whereArgs = {"mw", hhID, formDate};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                censusMember.COLUMN_ID + " ASC";
+
+        Collection<CensusContract> allCC = new ArrayList<>();
         try {
             c = db.query(
                     censusMember.TABLE_NAME,  // The table to query

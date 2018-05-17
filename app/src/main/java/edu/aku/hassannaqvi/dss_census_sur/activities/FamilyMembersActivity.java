@@ -384,11 +384,9 @@ public class FamilyMembersActivity extends AppCompatActivity {
                                 .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
                                 .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));*/
 
-                        final SheetMenu sheetMenu = new SheetMenu();
-                        sheetMenu.with(FamilyMembersActivity.this)
+                        SheetMenu.with(FamilyMembersActivity.this)
                                 .setTitle("Select Option")
                                 .setMenu(R.menu.activity_menu)
-                                .setAutoCancel(false)
                                 .setAutoCancel(true)
                                 .setClick(new MenuItem.OnMenuItemClickListener() {
                                     @Override
@@ -400,14 +398,15 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
                                         if (item.getItemId() == R.id.add_member) {
 
-                                            sheetMenu.getAutoCancel();
-
                                             MainApp.TotalMembersCount++;
                                             startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
                                                     .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
                                                     .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
-                                        }else{
-                                            sheetMenu.getAutoCancel();
+                                        } else {
+                                            if (MainApp.familyMembersList.size() == MainApp.memFlag) {
+                                                finish();
+                                                startActivity(new Intent(FamilyMembersActivity.this, EndingActivity.class).putExtra("check", true));
+                                            }
                                         }
 
                                         return false;
@@ -585,7 +584,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
         public String setStatus(int cond, String i) {
             String st = "";
             switch (cond) {
-                case 1:
+                case 2:
                     switch (i) {
                         case "1":
                             st = getString(R.string.dcbis07a);
@@ -605,16 +604,16 @@ public class FamilyMembersActivity extends AppCompatActivity {
                 case 4:
                     switch (i) {
                         case "1":
-                            st = getString(R.string.dcbis04Outa);
+                            st = getString(R.string.dcbis05Placea);
                             break;
                         case "2":
-                            st = getString(R.string.dcbis04Outb);
+                            st = getString(R.string.dcbis05Placeb);
                             break;
                         case "3":
-                            st = getString(R.string.dcbis04Outc);
+                            st = getString(R.string.dcbis05Placec);
                             break;
-                        case "4":
-                            st = getString(R.string.dcbis04Outd);
+                        case "96":
+                            st = getString(R.string.dcbis05Place96);
                             break;
                     }
                     break;

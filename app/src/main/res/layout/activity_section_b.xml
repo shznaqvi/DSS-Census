@@ -166,6 +166,12 @@
                         android:text="@string/dcbbmid"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+                    <Spinner
+                        android:id="@+id/dcbbmidSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
+
                     <EditText
                         android:id="@+id/dcbbmid"
                         android:layout_width="match_parent"
@@ -283,7 +289,8 @@
                     <LinearLayout
                         android:id="@+id/fldGrpdcbidttime"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
                         <TimePicker
                             android:id="@+id/dcbitime"
@@ -587,7 +594,6 @@
                     <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 
                 </LinearLayout>
-
 
             </LinearLayout>
 
