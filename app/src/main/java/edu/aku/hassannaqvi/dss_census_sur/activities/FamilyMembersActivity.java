@@ -1,6 +1,5 @@
 package edu.aku.hassannaqvi.dss_census_sur.activities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -385,10 +384,12 @@ public class FamilyMembersActivity extends AppCompatActivity {
                                 .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
                                 .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));*/
 
-                        SheetMenu.with(FamilyMembersActivity.this)
+                        final SheetMenu sheetMenu = new SheetMenu();
+                        sheetMenu.with(FamilyMembersActivity.this)
                                 .setTitle("Select Option")
                                 .setMenu(R.menu.activity_menu)
                                 .setAutoCancel(false)
+                                .setAutoCancel(true)
                                 .setClick(new MenuItem.OnMenuItemClickListener() {
                                     @Override
                                     public boolean onMenuItemClick(MenuItem item) {
@@ -397,11 +398,16 @@ public class FamilyMembersActivity extends AppCompatActivity {
                                         progressStatus = 0;
                                         progressDialog.setVisibility(View.GONE);
 
-                                        if (item.getItemId() == R.id.add_member){
+                                        if (item.getItemId() == R.id.add_member) {
+
+                                            sheetMenu.getAutoCancel();
+
                                             MainApp.TotalMembersCount++;
                                             startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
                                                     .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
                                                     .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
+                                        }else{
+                                            sheetMenu.getAutoCancel();
                                         }
 
                                         return false;
