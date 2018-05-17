@@ -340,6 +340,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
         Calendar cal = Calendar.getInstance();
         dcbidob.setMaxDate(new Date().getTime());
+        dcbis09bdt.setMaxDate(new Date().getTime());
         cal.setTimeInMillis(System.currentTimeMillis());
 
         db = new DatabaseHelper(this);
@@ -996,6 +997,10 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         sC.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
 
+        if (dcbis09b.isChecked()) {
+            sC.put("lmp_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis09bdt.getCalendarView().getDate()));
+        }
+
         MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "5" : dcbis02.isChecked() ? "6" : dcbis04.isChecked() ? "7" : "0");
         MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
 
@@ -1224,8 +1229,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
             // Married female
             if (!dcbis01Outa.isChecked() &&
-                    !(MainApp.familyMembersList.get(position).getMember_type().equals("h") ||
-                            MainApp.familyMembersList.get(position).getMember_type().equals("c"))) {
+                    !(dcbm01.isChecked() || dcbm03.isChecked())) {
 
                 if (dcbis09.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis09), Toast.LENGTH_SHORT).show();
