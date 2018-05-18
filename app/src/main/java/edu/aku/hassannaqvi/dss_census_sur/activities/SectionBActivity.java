@@ -531,7 +531,9 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
                     dcbis01.setEnabled(true);
                     dcbis02.setEnabled(false);
+                    dcbis02.setChecked(false);
                     dcbis04.setEnabled(false);
+                    dcbis04.setChecked(false);
 
                     if (childCount == 0) {
                         mothDssID.setVisibility(View.VISIBLE);
@@ -1229,7 +1231,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
             // Married female
             if (!dcbis01Outa.isChecked() &&
-                    !(dcbm01.isChecked() || dcbm03.isChecked())) {
+                    !(dcbm02.isChecked() || dcbm03.isChecked())) {
 
                 if (dcbis09.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis09), Toast.LENGTH_SHORT).show();

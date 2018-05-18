@@ -305,6 +305,7 @@ public class SectionBNewPrevActivity extends Activity {
     DatePicker dcbis09bdt;
 
     int position = 0;
+    String mt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -354,7 +355,7 @@ public class SectionBNewPrevActivity extends Activity {
         Log.d(TAG, "onCreate: " + MainApp.familyMembersList.get(position).getDss_id_member());
         dcbid.setEnabled(false);
 
-        String mt = MainApp.familyMembersList.get(position).getMember_type();
+        mt = MainApp.familyMembersList.get(position).getMember_type();
         dcbis02.setEnabled(mt.equals("h") || mt.equals("c") ? false : true);
         dcbis04.setEnabled(mt.equals("h") || mt.equals("c") ? false : true);
         dcbis01Outa.setEnabled(!(mt.equals("mw") || mt.equals("h")));
@@ -1112,7 +1113,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         sC.put("surround", fp.getFollowUpRound());
         sC.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
 
-        if (dcbis09b.isChecked()){
+        if (dcbis09b.isChecked()) {
             sC.put("lmp_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis09bdt.getCalendarView().getDate()));
         }
 
@@ -1326,6 +1327,19 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis05Age), Toast.LENGTH_SHORT).show();
                 dcbis05Age.setError("This data is Required!");    // Set Error on last radio button
                 Log.i(TAG, "dcbis05Age: This data is Required!");
+                return false;
+            } else {
+                dcbis05Age.setError(null);
+            }
+
+            int minRange = mt.equals("mw") || mt.equals("h") ? 15 : 0;
+            int maxRange = mt.equals("c") ? 14 : 100;
+
+            if (Integer.valueOf(dcbis05Age.getText().toString()) < minRange || Integer.valueOf(dcbis05Age.getText().toString()) > maxRange) {
+                Toast.makeText(this, "ERROR(Range): " + getString(R.string.dcbis05Age), Toast.LENGTH_SHORT).show();
+                dcbis05Age.setError("Age is not correct!");
+
+                Log.i(TAG, "dcbis05Age: Age is not correct!");
                 return false;
             } else {
                 dcbis05Age.setError(null);

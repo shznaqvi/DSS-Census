@@ -993,7 +993,7 @@
 
     <!-- ALi strings -->
 
-    <string name="dcbis05Age"> وفات کے وقت عمر</string>
+    <string name="dcbis05Age"> وفات کے وقت عمر سالوں میں </string>
     <string name="dcbis05Place"> وفات کی جگہ </string>
     <string name="dcbis05Placea"> گھر </string>
     <string name="dcbis05Placeb"> ہسپتال </string>
