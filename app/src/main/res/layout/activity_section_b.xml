@@ -340,6 +340,33 @@
                         android:orientation="vertical"
                         android:visibility="gone">
 
+                        <LinearLayout
+                            android:id="@+id/fldGrpdbis0401a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:background="@color/pink_100"
+                                android:text="@string/dcbis04prvDSSID"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:textColor="@color/colorPrimaryDark" />
+
+                            <EditText
+                                android:id="@+id/dcbis04prvDSSID"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/dcbis04prvDSSID"
+                                android:inputType="textCapCharacters"
+                                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789"
+                                android:maxLength="13" />
+
+                        </LinearLayout>
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

@@ -322,6 +322,11 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     @BindView(R.id.dcbis01Statusc)
     RadioButton dcbis01Statusc;
 
+    @BindView(R.id.fldGrpdbis0401a)
+    LinearLayout fldGrpdbis0401a;
+    @BindView(R.id.dcbis04prvDSSID)
+    EditText dcbis04prvDSSID;
+
     int position = 0;
     boolean dataFlag = false;
     int childCount;
@@ -383,26 +388,32 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                     fldGrpdcbidttime.setVisibility(View.VISIBLE);
                     dcbidtTxt.setText(getString(R.string.dcbis01) + " " + getString(R.string.dcbidt));
                     fldGrpdbis0401.setVisibility(View.GONE);
+                    fldGrpdbis0401a.setVisibility(View.GONE);
                 } else if (dcbis02.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
                     fldGrpdcbidttime.setVisibility(View.GONE);
                     dcbidtTxt.setText(getString(R.string.dcbis02) + " " + getString(R.string.dcbidt));
                     fldGrpdbis0401.setVisibility(View.VISIBLE);
+                    fldGrpdbis0401a.setVisibility(View.GONE);
                 } else if (dcbis03.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
                     dcbidtTxt.setText(getString(R.string.dcbis03) + " " + getString(R.string.dcbidt));
                     fldGrpdbis0401.setVisibility(View.GONE);
+                    fldGrpdbis0401a.setVisibility(View.GONE);
                 } else if (dcbis04.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
                     fldGrpdcbidttime.setVisibility(View.GONE);
                     dcbidtTxt.setText(getString(R.string.dcbis04) + " " + getString(R.string.dcbidt));
                     fldGrpdbis0401.setVisibility(View.VISIBLE);
+                    fldGrpdbis0401a.setVisibility(View.VISIBLE);
                 } else if (dcbis05.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
                     dcbidtTxt.setText(" " + getString(R.string.dccf));
                     fldGrpdbis0401.setVisibility(View.GONE);
+                    fldGrpdbis0401a.setVisibility(View.GONE);
                 } else {
                     fldGrpdbis0401.setVisibility(View.GONE);
+                    fldGrpdbis0401a.setVisibility(View.GONE);
                 }
             }
         });
@@ -505,15 +516,12 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 dcbid.addTextChangedListener(SectionBActivity.this);
 
                 memberTypeOtherFun();
+                fldGrpdcbidt.setVisibility(View.GONE);
 
                 if (dcbm01.isChecked() || dcbm02.isChecked()) {
-                    fldGrpdcbidt.setVisibility(View.GONE);
-                    if (dcbm01.isChecked() || dcbm02.isChecked()) {
-                        dcbis01Outa.setEnabled(false);
-                        dcbis01Out.clearCheck();
-                    } else {
-                        dcbis01Outa.setEnabled(true);
-                    }
+
+                    dcbis01Outa.setEnabled(false);
+                    dcbis01Out.clearCheck();
 
                     mothDssID.setVisibility(View.GONE);
                     dcbbmidSpinner.setVisibility(View.GONE);
@@ -529,11 +537,10 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                 } else if (dcbm03.isChecked()) {
                     dcbid.setInputType(InputType.TYPE_CLASS_NUMBER);
 
+                    dcbis.clearCheck();
                     dcbis01.setEnabled(true);
                     dcbis02.setEnabled(false);
-                    dcbis02.setChecked(false);
                     dcbis04.setEnabled(false);
-                    dcbis04.setChecked(false);
 
                     if (childCount == 0) {
                         mothDssID.setVisibility(View.VISIBLE);
@@ -553,7 +560,14 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
                         dcbbmidSpinner.setAdapter(new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_spinner_dropdown_item, motherNames));
                     }
                 } else {
+
+                    dcbis01Outa.setEnabled(true);
+
                     dcbis.clearCheck();
+                    dcbis01.setEnabled(true);
+                    dcbis02.setEnabled(true);
+                    dcbis04.setEnabled(true);
+
                     mothDssID.setVisibility(View.GONE);
                     dcbbmidSpinner.setVisibility(View.GONE);
                     dcbbmid.setText(null);
@@ -1015,6 +1029,10 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
             MainApp.cc.setCurrent_maritalOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "2" : dcbis01Outc.isChecked() ? "3"
                     : dcbis01Outd.isChecked() ? "4" : "0");
+
+            if (dcbis04.isChecked()){
+                sC.put("prvDSSID", dcbis04prvDSSID.getText().toString());
+            }
 
             if (!dcbis01Outa.isChecked()) {
 
