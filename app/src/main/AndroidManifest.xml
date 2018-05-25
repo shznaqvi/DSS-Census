@@ -72,14 +72,17 @@
         <activity
             android:name=".activities.SectionAActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activities.SectionBActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activities.SectionBNewPrevActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activities.SectionKActivity"
@@ -109,6 +112,7 @@
         <activity
             android:name=".activities.EndingActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity android:name=".FormsList" />
         <activity
@@ -118,6 +122,7 @@
         <activity
             android:name=".activities.HouseholdListActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activities.NewBornAssessmentActivity"

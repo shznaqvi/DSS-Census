@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -35,7 +36,7 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 
-public class SectionBNewPrevActivity extends Activity {
+public class SectionBNewPrevActivity extends AppCompatActivity {
 
     private static final String TAG = SectionBActivity.class.getSimpleName();
 
@@ -312,6 +313,8 @@ public class SectionBNewPrevActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_b_new_prev);
         ButterKnife.bind(this);
+
+        this.setTitle("D S S");
 
         Calendar cal = Calendar.getInstance();
 //        dcbg.setMaxDate(new Date().getTime());

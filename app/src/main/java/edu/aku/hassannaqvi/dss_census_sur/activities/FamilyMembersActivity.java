@@ -88,14 +88,6 @@ public class FamilyMembersActivity extends AppCompatActivity {
         countBoy.setText(String.valueOf(MainApp.NoBoyCount));
         countGirl.setText(String.valueOf(MainApp.NoGirlCount));*/
 
-        //Set Enable for Next Section
-        if (MainApp.familyMembersList.size() == MainApp.memFlag) {
-            btn_addMember.setEnabled(true);
-        } else {
-//            btn_Continue.setEnabled(false);
-            btn_addMember.setEnabled(false);
-        }
-
 //        Set Recycler View
         mAdapter = new familyMembersAdapter(MainApp.familyMembersList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -397,16 +389,20 @@ public class FamilyMembersActivity extends AppCompatActivity {
                                         progressDialog.setVisibility(View.GONE);
 
                                         if (item.getItemId() == R.id.add_member) {
-
-                                            MainApp.TotalMembersCount++;
-                                            startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
-                                                    .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
-                                                    .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
-                                        } else {
+                                            if (MainApp.familyMembersList.size() == MainApp.memFlag) {
+                                                MainApp.TotalMembersCount++;
+                                                startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
+                                                        .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                                        .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
+                                            }
+                                        } else if (item.getItemId() == R.id.next_activity) {
                                             if (MainApp.familyMembersList.size() == MainApp.memFlag) {
                                                 finish();
                                                 startActivity(new Intent(FamilyMembersActivity.this, EndingActivity.class).putExtra("check", true));
                                             }
+                                        } else {
+                                            finish();
+                                            startActivity(new Intent(FamilyMembersActivity.this, EndingActivity.class).putExtra("check", false));
                                         }
 
                                         return false;
@@ -470,25 +466,6 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
     public void resumeWork() {
         mAdapter.notifyDataSetChanged();
-
-//        Toast.makeText(this, "Mem checkingFlag:" + MainApp.memFlag, Toast.LENGTH_SHORT).show();
-
-//        Set Enable for Next Section
-
-        if (MainApp.familyMembersList.size() == MainApp.memFlag) {
-//            btn_Continue.setEnabled(true);
-            btn_addMember.setEnabled(true);
-
-        } else {
-//            btn_Continue.setEnabled(false);
-            btn_addMember.setEnabled(false);
-        }
-
-        /*btn_addMember.setEnabled(true);
-        if (MainApp.checkingFlag > 0) {
-            btn_Continue.setEnabled(true);
-        }*/
-
     }
 
     @Override

@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -36,7 +37,7 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.HouseholdContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 
-public class HouseholdListActivity extends Activity {
+public class HouseholdListActivity extends AppCompatActivity {
 
     @BindView(R.id.hhno)
     EditText hhno;
@@ -71,6 +72,8 @@ public class HouseholdListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_household_list);
         ButterKnife.bind(this);
+
+        this.setTitle("D S S");
 
 //        Set Region DssIDD
         hhno.setText(MainApp.regionDss);

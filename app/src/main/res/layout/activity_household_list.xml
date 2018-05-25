@@ -38,8 +38,7 @@
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-"
                 android:hint="@string/hhno"
                 android:inputType="text"
-                android:maxLength="9"
-                android:padding="5dp" />
+                android:maxLength="9" />
 
             <Button
                 android:id="@+id/checkHHID"

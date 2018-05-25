@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -47,7 +48,7 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 
-public class SectionBActivity extends Activity implements View.OnKeyListener, TextWatcher {
+public class SectionBActivity extends AppCompatActivity implements View.OnKeyListener, TextWatcher {
 
     private static final String TAG = SectionBActivity.class.getSimpleName();
 
@@ -342,6 +343,8 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_b);
         ButterKnife.bind(this);
+
+        this.setTitle("D S S");
 
         Calendar cal = Calendar.getInstance();
         dcbidob.setMaxDate(new Date().getTime());

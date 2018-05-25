@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
@@ -39,7 +40,7 @@ import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 
 
-public class SectionAActivity extends Activity {
+public class SectionAActivity extends AppCompatActivity {
 
     private static final String TAG = SectionAActivity.class.getSimpleName();
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
@@ -302,6 +303,8 @@ public class SectionAActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
+
+        this.setTitle("D S S");
 
         MainApp.memFlag = 0;
 
