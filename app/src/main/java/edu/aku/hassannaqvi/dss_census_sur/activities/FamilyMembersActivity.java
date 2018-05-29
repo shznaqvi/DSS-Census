@@ -1,6 +1,8 @@
 package edu.aku.hassannaqvi.dss_census_sur.activities;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -397,12 +399,12 @@ public class FamilyMembersActivity extends AppCompatActivity {
                                             }
                                         } else if (item.getItemId() == R.id.next_activity) {
                                             if (MainApp.familyMembersList.size() == MainApp.memFlag) {
-                                                finish();
-                                                startActivity(new Intent(FamilyMembersActivity.this, EndingActivity.class).putExtra("check", true));
+
+                                                showDialog(true,"Are you sure to proceed?");
+
                                             }
                                         } else {
-                                            finish();
-                                            startActivity(new Intent(FamilyMembersActivity.this, EndingActivity.class).putExtra("check", false));
+                                            showDialog(false,"Are you sure to force exit?");
                                         }
 
                                         return false;
@@ -410,6 +412,32 @@ public class FamilyMembersActivity extends AppCompatActivity {
                                 }).show();
                     }
                 });
+            }
+
+            public void showDialog(final Boolean flag,final String msg) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                        FamilyMembersActivity.this);
+                alertDialogBuilder
+                        .setMessage(msg)
+                        .setCancelable(false)
+                        .setPositiveButton("Ok",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,
+                                                        int id) {
+
+                                        finish();
+                                        startActivity(new Intent(FamilyMembersActivity.this, EndingActivity.class).putExtra("check", flag));
+
+                                    }
+                                });
+                alertDialogBuilder.setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = alertDialogBuilder.create();
+                alert.show();
             }
 
             private int doSomeWork() {
