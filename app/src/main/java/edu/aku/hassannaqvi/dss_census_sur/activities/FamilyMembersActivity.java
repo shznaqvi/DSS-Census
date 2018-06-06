@@ -396,15 +396,19 @@ public class FamilyMembersActivity extends AppCompatActivity {
                                                 startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
                                                         .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
                                                         .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
+                                            } else {
+                                                Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
                                             }
                                         } else if (item.getItemId() == R.id.next_activity) {
                                             if (MainApp.familyMembersList.size() == MainApp.memFlag) {
 
-                                                showDialog(true,"Are you sure to proceed?");
+                                                showDialog(true, "Are you sure to proceed?");
 
+                                            } else {
+                                                Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
                                             }
                                         } else {
-                                            showDialog(false,"Are you sure to force exit?");
+                                            showDialog(false, "Are you sure to force exit?");
                                         }
 
                                         return false;
@@ -414,36 +418,10 @@ public class FamilyMembersActivity extends AppCompatActivity {
                 });
             }
 
-            public void showDialog(final Boolean flag,final String msg) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                        FamilyMembersActivity.this);
-                alertDialogBuilder
-                        .setMessage(msg)
-                        .setCancelable(false)
-                        .setPositiveButton("Ok",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog,
-                                                        int id) {
-
-                                        finish();
-                                        startActivity(new Intent(FamilyMembersActivity.this, EndingActivity.class).putExtra("check", flag));
-
-                                    }
-                                });
-                alertDialogBuilder.setNegativeButton("Cancel",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        });
-                AlertDialog alert = alertDialogBuilder.create();
-                alert.show();
-            }
-
             private int doSomeWork() {
                 try {
                     // ---simulate doing some work---
-                    Thread.sleep(25);
+                    Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -451,6 +429,32 @@ public class FamilyMembersActivity extends AppCompatActivity {
             }
         }).start();
 
+    }
+
+    public void showDialog(final Boolean flag, final String msg) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                FamilyMembersActivity.this);
+        alertDialogBuilder
+                .setMessage(msg)
+                .setCancelable(false)
+                .setPositiveButton("Ok",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
+
+                                finish();
+                                startActivity(new Intent(FamilyMembersActivity.this, EndingActivity.class).putExtra("check", flag));
+
+                            }
+                        });
+        alertDialogBuilder.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
 
     @Override
@@ -625,25 +629,25 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
                 default:
                     switch (i) {
-                        case "1":
+                        case "9":
                             st = getString(R.string.dcbist01);
                             break;
-                        case "2":
+                        case "1":
                             st = getString(R.string.dcbis07);
                             break;
-                        case "3":
+                        case "2":
                             st = getString(R.string.dcbis03);
                             break;
-                        case "4":
+                        case "3":
                             st = getString(R.string.dcbis05);
                             break;
-                        case "5":
+                        case "4":
                             st = getString(R.string.dcbis01);
                             break;
-                        case "6":
+                        case "5":
                             st = getString(R.string.dcbis02);
                             break;
-                        case "7":
+                        case "6":
                             st = getString(R.string.dcbis04);
                             break;
                     }

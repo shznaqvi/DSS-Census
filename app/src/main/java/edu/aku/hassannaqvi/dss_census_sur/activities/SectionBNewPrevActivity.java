@@ -1,6 +1,5 @@
 package edu.aku.hassannaqvi.dss_census_sur.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -359,6 +358,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         dcbid.setEnabled(false);
 
         mt = MainApp.familyMembersList.get(position).getMember_type();
+        dcbis01.setEnabled(mt.equals("c") ? false : true);
         dcbis02.setEnabled(mt.equals("h") || mt.equals("c") ? false : true);
         dcbis04.setEnabled(mt.equals("h") || mt.equals("c") ? false : true);
         dcbis01Outa.setEnabled(!(mt.equals("mw") || mt.equals("h")));
@@ -1120,11 +1120,11 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             sC.put("lmp_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis09bdt.getCalendarView().getDate()));
         }
 
-        MainApp.cc.setCurrent_status(dcbis00.isChecked() ? "1" : dcbis01.isChecked() ? "2" : dcbis03.isChecked() ? "3"
+        MainApp.cc.setCurrent_status(dcbis00.isChecked() ? "9" : dcbis01.isChecked() ? "2" : dcbis03.isChecked() ? "3"
                 : dcbis05.isChecked() ? "4" : "0");
         if (dcbis01.isChecked()) {
-            MainApp.cc.setCurrent_maritalOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "2" : dcbis01Outc.isChecked() ? "3"
-                    : dcbis01Outd.isChecked() ? "4" : "0");
+            MainApp.cc.setCurrent_maritalOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "1" : dcbis01Outc.isChecked() ? "2"
+                    : dcbis01Outd.isChecked() ? "3" : "0");
 
             if (!dcbis01Outa.isChecked()) {
                 if (dcbis09c.isChecked()) {
@@ -1132,9 +1132,9 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
                             : dcbis04Outd.isChecked() ? "4" : "0");
 
                     if (dcbis04Outd.isChecked()) {
-                        sC.put("current_status_outcome_d_a", dcbis04Outda.getText().toString());
-                        sC.put("current_status_outcome_d_b", dcbis04Outdb.getText().toString());
-                        sC.put("current_status_outcome_d_c", dcbis04Outdc.getText().toString());
+                        sC.put("current_status_out_a", dcbis04Outda.getText().toString());
+                        sC.put("current_status_out_b", dcbis04Outdb.getText().toString());
+                        sC.put("current_status_out_c", dcbis04Outdc.getText().toString());
                     }
                 }
 
@@ -1203,7 +1203,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         }
 
         m.setCurrent_date(c.getCurrent_date());
-        m.setDod(c.getCurrent_time());
+        m.setDod(c.getCurrent_child_birth_time());
         m.setM_status(c.getM_status());
         m.setEducation(c.getEducation());
         m.setOccupation(c.getOccupation());

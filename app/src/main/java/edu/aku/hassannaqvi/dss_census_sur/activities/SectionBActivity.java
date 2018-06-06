@@ -1,6 +1,5 @@
 package edu.aku.hassannaqvi.dss_census_sur.activities;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -1020,13 +1019,13 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             sC.put("lmp_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis09bdt.getCalendarView().getDate()));
         }
 
-        MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "5" : dcbis02.isChecked() ? "6" : dcbis04.isChecked() ? "7" : "0");
+        MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "4" : dcbis02.isChecked() ? "5" : dcbis04.isChecked() ? "6" : "0");
         MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
 
         if (dcbis01.isChecked()) {
 
-            MainApp.cc.setCurrent_time(dcbitime.getCurrentHour() + ":" + dcbitime.getCurrentMinute());
-            MainApp.cc.setCurrent_childOutcome(dcbis01Statusa.isChecked() ? "1" : dcbis01Statusb.isChecked() ? "2" : dcbis01Statusc.isChecked() ? "3" : "0");
+            MainApp.cc.setCurChildBirth_time(dcbitime.getCurrentHour() + ":" + dcbitime.getCurrentMinute());
+            MainApp.cc.setCurrent_childStatus(dcbis01Statusa.isChecked() ? "1" : dcbis01Statusb.isChecked() ? "2" : dcbis01Statusc.isChecked() ? "3" : "0");
 
         } else if (dcbis02.isChecked() || dcbis04.isChecked()) {
 
@@ -1045,9 +1044,9 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
                             : dcbis04Outd.isChecked() ? "4" : "0");
 
                     if (dcbis04Outd.isChecked()) {
-                        sC.put("current_status_outcome_d_a", dcbis04Outda.getText().toString());
-                        sC.put("current_status_outcome_d_b", dcbis04Outdb.getText().toString());
-                        sC.put("current_status_outcome_d_c", dcbis04Outdc.getText().toString());
+                        sC.put("current_status_out_a", dcbis04Outda.getText().toString());
+                        sC.put("current_status_out_b", dcbis04Outdb.getText().toString());
+                        sC.put("current_status_out_c", dcbis04Outdc.getText().toString());
                     }
 
                 }
@@ -1096,7 +1095,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         }
 
         m.setCurrent_date(c.getCurrent_date());
-        m.setDod(c.getCurrent_time());
+        m.setDod(c.getCurrent_child_birth_time());
         m.setM_status(c.getM_status());
         m.setEducation(c.getEducation());
         m.setOccupation(c.getOccupation());
