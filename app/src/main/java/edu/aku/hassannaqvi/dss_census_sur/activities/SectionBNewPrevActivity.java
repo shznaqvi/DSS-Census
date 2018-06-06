@@ -1123,10 +1123,14 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         MainApp.cc.setCurrent_status(dcbis00.isChecked() ? "9" : dcbis01.isChecked() ? "2" : dcbis03.isChecked() ? "3"
                 : dcbis05.isChecked() ? "4" : "0");
         if (dcbis01.isChecked()) {
-            MainApp.cc.setCurrent_maritalOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "1" : dcbis01Outc.isChecked() ? "2"
-                    : dcbis01Outd.isChecked() ? "3" : "0");
+            MainApp.cc.setCurrent_maritalOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "2" : dcbis01Outc.isChecked() ? "3"
+                    : dcbis01Outd.isChecked() ? "4" : "0");
 
             if (!dcbis01Outa.isChecked()) {
+
+                sC.put("current_preg_status", dcbis09a.isChecked() ? "1" : dcbis09b.isChecked() ? "2" : "0");
+                sC.put("current_preg_prv_status", dcbis09c.isChecked() ? "1" : "0");
+
                 if (dcbis09c.isChecked()) {
                     MainApp.cc.setCurrent_statusOutcome(dcbis04Outa.isChecked() ? "1" : dcbis04Outb.isChecked() ? "2" : dcbis04Outc.isChecked() ? "3"
                             : dcbis04Outd.isChecked() ? "4" : "0");

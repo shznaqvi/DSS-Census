@@ -578,7 +578,7 @@ public class CensusContract {
         json.put(censusMember.COLUMN_CURRENT_STATUS_OUTCOME, this.current_statusOutcome == null ? JSONObject.NULL : this.current_statusOutcome);
         json.put(censusMember.COLUMN_CURRENT_PREG_OUTCOME_DT, this.current_pregOutcomeDT == null ? JSONObject.NULL : this.current_pregOutcomeDT);
         json.put(censusMember.COLUMN_CURRENT_DATE, this.current_date == null ? JSONObject.NULL : this.current_date);
-//        json.put(censusMember.COLUMN_CURRENT_CHILD_BIRTH_TIME, this.current_child_birth_time == null ? JSONObject.NULL : this.current_child_birth_time);
+        json.put(censusMember.COLUMN_CURRENT_CHILD_BIRTH_TIME, this.current_child_birth_time == null ? JSONObject.NULL : this.current_child_birth_time);
        /* json.put(censusMember.COLUMN_M_STATUS, this.m_status == null ? JSONObject.NULL : this.m_status);
         json.put(censusMember.COLUMN_EDUCATION, this.education == null ? JSONObject.NULL : this.education);
         json.put(censusMember.COLUMN_EDUCATIONX, this.educationX == null ? JSONObject.NULL : this.educationX);
@@ -628,7 +628,7 @@ public class CensusContract {
         public static final String COLUMN_IS_HEAD = "is_head";
         public static final String COLUMN_RELATION_HH = "relation_hh";
         public static final String COLUMN_CURRENT_STATUS = "current_status";
-        public static final String COLUMN_CURRENT_MARITAL_STATUS = "current_marital_out";
+        public static final String COLUMN_CURRENT_MARITAL_STATUS = "current_marital_status";
         public static final String COLUMN_CURRENT_CHILD_STATUS = "current_ch_status";
         public static final String COLUMN_CURRENT_STATUS_OUTCOME = "current_status_out";
         public static final String COLUMN_CURRENT_PREG_OUTCOME_DT = "current_preg_out_dt";

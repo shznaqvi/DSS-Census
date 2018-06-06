@@ -1038,6 +1038,9 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
             if (!dcbis01Outa.isChecked()) {
 
+                sC.put("current_preg_status", dcbis09a.isChecked() ? "1" : dcbis09b.isChecked() ? "2" : "0");
+                sC.put("current_preg_prv_status", dcbis09c.isChecked() ? "1" : "0");
+
                 if (dcbis09c.isChecked()) {
 
                     MainApp.cc.setCurrent_statusOutcome(dcbis04Outa.isChecked() ? "1" : dcbis04Outb.isChecked() ? "2" : dcbis04Outc.isChecked() ? "3"
