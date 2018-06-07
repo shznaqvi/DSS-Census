@@ -175,16 +175,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:text="@string/dcbis04"
-                        android:visibility="gone" />
+                        android:text="@string/dcbis10" />
 
                     <RadioButton
                         android:id="@+id/dcbis07"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:text="@string/dcbis06"
-                        android:visibility="gone" />
+                        android:text="@string/dcbis11" />
 
                 </RadioGroup>
 
@@ -263,6 +261,15 @@
                         android:datePickerMode="spinner"
                         android:ems="10"
                         android:spinnersShown="true" />
+
+                    <EditText
+                        android:id="@+id/dcbis03a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:hint="@string/dcbis03a"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                        android:maxLength="50" />
 
                     <LinearLayout
                         android:id="@+id/fldGrpdcbis05"

@@ -221,6 +221,10 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
     TextView dcbidtTxt;
     @BindView(R.id.dcbidob)
     DatePicker dcbidob;
+
+    @BindView(R.id.dcbis03a)
+    EditText dcbis03a;
+
     /*@BindView(R.id.fldGrpdcbir)
     LinearLayout fldGrpdcbir;
     @BindView(R.id.fldgrpmigout)
@@ -577,6 +581,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                 } else if (dcbis02.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
 
+                    dcbis03a.setVisibility(View.GONE);
+
                     dcbidtTxt.setText("LMP " + getString(R.string.dcbidt));
 
                     fldGrpdcbidt01.setVisibility(View.GONE);
@@ -587,6 +593,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
                 } else if (dcbis03.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
+
+                    dcbis03a.setVisibility(View.VISIBLE);
 
                     fldGrpdcbidt01.setVisibility(View.GONE);
 
@@ -599,6 +607,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                 } else if (dcbis04.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
 
+                    dcbis03a.setVisibility(View.GONE);
+
                     fldGrpdcbidt01.setVisibility(View.GONE);
 
                     fldGrpdcbidt02.setVisibility(View.VISIBLE);
@@ -609,6 +619,9 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
                 } else if (dcbis05.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
+
+                    dcbis03a.setVisibility(View.GONE);
+
                     fldGrpdcbis05.setVisibility(View.VISIBLE);
                     dcbidtTxt.setText(" " + getString(R.string.dccf));
 
@@ -617,20 +630,21 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                     fldGrpdcbidt02.setVisibility(View.GONE);
 
                 } else if (dcbis06.isChecked()) {
-                    fldGrpdcbidt.setVisibility(View.VISIBLE);
+                    fldGrpdcbidt.setVisibility(View.GONE);
 
                     fldGrpdcbidt01.setVisibility(View.GONE);
-                    fldGrpdcbis05.setVisibility(View.GONE);
 
                     fldGrpdcbidt02.setVisibility(View.GONE);
 
-                    dcbidtTxt.setText(getString(R.string.dcbis04) + " " + getString(R.string.dcbidt));
+                    fldGrpdcbis05.setVisibility(View.GONE);
 
                 } else if (dcbis07.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.GONE);
 
                     fldGrpdcbidt01.setVisibility(View.GONE);
+
                     fldGrpdcbidt02.setVisibility(View.GONE);
+
                     fldGrpdcbis05.setVisibility(View.GONE);
 
                 }
@@ -838,6 +852,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
         dcbis09.clearCheck();
         dcbis09c.setChecked(false);
+
+        dcbis03a.setText(null);
 
     }
 
@@ -1121,7 +1137,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         }
 
         MainApp.cc.setCurrent_status(dcbis00.isChecked() ? "9" : dcbis01.isChecked() ? "1" : dcbis03.isChecked() ? "2"
-                : dcbis05.isChecked() ? "3" : "0");
+                : dcbis05.isChecked() ? "3": dcbis06.isChecked() ? "7": dcbis07.isChecked() ? "8" : "0");
         if (dcbis01.isChecked()) {
             MainApp.cc.setCurrent_maritalOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "2" : dcbis01Outc.isChecked() ? "3"
                     : dcbis01Outd.isChecked() ? "4" : "0");
@@ -1148,6 +1164,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             }
         } else if (dcbis03.isChecked()) {
             MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+            sC.put("dcbis_mig_place", dcbis03a.getText().toString());
         } else if (dcbis05.isChecked()) {
             MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
             sC.put("dcbis_death_age", dcbis05Age.getText().toString());

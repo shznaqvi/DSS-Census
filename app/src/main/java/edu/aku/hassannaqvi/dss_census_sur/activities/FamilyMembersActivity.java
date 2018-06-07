@@ -650,6 +650,12 @@ public class FamilyMembersActivity extends AppCompatActivity {
                         case "6":
                             st = getString(R.string.dcbis04);
                             break;
+                        case "7":
+                            st = getString(R.string.dcbis10);
+                            break;
+                        case "8":
+                            st = getString(R.string.dcbis11);
+                            break;
                     }
                     break;
             }

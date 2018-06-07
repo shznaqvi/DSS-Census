@@ -196,6 +196,7 @@
 
     <string name="dcbis02"> اندرونی ہجرت </string>
     <string name="dcbis03"> بیرونی ہجرت </string>
+    <string name="dcbis03a"> علاقے کا نام </string>
     <string name="dcbis04"> اندورنی علاقے میں ہی ایک جگہ سے دوسری جگہ منتقل ہونا </string>
     <string name="dcbis05"> موت </string>
     <string name="dcbis06"> طلاق </string>
@@ -207,6 +208,9 @@
     <string name="dcbis07d"> Divorce/Separated </string>
     <string name="dcbis08"> حمل سے </string>
     <string name="dcbis09"> حمل کی معلومات </string>
+    <string name="dcbis10"> بند </string>
+    <string name="dcbis11"> منع کردیا </string>
+
     <string name="dcbis09a"> Currently Not Pregnant </string>
     <string name="dcbis09b"> Currently Pregnant </string>
     <string name="dcbis09c"> Previous Pregnancy </string>
