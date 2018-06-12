@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.format.DateFormat;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -78,7 +80,7 @@ public class MainApp extends Application {
     public static int NoBoyCount = 0;
     public static int NoGirlCount = 0;
 
-    public static int TotalMembersCount = 0;
+    public static int TotalMembersCount = -1;
     public static int TotalMaleCount = 0;
     public static int TotalFemaleCount = 0;
     public static int TotalBoyCount = 0;
@@ -146,6 +148,29 @@ public class MainApp extends Application {
 //        Initialize Dead Member List
 //        deadMembers = new ArrayList<String>();
 
+    }
+
+    public static long ageInYearByDOB(String dateStr) {
+        Calendar cal = getCalendarDate(dateStr);
+        Date dob = cal.getTime();
+        Date today = new Date();
+        Long diff = today.getTime() - dob.getTime();
+        long ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
+        return ageInYears;
+    }
+
+    public static Calendar getCalendarDate(String value) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar calendar = Calendar.getInstance();
+        try {
+            Date date = sdf.parse(value);
+            calendar.setTime(date);
+            return calendar;
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return calendar;
     }
 
     public static int monthsBetweenDates(Date startDate, Date endDate) {

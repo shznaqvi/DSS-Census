@@ -13,6 +13,7 @@
     completions."
   </string>
 
+    <string name="add_family"> فیملی کا اندراج </string>
     <string name="end_interview"> اختتام </string>
     <string name="start_interview"> انٹرویو شروع کریں </string>
     <string name="nextSection"> اگلا سیکشن </string>
@@ -136,6 +137,7 @@
     <string name="dcbbrhh11"> غیر متعلقہ افراد </string>
     <string name="dcbbfid"> والد </string>
     <string name="dcbbmid"> والدہ </string>
+    <string name="dcbbhid"> شوہر </string>
     <string name="dcbc"> ازدواجی حیثیت </string>
     <string name="dcbc01"> شادی شدہ </string>
     <string name="dcbc02"> طلاق یافتہ یا الگ رہنا </string>

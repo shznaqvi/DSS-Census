@@ -1,6 +1,5 @@
 package edu.aku.hassannaqvi.dss_census_sur.activities;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -308,6 +307,9 @@ public class SectionAActivity extends AppCompatActivity {
 
         MainApp.memFlag = 0;
 
+        // Disable internal movement for previous families
+        dca0405.setEnabled(getIntent().getBooleanExtra("intMovFlag", false));
+
         MainApp.familyMembersList = new ArrayList<>();
         Log.d(TAG, "onCreate: " + MainApp.familyMembersList.size());
         db = new DatabaseHelper(this);
@@ -318,7 +320,7 @@ public class SectionAActivity extends AppCompatActivity {
         dca04.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if (dca0401.isChecked()) {
+                if (i == R.id.dca0401 || i == R.id.dca0405) {
 //                    fldGrpdca05.setVisibility(View.VISIBLE);
 
                     btn_Continue.setEnabled(true);

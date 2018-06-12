@@ -261,6 +261,13 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     @BindView(R.id.dcbbmidSpinner)
     Spinner dcbbmidSpinner;
 
+    @BindView(R.id.husbDssID)
+    LinearLayout husbDssIDLayout;
+    @BindView(R.id.dcbbhid)
+    EditText dcbbhid;
+    @BindView(R.id.dcbbhidSpinner)
+    Spinner dcbbhidSpinner;
+
     @BindView(R.id.fldGrpdbis0401)
     LinearLayout fldGrpdbis0401;
     @BindView(R.id.fldGrpdcbidt02)
@@ -334,6 +341,8 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
 
     DatabaseHelper db;
 
+    ArrayList<String> husbandNames;
+    ArrayList<String> husbandDSSID;
     ArrayList<String> motherNames;
     ArrayList<String> motherDSSID;
 
@@ -536,7 +545,26 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     dcbis02.setEnabled(true);
                     dcbis04.setEnabled(true);
 
+                    if (i == R.id.dcbm01) {
+                        husbDssIDLayout.setVisibility(View.VISIBLE);
+
+                        husbandNames = new ArrayList<>();
+                        husbandNames.add("....");
+                        husbandDSSID = new ArrayList<>();
+                        husbandDSSID.add("");
+
+                        for (CensusContract censusContract : db.getMaleMemCensus(MainApp.fc.getDSSID().toUpperCase(), MainApp.fc.getFormDate())) {
+                            husbandNames.add(censusContract.getName());
+                            husbandDSSID.add(censusContract.getDss_id_member());
+                        }
+                        dcbbhidSpinner.setAdapter(new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_spinner_dropdown_item, husbandNames));
+
+                    }
+
                 } else if (dcbm03.isChecked()) {
+
+                    husbDssIDLayout.setVisibility(View.GONE);
+
                     dcbid.setInputType(InputType.TYPE_CLASS_NUMBER);
 
                     dcbis.clearCheck();
@@ -569,6 +597,8 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     dcbis01.setEnabled(true);
                     dcbis02.setEnabled(true);
                     dcbis04.setEnabled(true);
+
+                    husbDssIDLayout.setVisibility(View.GONE);
 
                     mothDssID.setVisibility(View.GONE);
                     dcbbmidSpinner.setVisibility(View.GONE);
@@ -631,6 +661,20 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
 
                     dcbid.setText(MainApp.MotherChildList.get(motherDSSID.get(position)));
 
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        dcbbhidSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position != 0) {
+                    dcbbhid.setText(husbandDSSID.get(position));
                 }
             }
 
@@ -998,6 +1042,8 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         MainApp.cc.setName(dcba.getText().toString());
         MainApp.cc.setDss_id_m(dcbbmid.getText().toString());
 
+        MainApp.cc.setDss_id_h(dcbbhid.getText().toString());
+
         if (dcbd01.isChecked()) {
             MainApp.cc.setGender("1");
         } else if (dcbd02.isChecked()) {
@@ -1032,7 +1078,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             MainApp.cc.setCurrent_maritalOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "2" : dcbis01Outc.isChecked() ? "3"
                     : dcbis01Outd.isChecked() ? "4" : "0");
 
-            if (dcbis04.isChecked()){
+            if (dcbis04.isChecked()) {
                 sC.put("prvDSSID", dcbis04prvDSSID.getText().toString());
             }
 
@@ -1162,8 +1208,19 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             dcbid.setError(null);
         }
 
-        if (!dcbm01.isChecked()) {
+        if (dcbm01.isChecked()) {
+            if (dcbbhidSpinner.getSelectedItem() == "....") {
+                Toast.makeText(this, "ERROR(Empty)" + getString(R.string.dcbbhid), Toast.LENGTH_SHORT).show();
+                ((TextView) dcbbhidSpinner.getSelectedView()).setText("This Data is Required");
+                ((TextView) dcbbhidSpinner.getSelectedView()).setError("This Data is Required");
+                ((TextView) dcbbhidSpinner.getSelectedView()).setTextColor(Color.RED);
 
+                Log.i(TAG, "dcbbhid: This Data is Required!");
+                return false;
+            } else {
+                ((TextView) dcbbhidSpinner.getSelectedView()).setError(null);
+            }
+        } else {
             if (!dataFlag) {
                 if (dcbm04.isChecked() ? dcbid.getText().length() != 14 : dcbid.getText().length() != 13) {
                     Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dcbid), Toast.LENGTH_SHORT).show();

@@ -151,6 +151,34 @@
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                     android:maxLength="14" />
 
+                <LinearLayout
+                    android:id="@+id/husbDssID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/dcbbhid"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <Spinner
+                        android:id="@+id/dcbbhidSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:id="@+id/dcbbhid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:enabled="false" />
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/mothDssID"
@@ -360,9 +388,9 @@
                                 android:id="@+id/dcbis04prvDSSID"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789"
                                 android:hint="@string/dcbis04prvDSSID"
                                 android:inputType="textCapCharacters"
-                                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789"
                                 android:maxLength="13" />
 
                         </LinearLayout>

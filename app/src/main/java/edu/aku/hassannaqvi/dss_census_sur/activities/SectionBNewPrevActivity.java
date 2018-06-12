@@ -362,10 +362,27 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         dcbid.setEnabled(false);
 
         mt = MainApp.familyMembersList.get(position).getMember_type();
-        dcbis01.setEnabled(mt.equals("c") ? false : true);
+//        dcbis01.setEnabled(mt.equals("c") ? false : true);
         dcbis02.setEnabled(mt.equals("h") || mt.equals("c") ? false : true);
         dcbis04.setEnabled(mt.equals("h") || mt.equals("c") ? false : true);
         dcbis01Outa.setEnabled(!(mt.equals("mw") || mt.equals("h")));
+
+//        For child under 2 name enable true. And for under 10 MStatus not enabled
+        int calculateYears = 0;
+        if (mt.equals("c") || mt.equals("ot")) {
+            if (MainApp.familyMembersList.get(position).getDob().contains(":")) {
+                String[] splitAge = MainApp.familyMembersList.get(position).getDob().split(":");
+                calculateYears = Integer.valueOf(splitAge[0]);
+            } else {
+                calculateYears = (int) MainApp.ageInYearByDOB(MainApp.familyMembersList.get(position).getDob());
+            }
+
+            if (calculateYears < 2) {
+                dcba.setEnabled(true);
+            }
+            dcbis01.setEnabled(calculateYears < 10 ? false : true);
+        }
+
 
             /*dcbbfid.setText(MainApp.familyMembersList.get(position).getDss_id_f());
             dcbbmid.setText(MainApp.familyMembersList.get(position).getDss_id_m());
@@ -1063,16 +1080,17 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
 //        MainApp.cc.setSerialNo(String.valueOf(position + 1));
 
-//        MainApp.cc.setDss_id_h(MainApp.familyMembersList.get(position).getDss_id_h().toUpperCase());
+        MainApp.cc.setDss_id_h(MainApp.familyMembersList.get(position).getDss_id_h().toUpperCase());
         MainApp.cc.setPrevs_dss_id_member(MainApp.familyMembersList.get(position).getPrevs_dss_id_member());
+        MainApp.cc.setDss_id_f(MainApp.familyMembersList.get(position).getDss_id_f());
+        MainApp.cc.setDss_id_m(MainApp.familyMembersList.get(position).getDss_id_m());
+
 //        MainApp.cc.setSite_code(MainApp.familyMembersList.get(position).getSite_code());
 //        MainApp.cc.setREF_ID(MainApp.familyMembersList.get(position).get_ID());
         MainApp.cc.set_DATE(MainApp.familyMembersList.get(position).get_DATE());
 
 //        MainApp.cc.setUpdate_dt(new SimpleDateFormat("dd-MM-yy").format(new Date()));
-        /*MainApp.cc.setDss_id_f(MainApp.familyMembersList.get(position).getDss_id_f());
-        MainApp.cc.setDss_id_m(MainApp.familyMembersList.get(position).getDss_id_m());
-        MainApp.cc.setUpdate_flag("true");*/
+//        MainApp.cc.setUpdate_flag("true");
 
         MainApp.cc.setDss_id_member(dcbid.getText().toString().toUpperCase());
         MainApp.cc.setName(dcba.getText().toString());
@@ -1137,7 +1155,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         }
 
         MainApp.cc.setCurrent_status(dcbis00.isChecked() ? "9" : dcbis01.isChecked() ? "1" : dcbis03.isChecked() ? "2"
-                : dcbis05.isChecked() ? "3": dcbis06.isChecked() ? "7": dcbis07.isChecked() ? "8" : "0");
+                : dcbis05.isChecked() ? "3" : dcbis06.isChecked() ? "7" : dcbis07.isChecked() ? "8" : "0");
         if (dcbis01.isChecked()) {
             MainApp.cc.setCurrent_maritalOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "2" : dcbis01Outc.isChecked() ? "3"
                     : dcbis01Outd.isChecked() ? "4" : "0");

@@ -91,7 +91,6 @@ public class EndingActivity extends Activity {
                 MainApp.isRsvp = false;
                 MainApp.isHead = false;
 
-
                 finish();
 
                 Intent endSec = new Intent(this, HouseholdListActivity.class);
