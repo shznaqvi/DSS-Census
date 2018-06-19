@@ -693,7 +693,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                     fldGrpdcbidt02.setVisibility(View.GONE);
                 } else {
                     if (!(MainApp.familyMembersList.get(position).getMember_type().equals("h") ||
-                            MainApp.familyMembersList.get(position).getMember_type().equals("c"))) {
+                            MainApp.familyMembersList.get(position).getMember_type().equals("c") || MainApp.familyMembersList.get(position).getGender().equals("1"))) {
                         fldGrpdcbidt02.setVisibility(View.VISIBLE);
                     }
                 }
@@ -1294,7 +1294,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
             // Married female
             if (!dcbis01Outa.isChecked() &&
                     !(MainApp.familyMembersList.get(position).getMember_type().equals("h") ||
-                            MainApp.familyMembersList.get(position).getMember_type().equals("c"))) {
+                            MainApp.familyMembersList.get(position).getMember_type().equals("c") || MainApp.familyMembersList.get(position).getGender().equals("1"))) {
 
                 if (dcbis09.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis09), Toast.LENGTH_SHORT).show();
