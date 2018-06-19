@@ -73,7 +73,7 @@ public class EndingActivity extends Activity {
                 MainApp.NoBoyCount = 0;
                 MainApp.NoGirlCount = 0;
 
-                MainApp.TotalMembersCount = 0;
+                MainApp.TotalMembersCount = -1;
                 MainApp.TotalMaleCount = 0;
                 MainApp.TotalFemaleCount = 0;
                 MainApp.TotalBoyCount = 0;
