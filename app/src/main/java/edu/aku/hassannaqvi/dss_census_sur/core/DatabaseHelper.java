@@ -1363,8 +1363,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_USER,
                 censusMember.COLUMN_DSS_ID_HH,
                 censusMember.COLUMN_DSS_ID_M,
-                /*censusMember.COLUMN_DSS_ID_F,
-                censusMember.COLUMN_DSS_ID_H,*/
+                censusMember.COLUMN_DSS_ID_H,
+                /*censusMember.COLUMN_DSS_ID_F,*/
                 censusMember.COLUMN_DSS_ID_MEMBER,
                 /*censusMember.COLUMN_PREVS_DSS_ID_MEMBER,
                 censusMember.COLUMN_SITE_CODE,*/
@@ -1430,7 +1430,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allCC;
     }
 
-    public Collection<CensusContract> getMWRAsCensus(String hhID, String formDate) {
+    public Collection<CensusContract> getMWRAsCensus(String hhID, String formDate, String uuid) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -1445,6 +1445,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_USER,
                 censusMember.COLUMN_DSS_ID_HH,
                 censusMember.COLUMN_DSS_ID_M,
+                censusMember.COLUMN_DSS_ID_H,
                 censusMember.COLUMN_DSS_ID_MEMBER,
                 censusMember.COLUMN_NAME,
                 censusMember.COLUMN_GENDER,
@@ -1460,8 +1461,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_SC
         };
         String whereClause = censusMember.COLUMN_MEMBER_TYPE + "=? AND " + censusMember.COLUMN_DSS_ID_HH + "=? AND " +
-                censusMember.COLUMN_FORMDATE + "=?";
-        String[] whereArgs = {"mw", hhID, formDate};
+                censusMember.COLUMN_FORMDATE + "=? AND " + censusMember.COLUMN_UUID + " =?";
+        String[] whereArgs = {"mw", hhID, formDate, uuid};
         String groupBy = null;
         String having = null;
 
@@ -1509,6 +1510,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_USER,
                 censusMember.COLUMN_DSS_ID_HH,
                 censusMember.COLUMN_DSS_ID_M,
+                censusMember.COLUMN_DSS_ID_H,
                 censusMember.COLUMN_DSS_ID_MEMBER,
                 censusMember.COLUMN_NAME,
                 censusMember.COLUMN_GENDER,
