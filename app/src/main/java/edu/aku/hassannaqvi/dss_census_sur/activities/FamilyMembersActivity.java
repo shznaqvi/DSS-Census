@@ -69,7 +69,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
     @BindView(R.id.progress)
     ProgressBar progressDialog;
 
-    static int progress = 0;
+    int progress = 0;
     int progressStatus = 0;
     Handler handler = new Handler();
 
