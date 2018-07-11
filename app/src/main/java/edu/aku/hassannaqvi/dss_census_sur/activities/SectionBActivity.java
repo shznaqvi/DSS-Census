@@ -589,7 +589,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                         motherDSSID = new ArrayList<>();
                         motherDSSID.add("");
 
-                        for (CensusContract censusContract : db.getMWRAsCensus(MainApp.fc.getDSSID().toUpperCase(), MainApp.fc.getFormDate())) {
+                        for (CensusContract censusContract : db.getMWRAsCensus(MainApp.fc.getDSSID().toUpperCase(), MainApp.fc.getFormDate(),MainApp.fc.getUID())) {
                             motherNames.add(censusContract.getName());
                             motherDSSID.add(censusContract.getDss_id_member());
                         }
@@ -1325,7 +1325,7 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
             // Married female
             if (!dcbis01Outa.isChecked() &&
-                    !(dcbm02.isChecked() || dcbm03.isChecked())) {
+                    !(dcbm02.isChecked() || dcbm03.isChecked() || dcbm04.isChecked())) {
 
                 if (dcbis09.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis09), Toast.LENGTH_SHORT).show();

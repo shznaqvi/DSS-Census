@@ -507,6 +507,7 @@ public class CensusContract {
         this.dss_id_hh = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DSS_ID_HH));
         this.dss_id_m = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DSS_ID_M));
         this.dss_id_h = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DSS_ID_H));
+
         /*this.dss_id_f = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DSS_ID_F));*/
         this.dss_id_member = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DSS_ID_MEMBER));
         /*this.prevs_dss_id_member = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_PREVS_DSS_ID_MEMBER));
