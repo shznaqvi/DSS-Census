@@ -44,7 +44,7 @@ public class SectionAActivity extends AppCompatActivity {
     private static final String TAG = SectionAActivity.class.getSimpleName();
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
 
-    FollowUpsContract fp;
+    public static FollowUpsContract fp;
 
 
     @BindView(R.id.dca03)
@@ -311,6 +311,10 @@ public class SectionAActivity extends AppCompatActivity {
         dca0405.setEnabled(getIntent().getBooleanExtra("intMovFlag", false));
 
         MainApp.familyMembersList = new ArrayList<>();
+
+        MainApp.memClicked = new ArrayList<>();
+
+
         Log.d(TAG, "onCreate: " + MainApp.familyMembersList.size());
         db = new DatabaseHelper(this);
 
@@ -648,8 +652,7 @@ public class SectionAActivity extends AppCompatActivity {
                     isNew = true;
                     Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
                 }
-                startActivity(new Intent(this, FamilyMembersActivity.class)
-                        .putExtra("followUpData", fp));
+                startActivity(new Intent(this, FamilyMembersActivity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }

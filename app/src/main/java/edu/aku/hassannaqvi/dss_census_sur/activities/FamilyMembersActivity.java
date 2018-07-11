@@ -99,8 +99,6 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
         mAdapter.notifyDataSetChanged();
 
-        MainApp.memClicked = new ArrayList<>();
-
         recycler_noMembers.addOnItemTouchListener(
                 new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
@@ -119,7 +117,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
                             if (flag) {
 
                                 startActivity(new Intent(getApplicationContext(), SectionBNewPrevActivity.class)
-                                        .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                        .putExtra("followUpData", SectionAActivity.fp)
                                         .putExtra("dataFlag", true).putExtra("position", position));
 
                             }
@@ -129,9 +127,16 @@ public class FamilyMembersActivity extends AppCompatActivity {
                     }
                 })
         );
-        for (int item : MainApp.memClicked) {
-            recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
-        }
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                for (int item : MainApp.memClicked) {
+                    recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
+                }
+            }
+        }, 800);
     }
 
 /*    @OnClick(R.id.addMen)
@@ -394,7 +399,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
                                             if (MainApp.familyMembersList.size() == MainApp.memFlag) {
                                                 MainApp.TotalMembersCount++;
                                                 startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
-                                                        .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                                        .putExtra("followUpData", SectionAActivity.fp)
                                                         .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
                                             } else {
                                                 Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
@@ -457,7 +462,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
         alert.show();
     }
 
-    @Override
+/*    @Override
     protected void onResume() {
         super.onResume();
 
@@ -465,23 +470,23 @@ public class FamilyMembersActivity extends AppCompatActivity {
         progressStatus = 0;
         progressDialog.setVisibility(View.GONE);
 
-        /*if (MainApp.selectedPos != -1) {
+        *//*if (MainApp.selectedPos != -1) {
             for (int mem = 0; mem < MainApp.memClicked.size(); mem++) {
                 if (MainApp.memClicked.get(mem) == MainApp.selectedPos) {
                     MainApp.memClicked.remove(mem);
                     break;
                 }
             }
-        }*/
+        }*//*
 
         resumeWork();
 
-        /*countBoy.setText(String.valueOf(MainApp.NoBoyCount));
+        *//*countBoy.setText(String.valueOf(MainApp.NoBoyCount));
         countMen.setText(String.valueOf(MainApp.NoMaleCount));
         countGirl.setText(String.valueOf(MainApp.NoGirlCount));
         countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
         totalMem.setText(String.valueOf(MainApp.NoMembersCount));
-        totalChild.setText(String.valueOf(MainApp.totalChild));*/
+        totalChild.setText(String.valueOf(MainApp.totalChild));*//*
 
 
         new Handler().postDelayed(new Runnable() {
@@ -492,9 +497,9 @@ public class FamilyMembersActivity extends AppCompatActivity {
                     recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
                 }
             }
-        }, 800);
+        }, 1200);
 
-    }
+    }*/
 
     public void resumeWork() {
         mAdapter.notifyDataSetChanged();

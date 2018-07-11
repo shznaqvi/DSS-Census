@@ -515,6 +515,30 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="16dp"
                                     android:background="@color/pink_100"
+                                    android:text="@string/dcbidt1"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:textColor="@color/colorPrimaryDark" />
+
+                                <DatePicker
+                                    android:id="@+id/dcbis04Outdt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:calendarViewShown="false"
+                                    android:datePickerMode="spinner"
+                                    android:ems="10"
+                                    android:spinnersShown="true" />
+
+                                <TimePicker
+                                    android:id="@+id/dcbis04Outtime"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:background="@color/pink_100"
                                     android:text="@string/dcbis0901"
                                     android:textAppearance="?android:attr/textAppearanceLarge"
                                     android:textColor="@color/colorPrimaryDark" />

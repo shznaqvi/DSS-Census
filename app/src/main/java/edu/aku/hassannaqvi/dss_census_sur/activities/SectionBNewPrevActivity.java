@@ -16,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -308,6 +309,11 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
     @BindView(R.id.dcbis09bdt)
     DatePicker dcbis09bdt;
 
+    @BindView(R.id.dcbis04Outdt)
+    DatePicker dcbis04Outdt;
+    @BindView(R.id.dcbis04Outtime)
+    TimePicker dcbis04Outtime;
+
     int position = 0;
     String mt;
 
@@ -323,6 +329,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 //        dcbg.setMaxDate(new Date().getTime());
         dcbidob.setMaxDate(new Date().getTime());
         dcbis09bdt.setMaxDate(new Date().getTime());
+        dcbis04Outdt.setMaxDate(new Date().getTime());
         cal.setTimeInMillis(System.currentTimeMillis());
 
 //        Check Respondent
@@ -877,7 +884,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
 
-        MainApp.finishActivity(this, this);
+//        MainApp.finishActivity(this, this);
+        startActivity(new Intent(SectionBNewPrevActivity.this, FamilyMembersActivity.class));
     }
 
 
@@ -1012,6 +1020,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                         .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
                         .putExtra("chCount", chCount)
                         .putExtra("mothDSSID", MainApp.cc.getDss_id_member()));
+            } else {
+                startActivity(new Intent(SectionBNewPrevActivity.this, FamilyMembersActivity.class));
             }
 
         } else {
@@ -1166,6 +1176,10 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
                 sC.put("current_preg_prv_status", dcbis09c.isChecked() ? "1" : "0");
 
                 if (dcbis09c.isChecked()) {
+
+                    sC.put("current_status_out_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis04Outdt.getCalendarView().getDate()));
+                    sC.put("current_status_out_time", dcbis04Outtime.getCurrentHour() + ":" + dcbis04Outtime.getCurrentMinute());
+
                     MainApp.cc.setCurrent_statusOutcome(dcbis04Outa.isChecked() ? "1" : dcbis04Outb.isChecked() ? "2" : dcbis04Outc.isChecked() ? "3"
                             : dcbis04Outd.isChecked() ? "4" : "0");
 

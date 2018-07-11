@@ -346,6 +346,11 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     ArrayList<String> motherNames;
     ArrayList<String> motherDSSID;
 
+    @BindView(R.id.dcbis04Outdt)
+    DatePicker dcbis04Outdt;
+    @BindView(R.id.dcbis04Outtime)
+    TimePicker dcbis04Outtime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -357,6 +362,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
         Calendar cal = Calendar.getInstance();
         dcbidob.setMaxDate(new Date().getTime());
         dcbis09bdt.setMaxDate(new Date().getTime());
+        dcbis04Outdt.setMaxDate(new Date().getTime());
         cal.setTimeInMillis(System.currentTimeMillis());
 
         db = new DatabaseHelper(this);
@@ -817,6 +823,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
             } else {
                 // reseting child counter
                 childCounter = 1;
+                startActivity(new Intent(SectionBActivity.this, FamilyMembersActivity.class));
             }
         }
 
@@ -955,6 +962,8 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                             .putExtra("mothDSSID", MainApp.cc.getDss_id_m()));
                 } else {
                     childCounter = 1;
+
+                    startActivity(new Intent(SectionBActivity.this, FamilyMembersActivity.class));
                 }
             } else {
                 int chCount = 0;
@@ -971,6 +980,8 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                             .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
                             .putExtra("chCount", chCount)
                             .putExtra("mothDSSID", MainApp.cc.getDss_id_member()));
+                } else {
+                    startActivity(new Intent(SectionBActivity.this, FamilyMembersActivity.class));
                 }
             }
 
@@ -1088,6 +1099,9 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
                 sC.put("current_preg_prv_status", dcbis09c.isChecked() ? "1" : "0");
 
                 if (dcbis09c.isChecked()) {
+
+                    sC.put("current_status_out_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis04Outdt.getCalendarView().getDate()));
+                    sC.put("current_status_out_time", dcbis04Outtime.getCurrentHour() + ":" + dcbis04Outtime.getCurrentMinute());
 
                     MainApp.cc.setCurrent_statusOutcome(dcbis04Outa.isChecked() ? "1" : dcbis04Outb.isChecked() ? "2" : dcbis04Outc.isChecked() ? "3"
                             : dcbis04Outd.isChecked() ? "4" : "0");

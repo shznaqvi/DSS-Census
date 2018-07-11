@@ -261,8 +261,10 @@ public class HouseholdListActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog,
                                                 int id) {
 
-                                String lastDssID = db.getLastDSSinHH(hhno.getText().toString().toUpperCase());
+//                                String lastDssID = db.getLastDSSinHH(hhno.getText().toString().toUpperCase());
+                                String lastDssID = MainApp.householdList.get(MainApp.householdList.size() - 1).getHouseholdID();
 
+                                hhno.setEnabled(false);
                                 // Creating New DSS-ID
                                 char newExtension = (char) (lastDssID.charAt(lastDssID.length() - 1) + 1);
                                 StringBuilder builder = new StringBuilder(lastDssID);
