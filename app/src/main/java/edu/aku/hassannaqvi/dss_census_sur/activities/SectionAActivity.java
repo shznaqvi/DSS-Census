@@ -595,12 +595,17 @@ public class SectionAActivity extends AppCompatActivity {
 
                 Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
                 MainApp.currentStatusCount = MainApp.familyMembersList.size();
+
                 MainApp.TotalMembersCount = MainApp.familyMembersList.size() - 1;
+
                 isNew = false;
 
             } else {
 
                 isNew = true;
+
+                MainApp.TotalMembersCount = -1;
+
                 Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
             }
         } else {
@@ -641,15 +646,19 @@ public class SectionAActivity extends AppCompatActivity {
                     }
                 }
 
-                if (MainApp.familyMembersList.size() > 1) {
+                if (MainApp.familyMembersList.size() > 0) {
                     Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
                     MainApp.currentStatusCount = MainApp.familyMembersList.size();
+
                     MainApp.TotalMembersCount = MainApp.familyMembersList.size() - 1;
+
                     isNew = false;
 
                 } else {
-
                     isNew = true;
+
+                    MainApp.TotalMembersCount = -1;
+
                     Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
                 }
                 startActivity(new Intent(this, FamilyMembersActivity.class));

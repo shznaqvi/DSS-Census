@@ -1108,6 +1108,8 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
         MainApp.cc.setGender(MainApp.familyMembersList.get(position).getGender());
 
+        MainApp.cc.setDob(MainApp.familyMembersList.get(position).getDob());
+
         /*MainApp.cc.setDss_id_f(dcbbfid.getText().toString().toUpperCase());
         MainApp.cc.setDss_id_m(dcbbmid.getText().toString().toUpperCase());
 

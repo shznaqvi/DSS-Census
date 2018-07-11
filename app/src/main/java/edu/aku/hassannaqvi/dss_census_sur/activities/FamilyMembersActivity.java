@@ -136,7 +136,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
                     recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
                 }
             }
-        }, 800);
+        }, 1200);
     }
 
 /*    @OnClick(R.id.addMen)

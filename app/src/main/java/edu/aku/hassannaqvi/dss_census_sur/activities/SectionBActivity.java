@@ -560,8 +560,32 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                         husbandDSSID.add("");
 
                         for (CensusContract censusContract : db.getMaleMemCensus(MainApp.fc.getDSSID().toUpperCase(), MainApp.fc.getFormDate())) {
-                            husbandNames.add(censusContract.getName());
-                            husbandDSSID.add(censusContract.getDss_id_member());
+
+                            Boolean checkFlag;
+                            if (censusContract.getMember_type().equals("c")) {
+                                if (getAgeByDOB(censusContract.getDob()) > 10) {
+                                    checkFlag = true;
+                                } else {
+                                    checkFlag = false;
+                                }
+                            } else if (censusContract.getMember_type().equals("ot")) {
+                                if (censusContract.getDob().equals("")) {
+                                    checkFlag = true;
+                                } else {
+                                    if (getAgeByDOB(censusContract.getDob()) > 10) {
+                                        checkFlag = true;
+                                    } else {
+                                        checkFlag = false;
+                                    }
+                                }
+                            } else {
+                                checkFlag = true;
+                            }
+
+                            if (checkFlag) {
+                                husbandNames.add(censusContract.getName());
+                                husbandDSSID.add(censusContract.getDss_id_member());
+                            }
                         }
                         dcbbhidSpinner.setAdapter(new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_spinner_dropdown_item, husbandNames));
 
@@ -589,7 +613,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                         motherDSSID = new ArrayList<>();
                         motherDSSID.add("");
 
-                        for (CensusContract censusContract : db.getMWRAsCensus(MainApp.fc.getDSSID().toUpperCase(), MainApp.fc.getFormDate(),MainApp.fc.getUID())) {
+                        for (CensusContract censusContract : db.getMWRAsCensus(MainApp.fc.getDSSID().toUpperCase(), MainApp.fc.getFormDate(), MainApp.fc.getUID())) {
                             motherNames.add(censusContract.getName());
                             motherDSSID.add(censusContract.getDss_id_member());
                         }
@@ -690,6 +714,18 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
             }
         });
 
+    }
+
+    private int getAgeByDOB(String dob) {
+        if (!dob.equals("")) {
+            if (dob.contains(":")) {
+                return Integer.valueOf(dob.split(":")[0]);
+            } else {
+                return (int) MainApp.ageInYearByDOB(dob);
+            }
+        } else {
+            return 0;
+        }
     }
 
     private void memberTypeOtherFun() {
@@ -1080,6 +1116,8 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
 
         if (dcbis01.isChecked()) {
+
+            MainApp.cc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
 
             MainApp.cc.setCurChildBirth_time(dcbitime.getCurrentHour() + ":" + dcbitime.getCurrentMinute());
             MainApp.cc.setCurrent_childStatus(dcbis01Statusa.isChecked() ? "1" : dcbis01Statusb.isChecked() ? "2" : dcbis01Statusc.isChecked() ? "3" : "0");

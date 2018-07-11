@@ -1370,7 +1370,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_SITE_CODE,*/
                 censusMember.COLUMN_NAME,
                 censusMember.COLUMN_GENDER,
-                /*censusMember.COLUMN_DOB,
+                censusMember.COLUMN_DOB,
+                /*
                 censusMember.COLUMN_AGEY,
                 censusMember.COLUMN_AGEM,
                 censusMember.COLUMN_AGED,
@@ -1446,6 +1447,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_DSS_ID_HH,
                 censusMember.COLUMN_DSS_ID_M,
                 censusMember.COLUMN_DSS_ID_H,
+                censusMember.COLUMN_DOB,
                 censusMember.COLUMN_DSS_ID_MEMBER,
                 censusMember.COLUMN_NAME,
                 censusMember.COLUMN_GENDER,
@@ -1513,6 +1515,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 censusMember.COLUMN_DSS_ID_H,
                 censusMember.COLUMN_DSS_ID_MEMBER,
                 censusMember.COLUMN_NAME,
+                censusMember.COLUMN_DOB,
                 censusMember.COLUMN_GENDER,
                 censusMember.COLUMN_CURRENT_STATUS,
                 censusMember.COLUMN_CURRENT_MARITAL_STATUS,

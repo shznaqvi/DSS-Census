@@ -514,7 +514,8 @@ public class CensusContract {
         this.site_code = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_SITE_CODE));*/
         this.name = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_NAME));
         this.gender = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_GENDER));
-        /*this.dob = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DOB));
+        this.dob = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_DOB));
+        /*
         this.ageY = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_AGEY));
         this.ageM = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_AGEM));
         this.ageD = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_AGED));
