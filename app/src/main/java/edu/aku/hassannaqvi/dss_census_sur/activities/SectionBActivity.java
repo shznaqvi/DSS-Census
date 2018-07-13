@@ -370,8 +370,6 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
         dataFlag = getIntent().getBooleanExtra("dataFlag", false);
         position = getIntent().getExtras().getInt("position");
 
-        MainApp.selectedPos = position;
-
         dcbid.setEnabled(true);
 
         dcbid.setText(MainApp.fc.getDSSID());
@@ -984,7 +982,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                 MainApp.randID += 1;
             }
 
-            MainApp.memFlag++;
+            SectionAActivity.memFlag++;
             finish();
 
             if (childCount > 0) {

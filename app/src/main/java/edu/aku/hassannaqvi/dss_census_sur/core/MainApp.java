@@ -100,14 +100,13 @@ public class MainApp extends Application {
     public static SectionKIMContract ims;
     public static int mm = 1;
     public static int totalChild = 0;
-    public static int memFlag = 0;
+//    public static int memFlag = 0;
     public static int checkingFlag = 0;
     public static List<Integer> memClicked;
     public static ArrayList<MothersLst> lstMothers;
     public static int position = 0;
     protected static LocationManager locationManager;
     public static double selectedCHILD = 24;
-    public static int selectedPos = -1;
     public static int selectedCh = -1;
     public static List<String> insertMem;
     public static int randID = 1;

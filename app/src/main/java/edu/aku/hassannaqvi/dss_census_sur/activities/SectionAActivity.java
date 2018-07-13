@@ -291,11 +291,9 @@ public class SectionAActivity extends AppCompatActivity {
     DatabaseHelper db;
 
     Boolean isNew = false;
-
     boolean checked = false;
 
-    String dssHH = "";
-
+    public static int memFlag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -305,7 +303,7 @@ public class SectionAActivity extends AppCompatActivity {
 
         this.setTitle("D S S");
 
-        MainApp.memFlag = 0;
+        memFlag = 0;
 
         // Disable internal movement for previous families
         dca0405.setEnabled(getIntent().getBooleanExtra("intMovFlag", false));
@@ -647,7 +645,7 @@ public class SectionAActivity extends AppCompatActivity {
                 }
 
                 if (MainApp.familyMembersList.size() > 0) {
-                    Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
                     MainApp.currentStatusCount = MainApp.familyMembersList.size();
 
                     MainApp.TotalMembersCount = MainApp.familyMembersList.size() - 1;
@@ -1229,7 +1227,7 @@ public class SectionAActivity extends AppCompatActivity {
 //            AppMain.fc.setGpsTime(GPSPref.getString(date, "0")); // Timestamp is converted to date above
             MainApp.fc.setGpsDT(date); // Timestamp is converted to date above
 
-            Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
 
         } catch (Exception e) {
             Log.e(TAG, "setGPS: " + e.getMessage());

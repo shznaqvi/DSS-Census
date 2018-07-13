@@ -360,8 +360,6 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
         position = getIntent().getExtras().getInt("position");
 
-        MainApp.selectedPos = position;
-
         dcba.setText(MainApp.familyMembersList.get(position).getName());
 
         dcbid.setText(MainApp.familyMembersList.get(position).getDss_id_member());
@@ -1002,7 +1000,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
             MainApp.memClicked.add(position);
 
-            MainApp.memFlag++;
+            SectionAActivity.memFlag++;
 
             finish();
 
