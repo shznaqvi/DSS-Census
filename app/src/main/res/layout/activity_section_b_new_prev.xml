@@ -240,6 +240,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    tools:visibility="visible"
                     android:visibility="gone">
 
                     <TextView
@@ -276,6 +277,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        tools:visibility="visible"
                         android:visibility="gone">
 
                         <EditText
@@ -339,6 +341,16 @@
                                 android:text="@string/dcbis05Place96" />
 
                         </RadioGroup>
+
+                        <EditText
+                            android:id="@+id/dcbis05Cause"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="3dp"
+                            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                            android:hint="@string/dcbis05Cause"
+                            android:maxLength="35" />
 
                     </LinearLayout>
 

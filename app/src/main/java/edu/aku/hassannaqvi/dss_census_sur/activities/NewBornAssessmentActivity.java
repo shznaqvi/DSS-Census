@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import org.json.JSONException;
+
+import java.text.SimpleDateFormat;
 
 import edu.aku.hassannaqvi.dss_census_sur.R;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
@@ -16,7 +19,7 @@ import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 import edu.aku.hassannaqvi.dss_census_sur.databinding.ActivityNewBornAssessmentBinding;
 import edu.aku.hassannaqvi.dss_census_sur.validation.validatorClass;
 
-public class NewBornAssessmentActivity extends Activity {
+public class NewBornAssessmentActivity extends AppCompatActivity {
     ActivityNewBornAssessmentBinding bi;
 
     @Override
@@ -24,23 +27,53 @@ public class NewBornAssessmentActivity extends Activity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_new_born_assessment);
         bi.setCallback(this);
-        // setContentView(R.layout.activity_new_born_assessment);
+
+        setContentsUI();
+
+    }
+
+    public void setContentsUI() {
+
+        bi.dnb07.setManager(getSupportFragmentManager());
+        bi.dnb08.setManager(getSupportFragmentManager());
+        bi.dnb09.setManager(getSupportFragmentManager());
+        bi.dnb10.setManager(getSupportFragmentManager());
+        bi.dnb07.setMaxDate(new SimpleDateFormat("dd/MM/yyyy").format(System.currentTimeMillis()));
+        bi.dnb09.setMaxDate(new SimpleDateFormat("dd/MM/yyyy").format(System.currentTimeMillis()));
+
+        bi.dnbStatus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (i == R.id.dnbStatusb) {
+                    bi.dnb11.clearCheck();
+                    bi.dnb12.clearCheck();
+                    bi.dnb15.clearCheck();
+                    bi.dnb17.clearCheck();
+                    bi.dnb18.clearCheck();
+                    bi.dnb19.clearCheck();
+                    bi.dnb1901a.clearCheck();
+                    bi.dnb1901b.clearCheck();
+                    bi.dnb1902a.clearCheck();
+                    bi.dnb1902b.clearCheck();
+                    bi.dnb20.clearCheck();
+                    bi.dnb21.clearCheck();
+                    bi.dnb22.clearCheck();
+                    bi.dnb23.clearCheck();
+                    bi.dnb24.clearCheck();
+                    bi.dnb25.clearCheck();
+                }
+            }
+        });
+
         bi.dnb25.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (i == R.id.dnb25b) {
-                    bi.fldGrpdnb25.setVisibility(View.GONE);
                     bi.dnb26.clearCheck();
-                    bi.dnb26x.setText(null);
                     bi.dnb27.clearCheck();
-                    bi.dnb28.setText(null);
-                } else {
-                    bi.fldGrpdnb25.setVisibility(View.VISIBLE);
                 }
             }
-
         });
-
     }
 
     public void BtnEnd() {
@@ -79,7 +112,9 @@ public class NewBornAssessmentActivity extends Activity {
     public boolean formValidation() {
 
         Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
-        if (!validatorClass.EmptyTextBox(this, bi.dstudyid, getString(R.string.dstudyid))) {return false;}
+        if (!validatorClass.EmptyTextBox(this, bi.dstudyid, getString(R.string.dstudyid))) {
+            return false;
+        }
 
         return true;
     }

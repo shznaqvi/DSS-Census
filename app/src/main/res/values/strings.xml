@@ -800,10 +800,13 @@
     <string name="dnb04"> جنس </string>
     <string name="dnb05"> والدہ کا نام </string>
     <string name="dnb06"> والد کا نام </string>
-    <string name="dnb07"> بچے کی تاریخ پیدائش </string>
-    <string name="dnb08"> پیدائش کا وقت </string>
-    <string name="dnb09"> کیا بچی فوت ہوا تو تاریخ لکھیں </string>
-    <string name="dnb10"> وفات کا وقت </string>
+    <string name="dnb07"> فوت کی تاریخ لکھیں </string>
+    <string name="dnb08"> وفات کا وقت </string>
+    <string name="dnbStatus"> بچے کی موجودہ حیثیت </string>
+    <string name="dnbStatusa"> حیات </string>
+    <string name="dnbStatusb"> فوت </string>
+    <string name="dnb09"> بچے کی تاریخ پیدائش </string>
+    <string name="dnb10"> پیدائش کا وقت </string>
     <string name="dnb11"> بچے کے پیدائش کی جگہ </string>
     <string name="dnb11a"> ہسپتال </string>
     <string name="dnb11ax"> نام لکھے </string>
@@ -823,18 +826,15 @@
     <string name="dnb17"> بچے کی حرکت اور ہوش کی سطح کیا ہے؟ </string>
     <string name="dnb18"> جھٹکے لگنا </string>
     <string name="dnb19"> ماں سے پوچھیں کہ بچی کو دودہ پینے میں کوئی دشواری تو نہیں ہے؟ </string>
-    <string name="dnb20"> ماں سے کہیں کے بچے کو دودھ پلائے اور آپ اس کا مشائدہ کریں؟ </string>
-    <string name="dnb21"> ماں کو دودھ پلانے کی اور بچے کو دودھ سے لگانے کی پوزیشن صحیح کریں اور پھر دودھ پلانے کا مشاہدہ کریں۔ </string>
-    <string name="dnb22"> جلد پر پھوڑے </string>
-    <string name="dnb23"> ناف کا لال ہونا یا پیپ کا نکلنا </string>
-    <string name="dnb24"> پیلیا ہونا </string>
-    <string name="dnb25"> پیدائشی نقص کی موجودگی </string>
-    <string name="dnb26"> کوئی اور پیچیدگی </string>
-    <string name="dnb27"> کیا بچے کو ریفر کیا گیا تھا ؟ </string>
-    <string name="dnb28"> بچے کو ریفر کرنے کی وجہ کیا تھی؟ </string>
-    <string name="dnb29"> کیا بچے کا خیال رکھنے والوں نے اس ریفرل کو قبول کیا؟ </string>
-    <string name="dnb30"> ریفرل سے انکار کی وجہ؟ </string>
-    <string name="dnb31"> انٹرویو کے اختتام کا وقت </string>
+    <string name="dnb20"> جلد پر پھوڑے </string>
+    <string name="dnb21"> ناف کا لال ہونا یا پیپ کا نکلنا </string>
+    <string name="dnb22"> پیلیا ہونا </string>
+    <string name="dnb23"> پیدائشی نقص کی موجودگی </string>
+    <string name="dnb24"> کوئی اور پیچیدگی </string>
+    <string name="dnb25"> کیا بچے کو ریفر کیا گیا تھا ؟ </string>
+    <string name="dnb26"> بچے کو ریفر کرنے کی وجہ کیا تھی؟ </string>
+    <string name="dnb27"> کیا بچے کا خیال رکھنے والوں نے اس ریفرل کو قبول کیا؟ </string>
+    <string name="dnb28"> ریفرل سے انکار کی وجہ؟ </string>
 
 
     <!--remaining strings-->
@@ -1000,6 +1000,7 @@
     <!-- ALi strings -->
 
     <string name="dcbis05Age"> وفات کے وقت عمر سالوں میں </string>
+    <string name="dcbis05Cause"> وفات کی وجہ </string>
     <string name="dcbis05Place"> وفات کی جگہ </string>
     <string name="dcbis05Placea"> گھر </string>
     <string name="dcbis05Placeb"> ہسپتال </string>
