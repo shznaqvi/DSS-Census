@@ -101,7 +101,7 @@ public class EndingActivity extends Activity {
         if (SectionAActivity.memFlag != 0) {
             db.updateCensus();
         }
-        if (MainApp.currentDeceasedCheck != 0) {
+/*        if (MainApp.currentDeceasedCheck != 0) {
             db.updateDeceased();
         }
         if (MainApp.currentMotherCheck != 0) {
@@ -109,7 +109,7 @@ public class EndingActivity extends Activity {
         }
         if (MainApp.totalChild != 0) {
             db.updateIM();
-        }
+        }*/
 
         if (updcount == 1) {
 //            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
