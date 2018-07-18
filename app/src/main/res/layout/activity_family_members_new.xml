@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.aku.hassannaqvi.dss_census_sur_ra.activities.FamilyMembersActivity">
+    tools:context="edu.aku.hassannaqvi.dss_census_sur_monitor.activities.FamilyMembersActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"

@@ -4,7 +4,7 @@
     android:id="@+id/activity_section_b"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.aku.hassannaqvi.dss_census_sur_ra.activities.SectionBActivity">
+    tools:context="edu.aku.hassannaqvi.dss_census_sur_monitor.activities.SectionBActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

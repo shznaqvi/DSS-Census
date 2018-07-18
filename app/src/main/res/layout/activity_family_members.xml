@@ -4,7 +4,7 @@
     android:id="@+id/activity_family_members"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.aku.hassannaqvi.dss_census_sur_ra.activities.FamilyMembersActivity">
+    tools:context="edu.aku.hassannaqvi.dss_census_sur_monitor.activities.FamilyMembersActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
