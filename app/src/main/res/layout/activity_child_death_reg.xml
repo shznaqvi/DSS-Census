@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="edu.aku.hassannaqvi.dss_census_sur.activities.ChildDeathRegActivity">
+    tools:context="edu.aku.hassannaqvi.dss_census_sur_ra.activities.ChildDeathRegActivity">
 
     <data>
 
@@ -9,7 +9,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.dss_census_sur.activities.ChildDeathRegActivity" />
+            type="edu.aku.hassannaqvi.dss_census_sur_ra.activities.ChildDeathRegActivity" />
     </data>
 
     <LinearLayout
@@ -762,7 +762,6 @@
                         android:layout_weight="1"
                         android:text="@string/no" />
                 </RadioGroup>
-
 
 
                 <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
