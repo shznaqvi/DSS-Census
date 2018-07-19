@@ -38,6 +38,7 @@ import edu.aku.hassannaqvi.dss_census_sur.get.GetMembers;
 import edu.aku.hassannaqvi.dss_census_sur.get.GetSurFollowUps;
 import edu.aku.hassannaqvi.dss_census_sur.sync.SyncCensus;
 import edu.aku.hassannaqvi.dss_census_sur.sync.SyncForms;
+import edu.aku.hassannaqvi.dss_census_sur.sync.SyncNewBorn;
 
 public class MainActivity extends Activity {
 
@@ -429,6 +430,9 @@ public class MainActivity extends Activity {
 
             Toast.makeText(getApplicationContext(), "Syncing Census", Toast.LENGTH_SHORT).show();
             new SyncCensus(this).execute();
+
+            Toast.makeText(getApplicationContext(), "Syncing New Born", Toast.LENGTH_SHORT).show();
+            new SyncNewBorn(this).execute();
 
 /*            Toast.makeText(getApplicationContext(), "Syncing Deceased", Toast.LENGTH_SHORT).show();
             new SyncDeceased(this).execute();

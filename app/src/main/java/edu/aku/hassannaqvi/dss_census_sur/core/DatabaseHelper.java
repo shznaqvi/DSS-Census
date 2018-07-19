@@ -32,9 +32,11 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract.singleMember;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MotherContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MotherContract.MotherTB;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.SectionKIMContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.UsersContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.UsersContract.singleUser;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract.newBornFup;
 import edu.aku.hassannaqvi.dss_census_sur.otherClasses.MothersLst;
 
 import static edu.aku.hassannaqvi.dss_census_sur.contracts.SectionKIMContract.singleIm;
@@ -54,7 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + singleUser.REGION_DSS + " TEXT );";
     public static final String DATABASE_NAME = "dss-census-sur.db";
     public static final String DB_NAME = "dss-census-sur_copy.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsContract.FormsTable.TABLE_NAME + "("
             + FormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -261,6 +263,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FollowUpTable.COLUMN_FOLLOWUP_ROUND + " TEXT " +
             ");";
 
+    final String SQL_CREATE_NEWBORN = "CREATE TABLE " + newBornFup.TABLE_NAME + " (" +
+            newBornFup.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            newBornFup.COLUMN_PROJECT_NAME + " TEXT," +
+            newBornFup.COLUMN_UID + " TEXT," +
+            newBornFup.COLUMN_UUID + " TEXT," +
+            newBornFup.COLUMN_FORMDATE + " TEXT," +
+            newBornFup.COLUMN_USER + " TEXT," +
+            newBornFup.COLUMN_DEVICEID + " TEXT," +
+            newBornFup.COLUMN_DEVICETAGID + " TEXT," +
+            newBornFup.COLUMN_DSS_ID_M + " TEXT," +
+            newBornFup.COLUMN_DSS_ID_MEMBER + " TEXT," +
+            newBornFup.COLUMN_STUDY_ID + " TEXT," +
+            newBornFup.COLUMN_NAME + " TEXT," +
+            newBornFup.COLUMN_SNB + " TEXT," +
+            newBornFup.COLUMN_ISTATUS + " TEXT," +
+            newBornFup.COLUMN_SYNCED + " TEXT," +
+            newBornFup.COLUMN_SYNCEDDATE + " TEXT" +
+            ");";
+
 
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
@@ -321,7 +342,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL(SQL_DELETE_USERS);
+        /*db.execSQL(SQL_DELETE_USERS);
         db.execSQL(SQL_DELETE_FORMS);
         db.execSQL(SQL_DELETE_HOUSEHOLD);
         db.execSQL(SQL_DELETE_MEMBERS);
@@ -329,7 +350,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_DECEASED);
         db.execSQL(SQL_DELETE_MOTHER);
         db.execSQL(SQL_DELETE_SEC_K_IM);
-        db.execSQL(SQL_DELETE_FOLLOWUPS);
+        db.execSQL(SQL_DELETE_FOLLOWUPS);*/
+
+        switch (i) {
+            case 1:
+                db.execSQL(SQL_CREATE_NEWBORN);
+        }
     }
 
     public void syncUser(JSONArray userlist) {
@@ -601,7 +627,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return memList;
     }
 
-
     public String getLastDSSinHH(String hh) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -795,6 +820,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         newRowId = db.insert(
                 FormsContract.FormsTable.TABLE_NAME,
                 FormsContract.FormsTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+    public Long addNewBorn(NewBornContract nbw) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(newBornFup.COLUMN_ID, nbw.get_ID());
+        values.put(newBornFup.COLUMN_PROJECT_NAME, nbw.getProjectName());
+        values.put(newBornFup.COLUMN_UID, nbw.get_UID());
+        values.put(newBornFup.COLUMN_UUID, nbw.get_UUID());
+        values.put(newBornFup.COLUMN_FORMDATE, nbw.getFormDate());
+        values.put(newBornFup.COLUMN_USER, nbw.getUser());
+        values.put(newBornFup.COLUMN_DEVICEID, nbw.getDeviceId());
+        values.put(newBornFup.COLUMN_DEVICETAGID, nbw.getDevicetagID());
+        values.put(newBornFup.COLUMN_DSS_ID_M, nbw.getDss_id_m());
+        values.put(newBornFup.COLUMN_DSS_ID_MEMBER, nbw.getDss_id_member());
+        values.put(newBornFup.COLUMN_STUDY_ID, nbw.getStudy_id());
+        values.put(newBornFup.COLUMN_NAME, nbw.getName());
+        values.put(newBornFup.COLUMN_SNB, nbw.getsNB());
+        values.put(newBornFup.COLUMN_ISTATUS, nbw.getIstatus());
+        values.put(newBornFup.COLUMN_SYNCED, nbw.getSynced());
+        values.put(newBornFup.COLUMN_SYNCEDDATE, nbw.getSyncedDate());
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                newBornFup.TABLE_NAME,
+                newBornFup.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
@@ -1050,20 +1108,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs);
     }
 
-    public void updateChild(String id) {
+    public void updatenewBornFup(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(singleIm.COLUMN_SYNCED, true);
-        values.put(singleIm.COLUMN_SYNCED_DATE, new Date().toString());
+        values.put(newBornFup.COLUMN_SYNCED, true);
+        values.put(newBornFup.COLUMN_SYNCEDDATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = singleIm.COLUMN_ID + " = ?";
+        String where = newBornFup.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
 
         int count = db.update(
-                singleIm.TABLE_NAME,
+                newBornFup.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
@@ -1235,6 +1293,58 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selection,
                 selectionArgs);
         return count;
+    }
+
+    public Collection<NewBornContract> getUnsyncedNewBorn() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                newBornFup.COLUMN_ID,
+                newBornFup.COLUMN_UID,
+                newBornFup.COLUMN_UUID,
+                newBornFup.COLUMN_FORMDATE,
+                newBornFup.COLUMN_USER,
+                newBornFup.COLUMN_DEVICEID,
+                newBornFup.COLUMN_DEVICETAGID,
+                newBornFup.COLUMN_DSS_ID_M,
+                newBornFup.COLUMN_DSS_ID_MEMBER,
+                newBornFup.COLUMN_STUDY_ID,
+                newBornFup.COLUMN_NAME,
+                newBornFup.COLUMN_SNB,
+                newBornFup.COLUMN_ISTATUS,
+        };
+        String whereClause = newBornFup.COLUMN_SYNCED + " is null";
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                newBornFup.COLUMN_ID + " ASC";
+
+        Collection<NewBornContract> allNB = new ArrayList<>();
+        try {
+            c = db.query(
+                    newBornFup.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                NewBornContract mc = new NewBornContract();
+                allNB.add(mc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allNB;
     }
 
     public Collection<MotherContract> getUnsyncedMother() {

@@ -121,6 +121,8 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
 
     public void SaveDraft() throws JSONException {
 
+
+
     }
 
     private boolean UpdateDB() {
