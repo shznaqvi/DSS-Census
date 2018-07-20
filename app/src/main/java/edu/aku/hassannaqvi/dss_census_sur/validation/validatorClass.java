@@ -216,20 +216,6 @@ public abstract class validatorClass {
                 }
             }, 200);
 
-
-            //Toast.makeText(context, "ERROR(empty): " + msg, Toast.LENGTH_SHORT).show();
-            //rdBtn.setError("This data is Required!");    // Set Error on last radio button
-
-            /*rdBtn.setFocusable(true);
-            rdBtn.setFocusableInTouchMode(true);
-            rdBtn.requestFocus();
-            rdBtn.clearFocus();
-            rdGrp.requestFocus();
-            rdGrp.requestFocusFromTouch();
-            rdGrp.clearFocus();
-            rdGrp.clearChildFocus(rdBtn);*/
-            //((LinearLayout)rdGrp.getParent()).scrollTo(rdGrp.getScrollX(), rdGrp.getScrollY());
-
             Log.i(context.getClass().getName(), context.getResources().getResourceEntryName(rdGrp.getId()) + ": This data is Required!");
             return false;
         } else {
@@ -258,7 +244,6 @@ public abstract class validatorClass {
         if (flag) {
             return true;
         } else {
-            //Toast.makeText(context, "ERROR(empty): " + msg, Toast.LENGTH_LONG).show();
             cbx.setError("This data is Required!");    // Set Error on last radio button
 
             Log.i(context.getClass().getName(), context.getResources().getResourceEntryName(cbx.getId()) + ": This data is Required!");

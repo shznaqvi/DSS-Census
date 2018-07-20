@@ -52,6 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                    android:enabled="false"
                     android:maxLength="14" />
 
                 <TextView
@@ -67,6 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
                     android:digits="1234567890"
+                    android:enabled="false"
                     android:hint="X-XXXXX"
                     android:inputType="number"
                     android:maxLength="7" />
@@ -134,11 +136,22 @@
                     android:textColor="@android:color/white" />
 
                 <EditText
+                    android:enabled="false"
                     android:id="@+id/dnb05"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
                     android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    android:hint="@string/dnb05"
+                    android:inputType="text"
+                    android:maxLength="20" />
+
+                <EditText
+                    android:id="@+id/dnb05a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:enabled="false"
                     android:hint="@string/dnb05"
                     android:inputType="text"
                     android:maxLength="20" />
@@ -1170,6 +1183,7 @@
                             android:layout_marginBottom="1dp"
                             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:hint="@string/dnb28"
+                            android:text='@{dnb25a.checked ? dnb28.getText.toString : "" }'
                             android:inputType="text" />
                     </LinearLayout>
 

@@ -1,19 +1,22 @@
 package edu.aku.hassannaqvi.dss_census_sur.activities;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import edu.aku.hassannaqvi.dss_census_sur.R;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 import edu.aku.hassannaqvi.dss_census_sur.databinding.ActivityNewBornAssessmentBinding;
@@ -22,11 +25,17 @@ import edu.aku.hassannaqvi.dss_census_sur.validation.validatorClass;
 public class NewBornAssessmentActivity extends AppCompatActivity {
     ActivityNewBornAssessmentBinding bi;
 
+    String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
+
+    DatabaseHelper db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_new_born_assessment);
         bi.setCallback(this);
+
+        db = new DatabaseHelper(this);
 
         setContentsUI();
 
@@ -77,14 +86,10 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
     }
 
     public void BtnEnd() {
-        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
-
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-//        Intent end_intent = new Intent(this, EndingActivity.class);
-//        end_intent.putExtra("check", false);
-//        startActivity(end_intent);
-
-        MainApp.endActivity(this, this);
+        finish();
+        startActivity(new Intent(this, NB_EndingActivity.class)
+                .putExtra("check", false));
     }
 
     public void BtnContinue() {
@@ -100,9 +105,9 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
+                startActivity(new Intent(this, NB_EndingActivity.class)
+                        .putExtra("check", true));
 
-                Intent secNext = new Intent(this, SectionEActivity.class);
-                startActivity(secNext);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -112,8 +117,120 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
     public boolean formValidation() {
 
         Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
-        if (!validatorClass.EmptyTextBox(this, bi.dstudyid, getString(R.string.dstudyid))) {
+        if (!validatorClass.EmptyTextBox(this, bi.dnb03, getString(R.string.dnb03))) {
             return false;
+        }
+
+        if (!validatorClass.EmptyRadioButton(this, bi.dnb04, bi.dnb04a, getString(R.string.dnb04))) {
+            return false;
+        }
+
+        if (!validatorClass.EmptyTextBox(this, bi.dnb06, getString(R.string.dnb06))) {
+            return false;
+        }
+
+        if (!validatorClass.EmptyRadioButton(this, bi.dnbStatus, bi.dnbStatusa, getString(R.string.dnbStatus))) {
+            return false;
+        }
+
+        if (bi.dnbStatusa.isChecked()) {
+
+            if (!validatorClass.EmptyTextBox(this, bi.dnb09, getString(R.string.dnb09))) {
+                return false;
+            }
+            if (!validatorClass.EmptyTextBox(this, bi.dnb10, getString(R.string.dnb10))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb11, bi.dnb1196, bi.dnb1196, getString(R.string.dnb11))) {
+                return false;
+            }
+            if (bi.dnb11a.isChecked()) {
+                if (!validatorClass.EmptyTextBox(this, bi.dnb11ax, getString(R.string.dnb11ax))) {
+                    return false;
+                }
+            }
+
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb12, bi.dnb12a, bi.dnb1296, getString(R.string.dnb12))) {
+                return false;
+            }
+            if (!validatorClass.EmptyTextBox(this, bi.dnb13, getString(R.string.dnb13))) {
+                return false;
+            }
+            if (!validatorClass.EmptyTextBox(this, bi.dnb1401, getString(R.string.dnb14m))) {
+                return false;
+            }
+            if (!validatorClass.EmptyTextBox(this, bi.dnb1402, getString(R.string.dnb14m))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb15, bi.dnb15b, getString(R.string.dnb15))) {
+                return false;
+            }
+            if (!validatorClass.EmptyTextBox(this, bi.dnb1601, "C")) {
+                return false;
+            }
+            if (!validatorClass.EmptyTextBox(this, bi.dnb1602, "C")) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb17, bi.dnb17c, getString(R.string.dnb17))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb18, bi.dnb18c, getString(R.string.dnb18))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb19, bi.dnb19b, getString(R.string.dnb19))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb1901a, bi.dnb1901ab, getString(R.string.dnb1901a))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb1901b, bi.dnb1901bb, getString(R.string.dnb1901b))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb1902a, bi.dnb1902ab, getString(R.string.dnb1902a))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb1902b, bi.dnb1902bb, getString(R.string.dnb1902b))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb20, bi.dnb20b, getString(R.string.dnb20))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb21, bi.dnb21b, getString(R.string.dnb21))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb22, bi.dnb22b, getString(R.string.dnb22))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb23, bi.dnb23a, bi.dnb23x, getString(R.string.dnb23))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb24, bi.dnb24a, bi.dnb24x, getString(R.string.dnb24))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb25, bi.dnb25a, bi.dnb25x, getString(R.string.dnb25))) {
+                return false;
+            }
+
+            if (bi.dnb25a.isChecked()) {
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb26, bi.dnb26b, bi.dnb26x, getString(R.string.dnb26))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb27, bi.dnb27b, getString(R.string.dnb27))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyTextBox(this, bi.dnb28, getString(R.string.dnb28))) {
+                    return false;
+                }
+            }
+
+        } else {
+            if (!validatorClass.EmptyTextBox(this, bi.dnb07, getString(R.string.dnb07))) {
+                return false;
+            }
+
+            if (!validatorClass.EmptyTextBox(this, bi.dnb08, getString(R.string.dnb08))) {
+                return false;
+            }
         }
 
         return true;
@@ -121,17 +238,79 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
 
     public void SaveDraft() throws JSONException {
 
+        SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
+        MainApp.nb = new NewBornContract();
+
+        MainApp.nb.setFormDate(dtToday);
+        MainApp.nb.setUser(MainApp.userName);
+        MainApp.nb.setDeviceId(Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                Settings.Secure.ANDROID_ID));
+        MainApp.nb.setDss_id_hh(MainApp.fc.getDSSID().toUpperCase());
+        MainApp.nb.setDevicetagID(sharedPref.getString("tagName", null));
+        MainApp.nb.setDss_id_member(bi.dcbid.getText().toString().toUpperCase());
+        MainApp.nb.setName(bi.dnb03.getText().toString());
+        MainApp.nb.setDss_id_m(bi.dnb05a.getText().toString());
+
+        JSONObject sNB = new JSONObject();
+        sNB.put("studyid", bi.dstudyid.getText().toString());
+        sNB.put("dnb04", bi.dnb04a.isChecked() ? "1" : bi.dnb04b.isChecked() ? "2" : "0");
+        sNB.put("dnb05", bi.dnb05.getText().toString());
+        sNB.put("dnb06", bi.dnb06.getText().toString());
+        sNB.put("dnbStatus", bi.dnbStatusa.isChecked() ? "1" : bi.dnbStatusb.isChecked() ? "2" : "0");
+        sNB.put("dnb09", bi.dnb09.getText().toString());
+        sNB.put("dnb10", bi.dnb10.getText().toString());
+        sNB.put("dnb11", bi.dnb11a.isChecked() ? "1" : bi.dnb11b.isChecked() ? "2" : bi.dnb11c.isChecked() ? "3"
+                : bi.dnb1196.isChecked() ? "96" : "0");
+        sNB.put("dnb11ax", bi.dnb11ax.getText().toString());
+        sNB.put("dnb1196x", bi.dnb1196x.getText().toString());
+        sNB.put("dnb12", bi.dnb12a.isChecked() ? "1" : bi.dnb12b.isChecked() ? "2" : bi.dnb12c.isChecked() ? "3"
+                : bi.dnb12d.isChecked() ? "4" : bi.dnb12e.isChecked() ? "5" : bi.dnb1296.isChecked() ? "96" : "0");
+        sNB.put("dnb1296x", bi.dnb1296x.getText().toString());
+        sNB.put("dnb13", bi.dnb13.getText().toString());
+        sNB.put("dnb1401", bi.dnb1401.getText().toString());
+        sNB.put("dnb1402", bi.dnb1402.getText().toString());
+        sNB.put("dnb15", bi.dnb15a.isChecked() ? "1" : bi.dnb15b.isChecked() ? "2" : "0");
+        sNB.put("dnb1601", bi.dnb1601.getText().toString());
+        sNB.put("dnb1602", bi.dnb1602.getText().toString());
+        sNB.put("dnb17", bi.dnb17a.isChecked() ? "1" : bi.dnb17b.isChecked() ? "2" : bi.dnb17c.isChecked() ? "3" : "0");
+        sNB.put("dnb18", bi.dnb18a.isChecked() ? "1" : bi.dnb18b.isChecked() ? "2" : bi.dnb18c.isChecked() ? "3" : "0");
+        sNB.put("dnb19", bi.dnb19a.isChecked() ? "1" : bi.dnb19b.isChecked() ? "2" : "0");
+        sNB.put("dnb1901a", bi.dnb1901aa.isChecked() ? "1" : bi.dnb1901ab.isChecked() ? "2" : "0");
+        sNB.put("dnb1901b", bi.dnb1901ba.isChecked() ? "1" : bi.dnb1901bb.isChecked() ? "2" : "0");
+        sNB.put("dnb1902a", bi.dnb1902aa.isChecked() ? "1" : bi.dnb1902ab.isChecked() ? "2" : "0");
+        sNB.put("dnb1902b", bi.dnb1902ba.isChecked() ? "1" : bi.dnb1902bb.isChecked() ? "2" : "0");
+        sNB.put("dnb20", bi.dnb20a.isChecked() ? "1" : bi.dnb20b.isChecked() ? "2" : "0");
+        sNB.put("dnb21", bi.dnb21a.isChecked() ? "1" : bi.dnb21b.isChecked() ? "2" : bi.dnb21c.isChecked() ? "3"
+                : bi.dnb21d.isChecked() ? "4" : "0");
+        sNB.put("dnb22", bi.dnb22a.isChecked() ? "1" : bi.dnb22b.isChecked() ? "2" : bi.dnb22c.isChecked() ? "3" : "0");
+        sNB.put("dnb23", bi.dnb23a.isChecked() ? "1" : bi.dnb23b.isChecked() ? "2" : "0");
+        sNB.put("dnb23x", bi.dnb23x.getText().toString());
+        sNB.put("dnb24", bi.dnb24a.isChecked() ? "1" : bi.dnb24b.isChecked() ? "2" : "0");
+        sNB.put("dnb24x", bi.dnb24x.getText().toString());
+        sNB.put("dnb25", bi.dnb25a.isChecked() ? "1" : bi.dnb25b.isChecked() ? "2" : "0");
+        sNB.put("dnb25x", bi.dnb25x.getText().toString());
+        sNB.put("dnb26", bi.dnb26a.isChecked() ? "1" : bi.dnb26b.isChecked() ? "2" : "0");
+        sNB.put("dnb26x", bi.dnb26x.getText().toString());
+        sNB.put("dnb27", bi.dnb27a.isChecked() ? "1" : bi.dnb27b.isChecked() ? "2" : "0");
+        sNB.put("dnb28", bi.dnb28.getText().toString());
+
+        MainApp.nb.setsNB(String.valueOf(sNB));
 
     }
 
+
     private boolean UpdateDB() {
-        DatabaseHelper db = new DatabaseHelper(this);
+        db = new DatabaseHelper(this);
+        Long updcount = db.addNewBorn(MainApp.nb);
+        MainApp.nb.set_ID(String.valueOf(updcount));
 
-        int updcount = db.updateSD();
+        if (updcount != 0) {
 
-        if (updcount == 1) {
-            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            MainApp.nb.set_UID(
+                    (MainApp.nb.getDeviceId() + MainApp.nb.get_ID()));
+            db.updateNewBornID();
+
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();

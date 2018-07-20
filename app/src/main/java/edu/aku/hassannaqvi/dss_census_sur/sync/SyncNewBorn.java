@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.dss_newBornFup_sur.sync;
+package edu.aku.hassannaqvi.dss_census_sur.sync;
 
 /**
  * Created by hassan.naqvi on 12/2/2016.
@@ -26,7 +26,6 @@ import java.util.Collection;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
-
 
 /**
  * Created by hassan.naqvi on 7/26/2016.

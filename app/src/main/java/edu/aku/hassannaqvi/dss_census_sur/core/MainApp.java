@@ -23,13 +23,13 @@ import java.util.List;
 import java.util.Map;
 
 import edu.aku.hassannaqvi.dss_census_sur.activities.EndingActivity;
-import edu.aku.hassannaqvi.dss_census_sur.activities.FamilyMembersActivity;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.CensusContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.DeceasedContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.HouseholdContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MotherContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.SectionKIMContract;
 import edu.aku.hassannaqvi.dss_census_sur.otherClasses.MothersLst;
 
@@ -71,6 +71,7 @@ public class MainApp extends Application {
     public static int loginFieldArea = -1;
     public static String child_name = "TEST";
     public static FormsContract fc;
+    public static NewBornContract nb;
     public static String userName = "0000";
     public static String areaCode;
     //    Total No of members got from Section A

@@ -33,10 +33,10 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract.singleMember
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MotherContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MotherContract.MotherTB;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract.newBornFup;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.SectionKIMContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.UsersContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.UsersContract.singleUser;
-import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract.newBornFup;
 import edu.aku.hassannaqvi.dss_census_sur.otherClasses.MothersLst;
 
 import static edu.aku.hassannaqvi.dss_census_sur.contracts.SectionKIMContract.singleIm;
@@ -267,7 +267,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             newBornFup.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             newBornFup.COLUMN_PROJECT_NAME + " TEXT," +
             newBornFup.COLUMN_UID + " TEXT," +
-            newBornFup.COLUMN_UUID + " TEXT," +
+            newBornFup.COLUMN_DSS_ID_HH + " TEXT," +
             newBornFup.COLUMN_FORMDATE + " TEXT," +
             newBornFup.COLUMN_USER + " TEXT," +
             newBornFup.COLUMN_DEVICEID + " TEXT," +
@@ -834,7 +834,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(newBornFup.COLUMN_ID, nbw.get_ID());
         values.put(newBornFup.COLUMN_PROJECT_NAME, nbw.getProjectName());
         values.put(newBornFup.COLUMN_UID, nbw.get_UID());
-        values.put(newBornFup.COLUMN_UUID, nbw.get_UUID());
+        values.put(newBornFup.COLUMN_DSS_ID_HH, nbw.getDss_id_hh());
         values.put(newBornFup.COLUMN_FORMDATE, nbw.getFormDate());
         values.put(newBornFup.COLUMN_USER, nbw.getUser());
         values.put(newBornFup.COLUMN_DEVICEID, nbw.getDeviceId());
@@ -1221,6 +1221,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public int updateNewBornID() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(newBornFup.COLUMN_UID, MainApp.nb.get_UID());
+
+// Which row to update, based on the ID
+        String selection = newBornFup._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(MainApp.nb.get_ID())};
+
+        int count = db.update(newBornFup.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
 
     public int updateFormID() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -1301,7 +1319,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 newBornFup.COLUMN_ID,
                 newBornFup.COLUMN_UID,
-                newBornFup.COLUMN_UUID,
+                newBornFup.COLUMN_DSS_ID_HH,
                 newBornFup.COLUMN_FORMDATE,
                 newBornFup.COLUMN_USER,
                 newBornFup.COLUMN_DEVICEID,
@@ -2201,6 +2219,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(MainApp.fc.getUID())};
 
         int count = db.update(censusMember.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int updateNB() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(newBornFup.COLUMN_ISTATUS, MainApp.nb.getIstatus());
+
+// Which row to update, based on the ID
+        String selection = newBornFup.COLUMN_UID + "=?";
+        String[] selectionArgs = {MainApp.nb.get_UID()};
+
+        int count = db.update(newBornFup.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);

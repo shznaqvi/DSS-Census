@@ -15,7 +15,7 @@ public class NewBornContract {
     private final String projectName = "DSS Census - Surveillance";
     private String _ID;
     private String _UID;
-    private String _UUID;
+    private String dss_id_hh;
     private String formDate;
     private String user;
     private String deviceId;
@@ -53,12 +53,12 @@ public class NewBornContract {
         this._UID = _UID;
     }
 
-    public String get_UUID() {
-        return _UUID;
+    public String getDss_id_hh() {
+        return dss_id_hh;
     }
 
-    public void set_UUID(String _UUID) {
-        this._UUID = _UUID;
+    public void setDss_id_hh(String dss_id_hh) {
+        this.dss_id_hh = dss_id_hh;
     }
 
     public String getFormDate() {
@@ -161,7 +161,7 @@ public class NewBornContract {
 
         this._ID = jsonObject.getString(newBornFup.COLUMN_ID);
         this._UID = jsonObject.getString(newBornFup.COLUMN_UID);
-        this._UUID = jsonObject.getString(newBornFup.COLUMN_UUID);
+        this.dss_id_hh = jsonObject.getString(newBornFup.COLUMN_DSS_ID_HH);
         this.formDate = jsonObject.getString(newBornFup.COLUMN_FORMDATE);
         this.user = jsonObject.getString(newBornFup.COLUMN_USER);
         this.deviceId = jsonObject.getString(newBornFup.COLUMN_DEVICEID);
@@ -183,7 +183,7 @@ public class NewBornContract {
 
         this._ID = cursor.getString(cursor.getColumnIndex(newBornFup.COLUMN_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(newBornFup.COLUMN_UID));
-        this._UUID = cursor.getString(cursor.getColumnIndex(newBornFup.COLUMN_UUID));
+        this.dss_id_hh = cursor.getString(cursor.getColumnIndex(newBornFup.COLUMN_DSS_ID_HH));
         this.formDate = cursor.getString(cursor.getColumnIndex(newBornFup.COLUMN_FORMDATE));
         this.user = cursor.getString(cursor.getColumnIndex(newBornFup.COLUMN_USER));
         this.deviceId = cursor.getString(cursor.getColumnIndex(newBornFup.COLUMN_DEVICEID));
@@ -209,7 +209,7 @@ public class NewBornContract {
         json.put(newBornFup.COLUMN_PROJECT_NAME, this.projectName == null ? JSONObject.NULL : this.projectName);
         json.put(newBornFup.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(newBornFup.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
-        json.put(newBornFup.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
+        json.put(newBornFup.COLUMN_DSS_ID_HH, this.dss_id_hh == null ? JSONObject.NULL : this.dss_id_hh);
         json.put(newBornFup.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(newBornFup.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
         json.put(newBornFup.COLUMN_DEVICEID, this.deviceId == null ? JSONObject.NULL : this.deviceId);
@@ -234,7 +234,7 @@ public class NewBornContract {
         public static final String COLUMN_PROJECT_NAME = "project_name";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
-        public static final String COLUMN_UUID = "_uuid";
+        public static final String COLUMN_DSS_ID_HH = "dss_id_hh";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_USER = "user";
         public static final String COLUMN_DEVICEID = "deviceid";

@@ -1008,4 +1008,32 @@
     <string name="dcbis05Place96"> دیگر </string>
     <string name="dcbis04prvDSSID"> Previous DSS-ID</string>
 
+  <string name="dsb01"> بچے کا جنس؟ </string>
+  <string name="dsb01a"> لڑکا </string>
+  <string name="dsb01b"> لڑکی </string>
+  <string name="dsb0198"> معلوم نہیں </string>
+  <string name="dsb02"> بچے کا وزن (اگر کیا ہو تو) اگر نہیں کیا گیا تو 8888 لکھیں؂ </string>
+  <string name="dsb02a"> گرام </string>
+  <string name="dsb03"> کیا بچے نے پیدائش کے بعد سانس لی؟ (تھوڑا سابھی) </string>
+  <string name="dsb03a"> ہاں </string>
+  <string name="dsb03b"> نہیں </string>
+  <string name="dsb0398"> معلوم نہیں </string>
+  <string name="dsb04"> کیا بچے پیدائش کے بعد رویا ؟ (تھوڑا سابھی) </string>
+  <string name="dsb04a"> ہاں </string>
+  <string name="dsb04b"> نہیں </string>
+  <string name="dsb0498"> معلوم نہیں </string>
+  <string name="dsb05"> کیا بچے پیدائش کے بعد حرکت کی ؟(تھوڑا سابھی) </string>
+  <string name="dsb05a"> ہاں </string>
+  <string name="dsb05b"> نہیں </string>
+  <string name="dsb0598"> معلوم نہیں </string>
+  <string name="dsb06"> اگربچہ پیدائش کے بعد نہیں رویا ، حرکت نہیں کی اور سانس نہیں لی تو کیا بچہ مردہ پیدا ہوا تھا؟ </string>
+  <string name="dsb06a"> ہاں </string>
+  <string name="dsb06b"> نہیں </string>
+  <string name="dsb0698"> معلوم نہیں </string>
+  <string name="dsb07"> کیا بچہ گلا سڑا تھا یا گلنے سڑنے کے علامات موجود ہے؟ </string>
+  <string name="dsb07a"> ہاں </string>
+  <string name="dsb07b"> نہیں </string>
+  <string name="dsb0798"> معلوم نہیں </string>
+  <string name="dsb08"> مرنے کی وجہ؟ </string>
+
 </resources>
