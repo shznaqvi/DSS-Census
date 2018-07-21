@@ -34,6 +34,8 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.MotherContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MotherContract.MotherTB;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract.newBornFup;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.PWContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.PWContract.pWFup;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.SectionKIMContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.UsersContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.UsersContract.singleUser;
@@ -282,6 +284,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             newBornFup.COLUMN_SYNCEDDATE + " TEXT" +
             ");";
 
+    final String SQL_CREATE_STILLBIRTH = "CREATE TABLE " + pWFup.TABLE_NAME + " (" +
+            pWFup.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            pWFup.COLUMN_PROJECT_NAME + " TEXT," +
+            pWFup.COLUMN_UID + " TEXT," +
+            pWFup.COLUMN_UUID + " TEXT," +
+            pWFup.COLUMN_WUID + " TEXT," +
+            pWFup.COLUMN_FORMDATE + " TEXT," +
+            pWFup.COLUMN_USER + " TEXT," +
+            pWFup.COLUMN_DEVICEID + " TEXT," +
+            pWFup.COLUMN_DEVICETAGID + " TEXT," +
+            pWFup.COLUMN_DSS_ID_MEMBER + " TEXT," +
+            pWFup.COLUMN_SPW + " TEXT," +
+            pWFup.COLUMN_NAME + " TEXT," +
+            pWFup.COLUMN_ISTATUS + " TEXT," +
+            pWFup.COLUMN_APPVER + " TEXT," +
+            pWFup.COLUMN_SYNCED + " TEXT," +
+            pWFup.COLUMN_SYNCEDDATE + " TEXT" +
+
+            ");";
+
 
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
@@ -336,8 +358,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_DECEASED);
         db.execSQL(SQL_CREATE_MOTHER);
         db.execSQL(SQL_CREATE_SEC_K_IM);
-
         db.execSQL(SQL_CREATE_FOLLOWUPS);
+        db.execSQL(SQL_CREATE_NEWBORN);
+        db.execSQL(SQL_CREATE_STILLBIRTH);
     }
 
     @Override
@@ -355,6 +378,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         switch (i) {
             case 1:
                 db.execSQL(SQL_CREATE_NEWBORN);
+                db.execSQL(SQL_CREATE_STILLBIRTH);
         }
     }
 
@@ -857,6 +881,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+    public Long addPWomen(PWContract pwr) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(pWFup.COLUMN_ID, pwr.getID());
+        values.put(pWFup.COLUMN_PROJECT_NAME, pwr.getProjectName());
+        values.put(pWFup.COLUMN_UID, pwr.getUID());
+        values.put(pWFup.COLUMN_UUID, pwr.getUUID());
+        values.put(pWFup.COLUMN_WUID, pwr.getWUID());
+        values.put(pWFup.COLUMN_FORMDATE, pwr.getFormDate());
+        values.put(pWFup.COLUMN_USER, pwr.getUser());
+        values.put(pWFup.COLUMN_DEVICEID, pwr.getDeviceId());
+        values.put(pWFup.COLUMN_DEVICETAGID, pwr.getDevicetagID());
+        values.put(pWFup.COLUMN_DSS_ID_MEMBER, pwr.getDss_id_member());
+        values.put(pWFup.COLUMN_SPW, pwr.getsPW());
+        values.put(pWFup.COLUMN_NAME, pwr.getName());
+        values.put(pWFup.COLUMN_ISTATUS, pwr.getIstatus());
+        values.put(pWFup.COLUMN_APPVER, pwr.getAppver());
+        values.put(pWFup.COLUMN_SYNCED, pwr.getSynced());
+        values.put(pWFup.COLUMN_SYNCEDDATE, pwr.getSyncedDate());
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                pWFup.TABLE_NAME,
+                pWFup.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
     public Long addMother(MotherContract mc) {
 
         // Gets the data repository in write mode
@@ -1127,6 +1184,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs);
     }
 
+    public void updatePW(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(pWFup.COLUMN_SYNCED, true);
+        values.put(pWFup.COLUMN_SYNCEDDATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = pWFup.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                pWFup.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
     public void updateCensus(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -1229,7 +1305,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(newBornFup.COLUMN_UID, MainApp.nb.get_UID());
 
 // Which row to update, based on the ID
-        String selection = newBornFup._ID + " = ?";
+        String selection = newBornFup.COLUMN_ID + " = ?";
         String[] selectionArgs = {String.valueOf(MainApp.nb.get_ID())};
 
         int count = db.update(newBornFup.TABLE_NAME,
@@ -1239,6 +1315,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public int updatePWID() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(pWFup.COLUMN_UID, MainApp.pw.getUID());
+
+// Which row to update, based on the ID
+        String selection = pWFup.COLUMN_ID + " = ?";
+        String[] selectionArgs = {String.valueOf(MainApp.pw.getID())};
+
+        int count = db.update(pWFup.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
 
     public int updateFormID() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -1257,7 +1350,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
         return count;
     }
-
 
     public int updateCensusID() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -1363,6 +1455,58 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allNB;
+    }
+
+    public Collection<PWContract> getUnsyncedPW() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                pWFup.COLUMN_ID,
+                pWFup.COLUMN_PROJECT_NAME,
+                pWFup.COLUMN_UID,
+                pWFup.COLUMN_UUID,
+                pWFup.COLUMN_WUID,
+                pWFup.COLUMN_FORMDATE,
+                pWFup.COLUMN_USER,
+                pWFup.COLUMN_DEVICEID,
+                pWFup.COLUMN_DEVICETAGID,
+                pWFup.COLUMN_DSS_ID_MEMBER,
+                pWFup.COLUMN_SPW,
+                pWFup.COLUMN_NAME,
+                pWFup.COLUMN_ISTATUS,
+                pWFup.COLUMN_APPVER
+        };
+        String whereClause = pWFup.COLUMN_SYNCED + " is null";
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                pWFup.COLUMN_ID + " ASC";
+
+        Collection<PWContract> allPW = new ArrayList<>();
+        try {
+            c = db.query(
+                    pWFup.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                allPW.add(new PWContract().Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allPW;
     }
 
     public Collection<MotherContract> getUnsyncedMother() {

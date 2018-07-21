@@ -30,6 +30,7 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.HouseholdContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MotherContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.PWContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.SectionKIMContract;
 import edu.aku.hassannaqvi.dss_census_sur.otherClasses.MothersLst;
 
@@ -72,6 +73,7 @@ public class MainApp extends Application {
     public static String child_name = "TEST";
     public static FormsContract fc;
     public static NewBornContract nb;
+    public static PWContract pw;
     public static String userName = "0000";
     public static String areaCode;
     //    Total No of members got from Section A

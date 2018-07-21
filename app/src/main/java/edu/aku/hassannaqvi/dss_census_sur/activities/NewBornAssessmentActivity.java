@@ -141,7 +141,7 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
             if (!validatorClass.EmptyTextBox(this, bi.dnb10, getString(R.string.dnb10))) {
                 return false;
             }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb11, bi.dnb1196, bi.dnb1196, getString(R.string.dnb11))) {
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb11, bi.dnb1196, bi.dnb1196x, getString(R.string.dnb11))) {
                 return false;
             }
             if (bi.dnb11a.isChecked()) {
@@ -150,7 +150,7 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
                 }
             }
 
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb12, bi.dnb12a, bi.dnb1296, getString(R.string.dnb12))) {
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb12, bi.dnb12a, bi.dnb1296x, getString(R.string.dnb12))) {
                 return false;
             }
             if (!validatorClass.EmptyTextBox(this, bi.dnb13, getString(R.string.dnb13))) {

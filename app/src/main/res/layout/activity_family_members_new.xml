@@ -68,6 +68,8 @@
             android:orientation="vertical"
             android:paddingLeft="@dimen/article_keylines"
             android:paddingRight="@dimen/md_keylines"
+            android:paddingEnd="@dimen/md_keylines"
+            android:paddingStart="@dimen/article_keylines"
             android:paddingTop="@dimen/md_keylines">
 
             <android.support.v7.widget.RecyclerView
@@ -96,6 +98,7 @@
         android:layout_marginBottom="20dp"
         android:layout_marginRight="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent">
 
         <ProgressBar
