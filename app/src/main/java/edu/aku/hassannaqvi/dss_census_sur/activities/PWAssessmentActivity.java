@@ -13,6 +13,7 @@ import java.util.Date;
 import edu.aku.hassannaqvi.dss_census_sur.R;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.databinding.ActivityPwAssessmentBinding;
+import edu.aku.hassannaqvi.dss_census_sur.validation.validatorClass;
 
 public class PWAssessmentActivity extends AppCompatActivity {
     ActivityPwAssessmentBinding bi;
@@ -30,7 +31,6 @@ public class PWAssessmentActivity extends AppCompatActivity {
         db = new DatabaseHelper(this);
 
         setContentsUI();
-
     }
 
     public void setContentsUI() {
@@ -48,6 +48,12 @@ public class PWAssessmentActivity extends AppCompatActivity {
     public void BtnContinue() {
 
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+
+        if (formValidation()) {
+
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+        }
         /*if (formValidation()) {
             try {
                 SaveDraft();
@@ -68,7 +74,17 @@ public class PWAssessmentActivity extends AppCompatActivity {
     }
 
     public boolean formValidation() {
+        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
 
+        if (!validatorClass.EmptyRadioButton(this, bi.dsa01, bi.dsa01a, getString(R.string.dsa01))) {
+            return false;
+        }
+
+        if (bi.dsa01b.isChecked()) {
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa02, bi.dsa0298, getString(R.string.dsa02))) {
+                return false;
+            }
+        }
 
         return true;
     }
