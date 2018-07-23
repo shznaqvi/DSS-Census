@@ -6,11 +6,13 @@ import android.provider.BaseColumns;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 /**
  * Created by hassan.naqvi on 11/30/2016.
  */
 
-public class CensusContract {
+public class CensusContract implements Serializable {
 
     private final String projectName = "DSS Census";
     private String _ID = "";

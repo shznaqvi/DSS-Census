@@ -295,6 +295,8 @@ public class SectionAActivity extends AppCompatActivity {
 
     public static int memFlag = 0;
 
+    public static int sbCount = 0, livCount = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -1126,6 +1128,7 @@ public class SectionAActivity extends AppCompatActivity {
         sa.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
         sa.put("dca03", dca03.getText().toString());
         sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : dca0404.isChecked() ? "4" : dca0405.isChecked() ? "5" : "0");
+        sa.put("visit_type", HouseholdListActivity.visitType);
         /*sa.put("dca05", dca05.getText().toString());
         sa.put("dca0501", dca050101.isChecked() ? "1" : dca050102.isChecked() ? "2" : "0");
         //sa.put("dca0502", dca050201.isChecked() ? "1" : dca050202.isChecked() ? "2" : "0");

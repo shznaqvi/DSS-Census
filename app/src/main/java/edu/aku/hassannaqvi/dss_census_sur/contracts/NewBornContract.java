@@ -233,7 +233,7 @@ public class NewBornContract {
 
         public static final String COLUMN_PROJECT_NAME = "project_name";
         public static final String COLUMN_ID = "_id";
-        public static final String COLUMN_UID = "_uid";
+        public static final String COLUMN_UID = "uid";
         public static final String COLUMN_DSS_ID_HH = "dss_id_hh";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_USER = "user";

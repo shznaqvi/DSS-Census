@@ -312,10 +312,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             sBFup.COLUMN_UUID + " TEXT," +
             sBFup.COLUMN_MUID + " TEXT," +
             sBFup.COLUMN_FORMDATE + " TEXT," +
+            sBFup.COLUMN_DSS_ID_HH + " TEXT," +
             sBFup.COLUMN_USER + " TEXT," +
             sBFup.COLUMN_DEVICEID + " TEXT," +
             sBFup.COLUMN_DEVICETAGID + " TEXT," +
-            sBFup.COLUMN_DSS_ID_MEMBER + " TEXT," +
+            sBFup.COLUMN_DSS_ID_M + " TEXT," +
             sBFup.COLUMN_SPW + " TEXT," +
             sBFup.COLUMN_NAME + " TEXT," +
             sBFup.COLUMN_ISTATUS + " TEXT," +
@@ -949,10 +950,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(sBFup.COLUMN_UUID, sbr.getUUID());
         values.put(sBFup.COLUMN_MUID, sbr.getMUID());
         values.put(sBFup.COLUMN_FORMDATE, sbr.getFormDate());
+        values.put(sBFup.COLUMN_DSS_ID_HH, sbr.getDss_id_hh());
         values.put(sBFup.COLUMN_USER, sbr.getUser());
         values.put(sBFup.COLUMN_DEVICEID, sbr.getDeviceId());
         values.put(sBFup.COLUMN_DEVICETAGID, sbr.getDevicetagID());
-        values.put(sBFup.COLUMN_DSS_ID_MEMBER, sbr.getDss_id_member());
+        values.put(sBFup.COLUMN_DSS_ID_M, sbr.getdss_id_m());
         values.put(sBFup.COLUMN_SPW, sbr.getsSB());
         values.put(sBFup.COLUMN_NAME, sbr.getName());
         values.put(sBFup.COLUMN_ISTATUS, sbr.getIstatus());
@@ -1376,11 +1378,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(newBornFup.COLUMN_UID, MainApp.nb.get_UID());
+        values.put(newBornFup.COLUMN_UID, MainApp.sb.getUID());
 
 // Which row to update, based on the ID
         String selection = newBornFup.COLUMN_ID + " = ?";
-        String[] selectionArgs = {String.valueOf(MainApp.nb.get_ID())};
+        String[] selectionArgs = {String.valueOf(MainApp.sb.getID())};
 
         int count = db.update(newBornFup.TABLE_NAME,
                 values,
@@ -1611,10 +1613,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 sBFup.COLUMN_UUID,
                 sBFup.COLUMN_MUID,
                 sBFup.COLUMN_FORMDATE,
+                sBFup.COLUMN_DSS_ID_HH,
                 sBFup.COLUMN_USER,
                 sBFup.COLUMN_DEVICEID,
                 sBFup.COLUMN_DEVICETAGID,
-                sBFup.COLUMN_DSS_ID_MEMBER,
+                sBFup.COLUMN_DSS_ID_M,
                 sBFup.COLUMN_SPW,
                 sBFup.COLUMN_NAME,
                 sBFup.COLUMN_ISTATUS,

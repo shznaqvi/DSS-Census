@@ -26,7 +26,6 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -162,21 +161,35 @@ public class FamilyMembersActivity extends AppCompatActivity {
                                         progressDialog.setVisibility(View.GONE);
 
                                         if (item.getItemId() == R.id.add_member) {
-                                            if (MainApp.familyMembersList.size() == SectionAActivity.memFlag) {
+
+                                            if (HouseholdListActivity.visitType == 1) {
+                                                if (MainApp.familyMembersList.size() == SectionAActivity.memFlag) {
+                                                    MainApp.TotalMembersCount++;
+                                                    startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
+                                                            .putExtra("followUpData", SectionAActivity.fp)
+                                                            .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
+                                                } else {
+                                                    Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
+                                                }
+                                            } else {
                                                 MainApp.TotalMembersCount++;
                                                 startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
                                                         .putExtra("followUpData", SectionAActivity.fp)
                                                         .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
-                                            } else {
-                                                Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
                                             }
+
                                         } else if (item.getItemId() == R.id.next_activity) {
-                                            if (MainApp.familyMembersList.size() == SectionAActivity.memFlag) {
 
-                                                showDialog(true, "Are you sure to proceed?");
+                                            if (HouseholdListActivity.visitType == 1) {
+                                                if (MainApp.familyMembersList.size() == SectionAActivity.memFlag) {
 
+                                                    showDialog(true, "Are you sure to proceed?");
+
+                                                } else {
+                                                    Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
+                                                }
                                             } else {
-                                                Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
+                                                showDialog(true, "Are you sure to proceed?");
                                             }
                                         } else {
                                             showDialog(false, "Are you sure to force exit?");

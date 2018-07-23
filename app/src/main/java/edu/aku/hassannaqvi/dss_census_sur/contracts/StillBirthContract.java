@@ -19,9 +19,10 @@ public class StillBirthContract {
     private String MUID;
     private String formDate;
     private String user;
+    private String dss_id_hh;
     private String deviceId;
     private String devicetagID;
-    private String dss_id_member;
+    private String dss_id_m;
     private String sSB;
     private String name;
     private String istatus;
@@ -101,12 +102,12 @@ public class StillBirthContract {
         this.devicetagID = devicetagID;
     }
 
-    public String getDss_id_member() {
-        return dss_id_member;
+    public String getdss_id_m() {
+        return dss_id_m;
     }
 
-    public void setDss_id_member(String dss_id_member) {
-        this.dss_id_member = dss_id_member;
+    public void setdss_id_m(String dss_id_m) {
+        this.dss_id_m = dss_id_m;
     }
 
     public String getsSB() {
@@ -157,6 +158,14 @@ public class StillBirthContract {
         this.syncedDate = syncedDate;
     }
 
+    public String getDss_id_hh() {
+        return dss_id_hh;
+    }
+
+    public void setDss_id_hh(String dss_id_hh) {
+        this.dss_id_hh = dss_id_hh;
+    }
+
     public StillBirthContract Sync(JSONObject jsonObject) throws JSONException {
 
         this.ID = jsonObject.getString(sBFup.COLUMN_ID);
@@ -167,13 +176,14 @@ public class StillBirthContract {
         this.user = jsonObject.getString(sBFup.COLUMN_USER);
         this.deviceId = jsonObject.getString(sBFup.COLUMN_DEVICEID);
         this.devicetagID = jsonObject.getString(sBFup.COLUMN_DEVICETAGID);
-        this.dss_id_member = jsonObject.getString(sBFup.COLUMN_DSS_ID_MEMBER);
+        this.dss_id_m = jsonObject.getString(sBFup.COLUMN_DSS_ID_M);
         this.sSB = jsonObject.getString(sBFup.COLUMN_SPW);
         this.name = jsonObject.getString(sBFup.COLUMN_NAME);
         this.istatus = jsonObject.getString(sBFup.COLUMN_ISTATUS);
         this.appver = jsonObject.getString(sBFup.COLUMN_APPVER);
         this.synced = jsonObject.getString(sBFup.COLUMN_SYNCED);
         this.syncedDate = jsonObject.getString(sBFup.COLUMN_SYNCEDDATE);
+        this.dss_id_hh = jsonObject.getString(sBFup.COLUMN_DSS_ID_HH);
 
         return this;
 
@@ -189,13 +199,14 @@ public class StillBirthContract {
         this.user = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_USER));
         this.deviceId = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_DEVICEID));
         this.devicetagID = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_DEVICETAGID));
-        this.dss_id_member = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_DSS_ID_MEMBER));
+        this.dss_id_m = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_DSS_ID_M));
         this.sSB = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_SPW));
         this.name = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_NAME));
         this.istatus = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_ISTATUS));
         this.appver = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_APPVER));
         this.synced = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_SYNCED));
         this.syncedDate = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_SYNCEDDATE));
+        this.dss_id_hh = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_DSS_ID_HH));
 
 
         return this;
@@ -216,13 +227,14 @@ public class StillBirthContract {
         json.put(sBFup.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
         json.put(sBFup.COLUMN_DEVICEID, this.deviceId == null ? JSONObject.NULL : this.deviceId);
         json.put(sBFup.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
-        json.put(sBFup.COLUMN_DSS_ID_MEMBER, this.dss_id_member == null ? JSONObject.NULL : this.dss_id_member);
+        json.put(sBFup.COLUMN_DSS_ID_M, this.dss_id_m == null ? JSONObject.NULL : this.dss_id_m);
         json.put(sBFup.COLUMN_SPW, this.sSB == null ? JSONObject.NULL : new JSONObject(this.sSB));
         json.put(sBFup.COLUMN_NAME, this.name == null ? JSONObject.NULL : this.name);
         json.put(sBFup.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
         json.put(sBFup.COLUMN_APPVER, this.appver == null ? JSONObject.NULL : this.appver);
         json.put(sBFup.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
         json.put(sBFup.COLUMN_SYNCEDDATE, this.syncedDate == null ? JSONObject.NULL : this.syncedDate);
+        json.put(sBFup.COLUMN_DSS_ID_HH, this.dss_id_hh == null ? JSONObject.NULL : this.dss_id_hh);
 
 
         return json;
@@ -234,15 +246,16 @@ public class StillBirthContract {
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
 
         public static final String COLUMN_PROJECT_NAME = "project_name";
-        public static final String COLUMN_ID = "id";
+        public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "uid";
         public static final String COLUMN_UUID = "uuid";
         public static final String COLUMN_MUID = "muid";
+        public static final String COLUMN_DSS_ID_HH = "dss_id_hh";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_USER = "user";
         public static final String COLUMN_DEVICEID = "deviceid";
         public static final String COLUMN_DEVICETAGID = "devicetagid";
-        public static final String COLUMN_DSS_ID_MEMBER = "dss_id_member";
+        public static final String COLUMN_DSS_ID_M = "dss_id_m";
         public static final String COLUMN_SPW = "ssb";
         public static final String COLUMN_NAME = "name";
         public static final String COLUMN_ISTATUS = "istatus";
