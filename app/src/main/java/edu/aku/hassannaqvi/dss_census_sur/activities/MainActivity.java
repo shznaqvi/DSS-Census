@@ -209,9 +209,9 @@ public class MainActivity extends Activity {
         return true;
     }
 
-    public void openForm(View v) {
+    public void openForm(final int i) {
         if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null && !MainApp.userName.equals("0000")) {
-            startActivity();
+            startActivity(i);
         } else {
 
             builder = new AlertDialog.Builder(MainActivity.this);
@@ -233,7 +233,7 @@ public class MainActivity extends Activity {
                         editor.commit();
 
                         if (!MainApp.userName.equals("0000")) {
-                            startActivity();
+                            startActivity(i);
                         }
                     }
                 }
@@ -249,18 +249,28 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void startActivity() {
+    public void startActivity(int i) {
         if (openFormGpsCheck() && !MainApp.regionDss.equals("")) {
-            Intent oF = new Intent(MainActivity.this, HouseholdListActivity.class);
+            Intent oF = null;
+            switch (i) {
+                case 1:
+                    oF = new Intent(MainActivity.this, HouseholdListActivity.class);
+                    break;
+                case 2:
+                    oF = new Intent(MainActivity.this, HouseholdListActivity.class)
+                            .putExtra("visit", 2);
+                    break;
+                case 3:
+                    oF = new Intent(MainActivity.this, NewBornAssessmentActivity.class);
+                    break;
+                case 4:
+                    oF = new Intent(MainActivity.this, StillBirthReportActivity.class);
+                    break;
+            }
             startActivity(oF);
         } else {
             Toast.makeText(getApplicationContext(), "Please re-login app!", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    public void openNB(View v) {
-        Intent iMem = new Intent(this, NewBornAssessmentActivity.class);
-        startActivity(iMem);
     }
 
     public void openADR(View v) {
@@ -380,41 +390,6 @@ public class MainActivity extends Activity {
         Intent cluster_list = new Intent(getApplicationContext(), FormsList.class);
         cluster_list.putExtra("dssid", MainApp.regionDss);
         startActivity(cluster_list);
-
-    }
-
-    public void syncSg(View view) {
-
-        // Require permissions INTERNET & ACCESS_NETWORK_STATE
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected()) {
-            Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-            new SyncForms(this, false).execute();
-
-/*            Toast.makeText(getApplicationContext(), "Syncing Census", Toast.LENGTH_SHORT).show();
-            new SyncCensus(this).execute();
-
-            Toast.makeText(getApplicationContext(), "Syncing Deceased", Toast.LENGTH_SHORT).show();
-            new SyncDeceased(this).execute();*/
-
-//            Toast.makeText(getApplicationContext(), "Syncing Mother", Toast.LENGTH_SHORT).show();
-//            new SyncMother(this).execute();
-
-/*            Toast.makeText(getApplicationContext(), "Syncing IM", Toast.LENGTH_SHORT).show();
-            new SyncIM(this).execute();*/
-
-            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = syncPref.edit();
-
-            editor.putString("LastUpSyncServer", dtToday);
-
-            editor.apply();
-
-        } else {
-            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
-        }
 
     }
 

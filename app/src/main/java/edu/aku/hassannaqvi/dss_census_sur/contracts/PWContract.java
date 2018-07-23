@@ -230,7 +230,7 @@ public class PWContract {
 
     public static abstract class pWFup implements BaseColumns {
 
-        public static final String TABLE_NAME = "stillBirth";
+        public static final String TABLE_NAME = "pregnantWomen";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
 
         public static final String COLUMN_PROJECT_NAME = "project_name";
@@ -250,7 +250,7 @@ public class PWContract {
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCEDDATE = "synceddate";
 
-        public static String _URL = "sbirth_data.php";
+        public static String _URL = "pwomen_data.php";
     }
 
 }

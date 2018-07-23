@@ -37,6 +37,8 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract.newBornFup;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.PWContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.PWContract.pWFup;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.SectionKIMContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.StillBirthContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.StillBirthContract.sBFup;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.UsersContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.UsersContract.singleUser;
 import edu.aku.hassannaqvi.dss_census_sur.otherClasses.MothersLst;
@@ -284,7 +286,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             newBornFup.COLUMN_SYNCEDDATE + " TEXT" +
             ");";
 
-    final String SQL_CREATE_STILLBIRTH = "CREATE TABLE " + pWFup.TABLE_NAME + " (" +
+    final String SQL_CREATE_PREGNANT_WOMEN = "CREATE TABLE " + pWFup.TABLE_NAME + " (" +
             pWFup.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             pWFup.COLUMN_PROJECT_NAME + " TEXT," +
             pWFup.COLUMN_UID + " TEXT," +
@@ -301,7 +303,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             pWFup.COLUMN_APPVER + " TEXT," +
             pWFup.COLUMN_SYNCED + " TEXT," +
             pWFup.COLUMN_SYNCEDDATE + " TEXT" +
+            ");";
 
+    final String SQL_CREATE_STILL_BIRTH = "CREATE TABLE " + sBFup.TABLE_NAME + " (" +
+            sBFup.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            sBFup.COLUMN_PROJECT_NAME + " TEXT," +
+            sBFup.COLUMN_UID + " TEXT," +
+            sBFup.COLUMN_UUID + " TEXT," +
+            sBFup.COLUMN_MUID + " TEXT," +
+            sBFup.COLUMN_FORMDATE + " TEXT," +
+            sBFup.COLUMN_USER + " TEXT," +
+            sBFup.COLUMN_DEVICEID + " TEXT," +
+            sBFup.COLUMN_DEVICETAGID + " TEXT," +
+            sBFup.COLUMN_DSS_ID_MEMBER + " TEXT," +
+            sBFup.COLUMN_SPW + " TEXT," +
+            sBFup.COLUMN_NAME + " TEXT," +
+            sBFup.COLUMN_ISTATUS + " TEXT," +
+            sBFup.COLUMN_APPVER + " TEXT," +
+            sBFup.COLUMN_SYNCED + " TEXT," +
+            sBFup.COLUMN_SYNCEDDATE + " TEXT" +
             ");";
 
 
@@ -360,7 +380,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_SEC_K_IM);
         db.execSQL(SQL_CREATE_FOLLOWUPS);
         db.execSQL(SQL_CREATE_NEWBORN);
-        db.execSQL(SQL_CREATE_STILLBIRTH);
+        db.execSQL(SQL_CREATE_PREGNANT_WOMEN);
+        db.execSQL(SQL_CREATE_STILL_BIRTH);
     }
 
     @Override
@@ -378,7 +399,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         switch (i) {
             case 1:
                 db.execSQL(SQL_CREATE_NEWBORN);
-                db.execSQL(SQL_CREATE_STILLBIRTH);
+                db.execSQL(SQL_CREATE_PREGNANT_WOMEN);
+                db.execSQL(SQL_CREATE_STILL_BIRTH);
         }
     }
 
@@ -914,6 +936,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+    public Long addSBirth(StillBirthContract sbr) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(sBFup.COLUMN_ID, sbr.getID());
+        values.put(sBFup.COLUMN_PROJECT_NAME, sbr.getProjectName());
+        values.put(sBFup.COLUMN_UID, sbr.getUID());
+        values.put(sBFup.COLUMN_UUID, sbr.getUUID());
+        values.put(sBFup.COLUMN_MUID, sbr.getMUID());
+        values.put(sBFup.COLUMN_FORMDATE, sbr.getFormDate());
+        values.put(sBFup.COLUMN_USER, sbr.getUser());
+        values.put(sBFup.COLUMN_DEVICEID, sbr.getDeviceId());
+        values.put(sBFup.COLUMN_DEVICETAGID, sbr.getDevicetagID());
+        values.put(sBFup.COLUMN_DSS_ID_MEMBER, sbr.getDss_id_member());
+        values.put(sBFup.COLUMN_SPW, sbr.getsSB());
+        values.put(sBFup.COLUMN_NAME, sbr.getName());
+        values.put(sBFup.COLUMN_ISTATUS, sbr.getIstatus());
+        values.put(sBFup.COLUMN_APPVER, sbr.getAppver());
+        values.put(sBFup.COLUMN_SYNCED, sbr.getSynced());
+        values.put(sBFup.COLUMN_SYNCEDDATE, sbr.getSyncedDate());
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                sBFup.TABLE_NAME,
+                sBFup.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
     public Long addMother(MotherContract mc) {
 
         // Gets the data repository in write mode
@@ -1203,6 +1258,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs);
     }
 
+    public void updateSBirth(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(sBFup.COLUMN_SYNCED, true);
+        values.put(sBFup.COLUMN_SYNCEDDATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = sBFup.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                sBFup.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
     public void updateCensus(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -1327,6 +1401,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(MainApp.pw.getID())};
 
         int count = db.update(pWFup.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int updateStillBirthID() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(sBFup.COLUMN_UID, MainApp.pw.getUID());
+
+// Which row to update, based on the ID
+        String selection = sBFup.COLUMN_ID + " = ?";
+        String[] selectionArgs = {String.valueOf(MainApp.pw.getID())};
+
+        int count = db.update(sBFup.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -1497,6 +1589,58 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 allPW.add(new PWContract().Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allPW;
+    }
+
+    public Collection<StillBirthContract> getUnsyncedStillBirth() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                sBFup.COLUMN_ID,
+                sBFup.COLUMN_PROJECT_NAME,
+                sBFup.COLUMN_UID,
+                sBFup.COLUMN_UUID,
+                sBFup.COLUMN_MUID,
+                sBFup.COLUMN_FORMDATE,
+                sBFup.COLUMN_USER,
+                sBFup.COLUMN_DEVICEID,
+                sBFup.COLUMN_DEVICETAGID,
+                sBFup.COLUMN_DSS_ID_MEMBER,
+                sBFup.COLUMN_SPW,
+                sBFup.COLUMN_NAME,
+                sBFup.COLUMN_ISTATUS,
+                sBFup.COLUMN_APPVER
+        };
+        String whereClause = sBFup.COLUMN_SYNCED + " is null";
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                sBFup.COLUMN_ID + " ASC";
+
+        Collection<StillBirthContract> allPW = new ArrayList<>();
+        try {
+            c = db.query(
+                    sBFup.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                allPW.add(new StillBirthContract().Hydrate(c));
             }
         } finally {
             if (c != null) {
