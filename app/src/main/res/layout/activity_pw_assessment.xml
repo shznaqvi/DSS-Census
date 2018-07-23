@@ -320,7 +320,6 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@android:color/white" />
 
-
                     <EditText
                         android:id="@+id/dsa07a"
                         android:layout_width="match_parent"
