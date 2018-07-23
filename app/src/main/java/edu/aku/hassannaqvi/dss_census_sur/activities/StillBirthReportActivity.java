@@ -11,6 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.dss_census_sur.R;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.CensusContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.StillBirthContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
@@ -23,6 +24,10 @@ public class StillBirthReportActivity extends Activity {
 
     DatabaseHelper db;
 
+    static int sbCounter = 1;
+    int sbCount;
+    CensusContract cContract;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,13 +36,36 @@ public class StillBirthReportActivity extends Activity {
 
         db = new DatabaseHelper(this);
 
+        setContentUI();
+
+    }
+
+    public void setContentUI() {
+
+        sbCount = getIntent().getIntExtra("chCount", 0);
+        bi.stillCounterlbl.setText("Still Birth " + sbCounter + " out of " + sbCount);
+
+        cContract = (CensusContract) getIntent().getSerializableExtra("mothData");
+
     }
 
     public void BtnEnd() {
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
         finish();
+
+        if (sbCounter != sbCount) {
+            sbCounter++;
+        } else {
+            sbCounter = 1;
+        }
+
         startActivity(new Intent(this, NB_EndingActivity.class)
-                .putExtra("check", false));
+                .putExtra("check", false)
+                .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                .putExtra("mothData", getIntent().getSerializableExtra("mothData"))
+                .putExtra("sbCount", sbCount)
+                .putExtra("more", sbCounter != sbCount)
+        );
     }
 
     public void BtnContinue() {
@@ -54,6 +82,16 @@ public class StillBirthReportActivity extends Activity {
 
                 finish();
 
+                if (sbCounter != sbCount) {
+                    sbCounter++;
+                    startActivity(new Intent(StillBirthReportActivity.this, StillBirthReportActivity.class)
+                            .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                            .putExtra("mothData", getIntent().getSerializableExtra("mothData"))
+                            .putExtra("sbCount", sbCount));
+                } else {
+                    sbCounter = 1;
+                    startActivity(new Intent(StillBirthReportActivity.this, FamilyMembersActivity.class));
+                }
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -105,13 +143,13 @@ public class StillBirthReportActivity extends Activity {
         MainApp.sb = new StillBirthContract();
 
         MainApp.sb.setUUID(MainApp.fc.getUID());
-        MainApp.sb.setMUID(MainApp.cc.get_UID());
+        MainApp.sb.setMUID(cContract.get_UID());
         MainApp.sb.setFormDate(MainApp.fc.getFormDate());
         MainApp.sb.setDeviceId(MainApp.fc.getDeviceID());
         MainApp.sb.setDss_id_hh(MainApp.fc.getDSSID().toUpperCase());
         MainApp.sb.setUser(MainApp.fc.getUser());
         MainApp.sb.setDevicetagID(sharedPref.getString("tagName", null));
-        MainApp.sb.setdss_id_m(MainApp.cc.getDss_id_member());
+        MainApp.sb.setdss_id_m(cContract.getDss_id_member());
 
         FollowUpsContract fp = (FollowUpsContract) getIntent().getSerializableExtra("followUpData");
 
