@@ -484,6 +484,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         sC.put("visitdt", fp.getFollowUpDt());
         sC.put("surround", fp.getFollowUpRound());
         sC.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
+        sC.put("visit_type", HouseholdListActivity.visitType);
 
         if (dcbis09b.isChecked()) {
             sC.put("lmp_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis09bdt.getCalendarView().getDate()));

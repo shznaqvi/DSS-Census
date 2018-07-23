@@ -187,6 +187,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     boolean dataFlag = false;
     int childCount;
     static int childCounter = 1;
+    static int sbCounter = 0;
 
     DatabaseHelper db;
 
@@ -502,7 +503,11 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
             dcbm03.setChecked(true);
 
             mothDssID.setVisibility(View.VISIBLE);
-            String motherDSSID = getIntent().getStringExtra("mothDSSID");
+
+            CensusContract cContract = (CensusContract) getIntent().getSerializableExtra("mothData");
+
+//            String motherDSSID = getIntent().getStringExtra("mothDSSID");
+            String motherDSSID = cContract.getDss_id_member();
             dcbbmid.setText(motherDSSID);
             dcbbmid.setEnabled(false);
 
@@ -759,7 +764,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                             .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
                             .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
                             .putExtra("chCount", childCount)
-                            .putExtra("mothDSSID", MainApp.cc.getDss_id_m()));
+                            .putExtra("mothData", getIntent().getSerializableExtra("mothData")));
                 } else {
                     childCounter = 1;
 
@@ -779,9 +784,23 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                             .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
                             .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
                             .putExtra("chCount", chCount)
-                            .putExtra("mothDSSID", MainApp.cc.getDss_id_member()));
+                            .putExtra("mothData", MainApp.cc));
+//                            .putExtra("mothDSSID", MainApp.cc.getDss_id_member()));
                 } else {
-                    startActivity(new Intent(SectionBActivity.this, FamilyMembersActivity.class));
+
+                    if (dcbis04Outb.isChecked()) {
+                        sbCounter = 1;
+                    } else if (dcbis04Outd.isChecked()) {
+                        sbCounter = Integer.valueOf(dcbis04Outdb.getText().toString());
+                    }
+
+                    if (sbCounter > 0) {
+                        startActivity(new Intent(SectionBActivity.this, StillBirthReportActivity.class)
+                                .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                        );
+                    } else {
+                        startActivity(new Intent(SectionBActivity.this, FamilyMembersActivity.class));
+                    }
                 }
             }
 
@@ -869,8 +888,8 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
         sC.put("dss_id_st", fp.getHhID());
         sC.put("visitdt", fp.getFollowUpDt());
         sC.put("surround", fp.getFollowUpRound());
-
         sC.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
+        sC.put("visit_type", HouseholdListActivity.visitType);
 
         if (dcbis09b.isChecked()) {
             sC.put("lmp_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis09bdt.getCalendarView().getDate()));
@@ -913,7 +932,6 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                         sC.put("current_status_out_b", dcbis04Outdb.getText().toString());
                         sC.put("current_status_out_c", dcbis04Outdc.getText().toString());
                     }
-
                 }
 
                 if (dcbis09b.isChecked()) {

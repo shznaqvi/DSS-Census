@@ -66,6 +66,8 @@ public class HouseholdListActivity extends AppCompatActivity {
     static List<Integer> hhClicked;
     static String hhID = "";
 
+    public static int visitType = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +78,9 @@ public class HouseholdListActivity extends AppCompatActivity {
 
 //        Set Region DssIDD
         hhno.setText(MainApp.regionDss);
-//        hhno.setSelection(hhno.getText().length());
+
+//        Get visit type
+        visitType = getIntent().getIntExtra("visit", 1);
 
 //        Initialize
         db = new DatabaseHelper(this);

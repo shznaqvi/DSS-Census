@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.databinding.DataBindingUtil;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
+import edu.aku.hassannaqvi.dss_census_sur.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.dss_census_sur.get.GetMembers;
 import edu.aku.hassannaqvi.dss_census_sur.get.GetSurFollowUps;
 import edu.aku.hassannaqvi.dss_census_sur.sync.SyncCensus;
@@ -62,12 +64,18 @@ public class MainActivity extends Activity {
     private Boolean exit = false;
     private String rSumText = "";
 
+    ActivityMainBinding bi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        bi.setCallback(this);
+
 
         lblheader.setText("Welcome! You're assigned to block ' " + MainApp.regionDss + " '");
 

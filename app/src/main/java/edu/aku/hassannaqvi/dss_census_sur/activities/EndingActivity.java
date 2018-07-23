@@ -75,6 +75,8 @@ public class EndingActivity extends Activity {
 
                 MainApp.randID = 1;
 
+                HouseholdListActivity.visitType = 0;
+
                 finish();
 
                 Intent endSec = new Intent(this, HouseholdListActivity.class);
