@@ -240,7 +240,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
             return validatorClass.EmptyRadioButton(this, bi.dsa08, bi.dsa0898x, getString(R.string.dsa08));
         }
 
-      
+
 //        if (bi.dsa01b.isChecked()) {
 //            if (!validatorClass.EmptyRadioButton(this, bi.dsa02, bi.dsa0298, getString(R.string.dsa02))) {
 //                return false;

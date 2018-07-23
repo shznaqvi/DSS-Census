@@ -264,7 +264,7 @@ public class MainActivity extends Activity {
                     oF = new Intent(MainActivity.this, NewBornAssessmentActivity.class);
                     break;
                 case 4:
-                    oF = new Intent(MainActivity.this, StillBirthReportActivity.class);
+                    oF = new Intent(MainActivity.this, PWAssessmentActivity.class);
                     break;
             }
             startActivity(oF);
@@ -284,7 +284,7 @@ public class MainActivity extends Activity {
     }
 
     public void openUCR(View v) {
-        Intent iMem = new Intent(this, NewBornAssessmentActivity.class);
+        Intent iMem = new Intent(this, PWAssessmentActivity.class);
         startActivity(iMem);
     }
 

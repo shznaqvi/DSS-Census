@@ -147,7 +147,7 @@
         <activity
             android:name=".activities.PWAssessmentActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1"
+            android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
     </application>
 
