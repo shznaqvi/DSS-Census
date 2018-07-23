@@ -471,7 +471,7 @@
                             android:text="@string/dsa09b" />
 
                         <RadioButton
-                            android:id="@+id/dsa09c"
+                            android:id="@+id/dsa0998"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
@@ -956,7 +956,7 @@
                             android:text="@string/dsa1898" />
 
                         <RadioButton
-                            android:id="@+id/dsa1897"
+                            android:id="@+id/dsa1899"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
@@ -1003,7 +1003,7 @@
                             android:text="@string/dsa1998" />
 
                         <RadioButton
-                            android:id="@+id/dsa1997"
+                            android:id="@+id/dsa1999"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
@@ -1050,7 +1050,7 @@
                             android:text="@string/dsa2098" />
 
                         <RadioButton
-                            android:id="@+id/dsa2097"
+                            android:id="@+id/dsa2099"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
