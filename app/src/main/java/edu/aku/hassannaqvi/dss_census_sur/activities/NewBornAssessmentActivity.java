@@ -310,7 +310,6 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         sNB.put("dnb26x", bi.dnb26x.getText().toString());
         sNB.put("dnb27", bi.dnb27a.isChecked() ? "1" : bi.dnb27b.isChecked() ? "2" : "0");
         sNB.put("dnb28", bi.dnb28.getText().toString());
-
         MainApp.nb.setsNB(String.valueOf(sNB));
 
     }
