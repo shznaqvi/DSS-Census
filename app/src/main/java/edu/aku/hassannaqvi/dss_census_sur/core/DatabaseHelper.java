@@ -22,6 +22,8 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.CensusContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.CensusContract.censusMember;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.DeceasedContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.DeceasedContract.DeceasedMember;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.EventContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.EventContract.singleEV;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract.FollowUpTable;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FormsContract;
@@ -238,6 +240,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             MotherTB.COLUMN_SYNCED + " TEXT," +
             MotherTB.COLUMN_SYNCED_DATE + " TEXT" +
 
+            " );";
+
+    private static final String SQL_CREATE_Event = "CREATE TABLE "
+            + singleEV.TABLE_NAME + "("
+            + singleEV.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            singleEV.COLUMN_EUID + " TEXT," +
+            singleEV.COLUMN_FORMDATE + " TEXT," +
+            singleEV.COLUMN_NAME + " TEXT," +
+            singleEV.COLUMN_DSS_ID_MEMBER + " TEXT," +
+            singleEV.COLUMN_STATUS + " TEXT," +
+            singleEV.COLUMN_LMP_DT + " TEXT," +
+            singleEV.COLUMN_STATUS_DATE + " TEXT," +
+            singleEV.COLUMN_BIRTH_TIME + " TEXT," +
+            singleEV.COLUMN_GENDER + " TEXT" +
             " );";
 
     private static final String SQL_CREATE_SEC_K_IM = "CREATE TABLE "
@@ -499,6 +515,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.insert(singleMember.TABLE_NAME, null, values);
             }
 
+
+        } catch (Exception e) {
+            Log.d(TAG, "syncMember(e): " + e);
+        } finally {
+            db.close();
+        }
+    }
+
+    public void syncEvents(JSONArray eventlist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(MembersContract.singleMember.TABLE_NAME, null, null);
+        try {
+            JSONArray jsonArray = eventlist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectMember = jsonArray.getJSONObject(i);
+
+                EventContract evr = new EventContract();
+                evr.Sync(jsonObjectMember);
+                ContentValues values = new ContentValues();
+
+                values.put(singleEV.COLUMN_EUID, evr.getEuid());
+                values.put(singleEV.COLUMN_FORMDATE, evr.getFormdate());
+                values.put(singleEV.COLUMN_NAME, evr.getName());
+                values.put(singleEV.COLUMN_DSS_ID_MEMBER, evr.getDss_id_member());
+                values.put(singleEV.COLUMN_STATUS, evr.getStatus());
+                values.put(singleEV.COLUMN_LMP_DT, evr.getLmp_dt());
+                values.put(singleEV.COLUMN_STATUS_DATE, evr.getStatus_date());
+                values.put(singleEV.COLUMN_BIRTH_TIME, evr.getBirth_time());
+                values.put(singleEV.COLUMN_GENDER, evr.getGender());
+
+
+                db.insert(singleMember.TABLE_NAME, null, values);
+            }
 
         } catch (Exception e) {
             Log.d(TAG, "syncMember(e): " + e);
