@@ -2583,6 +2583,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public int updateSB() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(sBFup.COLUMN_ISTATUS, MainApp.sb.getIstatus());
+
+// Which row to update, based on the ID
+        String selection = sBFup.COLUMN_UID + "=?";
+        String[] selectionArgs = {MainApp.sb.getUID()};
+
+        int count = db.update(sBFup.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
     public int updateDeceased() {
         SQLiteDatabase db = this.getReadableDatabase();
 

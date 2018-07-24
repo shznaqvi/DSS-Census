@@ -768,7 +768,21 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                 } else {
                     childCounter = 1;
 
-                    startActivity(new Intent(SectionBActivity.this, FamilyMembersActivity.class));
+                    if (dcbis04Outb.isChecked()) {
+                        sbCounter = 1;
+                    } else if (dcbis04Outd.isChecked()) {
+                        sbCounter = Integer.valueOf(dcbis04Outdb.getText().toString());
+                    }
+
+                    if (sbCounter > 0) {
+                        startActivity(new Intent(SectionBActivity.this, StillBirthReportActivity.class)
+                                .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                .putExtra("mothData", MainApp.cc)
+                                .putExtra("sbCount", sbCounter)
+                        );
+                    } else {
+                        startActivity(new Intent(SectionBActivity.this, FamilyMembersActivity.class));
+                    }
                 }
             } else {
                 int chCount = 0;
@@ -797,6 +811,8 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     if (sbCounter > 0) {
                         startActivity(new Intent(SectionBActivity.this, StillBirthReportActivity.class)
                                 .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                .putExtra("mothData", MainApp.cc)
+                                .putExtra("sbCount", sbCounter)
                         );
                     } else {
                         startActivity(new Intent(SectionBActivity.this, FamilyMembersActivity.class));

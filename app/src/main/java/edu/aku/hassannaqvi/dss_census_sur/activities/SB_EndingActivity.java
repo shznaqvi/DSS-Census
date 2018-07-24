@@ -18,9 +18,9 @@ import edu.aku.hassannaqvi.dss_census_sur.R;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 
-public class NB_EndingActivity extends Activity {
+public class SB_EndingActivity extends Activity {
 
-    private static final String TAG = NB_EndingActivity.class.getSimpleName();
+    private static final String TAG = SB_EndingActivity.class.getSimpleName();
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
     @BindView(R.id.dcstatus)
@@ -63,6 +63,16 @@ public class NB_EndingActivity extends Activity {
                 finish();
                 startActivity(new Intent(this, MainActivity.class));
 
+                if (getIntent().getBooleanExtra("more", false)) {
+                    startActivity(new Intent(SB_EndingActivity.this, StillBirthReportActivity.class)
+                            .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                            .putExtra("mothData", getIntent().getSerializableExtra("mothData"))
+                            .putExtra("sbCount", getIntent().getIntExtra("sbCount", 0)));
+                } else {
+
+                    startActivity(new Intent(SB_EndingActivity.this, FamilyMembersActivity.class));
+                }
+
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -72,7 +82,7 @@ public class NB_EndingActivity extends Activity {
     private void SaveDraft() throws JSONException {
 //        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        MainApp.nb.setIstatus(dcstatus01.isChecked() ? "1" : dcstatus02.isChecked() ? "2" : "0");
+        MainApp.sb.setIstatus(dcstatus01.isChecked() ? "1" : dcstatus02.isChecked() ? "2" : "0");
 
 //        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
@@ -80,7 +90,7 @@ public class NB_EndingActivity extends Activity {
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
-        int updcount = db.updateNB();
+        int updcount = db.updateSB();
 
         if (updcount == 1) {
 //            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
