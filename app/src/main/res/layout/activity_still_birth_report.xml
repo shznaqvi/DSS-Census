@@ -33,9 +33,16 @@
             android:background="@color/pink_100"
             android:gravity="center_horizontal"
             android:textColor="@color/colorPrimary"
-            android:textSize="30sp"
-            android:visibility="gone"
-            tools:visibility="visible" />
+            android:textSize="30sp" />
+
+        <!--01-->
+        <CheckBox
+            android:id="@+id/dcb_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:enabled="false"
+            android:text="@string/dsbcheckT" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -47,16 +54,6 @@
                 android:layout_height="wrap_content"
                 android:layoutDirection="rtl"
                 android:orientation="vertical">
-
-                <!--01-->
-                <CheckBox
-                    android:id="@+id/dcb_check"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginTop="5dp"
-                    android:enabled="false"
-                    android:text="@string/dsbcheck" />
 
                 <!--01-->
                 <TextView
@@ -264,60 +261,68 @@
 
                 </RadioGroup>
 
-                <!--07-->
-                <TextView
+                <LinearLayout
+                    android:id="@+id/fldGrpsb1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorPrimary"
-                    android:text="@string/dsb07"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@android:color/white" />
+                    android:orientation="vertical">
 
-                <RadioGroup
-                    android:id="@+id/dsb07"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:id="@+id/dsb07a"
+                    <!--07-->
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/dsb07a" />
+                        android:layout_marginTop="16dp"
+                        android:background="@color/colorPrimary"
+                        android:text="@string/dsb07"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@android:color/white" />
 
-                    <RadioButton
-                        android:id="@+id/dsb07b"
+                    <RadioGroup
+                        android:id="@+id/dsb07"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/dsb07a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:text="@string/dsb07a" />
+
+                        <RadioButton
+                            android:id="@+id/dsb07b"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:text="@string/dsb07b" />
+
+                        <RadioButton
+                            android:id="@+id/dsb0798"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:text="@string/dsb0798" />
+
+                    </RadioGroup>
+
+                    <!--08-->
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/dsb07b" />
+                        android:layout_marginTop="16dp"
+                        android:text="@string/dsb08"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                    <RadioButton
-                        android:id="@+id/dsb0798"
+                    <EditText
+                        android:id="@+id/dsb08"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/dsb0798" />
+                        android:layout_marginBottom="15dp"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:hint="@string/dsb08"
+                        android:maxLength="50" />
 
-                </RadioGroup>
-
-                <!--08-->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/dsb08"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <EditText
-                    android:id="@+id/dsb08"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                    android:hint="@string/dsb08"
-                    android:maxLength="50" />
-
+                </LinearLayout>
 
                 <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
 

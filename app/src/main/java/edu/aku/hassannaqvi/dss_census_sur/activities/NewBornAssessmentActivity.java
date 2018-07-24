@@ -1,5 +1,7 @@
 package edu.aku.hassannaqvi.dss_census_sur.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
@@ -86,10 +88,28 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
     }
 
     public void BtnEnd() {
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        finish();
-        startActivity(new Intent(this, NB_EndingActivity.class)
-                .putExtra("check", false));
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                NewBornAssessmentActivity.this);
+        alertDialogBuilder
+                .setMessage("Are you sure to end this section?")
+                .setCancelable(false)
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
+                                finish();
+                                startActivity(new Intent(getApplicationContext(), NB_EndingActivity.class).putExtra("check", false));
+                            }
+                        });
+        alertDialogBuilder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
+
     }
 
     public void BtnContinue() {
@@ -218,9 +238,7 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
                 if (!validatorClass.EmptyRadioButton(this, bi.dnb27, bi.dnb27b, getString(R.string.dnb27))) {
                     return false;
                 }
-                if (!validatorClass.EmptyTextBox(this, bi.dnb28, getString(R.string.dnb28))) {
-                    return false;
-                }
+                return validatorClass.EmptyTextBox(this, bi.dnb28, getString(R.string.dnb28));
             }
 
         } else {
@@ -228,9 +246,7 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
                 return false;
             }
 
-            if (!validatorClass.EmptyTextBox(this, bi.dnb08, getString(R.string.dnb08))) {
-                return false;
-            }
+            return validatorClass.EmptyTextBox(this, bi.dnb08, getString(R.string.dnb08));
         }
 
         return true;

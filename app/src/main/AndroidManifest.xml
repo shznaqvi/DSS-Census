@@ -114,6 +114,16 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activities.NB_EndingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activities.SB_EndingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity android:name=".FormsList" />
         <activity
             android:name=".activities.MotherListActivity"

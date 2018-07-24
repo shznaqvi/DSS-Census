@@ -177,8 +177,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
         mt = MainApp.familyMembersList.get(position).getMember_type();
 //        dcbis01.setEnabled(mt.equals("c") ? false : true);
-        dcbis02.setEnabled(mt.equals("h") || mt.equals("c") ? false : true);
-        dcbis04.setEnabled(mt.equals("h") || mt.equals("c") ? false : true);
+        dcbis02.setEnabled(!mt.equals("h") && !mt.equals("c"));
+        dcbis04.setEnabled(!mt.equals("h") && !mt.equals("c"));
         dcbis01Outa.setEnabled(!(mt.equals("mw") || mt.equals("h")));
 
 //        For child under 2 name enable true. And for under 10 MStatus not enabled
@@ -194,7 +194,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
             if (calculateYears < 2) {
                 dcba.setEnabled(true);
             }
-            dcbis01.setEnabled(calculateYears < 10 ? false : true);
+            dcbis01.setEnabled(calculateYears >= 10);
         }
 
         dcbis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -399,6 +399,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                     chCount = 1;
                 } else if (dcbis04Outd.isChecked()) {
                     chCount = Integer.valueOf(dcbis04Outdc.getText().toString());
+                    SectionBActivity.sbCounter = Integer.valueOf(dcbis04Outdb.getText().toString());
                 }
 
                 if (chCount > 0) {
@@ -407,9 +408,28 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                             .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
                             .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
                             .putExtra("chCount", chCount)
-                            .putExtra("mothDSSID", MainApp.cc.getDss_id_member()));
+                            .putExtra("mothData", MainApp.cc)
+                    );
                 } else {
-                    startActivity(new Intent(SectionBNewPrevActivity.this, FamilyMembersActivity.class));
+
+                    if (dcbis04Outb.isChecked()) {
+                        SectionBActivity.sbCounter = 1;
+                    } else if (dcbis04Outd.isChecked()) {
+                        SectionBActivity.sbCounter = Integer.valueOf(dcbis04Outdb.getText().toString());
+                    } else {
+                        SectionBActivity.sbCounter = 0;
+                    }
+
+                    if (SectionBActivity.sbCounter > 0) {
+                        startActivity(new Intent(SectionBNewPrevActivity.this, StillBirthReportActivity.class)
+                                .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                .putExtra("mothData", MainApp.cc)
+                                .putExtra("sbCount", SectionBActivity.sbCounter)
+                        );
+                    } else {
+                        startActivity(new Intent(SectionBNewPrevActivity.this, FamilyMembersActivity.class));
+                    }
+
                 }
 
             } else {

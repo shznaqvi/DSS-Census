@@ -1414,11 +1414,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(sBFup.COLUMN_UID, MainApp.pw.getUID());
+        values.put(sBFup.COLUMN_UID, MainApp.sb.getUID());
 
 // Which row to update, based on the ID
         String selection = sBFup.COLUMN_ID + " = ?";
-        String[] selectionArgs = {String.valueOf(MainApp.pw.getID())};
+        String[] selectionArgs = {String.valueOf(MainApp.sb.getID())};
 
         int count = db.update(sBFup.TABLE_NAME,
                 values,
