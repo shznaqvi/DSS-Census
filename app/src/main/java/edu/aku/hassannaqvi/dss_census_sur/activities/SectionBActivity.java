@@ -186,8 +186,8 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     int position = 0;
     boolean dataFlag = false;
     int childCount;
-    static int childCounter = 1;
-    static int sbCounter = 0;
+    public static int childCounter = 1;
+    public static int sbCounter = 0;
 
     DatabaseHelper db;
 
@@ -411,20 +411,12 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
 
                             Boolean checkFlag;
                             if (censusContract.getMember_type().equals("c")) {
-                                if (getAgeByDOB(censusContract.getDob()) > 10) {
-                                    checkFlag = true;
-                                } else {
-                                    checkFlag = false;
-                                }
+                                checkFlag = getAgeByDOB(censusContract.getDob()) > 10;
                             } else if (censusContract.getMember_type().equals("ot")) {
                                 if (censusContract.getDob().equals("")) {
                                     checkFlag = true;
                                 } else {
-                                    if (getAgeByDOB(censusContract.getDob()) > 10) {
-                                        checkFlag = true;
-                                    } else {
-                                        checkFlag = false;
-                                    }
+                                    checkFlag = getAgeByDOB(censusContract.getDob()) > 10;
                                 }
                             } else {
                                 checkFlag = true;
@@ -667,30 +659,67 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SectionBActivity.this);
+        alertDialogBuilder
+                .setMessage("Are you sure to end this section?")
+                .setCancelable(false)
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
 
-        if (childCount > 0) {
-            dcba.setText("Not Complete Child!!");
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+                                finish();
+                                if (childCount > 0) {
+                                    dcba.setText("Not Complete Child!!");
+                                    try {
+                                        SaveDraft();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
 
-            if (childCount != childCounter) {
-                childCounter++;
-                MainApp.TotalMembersCount++;
-                startActivity(new Intent(SectionBActivity.this, SectionBActivity.class)
-                        .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
-                        .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
-                        .putExtra("chCount", childCount));
-            } else {
-                // reseting child counter
-                childCounter = 1;
-                startActivity(new Intent(SectionBActivity.this, FamilyMembersActivity.class));
-            }
-        }
+                                    if (childCount != childCounter) {
+                                        childCounter++;
+                                        MainApp.TotalMembersCount++;
+                                        startActivity(new Intent(SectionBActivity.this, SectionBActivity.class)
+                                                .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                                .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
+                                                .putExtra("chCount", childCount));
+                                    } else {
+                                        // reseting child counter
+                                        childCounter = 1;
 
-        MainApp.finishActivity(this, this);
+
+                                        if (dcbis04Outb.isChecked()) {
+                                            sbCounter = 1;
+                                        } else if (dcbis04Outd.isChecked()) {
+                                            sbCounter = Integer.valueOf(dcbis04Outdb.getText().toString());
+                                        } else {
+                                            sbCounter = 0;
+                                        }
+
+                                        if (sbCounter > 0) {
+                                            startActivity(new Intent(SectionBActivity.this, StillBirthReportActivity.class)
+                                                    .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                                    .putExtra("mothData", getIntent().getSerializableExtra("mothData"))
+                                                    .putExtra("sbCount", sbCounter)
+                                            );
+                                        } else {
+                                            startActivity(new Intent(SectionBActivity.this, FamilyMembersActivity.class));
+                                        }
+
+                                    }
+                                }
+
+                            }
+                        });
+        alertDialogBuilder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
 
     @OnClick(R.id.btn_Continue)
@@ -768,16 +797,10 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                 } else {
                     childCounter = 1;
 
-                    if (dcbis04Outb.isChecked()) {
-                        sbCounter = 1;
-                    } else if (dcbis04Outd.isChecked()) {
-                        sbCounter = Integer.valueOf(dcbis04Outdb.getText().toString());
-                    }
-
                     if (sbCounter > 0) {
                         startActivity(new Intent(SectionBActivity.this, StillBirthReportActivity.class)
                                 .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
-                                .putExtra("mothData", MainApp.cc)
+                                .putExtra("mothData", getIntent().getSerializableExtra("mothData"))
                                 .putExtra("sbCount", sbCounter)
                         );
                     } else {
@@ -790,6 +813,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     chCount = 1;
                 } else if (dcbis04Outd.isChecked()) {
                     chCount = Integer.valueOf(dcbis04Outdc.getText().toString());
+                    sbCounter = Integer.valueOf(dcbis04Outdb.getText().toString());
                 }
 
                 if (chCount > 0) {
@@ -799,13 +823,14 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                             .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
                             .putExtra("chCount", chCount)
                             .putExtra("mothData", MainApp.cc));
-//                            .putExtra("mothDSSID", MainApp.cc.getDss_id_member()));
                 } else {
 
                     if (dcbis04Outb.isChecked()) {
                         sbCounter = 1;
                     } else if (dcbis04Outd.isChecked()) {
                         sbCounter = Integer.valueOf(dcbis04Outdb.getText().toString());
+                    } else {
+                        sbCounter = 0;
                     }
 
                     if (sbCounter > 0) {
