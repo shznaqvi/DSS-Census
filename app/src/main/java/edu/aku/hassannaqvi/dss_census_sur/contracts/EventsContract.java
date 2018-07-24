@@ -12,7 +12,7 @@ import java.io.Serializable;
  * Created by hassan.naqvi on 11/30/2016.
  */
 
-public class EventContract implements Serializable {
+public class EventsContract implements Serializable {
 
     private String euid;
     private String formdate;
@@ -24,10 +24,10 @@ public class EventContract implements Serializable {
     private String birth_time;
     private String gender;
 
-    public EventContract() {
+    public EventsContract() {
     }
 
-    public EventContract(EventContract cc) {
+    public EventsContract(EventsContract cc) {
         this.euid = cc.euid;
         this.formdate = cc.formdate;
         this.dss_id_member = cc.dss_id_member;
@@ -112,7 +112,7 @@ public class EventContract implements Serializable {
         this.gender = gender;
     }
 
-    public EventContract Sync(JSONObject jsonObject) throws JSONException {
+    public EventsContract Sync(JSONObject jsonObject) throws JSONException {
         this.euid = jsonObject.getString(singleEV.COLUMN_EUID);
         this.formdate = jsonObject.getString(singleEV.COLUMN_FORMDATE);
         this.name = jsonObject.getString(singleEV.COLUMN_NAME);
@@ -123,12 +123,10 @@ public class EventContract implements Serializable {
         this.birth_time = jsonObject.getString(singleEV.COLUMN_BIRTH_TIME);
         this.gender = jsonObject.getString(singleEV.COLUMN_GENDER);
 
-
         return this;
-
     }
 
-    public EventContract Hydrate(Cursor cursor) {
+    public EventsContract Hydrate(Cursor cursor) {
 
         this.euid = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_EUID));
         this.formdate = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_FORMDATE));
@@ -178,6 +176,6 @@ public class EventContract implements Serializable {
         public static final String COLUMN_GENDER = "gender";
 
 
-        public static String _URL = "events.php";
+        public static String _URI = "events.php";
     }
 }

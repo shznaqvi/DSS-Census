@@ -22,8 +22,8 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.CensusContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.CensusContract.censusMember;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.DeceasedContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.DeceasedContract.DeceasedMember;
-import edu.aku.hassannaqvi.dss_census_sur.contracts.EventContract;
-import edu.aku.hassannaqvi.dss_census_sur.contracts.EventContract.singleEV;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.EventsContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.EventsContract.singleEV;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract.FollowUpTable;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FormsContract;
@@ -242,7 +242,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             " );";
 
-    private static final String SQL_CREATE_Event = "CREATE TABLE "
+    private static final String SQL_CREATE_EVENTS = "CREATE TABLE "
             + singleEV.TABLE_NAME + "("
             + singleEV.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             singleEV.COLUMN_EUID + " TEXT," +
@@ -399,6 +399,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_NEWBORN);
         db.execSQL(SQL_CREATE_PREGNANT_WOMEN);
         db.execSQL(SQL_CREATE_STILL_BIRTH);
+        db.execSQL(SQL_CREATE_EVENTS);
     }
 
     @Override
@@ -418,6 +419,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.execSQL(SQL_CREATE_NEWBORN);
                 db.execSQL(SQL_CREATE_PREGNANT_WOMEN);
                 db.execSQL(SQL_CREATE_STILL_BIRTH);
+                db.execSQL(SQL_CREATE_EVENTS);
         }
     }
 
@@ -531,7 +533,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObjectMember = jsonArray.getJSONObject(i);
 
-                EventContract evr = new EventContract();
+                EventsContract evr = new EventsContract();
                 evr.Sync(jsonObjectMember);
                 ContentValues values = new ContentValues();
 
@@ -544,7 +546,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(singleEV.COLUMN_STATUS_DATE, evr.getStatus_date());
                 values.put(singleEV.COLUMN_BIRTH_TIME, evr.getBirth_time());
                 values.put(singleEV.COLUMN_GENDER, evr.getGender());
-
 
                 db.insert(singleMember.TABLE_NAME, null, values);
             }

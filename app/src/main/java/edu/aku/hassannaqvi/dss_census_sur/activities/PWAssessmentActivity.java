@@ -242,7 +242,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
                     bi.fldGrpPwdsa16.setVisibility(View.GONE);
                     ClearClass.ClearAllFields(bi.fldGrpPwdsa16, false);
                 } else {
-                    bi.fld/**/GrpPwdsa16.setVisibility(View.VISIBLE);
+                    bi.fldGrpPwdsa16.setVisibility(View.VISIBLE);
                     ClearClass.ClearAllFields(bi.fldGrpPwdsa16, true);
                 }
             }
@@ -500,31 +500,30 @@ public class PWAssessmentActivity extends AppCompatActivity {
             sPW.put("dsa06", bi.dsa06a.isChecked() ? "1" : bi.dsa06b.isChecked() ? "2" : bi.dsa06c.isChecked() ? "3" :
                     bi.dsa0698.isChecked() ? "98" : "0");
             sPW.put("dsa07", bi.dsa07a.getText().toString());
-            sPW.put("dsa08", bi.dsa0801a.isChecked() ? "1" : bi.dsa0801b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0802a.isChecked() ? "1" : bi.dsa0802b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0803a.isChecked() ? "1" : bi.dsa0803b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0804a.isChecked() ? "1" : bi.dsa0804b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0805a.isChecked() ? "1" : bi.dsa0805b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0806a.isChecked() ? "1" : bi.dsa0806b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0807a.isChecked() ? "1" : bi.dsa0807b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0808a.isChecked() ? "1" : bi.dsa0808b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0809a.isChecked() ? "1" : bi.dsa0809b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0810a.isChecked() ? "1" : bi.dsa0810b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0811a.isChecked() ? "1" : bi.dsa0811b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0812a.isChecked() ? "1" : bi.dsa0812b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0813a.isChecked() ? "1" : bi.dsa0813b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0814a.isChecked() ? "1" : bi.dsa0814b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0898x.getText().toString());
+            sPW.put("dsa0801", bi.dsa0801a.isChecked() ? "1" : bi.dsa0801b.isChecked() ? "2" : "0");
+            sPW.put("dsa0802", bi.dsa0802a.isChecked() ? "1" : bi.dsa0802b.isChecked() ? "2" : "0");
+            sPW.put("dsa0803", bi.dsa0803a.isChecked() ? "1" : bi.dsa0803b.isChecked() ? "2" : "0");
+            sPW.put("dsa0804", bi.dsa0804a.isChecked() ? "1" : bi.dsa0804b.isChecked() ? "2" : "0");
+            sPW.put("dsa0805", bi.dsa0805a.isChecked() ? "1" : bi.dsa0805b.isChecked() ? "2" : "0");
+            sPW.put("dsa0806", bi.dsa0806a.isChecked() ? "1" : bi.dsa0806b.isChecked() ? "2" : "0");
+            sPW.put("dsa0807", bi.dsa0807a.isChecked() ? "1" : bi.dsa0807b.isChecked() ? "2" : "0");
+            sPW.put("dsa0808", bi.dsa0808a.isChecked() ? "1" : bi.dsa0808b.isChecked() ? "2" : "0");
+            sPW.put("dsa0809", bi.dsa0809a.isChecked() ? "1" : bi.dsa0809b.isChecked() ? "2" : "0");
+            sPW.put("dsa0810", bi.dsa0810a.isChecked() ? "1" : bi.dsa0810b.isChecked() ? "2" : "0");
+            sPW.put("dsa0811", bi.dsa0811a.isChecked() ? "1" : bi.dsa0811b.isChecked() ? "2" : "0");
+            sPW.put("dsa0812", bi.dsa0812a.isChecked() ? "1" : bi.dsa0812b.isChecked() ? "2" : "0");
+            sPW.put("dsa0813", bi.dsa0813a.isChecked() ? "1" : bi.dsa0813b.isChecked() ? "2" : "0");
+            sPW.put("dsa0814", bi.dsa0814a.isChecked() ? "1" : bi.dsa0814b.isChecked() ? "2" : "0");
+            sPW.put("dsa0898x", bi.dsa0898x.getText().toString());
             sPW.put("dsa09", bi.dsa09a.isChecked() ? "1" : bi.dsa09b.isChecked() ? "2" : bi.dsa0998.isChecked() ? "8" : "0");
-            sPW.put("dsa10", bi.dsa101a.isChecked() ? "1" : bi.dsa101b.isChecked() ? "2" : bi.dsa10198.isChecked() ? "98" : "0");
-            sPW.put("dsa10", bi.dsa102a.isChecked() ? "1" : bi.dsa102b.isChecked() ? "2" : bi.dsa10298.isChecked() ? "98" : "0");
-            sPW.put("dsa10", bi.dsa103a.isChecked() ? "1" : bi.dsa103b.isChecked() ? "2" : bi.dsa10398.isChecked() ? "98" : "0");
-            sPW.put("dsa10", bi.dsa104a.isChecked() ? "1" : bi.dsa104b.isChecked() ? "2" : bi.dsa10498.isChecked() ? "98" : "0");
-            sPW.put("dsa10", bi.dsa105a.isChecked() ? "1" : bi.dsa105b.isChecked() ? "2" : bi.dsa10598.isChecked() ? "98" : "0");
-            sPW.put("dsa10", bi.dsa106a.isChecked() ? "1" : bi.dsa106b.isChecked() ? "2" : bi.dsa10698.isChecked() ? "98" : "0");
-            sPW.put("dsa10", bi.dsa107a.isChecked() ? "1" : bi.dsa107b.isChecked() ? "2" : bi.dsa10798.isChecked() ? "98" : "0");
-            sPW.put("dsa10", bi.dsa1096x.getText().toString());
-            sPW.put("dsa11", bi.dsa11a.isChecked() ? "2" : bi.dsa11b.isChecked() ? "3" : bi.dsa11c.isChecked() ? "4" : bi.dsa1197.isChecked() ? "1" : "0");
+            sPW.put("dsa1001", bi.dsa101a.isChecked() ? "1" : bi.dsa101b.isChecked() ? "2" : bi.dsa10198.isChecked() ? "98" : "0");
+            sPW.put("dsa1002", bi.dsa102a.isChecked() ? "1" : bi.dsa102b.isChecked() ? "2" : bi.dsa10298.isChecked() ? "98" : "0");
+            sPW.put("dsa1003", bi.dsa103a.isChecked() ? "1" : bi.dsa103b.isChecked() ? "2" : bi.dsa10398.isChecked() ? "98" : "0");
+            sPW.put("dsa1004", bi.dsa104a.isChecked() ? "1" : bi.dsa104b.isChecked() ? "2" : bi.dsa10498.isChecked() ? "98" : "0");
+            sPW.put("dsa1005", bi.dsa105a.isChecked() ? "1" : bi.dsa105b.isChecked() ? "2" : bi.dsa10598.isChecked() ? "98" : "0");
+            sPW.put("dsa1006", bi.dsa106a.isChecked() ? "1" : bi.dsa106b.isChecked() ? "2" : bi.dsa10698.isChecked() ? "98" : "0");
+            sPW.put("dsa1007", bi.dsa107a.isChecked() ? "1" : bi.dsa107b.isChecked() ? "2" : bi.dsa10798.isChecked() ? "98" : "0");
+            sPW.put("dsa1096x", bi.dsa1096x.getText().toString());
             sPW.put("dsa11", bi.dsa11a.isChecked() ? "2" : bi.dsa11b.isChecked() ? "3" : bi.dsa11c.isChecked() ? "4" : bi.dsa1197.isChecked() ? "1" : "0");
             sPW.put("dsa12", bi.dsa12a.getText().toString());
             sPW.put("dsa12", bi.dsa12b.isChecked() ? "2" : bi.dsa1298.isChecked() ? "98" : "0");
@@ -539,8 +538,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
             sPW.put("dsa18", bi.dsa1899.isChecked() ? "99" : "0");
             sPW.put("dsa19", bi.dsa19m.getText().toString());
             sPW.put("dsa19", bi.dsa1999.isChecked() ? "99" : "0");
-            sPW.put("dsa20", bi.dsa20h.getText().toString());
-            sPW.put("dsa20", bi.dsa2099.isChecked() ? "99" : "0");
+            sPW.put("dsa20", bi.dsa2099.isChecked() ? "99" : bi.dsa20h.getText().toString());
 
 
         } catch (Exception e) {

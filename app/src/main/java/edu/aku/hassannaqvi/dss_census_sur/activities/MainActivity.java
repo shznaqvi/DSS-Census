@@ -36,6 +36,7 @@ import edu.aku.hassannaqvi.dss_census_sur.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 import edu.aku.hassannaqvi.dss_census_sur.databinding.ActivityMainBinding;
+import edu.aku.hassannaqvi.dss_census_sur.get.GetEvents;
 import edu.aku.hassannaqvi.dss_census_sur.get.GetMembers;
 import edu.aku.hassannaqvi.dss_census_sur.get.GetSurFollowUps;
 import edu.aku.hassannaqvi.dss_census_sur.sync.SyncCensus;
@@ -452,6 +453,7 @@ public class MainActivity extends Activity {
             bg.start();*/
             new GetMembers(this).execute();
             new GetSurFollowUps(this).execute();
+            new GetEvents(this).execute();
             //bg.stop();
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);

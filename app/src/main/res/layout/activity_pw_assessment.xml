@@ -839,6 +839,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
                             android:text="@string/dcno" />
+
                         <RadioButton
                             android:id="@+id/dsa10298"
                             android:layout_width="match_parent"
@@ -1498,28 +1499,21 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@android:color/white" />
 
-                    <RadioGroup
-                        android:id="@+id/dsa20"
+                    <EditText
+                        android:id="@+id/dsa20h"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:hint="@string/dsa20h"
+                        android:maxLength="4" />
 
+                    <CheckBox
+                        android:id="@+id/dsa2099"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:text="@string/dsa1899" />
 
-                        <EditText
-                            android:id="@+id/dsa20h"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="1dp"
-                            android:hint="@string/dsa20h"
-                            android:maxLength="4" />
-
-                        <RadioButton
-                            android:id="@+id/dsa2099"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="1dp"
-                            android:text="@string/dsa1899" />
-
-                    </RadioGroup>
                 </LinearLayout>
 
 
