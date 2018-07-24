@@ -242,7 +242,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
                     bi.fldGrpPwdsa16.setVisibility(View.GONE);
                     ClearClass.ClearAllFields(bi.fldGrpPwdsa16, false);
                 } else {
-                    bi.fld/**/GrpPwdsa16.setVisibility(View.VISIBLE);
+                    bi.fldGrpPwdsa16.setVisibility(View.VISIBLE);
                     ClearClass.ClearAllFields(bi.fldGrpPwdsa16, true);
                 }
             }
@@ -512,8 +512,6 @@ public class PWAssessmentActivity extends AppCompatActivity {
             sPW.put("dsa08", bi.dsa0810a.isChecked() ? "1" : bi.dsa0810b.isChecked() ? "2" : "0");
             sPW.put("dsa08", bi.dsa0811a.isChecked() ? "1" : bi.dsa0811b.isChecked() ? "2" : "0");
             sPW.put("dsa08", bi.dsa0812a.isChecked() ? "1" : bi.dsa0812b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0813a.isChecked() ? "1" : bi.dsa0813b.isChecked() ? "2" : "0");
-            sPW.put("dsa08", bi.dsa0814a.isChecked() ? "1" : bi.dsa0814b.isChecked() ? "2" : "0");
             sPW.put("dsa08", bi.dsa0898x.getText().toString());
             sPW.put("dsa09", bi.dsa09a.isChecked() ? "1" : bi.dsa09b.isChecked() ? "2" : bi.dsa0998.isChecked() ? "8" : "0");
             sPW.put("dsa10", bi.dsa101a.isChecked() ? "1" : bi.dsa101b.isChecked() ? "2" : bi.dsa10198.isChecked() ? "98" : "0");
@@ -541,7 +539,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
             sPW.put("dsa19", bi.dsa1999.isChecked() ? "99" : "0");
             sPW.put("dsa20", bi.dsa20h.getText().toString());
             sPW.put("dsa20", bi.dsa2099.isChecked() ? "99" : "0");
-
+            MainApp.pw.setsPW(String.valueOf(sPW));
 
         } catch (Exception e) {
 

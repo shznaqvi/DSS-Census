@@ -676,19 +676,19 @@
                         android:textColor="@android:color/white" />
 
                     <RadioGroup
-                        android:id="@+id/dsa0814"
+                        android:id="@+id/dsa0812"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <RadioButton
-                            android:id="@+id/dsa0814a"
+                            android:id="@+id/dsa0812a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
                             android:text="@string/dcyes" />
 
                         <RadioButton
-                            android:id="@+id/dsa0814b"
+                            android:id="@+id/dsa0812b"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
