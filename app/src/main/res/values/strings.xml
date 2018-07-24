@@ -80,6 +80,7 @@
 
     <!-- Strings related to Sections Below -->
 
+  <string name="eventlbl"> EVENTS </string>
     <string name="hhno"> Household no </string>
     <string name="dca03">3) DSS ID </string>
     <string name="dca04">4۔ کیا اجازت مل گئی؟ </string>

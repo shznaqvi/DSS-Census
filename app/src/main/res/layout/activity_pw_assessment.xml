@@ -706,7 +706,7 @@
                         android:textColor="@android:color/white" />
 
                     <EditText
-                        android:id="@+id/dsa0898x"
+                        android:id="@+id/dsa0813"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"

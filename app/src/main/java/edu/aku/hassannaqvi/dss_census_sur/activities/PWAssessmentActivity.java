@@ -512,9 +512,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
             sPW.put("dsa0810", bi.dsa0810a.isChecked() ? "1" : bi.dsa0810b.isChecked() ? "2" : "0");
             sPW.put("dsa0811", bi.dsa0811a.isChecked() ? "1" : bi.dsa0811b.isChecked() ? "2" : "0");
             sPW.put("dsa0812", bi.dsa0812a.isChecked() ? "1" : bi.dsa0812b.isChecked() ? "2" : "0");
-            sPW.put("dsa0813", bi.dsa0813a.isChecked() ? "1" : bi.dsa0813b.isChecked() ? "2" : "0");
-            sPW.put("dsa0814", bi.dsa0814a.isChecked() ? "1" : bi.dsa0814b.isChecked() ? "2" : "0");
-            sPW.put("dsa0898x", bi.dsa0898x.getText().toString());
+            sPW.put("dsa0813", bi.dsa0813.getText().toString());
             sPW.put("dsa09", bi.dsa09a.isChecked() ? "1" : bi.dsa09b.isChecked() ? "2" : bi.dsa0998.isChecked() ? "8" : "0");
             sPW.put("dsa1001", bi.dsa101a.isChecked() ? "1" : bi.dsa101b.isChecked() ? "2" : bi.dsa10198.isChecked() ? "98" : "0");
             sPW.put("dsa1002", bi.dsa102a.isChecked() ? "1" : bi.dsa102b.isChecked() ? "2" : bi.dsa10298.isChecked() ? "98" : "0");

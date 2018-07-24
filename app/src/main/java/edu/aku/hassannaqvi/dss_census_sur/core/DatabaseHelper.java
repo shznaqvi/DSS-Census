@@ -527,7 +527,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void syncEvents(JSONArray eventlist) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(MembersContract.singleMember.TABLE_NAME, null, null);
+        db.delete(singleEV.TABLE_NAME, null, null);
         try {
             JSONArray jsonArray = eventlist;
             for (int i = 0; i < jsonArray.length(); i++) {
@@ -547,7 +547,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(singleEV.COLUMN_BIRTH_TIME, evr.getBirth_time());
                 values.put(singleEV.COLUMN_GENDER, evr.getGender());
 
-                db.insert(singleMember.TABLE_NAME, null, values);
+                db.insert(singleEV.TABLE_NAME, null, values);
             }
 
         } catch (Exception e) {

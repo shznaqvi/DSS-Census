@@ -33,7 +33,7 @@ public class SB_EndingActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nb_ending);
+        setContentView(R.layout.activity_still_birth_ending);
         ButterKnife.bind(this);
 
         Boolean check = getIntent().getExtras().getBoolean("check");
@@ -79,7 +79,7 @@ public class SB_EndingActivity extends Activity {
         }
     }
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 //        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
         MainApp.sb.setIstatus(dcstatus01.isChecked() ? "1" : dcstatus02.isChecked() ? "2" : "0");

@@ -36,8 +36,13 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.HouseholdContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 
-public class HouseholdListActivity extends AppCompatActivity {
+public class EventsListActivity extends AppCompatActivity {
 
+    public static int visitType = 0;
+    static FollowUpsContract followUp;
+    //  Static variables
+    static List<Integer> hhClicked;
+    static String hhID = "";
     @BindView(R.id.hhno)
     EditText hhno;
     @BindView(R.id.fldGrpHHExists)
@@ -52,21 +57,12 @@ public class HouseholdListActivity extends AppCompatActivity {
     RecyclerView recyclerHouseholds;
     @BindView(R.id.btn_End)
     Button btn_End;
-
     /*Variables*/
     Collection<HouseholdContract> household;
-    static FollowUpsContract followUp;
     DatabaseHelper db;
     HouseholdAdapter mAdapter;
-
     //  Flag for checking HH field
     Boolean flagHH = false;
-
-    //  Static variables
-    static List<Integer> hhClicked;
-    static String hhID = "";
-
-    public static int visitType = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +75,7 @@ public class HouseholdListActivity extends AppCompatActivity {
 //        Set Region DssIDD
         hhno.setText(MainApp.regionDss);
 
-//        Get visit type //// unscheduled or scheduled
+//        Get visit type
         visitType = getIntent().getIntExtra("visit", 1);
 
 //        Initialize
@@ -135,7 +131,7 @@ public class HouseholdListActivity extends AppCompatActivity {
 
                             if (flag) {
                                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                                        HouseholdListActivity.this);
+                                        EventsListActivity.this);
                                 alertDialogBuilder
                                         .setMessage("Are you sure to go in this Household")
                                         .setCancelable(false)
@@ -184,7 +180,7 @@ public class HouseholdListActivity extends AppCompatActivity {
 
                 if (followUp.getHhID() != null) {
 
-                    Toast.makeText(this, "FollowUp found..", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "FolloUp found..", Toast.LENGTH_SHORT).show();
 
                     hhno.setError(null);
                     household = db.getHHListByHH(hhno.getText().toString().toUpperCase());
@@ -230,7 +226,7 @@ public class HouseholdListActivity extends AppCompatActivity {
     void onBtnEndClick() {
         //TODO implement
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                HouseholdListActivity.this);
+                EventsListActivity.this);
         alertDialogBuilder
                 .setMessage("Do you want to EXIT??")
                 .setCancelable(false)
@@ -256,7 +252,7 @@ public class HouseholdListActivity extends AppCompatActivity {
     void onBtnAddFamilyClick() {
         //TODO implement
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                HouseholdListActivity.this);
+                EventsListActivity.this);
         alertDialogBuilder
                 .setMessage("Do you want to Add New Family?")
                 .setCancelable(false)
@@ -302,9 +298,8 @@ public class HouseholdListActivity extends AppCompatActivity {
     //    Recycler classes
     public class HouseholdAdapter extends RecyclerView.Adapter<HouseholdAdapter.MyViewHolder> {
 
-        private List<HouseholdContract> householdList;
-
         MyViewHolder holder;
+        private List<HouseholdContract> householdList;
 
         public HouseholdAdapter(List<HouseholdContract> householdList) {
             this.householdList = householdList;
