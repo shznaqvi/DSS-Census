@@ -359,7 +359,6 @@ public class MembersContract {
 
         public static final String TABLE_NAME = "members";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
-
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_DATE = "_date";
         public static final String COLUMN_DSS_ID_HH = "dss_id_hh";
@@ -386,7 +385,6 @@ public class MembersContract {
         public static final String COLUMN_EDUCATION = "education";
         public static final String COLUMN_OCCUPATION = "occupation";
         public static final String COLUMN_MEMBER_TYPE = "member_type";
-
         public static final String _URI = "censusmembers.php";
 
     }

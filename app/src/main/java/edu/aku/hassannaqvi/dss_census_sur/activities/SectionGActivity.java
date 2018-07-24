@@ -259,7 +259,6 @@ public class SectionGActivity extends Activity {
                 dcg0513.setError(null);
             }
         }
-
         return true;
     }
 
