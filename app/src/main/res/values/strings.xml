@@ -1142,16 +1142,16 @@
 
     <string name="dsaHeading03"> MATERNAL ANTHROPOMETRY </string>
     <string name="dsa18"> ماں کا وزن(کلو گرام میں ) </string>
-    <string name="dsa18w"> _____________kg </string>
+    <string name="dsa18w"> XXX.XX kg </string>
     <string name="dsa1898"> معلوم نہیں </string>
     <string name="dsa1897"> غیر ضروری </string>
   <string name="dsa1899"> انکار کر دیا </string>
     <string name="dsa19"> ماں کے بازو کی گولائی (MUAC) </string>
-    <string name="dsa19m"> گولائی </string>
+    <string name="dsa19m"> گولائی XX.X cm </string>
     <string name="dsa1998"> معلوم نہیں </string>
     <string name="dsa1997"> غیر ضروری </string>
     <string name="dsa20"> ماں کا قد </string>
-    <string name="dsa20h"> ماں کا قد </string>
+    <string name="dsa20h"> ماں کا قد XXX.X cm  </string>
     <string name="dsa2098"> معلوم نہیں </string>
     <string name="dsa2097"> غیر ضروری </string>
 
