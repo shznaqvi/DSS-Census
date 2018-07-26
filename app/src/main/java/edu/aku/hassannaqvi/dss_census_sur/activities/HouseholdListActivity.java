@@ -1,6 +1,5 @@
 package edu.aku.hassannaqvi.dss_census_sur.activities;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,6 +8,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -36,7 +36,7 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.HouseholdContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 
-public class HouseholdListActivity extends Activity {
+public class HouseholdListActivity extends AppCompatActivity {
 
     @BindView(R.id.hhno)
     EditText hhno;
@@ -55,7 +55,7 @@ public class HouseholdListActivity extends Activity {
 
     /*Variables*/
     Collection<HouseholdContract> household;
-    FollowUpsContract followUp;
+    static FollowUpsContract followUp;
     DatabaseHelper db;
     HouseholdAdapter mAdapter;
 
@@ -66,15 +66,21 @@ public class HouseholdListActivity extends Activity {
     static List<Integer> hhClicked;
     static String hhID = "";
 
+    public static int visitType = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_household_list);
         ButterKnife.bind(this);
 
+        this.setTitle("D S S");
+
 //        Set Region DssIDD
         hhno.setText(MainApp.regionDss);
-//        hhno.setSelection(hhno.getText().length());
+
+//        Get visit type //// unscheduled or scheduled
+        visitType = getIntent().getIntExtra("visit", 1);
 
 //        Initialize
         db = new DatabaseHelper(this);
@@ -85,7 +91,9 @@ public class HouseholdListActivity extends Activity {
         } else {
             hhno.setText(hhID);
             hhno.setEnabled(false);
-            onCheckHHIDClick();
+//            onCheckHHIDClick();
+            fldGrpMain.setVisibility(View.VISIBLE);
+            new populateRecyclerView(this).execute();
 
         }
 
@@ -141,8 +149,10 @@ public class HouseholdListActivity extends Activity {
                                                             recyclerHouseholds.getChildAt(item).setBackgroundColor(Color.BLACK);
                                                         }
 
+                                                        finish();
                                                         startActivity(new Intent(getApplicationContext(), SectionAActivity.class)
                                                                 .putExtra("dssHH", MainApp.householdList.get(position).getHouseholdID())
+                                                                .putExtra("intMovFlag", Integer.valueOf(MainApp.householdList.get(position).getTotalMem()) == 0)
                                                                 .putExtra("followUpData", followUp));
 
                                                     }
@@ -168,45 +178,49 @@ public class HouseholdListActivity extends Activity {
         //TODO implement
 
         if (!hhno.getText().toString().trim().isEmpty()) {
+            if (hhno.getText().toString().length() == 9) {
 
-            followUp = db.getFollowUpListByHH(hhno.getText().toString().toUpperCase());
+                followUp = db.getFollowUpListByHH(hhno.getText().toString().toUpperCase());
 
-            if (followUp.getHhID() != null) {
+                if (followUp.getHhID() != null) {
 
-                Toast.makeText(this, "FolloUp found..", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "FollowUp found..", Toast.LENGTH_SHORT).show();
 
-                hhno.setError(null);
-                household = db.getHHListByHH(hhno.getText().toString().toUpperCase());
+                    hhno.setError(null);
+                    household = db.getHHListByHH(hhno.getText().toString().toUpperCase());
 
-                fldGrpHHExists.setVisibility(View.VISIBLE);
-                hhCount.setText("Follow up found \n" + household.size() + " Households found.");
+                    fldGrpHHExists.setVisibility(View.VISIBLE);
+                    hhCount.setText("Follow up found \n" + household.size() + " Households found.");
 
-                MainApp.householdList = new ArrayList<>();
+                    MainApp.householdList = new ArrayList<>();
 
-                if (household.size() != 0) {
+                    if (household.size() != 0) {
 
-                    for (HouseholdContract ec : household) {
-                        MainApp.householdList.add(new HouseholdContract(ec));
+                        for (HouseholdContract ec : household) {
+                            MainApp.householdList.add(new HouseholdContract(ec));
+                        }
+
+                        Toast.makeText(this, "HH Found", Toast.LENGTH_LONG).show();
+
+                        flagHH = true;
+
+                        hhID = hhno.getText().toString();
+
+                        fldGrpMain.setVisibility(View.VISIBLE);
+
+                        new populateRecyclerView(this).execute();
+
+                    } else {
+                        flagHH = false;
+                        Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
                     }
-
-                    Toast.makeText(this, "HH Found", Toast.LENGTH_LONG).show();
-
-                    flagHH = true;
-
-                    hhID = hhno.getText().toString();
-
-                    fldGrpMain.setVisibility(View.VISIBLE);
-
-                    new populateRecyclerView(this).execute();
-
                 } else {
-                    flagHH = false;
-                    Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "No Follow Up Found", Toast.LENGTH_LONG).show();
                 }
-            } else {
-                Toast.makeText(this, "No Follow Up Found", Toast.LENGTH_LONG).show();
-            }
 
+            } else {
+                hhno.setError("Invalid DSS-ID!!");
+            }
         } else {
             hhno.setError("This data is Required!");
         }
@@ -215,31 +229,65 @@ public class HouseholdListActivity extends Activity {
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
         //TODO implement
-        if (flagHH) {
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                    HouseholdListActivity.this);
-            alertDialogBuilder
-                    .setMessage("Do you want to EXIT??")
-                    .setCancelable(false)
-                    .setPositiveButton("Ok",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog,
-                                                    int id) {
-                                    finish();
-                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                }
-                            });
-            alertDialogBuilder.setNegativeButton("Cancel",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
-            AlertDialog alert = alertDialogBuilder.create();
-            alert.show();
-        } else {
-            Toast.makeText(this, "Click on CHECK button.", Toast.LENGTH_SHORT).show();
-        }
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                HouseholdListActivity.this);
+        alertDialogBuilder
+                .setMessage("Do you want to EXIT??")
+                .setCancelable(false)
+                .setPositiveButton("Ok",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
+                                finish();
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            }
+                        });
+        alertDialogBuilder.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
+    }
+
+    @OnClick(R.id.btn_addFamily)
+    void onBtnAddFamilyClick() {
+        //TODO implement
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                HouseholdListActivity.this);
+        alertDialogBuilder
+                .setMessage("Do you want to Add New Family?")
+                .setCancelable(false)
+                .setPositiveButton("Ok",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
+
+//                                String lastDssID = db.getLastDSSinHH(hhno.getText().toString().toUpperCase());
+                                String lastDssID = MainApp.householdList.get(MainApp.householdList.size() - 1).getHouseholdID();
+
+                                hhno.setEnabled(false);
+                                // Creating New DSS-ID
+                                char newExtension = (char) (lastDssID.charAt(lastDssID.length() - 1) + 1);
+                                StringBuilder builder = new StringBuilder(lastDssID);
+                                builder.setCharAt(lastDssID.length() - 1, newExtension);
+
+                                MainApp.householdList.add(new HouseholdContract(builder.toString(), "0"));
+
+                                new populateRecyclerView(getApplicationContext()).execute();
+
+                            }
+                        });
+        alertDialogBuilder.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
 
     @Override

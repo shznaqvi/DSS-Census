@@ -38,8 +38,7 @@
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-"
                 android:hint="@string/hhno"
                 android:inputType="text"
-                android:maxLength="9"
-                android:padding="5dp" />
+                android:maxLength="9" />
 
             <Button
                 android:id="@+id/checkHHID"
@@ -61,6 +60,7 @@
             android:id="@+id/fldGrpMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:orientation="vertical">
 
             <LinearLayout
@@ -102,24 +102,31 @@
                 android:scrollbars="vertical"
                 tools:listitem="@layout/householdlist" />
 
-        </LinearLayout>
-
-        <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/recycler_households"
-            android:layout_gravity="end"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_End"
-                android:layout_width="wrap_content"
+            <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/end_interview"
-                android:textColor="#ff1e1e" />
+                android:layout_alignBottom="@+id/recycler_households"
+                android:layout_gravity="end"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_addFamily"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="@string/add_family"
+                    android:textColor="@color/colorPrimary" />
+
+                <Button
+                    android:id="@+id/btn_End"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="@string/end_interview"
+                    android:textColor="#ff1e1e" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

@@ -14,10 +14,13 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.format.DateFormat;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import edu.aku.hassannaqvi.dss_census_sur.activities.EndingActivity;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.CensusContract;
@@ -26,7 +29,10 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.HouseholdContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MotherContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.PWContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.SectionKIMContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.StillBirthContract;
 import edu.aku.hassannaqvi.dss_census_sur.otherClasses.MothersLst;
 
 /**
@@ -67,6 +73,9 @@ public class MainApp extends Application {
     public static int loginFieldArea = -1;
     public static String child_name = "TEST";
     public static FormsContract fc;
+    public static NewBornContract nb;
+    public static PWContract pw;
+    public static StillBirthContract sb;
     public static String userName = "0000";
     public static String areaCode;
     //    Total No of members got from Section A
@@ -76,7 +85,7 @@ public class MainApp extends Application {
     public static int NoBoyCount = 0;
     public static int NoGirlCount = 0;
 
-    public static int TotalMembersCount = 0;
+    public static int TotalMembersCount = -1;
     public static int TotalMaleCount = 0;
     public static int TotalFemaleCount = 0;
     public static int TotalBoyCount = 0;
@@ -96,14 +105,13 @@ public class MainApp extends Application {
     public static SectionKIMContract ims;
     public static int mm = 1;
     public static int totalChild = 0;
-    public static int memFlag = 0;
+//    public static int memFlag = 0;
     public static int checkingFlag = 0;
     public static List<Integer> memClicked;
     public static ArrayList<MothersLst> lstMothers;
     public static int position = 0;
     protected static LocationManager locationManager;
     public static double selectedCHILD = 24;
-    public static int selectedPos = -1;
     public static int selectedCh = -1;
     public static List<String> insertMem;
     public static int randID = 1;
@@ -118,6 +126,7 @@ public class MainApp extends Application {
 
     /*Ali DSS SUR*/
     public static List<HouseholdContract> householdList;
+    public static Map<String,String> MotherChildList;
 
     @Override
     public void onCreate() {
@@ -143,6 +152,29 @@ public class MainApp extends Application {
 //        Initialize Dead Member List
 //        deadMembers = new ArrayList<String>();
 
+    }
+
+    public static long ageInYearByDOB(String dateStr) {
+        Calendar cal = getCalendarDate(dateStr);
+        Date dob = cal.getTime();
+        Date today = new Date();
+        Long diff = today.getTime() - dob.getTime();
+        long ageInYears = (diff / (24 * 60 * 60 * 1000)) / 365;
+        return ageInYears;
+    }
+
+    public static Calendar getCalendarDate(String value) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar calendar = Calendar.getInstance();
+        try {
+            Date date = sdf.parse(value);
+            calendar.setTime(date);
+            return calendar;
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return calendar;
     }
 
     public static int monthsBetweenDates(Date startDate, Date endDate) {

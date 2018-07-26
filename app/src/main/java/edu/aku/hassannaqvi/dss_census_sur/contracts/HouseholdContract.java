@@ -38,6 +38,11 @@ public class HouseholdContract {
         this.totalMem = hc.totalMem;
     }
 
+    public HouseholdContract(String householdID,String totalMem) {
+        this.householdID = householdID;
+        this.totalMem = totalMem;
+    }
+
     public HouseholdContract Sync(JSONObject jsonObject) throws JSONException {
         this._ID= jsonObject.getString(householdForm.COLUMN_ID);
         this._UID= jsonObject.getString(householdForm.COLUMN_UID);

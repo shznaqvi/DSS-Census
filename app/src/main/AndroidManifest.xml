@@ -72,14 +72,17 @@
         <activity
             android:name=".activities.SectionAActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activities.SectionBActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".activities.SectionBNewActivity"
+            android:name=".activities.SectionBNewPrevActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activities.SectionKActivity"
@@ -100,6 +103,7 @@
         <activity
             android:name=".activities.FamilyMembersActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".core.AndroidDatabaseManager"
@@ -108,6 +112,17 @@
         <activity
             android:name=".activities.EndingActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activities.NB_EndingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activities.SB_EndingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity android:name=".FormsList" />
         <activity
@@ -117,26 +132,33 @@
         <activity
             android:name=".activities.HouseholdListActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activities.NewBornAssessmentActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activities.ChildDeathRegActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity android:name=".activities.AdultDeathReportActivity"
+        <activity
+            android:name=".activities.AdultDeathReportActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="adjustResize|stateHidden"
-            />
-        <activity android:name=".activities.StillBirthReportActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activities.StillBirthReportActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="adjustResize|stateHidden"
-            />
+            android:theme="@style/AppTheme3"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activities.PWAssessmentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
     </application>
 
 </manifest>

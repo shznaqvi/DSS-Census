@@ -13,6 +13,7 @@
     completions."
   </string>
 
+    <string name="add_family"> فیملی کا اندراج </string>
     <string name="end_interview"> اختتام </string>
     <string name="start_interview"> انٹرویو شروع کریں </string>
     <string name="nextSection"> اگلا سیکشن </string>
@@ -36,11 +37,9 @@
     <string name="secLLabel">سیکشن ایل :گھریلو خوراک کی غیر محفوظی ، خوراک کا استعمال اور تبدل</string>
     <string name="dcl2heading"> خاندان کی غذا کی کمی سے نمنٹے کی حکمت عملی </string>
     <string name="dcl3heading"> بھوک کا پیمانہ ( گزشتہ ایک ماہ کے متعلق) </string>
-  <string name="secMLabel">سیکشن ایم: گھر کا ماحول</string>
+    <string name="secMLabel">سیکشن ایم: گھر کا ماحول</string>
 
-  <string name="dstudyid">Study ID</string>
-
-
+    <string name="dstudyid">Study ID</string>
 
 
     <string name="days">دنوں کی تعداد</string>
@@ -81,6 +80,7 @@
 
     <!-- Strings related to Sections Below -->
 
+  <string name="eventlbl"> EVENTS </string>
     <string name="hhno"> Household no </string>
     <string name="dca03">3) DSS ID </string>
     <string name="dca04">4۔ کیا اجازت مل گئی؟ </string>
@@ -138,6 +138,7 @@
     <string name="dcbbrhh11"> غیر متعلقہ افراد </string>
     <string name="dcbbfid"> والد </string>
     <string name="dcbbmid"> والدہ </string>
+    <string name="dcbbhid"> شوہر </string>
     <string name="dcbc"> ازدواجی حیثیت </string>
     <string name="dcbc01"> شادی شدہ </string>
     <string name="dcbc02"> طلاق یافتہ یا الگ رہنا </string>
@@ -149,6 +150,7 @@
     <string name="dcbe"> تعلیم </string>
     <string name="dcbm"> ارکان کی موجودہ حیثیت </string>
     <string name="dcbm01"> شادی شدہ عورت </string>
+    <string name="dcbm01a"> عورت </string>
     <string name="dcbm02"> شوہر </string>
     <string name="dcbm03"> بچہ </string>
     <string name="dcbm04"> دیگر افراد </string>
@@ -189,8 +191,15 @@
     <string name="dcbi"> موجودہ حیثیت </string>
     <string name="dcbis"> حیثیت </string>
     <string name="dcbis01"> پیدائش </string>
+
+    <string name="dcbis01Status"> موجودہ حیثیت </string>
+    <string name="dcbis01Statusa"> Still exist and live with us </string>
+    <string name="dcbis01Statusb"> Child recently Death </string>
+    <string name="dcbis01Statusc"> Adaopted by other family </string>
+
     <string name="dcbis02"> اندرونی ہجرت </string>
     <string name="dcbis03"> بیرونی ہجرت </string>
+    <string name="dcbis03a"> علاقے کا نام </string>
     <string name="dcbis04"> اندورنی علاقے میں ہی ایک جگہ سے دوسری جگہ منتقل ہونا </string>
     <string name="dcbis05"> موت </string>
     <string name="dcbis06"> طلاق </string>
@@ -201,17 +210,24 @@
     <string name="dcbis07c"> Widowed </string>
     <string name="dcbis07d"> Divorce/Separated </string>
     <string name="dcbis08"> حمل سے </string>
-    <string name="dcbis09"> حمل کا نتیجہ </string>
+    <string name="dcbis09"> حمل کی معلومات </string>
+    <string name="dcbis10"> ابھی موجود نہیں ہے </string>
+    <string name="dcbis11"> منع کردیا </string>
+
+    <string name="dcbis09a"> Currently Not Pregnant </string>
+    <string name="dcbis09b"> Currently Pregnant </string>
+    <string name="dcbis09c"> Previous Pregnancy </string>
+    <string name="dcbis09ca"> حمل کی تاریخ </string>
     <string name="dcbis0901"> نتیجہ </string>
-    <string name="dcbis09a"> Miscarriage </string>
-    <string name="dcbis09b"> Still Birth </string>
-    <string name="dcbis09c"> Live Birth </string>
-    <string name="dcbis09d"> Multiple Birth </string>
+    <string name="dcbis04Outa"> Miscarriage </string>
+    <string name="dcbis04Outb"> Still Birth </string>
+    <string name="dcbis04Outc"> Live Birth </string>
+    <string name="dcbis04Outd"> Multiple Birth </string>
     <string name="dcbis09d01"> Birth Info </string>
     <string name="dcbis09da"> Total Birth </string>
     <string name="dcbis09db"> Still Birth </string>
     <string name="dcbis09dc"> Live Birth </string>
-    <string name="dcbis10"> کوئی تبدیلی نہیں </string>
+    <string name="dcbist01"> کوئی تبدیلی نہیں </string>
     <string name="dcbidt"> کی تاریخ</string>
     <string name="dcbidt1"> تاریخ </string>
     <string name="dcbidt01"> پیدائش کی تاریخ </string>
@@ -776,54 +792,54 @@
     <string name="dcm20"> 20) کیا باقاعدگی سے دیگر ائیر فریشر کی چیزیں مثلاً خوشبودار موم بتیاں(اگر بتیاں) وغیرہ استعمال کرتے ہیں؟ </string>
 
     <string name="otherurdu"> کوئ اور (وضاحت کر یں)</string>
-  <!--New Born String-->
-  <string name="dnbheading">نومولود میں خطرناک علامات کی جانچ</string>
-  <string name="dnbsubheading1">اگر یہ دوسر ی یا تیسری وزٹ ے</string>
-  <string name="dnbsubheading2"> طبی معا تینہ</string>
-  <string name="dnb01"> ورکر کا نا م </string>
-  <string name="dnb02"> ورکر کا کوڈ </string>
-  <string name="dnb03"> بچے ٕکا نام </string>
-  <string name="dnb04"> جنس </string>
-  <string name="dnb05"> والدہ کا نام </string>
-  <string name="dnb06"> والد کا نام </string>
-  <string name="dnb07"> بچے کی تاریخ پیدائش </string>
-  <string name="dnb08"> پیدائش کا وقت </string>
-  <string name="dnb09"> کیا بچی فوت ہوا تو تاریخ لکھیں </string>
-  <string name="dnb10"> وفات کا وقت </string>
-  <string name="dnb11"> بچے کے پیدائش کی جگہ </string>
-  <string name="dnb11a"> ہسپتال </string>
-  <string name="dnb11ax"> نام لکھے </string>
-  <string name="dnb11b"> کلینک </string>
-  <string name="dnb11c"> گھر </string>
-  <string name="dnb12"> زچگی کس نے کرائی </string>
-  <string name="dnb12a"> ڈاکٹر </string>
-  <string name="dnb12b"> نرس </string>
-  <string name="dnb12c"> تربیت یافتہ دائ </string>
-  <string name="dnb12d"> دائ </string>
-  <string name="dnb12e"> رشتہ دار </string>
-  <string name="dnb13"> بچے کا وزن </string>
-  <string name="dnb14"> سانس کی رفتار </string>
-  <string name="dnb14m"> سانس/ منٹ </string>
-  <string name="dnb15"> پسلیوں کا تیز چلنا </string>
-  <string name="dnb16"> بعل کا درجہِ حرارت </string>
-  <string name="dnb17"> بچے کی حرکت اور ہوش کی سطح کیا ہے؟ </string>
-  <string name="dnb18"> جھٹکے لگنا </string>
-  <string name="dnb19"> ماں سے پوچھیں کہ بچی کو دودہ پینے میں کوئی دشواری تو نہیں ہے؟ </string>
-  <string name="dnb20"> ماں سے کہیں کے بچے کو دودھ پلائے اور آپ اس کا مشائدہ کریں؟ </string>
-  <string name="dnb21"> ماں کو دودھ پلانے کی اور بچے کو دودھ سے لگانے کی پوزیشن صحیح کریں اور پھر دودھ پلانے کا مشاہدہ کریں۔ </string>
-  <string name="dnb22"> جلد پر پھوڑے </string>
-  <string name="dnb23"> ناف کا لال ہونا یا پیپ کا نکلنا </string>
-  <string name="dnb24"> پیلیا ہونا </string>
-  <string name="dnb25"> پیدائشی نقص کی موجودگی </string>
-  <string name="dnb26"> کوئی اور پیچیدگی </string>
-  <string name="dnb27"> کیا بچے کو ریفر کیا گیا تھا ؟ </string>
-  <string name="dnb28"> بچے کو ریفر کرنے کی وجہ کیا تھی؟ </string>
-  <string name="dnb29"> کیا بچے کا خیال رکھنے والوں نے اس ریفرل کو قبول کیا؟ </string>
-  <string name="dnb30"> ریفرل سے انکار کی وجہ؟ </string>
-  <string name="dnb31"> انٹرویو کے اختتام کا وقت </string>
+    <!--New Born String-->
+    <string name="dnbheading">نومولود میں خطرناک علامات کی جانچ</string>
+    <string name="dnbsubheading1">اگر یہ دوسر ی یا تیسری وزٹ ے</string>
+    <string name="dnbsubheading2"> طبی معا تینہ</string>
+    <string name="dnb01"> ورکر کا نا م </string>
+    <string name="dnb02"> ورکر کا کوڈ </string>
+    <string name="dnb03"> بچے ٕکا نام </string>
+    <string name="dnb04"> جنس </string>
+    <string name="dnb05"> والدہ کا نام </string>
+    <string name="dnb06"> والد کا نام </string>
+    <string name="dnb07"> فوت کی تاریخ لکھیں </string>
+    <string name="dnb08"> وفات کا وقت </string>
+    <string name="dnbStatus"> بچے کی موجودہ حیثیت </string>
+    <string name="dnbStatusa"> حیات </string>
+    <string name="dnbStatusb"> فوت </string>
+    <string name="dnb09"> بچے کی تاریخ پیدائش </string>
+    <string name="dnb10"> پیدائش کا وقت </string>
+    <string name="dnb11"> بچے کے پیدائش کی جگہ </string>
+    <string name="dnb11a"> ہسپتال </string>
+    <string name="dnb11ax"> نام لکھے </string>
+    <string name="dnb11b"> کلینک </string>
+    <string name="dnb11c"> گھر </string>
+    <string name="dnb12"> زچگی کس نے کرائی </string>
+    <string name="dnb12a"> ڈاکٹر </string>
+    <string name="dnb12b"> نرس </string>
+    <string name="dnb12c"> تربیت یافتہ دائ </string>
+    <string name="dnb12d"> دائ </string>
+    <string name="dnb12e"> رشتہ دار </string>
+    <string name="dnb13"> بچے کا وزن </string>
+    <string name="dnb14"> سانس کی رفتار </string>
+    <string name="dnb14m"> سانس/ منٹ </string>
+    <string name="dnb15"> پسلیوں کا تیز چلنا </string>
+    <string name="dnb16"> بعل کا درجہِ حرارت </string>
+    <string name="dnb17"> بچے کی حرکت اور ہوش کی سطح کیا ہے؟ </string>
+    <string name="dnb18"> جھٹکے لگنا </string>
+    <string name="dnb19"> ماں سے پوچھیں کہ بچی کو دودہ پینے میں کوئی دشواری تو نہیں ہے؟ </string>
+    <string name="dnb20"> جلد پر پھوڑے </string>
+    <string name="dnb21"> ناف کا لال ہونا یا پیپ کا نکلنا </string>
+    <string name="dnb22"> پیلیا ہونا </string>
+    <string name="dnb23"> پیدائشی نقص کی موجودگی </string>
+    <string name="dnb24"> کوئی اور پیچیدگی </string>
+    <string name="dnb25"> کیا بچے کو ریفر کیا گیا تھا ؟ </string>
+    <string name="dnb26"> بچے کو ریفر کرنے کی وجہ کیا تھی؟ </string>
+    <string name="dnb27"> کیا بچے کا خیال رکھنے والوں نے اس ریفرل کو قبول کیا؟ </string>
+    <string name="dnb28"> ریفرل سے انکار کی وجہ؟ </string>
 
 
-  <!--remaining strings-->
+    <!--remaining strings-->
     <string name="dnb1196">  </string>
     <string name="dnb1196x">  </string>
     <string name="dnb1296">  </string>
@@ -904,84 +920,240 @@
     <string name="number">Number </string>
 
 
-  <string name="dssid">DSS ID</string>
-  <string name="dadrHeading"> ADULT FEMALE DEATH REPORTING FORM </string>
-  <string name="dadr02"> Woman Name </string>
-  <string name="dadr03"> Husband’s Name </string>
-  <string name="dadr04"> Respondent’s Name </string>
-  <string name="dadr05"> Interviewer’s Name &amp; Code </string>
-  <string name="dadr06"> Date of Interview </string>
-  <string name="dadr07"> Age at death </string>
-  <string name="dadr08"> Date of Death </string>
-  <string name="dadr09"> Place of death </string>
-  <string name="dadr09a"> Home </string>
-  <string name="dadr09b"> Hospital </string>
-  <string name="dadr09c"> Clinic </string>
-  <string name="dadr10"> Date of Delivery/ Abortion </string>
-  <string name="dadr11"> Plurality </string>
-  <string name="dadr11a"> Single </string>
-  <string name="dadr11b"> Multiple </string>
-  <string name="dadr11bx"> If multiple then no </string>
-  <string name="dadr12"> Type of delivery </string>
-  <string name="dadr12a"> Spontaneous vaginal </string>
-  <string name="dadr12b"> Elective Caesarean section </string>
-  <string name="dadr12c"> Emergency Caesarean section </string>
-  <string name="dadr13"> Parity (including current pregnancy if delivered) </string>
-  <string name="dadr14"> If death occurred antepartum; gestational week </string>
-  <string name="dadr15"> If death occurred postpartum; number of days postpartum at death </string>
-  <string name="dadr16"> No of antenatal visits </string>
-  <string name="dadr17"> No of post natal visits </string>
-  <string name="dadr18"> Baby outcome </string>
-  <string name="dadr18a"> Live birth </string>
-  <string name="dadr18b"> Stillbirth </string>
-  <string name="dadr18c"> Neonatal death </string>
-  <string name="dadr19"> Cause of Death: </string>
-  <string name="dadr20"> Comments: </string>
+    <string name="dssid">DSS ID</string>
+    <string name="dadrHeading"> ADULT FEMALE DEATH REPORTING FORM </string>
+    <string name="dadr02"> Woman Name </string>
+    <string name="dadr03"> Husband’s Name </string>
+    <string name="dadr04"> Respondent’s Name </string>
+    <string name="dadr05"> Interviewer’s Name &amp; Code </string>
+    <string name="dadr06"> Date of Interview </string>
+    <string name="dadr07"> Age at death </string>
+    <string name="dadr08"> Date of Death </string>
+    <string name="dadr09"> Place of death </string>
+    <string name="dadr09a"> Home </string>
+    <string name="dadr09b"> Hospital </string>
+    <string name="dadr09c"> Clinic </string>
+    <string name="dadr10"> Date of Delivery/ Abortion </string>
+    <string name="dadr11"> Plurality </string>
+    <string name="dadr11a"> Single </string>
+    <string name="dadr11b"> Multiple </string>
+    <string name="dadr11bx"> If multiple then no </string>
+    <string name="dadr12"> Type of delivery </string>
+    <string name="dadr12a"> Spontaneous vaginal </string>
+    <string name="dadr12b"> Elective Caesarean section </string>
+    <string name="dadr12c"> Emergency Caesarean section </string>
+    <string name="dadr13"> Parity (including current pregnancy if delivered) </string>
+    <string name="dadr14"> If death occurred antepartum; gestational week </string>
+    <string name="dadr15"> If death occurred postpartum; number of days postpartum at death </string>
+    <string name="dadr16"> No of antenatal visits </string>
+    <string name="dadr17"> No of post natal visits </string>
+    <string name="dadr18"> Baby outcome </string>
+    <string name="dadr18a"> Live birth </string>
+    <string name="dadr18b"> Stillbirth </string>
+    <string name="dadr18c"> Neonatal death </string>
+    <string name="dadr19"> Cause of Death: </string>
+    <string name="dadr20"> Comments: </string>
 
-  <string name="dsbrHeading"> STILL BIRTH REPORTING FORM </string>
-  <string name="dsbr02"> AMANHI ID </string>
-  <string name="dsbr03"> Mother Name </string>
-  <string name="dsbr04"> Father Name </string>
-  <string name="dsbr05"> Respondent’s Name </string>
-  <string name="dsbr06"> Interviewer’s Name &amp; Code </string>
-  <string name="dsbr08"> Date of Interview </string>
-  <string name="dsbr09"> Time of still birth </string>
-  <string name="dsbr10"> Date of outcome </string>
-  <string name="dsbr11"> Place of Birth </string>
-  <string name="dsbr11a"> Home </string>
-  <string name="dsbr11b"> Hospital </string>
-  <string name="dsbr11c"> Clinic </string>
-  <string name="dsbr12"> EDD </string>
-  <string name="dsbr13"> No of outcome in delivery </string>
-  <string name="dsbr13a"> Single </string>
-  <string name="dsbr13b"> Multiple </string>
-  <string name="dsbr13bx"> If multiple then no </string>
-  <string name="dsbr14"> Type of delivery </string>
-  <string name="dsbr14a"> Spontaneous vaginal </string>
-  <string name="dsbr14b"> Elective Caesarean section </string>
-  <string name="dsbr14c"> Emergency Caesarean section </string>
-  <string name="dsbr15"> Child order (if twin or triplets) </string>
-  <string name="dsbr16"> Gender of baby </string>
-  <string name="dsbr16a"> Male </string>
-  <string name="dsbr16b"> Female </string>
-  <string name="dsbr17"> Was the baby premature </string>
-  <string name="dsbr18"> If yes then write </string>
-  <string name="dsbr19"> Birth weight (if done) </string>
-  <string name="dsbr20"> Did the baby breathe after birth, even a little? </string>
-  <string name="dsbr21"> Did the baby ever cry after birth, even a little? </string>
-  <string name="dsbr22"> Did the baby ever move, even a little? </string>
-  <string name="dsbr23"> If the baby did not breathe, cried or moved, was it born dead? </string>
-  <string name="dsbr24"> Was the baby macerated, that is shows sign of decay? </string>
-  <string name="dsbr25"> Cause of Death (if Known) </string>
-  <string name="dsbr26"> Comments (if any): </string>
-
-
+    <string name="dsbrHeading"> STILL BIRTH REPORTING FORM </string>
+    <string name="dsbr02"> AMANHI ID </string>
+    <string name="dsbr03"> Mother Name </string>
+    <string name="dsbr04"> Father Name </string>
+    <string name="dsbr05"> Respondent’s Name </string>
+    <string name="dsbr06"> Interviewer’s Name &amp; Code </string>
+    <string name="dsbr08"> Date of Interview </string>
+    <string name="dsbr09"> Time of still birth </string>
+    <string name="dsbr10"> Date of outcome </string>
+    <string name="dsbr11"> Place of Birth </string>
+    <string name="dsbr11a"> Home </string>
+    <string name="dsbr11b"> Hospital </string>
+    <string name="dsbr11c"> Clinic </string>
+    <string name="dsbr12"> EDD </string>
+    <string name="dsbr13"> No of outcome in delivery </string>
+    <string name="dsbr13a"> Single </string>
+    <string name="dsbr13b"> Multiple </string>
+    <string name="dsbr13bx"> If multiple then no </string>
+    <string name="dsbr14"> Type of delivery </string>
+    <string name="dsbr14a"> Spontaneous vaginal </string>
+    <string name="dsbr14b"> Elective Caesarean section </string>
+    <string name="dsbr14c"> Emergency Caesarean section </string>
+    <string name="dsbr15"> Child order (if twin or triplets) </string>
+    <string name="dsbr16"> Gender of baby </string>
+    <string name="dsbr16a"> Male </string>
+    <string name="dsbr16b"> Female </string>
+    <string name="dsbr17"> Was the baby premature </string>
+    <string name="dsbr18"> If yes then write </string>
+    <string name="dsbr19"> Birth weight (if done) </string>
+    <string name="dsbr20"> Did the baby breathe after birth, even a little? </string>
+    <string name="dsbr21"> Did the baby ever cry after birth, even a little? </string>
+    <string name="dsbr22"> Did the baby ever move, even a little? </string>
+    <string name="dsbr23"> If the baby did not breathe, cried or moved, was it born dead? </string>
+    <string name="dsbr24"> Was the baby macerated, that is shows sign of decay? </string>
+    <string name="dsbr25"> Cause of Death (if Known) </string>
+    <string name="dsbr26"> Comments (if any): </string>
 
 
-  <string name="gramurdu">گرام </string>
+    <string name="gramurdu">گرام </string>
 
-  <string name="dcdr20"> Cause of Death </string>
+    <string name="dcdr20"> Cause of Death </string>
     <string name="dcdr21"> Did Interviewer inform verbal autopsy team? </string>
 
     <string name="rsvp"> کیا آپ جواب دہندہ ہیں؟ </string>
+
+    <!-- ALi strings -->
+
+    <string name="dcbis05Age"> وفات کے وقت عمر سالوں میں </string>
+    <string name="dcbis05Cause"> وفات کی وجہ </string>
+    <string name="dcbis05Place"> وفات کی جگہ </string>
+    <string name="dcbis05Placea"> گھر </string>
+    <string name="dcbis05Placeb"> ہسپتال </string>
+    <string name="dcbis05Placec"> راستے میں </string>
+    <string name="dcbis05Place96"> دیگر </string>
+    <string name="dcbis04prvDSSID"> Previous DSS-ID</string>
+
+    <string name="dsbcheckT"> آپ کی درج کردہ تفصیلات درست ہیں۔ </string>
+    <string name="dsbcheckF"> آپ کی درج کردہ تفصیلات درست نہیں ہے۔ </string>
+    <string name="dsb01"> بچے کا جنس؟ </string>
+    <string name="dsb01a"> لڑکا </string>
+    <string name="dsb01b"> لڑکی </string>
+    <string name="dsb0198"> معلوم نہیں </string>
+    <string name="dsb02"> بچے کا وزن (اگر کیا ہو تو) اگر نہیں کیا گیا تو 8888 لکھیں؂ </string>
+    <string name="dsb02a"> گرام </string>
+    <string name="dsb03"> کیا بچے نے پیدائش کے بعد سانس لی؟ (تھوڑا سابھی) </string>
+    <string name="dsb03a"> ہاں </string>
+    <string name="dsb03b"> نہیں </string>
+    <string name="dsb0398"> معلوم نہیں </string>
+    <string name="dsb04"> کیا بچے پیدائش کے بعد رویا ؟ (تھوڑا سابھی) </string>
+    <string name="dsb04a"> ہاں </string>
+    <string name="dsb04b"> نہیں </string>
+    <string name="dsb0498"> معلوم نہیں </string>
+    <string name="dsb05"> کیا بچے پیدائش کے بعد حرکت کی ؟(تھوڑا سابھی) </string>
+    <string name="dsb05a"> ہاں </string>
+    <string name="dsb05b"> نہیں </string>
+    <string name="dsb0598"> معلوم نہیں </string>
+    <string name="dsb06"> اگربچہ پیدائش کے بعد نہیں رویا ، حرکت نہیں کی اور سانس نہیں لی تو کیا بچہ مردہ پیدا ہوا تھا؟ </string>
+    <string name="dsb06a"> ہاں </string>
+    <string name="dsb06b"> نہیں </string>
+    <string name="dsb0698"> معلوم نہیں </string>
+    <string name="dsb07"> کیا بچہ گلا سڑا تھا یا گلنے سڑنے کے علامات موجود ہے؟ </string>
+    <string name="dsb07a"> ہاں </string>
+    <string name="dsb07b"> نہیں </string>
+    <string name="dsb0798"> معلوم نہیں </string>
+    <string name="dsb08"> مرنے کی وجہ؟ </string>
+
+    <!--PW-->
+    <string name="dsaHeading01"> PW ASSESMENT </string>
+    <string name="dsa01"> کیا آپ ابھی بھی حمل سے ہیں ؟ </string>
+    <string name="dsa01a"> ہاں </string>
+    <string name="dsa01b"> نہیں </string>
+    <string name="dsa0198"> معلوم نہیں </string>
+
+    <string name="dsa02"> اگر نہیں تو آپ کے موجودہ درج کردہ حمل کا کیا نتیجہ نکلا؟ </string>
+    <string name="dsa02a"> ضائع ہو گیا </string>
+    <string name="dsa02b"> مردہ پیداہوا </string>
+    <string name="dsa02c"> زندہ بچہ پیداہوا </string>
+    <string name="dsa02d"> بچہ پیدا ہو کے مرگیا </string>
+    <string name="dsa02e"> حاملہ نہیں تھی غلط بتایا گیا تھا </string>
+    <string name="dsa02f"> ابھی تک حمل سے ہے </string>
+    <string name="dsa0298"> معلوم نہیں </string>
+
+    <string name="dsa03"> آ پ کی آخری ہمواری کی تاریخ کیا ہے </string>
+    <string name="dsa03d"> دن </string>
+    <string name="dsa03m"> مہینہ </string>
+    <string name="dsa03y"> سال </string>
+    <string name="dsa0398"> معلوم نہیں </string>
+    <string name="dsa04"> اگر موجودہ درج کردہ حمل کا کیا نتیجہ نکلاہوتو ذچگی کہاں پر ہوئٰی؟ </string>
+
+    <string name="dsa05"> اگر موجودہ درج کردہ حمل کا نتیجہ نکلاہوتو ذچگی کس نے کرا ئی؟ </string>
+
+    <string name="dsa06"> کیا آپ نے اپنے حمل کو کہی رجسٹر کرایا ہے ؟ </string>
+    <string name="dsa06a"> ہاں </string>
+    <string name="dsa06b"> نہیں </string>
+    <string name="dsa06c"> ا بھی نھیں کر وا یا </string>
+    <string name="dsa0698"> معلوم نہیں </string>
+
+    <string name="dsa07"> آپ نے اپنے حمل کو کہاں رجسٹر کرایا ہے ؟ </string>
+
+    <string name="dsa08"> کیا آپ کو مندرجہ ذیل میں سے کوئ بھی علامات یا بیماریاں پیش آئیں؟ </string>
+    <string name="dsa08a"> خون کا جاری ہونا </string>
+    <string name="dsa08b"> ہائی بلڈ پریشر </string>
+    <string name="dsa08c"> سر میں درد </string>
+    <string name="dsa08d"> سوجن </string>
+    <string name="dsa08e"> نظرکا دھندلانا </string>
+    <string name="dsa08f"> جھٹکے </string>
+    <string name="dsa08g"> بے ہوش ہونا </string>
+    <string name="dsa08h"> پیشاب اور فضلے کا ٹپکنا </string>
+    <string name="dsa08i"> ملیریا </string>
+    <string name="dsa08j"> چھوٹے پیشاپ کا انفیکشین </string>
+    <string name="dsa08k"> زیابیطیس </string>
+    <string name="dsa0896"> کوئی اور بیماری </string>
+    <string name="dsa0898x"> وضاحت </string>
+    <string name="dsa09"> اس حمل کے دوران کیا آپ کوکوئی دوائی ملی تھی؟ </string>
+    <string name="dsa09a"> ہاں </string>
+    <string name="dsa09b"> نہیں </string>
+    <string name="dsa0998"> معلوم نہیں </string>
+    <string name="dsa10"> کونسی دواء لی؟ </string>
+    <string name="dsa10a"> ہیماٹینک ملٹی وٹامن اور بلڈ ٹونک(طاقت کی دوائیاں یا خون بنانے والی دوائیاں) </string>
+    <string name="dsa10b"> انیٹی بائیوٹک(Antibiotic) </string>
+    <string name="dsa10c"> انیٹی کنولسینٹ (Anticonvulsants pills) (مرگی کے جھٹکوں کے لیے ) </string>
+    <string name="dsa10d"> بلڈپریشر کی دوائیاں </string>
+    <string name="dsa10e"> شوگر کی دوائیاں </string>
+    <string name="dsa10f"> جڑی بوٹیوں سے تیار کی گئی دوائیاں </string>
+    <string name="dsa1096"> کوئی اور دوائیاں </string>
+    <string name="dsa1096x"> وضاحت </string>
+    <string name="dsaHeading02"> حمل کے دوران خطرے کے عوامل </string>
+    <string name="dsa11"> کیا آپ نے کبھی سگریٹ پی ہے؂ </string>
+    <string name="dsa1197"> کبھی نہیں </string>
+    <string name="dsa11a"> حمل سے پہلے چھوڈ دیا </string>
+    <string name="dsa11b"> حمل کے دوران چھوڈ دیا </string>
+    <string name="dsa11c"> ابھی پی رہی ھوں </string>
+
+    <string name="dsa12"> اگر آپ پہلے یا ابھی سگریٹ پیتی ھیں توایک دن میں کتنی مرتبہ پیتی ھیں؟ </string>
+    <string name="dsa12a"> count </string>
+    <string name="dsa12b"> نہیں </string>
+    <string name="dsa1298"> معلوم نہیں </string>
+
+    <string name="dsa13"> کیا آپ نے کبھی تمباکو سونگھا یا چبا یا ھِے؟ </string>
+    <string name="dsa1397"> کبھی نہیں </string>
+    <string name="dsa13a"> حمل سے پہلے چھوڈ دیا </string>
+    <string name="dsa13b"> حمل کے دوران چھوڈ دیا </string>
+    <string name="dsa13c"> ابھی پی رہی ھوں </string>
+
+    <string name="dsa14"> اگر آپنے پہلے یا ابھی تمباکو سونگھا یا چبا یا ہے توایک دن میں کتنی مرتبہ پیتی ھیں؟ </string>
+    <string name="dsa14a"> count </string>
+    <string name="dsa14b"> نہیں </string>
+    <string name="dsa1498"> معلوم نہیں </string>
+
+    <string name="dsa15"> کیا آپ نے کبھی چھالیا کھا ئ ھے؟ </string>
+    <string name="dsa1597"> کبھی نہیں </string>
+    <string name="dsa15a"> حمل سے پہلے چھوڈ دیا </string>
+    <string name="dsa15b"> حمل کے دوران چھوڈ دیا </string>
+    <string name="dsa15c"> ابھی پی رہی ھوں </string>
+
+    <string name="dsa16"> اگر آپ پہلے یا ابھی چھالیا کھا ئ ہے توایک دن میں کتنی مرتبہ کھا ئ ہے؟ </string>
+    <string name="dsa16a"> count </string>
+    <string name="dsa16b"> نہیں </string>
+    <string name="dsa1698"> معلوم نہیں </string>
+
+    <string name="dsa17"> کیا آپ شراب پیتی ہیں؟ </string>
+    <string name="dsa1797"> کبھی نہیں </string>
+    <string name="dsa17a"> حمل سے پہلے چھوڈ دیا </string>
+    <string name="dsa17b"> حمل کے دوران چھوڈ دیا </string>
+    <string name="dsa17c"> ابھی پی رہی ھوں </string>
+
+    <string name="dsaHeading03"> MATERNAL ANTHROPOMETRY </string>
+    <string name="dsa18"> ماں کا وزن(کلو گرام میں ) </string>
+    <string name="dsa18w"> _____________kg </string>
+    <string name="dsa1898"> معلوم نہیں </string>
+    <string name="dsa1897"> غیر ضروری </string>
+  <string name="dsa1899"> انکار کر دیا </string>
+    <string name="dsa19"> ماں کے بازو کی گولائی (MUAC) </string>
+    <string name="dsa19m"> گولائی </string>
+    <string name="dsa1998"> معلوم نہیں </string>
+    <string name="dsa1997"> غیر ضروری </string>
+    <string name="dsa20"> ماں کا قد </string>
+    <string name="dsa20h"> ماں کا قد </string>
+    <string name="dsa2098"> معلوم نہیں </string>
+    <string name="dsa2097"> غیر ضروری </string>
+
+
 </resources>

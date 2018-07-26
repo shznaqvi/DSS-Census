@@ -55,7 +55,7 @@ public class EndingActivity extends Activity {
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
 
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {
             try {
                 SaveDraft();
@@ -65,32 +65,17 @@ public class EndingActivity extends Activity {
             if (UpdateDB()) {
 
                 MainApp.familyMembersList.clear();
-                MainApp.memFlag = 0;
+                SectionAActivity.memFlag = 0;
 
-                MainApp.NoMembersCount = 0;
-                MainApp.NoMaleCount = 0;
-                MainApp.NoFemaleCount = 0;
-                MainApp.NoBoyCount = 0;
-                MainApp.NoGirlCount = 0;
+                MainApp.TotalMembersCount = -1;
 
-                MainApp.TotalMembersCount = 0;
-                MainApp.TotalMaleCount = 0;
-                MainApp.TotalFemaleCount = 0;
-                MainApp.TotalBoyCount = 0;
-                MainApp.TotalGirlCount = 0;
-
-//    Total No of Alive members got from Section B
                 MainApp.currentStatusCount = 0;
                 MainApp.currentDeceasedCheck = 0;
                 MainApp.currentMotherCheck = 0;
 
-                MainApp.selectedPos = -1;
-
                 MainApp.randID = 1;
 
-                MainApp.isRsvp = false;
-                MainApp.isHead = false;
-
+                HouseholdListActivity.visitType = 0;
 
                 finish();
 
@@ -104,21 +89,21 @@ public class EndingActivity extends Activity {
     }
 
     private void SaveDraft() throws JSONException {
-        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
         MainApp.fc.setIstatus(dcstatus01.isChecked() ? "1" : dcstatus02.isChecked() ? "2" : "0");
 
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
 
     private boolean UpdateDB() {
         DatabaseHelper db = new DatabaseHelper(this);
 
         int updcount = db.updateEnding();
-        if (MainApp.memFlag != 0) {
+        if (SectionAActivity.memFlag != 0) {
             db.updateCensus();
         }
-        if (MainApp.currentDeceasedCheck != 0) {
+/*        if (MainApp.currentDeceasedCheck != 0) {
             db.updateDeceased();
         }
         if (MainApp.currentMotherCheck != 0) {
@@ -126,10 +111,10 @@ public class EndingActivity extends Activity {
         }
         if (MainApp.totalChild != 0) {
             db.updateIM();
-        }
+        }*/
 
         if (updcount == 1) {
-            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -139,7 +124,7 @@ public class EndingActivity extends Activity {
     }
 
     private boolean formValidation() {
-        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
 
         if (dcstatus.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(Not Selected): " + getString(R.string.dcstatus), Toast.LENGTH_LONG).show();

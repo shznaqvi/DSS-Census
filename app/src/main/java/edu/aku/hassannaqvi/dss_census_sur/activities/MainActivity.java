@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.databinding.DataBindingUtil;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -34,10 +35,13 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.FormsContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
+import edu.aku.hassannaqvi.dss_census_sur.databinding.ActivityMainBinding;
+import edu.aku.hassannaqvi.dss_census_sur.get.GetEvents;
 import edu.aku.hassannaqvi.dss_census_sur.get.GetMembers;
 import edu.aku.hassannaqvi.dss_census_sur.get.GetSurFollowUps;
 import edu.aku.hassannaqvi.dss_census_sur.sync.SyncCensus;
 import edu.aku.hassannaqvi.dss_census_sur.sync.SyncForms;
+import edu.aku.hassannaqvi.dss_census_sur.sync.SyncNewBorn;
 
 public class MainActivity extends Activity {
 
@@ -61,6 +65,8 @@ public class MainActivity extends Activity {
     private Boolean exit = false;
     private String rSumText = "";
 
+    ActivityMainBinding bi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +74,11 @@ public class MainActivity extends Activity {
 
         ButterKnife.bind(this);
 
-        lblheader.setText("Welcome! You're assigned to block ' " + MainApp.regionDss + " '" + MainApp.userName);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        bi.setCallback(this);
+
+
+        lblheader.setText("Welcome! You're assigned to block ' " + MainApp.regionDss + " '");
 
         if (MainApp.admin) {
             adminsec.setVisibility(View.VISIBLE);
@@ -208,9 +218,9 @@ public class MainActivity extends Activity {
         return true;
     }
 
-    public void openForm(View v) {
+    public void openForm(final int i) {
         if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null && !MainApp.userName.equals("0000")) {
-            startActivity();
+            startActivity(i);
         } else {
 
             builder = new AlertDialog.Builder(MainActivity.this);
@@ -232,7 +242,7 @@ public class MainActivity extends Activity {
                         editor.commit();
 
                         if (!MainApp.userName.equals("0000")) {
-                            startActivity();
+                            startActivity(i);
                         }
                     }
                 }
@@ -248,29 +258,42 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void startActivity() {
+    public void startActivity(int i) {
         if (openFormGpsCheck() && !MainApp.regionDss.equals("")) {
-            Intent oF = new Intent(MainActivity.this, HouseholdListActivity.class);
+            Intent oF = null;
+            switch (i) {
+                case 1:
+                    oF = new Intent(MainActivity.this, HouseholdListActivity.class);
+                    break;
+                case 2:
+                    oF = new Intent(MainActivity.this, HouseholdListActivity.class)
+                            .putExtra("visit", 2);
+                    break;
+                case 3:
+                    oF = new Intent(MainActivity.this, NewBornAssessmentActivity.class);
+                    break;
+                case 4:
+                    oF = new Intent(MainActivity.this, PWAssessmentActivity.class);
+                    break;
+            }
             startActivity(oF);
         } else {
             Toast.makeText(getApplicationContext(), "Please re-login app!", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void openNB(View v) {
-        Intent iMem = new Intent(this, NewBornAssessmentActivity.class);
-        startActivity(iMem);
-    }
     public void openADR(View v) {
         Intent iMem = new Intent(this, AdultDeathReportActivity.class);
         startActivity(iMem);
     }
+
     public void openSBR(View v) {
         Intent iMem = new Intent(this, StillBirthReportActivity.class);
         startActivity(iMem);
     }
+
     public void openUCR(View v) {
-        Intent iMem = new Intent(this, NewBornAssessmentActivity.class);
+        Intent iMem = new Intent(this, PWAssessmentActivity.class);
         startActivity(iMem);
     }
 
@@ -379,41 +402,6 @@ public class MainActivity extends Activity {
 
     }
 
-    public void syncSg(View view) {
-
-        // Require permissions INTERNET & ACCESS_NETWORK_STATE
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected()) {
-            Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-            new SyncForms(this, false).execute();
-
-/*            Toast.makeText(getApplicationContext(), "Syncing Census", Toast.LENGTH_SHORT).show();
-            new SyncCensus(this).execute();
-
-            Toast.makeText(getApplicationContext(), "Syncing Deceased", Toast.LENGTH_SHORT).show();
-            new SyncDeceased(this).execute();*/
-
-//            Toast.makeText(getApplicationContext(), "Syncing Mother", Toast.LENGTH_SHORT).show();
-//            new SyncMother(this).execute();
-
-/*            Toast.makeText(getApplicationContext(), "Syncing IM", Toast.LENGTH_SHORT).show();
-            new SyncIM(this).execute();*/
-
-            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = syncPref.edit();
-
-            editor.putString("LastUpSyncServer", dtToday);
-
-            editor.apply();
-
-        } else {
-            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
     public void syncServer(View view) {
 
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
@@ -426,6 +414,9 @@ public class MainActivity extends Activity {
 
             Toast.makeText(getApplicationContext(), "Syncing Census", Toast.LENGTH_SHORT).show();
             new SyncCensus(this).execute();
+
+            Toast.makeText(getApplicationContext(), "Syncing New Born", Toast.LENGTH_SHORT).show();
+            new SyncNewBorn(this).execute();
 
 /*            Toast.makeText(getApplicationContext(), "Syncing Deceased", Toast.LENGTH_SHORT).show();
             new SyncDeceased(this).execute();
@@ -462,6 +453,7 @@ public class MainActivity extends Activity {
             bg.start();*/
             new GetMembers(this).execute();
             new GetSurFollowUps(this).execute();
+            new GetEvents(this).execute();
             //bg.stop();
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
