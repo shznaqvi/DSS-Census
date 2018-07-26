@@ -317,7 +317,11 @@
                     <EditText
                         android:id="@+id/dsa07a"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:hint="@string/dsa07"
+                        android:inputType="text"
+                        />
                 </LinearLayout>
 
 
@@ -706,7 +710,7 @@
                         android:textColor="@android:color/white" />
 
                     <EditText
-                        android:id="@+id/dsa0898x"
+                        android:id="@+id/dsa0813"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -1114,33 +1118,37 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@android:color/white" />
 
-                    <RadioGroup
+                    <EditText
+                        android:id="@+id/dsa12a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:digits="1234567890"
+                        android:inputType="number"
+                        android:hint="@string/dsa12a"
+                        android:maxLength="2"/>
+
+                    <LinearLayout
                         android:id="@+id/dsa12"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                        <EditText
-                            android:id="@+id/dsa12a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="1dp"
-                            android:hint="@string/dsa12a" />
-
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/dsa12b"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
                             android:text="@string/dsa12b" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/dsa1298"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
                             android:text="@string/dsa1298" />
 
-                    </RadioGroup>
+                    </LinearLayout>
                 </LinearLayout>
 
 
@@ -1217,28 +1225,31 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
                         android:hint="@string/dsa14a"
+                        android:digits="1234567890"
+                        android:inputType="number"
                         android:maxLength="2" />
 
-                    <RadioGroup
+                    <LinearLayout
                         android:id="@+id/dsa14"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/dsa14b"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
                             android:text="@string/dsa14b" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/dsa1498"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
                             android:text="@string/dsa1498" />
 
-                    </RadioGroup>
+                    </LinearLayout>
                 </LinearLayout>
 
 
@@ -1309,35 +1320,37 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@android:color/white" />
 
-                    <RadioGroup
+                    <EditText
+                        android:id="@+id/dsa16a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:digits="1234567890"
+                        android:inputType="number"
+                        android:hint="@string/dsa16a"
+                        android:maxLength="2" />
+
+                    <LinearLayout
                         android:id="@+id/dsa16"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-
-                        <EditText
-                            android:id="@+id/dsa16a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="1dp"
-                            android:hint="@string/dsa16a"
-                            android:maxLength="2" />
-
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/dsa16b"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
                             android:text="@string/dsa16b" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/dsa1698"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
                             android:text="@string/dsa1698" />
 
-                    </RadioGroup>
+                    </LinearLayout>
                 </LinearLayout>
 
 
@@ -1418,28 +1431,22 @@
                         android:text="@string/dsa18"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@android:color/white" />
-
-                    <RadioGroup
-                        android:id="@+id/dsa18"
+                    <EditText
+                        android:id="@+id/dsa18w"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <EditText
-                            android:id="@+id/dsa18w"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="1dp"
-                            android:hint="@string/dsa18w"
-                            android:maxLength="4" />
-
-                        <RadioButton
-                            android:id="@+id/dsa1899"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="1dp"
-                            android:text="@string/dsa1899" />
-
-                    </RadioGroup>
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:hint="@string/dsa18w"
+                        android:maxLength="6"
+                        android:inputType="numberDecimal"
+                        android:text='@{dsa1899.checked ? "" : dsa18w.getText.toString }'
+                        android:visibility='@{dsa1899.checked ? View.GONE : View.VISIBLE}'/>
+                    <CheckBox
+                        android:id="@+id/dsa1899"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:text="@string/dsa1899" />
                 </LinearLayout>
 
 
@@ -1457,30 +1464,22 @@
                         android:text="@string/dsa19"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@android:color/white" />
-
-                    <RadioGroup
-                        android:id="@+id/dsa19"
+                    <EditText
+                        android:id="@+id/dsa19m"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-
-                        <EditText
-                            android:id="@+id/dsa19m"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="1dp"
-                            android:hint="@string/dsa18w"
-                            android:maxLength="4" />
-
-
-                        <RadioButton
-                            android:id="@+id/dsa1999"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="1dp"
-                            android:text="@string/dsa1899" />
-
-                    </RadioGroup>
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:hint="@string/dsa18w"
+                        android:maxLength="4"
+                        android:inputType="numberDecimal"
+                        android:text='@{dsa1999.checked ? "" : dsa19m.getText.toString }'
+                        android:visibility='@{dsa1999.checked ? View.GONE : View.VISIBLE}'/>
+                    <CheckBox
+                        android:id="@+id/dsa1999"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:text="@string/dsa1899" />
                 </LinearLayout>
 
 
@@ -1505,8 +1504,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
                         android:hint="@string/dsa20h"
-                        android:maxLength="4" />
-
+                        android:maxLength="5"
+                        android:inputType="numberDecimal"
+                        android:text='@{dsa2099.checked ? "" : dsa20h.getText.toString }'
+                        android:visibility='@{dsa2099.checked ? View.GONE : View.VISIBLE}'/>
                     <CheckBox
                         android:id="@+id/dsa2099"
                         android:layout_width="match_parent"

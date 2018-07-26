@@ -18,6 +18,7 @@ public class EventsContract implements Serializable {
     private String formdate;
     private String name;
     private String dss_id_member;
+    private String dss_id_h;
     private String status;
     private String lmp_dt;
     private String status_date;
@@ -112,6 +113,14 @@ public class EventsContract implements Serializable {
         this.gender = gender;
     }
 
+    public String getDss_id_h() {
+        return dss_id_h;
+    }
+
+    public void setDss_id_h(String dss_id_h) {
+        this.dss_id_h = dss_id_h;
+    }
+
     public EventsContract Sync(JSONObject jsonObject) throws JSONException {
         this.euid = jsonObject.getString(singleEV.COLUMN_EUID);
         this.formdate = jsonObject.getString(singleEV.COLUMN_FORMDATE);
@@ -122,6 +131,7 @@ public class EventsContract implements Serializable {
         this.status_date = jsonObject.getString(singleEV.COLUMN_STATUS_DATE);
         this.birth_time = jsonObject.getString(singleEV.COLUMN_BIRTH_TIME);
         this.gender = jsonObject.getString(singleEV.COLUMN_GENDER);
+        this.dss_id_h = jsonObject.getString(singleEV.COLUMN_DSS_ID_H);
 
         return this;
     }
@@ -137,6 +147,7 @@ public class EventsContract implements Serializable {
         this.status_date = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_STATUS_DATE));
         this.birth_time = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_BIRTH_TIME));
         this.gender = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_GENDER));
+        this.dss_id_h = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_DSS_ID_H));
 
 
         return this;
@@ -156,6 +167,7 @@ public class EventsContract implements Serializable {
         json.put(singleEV.COLUMN_STATUS_DATE, this.status_date == null ? JSONObject.NULL : this.status_date);
         json.put(singleEV.COLUMN_BIRTH_TIME, this.birth_time == null ? JSONObject.NULL : this.birth_time);
         json.put(singleEV.COLUMN_GENDER, this.gender == null ? JSONObject.NULL : this.gender);
+        json.put(singleEV.COLUMN_DSS_ID_H, this.dss_id_h == null ? JSONObject.NULL : this.dss_id_h);
 
         return json;
     }
@@ -169,12 +181,12 @@ public class EventsContract implements Serializable {
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_NAME = "name";
         public static final String COLUMN_DSS_ID_MEMBER = "dss_id_member";
+        public static final String COLUMN_DSS_ID_H = "dss_id_hh";
         public static final String COLUMN_STATUS = "status";
         public static final String COLUMN_LMP_DT = "lmp_dt";
         public static final String COLUMN_STATUS_DATE = "status_date";
         public static final String COLUMN_BIRTH_TIME = "birth_time";
         public static final String COLUMN_GENDER = "gender";
-
 
         public static String _URI = "events.php";
     }

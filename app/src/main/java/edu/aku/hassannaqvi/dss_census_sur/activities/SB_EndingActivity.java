@@ -9,8 +9,6 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
-import org.json.JSONException;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -33,7 +31,7 @@ public class SB_EndingActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nb_ending);
+        setContentView(R.layout.activity_still_birth_ending);
         ButterKnife.bind(this);
 
         Boolean check = getIntent().getExtras().getBoolean("check");
@@ -53,11 +51,7 @@ public class SB_EndingActivity extends Activity {
 
 //        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
 
                 finish();
