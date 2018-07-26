@@ -24,6 +24,7 @@ public class EventsContract implements Serializable {
     private String status_date;
     private String birth_time;
     private String gender;
+    private String totalMem;
 
     public EventsContract() {
     }
@@ -38,7 +39,7 @@ public class EventsContract implements Serializable {
         this.status_date = cc.status_date;
         this.birth_time = cc.birth_time;
         this.gender = cc.gender;
-
+        this.totalMem = cc.totalMem;
     }
 
     public String getEuid() {
@@ -121,6 +122,14 @@ public class EventsContract implements Serializable {
         this.dss_id_h = dss_id_h;
     }
 
+    public String getTotalMem() {
+        return totalMem;
+    }
+
+    public void setTotalMem(String totalMem) {
+        this.totalMem = totalMem;
+    }
+
     public EventsContract Sync(JSONObject jsonObject) throws JSONException {
         this.euid = jsonObject.getString(singleEV.COLUMN_EUID);
         this.formdate = jsonObject.getString(singleEV.COLUMN_FORMDATE);
@@ -148,7 +157,6 @@ public class EventsContract implements Serializable {
         this.birth_time = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_BIRTH_TIME));
         this.gender = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_GENDER));
         this.dss_id_h = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_DSS_ID_H));
-
 
         return this;
 
@@ -182,6 +190,7 @@ public class EventsContract implements Serializable {
         public static final String COLUMN_NAME = "name";
         public static final String COLUMN_DSS_ID_MEMBER = "dss_id_member";
         public static final String COLUMN_DSS_ID_H = "dss_id_hh";
+        public static final String COLUMN_DSS_TOTAL_MEM = "totalmem";
         public static final String COLUMN_STATUS = "status";
         public static final String COLUMN_LMP_DT = "lmp_dt";
         public static final String COLUMN_STATUS_DATE = "status_date";
