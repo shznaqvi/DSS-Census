@@ -84,6 +84,10 @@ public class PWAssessmentActivity extends AppCompatActivity {
                 if (i == R.id.dsa01b) {
                     bi.fldGrpPwdsa02.setVisibility(View.VISIBLE);
                     ClearClass.ClearAllFields(bi.fldGrpPwdsa02, true);
+                    bi.fldGrpPwdsa03.setVisibility(View.GONE);
+                    ClearClass.ClearAllFields(bi.fldGrpPwdsa03, false);
+                    bi.fldGrpPwdsa06.setVisibility(View.GONE);
+                    ClearClass.ClearAllFields(bi.fldGrpPwdsa06, false);
                 }
 
             }
@@ -135,14 +139,14 @@ public class PWAssessmentActivity extends AppCompatActivity {
 
                 } else {
 
-                    bi.fldGrpPwdsa03.setVisibility(View.VISIBLE);
-                    ClearClass.ClearAllFields(bi.fldGrpPwdsa03, true);
+                    //bi.fldGrpPwdsa03.setVisibility(View.VISIBLE);
+                    //ClearClass.ClearAllFields(bi.fldGrpPwdsa03, true);
                     bi.fldGrpPwdsa04.setVisibility(View.VISIBLE);
                     ClearClass.ClearAllFields(bi.fldGrpPwdsa04, true);
                     bi.fldGrpPwdsa05.setVisibility(View.VISIBLE);
                     ClearClass.ClearAllFields(bi.fldGrpPwdsa05, true);
-                    bi.fldGrpPwdsa06.setVisibility(View.VISIBLE);
-                    ClearClass.ClearAllFields(bi.fldGrpPwdsa06, true);
+                    //bi.fldGrpPwdsa06.setVisibility(View.VISIBLE);
+                    //ClearClass.ClearAllFields(bi.fldGrpPwdsa06, true);
                     bi.fldGrpPwdsa07.setVisibility(View.VISIBLE);
                     ClearClass.ClearAllFields(bi.fldGrpPwdsa07, true);
                     bi.fldGrpPwdsa08.setVisibility(View.VISIBLE);
@@ -574,14 +578,10 @@ public class PWAssessmentActivity extends AppCompatActivity {
                     bi.dsa20h.clearFocus();
                     bi.dsa20h.setError(null);
 
-                    if (!validatorClass.RangeTextBox(this, bi.dsa20h, 40.0, 140.0, getString(R.string.dsa20h), " cm")) {
-                        return false;
-                    }
+                    return validatorClass.RangeTextBox(this, bi.dsa20h, 40.0, 140.0, getString(R.string.dsa20h), " cm");
                 }
             } else {
-                if (!validatorClass.EmptyCheckBox(this, bi.fldGrpPwdsa20, bi.dsa2099, getString(R.string.dsa20))) {
-                    return false;
-                }
+                return validatorClass.EmptyCheckBox(this, bi.fldGrpPwdsa20, bi.dsa2099, getString(R.string.dsa20));
             }
         }
 

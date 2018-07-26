@@ -1143,6 +1143,7 @@
     <string name="dsaHeading03"> MATERNAL ANTHROPOMETRY </string>
     <string name="dsa18"> ماں کا وزن(کلو گرام میں ) </string>
     <string name="dsa18w"> XXX.XX kg </string>
+  <string name="dsa18m"> XX.X cm </string>
     <string name="dsa1898"> معلوم نہیں </string>
     <string name="dsa1897"> غیر ضروری </string>
   <string name="dsa1899"> انکار کر دیا </string>
