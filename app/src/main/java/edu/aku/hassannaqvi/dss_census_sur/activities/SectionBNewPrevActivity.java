@@ -152,6 +152,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
     int position = 0;
     String mt;
 
+    //TODO: Convert old date picker and time picker to new ones
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

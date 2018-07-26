@@ -201,6 +201,9 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     @BindView(R.id.dcbis04Outtime)
     TimePicker dcbis04Outtime;
 
+
+    //TODO: Convert old date picker and time picker to new ones
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
