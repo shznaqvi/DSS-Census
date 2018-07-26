@@ -18,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.dss_census_sur.R;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.EventsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
@@ -40,6 +41,7 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         db = new DatabaseHelper(this);
 
         setContentsUI();
+        setFollowUpData();
 
     }
 
@@ -85,6 +87,17 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void setFollowUpData() {
+
+        EventsContract followUpData = (EventsContract) getIntent().getSerializableExtra("followUpData");
+
+        if (followUpData.getRound().equals("1")) {
+
+        }
+
+
     }
 
     public void BtnEnd() {
@@ -143,9 +156,9 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
             return false;
         }
 
-        if (!validatorClass.EmptyTextBox(this, bi.dnb06, getString(R.string.dnb06))) {
+        /*if (!validatorClass.EmptyTextBox(this, bi.dnb06, getString(R.string.dnb06))) {
             return false;
-        }
+        }*/
         if (!validatorClass.EmptyRadioButton(this, bi.dnbStatus, bi.dnbStatusa, getString(R.string.dnbStatus))) {
             return false;
         }
@@ -260,13 +273,13 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         MainApp.nb.setDevicetagID(sharedPref.getString("tagName", null));
         MainApp.nb.setDss_id_member(bi.dcbid.getText().toString().toUpperCase());
         MainApp.nb.setName(bi.dnb03.getText().toString());
-        MainApp.nb.setDss_id_m(bi.dnb05a.getText().toString());
+        MainApp.nb.setDss_id_m(bi.dnb05.getText().toString());
 
         JSONObject sNB = new JSONObject();
-        sNB.put("studyid", bi.dstudyid.getText().toString());
+//        sNB.put("studyid", bi.dstudyid.getText().toString());
         sNB.put("dnb04", bi.dnb04a.isChecked() ? "1" : bi.dnb04b.isChecked() ? "2" : "0");
         sNB.put("dnb05", bi.dnb05.getText().toString());
-        sNB.put("dnb06", bi.dnb06.getText().toString());
+//        sNB.put("dnb06", bi.dnb06.getText().toString());
         sNB.put("dnbStatus", bi.dnbStatusa.isChecked() ? "1" : bi.dnbStatusb.isChecked() ? "2" : "0");
         sNB.put("dnb09", bi.dnb09.getText().toString());
         sNB.put("dnb10", bi.dnb10.getText().toString());
