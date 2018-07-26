@@ -182,7 +182,7 @@ public class HouseholdListActivity extends AppCompatActivity {
 
                 followUp = db.getFollowUpListByHH(hhno.getText().toString().toUpperCase());
 
-                if (followUp.getHhID() != null) {
+                if (followUp != null) {
 
                     Toast.makeText(this, "FollowUp found..", Toast.LENGTH_SHORT).show();
 

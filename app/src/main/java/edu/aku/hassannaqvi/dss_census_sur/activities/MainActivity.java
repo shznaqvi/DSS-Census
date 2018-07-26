@@ -270,7 +270,8 @@ public class MainActivity extends Activity {
                             .putExtra("visit", 2);
                     break;
                 case 3:
-                    oF = new Intent(MainActivity.this, NewBornAssessmentActivity.class);
+                    oF = new Intent(MainActivity.this, EventsListActivity.class)
+                            .putExtra("type", "2");
                     break;
                 case 4:
                     oF = new Intent(MainActivity.this, PWAssessmentActivity.class);

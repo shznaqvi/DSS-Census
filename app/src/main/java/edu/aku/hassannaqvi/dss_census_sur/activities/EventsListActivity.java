@@ -31,7 +31,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census_sur.R;
-import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.HouseholdContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
@@ -39,7 +38,6 @@ import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 public class EventsListActivity extends AppCompatActivity {
 
     public static int visitType = 0;
-    static FollowUpsContract followUp;
     //  Static variables
     static List<Integer> hhClicked;
     static String hhID = "";
@@ -145,11 +143,11 @@ public class EventsListActivity extends AppCompatActivity {
                                                             recyclerHouseholds.getChildAt(item).setBackgroundColor(Color.BLACK);
                                                         }
 
-                                                        finish();
+                                                        /*finish();
                                                         startActivity(new Intent(getApplicationContext(), SectionAActivity.class)
                                                                 .putExtra("dssHH", MainApp.householdList.get(position).getHouseholdID())
                                                                 .putExtra("intMovFlag", Integer.valueOf(MainApp.householdList.get(position).getTotalMem()) == 0)
-                                                                .putExtra("followUpData", followUp));
+                                                                .putExtra("followUpData", followUp));*/
 
                                                     }
                                                 });
@@ -176,42 +174,31 @@ public class EventsListActivity extends AppCompatActivity {
         if (!hhno.getText().toString().trim().isEmpty()) {
             if (hhno.getText().toString().length() == 9) {
 
-                followUp = db.getFollowUpListByHH(hhno.getText().toString().toUpperCase());
+                hhno.setError(null);
+                household = db.getHHListByHHForMem(hhno.getText().toString().toUpperCase(), getIntent().getStringExtra("type"));
 
-                if (followUp.getHhID() != null) {
-
-                    Toast.makeText(this, "FolloUp found..", Toast.LENGTH_SHORT).show();
-
-                    hhno.setError(null);
-                    household = db.getHHListByHH(hhno.getText().toString().toUpperCase());
+                if (household.size() != 0) {
 
                     fldGrpHHExists.setVisibility(View.VISIBLE);
                     hhCount.setText("Follow up found \n" + household.size() + " Households found.");
 
                     MainApp.householdList = new ArrayList<>();
 
-                    if (household.size() != 0) {
-
-                        for (HouseholdContract ec : household) {
-                            MainApp.householdList.add(new HouseholdContract(ec));
-                        }
-
-                        Toast.makeText(this, "HH Found", Toast.LENGTH_LONG).show();
-
-                        flagHH = true;
-
-                        hhID = hhno.getText().toString();
-
-                        fldGrpMain.setVisibility(View.VISIBLE);
-
-                        new populateRecyclerView(this).execute();
-
-                    } else {
-                        flagHH = false;
-                        Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
+                    for (HouseholdContract ec : household) {
+                        MainApp.householdList.add(new HouseholdContract(ec));
                     }
+
+                    flagHH = true;
+
+                    hhID = hhno.getText().toString();
+
+                    fldGrpMain.setVisibility(View.VISIBLE);
+
+                    new populateRecyclerView(this).execute();
+
                 } else {
-                    Toast.makeText(this, "No Follow Up Found", Toast.LENGTH_LONG).show();
+                    flagHH = false;
+                    Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
                 }
 
             } else {
@@ -236,44 +223,6 @@ public class EventsListActivity extends AppCompatActivity {
                                                 int id) {
                                 finish();
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                            }
-                        });
-        alertDialogBuilder.setNegativeButton("Cancel",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alert = alertDialogBuilder.create();
-        alert.show();
-    }
-
-    @OnClick(R.id.btn_addFamily)
-    void onBtnAddFamilyClick() {
-        //TODO implement
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                EventsListActivity.this);
-        alertDialogBuilder
-                .setMessage("Do you want to Add New Family?")
-                .setCancelable(false)
-                .setPositiveButton("Ok",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog,
-                                                int id) {
-
-//                                String lastDssID = db.getLastDSSinHH(hhno.getText().toString().toUpperCase());
-                                String lastDssID = MainApp.householdList.get(MainApp.householdList.size() - 1).getHouseholdID();
-
-                                hhno.setEnabled(false);
-                                // Creating New DSS-ID
-                                char newExtension = (char) (lastDssID.charAt(lastDssID.length() - 1) + 1);
-                                StringBuilder builder = new StringBuilder(lastDssID);
-                                builder.setCharAt(lastDssID.length() - 1, newExtension);
-
-                                MainApp.householdList.add(new HouseholdContract(builder.toString(), "0"));
-
-                                new populateRecyclerView(getApplicationContext()).execute();
-
                             }
                         });
         alertDialogBuilder.setNegativeButton("Cancel",
