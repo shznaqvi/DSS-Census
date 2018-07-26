@@ -25,9 +25,18 @@ public class EventsContract implements Serializable {
     private String birth_time;
     private String gender;
     private String totalMem;
-
     private String round;
     private String dss_id_m;
+
+    private String dss_id_hus;
+
+    public String getDss_id_hus() {
+        return dss_id_hus;
+    }
+
+    public void setDss_id_hus(String dss_id_hus) {
+        this.dss_id_hus = dss_id_hus;
+    }
 
     public String getRound() {
         return round;
@@ -162,6 +171,7 @@ public class EventsContract implements Serializable {
         this.dss_id_h = jsonObject.getString(singleEV.COLUMN_DSS_ID_H);
         this.round = jsonObject.getString(singleEV.COLUMN_ROUND);
         this.dss_id_m = jsonObject.getString(singleEV.COLUMN_DSS_ID_M);
+        this.dss_id_hus = jsonObject.getString(singleEV.COLUMN_DSS_ID_HUS);
 
         return this;
     }
@@ -180,6 +190,7 @@ public class EventsContract implements Serializable {
         this.dss_id_h = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_DSS_ID_H));
         this.dss_id_m = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_DSS_ID_M));
         this.round = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_ROUND));
+        this.dss_id_hus = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_DSS_ID_HUS));
 
         return this;
 
@@ -201,6 +212,7 @@ public class EventsContract implements Serializable {
         json.put(singleEV.COLUMN_DSS_ID_H, this.dss_id_h == null ? JSONObject.NULL : this.dss_id_h);
         json.put(singleEV.COLUMN_DSS_ID_M, this.dss_id_m == null ? JSONObject.NULL : this.dss_id_m);
         json.put(singleEV.COLUMN_ROUND, this.round == null ? JSONObject.NULL : this.round);
+        json.put(singleEV.COLUMN_DSS_ID_HUS, this.dss_id_hus == null ? JSONObject.NULL : this.dss_id_hus);
 
         return json;
     }
@@ -223,6 +235,7 @@ public class EventsContract implements Serializable {
         public static final String COLUMN_GENDER = "gender";
         public static final String COLUMN_ROUND = "round";
         public static final String COLUMN_DSS_ID_M = "dss_id_m";
+        public static final String COLUMN_DSS_ID_HUS = "dss_id_hus";
 
         public static String _URI = "events.php";
     }
