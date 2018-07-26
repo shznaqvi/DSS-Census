@@ -67,6 +67,9 @@ public class EventsContract implements Serializable {
         this.birth_time = cc.birth_time;
         this.gender = cc.gender;
         this.totalMem = cc.totalMem;
+        this.round = cc.round;
+        this.dss_id_m = cc.dss_id_m;
+        this.dss_id_hus = cc.dss_id_hus;
     }
 
     public String getEuid() {
