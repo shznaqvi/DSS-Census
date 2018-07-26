@@ -234,8 +234,8 @@ public class EventsContract implements Serializable {
         public static final String COLUMN_BIRTH_TIME = "birth_time";
         public static final String COLUMN_GENDER = "gender";
         public static final String COLUMN_ROUND = "round";
-        public static final String COLUMN_DSS_ID_M = "dss_id_m";
-        public static final String COLUMN_DSS_ID_HUS = "dss_id_hus";
+        public static final String COLUMN_DSS_ID_M = "mother_name";
+        public static final String COLUMN_DSS_ID_HUS = "husband_name";
 
         public static String _URI = "events.php";
     }

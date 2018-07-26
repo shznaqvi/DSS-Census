@@ -64,6 +64,7 @@ public class EventsListActivity extends AppCompatActivity {
 
     public static ArrayList<EventsContract> eventsList;
     public static int memFlag;
+    static int typeFilter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +85,7 @@ public class EventsListActivity extends AppCompatActivity {
         //get this intent 'TRUE' from endActivity
         if (getIntent().getBooleanExtra("check", true)) {
             hhClicked = new ArrayList<>();
+            typeFilter = getIntent().getIntExtra("type", 0);
         } else {
             hhno.setText(hhID);
             hhno.setEnabled(false);
@@ -151,7 +153,7 @@ public class EventsListActivity extends AppCompatActivity {
                                                                 eventsList = new ArrayList<>();
 
                                                                 Collection<EventsContract> events = db.getMembersByEvents(MainApp.householdList.get(position).getHouseholdID(),
-                                                                        String.valueOf(getIntent().getIntExtra("type", 0)));
+                                                                        String.valueOf(typeFilter));
 
                                                                 for (EventsContract ec : events) {
                                                                     eventsList.add(new EventsContract(ec));
@@ -159,7 +161,7 @@ public class EventsListActivity extends AppCompatActivity {
 
                                                                 finish();
                                                                 startActivity(new Intent(getApplicationContext(), NB_PWMembersActivity.class)
-                                                                        .putExtra("type", getIntent().getIntExtra("type", 0)));
+                                                                        .putExtra("type", typeFilter));
 
                                                             }
                                                         }).start();
@@ -190,7 +192,7 @@ public class EventsListActivity extends AppCompatActivity {
             if (hhno.getText().toString().length() == 9) {
 
                 hhno.setError(null);
-                household = db.getHHListByHHForMem(hhno.getText().toString().toUpperCase(), String.valueOf(getIntent().getIntExtra("type", 0)));
+                household = db.getHHListByHHForMem(hhno.getText().toString().toUpperCase(), String.valueOf(typeFilter));
 
                 MainApp.householdList = new ArrayList<>();
 
