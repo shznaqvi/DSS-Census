@@ -522,7 +522,7 @@ public class CensusContract implements Serializable {
         this.ageM = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_AGEM));
         this.ageD = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_AGED));
         this.is_head = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_IS_HEAD));
-        this.relation_hh = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_RELATION_HH))*/;
+        this.relation_hh = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_RELATION_HH))*/
         this.current_status = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_CURRENT_STATUS));
         this.current_maritalOutcome = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_CURRENT_MARITAL_STATUS));
         this.current_childStatus = cursor.getString(cursor.getColumnIndex(censusMember.COLUMN_CURRENT_CHILD_STATUS));
@@ -652,10 +652,8 @@ public class CensusContract implements Serializable {
         public static final String COLUMN_SYNCED_DATE = "sync_date";
         public static final String COLUMN_REF_ID = "refid";
         public static final String COLUMN_ISTATUS = "istatus";
-
         public static final String COLUMN_DEVICETAGID = "tagid";
         public static final String COLUMN_SERIAL_NO = "serial";
-
         public static String _URL = "sur_data.php";
     }
 }

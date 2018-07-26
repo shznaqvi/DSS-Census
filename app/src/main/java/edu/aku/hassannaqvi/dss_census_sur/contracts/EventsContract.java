@@ -27,7 +27,6 @@ public class EventsContract implements Serializable {
     private String totalMem;
     private String round;
     private String dss_id_m;
-
     private String dss_id_hus;
 
     public String getDss_id_hus() {
@@ -236,7 +235,6 @@ public class EventsContract implements Serializable {
         public static final String COLUMN_ROUND = "round";
         public static final String COLUMN_DSS_ID_M = "mother_name";
         public static final String COLUMN_DSS_ID_HUS = "husband_name";
-
         public static String _URI = "events.php";
     }
 }

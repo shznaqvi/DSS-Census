@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.dss_census_sur.R;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.EventsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.PWContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
@@ -42,6 +43,19 @@ public class PWAssessmentActivity extends AppCompatActivity {
         db = new DatabaseHelper(this);
 
         setContentsUI();
+        setFollowUpData();
+    }
+
+    public void setFollowUpData() {
+
+        EventsContract followUpData = (EventsContract) getIntent().getSerializableExtra("followUpData");
+
+        //bi.round.setText(followUpData.getRound());
+        bi.dsaHeading01.setText("PW ASSESMENT " + "(" + followUpData.getName() + ")");
+        bi.husbandName.setText("Husband Name:" + followUpData.getDss_id_hus());
+        bi.dssID.setText("DSS ID: " + followUpData.getDss_id_member());
+
+
     }
 
     public void setContentsUI() {
