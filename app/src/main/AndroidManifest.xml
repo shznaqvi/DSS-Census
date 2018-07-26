@@ -135,6 +135,11 @@
             android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
+            android:name=".activities.EventsListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
             android:name=".activities.NewBornAssessmentActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme3"

@@ -112,14 +112,6 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_addFamily"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="@string/add_family"
-                    android:textColor="@color/colorPrimary" />
-
-                <Button
                     android:id="@+id/btn_End"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

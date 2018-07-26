@@ -249,6 +249,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleEV.COLUMN_FORMDATE + " TEXT," +
             singleEV.COLUMN_NAME + " TEXT," +
             singleEV.COLUMN_DSS_ID_MEMBER + " TEXT," +
+            singleEV.COLUMN_DSS_ID_H + " TEXT," +
             singleEV.COLUMN_STATUS + " TEXT," +
             singleEV.COLUMN_LMP_DT + " TEXT," +
             singleEV.COLUMN_STATUS_DATE + " TEXT," +
@@ -371,6 +372,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "SELECT * from census where member_type =? and dss_id_hh =? and uuid =? and current_status IN ('1', '2')";
 
     private static final String SQL_SELECT_HH = "select count(*) as totalmem, dss_id_hh from members group by dss_id_hh having dss_id_hh LIKE ?";
+    private static final String SQL_SELECT_HH1 = "select count(*) as totalmem, dss_id_hh from events where status = ? group by dss_id_hh having dss_id_hh LIKE ?";
 
     private final String TAG = "DatabaseHelper";
 
@@ -541,6 +543,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(singleEV.COLUMN_FORMDATE, evr.getFormdate());
                 values.put(singleEV.COLUMN_NAME, evr.getName());
                 values.put(singleEV.COLUMN_DSS_ID_MEMBER, evr.getDss_id_member());
+                values.put(singleEV.COLUMN_DSS_ID_H, evr.getDss_id_h());
                 values.put(singleEV.COLUMN_STATUS, evr.getStatus());
                 values.put(singleEV.COLUMN_LMP_DT, evr.getLmp_dt());
                 values.put(singleEV.COLUMN_STATUS_DATE, evr.getStatus_date());
@@ -724,6 +727,70 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return memList;
     }
 
+    public Collection<HouseholdContract> getHHListByHHForMem(String hh, String type) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        Collection<HouseholdContract> memList = new ArrayList<>();
+        try {
+
+            c = db.rawQuery(SQL_SELECT_HH1, new String[]{type, "%" + hh + "%"});
+
+            while (c.moveToNext()) {
+                HouseholdContract mc = new HouseholdContract();
+                memList.add(mc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return memList;
+    }
+
+/*    public Collection<HouseholdContract> getHHListByHHForMem(String hh, String type) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                "COUNT(*) as totalmem",
+                singleEV.COLUMN_DSS_ID_H
+        };
+        String whereClause = singleEV.COLUMN_STATUS;
+        String[] whereArgs = new String[]{type};
+        String groupBy = singleEV.COLUMN_DSS_ID_H;
+        String having = singleEV.COLUMN_DSS_ID_H + " LIKE '%" + hh + "%'";
+
+        String orderBy = null;
+        Collection<HouseholdContract> memList = new ArrayList<>();
+        try {
+            c = db.query(
+                    singleEV.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+
+            while (c.moveToNext()) {
+                memList.add(new HouseholdContract().Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return memList;
+    }*/
+
     public String getLastDSSinHH(String hh) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -781,7 +848,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy =
                 FollowUpTable.COLUMN_FOLLOWUP_ROUND + " ASC";
 
-        FollowUpsContract allFUP = new FollowUpsContract();
+        FollowUpsContract allFUP = null;
         try {
             c = db.query(
                     FollowUpTable.TABLE_NAME,  // The table to query
@@ -793,8 +860,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                FollowUpsContract fc = new FollowUpsContract();
-                allFUP = fc.hydrate(c);
+                allFUP = new FollowUpsContract().hydrate(c);
             }
         } finally {
             if (c != null) {
