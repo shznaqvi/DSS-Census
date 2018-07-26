@@ -133,10 +133,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         }
 
         // Set up the login form.
-        mEmailView = (EditText) findViewById(R.id.email);
+        mEmailView = findViewById(R.id.email);
         populateAutoComplete();
 
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView = findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -232,7 +232,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 editor.commit();
             }
 
-            File folder = new File(Environment.getExternalStorageDirectory() + File.separator + "DMU-DSSCENSUS");
+            File folder = new File(Environment.getExternalStorageDirectory() + File.separator + "DMU-DSSCENSUS-SUR");
             boolean success = true;
             if (!folder.exists()) {
                 success = folder.mkdirs();
@@ -353,6 +353,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         }
     }
+
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic

@@ -44,7 +44,7 @@ public class SectionAActivity extends AppCompatActivity {
     private static final String TAG = SectionAActivity.class.getSimpleName();
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
 
-    FollowUpsContract fp;
+    public static FollowUpsContract fp;
 
 
     @BindView(R.id.dca03)
@@ -291,11 +291,11 @@ public class SectionAActivity extends AppCompatActivity {
     DatabaseHelper db;
 
     Boolean isNew = false;
-
     boolean checked = false;
 
-    String dssHH = "";
+    public static int memFlag = 0;
 
+    public static int sbCount = 0, livCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -305,12 +305,16 @@ public class SectionAActivity extends AppCompatActivity {
 
         this.setTitle("D S S");
 
-        MainApp.memFlag = 0;
+        memFlag = 0;
 
         // Disable internal movement for previous families
         dca0405.setEnabled(getIntent().getBooleanExtra("intMovFlag", false));
 
         MainApp.familyMembersList = new ArrayList<>();
+
+        MainApp.memClicked = new ArrayList<>();
+
+
         Log.d(TAG, "onCreate: " + MainApp.familyMembersList.size());
         db = new DatabaseHelper(this);
 
@@ -591,12 +595,17 @@ public class SectionAActivity extends AppCompatActivity {
 
                 Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
                 MainApp.currentStatusCount = MainApp.familyMembersList.size();
+
                 MainApp.TotalMembersCount = MainApp.familyMembersList.size() - 1;
+
                 isNew = false;
 
             } else {
 
                 isNew = true;
+
+                MainApp.TotalMembersCount = -1;
+
                 Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
             }
         } else {
@@ -637,19 +646,22 @@ public class SectionAActivity extends AppCompatActivity {
                     }
                 }
 
-                if (MainApp.familyMembersList.size() > 1) {
-                    Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
+                if (MainApp.familyMembersList.size() > 0) {
+//                    Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
                     MainApp.currentStatusCount = MainApp.familyMembersList.size();
+
                     MainApp.TotalMembersCount = MainApp.familyMembersList.size() - 1;
+
                     isNew = false;
 
                 } else {
-
                     isNew = true;
+
+                    MainApp.TotalMembersCount = -1;
+
                     Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
                 }
-                startActivity(new Intent(this, FamilyMembersActivity.class)
-                        .putExtra("followUpData", fp));
+                startActivity(new Intent(this, FamilyMembersActivity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -1116,6 +1128,7 @@ public class SectionAActivity extends AppCompatActivity {
         sa.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
         sa.put("dca03", dca03.getText().toString());
         sa.put("dca04", dca0401.isChecked() ? "1" : dca0402.isChecked() ? "2" : dca0403.isChecked() ? "3" : dca0404.isChecked() ? "4" : dca0405.isChecked() ? "5" : "0");
+        sa.put("visit_type", HouseholdListActivity.visitType);
         /*sa.put("dca05", dca05.getText().toString());
         sa.put("dca0501", dca050101.isChecked() ? "1" : dca050102.isChecked() ? "2" : "0");
         //sa.put("dca0502", dca050201.isChecked() ? "1" : dca050202.isChecked() ? "2" : "0");
@@ -1217,7 +1230,7 @@ public class SectionAActivity extends AppCompatActivity {
 //            AppMain.fc.setGpsTime(GPSPref.getString(date, "0")); // Timestamp is converted to date above
             MainApp.fc.setGpsDT(date); // Timestamp is converted to date above
 
-            Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
 
         } catch (Exception e) {
             Log.e(TAG, "setGPS: " + e.getMessage());

@@ -63,137 +63,6 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     RadioButton dcbd01;
     @BindView(R.id.dcbd02)
     RadioButton dcbd02;
-    /*@BindView(R.id.dcbbrhh)
-    RadioGroup dcbbrhh;
-    @BindView(R.id.dcbbrhh01)
-    RadioButton dcbbrhh01;
-    @BindView(R.id.dcbbrhh02)
-    RadioButton dcbbrhh02;
-    @BindView(R.id.dcbbrhh03)
-    RadioButton dcbbrhh03;
-    @BindView(R.id.dcbbrhh04)
-    RadioButton dcbbrhh04;
-    @BindView(R.id.dcbbrhh05)
-    RadioButton dcbbrhh05;
-    @BindView(R.id.dcbbrhh06)
-    RadioButton dcbbrhh06;
-    @BindView(R.id.dcbbrhh07)
-    RadioButton dcbbrhh07;
-    @BindView(R.id.dcbbrhh08)
-    RadioButton dcbbrhh08;
-    @BindView(R.id.dcbbrhh09)
-    RadioButton dcbbrhh09;
-    @BindView(R.id.dcbbrhh10)
-    RadioButton dcbbrhh10;
-    @BindView(R.id.dcbbrhh11)
-    RadioButton dcbbrhh11;
-    @BindView(R.id.dcbbrhh88)
-    RadioButton dcbbrhh88;
-    @BindView(R.id.dcbbrhh99)
-    RadioButton dcbbrhh99;
-    @BindView(R.id.dcbbfid)
-    EditText dcbbfid;
-    @BindView(R.id.dcbbmid)
-    EditText dcbbmid;
-    @BindView(R.id.dcbc)
-    RadioGroup dcbc;
-    @BindView(R.id.dcbc01)
-    RadioButton dcbc01;
-    @BindView(R.id.dcbc02)
-    RadioButton dcbc02;
-    @BindView(R.id.dcbc03)
-    RadioButton dcbc03;
-    @BindView(R.id.dcbc04)
-    RadioButton dcbc04;
-    @BindView(R.id.dcbc88)
-    RadioButton dcbc88;
-
-    @BindView(R.id.dcbe)
-    RadioGroup dcbe;
-    @BindView(R.id.dcbe01)
-    RadioButton dcbe01;
-    @BindView(R.id.dcbe02)
-    RadioButton dcbe02;
-    @BindView(R.id.dcbe03)
-    RadioButton dcbe03;
-    @BindView(R.id.dcbe04)
-    RadioButton dcbe04;
-    @BindView(R.id.dcbe05)
-    RadioButton dcbe05;
-    @BindView(R.id.dcbe06)
-    RadioButton dcbe06;
-    @BindView(R.id.dcbe07)
-    RadioButton dcbe07;
-    @BindView(R.id.dcbe08)
-    RadioButton dcbe08;
-    @BindView(R.id.dcbe96)
-    RadioButton dcbe96;
-    @BindView(R.id.dcbe99)
-    RadioButton dcbe99;
-    @BindView(R.id.dcbe88)
-    RadioButton dcbe88;
-    @BindView(R.id.dcbe96x)
-    EditText dcbe96x;
-    @BindView(R.id.dcbf)
-    RadioGroup dcbf;
-    @BindView(R.id.dcbf01)
-    RadioButton dcbf01;
-    @BindView(R.id.dcbf02)
-    RadioButton dcbf02;
-    @BindView(R.id.dcbf03)
-    RadioButton dcbf03;
-    @BindView(R.id.dcbf04)
-    RadioButton dcbf04;
-    @BindView(R.id.dcbf05)
-    RadioButton dcbf05;
-    @BindView(R.id.dcbf06)
-    RadioButton dcbf06;
-    @BindView(R.id.dcbf07)
-    RadioButton dcbf07;
-    @BindView(R.id.dcbf08)
-    RadioButton dcbf08;
-    @BindView(R.id.dcbf09)
-    RadioButton dcbf09;
-    @BindView(R.id.dcbf10)
-    RadioButton dcbf10;
-    @BindView(R.id.dcbf11)
-    RadioButton dcbf11;
-    @BindView(R.id.dcbf12)
-    RadioButton dcbf12;
-    @BindView(R.id.dcbf13)
-    RadioButton dcbf13;
-    @BindView(R.id.dcbf14)
-    RadioButton dcbf14;
-    @BindView(R.id.dcbf15)
-    RadioButton dcbf15;
-    @BindView(R.id.dcbf16)
-    RadioButton dcbf16;
-    @BindView(R.id.dcbf17)
-    RadioButton dcbf17;
-    @BindView(R.id.dcbf88)
-    RadioButton dcbf88;
-    @BindView(R.id.dcbf96)
-    RadioButton dcbf96;
-    @BindView(R.id.dcbf96x)
-    EditText dcbf96x;
-    @BindView(R.id.dcbdob)
-    RadioGroup dcbdob;
-    @BindView(R.id.dcbdob01)
-    RadioButton dcbdob01;
-    @BindView(R.id.dcbAge02)
-    RadioButton dcbAge02;
-    @BindView(R.id.fldGrpdcbdob)
-    LinearLayout fldGrpdcbdob;
-    @BindView(R.id.dcbg)
-    DatePicker dcbg;
-    @BindView(R.id.fldGrpdcpAge)
-    LinearLayout fldGrpdcpAge;
-    @BindView(R.id.dcbhy)
-    EditText dcbhy;
-    @BindView(R.id.dcbhm)
-    EditText dcbhm;
-    @BindView(R.id.dcbhd)
-    EditText dcbhd;*/
     @BindView(R.id.dcbis)
     RadioGroup dcbis;
     @BindView(R.id.dcbis01)
@@ -220,26 +89,6 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     DatePicker dcbidob;
     @BindView(R.id.dcbitime)
     TimePicker dcbitime;
-    /*@BindView(R.id.fldGrpdcbir)
-    LinearLayout fldGrpdcbir;
-    @BindView(R.id.fldgrpmigout)
-    LinearLayout fldgrpmigout;
-    @BindView(R.id.dcbir)
-    RadioGroup dcbir;
-    @BindView(R.id.dcbir01)
-    RadioButton dcbir01;
-    @BindView(R.id.dcbir02)
-    RadioButton dcbir02;
-    @BindView(R.id.dcbir03)
-    RadioButton dcbir03;
-    @BindView(R.id.dcbirm)
-    EditText dcbirm;
-    @BindView(R.id.rsvp)
-    RadioGroup rsvp;
-    @BindView(R.id.rsvp01)
-    RadioButton rsvp01;
-    @BindView(R.id.rsvp02)
-    RadioButton rsvp02;*/
     @BindView(R.id.dcbm)
     RadioGroup dcbm;
     @BindView(R.id.dcbm01)
@@ -337,7 +186,8 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     int position = 0;
     boolean dataFlag = false;
     int childCount;
-    static int childCounter = 1;
+    public static int childCounter = 1;
+    public static int sbCounter = 0;
 
     DatabaseHelper db;
 
@@ -345,6 +195,14 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     ArrayList<String> husbandDSSID;
     ArrayList<String> motherNames;
     ArrayList<String> motherDSSID;
+
+    @BindView(R.id.dcbis04Outdt)
+    DatePicker dcbis04Outdt;
+    @BindView(R.id.dcbis04Outtime)
+    TimePicker dcbis04Outtime;
+
+
+    //TODO: Convert old date picker and time picker to new ones
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -357,14 +215,13 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
         Calendar cal = Calendar.getInstance();
         dcbidob.setMaxDate(new Date().getTime());
         dcbis09bdt.setMaxDate(new Date().getTime());
+        dcbis04Outdt.setMaxDate(new Date().getTime());
         cal.setTimeInMillis(System.currentTimeMillis());
 
         db = new DatabaseHelper(this);
 
         dataFlag = getIntent().getBooleanExtra("dataFlag", false);
         position = getIntent().getExtras().getInt("position");
-
-        MainApp.selectedPos = position;
 
         dcbid.setEnabled(true);
 
@@ -554,8 +411,24 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                         husbandDSSID.add("");
 
                         for (CensusContract censusContract : db.getMaleMemCensus(MainApp.fc.getDSSID().toUpperCase(), MainApp.fc.getFormDate())) {
-                            husbandNames.add(censusContract.getName());
-                            husbandDSSID.add(censusContract.getDss_id_member());
+
+                            Boolean checkFlag;
+                            if (censusContract.getMember_type().equals("c")) {
+                                checkFlag = getAgeByDOB(censusContract.getDob()) > 10;
+                            } else if (censusContract.getMember_type().equals("ot")) {
+                                if (censusContract.getDob().equals("")) {
+                                    checkFlag = true;
+                                } else {
+                                    checkFlag = getAgeByDOB(censusContract.getDob()) > 10;
+                                }
+                            } else {
+                                checkFlag = true;
+                            }
+
+                            if (checkFlag) {
+                                husbandNames.add(censusContract.getName());
+                                husbandDSSID.add(censusContract.getDss_id_member());
+                            }
                         }
                         dcbbhidSpinner.setAdapter(new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_spinner_dropdown_item, husbandNames));
 
@@ -583,7 +456,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                         motherDSSID = new ArrayList<>();
                         motherDSSID.add("");
 
-                        for (CensusContract censusContract : db.getMWRAsCensus(MainApp.fc.getDSSID().toUpperCase(), MainApp.fc.getFormDate(),MainApp.fc.getUID())) {
+                        for (CensusContract censusContract : db.getMWRAsCensus(MainApp.fc.getDSSID().toUpperCase(), MainApp.fc.getFormDate(), MainApp.fc.getUID())) {
                             motherNames.add(censusContract.getName());
                             motherDSSID.add(censusContract.getDss_id_member());
                         }
@@ -625,7 +498,11 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
             dcbm03.setChecked(true);
 
             mothDssID.setVisibility(View.VISIBLE);
-            String motherDSSID = getIntent().getStringExtra("mothDSSID");
+
+            CensusContract cContract = (CensusContract) getIntent().getSerializableExtra("mothData");
+
+//            String motherDSSID = getIntent().getStringExtra("mothDSSID");
+            String motherDSSID = cContract.getDss_id_member();
             dcbbmid.setText(motherDSSID);
             dcbbmid.setEnabled(false);
 
@@ -686,6 +563,18 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
 
     }
 
+    private int getAgeByDOB(String dob) {
+        if (!dob.equals("")) {
+            if (dob.contains(":")) {
+                return Integer.valueOf(dob.split(":")[0]);
+            } else {
+                return (int) MainApp.ageInYearByDOB(dob);
+            }
+        } else {
+            return 0;
+        }
+    }
+
     private void memberTypeOtherFun() {
 
 //        New Functionality
@@ -717,6 +606,8 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
         dcbis01Out.clearCheck();
         dcbis09.clearCheck();
         dcbis09c.setChecked(false);
+
+        dcbis04prvDSSID.setText(null);
     }
 
     @Override
@@ -730,11 +621,6 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
             if (dcbid.getText().length() < MainApp.fc.getDSSID().length()) {
                 dcbid.setText(MainApp.fc.getDSSID());
             }
-            /*else if (dcbbfid.getText().length() < MainApp.fc.getDSSID().length()) {
-                dcbbfid.setText(MainApp.fc.getDSSID());
-            } else if (dcbbmid.getText().length() < MainApp.fc.getDSSID().length()) {
-                dcbbmid.setText(MainApp.fc.getDSSID());
-            }*/
         } else {
             if (dcbid.getText().length() < MainApp.fc.getDSSID().length()) {
                 dcbid.setText(MainApp.fc.getDSSID());
@@ -750,15 +636,6 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     dcbid.setText(MainApp.fc.getDSSID());
                 }
             }
-            /*else if (editable == dcbbfid.getEditableText()) {
-                if (dcbbfid.getText().length() < MainApp.fc.getDSSID().length()) {
-                    dcbbfid.setText(MainApp.fc.getDSSID());
-                }
-            } else if (editable == dcbbmid.getEditableText()) {
-                if (dcbbmid.getText().length() < MainApp.fc.getDSSID().length()) {
-                    dcbbmid.setText(MainApp.fc.getDSSID());
-                }
-            }*/
         } else {
             if (editable == dcbid.getEditableText()) {
                 if (dcbid.getText().length() < MainApp.fc.getDSSID().length()) {
@@ -779,48 +656,73 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     return false;
                 }
             }
-            /*else if (view == dcbbfid) {
-                if (dcbbfid.getText().length() == MainApp.fc.getDSSID().length()) {
-
-                } else {
-                    return false;
-                }
-            } else if (view == dcbbmid) {
-                if (dcbbmid.getText().length() == MainApp.fc.getDSSID().length()) {
-
-                } else {
-                    return false;
-                }
-            }*/
         }
         return true;
     }
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SectionBActivity.this);
+        alertDialogBuilder
+                .setMessage("Are you sure to end this section?")
+                .setCancelable(false)
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
 
-        if (childCount > 0) {
-            dcba.setText("Not Complete Child!!");
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+                                finish();
+                                if (childCount > 0) {
+                                    dcba.setText("Not Complete Child!!");
+                                    try {
+                                        SaveDraft();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
 
-            if (childCount != childCounter) {
-                childCounter++;
-                MainApp.TotalMembersCount++;
-                startActivity(new Intent(SectionBActivity.this, SectionBActivity.class)
-                        .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
-                        .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
-                        .putExtra("chCount", childCount));
-            } else {
-                // reseting child counter
-                childCounter = 1;
-            }
-        }
+                                    if (childCount != childCounter) {
+                                        childCounter++;
+                                        MainApp.TotalMembersCount++;
+                                        startActivity(new Intent(SectionBActivity.this, SectionBActivity.class)
+                                                .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                                .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
+                                                .putExtra("chCount", childCount));
+                                    } else {
+                                        // reseting child counter
+                                        childCounter = 1;
 
-        MainApp.finishActivity(this, this);
+
+                                        if (dcbis04Outb.isChecked()) {
+                                            sbCounter = 1;
+                                        } else if (dcbis04Outd.isChecked()) {
+                                            sbCounter = Integer.valueOf(dcbis04Outdb.getText().toString());
+                                        } else {
+                                            sbCounter = 0;
+                                        }
+
+                                        if (sbCounter > 0) {
+                                            startActivity(new Intent(SectionBActivity.this, StillBirthReportActivity.class)
+                                                    .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                                    .putExtra("mothData", getIntent().getSerializableExtra("mothData"))
+                                                    .putExtra("sbCount", sbCounter)
+                                            );
+                                        } else {
+                                            startActivity(new Intent(SectionBActivity.this, FamilyMembersActivity.class));
+                                        }
+
+                                    }
+                                }
+
+                            }
+                        });
+        alertDialogBuilder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
 
     @OnClick(R.id.btn_Continue)
@@ -838,64 +740,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                 }
             }
             if (flag) {
-
-                /*if (!dcbis03.isChecked() && !dcbis05.isChecked() && !dcbis04.isChecked()) {
-
-                    if (dcbm01.isChecked() && (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || MainApp.NoFemaleCount == 0
-                            || MainApp.NoFemaleCount - (MainApp.TotalFemaleCount - MainApp.TotalGirlCount) == MainApp.NoGirlCount)) {
-                        MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
-                    } else if (dcbm02.isChecked() && (MainApp.TotalMaleCount >= MainApp.NoMaleCount || MainApp.NoMaleCount == 0
-                            || MainApp.NoMaleCount - (MainApp.TotalMaleCount - MainApp.TotalBoyCount) == MainApp.NoBoyCount)) {
-                        MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
-                    } else if (dcbm03.isChecked() && dcbd01.isChecked()) {
-                        if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
-                            if ((MainApp.TotalBoyCount >= MainApp.NoBoyCount) || MainApp.NoBoyCount == 0) {
-                                MainApp.errorCountDialog(this, this, "Need to increase no of Boys's in Family Member Activity.");
-                            } else {
-                                contFunc();
-                            }
-                        } else {
-                            if ((MainApp.TotalMaleCount >= (MainApp.NoMaleCount - MainApp.NoBoyCount)) || MainApp.NoMaleCount == 0) {
-                                MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
-                            } else {
-                                contFunc();
-                            }
-                        }
-
-                    } else if (dcbm03.isChecked() && dcbd02.isChecked()) {
-                        if (checkChildLessThenFive(dcbdob01.isChecked() ? 1 : 2)) {
-                            if ((MainApp.TotalGirlCount >= MainApp.NoGirlCount) || MainApp.NoGirlCount == 0) {
-                                MainApp.errorCountDialog(this, this, "Need to increase no of Girls's in Family Member Activity.");
-                            } else {
-                                contFunc();
-                            }
-                        } else {
-                            if ((MainApp.TotalFemaleCount >= (MainApp.NoFemaleCount - MainApp.NoGirlCount)) || MainApp.NoFemaleCount == 0) {
-                                MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
-                            } else {
-                                contFunc();
-                            }
-                        }
-                    } else if (dcbm04.isChecked() && dcbd01.isChecked()) {
-                        if (MainApp.TotalMaleCount >= MainApp.NoMaleCount || MainApp.NoMaleCount == 0
-                                || MainApp.NoMaleCount - (MainApp.TotalMaleCount - MainApp.TotalBoyCount) == MainApp.NoBoyCount) {
-                            MainApp.errorCountDialog(this, this, "Need to increase no of Male's in Family Member Activity.");
-                        } else {
-                            contFunc();
-                        }
-                    } else if (dcbm04.isChecked() && dcbd02.isChecked()) {
-                        if (MainApp.TotalFemaleCount >= MainApp.NoFemaleCount || MainApp.NoFemaleCount == 0
-                                || MainApp.NoFemaleCount - (MainApp.TotalFemaleCount - MainApp.TotalGirlCount) == MainApp.NoGirlCount) {
-                            MainApp.errorCountDialog(this, this, "Need to increase no of Female's in Family Member Activity.");
-                        } else {
-                            contFunc();
-                        }
-                    } else {
-                        contFunc();
-                    }
-                } else {*/
                 contFunc();
-//                }
             } else {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                         this);
@@ -905,7 +750,6 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
 
                     memberID += "ID: " + MainApp.insertMem.get(i) + "\n";
                 }
-
 
                 alertDialogBuilder
                         .setTitle("memberIDs Already Exist")
@@ -941,7 +785,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                 MainApp.randID += 1;
             }
 
-            MainApp.memFlag++;
+            SectionAActivity.memFlag++;
             finish();
 
             if (childCount > 0) {
@@ -952,9 +796,19 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                             .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
                             .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
                             .putExtra("chCount", childCount)
-                            .putExtra("mothDSSID", MainApp.cc.getDss_id_m()));
+                            .putExtra("mothData", getIntent().getSerializableExtra("mothData")));
                 } else {
                     childCounter = 1;
+
+                    if (sbCounter > 0) {
+                        startActivity(new Intent(SectionBActivity.this, StillBirthReportActivity.class)
+                                .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                .putExtra("mothData", getIntent().getSerializableExtra("mothData"))
+                                .putExtra("sbCount", sbCounter)
+                        );
+                    } else {
+                        startActivity(new Intent(SectionBActivity.this, FamilyMembersActivity.class));
+                    }
                 }
             } else {
                 int chCount = 0;
@@ -962,6 +816,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     chCount = 1;
                 } else if (dcbis04Outd.isChecked()) {
                     chCount = Integer.valueOf(dcbis04Outdc.getText().toString());
+                    sbCounter = Integer.valueOf(dcbis04Outdb.getText().toString());
                 }
 
                 if (chCount > 0) {
@@ -970,7 +825,26 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                             .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
                             .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount)
                             .putExtra("chCount", chCount)
-                            .putExtra("mothDSSID", MainApp.cc.getDss_id_member()));
+                            .putExtra("mothData", MainApp.cc));
+                } else {
+
+                    if (dcbis04Outb.isChecked()) {
+                        sbCounter = 1;
+                    } else if (dcbis04Outd.isChecked()) {
+                        sbCounter = Integer.valueOf(dcbis04Outdb.getText().toString());
+                    } else {
+                        sbCounter = 0;
+                    }
+
+                    if (sbCounter > 0) {
+                        startActivity(new Intent(SectionBActivity.this, StillBirthReportActivity.class)
+                                .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
+                                .putExtra("mothData", MainApp.cc)
+                                .putExtra("sbCount", sbCounter)
+                        );
+                    } else {
+                        startActivity(new Intent(SectionBActivity.this, FamilyMembersActivity.class));
+                    }
                 }
             }
 
@@ -981,7 +855,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     }
 
 
- /*   public boolean checkChildLessThenFive(int i) {
+/*    public boolean checkChildLessThenFive(int i) {
 
         if (i == 1) {
 
@@ -995,7 +869,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
             return ageInYears < 5;
 
         } else {
-return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dcbhm.getText().toString()) == 0 &&
+            return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dcbhm.getText().toString()) == 0 &&
                     Integer.parseInt(dcbhd.getText().toString()) == 0) || Integer.parseInt(dcbhy.getText().toString()) < 5;
 
             return Integer.parseInt(dcbhy.getText().toString()) < 5;
@@ -1058,8 +932,8 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         sC.put("dss_id_st", fp.getHhID());
         sC.put("visitdt", fp.getFollowUpDt());
         sC.put("surround", fp.getFollowUpRound());
-
         sC.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
+        sC.put("visit_type", HouseholdListActivity.visitType);
 
         if (dcbis09b.isChecked()) {
             sC.put("lmp_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis09bdt.getCalendarView().getDate()));
@@ -1069,6 +943,8 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
         MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
 
         if (dcbis01.isChecked()) {
+
+            MainApp.cc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
 
             MainApp.cc.setCurChildBirth_time(dcbitime.getCurrentHour() + ":" + dcbitime.getCurrentMinute());
             MainApp.cc.setCurrent_childStatus(dcbis01Statusa.isChecked() ? "1" : dcbis01Statusb.isChecked() ? "2" : dcbis01Statusc.isChecked() ? "3" : "0");
@@ -1089,6 +965,9 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
 
                 if (dcbis09c.isChecked()) {
 
+                    sC.put("current_status_out_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis04Outdt.getCalendarView().getDate()));
+                    sC.put("current_status_out_time", dcbis04Outtime.getCurrentHour() + ":" + dcbis04Outtime.getCurrentMinute());
+
                     MainApp.cc.setCurrent_statusOutcome(dcbis04Outa.isChecked() ? "1" : dcbis04Outb.isChecked() ? "2" : dcbis04Outc.isChecked() ? "3"
                             : dcbis04Outd.isChecked() ? "4" : "0");
 
@@ -1097,7 +976,6 @@ return (Integer.parseInt(dcbhy.getText().toString()) == 5 && Integer.parseInt(dc
                         sC.put("current_status_out_b", dcbis04Outdb.getText().toString());
                         sC.put("current_status_out_c", dcbis04Outdc.getText().toString());
                     }
-
                 }
 
                 if (dcbis09b.isChecked()) {

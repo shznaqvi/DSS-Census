@@ -240,6 +240,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    tools:visibility="visible"
                     android:visibility="gone">
 
                     <TextView
@@ -267,8 +268,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:hint="@string/dcbis03a"
                         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                        android:hint="@string/dcbis03a"
                         android:maxLength="50" />
 
                     <LinearLayout
@@ -276,6 +277,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        tools:visibility="visible"
                         android:visibility="gone">
 
                         <EditText
@@ -340,6 +342,16 @@
 
                         </RadioGroup>
 
+                        <EditText
+                            android:id="@+id/dcbis05Cause"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="3dp"
+                            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                            android:hint="@string/dcbis05Cause"
+                            android:maxLength="35" />
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -349,7 +361,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -417,7 +430,32 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone">
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/pink_100"
+                            android:text="@string/dcbis09ca"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/colorPrimaryDark" />
+
+                        <DatePicker
+                            android:id="@+id/dcbis04Outdt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:calendarViewShown="false"
+                            android:datePickerMode="spinner"
+                            android:ems="10"
+                            android:spinnersShown="true" />
+
+                        <TimePicker
+                            android:id="@+id/dcbis04Outtime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
                         <TextView
                             android:layout_width="match_parent"

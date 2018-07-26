@@ -106,11 +106,26 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
+            android:name=".activities.NB_PWMembersActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
             android:name=".core.AndroidDatabaseManager"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activities.EndingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activities.NB_EndingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activities.SB_EndingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
@@ -125,8 +140,14 @@
             android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
+            android:name=".activities.EventsListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
             android:name=".activities.NewBornAssessmentActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activities.ChildDeathRegActivity"
@@ -141,7 +162,12 @@
         <activity
             android:name=".activities.StillBirthReportActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1"
+            android:theme="@style/AppTheme3"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activities.PWAssessmentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme3"
             android:windowSoftInputMode="adjustResize|stateHidden" />
     </application>
 

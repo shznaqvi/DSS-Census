@@ -66,6 +66,8 @@ public class HouseholdListActivity extends AppCompatActivity {
     static List<Integer> hhClicked;
     static String hhID = "";
 
+    public static int visitType = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +78,9 @@ public class HouseholdListActivity extends AppCompatActivity {
 
 //        Set Region DssIDD
         hhno.setText(MainApp.regionDss);
-//        hhno.setSelection(hhno.getText().length());
+
+//        Get visit type //// unscheduled or scheduled
+        visitType = getIntent().getIntExtra("visit", 1);
 
 //        Initialize
         db = new DatabaseHelper(this);
@@ -178,9 +182,9 @@ public class HouseholdListActivity extends AppCompatActivity {
 
                 followUp = db.getFollowUpListByHH(hhno.getText().toString().toUpperCase());
 
-                if (followUp.getHhID() != null) {
+                if (followUp != null) {
 
-                    Toast.makeText(this, "FolloUp found..", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "FollowUp found..", Toast.LENGTH_SHORT).show();
 
                     hhno.setError(null);
                     household = db.getHHListByHH(hhno.getText().toString().toUpperCase());
@@ -261,8 +265,10 @@ public class HouseholdListActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog,
                                                 int id) {
 
-                                String lastDssID = db.getLastDSSinHH(hhno.getText().toString().toUpperCase());
+//                                String lastDssID = db.getLastDSSinHH(hhno.getText().toString().toUpperCase());
+                                String lastDssID = MainApp.householdList.get(MainApp.householdList.size() - 1).getHouseholdID();
 
+                                hhno.setEnabled(false);
                                 // Creating New DSS-ID
                                 char newExtension = (char) (lastDssID.charAt(lastDssID.length() - 1) + 1);
                                 StringBuilder builder = new StringBuilder(lastDssID);
