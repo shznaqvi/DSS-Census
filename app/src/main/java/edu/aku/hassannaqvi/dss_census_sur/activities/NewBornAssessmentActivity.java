@@ -135,12 +135,10 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
     }
 
     public boolean formValidation() {
-
         Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
         if (!validatorClass.EmptyTextBox(this, bi.dnb03, getString(R.string.dnb03))) {
             return false;
         }
-
         if (!validatorClass.EmptyRadioButton(this, bi.dnb04, bi.dnb04a, getString(R.string.dnb04))) {
             return false;
         }
@@ -148,13 +146,10 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         if (!validatorClass.EmptyTextBox(this, bi.dnb06, getString(R.string.dnb06))) {
             return false;
         }
-
         if (!validatorClass.EmptyRadioButton(this, bi.dnbStatus, bi.dnbStatusa, getString(R.string.dnbStatus))) {
             return false;
         }
-
         if (bi.dnbStatusa.isChecked()) {
-
             if (!validatorClass.EmptyTextBox(this, bi.dnb09, getString(R.string.dnb09))) {
                 return false;
             }
@@ -169,7 +164,6 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
                     return false;
                 }
             }
-
             if (!validatorClass.EmptyRadioButton(this, bi.dnb12, bi.dnb12a, bi.dnb1296x, getString(R.string.dnb12))) {
                 return false;
             }

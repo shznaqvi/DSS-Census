@@ -26,6 +26,25 @@ public class EventsContract implements Serializable {
     private String gender;
     private String totalMem;
 
+    private String round;
+    private String dss_id_m;
+
+    public String getRound() {
+        return round;
+    }
+
+    public void setRound(String round) {
+        this.round = round;
+    }
+
+    public String getDss_id_m() {
+        return dss_id_m;
+    }
+
+    public void setDss_id_m(String dss_id_m) {
+        this.dss_id_m = dss_id_m;
+    }
+
     public EventsContract() {
     }
 
@@ -141,6 +160,8 @@ public class EventsContract implements Serializable {
         this.birth_time = jsonObject.getString(singleEV.COLUMN_BIRTH_TIME);
         this.gender = jsonObject.getString(singleEV.COLUMN_GENDER);
         this.dss_id_h = jsonObject.getString(singleEV.COLUMN_DSS_ID_H);
+        this.round = jsonObject.getString(singleEV.COLUMN_ROUND);
+        this.dss_id_m = jsonObject.getString(singleEV.COLUMN_DSS_ID_M);
 
         return this;
     }
@@ -157,6 +178,8 @@ public class EventsContract implements Serializable {
         this.birth_time = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_BIRTH_TIME));
         this.gender = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_GENDER));
         this.dss_id_h = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_DSS_ID_H));
+        this.dss_id_m = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_DSS_ID_M));
+        this.round = cursor.getString(cursor.getColumnIndex(singleEV.COLUMN_ROUND));
 
         return this;
 
@@ -176,6 +199,8 @@ public class EventsContract implements Serializable {
         json.put(singleEV.COLUMN_BIRTH_TIME, this.birth_time == null ? JSONObject.NULL : this.birth_time);
         json.put(singleEV.COLUMN_GENDER, this.gender == null ? JSONObject.NULL : this.gender);
         json.put(singleEV.COLUMN_DSS_ID_H, this.dss_id_h == null ? JSONObject.NULL : this.dss_id_h);
+        json.put(singleEV.COLUMN_DSS_ID_M, this.dss_id_m == null ? JSONObject.NULL : this.dss_id_m);
+        json.put(singleEV.COLUMN_ROUND, this.round == null ? JSONObject.NULL : this.round);
 
         return json;
     }
@@ -196,6 +221,8 @@ public class EventsContract implements Serializable {
         public static final String COLUMN_STATUS_DATE = "status_date";
         public static final String COLUMN_BIRTH_TIME = "birth_time";
         public static final String COLUMN_GENDER = "gender";
+        public static final String COLUMN_ROUND = "round";
+        public static final String COLUMN_DSS_ID_M = "dss_id_m";
 
         public static String _URI = "events.php";
     }

@@ -254,7 +254,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleEV.COLUMN_LMP_DT + " TEXT," +
             singleEV.COLUMN_STATUS_DATE + " TEXT," +
             singleEV.COLUMN_BIRTH_TIME + " TEXT," +
-            singleEV.COLUMN_GENDER + " TEXT" +
+            singleEV.COLUMN_GENDER + " TEXT," +
+            singleEV.COLUMN_ROUND + " TEXT," +
+            singleEV.COLUMN_DSS_ID_M + " TEXT" +
             " );";
 
     private static final String SQL_CREATE_SEC_K_IM = "CREATE TABLE "
@@ -549,6 +551,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(singleEV.COLUMN_STATUS_DATE, evr.getStatus_date());
                 values.put(singleEV.COLUMN_BIRTH_TIME, evr.getBirth_time());
                 values.put(singleEV.COLUMN_GENDER, evr.getGender());
+                values.put(singleEV.COLUMN_ROUND, evr.getRound());
+                values.put(singleEV.COLUMN_DSS_ID_M, evr.getDss_id_m());
 
                 db.insert(singleEV.TABLE_NAME, null, values);
             }
@@ -655,7 +659,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleEV.COLUMN_STATUS_DATE,
                 singleEV.COLUMN_BIRTH_TIME,
                 singleEV.COLUMN_GENDER,
-                singleEV.COLUMN_DSS_ID_H
+                singleEV.COLUMN_DSS_ID_H,
+                singleEV.COLUMN_DSS_ID_M,
+                singleEV.COLUMN_ROUND
         };
 
         String whereClause = singleEV.COLUMN_DSS_ID_H + " = ? AND " + singleEV.COLUMN_STATUS + " = ?";
