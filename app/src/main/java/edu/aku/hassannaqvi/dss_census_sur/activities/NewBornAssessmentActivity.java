@@ -8,6 +8,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -29,8 +30,8 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
     ActivityNewBornAssessmentBinding bi;
 
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
-
     DatabaseHelper db;
+    EventsContract followUpData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,12 +92,16 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
 
     public void setFollowUpData() {
 
-        EventsContract followUpData = (EventsContract) getIntent().getSerializableExtra("followUpData");
+        followUpData = (EventsContract) getIntent().getSerializableExtra("followUpData");
 
         if (followUpData.getRound().equals("1")) {
-
+            bi.fldGrpdnbStatus02a.setVisibility(View.GONE);
         }
 
+        bi.dcbid.setText(followUpData.getDss_id_member());
+        bi.dnb03.setText(followUpData.getName());
+        bi.dnb04.check(followUpData.getGender().equals("1") ? bi.dnb04a.getId() : bi.dnb04b.getId());
+        bi.dnb05.setText(followUpData.getDss_id_m());
 
     }
 
@@ -163,23 +168,29 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
             return false;
         }
         if (bi.dnbStatusa.isChecked()) {
-            if (!validatorClass.EmptyTextBox(this, bi.dnb09, getString(R.string.dnb09))) {
-                return false;
-            }
-            if (!validatorClass.EmptyTextBox(this, bi.dnb10, getString(R.string.dnb10))) {
-                return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb11, bi.dnb1196, bi.dnb1196x, getString(R.string.dnb11))) {
-                return false;
-            }
-            if (bi.dnb11a.isChecked()) {
-                if (!validatorClass.EmptyTextBox(this, bi.dnb11ax, getString(R.string.dnb11ax))) {
+
+            if (followUpData.getRound().equals("1")) {
+
+                if (!validatorClass.EmptyTextBox(this, bi.dnb09, getString(R.string.dnb09))) {
                     return false;
                 }
+                if (!validatorClass.EmptyTextBox(this, bi.dnb10, getString(R.string.dnb10))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb11, bi.dnb1196, bi.dnb1196x, getString(R.string.dnb11))) {
+                    return false;
+                }
+                if (bi.dnb11a.isChecked()) {
+                    if (!validatorClass.EmptyTextBox(this, bi.dnb11ax, getString(R.string.dnb11ax))) {
+                        return false;
+                    }
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb12, bi.dnb12a, bi.dnb1296x, getString(R.string.dnb12))) {
+                    return false;
+                }
+
             }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb12, bi.dnb12a, bi.dnb1296x, getString(R.string.dnb12))) {
-                return false;
-            }
+
             if (!validatorClass.EmptyTextBox(this, bi.dnb13, getString(R.string.dnb13))) {
                 return false;
             }
@@ -269,13 +280,21 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         MainApp.nb.setUser(MainApp.userName);
         MainApp.nb.setDeviceId(Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID));
-        MainApp.nb.setDss_id_hh(MainApp.fc.getDSSID().toUpperCase());
+        MainApp.nb.setDss_id_hh(followUpData.getDss_id_h().toUpperCase());
         MainApp.nb.setDevicetagID(sharedPref.getString("tagName", null));
         MainApp.nb.setDss_id_member(bi.dcbid.getText().toString().toUpperCase());
         MainApp.nb.setName(bi.dnb03.getText().toString());
         MainApp.nb.setDss_id_m(bi.dnb05.getText().toString());
 
         JSONObject sNB = new JSONObject();
+
+        sNB.put("prv_euid", followUpData.getEuid());
+        sNB.put("prv_formdate", followUpData.getFormdate());
+        sNB.put("prv_status", followUpData.getStatus());
+        sNB.put("prv_status_date", followUpData.getStatus_date());
+        sNB.put("prv_birth_time", followUpData.getBirth_time());
+        sNB.put("prv_round", followUpData.getRound());
+
 //        sNB.put("studyid", bi.dstudyid.getText().toString());
         sNB.put("dnb04", bi.dnb04a.isChecked() ? "1" : bi.dnb04b.isChecked() ? "2" : "0");
         sNB.put("dnb05", bi.dnb05.getText().toString());
