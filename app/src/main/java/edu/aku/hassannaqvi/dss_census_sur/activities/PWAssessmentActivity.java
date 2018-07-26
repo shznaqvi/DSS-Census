@@ -476,11 +476,8 @@ public class PWAssessmentActivity extends AppCompatActivity {
     public void SaveDraft() {
 
         try {
-
             SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
-
             MainApp.pw = new PWContract();
-
             MainApp.pw.setFormDate(dtToday);
             MainApp.pw.setUser(MainApp.userName);
             MainApp.pw.setDeviceId(Settings.Secure.getString(getApplicationContext().getContentResolver(),
@@ -488,17 +485,14 @@ public class PWAssessmentActivity extends AppCompatActivity {
             MainApp.pw.setDss_id_member(MainApp.fc.getDSSID().toUpperCase());
             MainApp.pw.setDevicetagID(sharedPref.getString("tagName", null));
             JSONObject sPW = new JSONObject();
-
             sPW.put("dsa01", bi.dsa01a.isChecked() ? "1" : bi.dsa01b.isChecked() ? "2" : "0");
-            sPW.put("dsa02", bi.dsa02a.isChecked() ? "1" : bi.dsa02b.isChecked() ? "2" : bi.dsa02c.isChecked() ? "3" :
-                    bi.dsa02d.isChecked() ? "4" : bi.dsa02e.isChecked() ? "5" : bi.dsa02f.isChecked() ? "6" : bi.dsa0298.isChecked() ? "98" : "0");
+            sPW.put("dsa02", bi.dsa02a.isChecked() ? "1" : bi.dsa02b.isChecked() ? "2" : bi.dsa02c.isChecked() ? "3" : bi.dsa02d.isChecked() ? "4" : bi.dsa02e.isChecked() ? "5" : bi.dsa02f.isChecked() ? "6" : bi.dsa0298.isChecked() ? "98" : "0");
             sPW.put("dsa03", bi.dsa03d.getText().toString());
             sPW.put("dsa03", bi.dsa03m.getText().toString());
             sPW.put("dsa03", bi.dsa03y.getText().toString());
             sPW.put("dsa04", bi.dsa04a.getText().toString());
             sPW.put("dsa05", bi.dsa05a.getText().toString());
-            sPW.put("dsa06", bi.dsa06a.isChecked() ? "1" : bi.dsa06b.isChecked() ? "2" : bi.dsa06c.isChecked() ? "3" :
-                    bi.dsa0698.isChecked() ? "98" : "0");
+            sPW.put("dsa06", bi.dsa06a.isChecked() ? "1" : bi.dsa06b.isChecked() ? "2" : bi.dsa06c.isChecked() ? "3" : bi.dsa0698.isChecked() ? "98" : "0");
             sPW.put("dsa07", bi.dsa07a.getText().toString());
             sPW.put("dsa0801", bi.dsa0801a.isChecked() ? "1" : bi.dsa0801b.isChecked() ? "2" : "0");
             sPW.put("dsa0802", bi.dsa0802a.isChecked() ? "1" : bi.dsa0802b.isChecked() ? "2" : "0");
@@ -512,8 +506,6 @@ public class PWAssessmentActivity extends AppCompatActivity {
             sPW.put("dsa0810", bi.dsa0810a.isChecked() ? "1" : bi.dsa0810b.isChecked() ? "2" : "0");
             sPW.put("dsa0811", bi.dsa0811a.isChecked() ? "1" : bi.dsa0811b.isChecked() ? "2" : "0");
             sPW.put("dsa0812", bi.dsa0812a.isChecked() ? "1" : bi.dsa0812b.isChecked() ? "2" : "0");
-            sPW.put("dsa0813", bi.dsa0813a.isChecked() ? "1" : bi.dsa0813b.isChecked() ? "2" : "0");
-            sPW.put("dsa0814", bi.dsa0814a.isChecked() ? "1" : bi.dsa0814b.isChecked() ? "2" : "0");
             sPW.put("dsa0898x", bi.dsa0898x.getText().toString());
             sPW.put("dsa09", bi.dsa09a.isChecked() ? "1" : bi.dsa09b.isChecked() ? "2" : bi.dsa0998.isChecked() ? "8" : "0");
             sPW.put("dsa1001", bi.dsa101a.isChecked() ? "1" : bi.dsa101b.isChecked() ? "2" : bi.dsa10198.isChecked() ? "98" : "0");
