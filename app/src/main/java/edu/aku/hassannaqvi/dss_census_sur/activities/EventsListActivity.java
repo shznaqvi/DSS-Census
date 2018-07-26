@@ -31,13 +31,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census_sur.R;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.EventsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.HouseholdContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 
 public class EventsListActivity extends AppCompatActivity {
 
-    public static int visitType = 0;
     //  Static variables
     static List<Integer> hhClicked;
     static String hhID = "";
@@ -62,6 +62,9 @@ public class EventsListActivity extends AppCompatActivity {
     //  Flag for checking HH field
     Boolean flagHH = false;
 
+    public static ArrayList<EventsContract> eventsList;
+    public static int memFlag;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,11 +76,10 @@ public class EventsListActivity extends AppCompatActivity {
 //        Set Region DssIDD
         hhno.setText(MainApp.regionDss);
 
-//        Get visit type
-        visitType = getIntent().getIntExtra("visit", 1);
-
 //        Initialize
         db = new DatabaseHelper(this);
+        memFlag = 0;
+        MainApp.memClicked = new ArrayList<>();
 
         //get this intent 'TRUE' from endActivity
         if (getIntent().getBooleanExtra("check", true)) {
@@ -85,7 +87,6 @@ public class EventsListActivity extends AppCompatActivity {
         } else {
             hhno.setText(hhID);
             hhno.setEnabled(false);
-//            onCheckHHIDClick();
             fldGrpMain.setVisibility(View.VISIBLE);
             new populateRecyclerView(this).execute();
 
@@ -143,11 +144,25 @@ public class EventsListActivity extends AppCompatActivity {
                                                             recyclerHouseholds.getChildAt(item).setBackgroundColor(Color.BLACK);
                                                         }
 
-                                                        /*finish();
-                                                        startActivity(new Intent(getApplicationContext(), SectionAActivity.class)
-                                                                .putExtra("dssHH", MainApp.householdList.get(position).getHouseholdID())
-                                                                .putExtra("intMovFlag", Integer.valueOf(MainApp.householdList.get(position).getTotalMem()) == 0)
-                                                                .putExtra("followUpData", followUp));*/
+                                                        new Thread(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+
+                                                                eventsList = new ArrayList<>();
+
+                                                                Collection<EventsContract> events = db.getMembersByEvents(MainApp.householdList.get(position).getHouseholdID(),
+                                                                        String.valueOf(getIntent().getIntExtra("type", 0)));
+
+                                                                for (EventsContract ec : events) {
+                                                                    eventsList.add(new EventsContract(ec));
+                                                                }
+
+                                                                finish();
+                                                                startActivity(new Intent(getApplicationContext(), NB_PWMembersActivity.class)
+                                                                        .putExtra("type", getIntent().getIntExtra("type", 0)));
+
+                                                            }
+                                                        }).start();
 
                                                     }
                                                 });
@@ -175,14 +190,14 @@ public class EventsListActivity extends AppCompatActivity {
             if (hhno.getText().toString().length() == 9) {
 
                 hhno.setError(null);
-                household = db.getHHListByHHForMem(hhno.getText().toString().toUpperCase(), getIntent().getStringExtra("type"));
+                household = db.getHHListByHHForMem(hhno.getText().toString().toUpperCase(), String.valueOf(getIntent().getIntExtra("type", 0)));
+
+                MainApp.householdList = new ArrayList<>();
 
                 if (household.size() != 0) {
 
                     fldGrpHHExists.setVisibility(View.VISIBLE);
                     hhCount.setText("Follow up found \n" + household.size() + " Households found.");
-
-                    MainApp.householdList = new ArrayList<>();
 
                     for (HouseholdContract ec : household) {
                         MainApp.householdList.add(new HouseholdContract(ec));

@@ -641,6 +641,55 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return memList;
     }
 
+    public Collection<EventsContract> getMembersByEvents(String dssID, String type) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                singleEV.COLUMN_EUID,
+                singleEV.COLUMN_FORMDATE,
+                singleEV.COLUMN_NAME,
+                singleEV.COLUMN_DSS_ID_MEMBER,
+                singleEV.COLUMN_STATUS,
+                singleEV.COLUMN_LMP_DT,
+                singleEV.COLUMN_STATUS_DATE,
+                singleEV.COLUMN_BIRTH_TIME,
+                singleEV.COLUMN_GENDER,
+                singleEV.COLUMN_DSS_ID_H
+        };
+
+        String whereClause = singleEV.COLUMN_DSS_ID_H + " = ? AND " + singleEV.COLUMN_STATUS + " = ?";
+        String[] whereArgs = {dssID, type};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = singleEV.COLUMN_DSS_ID_MEMBER + " ASC";
+
+        Collection<EventsContract> memList = new ArrayList<>();
+        try {
+            c = db.query(
+                    singleEV.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                memList.add(new EventsContract().Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return memList;
+    }
+
     public MembersContract getMaxChildByDSS(String dssID, String mID) {
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -737,8 +786,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             c = db.rawQuery(SQL_SELECT_HH1, new String[]{type, "%" + hh + "%"});
 
             while (c.moveToNext()) {
-                HouseholdContract mc = new HouseholdContract();
-                memList.add(mc.Hydrate(c));
+                memList.add(new HouseholdContract().Hydrate(c));
             }
         } finally {
             if (c != null) {
