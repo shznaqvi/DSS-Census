@@ -381,6 +381,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
             if (UpdateDB()) {
 
                 MainApp.memClicked.add(getIntent().getIntExtra("position", -1));
+                EventsListActivity.memFlag++;
 
                 finish();
                 startActivity(new Intent(this, PW_EndingActivity.class)
