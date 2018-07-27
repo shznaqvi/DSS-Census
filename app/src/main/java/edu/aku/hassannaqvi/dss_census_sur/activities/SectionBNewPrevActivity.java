@@ -33,6 +33,7 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
+import edu.aku.hassannaqvi.dss_census_sur.validation.validatorClass;
 import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 import io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText;
 
@@ -675,7 +676,15 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                 } else {
                     dcbis09a.setError(null);
                 }
-
+                if (!validatorClass.EmptyTextBox(this, dcbis09bdt, getString(R.string.date))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyTextBox(this, dcbis04Outdt, getString(R.string.date))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyTextBox(this, dcbis04Outtime, getString(R.string.dci17b1time))) {
+                    return false;
+                }
                 if (dcbis09c.isChecked()) {
                     if (dcbis04Out.getCheckedRadioButtonId() == -1) {
                         Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis0901), Toast.LENGTH_SHORT).show();
@@ -733,9 +742,11 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                             dcbis04Outda.setError(null);
                         }
                     }
+                    return validatorClass.EmptyTextBox(this, dcbidob, getString(R.string.date));
                 }
             }
         } else if (dcbis05.isChecked()) {
+
             if (dcbis05Age.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis05Age), Toast.LENGTH_SHORT).show();
                 dcbis05Age.setError("This data is Required!");    // Set Error on last radio button

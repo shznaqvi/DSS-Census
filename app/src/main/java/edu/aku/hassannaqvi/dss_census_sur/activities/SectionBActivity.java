@@ -18,7 +18,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -46,6 +45,9 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
+import edu.aku.hassannaqvi.dss_census_sur.validation.validatorClass;
+import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
+import io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText;
 
 public class SectionBActivity extends AppCompatActivity implements View.OnKeyListener, TextWatcher {
 
@@ -86,7 +88,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     @BindView(R.id.dcbidtTxt)
     TextView dcbidtTxt;
     @BindView(R.id.dcbidob)
-    DatePicker dcbidob;
+    DatePickerInputEditText dcbidob;
     @BindView(R.id.dcbitime)
     TimePicker dcbitime;
     @BindView(R.id.dcbm)
@@ -166,8 +168,6 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
 
     @BindView(R.id.fldGrpdcbis09b)
     LinearLayout fldGrpdcbis09b;
-    @BindView(R.id.dcbis09bdt)
-    DatePicker dcbis09bdt;
 
     @BindView(R.id.dcbis01Status)
     RadioGroup dcbis01Status;
@@ -196,11 +196,14 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     ArrayList<String> motherNames;
     ArrayList<String> motherDSSID;
 
+    @BindView(R.id.dcbis09bdt)
+    DatePickerInputEditText dcbis09bdt;
     @BindView(R.id.dcbis04Outdt)
-    DatePicker dcbis04Outdt;
+    DatePickerInputEditText dcbis04Outdt;
     @BindView(R.id.dcbis04Outtime)
-    TimePicker dcbis04Outtime;
+    TimePickerEditText dcbis04Outtime;
 
+    String dateToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
 
     //TODO: Convert old date picker and time picker to new ones
 
@@ -213,9 +216,15 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
         this.setTitle("D S S");
 
         Calendar cal = Calendar.getInstance();
-        dcbidob.setMaxDate(new Date().getTime());
-        dcbis09bdt.setMaxDate(new Date().getTime());
-        dcbis04Outdt.setMaxDate(new Date().getTime());
+        dcbis04Outtime.setManager(getSupportFragmentManager());
+        dcbis04Outtime.setTimeFormat("HH:mm");
+        dcbidob.setManager(getSupportFragmentManager());
+        dcbidob.setMaxDate(dateToday);
+        dcbis09bdt.setManager(getSupportFragmentManager());
+        dcbis09bdt.setMaxDate(dateToday);
+
+        dcbis04Outdt.setManager(getSupportFragmentManager());
+        dcbis04Outdt.setMaxDate(dateToday);
         cal.setTimeInMillis(System.currentTimeMillis());
 
         db = new DatabaseHelper(this);
@@ -936,15 +945,15 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
         sC.put("visit_type", HouseholdListActivity.visitType);
 
         if (dcbis09b.isChecked()) {
-            sC.put("lmp_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis09bdt.getCalendarView().getDate()));
+            sC.put("lmp_dt", dcbis09bdt.getText().toString());
         }
 
         MainApp.cc.setCurrent_status(dcbis01.isChecked() ? "4" : dcbis02.isChecked() ? "5" : dcbis04.isChecked() ? "6" : "0");
-        MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+        MainApp.cc.setCurrent_date(dcbidob.getText().toString());
 
         if (dcbis01.isChecked()) {
 
-            MainApp.cc.setDob(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+            MainApp.cc.setDob(dcbidob.getText().toString());
 
             MainApp.cc.setCurChildBirth_time(dcbitime.getCurrentHour() + ":" + dcbitime.getCurrentMinute());
             MainApp.cc.setCurrent_childStatus(dcbis01Statusa.isChecked() ? "1" : dcbis01Statusb.isChecked() ? "2" : dcbis01Statusc.isChecked() ? "3" : "0");
@@ -965,8 +974,8 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
 
                 if (dcbis09c.isChecked()) {
 
-                    sC.put("current_status_out_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis04Outdt.getCalendarView().getDate()));
-                    sC.put("current_status_out_time", dcbis04Outtime.getCurrentHour() + ":" + dcbis04Outtime.getCurrentMinute());
+                    sC.put("current_status_out_dt", dcbis04Outdt.getText().toString());
+                    sC.put("current_status_out_time", dcbis04Outtime.getText().toString());
 
                     MainApp.cc.setCurrent_statusOutcome(dcbis04Outa.isChecked() ? "1" : dcbis04Outb.isChecked() ? "2" : dcbis04Outc.isChecked() ? "3"
                             : dcbis04Outd.isChecked() ? "4" : "0");
@@ -979,7 +988,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                 }
 
                 if (dcbis09b.isChecked()) {
-                    MainApp.cc.setCurrent_pregOutcomeDT(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+                    MainApp.cc.setCurrent_pregOutcomeDT(dcbidob.getText().toString());
                 }
 
             }
@@ -1148,7 +1157,9 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
         } else {
             dcbis06x.setError(null);
         }
-
+        if (!validatorClass.EmptyTextBox(this, dcbidob, getString(R.string.date))) {
+            return false;
+        }
         // ============== Sex ===================
 
         if (dcbd.getCheckedRadioButtonId() == -1) {
@@ -1199,8 +1210,18 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                 } else {
                     dcbis09a.setError(null);
                 }
+                if (!validatorClass.EmptyTextBox(this, dcbis09bdt, getString(R.string.date))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyTextBox(this, dcbis04Outdt, getString(R.string.date))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyTextBox(this, dcbis04Outtime, getString(R.string.dci17b1time))) {
+                    return false;
+                }
 
                 if (dcbis09c.isChecked()) {
+
                     if (dcbis04Out.getCheckedRadioButtonId() == -1) {
                         Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis0901), Toast.LENGTH_SHORT).show();
                         dcbis04Outd.setError("This data is Required!");    // Set Error on last radio button
