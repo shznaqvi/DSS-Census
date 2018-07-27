@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -39,6 +41,7 @@ import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 public class SectionBNewPrevActivity extends AppCompatActivity {
 
     private static final String TAG = SectionBActivity.class.getSimpleName();
+    String dateToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
 
     @BindView(R.id.scrollView01)
     ScrollView scroll;
@@ -141,9 +144,10 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
     @BindView(R.id.fldGrpdcbis09b)
     LinearLayout fldGrpdcbis09b;
+    //    @BindView(R.id.dcbis09bdt)
+//    DatePicker dcbis09bdt;
     @BindView(R.id.dcbis09bdt)
-    DatePicker dcbis09bdt;
-
+    DatePickerInputEditText dcbis09bdt;
     @BindView(R.id.dcbis04Outdt)
     DatePicker dcbis04Outdt;
     @BindView(R.id.dcbis04Outtime)
@@ -165,7 +169,10 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         Calendar cal = Calendar.getInstance();
 //        dcbg.setMaxDate(new Date().getTime());
         dcbidob.setMaxDate(new Date().getTime());
-        dcbis09bdt.setMaxDate(new Date().getTime());
+//        dcbis09bdt.setMaxDate(new Date().getTime());
+        dcbis09bdt.setManager(getSupportFragmentManager());
+        dcbis09bdt.setMaxDate(dateToday);
+
         dcbis04Outdt.setMaxDate(new Date().getTime());
         cal.setTimeInMillis(System.currentTimeMillis());
 
@@ -509,7 +516,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         sC.put("visit_type", HouseholdListActivity.visitType);
 
         if (dcbis09b.isChecked()) {
-            sC.put("lmp_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis09bdt.getCalendarView().getDate()));
+            sC.put("lmp_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis09bdt.getText().toString()));
         }
 
         MainApp.cc.setCurrent_status(dcbis00.isChecked() ? "9" : dcbis01.isChecked() ? "1" : dcbis03.isChecked() ? "2"
