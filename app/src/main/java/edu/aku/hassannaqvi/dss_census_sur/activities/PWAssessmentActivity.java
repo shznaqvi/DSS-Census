@@ -377,7 +377,9 @@ public class PWAssessmentActivity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
+
             SaveDraft();
+
             if (UpdateDB()) {
 
                 MainApp.memClicked.add(getIntent().getIntExtra("position", -1));

@@ -1001,6 +1001,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
                         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:hint="@string/dnb23"
                         android:inputType="text"
                         android:text='@{dnb23a.checked ? dnb23x.getText.toString : "" }'
                         android:visibility='@{dnb23a.checked ? View.VISIBLE : View.GONE }' />
@@ -1044,6 +1045,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
                         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:hint="@string/dnb24"
                         android:inputType="text"
                         android:text='@{dnb24a.checked ? dnb24x.getText.toString : "" }'
                         android:visibility='@{dnb24a.checked ? View.VISIBLE : View.GONE }' />
@@ -1087,6 +1089,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
                         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:hint="@string/dnb25"
                         android:inputType="text"
                         android:text='@{dnb25a.checked ? dnb25x.getText.toString : "" }'
                         android:visibility='@{dnb25a.checked ? View.VISIBLE : View.GONE }' />
@@ -1137,6 +1140,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
                             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                            android:hint="@string/dnb26b"
                             android:inputType="text"
                             android:text='@{dnb26b.checked ? dnb26x.getText.toString : "" }'
                             android:visibility='@{dnb26b.checked ? View.VISIBLE : View.GONE }' />
