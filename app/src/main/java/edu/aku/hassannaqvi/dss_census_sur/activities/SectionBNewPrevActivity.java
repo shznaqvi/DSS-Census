@@ -676,8 +676,10 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                 } else {
                     dcbis09a.setError(null);
                 }
-                if (!validatorClass.EmptyTextBox(this, dcbis09bdt, getString(R.string.date))) {
-                    return false;
+                if (dcbis09b.isChecked()) {
+                    if (!validatorClass.EmptyTextBox(this, dcbis09bdt, getString(R.string.date))) {
+                        return false;
+                    }
                 }
 
                 if (dcbis09c.isChecked()) {
@@ -745,7 +747,6 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                             dcbis04Outda.setError(null);
                         }
                     }
-                    return validatorClass.EmptyTextBox(this, dcbidob, getString(R.string.date));
                 }
             }
         } else if (dcbis05.isChecked()) {
@@ -789,6 +790,14 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
             } else {
                 dcbis05Cause.setError(null);
             }
+        } else if (dcbis03.isChecked()) {
+
+            if (!validatorClass.EmptyTextBox(this, dcbidob, getString(R.string.date))) {
+                return false;
+            }
+
+            return validatorClass.EmptyTextBox(this, dcbis03a, getString(R.string.dcbis03a));
+
         }
 
         return true;
