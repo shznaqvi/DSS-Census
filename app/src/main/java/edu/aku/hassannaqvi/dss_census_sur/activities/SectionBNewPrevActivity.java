@@ -9,17 +9,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
-
-import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,6 +33,8 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
+import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
+import io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText;
 
 public class SectionBNewPrevActivity extends AppCompatActivity {
 
@@ -90,7 +88,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
     @BindView(R.id.dcbidtTxt)
     TextView dcbidtTxt;
     @BindView(R.id.dcbidob)
-    DatePicker dcbidob;
+    DatePickerInputEditText dcbidob;
 
     @BindView(R.id.dcbis03a)
     EditText dcbis03a;
@@ -144,14 +142,12 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
     @BindView(R.id.fldGrpdcbis09b)
     LinearLayout fldGrpdcbis09b;
-    //    @BindView(R.id.dcbis09bdt)
-//    DatePicker dcbis09bdt;
     @BindView(R.id.dcbis09bdt)
     DatePickerInputEditText dcbis09bdt;
     @BindView(R.id.dcbis04Outdt)
-    DatePicker dcbis04Outdt;
+    DatePickerInputEditText dcbis04Outdt;
     @BindView(R.id.dcbis04Outtime)
-    TimePicker dcbis04Outtime;
+    TimePickerEditText dcbis04Outtime;
 
     int position = 0;
     String mt;
@@ -167,13 +163,15 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         this.setTitle("D S S");
 
         Calendar cal = Calendar.getInstance();
-//        dcbg.setMaxDate(new Date().getTime());
-        dcbidob.setMaxDate(new Date().getTime());
-//        dcbis09bdt.setMaxDate(new Date().getTime());
+        dcbis04Outtime.setManager(getSupportFragmentManager());
+        dcbis04Outtime.setTimeFormat("HH:mm");
+        dcbidob.setManager(getSupportFragmentManager());
+        dcbidob.setMaxDate(dateToday);
         dcbis09bdt.setManager(getSupportFragmentManager());
         dcbis09bdt.setMaxDate(dateToday);
 
-        dcbis04Outdt.setMaxDate(new Date().getTime());
+        dcbis04Outdt.setManager(getSupportFragmentManager());
+        dcbis04Outdt.setMaxDate(dateToday);
         cal.setTimeInMillis(System.currentTimeMillis());
 
         position = getIntent().getExtras().getInt("position");
@@ -516,7 +514,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         sC.put("visit_type", HouseholdListActivity.visitType);
 
         if (dcbis09b.isChecked()) {
-            sC.put("lmp_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis09bdt.getText().toString()));
+            sC.put("lmp_dt", dcbis09bdt.getText().toString());
         }
 
         MainApp.cc.setCurrent_status(dcbis00.isChecked() ? "9" : dcbis01.isChecked() ? "1" : dcbis03.isChecked() ? "2"
@@ -532,8 +530,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
                 if (dcbis09c.isChecked()) {
 
-                    sC.put("current_status_out_dt", new SimpleDateFormat("dd-MM-yyyy").format(dcbis04Outdt.getCalendarView().getDate()));
-                    sC.put("current_status_out_time", dcbis04Outtime.getCurrentHour() + ":" + dcbis04Outtime.getCurrentMinute());
+                    sC.put("current_status_out_dt", dcbis04Outdt.getText().toString());
+                    sC.put("current_status_out_time", dcbis04Outtime.getText().toString());
 
                     MainApp.cc.setCurrent_statusOutcome(dcbis04Outa.isChecked() ? "1" : dcbis04Outb.isChecked() ? "2" : dcbis04Outc.isChecked() ? "3"
                             : dcbis04Outd.isChecked() ? "4" : "0");
@@ -546,14 +544,17 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                 }
 
                 if (dcbis09b.isChecked()) {
-                    MainApp.cc.setCurrent_pregOutcomeDT(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+//                    MainApp.cc.setCurrent_pregOutcomeDT(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+                    MainApp.cc.setCurrent_pregOutcomeDT(dcbidob.getText().toString());
                 }
             }
         } else if (dcbis03.isChecked()) {
-            MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+//            MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+            MainApp.cc.setCurrent_date(dcbidob.getText().toString());
             sC.put("dcbis_mig_place", dcbis03a.getText().toString());
         } else if (dcbis05.isChecked()) {
-            MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+//            MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
+            MainApp.cc.setCurrent_date(dcbidob.getText().toString());
             sC.put("dcbis_death_age", dcbis05Age.getText().toString());
             sC.put("dcbis_death_cause", dcbis05Cause.getText().toString());
             sC.put("dcbis_death_place", dcbis05Placea.isChecked() ? "1" : dcbis05Placeb.isChecked() ? "2" : dcbis05Placec.isChecked() ? "3"

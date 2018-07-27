@@ -254,7 +254,7 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@color/colorPrimaryDark" />
 
-                    <DatePicker
+                    <!--<DatePicker
                         android:id="@+id/dcbidob"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -262,8 +262,16 @@
                         android:calendarViewShown="false"
                         android:datePickerMode="spinner"
                         android:ems="10"
-                        android:spinnersShown="true" />
-
+                        android:spinnersShown="true" />-->
+                    <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
+                        android:id="@+id/dcbidob"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:hint="DD/MM/YYYY"
+                        android:textColor="@android:color/black"
+                        app:dateFormat="dd-MM-yyyy" />
                     <EditText
                         android:id="@+id/dcbis03a"
                         android:layout_width="match_parent"
@@ -414,15 +422,6 @@
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:textColor="@color/colorPrimaryDark" />
 
-                     <!--   <DatePicker
-                            android:id="@+id/dcbis09bdt"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:calendarViewShown="false"
-                            android:datePickerMode="spinner"
-                            android:ems="10"
-                            android:spinnersShown="true" />-->
                         <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
                             android:id="@+id/dcbis09bdt"
                             android:layout_width="match_parent"
@@ -453,21 +452,38 @@
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:textColor="@color/colorPrimaryDark" />
 
-                        <DatePicker
+                        <!--  <DatePicker
+                              android:id="@+id/dcbis04Outdt"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:calendarViewShown="false"
+                              android:datePickerMode="spinner"
+                              android:ems="10"
+                              android:spinnersShown="true" />-->
+                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
                             android:id="@+id/dcbis04Outdt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:calendarViewShown="false"
-                            android:datePickerMode="spinner"
-                            android:ems="10"
-                            android:spinnersShown="true" />
-
-                        <TimePicker
+                            android:focusable="false"
+                            android:hint="DD/MM/YYYY"
+                            android:textColor="@android:color/black"
+                            app:dateFormat="dd-MM-yyyy" />
+                        <!--<TimePicker
                             android:id="@+id/dcbis04Outtime"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
+                            android:layout_height="wrap_content" />-->
+                        <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
+                            android:id="@+id/dcbis04Outtime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:focusable="false"
+                            android:hint="HH:MM"
+                            android:textColor="@android:color/black"
+                            app:is24HourView="true"
+                            app:timeFormat="HH:mm" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
