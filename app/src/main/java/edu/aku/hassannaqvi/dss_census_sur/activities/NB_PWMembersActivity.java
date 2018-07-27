@@ -87,9 +87,13 @@ public class NB_PWMembersActivity extends AppCompatActivity {
 
                             if (flag) {
 
-                                /*startActivity(new Intent(getApplicationContext(), NewBornAssessmentActivity.class)
-                                        .putExtra("followUpData", SectionAActivity.fp)
-                                        .putExtra("dataFlag", true).putExtra("position", position));*/
+                                if (type == 1) {
+                                    startActivity(new Intent(getApplicationContext(), PWAssessmentActivity.class)
+                                            .putExtra("followUpData", EventsListActivity.eventsList.get(position)));
+                                } else {
+                                    startActivity(new Intent(getApplicationContext(), NewBornAssessmentActivity.class)
+                                            .putExtra("followUpData", EventsListActivity.eventsList.get(position)));
+                                }
 
                             }
                         }
@@ -177,6 +181,7 @@ public class NB_PWMembersActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,
                                                 int id) {
+
 
                                 finish();
                                 startActivity(new Intent(NB_PWMembersActivity.this, EventsListActivity.class).putExtra("check", flag));

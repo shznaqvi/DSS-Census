@@ -67,28 +67,22 @@ public class GetEvents extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-
         JSONArray json = null;
         try {
             json = new JSONArray(result);
             DatabaseHelper db = new DatabaseHelper(mContext);
             db.syncEvents(json);
             Toast.makeText(mContext, "Successfully Synced " + json.length() + " Events", Toast.LENGTH_SHORT).show();
-
             pd.setMessage(json.length() + " Events synced.");
             pd.setTitle("Events: Done");
             pd.show();
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(mContext, "Failed Sync " + result, Toast.LENGTH_SHORT).show();
-
-
             pd.setMessage(result);
             pd.setTitle("Events Sync Failed");
             pd.show();
-
         }
-
     }
 
     private String downloadUrl(String myurl) {
@@ -98,7 +92,6 @@ public class GetEvents extends AsyncTask<Void, Void, String> {
         // Only display the first 500 characters of the retrieved
         // web page content.
         int len = 5000;
-
         HttpURLConnection conn = null;
         StringBuilder result = null;
         try {
