@@ -33,6 +33,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
 
     DatabaseHelper db;
+    EventsContract followUpData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
 
     public void setFollowUpData() {
 
-        EventsContract followUpData = (EventsContract) getIntent().getSerializableExtra("followUpData");
+        followUpData = (EventsContract) getIntent().getSerializableExtra("followUpData");
 
         //bi.round.setText(followUpData.getRound());
         bi.dsaHeading01.setText("PW ASSESMENT " + "(" + followUpData.getName() + ")");
@@ -820,6 +821,20 @@ public class PWAssessmentActivity extends AppCompatActivity {
             MainApp.pw.setDss_id_member(MainApp.fc.getDSSID().toUpperCase());
             MainApp.pw.setDevicetagID(sharedPref.getString("tagName", null));
             JSONObject sPW = new JSONObject();
+
+            sPW.put("prv_euid", followUpData.getEuid());
+            sPW.put("prv_formdate", followUpData.getFormdate());
+            sPW.put("prv_status", followUpData.getStatus());
+            sPW.put("prv_status_date", followUpData.getStatus_date());
+            sPW.put("prv_round", followUpData.getRound());
+            sPW.put("prv_name", followUpData.getName());
+            sPW.put("prv_dss_id_member", followUpData.getDss_id_member());
+            sPW.put("prv_id_hus", followUpData.getDss_id_h());
+            sPW.put("prv_lmp_date", followUpData.getLmp_dt());
+            sPW.put("prv_status_date", followUpData.getStatus_date());
+            sPW.put("prv_total_mem", followUpData.getTotalMem());
+            sPW.put("prv_dss_id_m", followUpData.getDss_id_m());
+            sPW.put("prv_dss_id_h", followUpData.getDss_id_h());
 
             sPW.put("dsa01", bi.dsa01a.isChecked() ? "1" : bi.dsa01b.isChecked() ? "2" : bi.dsa0198.isChecked() ? "98" : "0");
             sPW.put("dsa02", bi.dsa02a.isChecked() ? "1" : bi.dsa02b.isChecked() ? "2" : bi.dsa02c.isChecked() ? "3" :

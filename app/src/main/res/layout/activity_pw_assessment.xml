@@ -30,6 +30,7 @@
             android:textSize="30sp" />
 
         <TextView
+            android:gravity="center"
             android:id="@+id/dssID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,6 +38,7 @@
             android:text="DSS ID: " />
 
         <TextView
+            android:gravity="center"
             android:id="@+id/husbandName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
