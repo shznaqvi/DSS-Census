@@ -32,6 +32,7 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
     DatabaseHelper db;
     EventsContract followUpData;
+    JSONObject sNB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +116,13 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,
                                                 int id) {
+
+                                try {
+                                    SaveDraft(true);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
                                 finish();
                                 startActivity(new Intent(getApplicationContext(), NB_EndingActivity.class).putExtra("check", false));
                             }
@@ -184,7 +192,7 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
                         return false;
                     }
                 }
-                if (!validatorClass.EmptyRadioButton(this, bi.dnb12, bi.dnb12a, bi.dnb1296x, getString(R.string.dnb12))) {
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb12, bi.dnb1296, bi.dnb1296x, getString(R.string.dnb12))) {
                     return false;
                 }
 
@@ -269,8 +277,7 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         return true;
     }
 
-    public void SaveDraft() throws JSONException {
-
+    public void SaveDraft(boolean type) throws JSONException {
         SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
         MainApp.nb = new NewBornContract();
@@ -285,14 +292,22 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         MainApp.nb.setName(bi.dnb03.getText().toString());
         MainApp.nb.setDss_id_m(bi.dnb05.getText().toString());
 
-        JSONObject sNB = new JSONObject();
-
+        sNB = new JSONObject();
         sNB.put("prv_euid", followUpData.getEuid());
         sNB.put("prv_formdate", followUpData.getFormdate());
         sNB.put("prv_status", followUpData.getStatus());
         sNB.put("prv_status_date", followUpData.getStatus_date());
         sNB.put("prv_birth_time", followUpData.getBirth_time());
         sNB.put("prv_round", followUpData.getRound());
+
+        if (type) {
+            MainApp.nb.setsNB(String.valueOf(sNB));
+        }
+    }
+
+    public void SaveDraft() throws JSONException {
+
+        SaveDraft(false);
 
 //        sNB.put("studyid", bi.dstudyid.getText().toString());
         sNB.put("dnb04", bi.dnb04a.isChecked() ? "1" : bi.dnb04b.isChecked() ? "2" : "0");
@@ -335,6 +350,7 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         sNB.put("dnb26x", bi.dnb26x.getText().toString());
         sNB.put("dnb27", bi.dnb27a.isChecked() ? "1" : bi.dnb27b.isChecked() ? "2" : "0");
         sNB.put("dnb28", bi.dnb28.getText().toString());
+
         MainApp.nb.setsNB(String.valueOf(sNB));
 
     }

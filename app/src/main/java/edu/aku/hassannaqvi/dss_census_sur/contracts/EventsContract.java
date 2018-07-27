@@ -65,6 +65,7 @@ public class EventsContract implements Serializable {
         this.lmp_dt = cc.lmp_dt;
         this.status_date = cc.status_date;
         this.birth_time = cc.birth_time;
+        this.dss_id_h = cc.dss_id_h;
         this.gender = cc.gender;
         this.totalMem = cc.totalMem;
         this.round = cc.round;

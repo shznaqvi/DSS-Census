@@ -34,6 +34,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
 
     DatabaseHelper db;
     EventsContract followUpData;
+    JSONObject sPW;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -357,6 +358,9 @@ public class PWAssessmentActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,
                                                 int id) {
+
+                                SaveDraft(true);
+
                                 finish();
                                 startActivity(new Intent(getApplicationContext(), PW_EndingActivity.class).putExtra("check", false));
                             }
@@ -613,8 +617,9 @@ public class PWAssessmentActivity extends AppCompatActivity {
         return true;
     }
 
-    public void SaveDraft() {
+    public void SaveDraft(boolean type) {
         try {
+
             SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
             MainApp.pw = new PWContract();
@@ -625,7 +630,8 @@ public class PWAssessmentActivity extends AppCompatActivity {
                     Settings.Secure.ANDROID_ID));
             MainApp.pw.setDss_id_member(MainApp.fc.getDSSID().toUpperCase());
             MainApp.pw.setDevicetagID(sharedPref.getString("tagName", null));
-            JSONObject sPW = new JSONObject();
+
+            sPW = new JSONObject();
 
             sPW.put("prv_euid", followUpData.getEuid());
             sPW.put("prv_formdate", followUpData.getFormdate());
@@ -640,6 +646,20 @@ public class PWAssessmentActivity extends AppCompatActivity {
             sPW.put("prv_total_mem", followUpData.getTotalMem());
             sPW.put("prv_dss_id_m", followUpData.getDss_id_m());
             sPW.put("prv_dss_id_h", followUpData.getDss_id_h());
+
+            if (type) {
+                MainApp.pw.setsPW(String.valueOf(sPW));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void SaveDraft() {
+        try {
+
+            SaveDraft(false);
 
             sPW.put("dsa01", bi.dsa01a.isChecked() ? "1" : bi.dsa01b.isChecked() ? "2" : bi.dsa0198.isChecked() ? "98" : "0");
             sPW.put("dsa02", bi.dsa02a.isChecked() ? "1" : bi.dsa02b.isChecked() ? "2" : bi.dsa02c.isChecked() ? "3" :

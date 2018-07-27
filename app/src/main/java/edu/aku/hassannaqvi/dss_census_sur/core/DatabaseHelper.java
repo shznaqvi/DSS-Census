@@ -2707,6 +2707,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public int updatePW() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(pWFup.COLUMN_ISTATUS, MainApp.pw.getIstatus());
+
+// Which row to update, based on the ID
+        String selection = pWFup.COLUMN_UID + "=?";
+        String[] selectionArgs = {MainApp.pw.getUID()};
+
+        int count = db.update(pWFup.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
     public int updateSB() {
         SQLiteDatabase db = this.getReadableDatabase();
 

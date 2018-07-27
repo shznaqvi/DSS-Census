@@ -61,7 +61,9 @@ public class NB_EndingActivity extends Activity {
             if (UpdateDB()) {
 
                 finish();
-                startActivity(new Intent(this, MainActivity.class));
+                Intent endSec = new Intent(this, NB_PWMembersActivity.class);
+                endSec.putExtra("check", false);
+                startActivity(endSec);
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -69,7 +71,7 @@ public class NB_EndingActivity extends Activity {
         }
     }
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 //        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
         MainApp.nb.setIstatus(dcstatus01.isChecked() ? "1" : dcstatus02.isChecked() ? "2" : "0");
