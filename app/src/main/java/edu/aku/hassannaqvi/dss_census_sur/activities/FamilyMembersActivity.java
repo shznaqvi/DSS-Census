@@ -23,7 +23,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
@@ -105,7 +104,6 @@ public class FamilyMembersActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
                 for (int item : MainApp.memClicked) {
                     recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
                 }
@@ -113,7 +111,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
         }, 1200);
     }
 
-    public void saveDT() throws JSONException {
+    public void saveDT() {
         JSONObject sG = new JSONObject();
 /*
         sG.put("dca0701", totalMem.getText().toString());
@@ -415,11 +413,11 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
             public MyViewHolder(View view) {
                 super(view);
-                this.memberName = (TextView) view.findViewById(R.id.memberName);
-                this.DSSidm = (TextView) view.findViewById(R.id.DSSid);
-                this.currentStatus = (TextView) view.findViewById(R.id.currentStatus);
-                this.memberType = (TextView) view.findViewById(R.id.memberType);
-                year = (TextView) view.findViewById(R.id.year);
+                this.memberName = view.findViewById(R.id.memberName);
+                this.DSSidm = view.findViewById(R.id.DSSid);
+                this.currentStatus = view.findViewById(R.id.currentStatus);
+                this.memberType = view.findViewById(R.id.memberType);
+                year = view.findViewById(R.id.year);
             }
         }
     }

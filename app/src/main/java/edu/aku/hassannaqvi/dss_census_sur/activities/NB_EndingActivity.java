@@ -68,6 +68,7 @@ public class NB_EndingActivity extends Activity {
     private void SaveDraft() {
 //        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
+        //MainApp.nb = new NewBornContract();
         MainApp.nb.setIstatus(dcstatus01.isChecked() ? "1" : dcstatus02.isChecked() ? "2" : "0");
 
 //        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();

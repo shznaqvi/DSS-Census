@@ -98,12 +98,10 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         if (followUpData.getRound().equals("1")) {
             bi.fldGrpdnbStatus02a.setVisibility(View.GONE);
         }
-
         bi.dcbid.setText(followUpData.getDss_id_member());
         bi.dnb03.setText(followUpData.getName());
         bi.dnb04.check(followUpData.getGender().equals("1") ? bi.dnb04a.getId() : bi.dnb04b.getId());
         bi.dnb05.setText(followUpData.getDss_id_m());
-
     }
 
     public void BtnEnd() {

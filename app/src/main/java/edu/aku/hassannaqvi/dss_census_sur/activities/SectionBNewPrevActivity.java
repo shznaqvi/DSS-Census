@@ -679,12 +679,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                 if (!validatorClass.EmptyTextBox(this, dcbis09bdt, getString(R.string.date))) {
                     return false;
                 }
-                if (!validatorClass.EmptyTextBox(this, dcbis04Outdt, getString(R.string.date))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyTextBox(this, dcbis04Outtime, getString(R.string.dci17b1time))) {
-                    return false;
-                }
+
                 if (dcbis09c.isChecked()) {
                     if (dcbis04Out.getCheckedRadioButtonId() == -1) {
                         Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis0901), Toast.LENGTH_SHORT).show();
@@ -693,6 +688,13 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                         return false;
                     } else {
                         dcbis04Outd.setError(null);
+                    }
+
+                    if (!validatorClass.EmptyTextBox(this, dcbis04Outdt, getString(R.string.date))) {
+                        return false;
+                    }
+                    if (!validatorClass.EmptyTextBox(this, dcbis04Outtime, getString(R.string.dci17b1time))) {
+                        return false;
                     }
 
                     if (dcbis04Outd.isChecked()) {
