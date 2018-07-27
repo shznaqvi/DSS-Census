@@ -215,7 +215,7 @@ public class EventsListActivity extends AppCompatActivity {
 
                 } else {
                     flagHH = false;
-                    Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Not Found", Toast.LENGTH_LONG).show();
                 }
 
             } else {

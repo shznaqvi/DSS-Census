@@ -53,9 +53,8 @@ public class PWAssessmentActivity extends AppCompatActivity {
 
         //bi.round.setText(followUpData.getRound());
         bi.dsaHeading01.setText("PW ASSESMENT " + "(" + followUpData.getName() + ")");
-        bi.husbandName.setText("Husband Name:" + followUpData.getDss_id_hus());
+        bi.husbandName.setText("Husband Name: " + followUpData.getDss_id_hus());
         bi.dssID.setText("DSS ID: " + followUpData.getDss_id_member());
-
 
     }
 
@@ -373,20 +372,8 @@ public class PWAssessmentActivity extends AppCompatActivity {
     }
 
     public void BtnContinue() {
-
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
-
         if (formValidation()) {
-            Toast.makeText(this, "validated", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-        }
-        /*if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
@@ -397,7 +384,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-        }*/
+        }
     }
 
     public boolean formValidation() {
@@ -627,9 +614,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
     }
 
     public void SaveDraft() {
-
         try {
-
             SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
             MainApp.pw = new PWContract();
@@ -709,10 +694,8 @@ public class PWAssessmentActivity extends AppCompatActivity {
             MainApp.pw.setsPW(String.valueOf(sPW));
 
         } catch (Exception e) {
-
             e.printStackTrace();
         }
-
 
     }
 

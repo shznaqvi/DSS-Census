@@ -30,21 +30,20 @@
             android:textSize="30sp" />
 
         <TextView
-            android:gravity="center"
             android:id="@+id/dssID"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:gravity="center"
             android:text="DSS ID: " />
 
         <TextView
-            android:gravity="center"
             android:id="@+id/husbandName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:gravity="center"
             android:text="Husband Name: " />
-
 
         <ScrollView
             android:layout_width="match_parent"
@@ -56,10 +55,10 @@
                 android:layout_height="wrap_content"
                 android:layoutDirection="rtl"
                 android:orientation="vertical">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
                     android:text="@string/dsa01"
                     android:textAppearance="?android:attr/textAppearanceLarge"
@@ -335,8 +334,7 @@
                         android:layout_height="wrap_content"
                         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:hint="@string/dsa07"
-                        android:inputType="text"
-                        />
+                        android:inputType="text" />
                 </LinearLayout>
 
 
@@ -1139,9 +1137,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
                         android:digits="1234567890"
-                        android:inputType="number"
                         android:hint="@string/dsa12a"
-                        android:maxLength="2"/>
+                        android:inputType="number"
+                        android:maxLength="2" />
 
                     <LinearLayout
                         android:id="@+id/dsa12"
@@ -1239,8 +1237,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:hint="@string/dsa14a"
                         android:digits="1234567890"
+                        android:hint="@string/dsa14a"
                         android:inputType="number"
                         android:maxLength="2" />
 
@@ -1341,8 +1339,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
                         android:digits="1234567890"
-                        android:inputType="number"
                         android:hint="@string/dsa16a"
+                        android:inputType="number"
                         android:maxLength="2" />
 
                     <LinearLayout
@@ -1446,16 +1444,18 @@
                         android:text="@string/dsa18"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@android:color/white" />
+
                     <EditText
                         android:id="@+id/dsa18w"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
                         android:hint="@string/dsa18w"
-                        android:maxLength="6"
                         android:inputType="numberDecimal"
+                        android:maxLength="6"
                         android:text='@{dsa1899.checked ? "" : dsa18w.getText.toString }'
-                        android:visibility='@{dsa1899.checked ? View.GONE : View.VISIBLE}'/>
+                        android:visibility='@{dsa1899.checked ? View.GONE : View.VISIBLE}' />
+
                     <CheckBox
                         android:id="@+id/dsa1899"
                         android:layout_width="match_parent"
@@ -1479,16 +1479,18 @@
                         android:text="@string/dsa19"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@android:color/white" />
+
                     <EditText
                         android:id="@+id/dsa19m"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
                         android:hint="@string/dsa18m"
-                        android:maxLength="4"
                         android:inputType="numberDecimal"
+                        android:maxLength="4"
                         android:text='@{dsa1999.checked ? "" : dsa19m.getText.toString }'
-                        android:visibility='@{dsa1999.checked ? View.GONE : View.VISIBLE}'/>
+                        android:visibility='@{dsa1999.checked ? View.GONE : View.VISIBLE}' />
+
                     <CheckBox
                         android:id="@+id/dsa1999"
                         android:layout_width="match_parent"
@@ -1519,10 +1521,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
                         android:hint="@string/dsa20h"
-                        android:maxLength="5"
                         android:inputType="numberDecimal"
+                        android:maxLength="5"
                         android:text='@{dsa2099.checked ? "" : dsa20h.getText.toString }'
-                        android:visibility='@{dsa2099.checked ? View.GONE : View.VISIBLE}'/>
+                        android:visibility='@{dsa2099.checked ? View.GONE : View.VISIBLE}' />
+
                     <CheckBox
                         android:id="@+id/dsa2099"
                         android:layout_width="match_parent"
