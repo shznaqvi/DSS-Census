@@ -1222,6 +1222,13 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
 
                 if (dcbis09c.isChecked()) {
 
+                    if (!validatorClass.EmptyTextBox(this, dcbis04Outdt, getString(R.string.date))) {
+                        return false;
+                    }
+                    if (!validatorClass.EmptyTextBox(this, dcbis04Outtime, getString(R.string.dci17b1time))) {
+                        return false;
+                    }
+
                     if (dcbis04Out.getCheckedRadioButtonId() == -1) {
                         Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis0901), Toast.LENGTH_SHORT).show();
                         dcbis04Outd.setError("This data is Required!");    // Set Error on last radio button
