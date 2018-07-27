@@ -1551,11 +1551,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(newBornFup.COLUMN_UID, MainApp.sb.getUID());
+        values.put(newBornFup.COLUMN_UID, MainApp.nb.get_UID());
 
 // Which row to update, based on the ID
         String selection = newBornFup.COLUMN_ID + " = ?";
-        String[] selectionArgs = {String.valueOf(MainApp.sb.getID())};
+        String[] selectionArgs = {String.valueOf(MainApp.nb.get_ID())};
 
         int count = db.update(newBornFup.TABLE_NAME,
                 values,

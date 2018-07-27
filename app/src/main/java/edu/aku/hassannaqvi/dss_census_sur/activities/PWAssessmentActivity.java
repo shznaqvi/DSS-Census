@@ -622,187 +622,6 @@ public class PWAssessmentActivity extends AppCompatActivity {
             }
         }
 
-//        if (!validatorClass.EmptyRadioButton(this, bi.dsa01, bi.dsa0198, getString(R.string.dsa01))) {
-//            return false;
-//        }
-//        if (bi.dsa01a.isChecked()) {
-//            if (!validatorClass.EmptyTextBox(this, bi.dsa03d, getString(R.string.dsa03))) {
-//                return false;
-//            }
-//            if (!validatorClass.EmptyTextBox(this, bi.dsa03m, getString(R.string.dsa03))) {
-//                return false;
-//            }
-//            if (!validatorClass.EmptyTextBox(this, bi.dsa03y, getString(R.string.dsa03))) {
-//                return false;
-//            }
-////
-//            if (!validatorClass.EmptyRadioButton(this, bi.dsa06, bi.dsa0698, getString(R.string.dsa06))) {
-//                return false;
-//            }
-//            if (!bi.dsa06b.isChecked() || !bi.dsa06c.isChecked()) {
-//
-//                if (!validatorClass.EmptyRadioButton(this, bi.dsa08, bi.dsa0898x, getString(R.string.dsa08))) {
-//                    return false;
-//                }
-//            }
-//        }
-//        if (bi.dsa01b.isChecked()) {
-//
-//            if (!validatorClass.EmptyRadioButton(this, bi.dsa02, bi.dsa0298, getString(R.string.dsa02))) {
-//
-//                return false;
-//            } else if (bi.dsa02e.isChecked()) {
-//                return true;
-//            }
-//        }
-//        if (bi.dsa0198.isChecked()) {
-//            if (!validatorClass.EmptyTextBox(this, bi.dsa04a, getString(R.string.dsa04))) {
-//                return false;
-//            }
-//
-//            if (!validatorClass.EmptyTextBox(this, bi.dsa05a, getString(R.string.dsa05))) {
-//                return false;
-//            }
-//        }
-
-
-//        if (bi.dsa02e.isChecked()) {
-//
-//            return true;
-//        } else {
-//
-//            if (bi.dsa01a.isChecked()) {
-//
-//                if (!validatorClass.EmptyTextBox(this, bi.dsa03d, getString(R.string.dsa03))) {
-//
-//                    return false;
-//                }
-//                if (!validatorClass.EmptyTextBox(this, bi.dsa03m, getString(R.string.dsa03))) {
-//
-//                    return false;
-//                }
-//                if (!validatorClass.EmptyTextBox(this, bi.dsa03y, getString(R.string.dsa03))) {
-//
-//                    return false;
-//                }
-//            } else if (bi.dsa01b.isChecked() || bi.dsa0198.isChecked()) {
-//                if (!validatorClass.EmptyRadioButton(this, bi.dsa02, bi.dsa0298, getString(R.string.dsa02))) {
-//
-//                    return false;
-//                }
-//
-//                if (!validatorClass.EmptyTextBox(this, bi.dsa04a, getString(R.string.dsa04))) {
-//                    return false;
-//                }
-//
-//                if (!validatorClass.EmptyTextBox(this, bi.dsa05a, getString(R.string.dsa05))) {
-//                    return false;
-//                }
-//
-//                if (!validatorClass.EmptyTextBox(this, bi.dsa07a, getString(R.string.dsa07))) {
-//
-//                    return false;
-//                }
-//
-//                if (bi.dsa06b.isChecked() || bi.dsa06c.isChecked()) {
-//
-//                    if (!validatorClass.EmptyRadioButton(this, bi.dsa08, bi.dsa0898x, getString(R.string.dsa08))) {
-//
-//                        return false;
-//                    }
-//                } else {
-//                    if (!validatorClass.EmptyTextBox(this, bi.dsa07a, getString(R.string.dsa07))) {
-//
-//                        return false;
-//                    }
-//                }
-//
-//                if (bi.dsa09a.isChecked() || bi.dsa0998.isChecked()) {
-//
-//                    if (!validatorClass.EmptyRadioButton(this, bi.dsa10, bi.dsa1096x, getString(R.string.dsa10))) {
-//
-//                        return false;
-//                    }
-//
-//                } else {
-//                    if (!validatorClass.EmptyRadioButton(this, bi.dsa11, bi.dsa1197, getString(R.string.dsa11))) {
-//
-//                        return false;
-//                    }
-//                }
-//
-//
-//                if (bi.dsa1197.isChecked()) {
-//
-//                    if (!validatorClass.EmptyRadioButton(this, bi.dsa13, bi.dsa1397, getString(R.string.dsa13))) {
-//
-//                        return false;
-//                    }
-//                } else {
-//
-//                    if (bi.dsa12a.getText().toString().isEmpty() || !bi.dsa12b.isChecked() || !bi.dsa1298.isChecked()) {
-//
-//                        return false;
-//                    }
-//                }
-//
-//                if (bi.dsa1397.isChecked()) {
-//                    if (!validatorClass.EmptyRadioButton(this, bi.dsa15, bi.dsa1597, getString(R.string.dsa15))) {
-//
-//                        return false;
-//                    }
-//                } else {
-//                    if (bi.dsa14a.getText().toString().isEmpty() || !bi.dsa14b.isChecked() || !bi.dsa1498.isChecked()) {
-//
-//                        return false;
-//                    }
-//                }
-//
-//                if (bi.dsa1597.isChecked()) {
-//
-//                    if (!validatorClass.EmptyRadioButton(this, bi.dsa17, bi.dsa1797, getString(R.string.dsa17))) {
-//
-//                        return false;
-//                    }
-//                } else {
-//                    if (bi.dsa16a.getText().toString().isEmpty() || !bi.dsa16b.isChecked() || !bi.dsa1698.isChecked()) {
-//
-//                        return false;
-//                    }
-//
-//                }
-//
-//                if (!validatorClass.EmptyRadioButton(this, bi.dsa17, bi.dsa1797, getString(R.string.dsa17))) {
-//
-//                    return false;
-//                }
-//
-//                if (bi.dsa18w.getText().toString().isEmpty() || !bi.dsa1899.isChecked()) {
-////
-//                    Toast.makeText(this, getString(R.string.dsa18), Toast.LENGTH_SHORT).show();
-//                    return false;
-//                }
-//
-//                if (bi.dsa19m.getText().toString().isEmpty() || !bi.dsa1999.isChecked()) {
-//
-//                    Toast.makeText(this, getString(R.string.dsa19), Toast.LENGTH_SHORT).show();
-//                    return false;
-//                }
-//
-//                if (bi.dsa20h.getText().toString().isEmpty() || !bi.dsa2099.isChecked()) {
-//                    {
-//                        Toast.makeText(this, getString(R.string.dsa20), Toast.LENGTH_SHORT).show();
-//                        return false;
-//                    }
-//
-//                }
-//
-//
-//            }
-//
-//
-//        }
-
         return true;
     }
 
@@ -886,6 +705,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
             sPW.put("dsa19", bi.dsa1999.isChecked() ? "99" : bi.dsa19m.getText().toString());
             sPW.put("dsa20", bi.dsa2099.isChecked() ? "99" : bi.dsa20h.getText().toString());
 
+            MainApp.pw.setsPW(String.valueOf(sPW));
 
         } catch (Exception e) {
 
@@ -909,7 +729,21 @@ public class PWAssessmentActivity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        return true;
+        db = new DatabaseHelper(this);
+        Long updcount = db.addPWomen(MainApp.pw);
+        MainApp.pw.setID(String.valueOf(updcount));
+
+        if (updcount != 0) {
+
+            MainApp.pw.setUID(
+                    (MainApp.pw.getDeviceId() + MainApp.pw.getID()));
+            db.updatePWID();
+
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
 
