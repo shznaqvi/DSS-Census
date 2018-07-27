@@ -382,7 +382,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
-                startActivity(new Intent(this, NB_EndingActivity.class)
+                startActivity(new Intent(this, PW_EndingActivity.class)
                         .putExtra("check", true));
 
             } else {
