@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_section_b"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -303,17 +304,15 @@
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
-                    <DatePicker
+                    <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
                         android:id="@+id/dcbidob"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:calendarViewShown="false"
-                        android:datePickerMode="spinner"
-                        android:ems="10"
-                        android:spinnersShown="true" />
-
-
+                        android:focusable="false"
+                        android:hint="DD/MM/YYYY"
+                        android:textColor="@android:color/black"
+                        app:dateFormat="dd-MM-yyyy" />
                     <LinearLayout
                         android:id="@+id/fldGrpdcbidttime"
                         android:layout_width="match_parent"
@@ -491,15 +490,15 @@
                                     android:textAppearance="?android:attr/textAppearanceLarge"
                                     android:textColor="@color/colorPrimaryDark" />
 
-                                <DatePicker
+                                <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
                                     android:id="@+id/dcbis09bdt"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:calendarViewShown="false"
-                                    android:datePickerMode="spinner"
-                                    android:ems="10"
-                                    android:spinnersShown="true" />
+                                    android:focusable="false"
+                                    android:hint="DD/MM/YYYY"
+                                    android:textColor="@android:color/black"
+                                    app:dateFormat="dd-MM-yyyy" />
 
                             </LinearLayout>
 
@@ -519,21 +518,26 @@
                                     android:textAppearance="?android:attr/textAppearanceLarge"
                                     android:textColor="@color/colorPrimaryDark" />
 
-                                <DatePicker
+                                <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
                                     android:id="@+id/dcbis04Outdt"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:calendarViewShown="false"
-                                    android:datePickerMode="spinner"
-                                    android:ems="10"
-                                    android:spinnersShown="true" />
+                                    android:focusable="false"
+                                    android:hint="DD/MM/YYYY"
+                                    android:textColor="@android:color/black"
+                                    app:dateFormat="dd-MM-yyyy" />
 
-                                <TimePicker
+                                <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
                                     android:id="@+id/dcbis04Outtime"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content" />
-
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="2dp"
+                                    android:focusable="false"
+                                    android:hint="HH:MM"
+                                    android:textColor="@android:color/black"
+                                    app:is24HourView="true"
+                                    app:timeFormat="HH:mm" />
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
