@@ -379,7 +379,8 @@ public class PWAssessmentActivity extends AppCompatActivity {
         if (formValidation()) {
             SaveDraft();
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
+                MainApp.memClicked.add(getIntent().getIntExtra("position", -1));
 
                 finish();
                 startActivity(new Intent(this, PW_EndingActivity.class)

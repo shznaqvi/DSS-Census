@@ -89,9 +89,11 @@ public class NB_PWMembersActivity extends AppCompatActivity {
 
                                 if (type == 1) {
                                     startActivity(new Intent(getApplicationContext(), PWAssessmentActivity.class)
+                                            .putExtra("position", position)
                                             .putExtra("followUpData", EventsListActivity.eventsList.get(position)));
                                 } else {
                                     startActivity(new Intent(getApplicationContext(), NewBornAssessmentActivity.class)
+                                            .putExtra("position", position)
                                             .putExtra("followUpData", EventsListActivity.eventsList.get(position)));
                                 }
 

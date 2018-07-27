@@ -147,7 +147,8 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
+                MainApp.memClicked.add(getIntent().getIntExtra("position", -1));
 
                 finish();
                 startActivity(new Intent(this, NB_EndingActivity.class)
