@@ -152,6 +152,8 @@ public class NB_PWMembersActivity extends AppCompatActivity {
                                             } else {
                                                 Toast.makeText(NB_PWMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
                                             }
+                                        } else {
+                                            showDialog(false, "Are you sure to force exit?");
                                         }
                                         return false;
                                     }
@@ -184,6 +186,7 @@ public class NB_PWMembersActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog,
                                                 int id) {
 
+                                type = 0;
 
                                 finish();
                                 startActivity(new Intent(NB_PWMembersActivity.this, EventsListActivity.class).putExtra("check", flag));

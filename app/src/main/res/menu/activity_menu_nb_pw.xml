@@ -6,4 +6,9 @@
         android:icon="@drawable/ic_navigate_next_black_24dp"
         android:title="End Activity" />
 
+    <item
+        android:id="@+id/end_activity"
+        android:icon="@drawable/ic_phonelink_erase_black_24dp"
+        android:title="Force End" />
+
 </menu>

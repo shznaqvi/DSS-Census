@@ -361,8 +361,17 @@ public class PWAssessmentActivity extends AppCompatActivity {
 
                                 SaveDraft(true);
 
-                                finish();
-                                startActivity(new Intent(getApplicationContext(), PW_EndingActivity.class).putExtra("check", false));
+                                if (UpdateDB()) {
+
+                                    MainApp.memClicked.add(getIntent().getIntExtra("position", -1));
+                                    EventsListActivity.memFlag++;
+
+                                    finish();
+                                    startActivity(new Intent(getApplicationContext(), PW_EndingActivity.class).putExtra("check", false));
+
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                                }
                             }
                         });
         alertDialogBuilder.setNegativeButton("No",
