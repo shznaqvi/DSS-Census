@@ -257,4 +257,9 @@ public class StillBirthReportActivity extends Activity implements RadioGroup.OnC
         bi.dsb07.clearCheck();
 
     }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+    }
 }

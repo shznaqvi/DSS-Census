@@ -163,6 +163,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
                                             if (HouseholdListActivity.visitType == 1) {
                                                 if (MainApp.familyMembersList.size() == SectionAActivity.memFlag) {
                                                     MainApp.TotalMembersCount++;
+                                                    finish();
                                                     startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
                                                             .putExtra("followUpData", SectionAActivity.fp)
                                                             .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
@@ -171,6 +172,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
                                                 }
                                             } else {
                                                 MainApp.TotalMembersCount++;
+                                                finish();
                                                 startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
                                                         .putExtra("followUpData", SectionAActivity.fp)
                                                         .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
