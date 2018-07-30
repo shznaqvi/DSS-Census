@@ -602,7 +602,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         m.setIs_head(c.getIs_head());
         m.setRelation_hh(c.getRelation_hh());
         if (dcbis01.isChecked()) {
-            m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_maritalOutcome());
+            m.setCurrent_status(c.getCurrent_status());
             if (!dcbis01Outa.isChecked() && dcbis09c.isChecked()) {
                 m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_statusOutcome());
             }
