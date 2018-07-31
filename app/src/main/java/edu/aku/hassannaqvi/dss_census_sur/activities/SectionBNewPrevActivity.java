@@ -602,9 +602,9 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         m.setIs_head(c.getIs_head());
         m.setRelation_hh(c.getRelation_hh());
         if (dcbis01.isChecked()) {
-            m.setCurrent_status(c.getCurrent_status());
-            if (!dcbis01Outa.isChecked() && dcbis09c.isChecked()) {
-                m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_statusOutcome());
+            m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_maritalOutcome() + ":" + (dcbis09a.isChecked() ? "1" : dcbis09b.isChecked() ? "2" : ""));
+            if (dcbis09c.isChecked()) {
+                m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_maritalOutcome() + ":" + (dcbis09a.isChecked() ? "1" : dcbis09b.isChecked() ? "2" : "") + ":" + c.getCurrent_statusOutcome());
             }
         } else if (dcbis05.isChecked()) {
             m.setCurrent_status(c.getCurrent_status() + "_" + (dcbis05Placea.isChecked() ? "1" : dcbis05Placeb.isChecked() ? "2" : dcbis05Placec.isChecked() ? "3"

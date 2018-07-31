@@ -1025,9 +1025,12 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
         m.setRelation_hh(c.getRelation_hh());
 
         if (dcbis01.isChecked()) {
-            m.setCurrent_status(c.getCurrent_status());
-        } else {
-            m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_maritalOutcome());
+            m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_childStatus());
+        } else if (dcbis02.isChecked() || dcbis04.isChecked()) {
+            m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_maritalOutcome() + ":" + (dcbis09a.isChecked() ? "1" : dcbis09b.isChecked() ? "2" : ""));
+            if (dcbis09c.isChecked()) {
+                m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_maritalOutcome() + ":" + (dcbis09a.isChecked() ? "1" : dcbis09b.isChecked() ? "2" : "") + ":" + c.getCurrent_statusOutcome());
+            }
         }
 
         m.setCurrent_date(c.getCurrent_date());
@@ -1210,14 +1213,11 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                 } else {
                     dcbis09a.setError(null);
                 }
-                if (!validatorClass.EmptyTextBox(this, dcbis09bdt, getString(R.string.date))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyTextBox(this, dcbis04Outdt, getString(R.string.date))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyTextBox(this, dcbis04Outtime, getString(R.string.dci17b1time))) {
-                    return false;
+
+                if (dcbis09b.isChecked()) {
+                    if (!validatorClass.EmptyTextBox(this, dcbis09bdt, getString(R.string.date))) {
+                        return false;
+                    }
                 }
 
                 if (dcbis09c.isChecked()) {

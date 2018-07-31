@@ -83,24 +83,6 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/syncServer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:onClick="syncServer"
-                android:text="Upload Data" />
-
-            <Button
-                android:id="@+id/syncDevice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:onClick="syncDevice"
-                android:text="Download Data" />
-
-            <Button
                 android:id="@+id/unscVisit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -128,46 +110,65 @@
                 android:text="PW Assesment" />
 
             <Button
-                android:id="@+id/openSBR"
+                android:id="@+id/syncServer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
-                android:onClick="openSBR"
-                android:text="Still Birth Reporting" />
+                android:onClick="syncServer"
+                android:text="Upload Data" />
 
             <Button
-                android:id="@+id/openChildDeathA"
+                android:id="@+id/syncDevice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
-                android:onClick="openCBA"
-                android:text="Child Death (0-59 days)" />
-
-            <Button
-                android:id="@+id/openChildDeathB"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:onClick="openCBB"
-                android:text="Child Death (3-59 Months)" />
-
-            <Button
-                android:id="@+id/openADR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:onClick="openADR"
-                android:text="Adult Female Death Reporting" />
+                android:onClick="syncDevice"
+                android:text="Download Data" />
 
             <LinearLayout
                 android:id="@+id/adminsec"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/openSBR"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="16dp"
+                    android:onClick="openSBR"
+                    android:text="Still Birth Reporting" />
+
+                <Button
+                    android:id="@+id/openChildDeathA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="16dp"
+                    android:onClick="openCBA"
+                    android:text="Child Death (0-59 days)" />
+
+                <Button
+                    android:id="@+id/openChildDeathB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="16dp"
+                    android:onClick="openCBB"
+                    android:text="Child Death (3-59 Months)" />
+
+                <Button
+                    android:id="@+id/openADR"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="16dp"
+                    android:onClick="openADR"
+                    android:text="Adult Female Death Reporting" />
 
                 <Button
                     android:id="@+id/openMembers"

@@ -313,9 +313,26 @@ public class FamilyMembersActivity extends AppCompatActivity {
             holder.memberType.setText(familyMembers.getMember_type().equals("mw") ? "(Married Women)" : familyMembers.getMember_type().equals("h") ? "(Husband)" :
                     (familyMembers.getMember_type().equals("c") || familyMembers.getMember_type().equals("ch")) ? "(Child)" : "(Other)");
 
-            holder.currentStatus.setText(checkCurrentStatus(familyMembers.getCurrent_status()));
-//            holder.year.setText(familyMembers.getAge().equals("y m d") ? familyMembers.getDob() : familyMembers.getAge());
-            holder.year.setText(familyMembers.getCurrent_date());
+            String str[] = checkCStatus(familyMembers.getCurrent_status());
+
+            holder.currentStatus.setText(setStatus(0, str[0]));
+
+            if (str.length == 2) {
+                holder.year.setText(setStatus(Integer.valueOf(str[0]), str[1]));
+            } else {
+                holder.year.setText(familyMembers.getCurrent_date());
+            }
+
+        }
+
+        public String[] checkCStatus(String currStatus) {
+
+            String[] st;
+
+            st = currStatus.split("_");
+
+            return st;
+
         }
 
         public String checkCurrentStatus(String currStatus) {
@@ -334,8 +351,14 @@ public class FamilyMembersActivity extends AppCompatActivity {
         public String setStatus(int cond, String i) {
             String st = "";
             switch (cond) {
-                case 2:
-                    switch (i) {
+                case 1:
+                case 5:
+                case 6:
+
+                    String conc = "";
+                    String[] parseI = i.split(":");
+
+                    switch (parseI[0]) {
                         case "1":
                             st = getString(R.string.dcbis07a);
                             break;
@@ -349,9 +372,47 @@ public class FamilyMembersActivity extends AppCompatActivity {
                             st = getString(R.string.dcbis07d);
                             break;
                     }
-                    break;
 
-                case 4:
+                    conc = st;
+
+                    if (parseI.length > 1) {
+
+                        switch (parseI[1]) {
+                            case "1":
+                                st = getString(R.string.dcbis09a);
+                                break;
+                            case "2":
+                                st = getString(R.string.dcbis09b);
+                                break;
+                        }
+
+                        conc += " -- " + st;
+
+                        if (parseI.length == 3) {
+                            switch (parseI[2]) {
+                                case "1":
+                                    st = getString(R.string.dcbis04Outa);
+                                    break;
+                                case "2":
+                                    st = getString(R.string.dcbis04Outb);
+                                    break;
+                                case "3":
+                                    st = getString(R.string.dcbis04Outc);
+                                    break;
+                                case "4":
+                                    st = getString(R.string.dcbis04Outd);
+                                    break;
+                            }
+
+                            conc += " -- " + st;
+                        }
+
+                    }
+
+                    st = conc;
+
+                    break;
+                case 3:
                     switch (i) {
                         case "1":
                             st = getString(R.string.dcbis05Placea);
@@ -364,6 +425,19 @@ public class FamilyMembersActivity extends AppCompatActivity {
                             break;
                         case "96":
                             st = getString(R.string.dcbis05Place96);
+                            break;
+                    }
+                    break;
+                case 4:
+                    switch (i) {
+                        case "1":
+                            st = getString(R.string.dcbis01Statusa);
+                            break;
+                        case "2":
+                            st = getString(R.string.dcbis01Statusb);
+                            break;
+                        case "3":
+                            st = getString(R.string.dcbis01Statusc);
                             break;
                     }
                     break;

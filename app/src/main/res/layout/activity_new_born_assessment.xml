@@ -1178,24 +1178,32 @@
 
                         </RadioGroup>
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:background="@color/colorPrimary"
-                            android:text="@string/dnb28"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:textColor="@android:color/white" />
+                            android:orientation="vertical"
+                            android:visibility="@{dnb27b.checked ? View.VISIBLE : View.GONE}">
 
-                        <EditText
-                            android:id="@+id/dnb28"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="1dp"
-                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                            android:hint="@string/dnb28"
-                            android:inputType="text"
-                            android:text='@{dnb25a.checked ? dnb28.getText.toString : "" }' />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:background="@color/colorPrimary"
+                                android:text="@string/dnb28"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:textColor="@android:color/white" />
+
+                            <EditText
+                                android:id="@+id/dnb28"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                android:hint="@string/dnb28"
+                                android:inputType="text"
+                                android:text='@{dnb27b.checked ? dnb28.getText.toString : "" }' />
+
+                        </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
