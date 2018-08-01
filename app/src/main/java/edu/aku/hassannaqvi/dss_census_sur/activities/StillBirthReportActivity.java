@@ -73,18 +73,15 @@ public class StillBirthReportActivity extends Activity implements RadioGroup.OnC
 
                                 finish();
 
-                                if (sbCounter != sbCount) {
-                                    sbCounter++;
-                                } else {
-                                    sbCounter = 1;
-                                }
+                                sbCounter++;
 
                                 startActivity(new Intent(getApplicationContext(), SB_EndingActivity.class)
                                         .putExtra("check", false)
                                         .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
                                         .putExtra("mothData", getIntent().getSerializableExtra("mothData"))
                                         .putExtra("sbCount", sbCount)
-                                        .putExtra("more", sbCounter != sbCount)
+                                        .putExtra("more", sbCounter <= sbCount)
+                                        .putExtra("check", false)
                                 );
 
                             }
@@ -114,16 +111,19 @@ public class StillBirthReportActivity extends Activity implements RadioGroup.OnC
 
                 finish();
 
-                if (sbCounter != sbCount) {
+//                if (sbCounter != sbCount) {
                     sbCounter++;
-                    startActivity(new Intent(StillBirthReportActivity.this, StillBirthReportActivity.class)
+                startActivity(new Intent(StillBirthReportActivity.this, SB_EndingActivity.class)
                             .putExtra("followUpData", getIntent().getSerializableExtra("followUpData"))
                             .putExtra("mothData", getIntent().getSerializableExtra("mothData"))
-                            .putExtra("sbCount", sbCount));
-                } else {
+                        .putExtra("sbCount", sbCount)
+                        .putExtra("more", sbCounter <= sbCount)
+                        .putExtra("check", true)
+                );
+                /*} else {
                     sbCounter = 1;
                     startActivity(new Intent(StillBirthReportActivity.this, FamilyMembersActivity.class));
-                }
+                }*/
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

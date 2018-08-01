@@ -9,8 +9,6 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
-import org.json.JSONException;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -57,7 +55,6 @@ public class SB_EndingActivity extends Activity {
             if (UpdateDB()) {
 
                 finish();
-                startActivity(new Intent(this, MainActivity.class));
 
                 if (getIntent().getBooleanExtra("more", false)) {
                     startActivity(new Intent(SB_EndingActivity.this, StillBirthReportActivity.class)
@@ -65,6 +62,8 @@ public class SB_EndingActivity extends Activity {
                             .putExtra("mothData", getIntent().getSerializableExtra("mothData"))
                             .putExtra("sbCount", getIntent().getIntExtra("sbCount", 0)));
                 } else {
+
+                    StillBirthReportActivity.sbCounter = 1;
 
                     startActivity(new Intent(SB_EndingActivity.this, FamilyMembersActivity.class));
                 }

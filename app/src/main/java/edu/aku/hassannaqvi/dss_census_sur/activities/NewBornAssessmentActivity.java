@@ -101,6 +101,13 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         bi.dcbid.setText(followUpData.getDss_id_member());
         bi.dnb03.setText(followUpData.getName());
         bi.dnb04.check(followUpData.getGender().equals("1") ? bi.dnb04a.getId() : bi.dnb04b.getId());
+
+        if (bi.dnb04.getCheckedRadioButtonId() == bi.dnb04a.getId()) {
+            bi.dnb04b.setEnabled(false);
+        } else {
+            bi.dnb04a.setEnabled(false);
+        }
+
         bi.dnb05.setText(followUpData.getDss_id_m());
     }
 
@@ -273,7 +280,9 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
                 if (!validatorClass.EmptyRadioButton(this, bi.dnb27, bi.dnb27b, getString(R.string.dnb27))) {
                     return false;
                 }
-                return validatorClass.EmptyTextBox(this, bi.dnb28, getString(R.string.dnb28));
+                if (bi.dnb27b.isChecked()) {
+                    return validatorClass.EmptyTextBox(this, bi.dnb28, getString(R.string.dnb28));
+                }
             }
 
         } else {
