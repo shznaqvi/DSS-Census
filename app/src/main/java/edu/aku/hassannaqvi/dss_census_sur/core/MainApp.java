@@ -44,6 +44,7 @@ public class MainApp extends Application {
     public static final String _IP = "43.245.131.159"; // Test PHP server
     public static final Integer _PORT = 8080; // Port - with colon (:)
     public static final String _HOST_URL = "http://" + MainApp._IP + ":" + MainApp._PORT + "/dss/api/";
+    public static final String _UPDATE_URL = "http://" + MainApp._IP + ":" + MainApp._PORT + "/dss/app/surveillance/";
 
     /*
         public static final String _IP = "43.245.131.159"; // Test server
@@ -322,10 +323,7 @@ public class MainApp extends Application {
             return true;
         } else if (isNewer && !isLessAccurate) {
             return true;
-        } else if (isNewer && !isSignificantlyLessAccurate && isFromSameProvider) {
-            return true;
-        }
-        return false;
+        } else return isNewer && !isSignificantlyLessAccurate && isFromSameProvider;
     }
 
     /**

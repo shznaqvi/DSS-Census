@@ -1,16 +1,27 @@
 package edu.aku.hassannaqvi.dss_census_sur.activities;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.DownloadManager;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.databinding.DataBindingUtil;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.text.InputType;
 import android.util.Log;
@@ -22,16 +33,23 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import edu.aku.hassannaqvi.dss_census_sur.FormsList;
 import edu.aku.hassannaqvi.dss_census_sur.R;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.CensusContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FormsContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.NewBornContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.PWContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.StillBirthContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.VersionAppContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
@@ -39,9 +57,7 @@ import edu.aku.hassannaqvi.dss_census_sur.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.dss_census_sur.get.GetEvents;
 import edu.aku.hassannaqvi.dss_census_sur.get.GetMembers;
 import edu.aku.hassannaqvi.dss_census_sur.get.GetSurFollowUps;
-import edu.aku.hassannaqvi.dss_census_sur.sync.SyncCensus;
-import edu.aku.hassannaqvi.dss_census_sur.sync.SyncForms;
-import edu.aku.hassannaqvi.dss_census_sur.sync.SyncNewBorn;
+import edu.aku.hassannaqvi.dss_census_sur.sync.SyncAllData;
 
 public class MainActivity extends Activity {
 
@@ -66,6 +82,15 @@ public class MainActivity extends Activity {
     private String rSumText = "";
 
     ActivityMainBinding bi;
+
+    static File file;
+    DatabaseHelper db;
+    VersionAppContract versionAppContract;
+    String preVer = "", newVer = "";
+    DownloadManager downloadManager;
+    Long refID;
+    SharedPreferences sharedPrefDownload;
+    SharedPreferences.Editor editorDownload;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +117,10 @@ public class MainActivity extends Activity {
         /*TagID Start*/
         sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
         editor = sharedPref.edit();
+
+        /*Download File*/
+        sharedPrefDownload = getSharedPreferences("appDownload", MODE_PRIVATE);
+        editorDownload = sharedPref.edit();
 
         builder = new AlertDialog.Builder(MainActivity.this);
         ImageView img = new ImageView(getApplicationContext());
@@ -191,6 +220,115 @@ public class MainActivity extends Activity {
         recordSummary.setText(rSumText);
 
 
+//        Version Checking
+        versionAppContract = db.getVersionApp();
+        if (versionAppContract.getVersioncode() != null) {
+
+            preVer = MainApp.versionName + "." + MainApp.versionCode;
+            newVer = versionAppContract.getVersionname() + "." + versionAppContract.getVersioncode();
+
+            if (MainApp.versionCode < Integer.valueOf(versionAppContract.getVersioncode())) {
+                bi.lblAppVersion.setVisibility(View.VISIBLE);
+
+                String fileName = DatabaseHelper.DATABASE_NAME.replace(".db", "-New-Apps");
+                file = new File(Environment.getExternalStorageDirectory() + File.separator + fileName, versionAppContract.getPathname());
+
+                if (file.exists()) {
+                    bi.lblAppVersion.setText("DSS APP New Version " + newVer + "  Downloaded.");
+//                    InstallNewApp(newVer, preVer);
+                    showDialog(newVer, preVer);
+                } else {
+                    NetworkInfo networkInfo = ((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
+                    if (networkInfo != null && networkInfo.isConnected()) {
+
+                        bi.lblAppVersion.setText("DSS APP New Version " + newVer + " Downloading..");
+                        downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+                        Uri uri = Uri.parse(MainApp._UPDATE_URL + versionAppContract.getPathname());
+                        DownloadManager.Request request = new DownloadManager.Request(uri);
+                        request.setDestinationInExternalPublicDir(fileName, versionAppContract.getPathname())
+                                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                                .setTitle("Downloading DSS new App ver." + newVer);
+                        refID = downloadManager.enqueue(request);
+
+                        editorDownload.putBoolean("flag", false);
+                        editorDownload.commit();
+
+                    } else {
+                        bi.lblAppVersion.setText("DSS APP New Version " + newVer + "  Available..\n(Can't download.. Internet connectivity issue!!)");
+                    }
+                }
+
+            } else {
+                bi.lblAppVersion.setVisibility(View.GONE);
+                bi.lblAppVersion.setText(null);
+            }
+        }
+
+        BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if (DownloadManager.ACTION_DOWNLOAD_COMPLETE.equals(intent.getAction())) {
+
+                    DownloadManager.Query query = new DownloadManager.Query();
+                    query.setFilterById(refID);
+
+                    Cursor cursor = downloadManager.query(query);
+                    if (cursor.moveToFirst()) {
+                        int colIndex = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS);
+                        if (DownloadManager.STATUS_SUCCESSFUL == cursor.getInt(colIndex)) {
+
+                            editorDownload.putBoolean("flag", true);
+                            editorDownload.commit();
+
+                            Toast.makeText(context, "New App downloaded!!", Toast.LENGTH_SHORT).show();
+                            bi.lblAppVersion.setText("DSS APP New Version " + newVer + "  Downloaded.");
+
+                            ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+                            List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
+
+                            if (taskInfo.get(0).topActivity.getClassName().equals(MainActivity.class.getName())) {
+//                                InstallNewApp(newVer, preVer);
+                                showDialog(newVer, preVer);
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        registerReceiver(broadcastReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+
+    }
+
+
+    void showDialog(String newVer, String preVer) {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+
+        DialogFragment newFragment = MyDialogFragment.newInstance(newVer, preVer);
+        newFragment.show(ft, "dialog");
+
+    }
+
+    public void openForm(final int i) {
+
+        if (versionAppContract.getVersioncode() != null) {
+            if (MainApp.versionCode < Integer.valueOf(versionAppContract.getVersioncode())) {
+                if (sharedPrefDownload.getBoolean("flag", false) && file.exists()) {
+//                    InstallNewApp(newVer, preVer);
+                    showDialog(newVer, preVer);
+                } else {
+                    OpenFormFun(i);
+                }
+            } else {
+                OpenFormFun(i);
+            }
+        } else {
+            Toast.makeText(this, "Sync data!!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public Boolean openFormGpsCheck() {
@@ -218,7 +356,7 @@ public class MainActivity extends Activity {
         return true;
     }
 
-    public void openForm(final int i) {
+    public void OpenFormFun(final int i) {
         if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null && !MainApp.userName.equals("0000")) {
             startActivity(i);
         } else {
@@ -256,6 +394,77 @@ public class MainActivity extends Activity {
 
             builder.show();
         }
+    }
+
+    public void syncServer(View view) {
+
+        // Require permissions INTERNET & ACCESS_NETWORK_STATE
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+
+            Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
+            new SyncAllData(
+                    this,
+                    "Forms",
+                    "updateSyncedForms",
+                    FormsContract.class,
+                    MainApp._HOST_URL + FormsContract.FormsTable._URL,
+                    db.getUnsyncedForms()
+            ).execute();
+
+            Toast.makeText(getApplicationContext(), "Syncing Census", Toast.LENGTH_SHORT).show();
+            new SyncAllData(
+                    this,
+                    "Census",
+                    "updateCensus",
+                    CensusContract.class,
+                    MainApp._HOST_URL + CensusContract.censusMember._URL,
+                    db.getUnsyncedCensus()
+            ).execute();
+
+            Toast.makeText(getApplicationContext(), "Syncing Still Birth", Toast.LENGTH_SHORT).show();
+            new SyncAllData(
+                    this,
+                    "Still Birth",
+                    "updateSBirth",
+                    StillBirthContract.class,
+                    MainApp._HOST_URL + StillBirthContract.sBFup._URL,
+                    db.getUnsyncedStillBirth()
+            ).execute();
+
+            Toast.makeText(getApplicationContext(), "Syncing New Born", Toast.LENGTH_SHORT).show();
+            new SyncAllData(
+                    this,
+                    "New Born",
+                    "updatenewBornFup",
+                    NewBornContract.class,
+                    MainApp._HOST_URL + NewBornContract.newBornFup._URL,
+                    db.getUnsyncedNewBorn()
+            ).execute();
+
+            Toast.makeText(getApplicationContext(), "Syncing PW", Toast.LENGTH_SHORT).show();
+            new SyncAllData(
+                    this,
+                    "PW",
+                    "updatePW",
+                    PWContract.class,
+                    MainApp._HOST_URL + PWContract.pWFup._URL,
+                    db.getUnsyncedPW()
+            ).execute();
+
+            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = syncPref.edit();
+
+            editor.putString("LastUpSyncServer", dtToday);
+
+            editor.apply();
+
+        } else {
+            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void startActivity(int i) {
@@ -409,40 +618,41 @@ public class MainActivity extends Activity {
 
     }
 
-    public void syncServer(View view) {
+    public static class MyDialogFragment extends DialogFragment {
 
-        // Require permissions INTERNET & ACCESS_NETWORK_STATE
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected()) {
-            Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-            new SyncForms(this, true).execute();
+        String newVer, preVer;
 
-            Toast.makeText(getApplicationContext(), "Syncing Census", Toast.LENGTH_SHORT).show();
-            new SyncCensus(this).execute();
+        static MyDialogFragment newInstance(String newVer, String preVer) {
+            MyDialogFragment f = new MyDialogFragment();
 
-            Toast.makeText(getApplicationContext(), "Syncing New Born", Toast.LENGTH_SHORT).show();
-            new SyncNewBorn(this).execute();
+            Bundle args = new Bundle();
+            args.putString("newVer", newVer);
+            args.putString("preVer", preVer);
+            f.setArguments(args);
 
-/*            Toast.makeText(getApplicationContext(), "Syncing Deceased", Toast.LENGTH_SHORT).show();
-            new SyncDeceased(this).execute();
+            return f;
+        }
 
-            Toast.makeText(getApplicationContext(), "Syncing Mother", Toast.LENGTH_SHORT).show();
-            new SyncMother(this).execute();
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            newVer = getArguments().getString("newVer");
+            preVer = getArguments().getString("preVer");
 
-            Toast.makeText(getApplicationContext(), "Syncing IM", Toast.LENGTH_SHORT).show();
-            new SyncIM(this).execute();*/
-
-            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = syncPref.edit();
-
-            editor.putString("LastUpSyncServer", dtToday);
-
-            editor.apply();
-
-        } else {
-            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+            return new AlertDialog.Builder(getActivity())
+                    .setIcon(R.drawable.exclamation)
+                    .setTitle("DSS APP is available!")
+                    .setMessage("DSS App " + newVer + " is now available. Your are currently using older version " + preVer + ".\nInstall new version to use this app.")
+                    .setPositiveButton("INSTALL!!",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+                                }
+                            }
+                    )
+                    .create();
         }
 
     }

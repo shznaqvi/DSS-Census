@@ -43,6 +43,8 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.StillBirthContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.StillBirthContract.sBFup;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.UsersContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.UsersContract.singleUser;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.VersionAppContract;
+import edu.aku.hassannaqvi.dss_census_sur.contracts.VersionAppContract.VersionAppTable;
 import edu.aku.hassannaqvi.dss_census_sur.otherClasses.MothersLst;
 
 import static edu.aku.hassannaqvi.dss_census_sur.contracts.SectionKIMContract.singleIm;
@@ -62,7 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + singleUser.REGION_DSS + " TEXT );";
     public static final String DATABASE_NAME = "dss-census-sur.db";
     public static final String DB_NAME = "dss-census-sur_copy.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsContract.FormsTable.TABLE_NAME + "("
             + FormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -345,6 +347,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             sBFup.COLUMN_SYNCEDDATE + " TEXT" +
             ");";
 
+    final String SQL_CREATE_VERSIONAPP = "CREATE TABLE " + VersionAppTable.TABLE_NAME + " (" +
+            VersionAppTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            VersionAppTable.COLUMN_VERSION_CODE + " TEXT, " +
+            VersionAppTable.COLUMN_VERSION_NAME + " TEXT, " +
+            VersionAppTable.COLUMN_PATH_NAME + " TEXT " +
+            ");";
 
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
@@ -405,6 +413,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_PREGNANT_WOMEN);
         db.execSQL(SQL_CREATE_STILL_BIRTH);
         db.execSQL(SQL_CREATE_EVENTS);
+
+        db.execSQL(SQL_CREATE_VERSIONAPP);
     }
 
     @Override
@@ -425,7 +435,75 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.execSQL(SQL_CREATE_PREGNANT_WOMEN);
                 db.execSQL(SQL_CREATE_STILL_BIRTH);
                 db.execSQL(SQL_CREATE_EVENTS);
+            case 2:
+                db.execSQL(SQL_CREATE_VERSIONAPP);
         }
+    }
+
+    public void syncVersionApp(JSONArray Versionlist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(VersionAppTable.TABLE_NAME, null, null);
+        try {
+            JSONArray jsonArray = Versionlist;
+            JSONObject jsonObjectCC = jsonArray.getJSONObject(0);
+
+            VersionAppContract Vc = new VersionAppContract();
+            Vc.Sync(jsonObjectCC);
+
+            ContentValues values = new ContentValues();
+
+            values.put(VersionAppTable.COLUMN_PATH_NAME, Vc.getPathname());
+            values.put(VersionAppTable.COLUMN_VERSION_CODE, Vc.getVersioncode());
+            values.put(VersionAppTable.COLUMN_VERSION_NAME, Vc.getVersionname());
+
+            db.insert(VersionAppTable.TABLE_NAME, null, values);
+        } catch (Exception e) {
+        } finally {
+            db.close();
+        }
+    }
+
+    public VersionAppContract getVersionApp() {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                VersionAppTable._ID,
+                VersionAppTable.COLUMN_VERSION_CODE,
+                VersionAppTable.COLUMN_VERSION_NAME,
+                VersionAppTable.COLUMN_PATH_NAME
+        };
+
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = null;
+
+        VersionAppContract allVC = new VersionAppContract();
+        try {
+            c = db.query(
+                    VersionAppTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                allVC.hydrate(c);
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allVC;
     }
 
     public void syncUser(JSONArray userlist) {

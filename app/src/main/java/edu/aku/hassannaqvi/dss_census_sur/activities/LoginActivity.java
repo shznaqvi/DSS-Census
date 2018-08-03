@@ -64,6 +64,7 @@ import edu.aku.hassannaqvi.dss_census_sur.R;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 import edu.aku.hassannaqvi.dss_census_sur.get.GetUsers;
+import edu.aku.hassannaqvi.dss_census_sur.get.GetVersion;
 
 
 /**
@@ -439,10 +440,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         //TODO implement
         if (mPasswordView.getTransformationMethod() == null) {
             mPasswordView.setTransformationMethod(new PasswordTransformationMethod());
-            mPasswordView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_black_24dp,0,0,0);
+            mPasswordView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_black_24dp, 0, 0, 0);
         } else {
             mPasswordView.setTransformationMethod(null);
-            mPasswordView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_open_black_24dp,0,0,0);
+            mPasswordView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_open_black_24dp, 0, 0, 0);
         }
     }
 
@@ -585,6 +586,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 public void run() {
                     Toast.makeText(LoginActivity.this, "Sync User", Toast.LENGTH_LONG).show();
                     new GetUsers(mContext).execute();
+                    Toast.makeText(LoginActivity.this, "Sync Version", Toast.LENGTH_SHORT).show();
+                    new GetVersion(mContext).execute();
                 }
             });
 

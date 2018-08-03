@@ -28,4 +28,7 @@
 
     <color name="yellow">#FFA726</color>
     <color name="lightBlue">#0277BD</color>
+
+    <color name="darkRed">#D50000</color>
+    <color name="lightOrange">#FFE0B2</color>
 </resources>

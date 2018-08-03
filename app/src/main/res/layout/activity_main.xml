@@ -26,6 +26,17 @@
             <!-- Login progress -->
 
             <TextView
+                android:id="@+id/lblAppVersion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/lightOrange"
+                android:textAlignment="center"
+                android:textColor="@color/darkRed"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/lblheader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -131,8 +142,7 @@
                 android:id="@+id/adminsec"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/openSBR"
