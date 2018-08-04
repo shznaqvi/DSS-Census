@@ -121,15 +121,6 @@
                 android:text="PW Assesment" />
 
             <Button
-                android:id="@+id/syncServer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:onClick="syncServer"
-                android:text="Upload Data" />
-
-            <Button
                 android:id="@+id/syncDevice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -137,6 +128,15 @@
                 android:layout_marginTop="16dp"
                 android:onClick="syncDevice"
                 android:text="Download Data" />
+
+            <Button
+                android:id="@+id/syncServer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+                android:onClick="syncServer"
+                android:text="Upload Data" />
 
             <LinearLayout
                 android:id="@+id/adminsec"

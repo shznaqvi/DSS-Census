@@ -103,12 +103,12 @@ public class MainActivity extends Activity {
         bi.setCallback(this);
 
 
-        lblheader.setText("Welcome! You're assigned to block ' " + MainApp.regionDss + " '");
+        bi.lblheader.setText("Welcome! You're assigned to block ' " + MainApp.regionDss + " '");
 
         if (MainApp.admin) {
-            adminsec.setVisibility(View.VISIBLE);
+            bi.adminsec.setVisibility(View.VISIBLE);
         } else {
-            adminsec.setVisibility(View.GONE);
+            bi.adminsec.setVisibility(View.GONE);
         }
 
         // Reset working variables
@@ -206,7 +206,6 @@ public class MainActivity extends Activity {
 
 
         if (MainApp.admin) {
-            adminsec.setVisibility(View.VISIBLE);
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             rSumText += "Last Data Download: \t" + syncPref.getString("LastDownSyncServer", "Never Updated");
             rSumText += "\r\n";
@@ -217,7 +216,7 @@ public class MainActivity extends Activity {
             rSumText += "\r\n";
         }
         Log.d(TAG, "onCreate: " + rSumText);
-        recordSummary.setText(rSumText);
+        bi.recordSummary.setText(rSumText);
 
 
 //        Version Checking
