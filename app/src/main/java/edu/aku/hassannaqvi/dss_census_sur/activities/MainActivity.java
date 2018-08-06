@@ -120,7 +120,7 @@ public class MainActivity extends Activity {
 
         /*Download File*/
         sharedPrefDownload = getSharedPreferences("appDownload", MODE_PRIVATE);
-        editorDownload = sharedPref.edit();
+        editorDownload = sharedPrefDownload.edit();
 
         builder = new AlertDialog.Builder(MainActivity.this);
         ImageView img = new ImageView(getApplicationContext());
@@ -232,11 +232,11 @@ public class MainActivity extends Activity {
                 String fileName = DatabaseHelper.DATABASE_NAME.replace(".db", "-New-Apps");
                 file = new File(Environment.getExternalStorageDirectory() + File.separator + fileName, versionAppContract.getPathname());
 
-                if (file.exists() && sharedPrefDownload.getBoolean("flag", false)) {
+                if (file.exists()) {
                     bi.lblAppVersion.setText("DSS APP New Version " + newVer + "  Downloaded.");
 //                    InstallNewApp(newVer, preVer);
                     showDialog(newVer, preVer);
-                } else if (!file.exists()) {
+                } else {
                     NetworkInfo networkInfo = ((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
                     if (networkInfo != null && networkInfo.isConnected()) {
 
@@ -256,10 +256,7 @@ public class MainActivity extends Activity {
                     } else {
                         bi.lblAppVersion.setText("DSS APP New Version " + newVer + "  Available..\n(Can't download.. Internet connectivity issue!!)");
                     }
-                } else {
-                    bi.lblAppVersion.setText("DSS APP New Version " + newVer + " Downloading..");
                 }
-
             } else {
                 bi.lblAppVersion.setVisibility(View.GONE);
                 bi.lblAppVersion.setText(null);
@@ -274,6 +271,7 @@ public class MainActivity extends Activity {
                     DownloadManager.Query query = new DownloadManager.Query();
                     query.setFilterById(sharedPrefDownload.getLong("refID", 0));
 
+                    downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
                     Cursor cursor = downloadManager.query(query);
                     if (cursor.moveToFirst()) {
                         int colIndex = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS);
