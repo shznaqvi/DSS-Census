@@ -232,11 +232,11 @@ public class MainActivity extends Activity {
                 String fileName = DatabaseHelper.DATABASE_NAME.replace(".db", "-New-Apps");
                 file = new File(Environment.getExternalStorageDirectory() + File.separator + fileName, versionAppContract.getPathname());
 
-                if (file.exists()) {
+                if (file.exists() && sharedPrefDownload.getBoolean("flag", false)) {
                     bi.lblAppVersion.setText("DSS APP New Version " + newVer + "  Downloaded.");
 //                    InstallNewApp(newVer, preVer);
                     showDialog(newVer, preVer);
-                } else {
+                } else if (!file.exists()) {
                     NetworkInfo networkInfo = ((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
                     if (networkInfo != null && networkInfo.isConnected()) {
 
@@ -249,12 +249,15 @@ public class MainActivity extends Activity {
                                 .setTitle("Downloading DSS new App ver." + newVer);
                         refID = downloadManager.enqueue(request);
 
+                        editorDownload.putLong("refID", refID);
                         editorDownload.putBoolean("flag", false);
                         editorDownload.commit();
 
                     } else {
                         bi.lblAppVersion.setText("DSS APP New Version " + newVer + "  Available..\n(Can't download.. Internet connectivity issue!!)");
                     }
+                } else {
+                    bi.lblAppVersion.setText("DSS APP New Version " + newVer + " Downloading..");
                 }
 
             } else {
@@ -269,7 +272,7 @@ public class MainActivity extends Activity {
                 if (DownloadManager.ACTION_DOWNLOAD_COMPLETE.equals(intent.getAction())) {
 
                     DownloadManager.Query query = new DownloadManager.Query();
-                    query.setFilterById(refID);
+                    query.setFilterById(sharedPrefDownload.getLong("refID", 0));
 
                     Cursor cursor = downloadManager.query(query);
                     if (cursor.moveToFirst()) {
