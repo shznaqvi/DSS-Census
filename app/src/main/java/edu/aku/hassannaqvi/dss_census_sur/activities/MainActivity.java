@@ -420,7 +420,7 @@ public class MainActivity extends Activity {
             new SyncAllData(
                     this,
                     "Census",
-                    "updateCensus",
+                    "updateCensusDT",
                     CensusContract.class,
                     MainApp._HOST_URL + CensusContract.censusMember._URL,
                     db.getUnsyncedCensus()

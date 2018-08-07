@@ -1530,7 +1530,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs);
     }
 
-    public void updateCensus(String id) {
+    public void updateCensusDT(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
