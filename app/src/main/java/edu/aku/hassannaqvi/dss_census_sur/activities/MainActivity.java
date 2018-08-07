@@ -450,7 +450,7 @@ public class MainActivity extends Activity {
             new SyncAllData(
                     this,
                     "PW",
-                    "updatePW",
+                    "updatePWomen",
                     PWContract.class,
                     MainApp._HOST_URL + PWContract.pWFup._URL,
                     db.getUnsyncedPW()

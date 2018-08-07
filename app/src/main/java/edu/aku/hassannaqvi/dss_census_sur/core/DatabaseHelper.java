@@ -1492,7 +1492,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs);
     }
 
-    public void updatePW(String id) {
+    public void updatePWomen(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
