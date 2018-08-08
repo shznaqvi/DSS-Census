@@ -577,11 +577,13 @@ public class SectionAActivity extends AppCompatActivity {
                     MainApp.insertMem.add(ec.getDss_id_member());
 
                     if (ec.getMember_type().equals("ot")) {
-                        String[] st = ec.getDss_id_member().split(String.valueOf(ec.getDss_id_member().charAt(11)));
-                        if (st.length > 2) {
-                            MainApp.randID = Integer.valueOf(st[st.length - 1]) + 1;
-                        } else
-                            MainApp.randID = Integer.valueOf(st[1]) + 1;
+                        if (ec.getDss_id_member().length() != 13) {
+                            String[] st = ec.getDss_id_member().split(String.valueOf(ec.getDss_id_member().charAt(11)));
+                            if (st.length > 2) {
+                                MainApp.randID = Integer.valueOf(st[st.length - 1]) + 1;
+                            } else
+                                MainApp.randID = Integer.valueOf(st[1]) + 1;
+                        }
                     } else if (ec.getMember_type().equals("mw")) {
 
                         MembersContract mc = db.getMaxChildByDSS(dca03.getText().toString().toUpperCase(),
