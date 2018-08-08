@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.3'
+    buildToolsVersion '27.0.3'
 
     def versionPropsFile = file('version.properties')
 
@@ -17,7 +17,7 @@ android {
         versionProps.store(versionPropsFile.newWriter(), null)
 
         defaultConfig {
-            applicationId "edu.aku.hassannaqvi.dss_census"
+            applicationId "edu.aku.hassannaqvi.dss_census_short"
             minSdkVersion 22
             targetSdkVersion 22
 
@@ -39,17 +39,17 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'com.jakewharton:butterknife:8.8.1'
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.android.support:design:26.1.0'
-    compile 'com.android.support:recyclerview-v7:26.1.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.github.amlcurran.showcaseview:library:5.4.3'
-    testCompile 'junit:junit:4.12'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.github.amlcurran.showcaseview:library:5.4.3'
+    testImplementation 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

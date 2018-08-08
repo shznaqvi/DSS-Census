@@ -7,7 +7,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
     android:scrollbars="horizontal"
-    tools:context="edu.aku.hassannaqvi.dss_census.activities.SectionEActivity">
+    tools:context="edu.aku.hassannaqvi.dss_census_short.activities.SectionEActivity">
 
         <LinearLayout
             android:layout_width="match_parent"

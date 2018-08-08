@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginEnd="16dp"
     android:layout_marginStart="16dp"
-    tools:context="edu.aku.hassannaqvi.dss_census.activities.MotherListActivity">
+    tools:context="edu.aku.hassannaqvi.dss_census_short.activities.MotherListActivity">
 
     <!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
         <!--xmlns:tools="http://schemas.android.com/tools"-->
