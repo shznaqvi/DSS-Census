@@ -577,7 +577,8 @@ public class SectionAActivity extends AppCompatActivity {
                     MainApp.insertMem.add(ec.getDss_id_member());
 
                     if (ec.getMember_type().equals("ot")) {
-                        if (ec.getDss_id_member().length() != 13) {
+                        if (ec.getDss_id_member().length() > 13) // setting for members that currently not lying in their respective type and come in 'OT'
+                        {
                             String[] st = ec.getDss_id_member().split(String.valueOf(ec.getDss_id_member().charAt(11)));
                             if (st.length > 2) {
                                 MainApp.randID = Integer.valueOf(st[st.length - 1]) + 1;
