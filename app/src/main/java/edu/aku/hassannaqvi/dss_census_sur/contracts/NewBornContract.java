@@ -194,8 +194,8 @@ public class NewBornContract {
         this.name = cursor.getString(cursor.getColumnIndex(newBornFup.COLUMN_NAME));
         this.sNB = cursor.getString(cursor.getColumnIndex(newBornFup.COLUMN_SNB));
         this.istatus = cursor.getString(cursor.getColumnIndex(newBornFup.COLUMN_ISTATUS));
-        this.synced = cursor.getString(cursor.getColumnIndex(newBornFup.COLUMN_SYNCED));
-        this.syncedDate = cursor.getString(cursor.getColumnIndex(newBornFup.COLUMN_SYNCEDDATE));
+/*        this.synced = cursor.getString(cursor.getColumnIndex(newBornFup.COLUMN_SYNCED));
+        this.syncedDate = cursor.getString(cursor.getColumnIndex(newBornFup.COLUMN_SYNCEDDATE));*/
 
         return this;
 
