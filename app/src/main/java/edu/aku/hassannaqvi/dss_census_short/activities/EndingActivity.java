@@ -9,8 +9,6 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
-import org.json.JSONException;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -57,11 +55,7 @@ public class EndingActivity extends Activity {
 
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
 
                 MainApp.familyMembersList.clear();

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -122,9 +123,9 @@ public class FamilyMembersActivity extends Activity {
                                 MainApp.selectedPos = -1;
 
                                 MainApp.memClicked.add(position);
-                                for (int item : MainApp.memClicked) {
+                                /*for (int item : MainApp.memClicked) {
                                     recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
-                                }
+                                }*/
                                 Intent i = new Intent(getApplicationContext(), SectionBActivity.class);
                                 i.putExtra("dataFlag", true);
                                 i.putExtra("position", position);
@@ -136,9 +137,6 @@ public class FamilyMembersActivity extends Activity {
                     }
                 })
         );
-        for (int item : MainApp.memClicked) {
-            recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
-        }
     }
 
     @OnClick(R.id.addMen)
@@ -310,7 +308,7 @@ public class FamilyMembersActivity extends Activity {
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
 
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
         MainApp.endActivity(this, this);
     }
 
@@ -362,7 +360,7 @@ public class FamilyMembersActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
-        if (MainApp.selectedPos != -1) {
+        /*if (MainApp.selectedPos != -1) {
             for (int mem = 0; mem < MainApp.memClicked.size(); mem++) {
                 if (MainApp.memClicked.get(mem) == MainApp.selectedPos) {
                     MainApp.memClicked.remove(mem);
@@ -371,20 +369,33 @@ public class FamilyMembersActivity extends Activity {
                     break;
                 }
             }
-        }
+        }*/
 
-        countBoy.setText(String.valueOf(MainApp.NoBoyCount));
-        countMen.setText(String.valueOf(MainApp.NoMaleCount));
-        countGirl.setText(String.valueOf(MainApp.NoGirlCount));
-        countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
-        totalMem.setText(String.valueOf(MainApp.NoMembersCount));
-        totalChild.setText(String.valueOf(MainApp.totalChild));
+        mAdapter.notifyDataSetChanged();
 
-        resumeWork();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                countBoy.setText(String.valueOf(MainApp.NoBoyCount));
+                countMen.setText(String.valueOf(MainApp.NoMaleCount));
+                countGirl.setText(String.valueOf(MainApp.NoGirlCount));
+                countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
+                totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+                totalChild.setText(String.valueOf(MainApp.totalChild));
+
+                for (int item : MainApp.memClicked) {
+                    recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
+                }
+
+                resumeWork();
+            }
+        }, 800);
+
+
     }
 
     public void resumeWork() {
-        mAdapter.notifyDataSetChanged();
 
         Toast.makeText(this, "Mem flag:" + MainApp.memFlag, Toast.LENGTH_SHORT).show();
 

@@ -472,7 +472,7 @@ public class SectionAActivity extends Activity {
                 e.printStackTrace();
             }
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
 
                 finish();
 
@@ -547,7 +547,7 @@ public class SectionAActivity extends Activity {
                     MainApp.familyMembersList.add(new MembersContract(ec));
                 }
 
-                Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
                 MainApp.currentStatusCount = MainApp.familyMembersList.size();
                 MainApp.TotalMembersCount = MainApp.familyMembersList.size();
                 isNew = false;
@@ -574,7 +574,7 @@ public class SectionAActivity extends Activity {
                 e.printStackTrace();
             }
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
 
@@ -595,7 +595,7 @@ public class SectionAActivity extends Activity {
                 }
 
                 if (MainApp.familyMembersList.size() > 1) {
-                    Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
                     MainApp.currentStatusCount = MainApp.familyMembersList.size();
                     MainApp.TotalMembersCount = MainApp.familyMembersList.size();
                     isNew = false;
@@ -614,7 +614,7 @@ public class SectionAActivity extends Activity {
 
     public boolean formValidation() {
 
-        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
 
 //        01
         if (dca03.getText().toString().isEmpty()) {
@@ -1046,7 +1046,7 @@ public class SectionAActivity extends Activity {
     }
 
     private void SaveDraft() throws JSONException {
-        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
         SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
@@ -1120,7 +1120,7 @@ public class SectionAActivity extends Activity {
 
         setGPS();
 
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
 
     private boolean UpdateDB() {
@@ -1129,7 +1129,7 @@ public class SectionAActivity extends Activity {
         MainApp.fc.set_ID(String.valueOf(updcount));
 
         if (updcount != 0) {
-            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
 
             MainApp.fc.setUID(
                     (MainApp.fc.getDeviceID() + MainApp.fc.get_ID()));

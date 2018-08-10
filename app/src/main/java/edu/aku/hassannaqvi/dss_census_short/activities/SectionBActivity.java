@@ -864,15 +864,24 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
 
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
 
-        MainApp.finishActivity(this, this);
+        for (int i = 0; i < MainApp.memClicked.size(); i++) {
+            if (MainApp.memClicked.get(i) == position) {
+                MainApp.memClicked.remove(i);
+                break;
+            }
+        }
+
+        MainApp.memFlag -= 1;
+
+        MainApp.finishActivity(SectionBActivity.this, SectionBActivity.this);
     }
 
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {
 
 // Insert into array for showing in alert if same member id wants to enter
@@ -979,7 +988,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
             e.printStackTrace();
         }
         if (UpdateDB()) {
-            Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
             MainApp.insertMem.add(dcbid.getText().toString());
 
@@ -1103,7 +1112,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
         MainApp.cc.set_ID(String.valueOf(updcount));
 
         if (updcount != 0) {
-            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
 
             MainApp.cc.set_UID(
                     (MainApp.cc.getDeviceId() + MainApp.cc.get_ID()));
@@ -1122,7 +1131,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
     }
 
     private void SaveDraft() throws JSONException {
-        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
         SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
@@ -1220,7 +1229,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
         Log.d(TAG, "SaveDraft: " + MainApp.cc.toJSONObject());
 
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
 
     }
@@ -1258,7 +1267,7 @@ public class SectionBActivity extends Activity implements View.OnKeyListener, Te
 
     public boolean formValidation() {
 
-        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
 
         // ====================== Name ==============
 

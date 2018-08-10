@@ -219,7 +219,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     public void dbBackup() {
 
-        sharedPref = getSharedPreferences("dss01", MODE_PRIVATE);
+        sharedPref = getSharedPreferences("dss01_short", MODE_PRIVATE);
         editor = sharedPref.edit();
 
         if (sharedPref.getBoolean("flag", false)) {

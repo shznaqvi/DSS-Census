@@ -60,11 +60,7 @@ public class GetMembers extends AsyncTask<Void, Void, String> {
     protected String doInBackground(Void... params) {
 
         String line = "No Response";
-        try {
-            return downloadUrl(MainApp._HOST_URL + singleMember._URI);
-        } catch (IOException e) {
-            return "Unable to upload data. Server may be down.";
-        }
+        return downloadUrl(MainApp._HOST_URL + singleMember._URI);
 
     }
 

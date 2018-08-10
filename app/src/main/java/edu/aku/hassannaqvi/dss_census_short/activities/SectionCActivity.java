@@ -16,8 +16,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import org.json.JSONException;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -345,12 +343,12 @@ public class SectionCActivity extends Activity {
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
 
-        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
 
 //            MainApp.currentStatusCount -= 1;
 
 
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
 
 //        finish();
         MainApp.finishActivity(this, this);
@@ -360,15 +358,11 @@ public class SectionCActivity extends Activity {
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
 
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
 
@@ -393,7 +387,7 @@ public class SectionCActivity extends Activity {
         MainApp.dc.set_ID(String.valueOf(updcount));
 
         if (updcount != 0) {
-            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
 
             MainApp.dc.set_UID(
                     (MainApp.dc.getDeviceId() + MainApp.dc.get_ID()));
@@ -408,7 +402,7 @@ public class SectionCActivity extends Activity {
     }
 
     private void SaveDraft() {
-        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
         SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
@@ -475,12 +469,12 @@ public class SectionCActivity extends Activity {
 
         //        MainApp.fc.setROW_sc(String.valueOf(sc));
 */
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
 
     public boolean formValidation() {
 
-        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
 
         // ====================== Name ==============
 
