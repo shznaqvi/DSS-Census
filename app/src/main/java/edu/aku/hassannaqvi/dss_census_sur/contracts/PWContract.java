@@ -194,9 +194,8 @@ public class PWContract {
         this.name = cursor.getString(cursor.getColumnIndex(pWFup.COLUMN_NAME));
         this.istatus = cursor.getString(cursor.getColumnIndex(pWFup.COLUMN_ISTATUS));
         this.appver = cursor.getString(cursor.getColumnIndex(pWFup.COLUMN_APPVER));
-        this.synced = cursor.getString(cursor.getColumnIndex(pWFup.COLUMN_SYNCED));
-        this.syncedDate = cursor.getString(cursor.getColumnIndex(pWFup.COLUMN_SYNCEDDATE));
-
+/*        this.synced = cursor.getString(cursor.getColumnIndex(pWFup.COLUMN_SYNCED));
+        this.syncedDate = cursor.getString(cursor.getColumnIndex(pWFup.COLUMN_SYNCEDDATE));*/
 
         return this;
 

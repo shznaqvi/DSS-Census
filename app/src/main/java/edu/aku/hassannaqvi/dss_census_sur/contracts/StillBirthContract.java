@@ -204,8 +204,8 @@ public class StillBirthContract {
         this.name = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_NAME));
         this.istatus = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_ISTATUS));
         this.appver = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_APPVER));
-        this.synced = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_SYNCED));
-        this.syncedDate = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_SYNCEDDATE));
+/*        this.synced = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_SYNCED));
+        this.syncedDate = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_SYNCEDDATE));*/
         this.dss_id_hh = cursor.getString(cursor.getColumnIndex(sBFup.COLUMN_DSS_ID_HH));
 
 
