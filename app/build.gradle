@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 28
 
     def versionPropsFile = file('version.properties')
 
@@ -22,7 +21,7 @@ android {
             targetSdkVersion 22
 
             versionCode code
-            versionName "1.3b"
+            versionName "0.3b"
             testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         }
     } else {
@@ -45,10 +44,10 @@ dependencies {
     })
 
     implementation 'com.jakewharton:butterknife:8.8.1'
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support:design:26.1.0'
-    implementation 'com.android.support:recyclerview-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:appcompat-v7:28.1.0'
+    implementation 'com.android.support:design:28.1.0'
+    implementation 'com.android.support:recyclerview-v7:28.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation 'com.github.amlcurran.showcaseview:library:5.4.3'
     testImplementation 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
