@@ -45,6 +45,7 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
+import edu.aku.hassannaqvi.dss_census_sur.otherClasses.DateUtils;
 import edu.aku.hassannaqvi.dss_census_sur.validation.validatorClass;
 import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 import io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText;
@@ -204,7 +205,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     TimePickerEditText dcbis04Outtime;
 
     String dateToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
-
+    String minDate = null;
     //TODO: Convert old date picker and time picker to new ones
 
     @Override
@@ -222,6 +223,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
         dcbidob.setMaxDate(dateToday);
         dcbis09bdt.setManager(getSupportFragmentManager());
         dcbis09bdt.setMaxDate(dateToday);
+        dcbis09bdt.setMinDate(DateUtils.getUpdatedDate("dd/MM/yyyy", -280));
 
         dcbis04Outdt.setManager(getSupportFragmentManager());
         dcbis04Outdt.setMaxDate(dateToday);
@@ -376,12 +378,9 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     } else {
                         dcbm02.setEnabled(false);
                         dcbm02.setChecked(false);
-
                         dcbm01.setEnabled(true);
                     }
-
                 }
-
                 dcbis.clearCheck();
             }
         });
@@ -405,6 +404,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     dcbid.setText(null);
                     dcbid.setEnabled(true);
                     dcbbmid.setText(null);
+                    dcbidob.setMinDate(minDate);
 
                     dcbis.clearCheck();
                     dcbis01.setEnabled(false);
@@ -453,6 +453,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     dcbis01.setEnabled(true);
                     dcbis02.setEnabled(false);
                     dcbis04.setEnabled(false);
+                    dcbidob.setMinDate(DateUtils.getUpdatedDate("dd/MM/yyyy", -62));
 
                     if (childCount == 0) {
                         mothDssID.setVisibility(View.VISIBLE);
@@ -479,7 +480,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     dcbis01.setEnabled(true);
                     dcbis02.setEnabled(true);
                     dcbis04.setEnabled(true);
-
+                    dcbidob.setMinDate(minDate);
                     husbDssIDLayout.setVisibility(View.GONE);
 
                     mothDssID.setVisibility(View.GONE);
@@ -544,7 +545,6 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     } else {
                         MainApp.MotherChildList.put(motherDSSID.get(position), motherDSSID.get(position) + "1");
                     }
-
                     dcbid.setText(MainApp.MotherChildList.get(motherDSSID.get(position)));
 
                 }
@@ -775,6 +775,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
             }
         }
     }
+
 
     public void contFunc() {
 

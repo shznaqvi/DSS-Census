@@ -33,6 +33,7 @@ import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
+import edu.aku.hassannaqvi.dss_census_sur.otherClasses.DateUtils;
 import edu.aku.hassannaqvi.dss_census_sur.validation.validatorClass;
 import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 import io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText;
@@ -170,6 +171,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         dcbidob.setMaxDate(dateToday);
         dcbis09bdt.setManager(getSupportFragmentManager());
         dcbis09bdt.setMaxDate(dateToday);
+        dcbis09bdt.setMinDate(DateUtils.getUpdatedDate("dd/MM/yyyy", -280));
 
         dcbis04Outdt.setManager(getSupportFragmentManager());
         dcbis04Outdt.setMaxDate(dateToday);
