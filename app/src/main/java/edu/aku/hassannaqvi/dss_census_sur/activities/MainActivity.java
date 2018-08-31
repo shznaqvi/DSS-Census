@@ -690,9 +690,7 @@ public class MainActivity extends Activity {
     public void onBackPressed() {
         if (exit) {
             finish(); // finish activity
-
             startActivity(new Intent(this, LoginActivity.class));
-
         } else {
             Toast.makeText(this, "Press Back again to Exit.",
                     Toast.LENGTH_SHORT).show();

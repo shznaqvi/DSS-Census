@@ -2,19 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="edu.aku.hassannaqvi.dss_census_sur.activities.PWAssessmentActivity">
-
     <data>
-
         <import type="android.view.View" />
-
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.dss_census_sur.activities.PWAssessmentActivity" />
-
-
     </data>
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -719,6 +712,7 @@
                         android:layout_marginTop="16dp"
                         android:background="@color/colorPrimaryDark"
                         android:text="@string/dsa0898x"
+                        android:visibility='@{dsa0812a.checked ? View.VISIBLE : View.GONE }'
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@android:color/white" />
 
@@ -726,6 +720,8 @@
                         android:id="@+id/dsa0813"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text='@{dsa0812a.checked ? dsa0813.getText.toString : "" }'
+                        android:visibility='@{dsa0812a.checked ? View.VISIBLE : View.GONE }'
                         android:gravity="right"
                         android:hint="@string/dsa0898x" />
 
@@ -1051,6 +1047,7 @@
                         android:layout_marginTop="16dp"
                         android:background="@color/colorPrimaryDark"
                         android:text="@string/dsa1096x"
+                        android:visibility='@{dsa107a.checked ? View.VISIBLE : View.GONE }'
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@android:color/white" />
 
@@ -1058,6 +1055,8 @@
                         android:id="@+id/dsa1096x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text='@{dsa107a.checked ? dsa1096x.getText.toString : "" }'
+                        android:visibility='@{dsa107a.checked ? View.VISIBLE : View.GONE }'
                         android:gravity="right"
                         android:hint="@string/dsa1096x" />
                 </LinearLayout>

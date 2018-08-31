@@ -414,6 +414,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
                 return false;
             }
         }
+
         if (!bi.dsa02e.isChecked()) {
             if (bi.dsa01a.isChecked()) {
 
@@ -508,7 +509,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
                 if (!validatorClass.EmptyRadioButton(this, bi.dsa106, bi.dsa106a, getString(R.string.dsa10f))) {
                     return false;
                 }
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa107, bi.dsa10798, bi.dsa1096x, getString(R.string.dsa1096))) {
+                if (!validatorClass.EmptyRadioButton(this, bi.dsa107, bi.dsa107a, bi.dsa1096x, getString(R.string.dsa1096))) {
                     return false;
                 }
             }
