@@ -21,6 +21,7 @@
     <string name="dcstatus"> انٹریو کا نتیجہ</string>
     <string name="complete"> مکمل</string>
     <string name="incomplete">نا مکمل</string>
+    <string name="doorlocked">گھر لاک ہے</string>
     <!-- String related to section headings -->
     <string name="secALabel">HH Identification and Visit Status</string>
     <string name="sec2A"> سیکشن 2A: بنیادی معلومات </string>

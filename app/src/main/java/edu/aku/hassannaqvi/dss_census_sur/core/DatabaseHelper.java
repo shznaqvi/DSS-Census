@@ -64,7 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + singleUser.REGION_DSS + " TEXT );";
     public static final String DATABASE_NAME = "dss-census-sur.db";
     public static final String DB_NAME = "dss-census-sur_copy.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsContract.FormsTable.TABLE_NAME + "("
             + FormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -307,25 +307,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             newBornFup.COLUMN_SYNCED + " TEXT," +
             newBornFup.COLUMN_SYNCEDDATE + " TEXT" +
             ");";
-
-    final String SQL_CREATE_PREGNANT_WOMEN = "CREATE TABLE " + pWFup.TABLE_NAME + " (" +
-            pWFup.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            pWFup.COLUMN_PROJECT_NAME + " TEXT," +
-            pWFup.COLUMN_UID + " TEXT," +
-            pWFup.COLUMN_UUID + " TEXT," +
-            pWFup.COLUMN_WUID + " TEXT," +
-            pWFup.COLUMN_FORMDATE + " TEXT," +
-            pWFup.COLUMN_USER + " TEXT," +
-            pWFup.COLUMN_DEVICEID + " TEXT," +
-            pWFup.COLUMN_DEVICETAGID + " TEXT," +
-            pWFup.COLUMN_DSS_ID_MEMBER + " TEXT," +
-            pWFup.COLUMN_SPW + " TEXT," +
-            pWFup.COLUMN_NAME + " TEXT," +
-            pWFup.COLUMN_ISTATUS + " TEXT," +
-            pWFup.COLUMN_APPVER + " TEXT," +
-            pWFup.COLUMN_SYNCED + " TEXT," +
-            pWFup.COLUMN_SYNCEDDATE + " TEXT" +
-            ");";
+    private static final String SQL_ALTER_PW_ADD_VISIT_STATUS = "ALTER TABLE " +
+            pWFup.TABLE_NAME + " ADD COLUMN " +
+            pWFup.COLUMN_SVISITSTATUS + " TEXT;";
 
     final String SQL_CREATE_STILL_BIRTH = "CREATE TABLE " + sBFup.TABLE_NAME + " (" +
             sBFup.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -353,7 +337,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             VersionAppTable.COLUMN_VERSION_NAME + " TEXT, " +
             VersionAppTable.COLUMN_PATH_NAME + " TEXT " +
             ");";
-
+    final String SQL_CREATE_PREGNANT_WOMEN = "CREATE TABLE " + pWFup.TABLE_NAME + " (" +
+            pWFup.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            pWFup.COLUMN_PROJECT_NAME + " TEXT," +
+            pWFup.COLUMN_UID + " TEXT," +
+            pWFup.COLUMN_UUID + " TEXT," +
+            pWFup.COLUMN_WUID + " TEXT," +
+            pWFup.COLUMN_FORMDATE + " TEXT," +
+            pWFup.COLUMN_USER + " TEXT," +
+            pWFup.COLUMN_DEVICEID + " TEXT," +
+            pWFup.COLUMN_DEVICETAGID + " TEXT," +
+            pWFup.COLUMN_DSS_ID_MEMBER + " TEXT," +
+            pWFup.COLUMN_SPW + " TEXT," +
+            pWFup.COLUMN_SVISITSTATUS + " TEXT," +
+            pWFup.COLUMN_NAME + " TEXT," +
+            pWFup.COLUMN_ISTATUS + " TEXT," +
+            pWFup.COLUMN_APPVER + " TEXT," +
+            pWFup.COLUMN_SYNCED + " TEXT," +
+            pWFup.COLUMN_SYNCEDDATE + " TEXT" +
+            ");";
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
     private static final String SQL_DELETE_FORMS =
@@ -437,6 +439,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.execSQL(SQL_CREATE_EVENTS);
             case 2:
                 db.execSQL(SQL_CREATE_VERSIONAPP);
+            case 3:
+                db.execSQL(SQL_ALTER_PW_ADD_VISIT_STATUS);
         }
     }
 
@@ -1173,6 +1177,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(pWFup.COLUMN_DEVICETAGID, pwr.getDevicetagID());
         values.put(pWFup.COLUMN_DSS_ID_MEMBER, pwr.getDss_id_member());
         values.put(pWFup.COLUMN_SPW, pwr.getsPW());
+        values.put(pWFup.COLUMN_SVISITSTATUS, pwr.getsvisitstatus());
         values.put(pWFup.COLUMN_NAME, pwr.getName());
         values.put(pWFup.COLUMN_ISTATUS, pwr.getIstatus());
         values.put(pWFup.COLUMN_APPVER, pwr.getAppver());
@@ -1817,6 +1822,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 pWFup.COLUMN_DEVICETAGID,
                 pWFup.COLUMN_DSS_ID_MEMBER,
                 pWFup.COLUMN_SPW,
+                pWFup.COLUMN_SVISITSTATUS,
                 pWFup.COLUMN_NAME,
                 pWFup.COLUMN_ISTATUS,
                 pWFup.COLUMN_APPVER
@@ -2795,6 +2801,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // Which row to update, based on the ID
         String selection = pWFup.COLUMN_UID + "=?";
         String[] selectionArgs = {MainApp.pw.getUID()};
+
+        int count = db.update(pWFup.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int updatePWinfo() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(pWFup.COLUMN_SPW, MainApp.pw.getsPW());
+// Which row to update, based on the ID
+        String selection = pWFup.COLUMN_ID + " = ?";
+        String[] selectionArgs = {String.valueOf(MainApp.pw.getID())};
 
         int count = db.update(pWFup.TABLE_NAME,
                 values,

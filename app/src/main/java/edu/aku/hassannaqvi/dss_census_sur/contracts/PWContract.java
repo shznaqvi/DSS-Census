@@ -23,6 +23,7 @@ public class PWContract {
     private String devicetagID;
     private String dss_id_member;
     private String sPW;
+    private String svisitstatus;
     private String name;
     private String istatus;
     private String appver;
@@ -157,6 +158,14 @@ public class PWContract {
         this.syncedDate = syncedDate;
     }
 
+    public String getsvisitstatus() {
+        return svisitstatus;
+    }
+
+    public void setsvisitstatus(String svisitstatus) {
+        this.svisitstatus = svisitstatus;
+    }
+
     public PWContract Sync(JSONObject jsonObject) throws JSONException {
 
         this.ID = jsonObject.getString(pWFup.COLUMN_ID);
@@ -169,6 +178,7 @@ public class PWContract {
         this.devicetagID = jsonObject.getString(pWFup.COLUMN_DEVICETAGID);
         this.dss_id_member = jsonObject.getString(pWFup.COLUMN_DSS_ID_MEMBER);
         this.sPW = jsonObject.getString(pWFup.COLUMN_SPW);
+        this.svisitstatus = jsonObject.getString(pWFup.COLUMN_SVISITSTATUS);
         this.name = jsonObject.getString(pWFup.COLUMN_NAME);
         this.istatus = jsonObject.getString(pWFup.COLUMN_ISTATUS);
         this.appver = jsonObject.getString(pWFup.COLUMN_APPVER);
@@ -191,6 +201,7 @@ public class PWContract {
         this.devicetagID = cursor.getString(cursor.getColumnIndex(pWFup.COLUMN_DEVICETAGID));
         this.dss_id_member = cursor.getString(cursor.getColumnIndex(pWFup.COLUMN_DSS_ID_MEMBER));
         this.sPW = cursor.getString(cursor.getColumnIndex(pWFup.COLUMN_SPW));
+        this.svisitstatus = cursor.getString(cursor.getColumnIndex(pWFup.COLUMN_SVISITSTATUS));
         this.name = cursor.getString(cursor.getColumnIndex(pWFup.COLUMN_NAME));
         this.istatus = cursor.getString(cursor.getColumnIndex(pWFup.COLUMN_ISTATUS));
         this.appver = cursor.getString(cursor.getColumnIndex(pWFup.COLUMN_APPVER));
@@ -217,6 +228,7 @@ public class PWContract {
         json.put(pWFup.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
         json.put(pWFup.COLUMN_DSS_ID_MEMBER, this.dss_id_member == null ? JSONObject.NULL : this.dss_id_member);
         json.put(pWFup.COLUMN_SPW, this.sPW == null ? JSONObject.NULL : new JSONObject(this.sPW));
+        json.put(pWFup.COLUMN_SVISITSTATUS, this.svisitstatus == null ? JSONObject.NULL : new JSONObject(this.svisitstatus));
         json.put(pWFup.COLUMN_NAME, this.name == null ? JSONObject.NULL : this.name);
         json.put(pWFup.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
         json.put(pWFup.COLUMN_APPVER, this.appver == null ? JSONObject.NULL : this.appver);
@@ -243,6 +255,7 @@ public class PWContract {
         public static final String COLUMN_DEVICETAGID = "devicetagid";
         public static final String COLUMN_DSS_ID_MEMBER = "dss_id_member";
         public static final String COLUMN_SPW = "spw";
+        public static final String COLUMN_SVISITSTATUS = "svisitstatus";
         public static final String COLUMN_NAME = "name";
         public static final String COLUMN_ISTATUS = "istatus";
         public static final String COLUMN_APPVER = "appver";

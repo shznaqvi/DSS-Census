@@ -68,7 +68,9 @@ public class PW_EndingActivity extends Activity {
     private void SaveDraft() {
 //        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        MainApp.pw.setIstatus(dcstatus01.isChecked() ? "1" : dcstatus02.isChecked() ? "2" : "0");
+        MainApp.pw.setIstatus(dcstatus01.isChecked() ? "1" :
+                dcstatus02.isChecked() ? "2"
+                        : "0");
 
 //        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

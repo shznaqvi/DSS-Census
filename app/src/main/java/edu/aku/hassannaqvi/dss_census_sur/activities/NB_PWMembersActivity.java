@@ -88,7 +88,10 @@ public class NB_PWMembersActivity extends AppCompatActivity {
                             if (flag) {
 
                                 if (type == 1) {
-                                    startActivity(new Intent(getApplicationContext(), PWAssessmentActivity.class)
+                                   /* startActivity(new Intent(getApplicationContext(), PWAssessmentActivity.class)
+                                            .putExtra("position", position)
+                                            .putExtra("followUpData", EventsListActivity.eventsList.get(position)));*/
+                                    startActivity(new Intent(getApplicationContext(), PW_VisitStatusActivity.class)
                                             .putExtra("position", position)
                                             .putExtra("followUpData", EventsListActivity.eventsList.get(position)));
                                 } else {
@@ -187,10 +190,8 @@ public class NB_PWMembersActivity extends AppCompatActivity {
                                                 int id) {
 
                                 type = 0;
-
                                 finish();
                                 startActivity(new Intent(NB_PWMembersActivity.this, EventsListActivity.class).putExtra("check", flag));
-
                             }
                         });
         alertDialogBuilder.setNegativeButton("Cancel",
