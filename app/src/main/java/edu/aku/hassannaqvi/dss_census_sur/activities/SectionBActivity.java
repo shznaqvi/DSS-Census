@@ -988,9 +988,9 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     }
                 }
 
-                if (dcbis09b.isChecked()) {
+                /*if (dcbis09b.isChecked()) {
                     MainApp.cc.setCurrent_pregOutcomeDT(dcbidob.getText().toString());
-                }
+                }*/
 
             }
         }

@@ -546,10 +546,10 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                     }
                 }
 
-                if (dcbis09b.isChecked()) {
+                /*if (dcbis09b.isChecked()) {
 //                    MainApp.cc.setCurrent_pregOutcomeDT(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
                     MainApp.cc.setCurrent_pregOutcomeDT(dcbidob.getText().toString());
-                }
+                }*/
             }
         } else if (dcbis03.isChecked()) {
 //            MainApp.cc.setCurrent_date(new SimpleDateFormat("dd-MM-yyyy").format(dcbidob.getCalendarView().getDate()));
