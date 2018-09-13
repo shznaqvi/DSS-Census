@@ -227,7 +227,10 @@ public class PWContract {
         json.put(pWFup.COLUMN_DEVICEID, this.deviceId == null ? JSONObject.NULL : this.deviceId);
         json.put(pWFup.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
         json.put(pWFup.COLUMN_DSS_ID_MEMBER, this.dss_id_member == null ? JSONObject.NULL : this.dss_id_member);
-        json.put(pWFup.COLUMN_SPW, this.sPW == null ? JSONObject.NULL : new JSONObject(this.sPW));
+        if (!this.sPW.equals("")) {
+            json.put(pWFup.COLUMN_SPW, this.sPW == null ? JSONObject.NULL : new JSONObject(this.sPW));
+
+        }
         json.put(pWFup.COLUMN_SVISITSTATUS, this.svisitstatus == null ? JSONObject.NULL : new JSONObject(this.svisitstatus));
         json.put(pWFup.COLUMN_NAME, this.name == null ? JSONObject.NULL : this.name);
         json.put(pWFup.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
