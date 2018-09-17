@@ -151,6 +151,12 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
     @BindView(R.id.dcbis04Outtime)
     TimePickerEditText dcbis04Outtime;
 
+
+    @BindView(R.id.cb_dcbid)
+    CheckBox cbDcbid;
+    @BindView(R.id.edt_dcbid)
+    EditText edtDcbid;
+
     int position = 0;
     String mt;
 
@@ -359,6 +365,18 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
             }
         });
 
+        cbDcbid.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    edtDcbid.setVisibility(View.VISIBLE);
+                } else {
+                    edtDcbid.setVisibility(View.GONE);
+                    edtDcbid.setText(null);
+                }
+            }
+        });
+
     }
 
     public void clearFieldsOnStatus() {
@@ -509,6 +527,10 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
         JSONObject sC = new JSONObject();
 
+        if (cbDcbid.isChecked()) {
+            sC.put("dcbid_cm", edtDcbid.getText().toString());
+        }
+
         sC.put("isNew", "2");
         sC.put("dss_id_st", fp.getHhID());
         sC.put("visitdt", fp.getFollowUpDt());
@@ -639,6 +661,17 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
             return false;
         } else {
             dcba.setError(null);
+        }
+
+        if (cbDcbid.isChecked()) {
+            if (edtDcbid.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.edt_dcbid), Toast.LENGTH_SHORT).show();
+                edtDcbid.setError("This data is Required!");    // Set Error on last radio button
+                Log.i(TAG, "edtDcbid: This data is Required!");
+                return false;
+            } else {
+                edtDcbid.setError(null);
+            }
         }
 
         // ============== Status ===================

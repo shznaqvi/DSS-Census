@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="edu.aku.hassannaqvi.dss_census_sur.activities.SectionBNewPrevActivity">
 
 
@@ -108,12 +108,34 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
-                <EditText
-                    android:id="@+id/dcbid"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-                    android:maxLength="14" />
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/dcbid"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="60"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                        android:maxLength="14" />
+
+                    <CheckBox
+                        android:id="@+id/cb_dcbid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/edt_dcbid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 "
+                    android:hint="@string/edt_dcbid"
+                    android:maxLength="50"
+                    android:visibility="gone" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -192,8 +214,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    tools:visibility="visible"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -241,8 +263,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    tools:visibility="visible"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
                     <TextView
                         android:id="@+id/dcbidtTxt"
@@ -264,6 +286,7 @@
                         android:hint="DD/MM/YYYY"
                         android:textColor="@android:color/black"
                         app:dateFormat="dd-MM-yyyy" />
+
                     <EditText
                         android:id="@+id/dcbis03a"
                         android:layout_width="match_parent"
@@ -278,8 +301,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        tools:visibility="visible"
-                        android:visibility="gone">
+                        android:visibility="gone"
+                        tools:visibility="visible">
 
                         <EditText
                             android:id="@+id/dcbis05Age"
@@ -465,6 +488,7 @@
                             android:textColor="@android:color/black"
                             app:is24HourView="true"
                             app:timeFormat="HH:mm" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
