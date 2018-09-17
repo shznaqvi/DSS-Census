@@ -453,7 +453,9 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     dcbis01.setEnabled(true);
                     dcbis02.setEnabled(false);
                     dcbis04.setEnabled(false);
-                    dcbidob.setMinDate(DateUtils.getUpdatedDate("dd/MM/yyyy", -62));
+                    dcbidob.setMinDate(DateUtils.getUpdatedDateByMonths("dd/MM/yyyy", -59
+
+                    ));
 
                     if (childCount == 0) {
                         mothDssID.setVisibility(View.VISIBLE);
