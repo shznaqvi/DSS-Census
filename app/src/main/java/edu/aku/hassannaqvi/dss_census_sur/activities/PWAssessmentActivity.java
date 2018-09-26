@@ -592,7 +592,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
                 } else {
                     bi.dsa19m.clearFocus();
                     bi.dsa19m.setError(null);
-                    if (!validatorClass.RangeTextBox(this, bi.dsa19m, 50.0, 60.0, getString(R.string.dsa19m), " cm")) {
+                    if (!validatorClass.RangeTextBox(this, bi.dsa19m, 15.0, 60.0, getString(R.string.dsa19m), " cm")) {
                         return false;
                     }
                 }
@@ -610,7 +610,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
                     bi.dsa20h.clearFocus();
                     bi.dsa20h.setError(null);
 
-                    return validatorClass.RangeTextBox(this, bi.dsa20h, 40.0, 140.0, getString(R.string.dsa20h), " cm");
+                    return validatorClass.RangeTextBox(this, bi.dsa20h, 100.0, 200.0, getString(R.string.dsa20h), " cm");
                 }
             }
         }
