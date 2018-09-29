@@ -28,6 +28,7 @@
             android:textSize="30sp" />
 
         <ScrollView
+            android:id="@+id/nb_scrollview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="horizontal">
@@ -464,7 +465,7 @@
                         android:digits="1234567890."
                         android:hint="@string/gramurdu"
                         android:inputType="numberDecimal"
-                        android:maxLength="4"
+                        android:maxLength="5"
                         android:text='@{dnbStatusa.checked ? dnb13.getText.toString : "" }' />
 
                     <TextView
@@ -569,7 +570,7 @@
                         android:digits="1234567890."
                         android:hint="C"
                         android:inputType="numberDecimal"
-                        android:maxLength="4"
+                        android:maxLength="5"
                         android:text='@{dnbStatusa.checked ? dnb1601.getText.toString : "" }' />
 
                     <TextView
@@ -589,7 +590,7 @@
                         android:digits="1234567890."
                         android:hint="C"
                         android:inputType="numberDecimal"
-                        android:maxLength="4"
+                        android:maxLength="5"
                         android:text='@{dnbStatusa.checked ? dnb1602.getText.toString : "" }' />
 
                     <TextView

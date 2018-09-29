@@ -592,7 +592,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
                 } else {
                     bi.dsa19m.clearFocus();
                     bi.dsa19m.setError(null);
-                    if (!validatorClass.RangeTextBox(this, bi.dsa19m, 50.0, 60.0, getString(R.string.dsa19m), " cm")) {
+                    if (!validatorClass.RangeTextBox(this, bi.dsa19m, 15.0, 60.0, getString(R.string.dsa19m), " cm")) {
                         return false;
                     }
                 }
@@ -610,7 +610,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
                     bi.dsa20h.clearFocus();
                     bi.dsa20h.setError(null);
 
-                    return validatorClass.RangeTextBox(this, bi.dsa20h, 40.0, 140.0, getString(R.string.dsa20h), " cm");
+                    return validatorClass.RangeTextBox(this, bi.dsa20h, 100.0, 200.0, getString(R.string.dsa20h), " cm");
                 }
             }
         }
@@ -634,7 +634,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
             MainApp.pw.setsvisitstatus(String.valueOf(MainApp.pw_visit_status));*/
 
             sPW = new JSONObject();
-
+/*
             sPW.put("prv_euid", followUpData.getEuid());
             sPW.put("prv_formdate", followUpData.getFormdate());
             sPW.put("prv_status", followUpData.getStatus());
@@ -647,7 +647,20 @@ public class PWAssessmentActivity extends AppCompatActivity {
             sPW.put("prv_status_date", followUpData.getStatus_date());
             sPW.put("prv_total_mem", followUpData.getTotalMem());
             sPW.put("prv_dss_id_m", followUpData.getDss_id_m());
-            sPW.put("prv_dss_id_h", followUpData.getDss_id_h());
+            sPW.put("prv_dss_id_h", followUpData.getDss_id_h());*/
+// Changed as per Hassan bhai directions
+            sPW.put("euid", followUpData.getEuid());
+            sPW.put("sur_visit_date", followUpData.getFormdate());
+            sPW.put("status", followUpData.getStatus());
+            sPW.put("status_date", followUpData.getStatus_date());
+            sPW.put("round", followUpData.getRound());
+//            sPW.put("prv_name", followUpData.getName());
+//            sPW.put("prv_dss_id_member", followUpData.getDss_id_member());
+//            sPW.put("prv_id_hus", followUpData.getDss_id_h());
+            sPW.put("lmp_date", followUpData.getLmp_dt());
+            sPW.put("total_mem", followUpData.getTotalMem());
+            sPW.put("dss_id_m", followUpData.getDss_id_m());
+            sPW.put("dss_id_h", followUpData.getDss_id_h());
 
             if (type) {
                 MainApp.pw.setsPW(String.valueOf(sPW));

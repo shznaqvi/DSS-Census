@@ -10,6 +10,7 @@ import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -39,6 +40,8 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_new_born_assessment);
         bi.setCallback(this);
+        ScrollView onexam_scrollview = bi.nbScrollview;
+        validatorClass.setScrollViewFocus(onexam_scrollview);
 
         db = new DatabaseHelper(this);
 
@@ -193,7 +196,7 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         }
         if (bi.dnbStatusa.isChecked()) {
 
-            if (followUpData.getRound().equals("1")) {
+       /*     if (followUpData.getRound().equals("1")) {
 
                 if (!validatorClass.EmptyTextBox(this, bi.dnb09, getString(R.string.dnb09))) {
                     return false;
@@ -214,8 +217,19 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
                 }
 
             }
-
+*/
             if (!validatorClass.EmptyTextBox(this, bi.dnb13, getString(R.string.dnb13))) {
+                return false;
+            }
+            if (!bi.dnb13.getText().toString().matches("^(\\d{1,2}\\.\\d{1,2})$")) {
+                Toast.makeText(this, "ERROR(invalid): " + "Please type the correct format" + getString(R.string.dnb13), Toast.LENGTH_LONG).show();
+                bi.dnb13.setError("Please type correct format (XX.XX)");
+                return false;
+            } else {
+                bi.dnb13.setError(null);
+            }
+
+            if (!validatorClass.RangeTextBox(this, bi.dnb13, 0.5, 40d, getString(R.string.dnb13), " weight")) {
                 return false;
             }
             if (!validatorClass.EmptyTextBox(this, bi.dnb1401, getString(R.string.dnb14m))) {
@@ -224,15 +238,49 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
             if (!validatorClass.EmptyTextBox(this, bi.dnb1402, getString(R.string.dnb14m))) {
                 return false;
             }
+            if (!validatorClass.RangeTextBox(this, bi.dnb1401, 30, 100, getString(R.string.dnb14m), " rr")) {
+                return false;
+            }
+
+            if (!validatorClass.RangeTextBox(this, bi.dnb1402, 30, 100, getString(R.string.dnb14m), " rr")) {
+                return false;
+            }
+
             if (!validatorClass.EmptyRadioButton(this, bi.dnb15, bi.dnb15b, getString(R.string.dnb15))) {
                 return false;
             }
             if (!validatorClass.EmptyTextBox(this, bi.dnb1601, "C")) {
                 return false;
             }
+
+            if (!bi.dnb1601.getText().toString().matches("\\d+(\\.\\d+)*")) {
+                Toast.makeText(this, "Please enter correct decimal value!", Toast.LENGTH_SHORT).show();
+                bi.dnb1601.requestFocus();
+                bi.dnb1601.setError("Please enter correct decimal value!");
+                return false;
+            } else {
+                bi.dnb1601.clearFocus();
+                bi.dnb1601.setError(null);
+                if (!validatorClass.RangeTextBox(this, bi.dnb1601, 30.0, 40.9, getString(R.string.dnb15), " C")) {
+                    return false;
+                }
+            }
             if (!validatorClass.EmptyTextBox(this, bi.dnb1602, "C")) {
                 return false;
             }
+            if (!bi.dnb1602.getText().toString().matches("\\d+(\\.\\d+)*")) {
+                Toast.makeText(this, "Please enter correct decimal value!", Toast.LENGTH_SHORT).show();
+                bi.dnb1602.requestFocus();
+                bi.dnb1602.setError("Please enter correct decimal value!");
+                return false;
+            } else {
+                bi.dnb1602.clearFocus();
+                bi.dnb1602.setError(null);
+                if (!validatorClass.RangeTextBox(this, bi.dnb1602, 30.0, 40.9, getString(R.string.dnb15), " C")) {
+                    return false;
+                }
+            }
+
             if (!validatorClass.EmptyRadioButton(this, bi.dnb17, bi.dnb17c, getString(R.string.dnb17))) {
                 return false;
             }
@@ -312,12 +360,20 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         MainApp.nb.setDss_id_m(bi.dnb05.getText().toString());
 
         sNB = new JSONObject();
-        sNB.put("prv_euid", followUpData.getEuid());
+     /*   sNB.put("prv_euid", followUpData.getEuid());
         sNB.put("prv_formdate", followUpData.getFormdate());
         sNB.put("prv_status", followUpData.getStatus());
         sNB.put("prv_status_date", followUpData.getStatus_date());
         sNB.put("prv_birth_time", followUpData.getBirth_time());
         sNB.put("prv_round", followUpData.getRound());
+        */
+//        changed according to hassan bhai directions
+        sNB.put("euid", followUpData.getEuid());
+        sNB.put("sur_visit_date", followUpData.getFormdate());
+        sNB.put("status", followUpData.getStatus());
+        sNB.put("status_date", followUpData.getStatus_date());
+        sNB.put("birth_time", followUpData.getBirth_time());
+        sNB.put("round", followUpData.getRound());
 
         if (type) {
             MainApp.nb.setsNB(String.valueOf(sNB));
