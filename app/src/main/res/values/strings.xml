@@ -124,6 +124,7 @@
     <string name="dca1102"> مشترکہ </string>
     <string name="dcba"> گھر کے فرد کا نام </string>
     <string name="dcbid"> شناختی نمبر </string>
+    <string name="edt_dcbid"> شناختی نمبر میں غلطی کا موقف </string>
     <string name="dcbb"> رشتے کی شناخت </string>
     <string name="dcbbrhh"> گھر کے سربراہ سے رشتہ </string>
     <string name="dcbbrhh01"> سربراہ </string>

@@ -15,4 +15,11 @@ public class DateUtils {
         return new SimpleDateFormat(format).format(cal.getTime()).toString(); //"dd-MM-yyyy HH:mm"
     }
 
+    public static String getUpdatedDateByMonths(String format, int months) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(cal.getTime());
+        cal.add(Calendar.MONTH, months);
+        return new SimpleDateFormat(format).format(cal.getTime()).toString(); //"dd-MM-yyyy HH:mm"
+    }
+
 }
