@@ -64,7 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + singleUser.REGION_DSS + " TEXT );";
     public static final String DATABASE_NAME = "dss-census-sur.db";
     public static final String DB_NAME = "dss-census-sur_copy.db";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsContract.FormsTable.TABLE_NAME + "("
             + FormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -310,6 +310,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String SQL_ALTER_PW_ADD_VISIT_STATUS = "ALTER TABLE " +
             pWFup.TABLE_NAME + " ADD COLUMN " +
             pWFup.COLUMN_SVISITSTATUS + " TEXT;";
+    private static final String SQL_DELETE_PW_FROM_TABLE = "delete from  " +
+            pWFup.TABLE_NAME + ";";
+    private static final String SQL_DELETE_nb_FROM_TABLE = "delete from  " +
+            NewBornContract.newBornFup.TABLE_NAME + ";";
 
     final String SQL_CREATE_STILL_BIRTH = "CREATE TABLE " + sBFup.TABLE_NAME + " (" +
             sBFup.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -441,6 +445,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.execSQL(SQL_CREATE_VERSIONAPP);
             case 3:
                 db.execSQL(SQL_ALTER_PW_ADD_VISIT_STATUS);
+            case 4:
+                db.execSQL(SQL_DELETE_PW_FROM_TABLE);
+                db.execSQL(SQL_DELETE_nb_FROM_TABLE);
         }
     }
 
