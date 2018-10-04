@@ -377,22 +377,30 @@ public class FamilyMembersActivity extends Activity {
             @Override
             public void run() {
 
-                countBoy.setText(String.valueOf(MainApp.NoBoyCount));
-                countMen.setText(String.valueOf(MainApp.NoMaleCount));
-                countGirl.setText(String.valueOf(MainApp.NoGirlCount));
-                countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
-                totalMem.setText(String.valueOf(MainApp.NoMembersCount));
-                totalChild.setText(String.valueOf(MainApp.totalChild));
-
-                for (int item : MainApp.memClicked) {
-                    recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
-                }
+                resumeWorkMain();
 
                 resumeWork();
             }
         }, 800);
 
 
+    }
+
+    public void resumeWorkMain() {
+        try {
+            countBoy.setText(String.valueOf(MainApp.NoBoyCount));
+            countMen.setText(String.valueOf(MainApp.NoMaleCount));
+            countGirl.setText(String.valueOf(MainApp.NoGirlCount));
+            countFemale.setText(String.valueOf(MainApp.NoFemaleCount));
+            totalMem.setText(String.valueOf(MainApp.NoMembersCount));
+            totalChild.setText(String.valueOf(MainApp.totalChild));
+
+            for (int item : MainApp.memClicked) {
+                recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
+            }
+        } catch (Exception e) {
+            resumeWorkMain();
+        }
     }
 
     public void resumeWork() {
