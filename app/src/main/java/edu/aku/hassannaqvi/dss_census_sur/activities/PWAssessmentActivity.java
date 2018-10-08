@@ -655,12 +655,13 @@ public class PWAssessmentActivity extends AppCompatActivity {
             sPW.put("status_date", followUpData.getStatus_date());
             sPW.put("round", followUpData.getRound());
 //            sPW.put("prv_name", followUpData.getName());
-//            sPW.put("prv_dss_id_member", followUpData.getDss_id_member());
-//            sPW.put("prv_id_hus", followUpData.getDss_id_h());
+            sPW.put("prv_dss_id_member", followUpData.getDss_id_member());
+            sPW.put("hus_name", followUpData.getDss_id_hus());
             sPW.put("lmp_date", followUpData.getLmp_dt());
             sPW.put("total_mem", followUpData.getTotalMem());
             sPW.put("dss_id_m", followUpData.getDss_id_m());
             sPW.put("dss_id_hh", followUpData.getDss_id_h());
+            sPW.put("app_ver", MainApp.versionName + "." + MainApp.versionCode);
 
             if (type) {
                 MainApp.pw.setsPW(String.valueOf(sPW));

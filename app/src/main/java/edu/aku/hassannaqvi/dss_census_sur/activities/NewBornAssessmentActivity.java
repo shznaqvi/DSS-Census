@@ -374,6 +374,7 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         sNB.put("status_date", followUpData.getStatus_date());
         sNB.put("birth_time", followUpData.getBirth_time());
         sNB.put("round", followUpData.getRound());
+        sNB.put("app_ver", MainApp.versionName + "." + MainApp.versionCode);
 
         if (type) {
             MainApp.nb.setsNB(String.valueOf(sNB));

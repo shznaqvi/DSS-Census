@@ -354,6 +354,7 @@ public class PW_VisitStatusActivity extends AppCompatActivity {
         MainApp.pw.setDeviceId(Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID));
 //        MainApp.pw.setDss_id_member(MainApp.fc.getDSSID().toUpperCase());
+        MainApp.pw.setName(followUpData.getName());
         MainApp.pw.setDss_id_member(followUpData.getDss_id_member());
         MainApp.pw.setDevicetagID(sharedPref.getString("tagName", null));
 
