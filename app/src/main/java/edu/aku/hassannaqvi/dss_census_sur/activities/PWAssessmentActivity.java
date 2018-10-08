@@ -660,7 +660,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
             sPW.put("lmp_date", followUpData.getLmp_dt());
             sPW.put("total_mem", followUpData.getTotalMem());
             sPW.put("dss_id_m", followUpData.getDss_id_m());
-            sPW.put("dss_id_h", followUpData.getDss_id_h());
+            sPW.put("dss_id_hh", followUpData.getDss_id_h());
 
             if (type) {
                 MainApp.pw.setsPW(String.valueOf(sPW));
