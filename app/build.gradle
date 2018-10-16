@@ -24,7 +24,7 @@ android {
             targetSdkVersion 22
 
             versionCode code
-            versionName "1.14"
+            versionName "1.16"
             testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         }
     } else {
