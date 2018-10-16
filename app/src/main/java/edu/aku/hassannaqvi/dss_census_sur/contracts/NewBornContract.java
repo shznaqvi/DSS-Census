@@ -218,10 +218,17 @@ public class NewBornContract {
         json.put(newBornFup.COLUMN_DSS_ID_MEMBER, this.dss_id_member == null ? JSONObject.NULL : this.dss_id_member);
         json.put(newBornFup.COLUMN_STUDY_ID, this.study_id == null ? JSONObject.NULL : this.study_id);
         json.put(newBornFup.COLUMN_NAME, this.name == null ? JSONObject.NULL : this.name);
-        if (!this.sNB.equals("") && !this.sNB.equals(null)) {
+        /*if (!this.sNB.equals("") && !this.sNB.equals(null)) {
             json.put(newBornFup.COLUMN_SNB, this.sNB == null ? JSONObject.NULL : new JSONObject(this.sNB));
 
+        }*/
+
+        if (this.sNB != null) {
+            if (!this.sNB.equals("")) {
+                json.put(newBornFup.COLUMN_SNB, this.sNB == null ? JSONObject.NULL : new JSONObject(this.sNB));
+            }
         }
+
         json.put(newBornFup.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
         json.put(newBornFup.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
         json.put(newBornFup.COLUMN_SYNCEDDATE, this.syncedDate == null ? JSONObject.NULL : this.syncedDate);
