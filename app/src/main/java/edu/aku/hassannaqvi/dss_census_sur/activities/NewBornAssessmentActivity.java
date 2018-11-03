@@ -228,10 +228,38 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
             } else {
                 bi.dnb13.setError(null);
             }
-
-            if (!validatorClass.RangeTextBox(this, bi.dnb13, 0.5, 40d, getString(R.string.dnb13), " weight")) {
+            if (!validatorClass.RangeTextBox(this, bi.dnb13, 0.5, 40d, getString(R.string.dnb13), " Weight")) {
                 return false;
             }
+
+            if (!validatorClass.EmptyTextBox(this, bi.dnb29, getString(R.string.dnb29))) {
+                return false;
+            }
+            if (!bi.dnb29.getText().toString().matches("^(\\d{2,3}\\.\\d{1,2})$")) {
+                Toast.makeText(this, "ERROR(invalid): " + "Please type the correct format" + getString(R.string.dnb29), Toast.LENGTH_LONG).show();
+                bi.dnb29.setError("Please type correct format (XXX.XX)");
+                return false;
+            } else {
+                bi.dnb29.setError(null);
+            }
+            if (!validatorClass.RangeTextBox(this, bi.dnb29, 10d, 140d, getString(R.string.dnb29), " Height")) {
+                return false;
+            }
+
+            if (!validatorClass.EmptyTextBox(this, bi.dnb30, getString(R.string.dnb30))) {
+                return false;
+            }
+            if (!bi.dnb30.getText().toString().matches("^(\\d{1,2}\\.\\d{1,2})$")) {
+                Toast.makeText(this, "ERROR(invalid): " + "Please type the correct format" + getString(R.string.dnb30), Toast.LENGTH_LONG).show();
+                bi.dnb30.setError("Please type correct format (XX.XX)");
+                return false;
+            } else {
+                bi.dnb30.setError(null);
+            }
+            if (!validatorClass.RangeTextBox(this, bi.dnb30, 5d, 25d, getString(R.string.dnb30), " MAUC")) {
+                return false;
+            }
+
             if (!validatorClass.EmptyTextBox(this, bi.dnb1401, getString(R.string.dnb14m))) {
                 return false;
             }
@@ -402,6 +430,8 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
                 : bi.dnb12d.isChecked() ? "4" : bi.dnb12e.isChecked() ? "5" : bi.dnb1296.isChecked() ? "96" : "0");
         sNB.put("dnb1296x", bi.dnb1296x.getText().toString());
         sNB.put("dnb13", bi.dnb13.getText().toString());
+        sNB.put("dnb29", bi.dnb29.getText().toString());
+        sNB.put("dnb30", bi.dnb30.getText().toString());
         sNB.put("dnb1401", bi.dnb1401.getText().toString());
         sNB.put("dnb1402", bi.dnb1402.getText().toString());
         sNB.put("dnb15", bi.dnb15a.isChecked() ? "1" : bi.dnb15b.isChecked() ? "2" : "0");

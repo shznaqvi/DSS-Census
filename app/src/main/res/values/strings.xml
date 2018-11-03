@@ -823,6 +823,8 @@
     <string name="dnb12d"> دائ </string>
     <string name="dnb12e"> رشتہ دار </string>
     <string name="dnb13"> بچے کا وزن </string>
+  <string name="dnb29"> بچے کی لمبا ٰیٗ </string>
+  <string name="dnb30"> بچے کی اوپری بازو کی گولایٗ </string>
     <string name="dnb14"> سانس کی رفتار </string>
     <string name="dnb14m"> سانس/ منٹ </string>
     <string name="dnb15"> پسلیوں کا تیز چلنا </string>
@@ -995,6 +997,7 @@
 
 
     <string name="gramurdu">گرام </string>
+  <string name="centurdu"> سینٹی میٹر </string>
 
     <string name="dcdr20"> Cause of Death </string>
     <string name="dcdr21"> Did Interviewer inform verbal autopsy team? </string>
