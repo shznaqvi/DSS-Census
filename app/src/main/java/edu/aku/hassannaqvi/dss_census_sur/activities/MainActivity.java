@@ -510,7 +510,7 @@ public class MainActivity extends Activity {
             Intent iMem = new Intent(this, PWAssessmentActivity.class);
             startActivity(iMem);
         }*/
-    public void openUCR() {
+    public void openUCR_(View v) {
         Intent iMem = new Intent(this, PWAssessmentActivity.class);
         startActivity(iMem);
     }

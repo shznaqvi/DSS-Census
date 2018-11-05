@@ -3,10 +3,8 @@ package edu.aku.hassannaqvi.dss_census_sur.activities;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -20,7 +18,6 @@ import java.util.Date;
 
 import edu.aku.hassannaqvi.dss_census_sur.R;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.EventsContract;
-import edu.aku.hassannaqvi.dss_census_sur.contracts.PWContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 import edu.aku.hassannaqvi.dss_census_sur.databinding.ActivityPwAssessmentBinding;
@@ -41,22 +38,18 @@ public class PWAssessmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_pw_assessment);
         bi.setCallback(this);
-
         db = new DatabaseHelper(this);
-
         setContentsUI();
         setFollowUpData();
     }
 
     public void setFollowUpData() {
-//
-//        followUpData = (EventsContract) getIntent().getSerializableExtra("followUpData");
-//
-//        //bi.round.setText(followUpData.getRound());
-//        bi.dsaHeading01.setText("PW ASSESMENT " + "(" + followUpData.getName() + ")");
-//        bi.husbandName.setText("Husband Name: " + followUpData.getDss_id_hus());
-//        bi.dssID.setText("DSS ID: " + followUpData.getDss_id_member());
 
+        followUpData = (EventsContract) getIntent().getSerializableExtra("followUpData");
+        //bi.round.setText(followUpData.getRound());
+        bi.dsaHeading01.setText("PW ASSESMENT " + "(" + followUpData.getName() + ")");
+        bi.husbandName.setText("Husband Name: " + followUpData.getDss_id_hus());
+        bi.dssID.setText("DSS ID: " + followUpData.getDss_id_member());
     }
 
     public void setContentsUI() {
@@ -162,8 +155,8 @@ public class PWAssessmentActivity extends AppCompatActivity {
                     ClearClass.ClearAllFields(bi.fldGrpPwdsa04, true);
                     bi.fldGrpPwdsa05.setVisibility(View.VISIBLE);
                     ClearClass.ClearAllFields(bi.fldGrpPwdsa05, true);
-                    //bi.fldGrpPwdsa06.setVisibility(View.VISIBLE);
-                    //ClearClass.ClearAllFields(bi.fldGrpPwdsa06, true);
+                    bi.fldGrpPwdsa06.setVisibility(View.VISIBLE);
+                    ClearClass.ClearAllFields(bi.fldGrpPwdsa06, true);
                     bi.fldGrpPwdsa07.setVisibility(View.VISIBLE);
                     ClearClass.ClearAllFields(bi.fldGrpPwdsa07, true);
                     bi.fldGrpPwdsa08.setVisibility(View.VISIBLE);
@@ -421,154 +414,154 @@ public class PWAssessmentActivity extends AppCompatActivity {
         if (!validatorClass.EmptyRadioButton(this, bi.dsa01, bi.dsa01a, getString(R.string.dsa01))) {
             return false;
         }
-        if(bi.dsa01b.isChecked()){
+        if (bi.dsa01b.isChecked()) {
             if (!validatorClass.EmptyRadioButton(this, bi.dsa02, bi.dsa02a, getString(R.string.dsa02))) {
                 return false;
             }
         }
         if (!bi.dsa02e.isChecked()) {
-
-            if (!validatorClass.EmptyTextBox(this, bi.dsa03d, getString(R.string.dsa03) + " " + getString(R.string.dsa03d))) {
-                return false;
-            }
-            if (!validatorClass.EmptyTextBox(this, bi.dsa03m, getString(R.string.dsa03) + " " + getString(R.string.dsa03m))) {
-                return false;
-            }
-            if (!validatorClass.EmptyTextBox(this, bi.dsa03y, getString(R.string.dsa03) + " " + getString(R.string.dsa03y))) {
-                return false;
-            }
-
             if (bi.dsa01a.isChecked()) {
+
+                if (!validatorClass.EmptyTextBox(this, bi.dsa03d, getString(R.string.dsa03) + " " + getString(R.string.dsa03d))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyTextBox(this, bi.dsa03m, getString(R.string.dsa03) + " " + getString(R.string.dsa03m))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyTextBox(this, bi.dsa03y, getString(R.string.dsa03) + " " + getString(R.string.dsa03y))) {
+                    return false;
+                }
+            }
+            if (!bi.dsa01a.isChecked()) {
                 if (!validatorClass.EmptyTextBox(this, bi.dsa04a, getString(R.string.dsa04))) {
                     return false;
                 }
-
-            }
-            if (!validatorClass.EmptyTextBox(this, bi.dsa05a, getString(R.string.dsa05))) {
-                return false;
-            }
-            if (!validatorClass.EmptyTextBox(this, bi.dsa05a, getString(R.string.dsa05))) {
-                return false;
-            }
-
-            if (!validatorClass.EmptyRadioButton(this, bi.dsa06, bi.dsa06a, getString(R.string.dsa06))) {
-                return false;
+                if (!validatorClass.EmptyTextBox(this, bi.dsa05a, getString(R.string.dsa05))) {
+                    return false;
+                }
             }
             if (bi.dsa01a.isChecked()) {
 
+                if (!validatorClass.EmptyRadioButton(this, bi.dsa06, bi.dsa06a, getString(R.string.dsa06))) {
+                    return false;
+                }
+            }
+            if (bi.dsa06a.isChecked() || bi.dsa0698.isChecked()) {
                 if (!validatorClass.EmptyTextBox(this, bi.dsa07a, getString(R.string.dsa07))) {
                     return false;
                 }
             }
-            if (bi.dsa06b.isChecked() || bi.dsa06c.isChecked()) {
-
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa0801, bi.dsa0801a, getString(R.string.dsa08a))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa0802, bi.dsa0802a, getString(R.string.dsa08b))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa0803, bi.dsa0803a, getString(R.string.dsa08c))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa0804, bi.dsa0804a, getString(R.string.dsa08d))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa0805, bi.dsa0805a, getString(R.string.dsa08e))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa0806, bi.dsa0806a, getString(R.string.dsa08f))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa0807, bi.dsa0807a, getString(R.string.dsa08g))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa0808, bi.dsa0808a, getString(R.string.dsa08h))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa0809, bi.dsa0809a, getString(R.string.dsa08i))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa0810, bi.dsa0810a, getString(R.string.dsa08j))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa0811, bi.dsa0811a, getString(R.string.dsa08k))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa0812, bi.dsa0812a, bi.dsa0813, getString(R.string.dsa0896))) {
-                    return false;
-                }
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa0801, bi.dsa0801a, getString(R.string.dsa08a))) {
+                return false;
             }
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa0802, bi.dsa0802a, getString(R.string.dsa08b))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa0803, bi.dsa0803a, getString(R.string.dsa08c))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa0804, bi.dsa0804a, getString(R.string.dsa08d))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa0805, bi.dsa0805a, getString(R.string.dsa08e))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa0806, bi.dsa0806a, getString(R.string.dsa08f))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa0807, bi.dsa0807a, getString(R.string.dsa08g))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa0808, bi.dsa0808a, getString(R.string.dsa08h))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa0809, bi.dsa0809a, getString(R.string.dsa08i))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa0810, bi.dsa0810a, getString(R.string.dsa08j))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa0811, bi.dsa0811a, getString(R.string.dsa08k))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa0812, bi.dsa0812a, bi.dsa0813, getString(R.string.dsa0896))) {
+                return false;
+            }
+
             if (!validatorClass.EmptyRadioButton(this, bi.dsa09, bi.dsa09a, getString(R.string.dsa09))) {
                 return false;
             }
-            if (!validatorClass.EmptyRadioButton(this, bi.dsa101, bi.dsa101a, getString(R.string.dsa10a))) {
+            if (bi.dsa09a.isChecked()) {
+
+                if (!validatorClass.EmptyRadioButton(this, bi.dsa101, bi.dsa101a, getString(R.string.dsa10a))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dsa102, bi.dsa102a, getString(R.string.dsa10b))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dsa103, bi.dsa103a, getString(R.string.dsa10c))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dsa104, bi.dsa104a, getString(R.string.dsa10d))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dsa105, bi.dsa105a, getString(R.string.dsa10e))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dsa106, bi.dsa106a, getString(R.string.dsa10f))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dsa107, bi.dsa10798, bi.dsa1096x, getString(R.string.dsa1096))) {
+                    return false;
+                }
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa11, bi.dsa1197, getString(R.string.dsa11))) {
                 return false;
             }
-            if (!validatorClass.EmptyRadioButton(this, bi.dsa102, bi.dsa102a, getString(R.string.dsa10b))) {
+            if (!bi.dsa1197.isChecked()) {
+
+                if (!bi.dsa12b.isChecked() && !bi.dsa1298.isChecked()) {
+                    if (!validatorClass.EmptyTextBox(this, bi.dsa12a, getString(R.string.dsa12))) {
+                        return false;
+                    }
+                } else {
+                    if (!validatorClass.EmptyCheckBox(this, bi.dsa12, bi.dsa12b, getString(R.string.dsa12))) {
+                        return false;
+                    }
+                }
+            }
+
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa13, bi.dsa13a, getString(R.string.dsa13))) {
                 return false;
             }
-            if (!validatorClass.EmptyRadioButton(this, bi.dsa103, bi.dsa103a, getString(R.string.dsa10c))) {
+            if (!bi.dsa1397.isChecked()) {
+                if (!bi.dsa14b.isChecked() && !bi.dsa1498.isChecked()) {
+                    if (!validatorClass.EmptyTextBox(this, bi.dsa14a, getString(R.string.dsa14))) {
+                        return false;
+                    }
+                } else {
+                    if (!validatorClass.EmptyCheckBox(this, bi.dsa14, bi.dsa14b, getString(R.string.dsa14))) {
+                        return false;
+                    }
+                }
+            }
+
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa15, bi.dsa15a, getString(R.string.dsa15))) {
                 return false;
             }
-            if (!validatorClass.EmptyRadioButton(this, bi.dsa104, bi.dsa104a, getString(R.string.dsa10d))) {
+            if (!bi.dsa1597.isChecked()) {
+                if (!bi.dsa16b.isChecked() && !bi.dsa1698.isChecked()) {
+                    if (!validatorClass.EmptyTextBox(this, bi.dsa16a, getString(R.string.dsa16))) {
+                        return false;
+                    }
+                } else {
+                    if (!validatorClass.EmptyCheckBox(this, bi.dsa16, bi.dsa16b, getString(R.string.dsa16))) {
+                        return false;
+                    }
+                }
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dsa17, bi.dsa17a, getString(R.string.dsa17))) {
                 return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dsa105, bi.dsa105a, getString(R.string.dsa10e))) {
-                return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dsa106, bi.dsa106a, getString(R.string.dsa10f))) {
-                return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dsa107, bi.dsa10798, bi.dsa1096x, getString(R.string.dsa1096))) {
-                return false;
-            }
-            if (bi.dsa09b.isChecked()) {
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa11, bi.dsa1197, getString(R.string.dsa11))) {
-                    return false;
-                }
-            }
-            if (!bi.dsa12b.isChecked() && !bi.dsa1298.isChecked()) {
-                if (!validatorClass.EmptyTextBox(this, bi.dsa12a, getString(R.string.dsa12))) {
-                    return false;
-                }
-            } else {
-                if (!validatorClass.EmptyCheckBox(this, bi.dsa12, bi.dsa12b, getString(R.string.dsa12))) {
-                    return false;
-                }
-            }
-            if (!bi.dsa1298.isChecked()) {
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa13, bi.dsa13a, getString(R.string.dsa13))) {
-                    return false;
-                }
-            }
-            if (!bi.dsa14b.isChecked() && !bi.dsa1498.isChecked()) {
-                if (!validatorClass.EmptyTextBox(this, bi.dsa14a, getString(R.string.dsa14))) {
-                    return false;
-                }
-            } else {
-                if (!validatorClass.EmptyCheckBox(this, bi.dsa14, bi.dsa14b, getString(R.string.dsa14))) {
-                    return false;
-                }
-            }
-            if (!bi.dsa1498.isChecked()) {
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa15, bi.dsa15a, getString(R.string.dsa15))) {
-                    return false;
-                }
-            }
-            if (!bi.dsa16b.isChecked() && !bi.dsa1698.isChecked()) {
-                if (!validatorClass.EmptyTextBox(this, bi.dsa16a, getString(R.string.dsa16))) {
-                    return false;
-                }
-            } else {
-                if (!validatorClass.EmptyCheckBox(this, bi.dsa16, bi.dsa16b, getString(R.string.dsa16))) {
-                    return false;
-                }
-            }
-            if (!bi.dsa1698.isChecked()) {
-                if (!validatorClass.EmptyRadioButton(this, bi.dsa17, bi.dsa17a, getString(R.string.dsa17))) {
-                    return false;
-                }
             }
             if (!bi.dsa1899.isChecked()) {
                 if (!validatorClass.EmptyTextBox(this, bi.dsa18w, getString(R.string.dsa18))) {
@@ -586,10 +579,6 @@ public class PWAssessmentActivity extends AppCompatActivity {
                         return false;
                     }
                 }
-            } else {
-                if (validatorClass.EmptyCheckBox(this, bi.fldGrpPwdsa18, bi.dsa1899, getString(R.string.dsa18))) {
-                    return false;
-                }
             }
             if (!bi.dsa1999.isChecked()) {
                 if (!validatorClass.EmptyTextBox(this, bi.dsa19m, getString(R.string.dsa19))) {
@@ -603,13 +592,9 @@ public class PWAssessmentActivity extends AppCompatActivity {
                 } else {
                     bi.dsa19m.clearFocus();
                     bi.dsa19m.setError(null);
-                    if (!validatorClass.RangeTextBox(this, bi.dsa19m, 50.0, 60.0, getString(R.string.dsa19m), " cm")) {
+                    if (!validatorClass.RangeTextBox(this, bi.dsa19m, 15.0, 60.0, getString(R.string.dsa19m), " cm")) {
                         return false;
                     }
-                }
-            } else {
-                if (!validatorClass.EmptyCheckBox(this, bi.fldGrpPwdsa19, bi.dsa1999, getString(R.string.dsa19))) {
-                    return false;
                 }
             }
             if (!bi.dsa2099.isChecked()) {
@@ -625,13 +610,7 @@ public class PWAssessmentActivity extends AppCompatActivity {
                     bi.dsa20h.clearFocus();
                     bi.dsa20h.setError(null);
 
-                    if (!validatorClass.RangeTextBox(this, bi.dsa20h, 40.0, 140.0, getString(R.string.dsa20h), " cm")) {
-                        return false;
-                    }
-                }
-            } else {
-                if (!validatorClass.EmptyCheckBox(this, bi.fldGrpPwdsa20, bi.dsa2099, getString(R.string.dsa20))) {
-                    return false;
+                    return validatorClass.RangeTextBox(this, bi.dsa20h, 100.0, 200.0, getString(R.string.dsa20h), " cm");
                 }
             }
         }
@@ -642,9 +621,9 @@ public class PWAssessmentActivity extends AppCompatActivity {
     public void SaveDraft(boolean type) {
         try {
 
-            SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
+//            SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
-            MainApp.pw = new PWContract();
+         /*   MainApp.pw = new PWContract();
 
             MainApp.pw.setFormDate(dtToday);
             MainApp.pw.setUser(MainApp.userName);
@@ -652,9 +631,10 @@ public class PWAssessmentActivity extends AppCompatActivity {
                     Settings.Secure.ANDROID_ID));
             MainApp.pw.setDss_id_member(MainApp.fc.getDSSID().toUpperCase());
             MainApp.pw.setDevicetagID(sharedPref.getString("tagName", null));
+            MainApp.pw.setsvisitstatus(String.valueOf(MainApp.pw_visit_status));*/
 
             sPW = new JSONObject();
-
+/*
             sPW.put("prv_euid", followUpData.getEuid());
             sPW.put("prv_formdate", followUpData.getFormdate());
             sPW.put("prv_status", followUpData.getStatus());
@@ -667,7 +647,21 @@ public class PWAssessmentActivity extends AppCompatActivity {
             sPW.put("prv_status_date", followUpData.getStatus_date());
             sPW.put("prv_total_mem", followUpData.getTotalMem());
             sPW.put("prv_dss_id_m", followUpData.getDss_id_m());
-            sPW.put("prv_dss_id_h", followUpData.getDss_id_h());
+            sPW.put("prv_dss_id_h", followUpData.getDss_id_h());*/
+// Changed as per Hassan bhai directions
+            sPW.put("euid", followUpData.getEuid());
+            sPW.put("sur_visit_date", followUpData.getFormdate());
+            sPW.put("status", followUpData.getStatus());
+            sPW.put("status_date", followUpData.getStatus_date());
+            sPW.put("round", followUpData.getRound());
+//            sPW.put("prv_name", followUpData.getName());
+            sPW.put("prv_dss_id_member", followUpData.getDss_id_member());
+            sPW.put("hus_name", followUpData.getDss_id_hus());
+            sPW.put("lmp_date", followUpData.getLmp_dt());
+            sPW.put("total_mem", followUpData.getTotalMem());
+            sPW.put("dss_id_m", followUpData.getDss_id_m());
+            sPW.put("dss_id_hh", followUpData.getDss_id_h());
+            sPW.put("app_ver", MainApp.versionName + "." + MainApp.versionCode);
 
             if (type) {
                 MainApp.pw.setsPW(String.valueOf(sPW));
@@ -718,16 +712,16 @@ public class PWAssessmentActivity extends AppCompatActivity {
             sPW.put("dsa1096x", bi.dsa1096x.getText().toString());
             sPW.put("dsa11", bi.dsa11a.isChecked() ? "2" : bi.dsa11b.isChecked() ? "3" : bi.dsa11c.isChecked() ? "4" : bi.dsa1197.isChecked() ? "1" : "0");
             sPW.put("dsa12a", bi.dsa12a.getText().toString());
-            sPW.put("dsa12b", bi.dsa12b.isChecked() ? "2" : "0");
-            sPW.put("dsa1298", bi.dsa1298.isChecked() ? "98" : "0");
+            sPW.put("dsa12", bi.dsa12b.isChecked() ? "2" : bi.dsa1298.isChecked() ? "98" : "0");
+//            sPW.put("dsa1298", bi.dsa1298.isChecked() ? "98" : "0");
             sPW.put("dsa13", bi.dsa13a.isChecked() ? "2" : bi.dsa13b.isChecked() ? "3" : bi.dsa13c.isChecked() ? "4" : bi.dsa1397.isChecked() ? "1" : "0");
             sPW.put("dsa14a", bi.dsa14a.getText().toString());
-            sPW.put("dsa14b", bi.dsa14b.isChecked() ? "2" : "0");
-            sPW.put("dsa1498", bi.dsa1498.isChecked() ? "98" : "0");
+            sPW.put("dsa14", bi.dsa14b.isChecked() ? "2" : bi.dsa1498.isChecked() ? "98" : "0");
+//            sPW.put("dsa1498", bi.dsa1498.isChecked() ? "98" : "0");
             sPW.put("dsa15", bi.dsa15a.isChecked() ? "2" : bi.dsa15b.isChecked() ? "3" : bi.dsa15c.isChecked() ? "4" : bi.dsa1597.isChecked() ? "1" : "0");
             sPW.put("dsa16a", bi.dsa16a.getText().toString());
-            sPW.put("dsa16b", bi.dsa16b.isChecked() ? "2" : "0");
-            sPW.put("dsa1698", bi.dsa1698.isChecked() ? "98" : "0");
+            sPW.put("dsa16", bi.dsa16b.isChecked() ? "2" : bi.dsa1698.isChecked() ? "98" : "0");
+//            sPW.put("dsa1698", bi.dsa1698.isChecked() ? "98" : "0");
             sPW.put("dsa17", bi.dsa17a.isChecked() ? "2" : bi.dsa17b.isChecked() ? "3" : bi.dsa17c.isChecked() ? "4" : bi.dsa1797.isChecked() ? "1" : "0");
             sPW.put("dsa18", bi.dsa1899.isChecked() ? "99" : bi.dsa18w.getText().toString());
             sPW.put("dsa19", bi.dsa1999.isChecked() ? "99" : bi.dsa19m.getText().toString());
@@ -756,15 +750,9 @@ public class PWAssessmentActivity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         db = new DatabaseHelper(this);
-        Long updcount = db.addPWomen(MainApp.pw);
-        MainApp.pw.setID(String.valueOf(updcount));
-
+        int updcount = db.updatePWinfo();
         if (updcount != 0) {
-
-            MainApp.pw.setUID(
-                    (MainApp.pw.getDeviceId() + MainApp.pw.getID()));
-            db.updatePWID();
-
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();

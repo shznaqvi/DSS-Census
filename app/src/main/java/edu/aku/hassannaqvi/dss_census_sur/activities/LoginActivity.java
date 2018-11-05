@@ -212,9 +212,11 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             }
         });
 
+        //Clearing region variable
+        MainApp.regionDss = "";
+
 
 //        DB backup
-
         dbBackup();
     }
 

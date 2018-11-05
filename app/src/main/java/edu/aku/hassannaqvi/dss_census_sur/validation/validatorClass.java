@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -16,6 +17,7 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by ali.azaz on 12/04/17.
@@ -32,6 +34,7 @@ public abstract class validatorClass {
             return false;
         } else {
             txt.setError(null);
+            txt.clearFocus();
             return true;
         }
     }
@@ -203,19 +206,11 @@ public abstract class validatorClass {
     public static boolean EmptyRadioButton(Context context, RadioGroup rdGrp, final RadioButton rdBtn, EditText txt, final String msg) {
         if (rdGrp.getCheckedRadioButtonId() == -1) {
 
-            final LinearLayout linearLayout = (LinearLayout) rdGrp.getParent();
-            final ScrollView scrollView = (ScrollView) linearLayout.getParent();
-
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    int ypos = findYPositionInView(scrollView, rdBtn, 0);
-                    scrollView.smoothScrollTo(0, ypos);
-
-                    rdBtn.setError("This data is Required!");
-                }
-            }, 200);
-
+            Toast.makeText(context, "ERROR(empty): " + msg, Toast.LENGTH_SHORT).show();
+            rdBtn.setError("This data is Required!");    // Set Error on last radio button
+            rdBtn.setFocusable(true);
+            rdBtn.setFocusableInTouchMode(true);
+            rdBtn.requestFocus();
             Log.i(context.getClass().getName(), context.getResources().getResourceEntryName(rdGrp.getId()) + ": This data is Required!");
             return false;
         } else {
@@ -311,6 +306,20 @@ public abstract class validatorClass {
 
             }
         }
+
+    }
+
+    public static void setScrollViewFocus(ScrollView scrollView) {
+        scrollView.setDescendantFocusability(ViewGroup.FOCUS_BEFORE_DESCENDANTS);
+        scrollView.setFocusable(true);
+        scrollView.setFocusableInTouchMode(true);
+        scrollView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                v.requestFocusFromTouch();
+                return false;
+            }
+        });
 
     }
 }

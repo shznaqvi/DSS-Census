@@ -21,6 +21,7 @@
     <string name="dcstatus"> انٹریو کا نتیجہ</string>
     <string name="complete"> مکمل</string>
     <string name="incomplete">نا مکمل</string>
+    <string name="doorlocked">گھر لاک ہے</string>
     <!-- String related to section headings -->
     <string name="secALabel">HH Identification and Visit Status</string>
     <string name="sec2A"> سیکشن 2A: بنیادی معلومات </string>
@@ -123,6 +124,7 @@
     <string name="dca1102"> مشترکہ </string>
     <string name="dcba"> گھر کے فرد کا نام </string>
     <string name="dcbid"> شناختی نمبر </string>
+    <string name="edt_dcbid"> شناختی نمبر میں غلطی کا موقف </string>
     <string name="dcbb"> رشتے کی شناخت </string>
     <string name="dcbbrhh"> گھر کے سربراہ سے رشتہ </string>
     <string name="dcbbrhh01"> سربراہ </string>
@@ -821,6 +823,8 @@
     <string name="dnb12d"> دائ </string>
     <string name="dnb12e"> رشتہ دار </string>
     <string name="dnb13"> بچے کا وزن </string>
+  <string name="dnb29"> بچے کی لمبا ٰیٗ </string>
+  <string name="dnb30"> بچے کی اوپری بازو کی گولایٗ </string>
     <string name="dnb14"> سانس کی رفتار </string>
     <string name="dnb14m"> سانس/ منٹ </string>
     <string name="dnb15"> پسلیوں کا تیز چلنا </string>
@@ -993,6 +997,7 @@
 
 
     <string name="gramurdu">گرام </string>
+  <string name="centurdu"> سینٹی میٹر </string>
 
     <string name="dcdr20"> Cause of Death </string>
     <string name="dcdr21"> Did Interviewer inform verbal autopsy team? </string>

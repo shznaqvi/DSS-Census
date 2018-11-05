@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.format.DateFormat;
 
+import org.json.JSONObject;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -79,6 +81,7 @@ public class MainApp extends Application {
     public static StillBirthContract sb;
     public static String userName = "0000";
     public static String areaCode;
+    public static JSONObject pw_visit_status;
     //    Total No of members got from Section A
     public static int NoMembersCount = 0;
     public static int NoMaleCount = 0;
