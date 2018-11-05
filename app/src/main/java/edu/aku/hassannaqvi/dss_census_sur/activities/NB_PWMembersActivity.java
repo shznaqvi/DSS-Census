@@ -87,6 +87,8 @@ public class NB_PWMembersActivity extends AppCompatActivity {
 
                             if (flag) {
 
+                                finish();
+
                                 if (type == 1) {
                                    /* startActivity(new Intent(getApplicationContext(), PWAssessmentActivity.class)
                                             .putExtra("position", position)

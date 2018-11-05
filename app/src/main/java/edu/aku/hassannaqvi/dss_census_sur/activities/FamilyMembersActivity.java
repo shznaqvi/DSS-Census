@@ -89,6 +89,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
                             if (flag) {
 
+                                finish();
                                 startActivity(new Intent(getApplicationContext(), SectionBNewPrevActivity.class)
                                         .putExtra("followUpData", SectionAActivity.fp)
                                         .putExtra("dataFlag", true).putExtra("position", position));
