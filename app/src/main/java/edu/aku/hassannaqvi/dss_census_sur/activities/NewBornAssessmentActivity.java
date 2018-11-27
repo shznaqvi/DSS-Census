@@ -48,6 +48,7 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         setContentsUI();
         setFollowUpData();
 
+
     }
 
     public void setContentsUI() {
@@ -58,7 +59,56 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         bi.dnb10.setManager(getSupportFragmentManager());
         bi.dnb07.setMaxDate(new SimpleDateFormat("dd/MM/yyyy").format(System.currentTimeMillis()));
         bi.dnb09.setMaxDate(new SimpleDateFormat("dd/MM/yyyy").format(System.currentTimeMillis()));
+        bi.nblr.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.nblr01 || checkedId == R.id.nblr05) {
+                    bi.fldGrpnblr.setVisibility(View.VISIBLE);
+                } else {
+                    bi.fldGrpnblr.setVisibility(View.GONE);
 
+//                    bi.dcbid.setText(null);
+                    bi.dstudyid.setText(null);
+//                    bi.dnb03.setText(null);
+//                    bi.dnb04.clearCheck();
+//                    bi.dnb05.setText(null);
+                    bi.dnb06.setText(null);
+                    bi.dnbStatus.clearCheck();
+                    bi.dnb11.clearCheck();
+                    bi.dnb12.clearCheck();
+                    bi.dnb1296x.setText(null);
+                    bi.dnb13.setText(null);
+                    bi.dnb29.setText(null);
+                    bi.dnb30.setText(null);
+                    bi.dnb1401.setText(null);
+                    bi.dnb1402.setText(null);
+                    bi.dnb15.clearCheck();
+
+                    bi.dnb1601.setText(null);
+                    bi.dnb1602.setText(null);
+                    bi.dnb17.clearCheck();
+                    bi.dnb18.clearCheck();
+                    bi.dnb19.clearCheck();
+                    bi.dnb1901a.clearCheck();
+                    bi.dnb1901b.clearCheck();
+                    bi.dnb1902a.clearCheck();
+                    bi.dnb1902b.clearCheck();
+                    bi.dnb20.clearCheck();
+                    bi.dnb21.clearCheck();
+                    bi.dnb22.clearCheck();
+                    bi.dnb23.clearCheck();
+                    bi.dnb23x.setText(null);
+                    bi.dnb24.clearCheck();
+                    bi.dnb24x.setText(null);
+                    bi.dnb25.clearCheck();
+                    bi.dnb25x.setText(null);
+                    bi.dnb26.clearCheck();
+                    bi.dnb26x.setText(null);
+                    bi.dnb27.clearCheck();
+                    bi.dnb28.setText(null);
+                }
+            }
+        });
         bi.dnbStatus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -115,44 +165,45 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
     }
 
     public void BtnEnd() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                NewBornAssessmentActivity.this);
-        alertDialogBuilder
-                .setMessage("Are you sure to end this section?")
-                .setCancelable(false)
-                .setPositiveButton("Yes",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog,
-                                                int id) {
+        if (!validatorClass.EmptyRadioButton(this, bi.nblr, bi.nblr01, getString(R.string.nblr))) {
 
-                                try {
-                                    SaveDraft(true);
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
+        } else {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    NewBornAssessmentActivity.this);
+            alertDialogBuilder
+                    .setMessage("Are you sure to end this section?")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,
+                                                    int id) {
+                                    try {
+                                        SaveDraft(true);
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                    if (UpdateDB()) {
+
+                                        MainApp.memClicked.add(getIntent().getIntExtra("position", -1));
+                                        EventsListActivity.memFlag++;
+
+                                        finish();
+                                        startActivity(new Intent(getApplicationContext(), NB_EndingActivity.class).putExtra("check", false));
+
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-
-                                if (UpdateDB()) {
-
-                                    MainApp.memClicked.add(getIntent().getIntExtra("position", -1));
-                                    EventsListActivity.memFlag++;
-
-                                    finish();
-                                    startActivity(new Intent(getApplicationContext(), NB_EndingActivity.class).putExtra("check", false));
-
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-                                }
-
-                            }
-                        });
-        alertDialogBuilder.setNegativeButton("No",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alert = alertDialogBuilder.create();
-        alert.show();
+                            });
+            alertDialogBuilder.setNegativeButton("No",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = alertDialogBuilder.create();
+            alert.show();
+        }
 
     }
 
@@ -181,20 +232,25 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
 
     public boolean formValidation() {
         Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
-        if (!validatorClass.EmptyTextBox(this, bi.dnb03, getString(R.string.dnb03))) {
+        if (!validatorClass.EmptyRadioButton(this, bi.nblr, bi.nblr01, getString(R.string.nblr))) {
             return false;
         }
-        if (!validatorClass.EmptyRadioButton(this, bi.dnb04, bi.dnb04a, getString(R.string.dnb04))) {
-            return false;
-        }
+        if (bi.nblr01.isChecked() || bi.nblr05.isChecked()) {
+
+            if (!validatorClass.EmptyTextBox(this, bi.dnb03, getString(R.string.dnb03))) {
+                return false;
+            }
+            if (!validatorClass.EmptyRadioButton(this, bi.dnb04, bi.dnb04a, getString(R.string.dnb04))) {
+                return false;
+            }
 
         /*if (!validatorClass.EmptyTextBox(this, bi.dnb06, getString(R.string.dnb06))) {
             return false;
         }*/
-        if (!validatorClass.EmptyRadioButton(this, bi.dnbStatus, bi.dnbStatusa, getString(R.string.dnbStatus))) {
-            return false;
-        }
-        if (bi.dnbStatusa.isChecked()) {
+            if (!validatorClass.EmptyRadioButton(this, bi.dnbStatus, bi.dnbStatusa, getString(R.string.dnbStatus))) {
+                return false;
+            }
+            if (bi.dnbStatusa.isChecked()) {
 
        /*     if (followUpData.getRound().equals("1")) {
 
@@ -218,155 +274,156 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
 
             }
 */
-            if (!validatorClass.EmptyTextBox(this, bi.dnb13, getString(R.string.dnb13))) {
-                return false;
-            }
-            if (!bi.dnb13.getText().toString().matches("^(\\d{1,2}\\.\\d{1,2})$")) {
-                Toast.makeText(this, "ERROR(invalid): " + "Please type the correct format" + getString(R.string.dnb13), Toast.LENGTH_LONG).show();
-                bi.dnb13.setError("Please type correct format (XX.XX)");
-                return false;
-            } else {
-                bi.dnb13.setError(null);
-            }
-            if (!validatorClass.RangeTextBox(this, bi.dnb13, 0.5, 40d, getString(R.string.dnb13), " Weight")) {
-                return false;
-            }
-
-            if (!validatorClass.EmptyTextBox(this, bi.dnb29, getString(R.string.dnb29))) {
-                return false;
-            }
-            if (!bi.dnb29.getText().toString().matches("^(\\d{2,3}\\.\\d{1,2})$")) {
-                Toast.makeText(this, "ERROR(invalid): " + "Please type the correct format" + getString(R.string.dnb29), Toast.LENGTH_LONG).show();
-                bi.dnb29.setError("Please type correct format (XXX.XX)");
-                return false;
-            } else {
-                bi.dnb29.setError(null);
-            }
-            if (!validatorClass.RangeTextBox(this, bi.dnb29, 10d, 140d, getString(R.string.dnb29), " Height")) {
-                return false;
-            }
-
-            if (!validatorClass.EmptyTextBox(this, bi.dnb30, getString(R.string.dnb30))) {
-                return false;
-            }
-            if (!bi.dnb30.getText().toString().matches("^(\\d{1,2}\\.\\d{1,2})$")) {
-                Toast.makeText(this, "ERROR(invalid): " + "Please type the correct format" + getString(R.string.dnb30), Toast.LENGTH_LONG).show();
-                bi.dnb30.setError("Please type correct format (XX.XX)");
-                return false;
-            } else {
-                bi.dnb30.setError(null);
-            }
-            if (!validatorClass.RangeTextBox(this, bi.dnb30, 5d, 25d, getString(R.string.dnb30), " MAUC")) {
-                return false;
-            }
-
-            if (!validatorClass.EmptyTextBox(this, bi.dnb1401, getString(R.string.dnb14m))) {
-                return false;
-            }
-            if (!validatorClass.EmptyTextBox(this, bi.dnb1402, getString(R.string.dnb14m))) {
-                return false;
-            }
-            if (!validatorClass.RangeTextBox(this, bi.dnb1401, 30, 100, getString(R.string.dnb14m), " rr")) {
-                return false;
-            }
-
-            if (!validatorClass.RangeTextBox(this, bi.dnb1402, 30, 100, getString(R.string.dnb14m), " rr")) {
-                return false;
-            }
-
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb15, bi.dnb15b, getString(R.string.dnb15))) {
-                return false;
-            }
-            if (!validatorClass.EmptyTextBox(this, bi.dnb1601, "C")) {
-                return false;
-            }
-
-            if (!bi.dnb1601.getText().toString().matches("\\d+(\\.\\d+)*")) {
-                Toast.makeText(this, "Please enter correct decimal value!", Toast.LENGTH_SHORT).show();
-                bi.dnb1601.requestFocus();
-                bi.dnb1601.setError("Please enter correct decimal value!");
-                return false;
-            } else {
-                bi.dnb1601.clearFocus();
-                bi.dnb1601.setError(null);
-                if (!validatorClass.RangeTextBox(this, bi.dnb1601, 30.0, 40.9, getString(R.string.dnb15), " C")) {
+                if (!validatorClass.EmptyTextBox(this, bi.dnb13, getString(R.string.dnb13))) {
                     return false;
                 }
-            }
-            if (!validatorClass.EmptyTextBox(this, bi.dnb1602, "C")) {
-                return false;
-            }
-            if (!bi.dnb1602.getText().toString().matches("\\d+(\\.\\d+)*")) {
-                Toast.makeText(this, "Please enter correct decimal value!", Toast.LENGTH_SHORT).show();
-                bi.dnb1602.requestFocus();
-                bi.dnb1602.setError("Please enter correct decimal value!");
-                return false;
+                if (!bi.dnb13.getText().toString().matches("^(\\d{1,2}\\.\\d{1,2})$")) {
+                    Toast.makeText(this, "ERROR(invalid): " + "Please type the correct format" + getString(R.string.dnb13), Toast.LENGTH_LONG).show();
+                    bi.dnb13.setError("Please type correct format (XX.XX)");
+                    return false;
+                } else {
+                    bi.dnb13.setError(null);
+                }
+                if (!validatorClass.RangeTextBox(this, bi.dnb13, 0.5, 40d, getString(R.string.dnb13), " Weight")) {
+                    return false;
+                }
+
+                if (!validatorClass.EmptyTextBox(this, bi.dnb29, getString(R.string.dnb29))) {
+                    return false;
+                }
+                if (!bi.dnb29.getText().toString().matches("^(\\d{2,3}\\.\\d{1,2})$")) {
+                    Toast.makeText(this, "ERROR(invalid): " + "Please type the correct format" + getString(R.string.dnb29), Toast.LENGTH_LONG).show();
+                    bi.dnb29.setError("Please type correct format (XXX.XX)");
+                    return false;
+                } else {
+                    bi.dnb29.setError(null);
+                }
+                if (!validatorClass.RangeTextBox(this, bi.dnb29, 10d, 140d, getString(R.string.dnb29), " Height")) {
+                    return false;
+                }
+
+                if (!validatorClass.EmptyTextBox(this, bi.dnb30, getString(R.string.dnb30))) {
+                    return false;
+                }
+                if (!bi.dnb30.getText().toString().matches("^(\\d{1,2}\\.\\d{1,2})$")) {
+                    Toast.makeText(this, "ERROR(invalid): " + "Please type the correct format" + getString(R.string.dnb30), Toast.LENGTH_LONG).show();
+                    bi.dnb30.setError("Please type correct format (XX.XX)");
+                    return false;
+                } else {
+                    bi.dnb30.setError(null);
+                }
+                if (!validatorClass.RangeTextBox(this, bi.dnb30, 5d, 25d, getString(R.string.dnb30), " MAUC")) {
+                    return false;
+                }
+
+                if (!validatorClass.EmptyTextBox(this, bi.dnb1401, getString(R.string.dnb14m))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyTextBox(this, bi.dnb1402, getString(R.string.dnb14m))) {
+                    return false;
+                }
+                if (!validatorClass.RangeTextBox(this, bi.dnb1401, 30, 100, getString(R.string.dnb14m), " rr")) {
+                    return false;
+                }
+
+                if (!validatorClass.RangeTextBox(this, bi.dnb1402, 30, 100, getString(R.string.dnb14m), " rr")) {
+                    return false;
+                }
+
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb15, bi.dnb15b, getString(R.string.dnb15))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyTextBox(this, bi.dnb1601, "C")) {
+                    return false;
+                }
+
+                if (!bi.dnb1601.getText().toString().matches("\\d+(\\.\\d+)*")) {
+                    Toast.makeText(this, "Please enter correct decimal value!", Toast.LENGTH_SHORT).show();
+                    bi.dnb1601.requestFocus();
+                    bi.dnb1601.setError("Please enter correct decimal value!");
+                    return false;
+                } else {
+                    bi.dnb1601.clearFocus();
+                    bi.dnb1601.setError(null);
+                    if (!validatorClass.RangeTextBox(this, bi.dnb1601, 30.0, 40.9, getString(R.string.dnb15), " C")) {
+                        return false;
+                    }
+                }
+                if (!validatorClass.EmptyTextBox(this, bi.dnb1602, "C")) {
+                    return false;
+                }
+                if (!bi.dnb1602.getText().toString().matches("\\d+(\\.\\d+)*")) {
+                    Toast.makeText(this, "Please enter correct decimal value!", Toast.LENGTH_SHORT).show();
+                    bi.dnb1602.requestFocus();
+                    bi.dnb1602.setError("Please enter correct decimal value!");
+                    return false;
+                } else {
+                    bi.dnb1602.clearFocus();
+                    bi.dnb1602.setError(null);
+                    if (!validatorClass.RangeTextBox(this, bi.dnb1602, 30.0, 40.9, getString(R.string.dnb15), " C")) {
+                        return false;
+                    }
+                }
+
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb17, bi.dnb17c, getString(R.string.dnb17))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb18, bi.dnb18c, getString(R.string.dnb18))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb19, bi.dnb19b, getString(R.string.dnb19))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb1901a, bi.dnb1901ab, getString(R.string.dnb1901a))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb1901b, bi.dnb1901bb, getString(R.string.dnb1901b))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb1902a, bi.dnb1902ab, getString(R.string.dnb1902a))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb1902b, bi.dnb1902bb, getString(R.string.dnb1902b))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb20, bi.dnb20b, getString(R.string.dnb20))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb21, bi.dnb21b, getString(R.string.dnb21))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb22, bi.dnb22b, getString(R.string.dnb22))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb23, bi.dnb23a, bi.dnb23x, getString(R.string.dnb23))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb24, bi.dnb24a, bi.dnb24x, getString(R.string.dnb24))) {
+                    return false;
+                }
+                if (!validatorClass.EmptyRadioButton(this, bi.dnb25, bi.dnb25a, bi.dnb25x, getString(R.string.dnb25))) {
+                    return false;
+                }
+
+                if (bi.dnb25a.isChecked()) {
+                    if (!validatorClass.EmptyRadioButton(this, bi.dnb26, bi.dnb26b, bi.dnb26x, getString(R.string.dnb26))) {
+                        return false;
+                    }
+                    if (!validatorClass.EmptyRadioButton(this, bi.dnb27, bi.dnb27b, getString(R.string.dnb27))) {
+                        return false;
+                    }
+                    if (bi.dnb27b.isChecked()) {
+                        return validatorClass.EmptyTextBox(this, bi.dnb28, getString(R.string.dnb28));
+                    }
+                }
+
             } else {
-                bi.dnb1602.clearFocus();
-                bi.dnb1602.setError(null);
-                if (!validatorClass.RangeTextBox(this, bi.dnb1602, 30.0, 40.9, getString(R.string.dnb15), " C")) {
+                if (!validatorClass.EmptyTextBox(this, bi.dnb07, getString(R.string.dnb07))) {
                     return false;
                 }
-            }
 
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb17, bi.dnb17c, getString(R.string.dnb17))) {
-                return false;
+                return validatorClass.EmptyTextBox(this, bi.dnb08, getString(R.string.dnb08));
             }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb18, bi.dnb18c, getString(R.string.dnb18))) {
-                return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb19, bi.dnb19b, getString(R.string.dnb19))) {
-                return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb1901a, bi.dnb1901ab, getString(R.string.dnb1901a))) {
-                return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb1901b, bi.dnb1901bb, getString(R.string.dnb1901b))) {
-                return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb1902a, bi.dnb1902ab, getString(R.string.dnb1902a))) {
-                return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb1902b, bi.dnb1902bb, getString(R.string.dnb1902b))) {
-                return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb20, bi.dnb20b, getString(R.string.dnb20))) {
-                return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb21, bi.dnb21b, getString(R.string.dnb21))) {
-                return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb22, bi.dnb22b, getString(R.string.dnb22))) {
-                return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb23, bi.dnb23a, bi.dnb23x, getString(R.string.dnb23))) {
-                return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb24, bi.dnb24a, bi.dnb24x, getString(R.string.dnb24))) {
-                return false;
-            }
-            if (!validatorClass.EmptyRadioButton(this, bi.dnb25, bi.dnb25a, bi.dnb25x, getString(R.string.dnb25))) {
-                return false;
-            }
-
-            if (bi.dnb25a.isChecked()) {
-                if (!validatorClass.EmptyRadioButton(this, bi.dnb26, bi.dnb26b, bi.dnb26x, getString(R.string.dnb26))) {
-                    return false;
-                }
-                if (!validatorClass.EmptyRadioButton(this, bi.dnb27, bi.dnb27b, getString(R.string.dnb27))) {
-                    return false;
-                }
-                if (bi.dnb27b.isChecked()) {
-                    return validatorClass.EmptyTextBox(this, bi.dnb28, getString(R.string.dnb28));
-                }
-            }
-
-        } else {
-            if (!validatorClass.EmptyTextBox(this, bi.dnb07, getString(R.string.dnb07))) {
-                return false;
-            }
-
-            return validatorClass.EmptyTextBox(this, bi.dnb08, getString(R.string.dnb08));
         }
 
         return true;
@@ -396,6 +453,11 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
         sNB.put("prv_round", followUpData.getRound());
         */
 //        changed according to hassan bhai directions
+
+
+        /*new Born Lock Refusal*/
+        sNB.put("nblr", bi.nblr01.isChecked() ? "1" : bi.nblr02.isChecked() ? "2" : bi.nblr03.isChecked() ? "3" : bi.nblr04.isChecked() ? "4" : bi.nblr05.isChecked() ? "5" : "0");
+
         sNB.put("euid", followUpData.getEuid());
         sNB.put("sur_visit_date", followUpData.getFormdate());
         sNB.put("status", followUpData.getStatus());
