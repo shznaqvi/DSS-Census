@@ -672,6 +672,17 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
             } else {
                 edtDcbid.setError(null);
             }
+
+            if (!edtDcbid.getText().toString().matches("[^0-9]{4,4}[0-9]{5,5}-[^0-9]{1,2}[0-9]{1,2}")) {
+                Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.edt_dcbid), Toast.LENGTH_SHORT).show();
+                edtDcbid.setError("Wrong format!!");    // Set Error on last radio button
+                edtDcbid.requestFocus();
+                Log.i(TAG, this.getResources().getResourceEntryName(edtDcbid.getId()) + ": Wrong format!!");
+                return false;
+            } else {
+                edtDcbid.setError(null);
+                return true;
+            }
         }
 
         // ============== Status ===================

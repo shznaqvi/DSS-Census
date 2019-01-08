@@ -132,9 +132,10 @@
                     android:id="@+id/edt_dcbid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 "
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-"
                     android:hint="@string/edt_dcbid"
-                    android:maxLength="50"
+                    android:inputType="textCapCharacters"
+                    android:maxLength="14"
                     android:visibility="gone" />
 
                 <TextView
@@ -370,8 +371,8 @@
                             android:id="@+id/dcbis05Cause"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="3dp"
                             android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
                             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                             android:hint="@string/dcbis05Cause"
                             android:maxLength="35" />
@@ -442,8 +443,8 @@
                             android:id="@+id/dcbis09bdt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="2dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:layout_weight="1"
                             android:focusable="false"
                             android:hint="DD/MM/YYYY"

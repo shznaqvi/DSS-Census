@@ -37,7 +37,7 @@
                 android:layout_weight="3"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-"
                 android:hint="@string/hhno"
-                android:inputType="text"
+                android:inputType="textCapCharacters"
                 android:maxLength="9" />
 
             <Button
@@ -45,8 +45,8 @@
                 style="@style/buttons"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="2dp"
                 android:layout_marginStart="5dp"
+                android:layout_marginEnd="2dp"
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
                 android:elevation="2dp"
@@ -60,8 +60,8 @@
             android:id="@+id/fldGrpMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <LinearLayout
                 android:id="@+id/fldGrpHHExists"
