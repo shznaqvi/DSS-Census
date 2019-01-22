@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 public class PWContract {
 
-    private final String projectName = "DSS Census";
+    private final String projectName = "DSS Surveillance";
     private String ID;
     private String UID;
     private String UUID;

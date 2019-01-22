@@ -200,7 +200,10 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 //        For child under 2 name enable true. And for under 10 MStatus not enabled
         int calculateYears = 0;
         if (mt.equals("c") || mt.equals("ot")) {
+            Log.d(TAG, "onCreate: " + MainApp.familyMembersList.get(position).getDob() != "" ? MainApp.familyMembersList.get(position).getDob() : "NO DOB");
             if (MainApp.familyMembersList.get(position).getDob().contains(":")) {
+                Log.d(TAG, "onCreate: " + MainApp.familyMembersList.get(position).getDob() != "" ? MainApp.familyMembersList.get(position).getDob() : "NO DOB");
+
                 String[] splitAge = MainApp.familyMembersList.get(position).getDob().split(":");
                 calculateYears = Integer.valueOf(splitAge[0]);
             } else {

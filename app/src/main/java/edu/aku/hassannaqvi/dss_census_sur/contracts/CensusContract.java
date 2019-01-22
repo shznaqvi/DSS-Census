@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 public class CensusContract implements Serializable {
 
-    private final String projectName = "DSS Census";
+    private final String projectName = "DSS Surveillance";
     private String _ID = "";
     private String REF_ID = "";
     private String _UID = "";
