@@ -446,7 +446,7 @@ public class MainActivity extends Activity {
                     db.getUnsyncedNewBorn()
             ).execute();
 
-            Toast.makeText(getApplicationContext(), "Syncing PW", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Syncing PW", Toast.LENGTH_SHORT).show();
             new SyncAllData(
                     this,
                     "PW",

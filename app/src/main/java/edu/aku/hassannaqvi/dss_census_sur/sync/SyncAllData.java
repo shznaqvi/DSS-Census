@@ -81,7 +81,7 @@ public class SyncAllData extends AsyncTask<Void, Void, String> {
             HttpURLConnection connection = null;
             try {
                 String request = url;
-
+                Log.d(TAG, "downloadUrl: " + url);
                 URL url = new URL(request);
                 connection = (HttpURLConnection) url.openConnection();
                 connection.connect();
@@ -164,12 +164,14 @@ public class SyncAllData extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
+        Log.d(TAG, "onPostExecute: " + result);
         super.onPostExecute(result);
         int sSynced = 0;
         int sDuplicate = 0;
         String sSyncedError = "";
         JSONArray json = null;
         try {
+
             json = new JSONArray(result);
 
             DatabaseHelper db = new DatabaseHelper(mContext); // Database Helper
@@ -210,7 +212,7 @@ public class SyncAllData extends AsyncTask<Void, Void, String> {
             pd.show();
             //syncStatus.setText(syncStatus.getText() + "\r\nDone uploading +" + syncClass + " data");
 
-        } catch (JSONException e) {
+        } catch (JSONException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
             Toast.makeText(mContext, "Failed Sync " + result, Toast.LENGTH_SHORT).show();
 
@@ -218,10 +220,6 @@ public class SyncAllData extends AsyncTask<Void, Void, String> {
             pd.setTitle(syncClass + " Sync Failed");
             pd.show();
             //syncStatus.setText(syncStatus.getText() + "\r\n" + syncClass + " Sync Failed");
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
         }
     }
 }
