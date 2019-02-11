@@ -208,6 +208,13 @@
                         android:layout_marginBottom="1dp"
                         android:text="@string/dcbis11" />
 
+                    <RadioButton
+                        android:id="@+id/dcbis08"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:text="@string/dcbis08" />
+
                 </RadioGroup>
 
                 <LinearLayout
@@ -276,7 +283,6 @@
                         android:text="@string/dcbidt"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@color/colorPrimaryDark" />
-
 
                     <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
                         android:id="@+id/dcbidob"
@@ -465,36 +471,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
                             android:background="@color/pink_100"
-                            android:text="@string/dcbis09ca"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:textColor="@color/colorPrimaryDark" />
-
-                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
-                            android:id="@+id/dcbis04Outdt"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:focusable="false"
-                            android:hint="DD/MM/YYYY"
-                            android:textColor="@android:color/black"
-                            app:dateFormat="dd-MM-yyyy" />
-
-                        <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
-                            android:id="@+id/dcbis04Outtime"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="2dp"
-                            android:focusable="false"
-                            android:hint="HH:MM"
-                            android:textColor="@android:color/black"
-                            app:is24HourView="true"
-                            app:timeFormat="HH:mm" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:background="@color/pink_100"
                             android:text="@string/dcbis0901"
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:textColor="@color/colorPrimaryDark" />
@@ -527,6 +503,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/dcbis04Outd" />
+
+                            <RadioButton
+                                android:id="@+id/dcbis04Oute"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/dcbis04Oute" />
 
                         </RadioGroup>
 
@@ -591,6 +573,46 @@
                                 android:hint="@string/dcbis09dc"
                                 android:inputType="number"
                                 android:maxLength="2" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/fldGrpdcbidt0202"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone"
+                            tools:visibility="visible">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:background="@color/pink_100"
+                                android:text="@string/dcbis09ca"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:textColor="@color/colorPrimaryDark" />
+
+                            <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
+                                android:id="@+id/dcbis04Outdt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:focusable="false"
+                                android:hint="DD/MM/YYYY"
+                                android:textColor="@android:color/black"
+                                app:dateFormat="dd-MM-yyyy" />
+
+                            <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
+                                android:id="@+id/dcbis04Outtime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:focusable="false"
+                                android:hint="HH:MM"
+                                android:textColor="@android:color/black"
+                                app:is24HourView="true"
+                                app:timeFormat="HH:mm" />
 
                         </LinearLayout>
 

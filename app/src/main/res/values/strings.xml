@@ -226,6 +226,7 @@
     <string name="dcbis04Outb"> Still Birth </string>
     <string name="dcbis04Outc"> Live Birth </string>
     <string name="dcbis04Outd"> Multiple Birth </string>
+  <string name="dcbis04Oute"> False Pregnancy </string>
     <string name="dcbis09d01"> Birth Info </string>
     <string name="dcbis09da"> Total Birth </string>
     <string name="dcbis09db"> Still Birth </string>

@@ -67,6 +67,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
     RadioButton dcbis06;
     @BindView(R.id.dcbis07)
     RadioButton dcbis07;
+    @BindView(R.id.dcbis08)
+    RadioButton dcbis08;
 
     @BindView(R.id.fldGrpdcbis05)
     LinearLayout fldGrpdcbis05;
@@ -109,6 +111,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
     RadioButton dcbis04Outc;
     @BindView(R.id.dcbis04Outd)
     RadioButton dcbis04Outd;
+    @BindView(R.id.dcbis04Oute)
+    RadioButton dcbis04Oute;
     @BindView(R.id.dcbis01Out)
     RadioGroup dcbis01Out;
     @BindView(R.id.dcbis01Outa)
@@ -122,6 +126,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
     @BindView(R.id.fldGrpdcbidt0201)
     LinearLayout fldGrpdcbidt0201;
+    @BindView(R.id.fldGrpdcbidt0202)
+    LinearLayout fldGrpdcbidt0202;
     @BindView(R.id.dcbis04Outda)
     EditText dcbis04Outda;
     @BindView(R.id.dcbis04Outdb)
@@ -195,6 +201,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 //        dcbis01.setEnabled(mt.equals("c") ? false : true);
         dcbis02.setEnabled(!mt.equals("h") && !mt.equals("c"));
         dcbis04.setEnabled(!mt.equals("h") && !mt.equals("c"));
+        dcbis08.setEnabled(!mt.equals("h") && !mt.equals("c") && !MainApp.familyMembersList.get(position).getGender().equals("1"));
         dcbis01Outa.setEnabled(!(mt.equals("mw") || mt.equals("h")));
 
 //        For child under 2 name enable true. And for under 10 MStatus not enabled
@@ -215,7 +222,6 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                 dcba.setEnabled(true);
             }
             dcbis01.setEnabled(calculateYears >= 10);
-
         }
 
         dcbis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -310,6 +316,10 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
                     fldGrpdcbis05.setVisibility(View.GONE);
 
+                } else if (dcbis08.isChecked()) {
+                    fldGrpdcbidt01.setVisibility(View.GONE);
+
+                    fldGrpdcbidt.setVisibility(View.GONE);
                 }
             }
         });
@@ -319,11 +329,25 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (i == R.id.dcbis04Outd) {
                     fldGrpdcbidt0201.setVisibility(View.VISIBLE);
+
+                    fldGrpdcbidt0202.setVisibility(View.VISIBLE);
+
+                } else if (i == R.id.dcbis04Oute) {
+                    fldGrpdcbidt0202.setVisibility(View.GONE);
+                    dcbis04Outdt.setText(null);
+                    dcbis04Outtime.setText(null);
+
+                    fldGrpdcbidt0201.setVisibility(View.GONE);
+                    dcbis04Outda.setText(null);
+                    dcbis04Outdb.setText(null);
+                    dcbis04Outdc.setText(null);
                 } else {
                     fldGrpdcbidt0201.setVisibility(View.GONE);
                     dcbis04Outda.setText(null);
                     dcbis04Outdb.setText(null);
                     dcbis04Outdc.setText(null);
+
+                    fldGrpdcbidt0202.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -564,7 +588,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                     sC.put("current_status_out_time", dcbis04Outtime.getText().toString());
 
                     MainApp.cc.setCurrent_statusOutcome(dcbis04Outa.isChecked() ? "1" : dcbis04Outb.isChecked() ? "2" : dcbis04Outc.isChecked() ? "3"
-                            : dcbis04Outd.isChecked() ? "4" : "0");
+                            : dcbis04Outd.isChecked() ? "4" : dcbis04Oute.isChecked() ? "5" : "0");
 
                     if (dcbis04Outd.isChecked()) {
                         sC.put("current_status_out_a", dcbis04Outda.getText().toString());
@@ -702,7 +726,6 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         }
 
         if (dcbis01.isChecked()) {
-
             //Marital status
             if (dcbis01Out.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis07d), Toast.LENGTH_SHORT).show();
@@ -713,11 +736,13 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
             } else {
                 dcbis01Outd.setError(null);
             }
-
+        }
+        if (dcbis01.isChecked() || dcbis08.isChecked()) {
             // Married female
-            if (!dcbis01Outa.isChecked() &&
+            if ((!dcbis01Outa.isChecked() || dcbis08.isChecked()) &&
                     !(MainApp.familyMembersList.get(position).getMember_type().equals("h") ||
-                            MainApp.familyMembersList.get(position).getMember_type().equals("c") || MainApp.familyMembersList.get(position).getGender().equals("1"))) {
+                            MainApp.familyMembersList.get(position).getMember_type().equals("c")
+                            || MainApp.familyMembersList.get(position).getGender().equals("1"))) {
 
                 if (dcbis09.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis09), Toast.LENGTH_SHORT).show();
@@ -734,13 +759,6 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                 }
 
                 if (dcbis09c.isChecked()) {
-
-                    if (!validatorClass.EmptyTextBox(this, dcbis04Outdt, getString(R.string.date))) {
-                        return false;
-                    }
-                    if (!validatorClass.EmptyTextBox(this, dcbis04Outtime, getString(R.string.dci17b1time))) {
-                        return false;
-                    }
 
                     if (dcbis04Out.getCheckedRadioButtonId() == -1) {
                         Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbis0901), Toast.LENGTH_SHORT).show();
@@ -798,8 +816,17 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                             dcbis04Outda.setError(null);
                         }
                     }
+
+                    if (!dcbis04Oute.isChecked()) {
+                        if (!validatorClass.EmptyTextBox(this, dcbis04Outdt, getString(R.string.date))) {
+                            return false;
+                        }
+                        return validatorClass.EmptyTextBox(this, dcbis04Outtime, getString(R.string.dci17b1time));
+                    }
+
                 }
             }
+
         } else if (dcbis05.isChecked()) {
 
             if (dcbis05Age.getText().toString().isEmpty()) {

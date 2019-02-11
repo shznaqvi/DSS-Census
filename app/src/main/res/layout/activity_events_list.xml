@@ -38,7 +38,7 @@
                 android:layout_weight="3"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-"
                 android:hint="@string/hhno"
-                android:inputType="text"
+                android:inputType="textCapCharacters"
                 android:maxLength="9" />
 
             <Button

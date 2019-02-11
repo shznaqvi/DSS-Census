@@ -535,7 +535,7 @@ public class SectionAActivity extends AppCompatActivity {
                 member = "No member registered for this DSSID \r\n\r\n\t\"" + dca03.getText().toString() + "\"";
             }
         } else {
-            member = "Invalid DSS ID: " + dca03.getText().toString().toString();
+            member = "Invalid DSS ID: " + dca03.getText().toString();
         }
 
         alertDialogBuilder.setIcon(R.drawable.ic_warning_black_24dp)
@@ -596,7 +596,7 @@ public class SectionAActivity extends AppCompatActivity {
                     }
                 }
 
-                Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Members Found", Toast.LENGTH_SHORT).show();
                 MainApp.currentStatusCount = MainApp.familyMembersList.size();
 
                 MainApp.TotalMembersCount = MainApp.familyMembersList.size() - 1;
@@ -609,7 +609,7 @@ public class SectionAActivity extends AppCompatActivity {
 
                 MainApp.TotalMembersCount = -1;
 
-                Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "No Members Found", Toast.LENGTH_SHORT).show();
             }
         } else {
             dca03.setError("This data is Required!");
@@ -650,7 +650,7 @@ public class SectionAActivity extends AppCompatActivity {
                 }
 
                 if (MainApp.familyMembersList.size() > 0) {
-//                    Toast.makeText(this, "Members Found", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(this, "Members Found", Toast.LENGTH_SHORT).show();
                     MainApp.currentStatusCount = MainApp.familyMembersList.size();
 
                     MainApp.TotalMembersCount = MainApp.familyMembersList.size() - 1;
@@ -662,7 +662,7 @@ public class SectionAActivity extends AppCompatActivity {
 
                     MainApp.TotalMembersCount = -1;
 
-                    Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "No Members Found", Toast.LENGTH_SHORT).show();
                 }
                 startActivity(new Intent(this, FamilyMembersActivity.class));
             } else {
@@ -685,7 +685,7 @@ public class SectionAActivity extends AppCompatActivity {
         }
         if (dca03.getText().toString().length() < MainApp.regionDss.length() + 5) {
             Toast.makeText(this, dca03.getText().toString().substring(0, MainApp.regionDss.length()).toUpperCase() + "-" + MainApp.regionDss, Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dca03), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "ERROR(Invalid): " + getString(R.string.dca03), Toast.LENGTH_SHORT).show();
             dca03.setError("This ID is Invalid!");    // Set Error on last radio button
             return false;
         } else {
@@ -695,7 +695,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (!dca03.getText().toString().substring(0, MainApp.regionDss.length() - 4).toUpperCase().equals(MainApp.regionDss.substring(0, 2)) &&
                 !dca03.getText().toString().substring(5, MainApp.regionDss.length()).toUpperCase().equals(MainApp.regionDss.substring(5, 6))) {
             Toast.makeText(this, dca03.getText().toString().substring(0, MainApp.regionDss.length()).toUpperCase() + "-" + MainApp.regionDss, Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "ERROR(not matched): " + getString(R.string.dca03), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "ERROR(not matched): " + getString(R.string.dca03), Toast.LENGTH_SHORT).show();
             dca03.setError("Did not match your block!");    // Set Error on last radio button
             return false;
         } else {
@@ -1105,7 +1105,6 @@ public class SectionAActivity extends AppCompatActivity {
     }
 
     private void SaveDraft() throws JSONException {
-        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
         SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
 
@@ -1243,6 +1242,10 @@ public class SectionAActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Toast.makeText(this, "Sorry you can't go back..", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Sorry you can't go back..", Toast.LENGTH_SHORT).show();
+
+        HouseholdListActivity.hhClicked.remove(HouseholdListActivity.hhClicked.size() - 1);
+        startActivity(new Intent(this, HouseholdListActivity.class).putExtra("check", false));
+
     }
 }

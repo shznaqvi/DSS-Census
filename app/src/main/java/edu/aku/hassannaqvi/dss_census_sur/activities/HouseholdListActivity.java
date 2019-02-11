@@ -63,7 +63,7 @@ public class HouseholdListActivity extends AppCompatActivity {
     Boolean flagHH = false;
 
     //  Static variables
-    static List<Integer> hhClicked;
+    public static List<Integer> hhClicked;
     static String hhID = "";
 
     public static int visitType = 0;

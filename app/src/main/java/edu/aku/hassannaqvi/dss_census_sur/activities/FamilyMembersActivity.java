@@ -403,6 +403,9 @@ public class FamilyMembersActivity extends AppCompatActivity {
                                 case "4":
                                     st = getString(R.string.dcbis04Outd);
                                     break;
+                                case "5":
+                                    st = getString(R.string.dcbis04Oute);
+                                    break;
                             }
 
                             conc += " -- " + st;

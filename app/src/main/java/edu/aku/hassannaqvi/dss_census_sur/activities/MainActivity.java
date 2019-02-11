@@ -360,7 +360,7 @@ public class MainActivity extends Activity {
 
     public void OpenFormFun(final int i) {
         if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null && !MainApp.userName.equals("0000")) {
-            startActivity(i);
+            startActivityFnc(i);
         } else {
 
             builder = new AlertDialog.Builder(MainActivity.this);
@@ -382,7 +382,7 @@ public class MainActivity extends Activity {
                         editor.commit();
 
                         if (!MainApp.userName.equals("0000")) {
-                            startActivity(i);
+                            startActivityFnc(i);
                         }
                     }
                 }
@@ -469,7 +469,7 @@ public class MainActivity extends Activity {
 
     }
 
-    public void startActivity(int i) {
+    public void startActivityFnc(int i) {
         if (openFormGpsCheck() && !MainApp.regionDss.equals("")) {
             Intent oF = null;
             switch (i) {
