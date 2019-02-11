@@ -199,8 +199,9 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
 //        For child under 2 name enable true. And for under 10 MStatus not enabled
         int calculateYears = 0;
-        if (mt.equals("c") || mt.equals("ot")) {
+        if (mt.equals("c") || (mt.equals("ot") && !MainApp.familyMembersList.get(position).getDob().contains("null"))) {
             Log.d(TAG, "onCreate: " + MainApp.familyMembersList.get(position).getDob() != "" ? MainApp.familyMembersList.get(position).getDob() : "NO DOB");
+
             if (MainApp.familyMembersList.get(position).getDob().contains(":")) {
                 Log.d(TAG, "onCreate: " + MainApp.familyMembersList.get(position).getDob() != "" ? MainApp.familyMembersList.get(position).getDob() : "NO DOB");
 
@@ -214,6 +215,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                 dcba.setEnabled(true);
             }
             dcbis01.setEnabled(calculateYears >= 10);
+
         }
 
         dcbis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
