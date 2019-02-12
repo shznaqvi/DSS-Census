@@ -199,10 +199,12 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
         mt = MainApp.familyMembersList.get(position).getMember_type();
 //        dcbis01.setEnabled(mt.equals("c") ? false : true);
-        dcbis02.setEnabled(!mt.equals("h") && !mt.equals("c"));
-        dcbis04.setEnabled(!mt.equals("h") && !mt.equals("c"));
-        dcbis08.setEnabled(!mt.equals("h") && !mt.equals("c") && !MainApp.familyMembersList.get(position).getGender().equals("1"));
-        dcbis01Outa.setEnabled(!(mt.equals("mw") || mt.equals("h")));
+        boolean h_c_flag = !mt.equals("h") && !mt.equals("c");
+        final boolean mw_h_flag = mt.equals("mw") || mt.equals("h");
+        dcbis02.setEnabled(h_c_flag);
+        dcbis04.setEnabled(h_c_flag);
+        dcbis08.setEnabled(h_c_flag && !MainApp.familyMembersList.get(position).getGender().equals("1"));
+        dcbis01Outa.setEnabled(!mw_h_flag);
 
 //        For child under 2 name enable true. And for under 10 MStatus not enabled
         int calculateYears = 0;
@@ -246,6 +248,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                     fldGrpdcbidt02.setVisibility(View.GONE);
 
                     fldGrpdcbis05.setVisibility(View.GONE);
+
+                    dcbis01Outb.setChecked(mw_h_flag);
 
                 } else if (dcbis02.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);

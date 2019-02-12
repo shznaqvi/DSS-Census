@@ -184,7 +184,7 @@ public class HouseholdListActivity extends AppCompatActivity {
 
                 if (followUp != null) {
 
-                    Toast.makeText(this, "FollowUp found..", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(this, "FollowUp found..", Toast.LENGTH_SHORT).show();
 
                     hhno.setError(null);
                     household = db.getHHListByHH(hhno.getText().toString().toUpperCase());
@@ -212,7 +212,7 @@ public class HouseholdListActivity extends AppCompatActivity {
 
                     } else {
                         flagHH = false;
-                        Toast.makeText(this, "No Members Found", Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, "Members Not Found", Toast.LENGTH_LONG).show();
                     }
                 } else {
                     Toast.makeText(this, "No Follow Up Found", Toast.LENGTH_LONG).show();
