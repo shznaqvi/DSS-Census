@@ -19,6 +19,7 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 import edu.aku.hassannaqvi.dss_census_sur.contracts.FollowUpsContract;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
@@ -37,14 +38,14 @@ public class GetSurFollowUps extends AsyncTask<Void, Void, String> {
     public GetSurFollowUps(Context context) {
         mContext = context;
     }
-
+/*
     public static void longInfo(String str) {
         if (str.length() > 4000) {
             Log.i(TAG + "LongInfo", str.substring(0, 4000));
             longInfo(str.substring(4000));
         } else
             Log.i(TAG + "LongInfo", str);
-    }
+    }*/
 
     @Override
     protected void onPreExecute() {
@@ -95,7 +96,7 @@ public class GetSurFollowUps extends AsyncTask<Void, Void, String> {
 
     }
 
-    private String downloadUrl(String myurl) throws IOException {
+    private String downloadUrl(String myurl) {
         String line = "No Response";
 
         InputStream is = null;
@@ -130,14 +131,14 @@ public class GetSurFollowUps extends AsyncTask<Void, Void, String> {
             }
             Log.d(TAG, "downloadUrl: " + json.toString());
             wr.writeBytes(json.toString());
-            longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
+//            longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
             wr.flush();
             wr.close();
 
             int HttpResult = conn.getResponseCode();
             if (HttpResult == HttpURLConnection.HTTP_OK) {
                 BufferedReader br = new BufferedReader(new InputStreamReader(
-                        conn.getInputStream(), "utf-8"));
+                        conn.getInputStream(), StandardCharsets.UTF_8));
                 StringBuffer sb = new StringBuffer();
 
                 while ((line = br.readLine()) != null) {
@@ -164,7 +165,7 @@ public class GetSurFollowUps extends AsyncTask<Void, Void, String> {
 
     public String readIt(InputStream stream, int len) throws IOException {
         Reader reader = null;
-        reader = new InputStreamReader(stream, "UTF-8");
+        reader = new InputStreamReader(stream, StandardCharsets.UTF_8);
         char[] buffer = new char[len];
         reader.read(buffer);
         return new String(buffer);
