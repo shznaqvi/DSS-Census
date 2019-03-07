@@ -433,6 +433,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
     void onBtnEndClick() {
 
 //        MainApp.finishActivity(this, this);
+        finish();
         startActivity(new Intent(SectionBNewPrevActivity.this, FamilyMembersActivity.class));
     }
 
