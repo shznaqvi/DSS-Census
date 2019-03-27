@@ -156,7 +156,7 @@ public class MotherListActivity extends Activity {
 
     public class listAdapter extends ArrayAdapter {
 
-        ArrayList<MothersLst> list = new ArrayList<>();
+        ArrayList<MothersLst> list;
 
         public listAdapter(Context context, int textViewResourceId, ArrayList<MothersLst> objects) {
             super(context, textViewResourceId, objects);
@@ -173,9 +173,9 @@ public class MotherListActivity extends Activity {
             View v = view;
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = inflater.inflate(R.layout.lstview, null);
-            final TextView mother_name = (TextView) v.findViewById(R.id.mother_name);
-            TextView child_name = (TextView) v.findViewById(R.id.child_name);
-            TextView date_of_birth = (TextView) v.findViewById(R.id.date_of_birth);
+            final TextView mother_name = v.findViewById(R.id.mother_name);
+            TextView child_name = v.findViewById(R.id.child_name);
+            TextView date_of_birth = v.findViewById(R.id.date_of_birth);
 
             mother_name.setText(list.get(position).getMother_name());
             child_name.setText(list.get(position).getChild_name());

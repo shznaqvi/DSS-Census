@@ -416,7 +416,7 @@ public class MainActivity extends Activity {
                     db.getUnsyncedForms()
             ).execute();
 
-            Toast.makeText(getApplicationContext(), "Syncing Census", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Syncing Surveillance", Toast.LENGTH_SHORT).show();
             new SyncAllData(
                     this,
                     "Census",
