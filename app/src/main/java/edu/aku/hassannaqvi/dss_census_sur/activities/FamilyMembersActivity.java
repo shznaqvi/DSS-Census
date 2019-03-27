@@ -316,7 +316,11 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
             String str[] = checkCStatus(familyMembers.getCurrent_status());
 
-            holder.currentStatus.setText(setStatus(0, str[0]));
+            for (int mem : MainApp.memClicked) {
+                if (mem == position) {
+                    holder.currentStatus.setText(setStatus(0, str[0]));
+                }
+            }
 
             if (str.length == 2) {
                 holder.year.setText(setStatus(Integer.valueOf(str[0]), str[1]));
@@ -334,19 +338,6 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
             return st;
 
-        }
-
-        public String checkCurrentStatus(String currStatus) {
-
-            String[] st;
-
-            if (currStatus.contains("_")) {
-                st = currStatus.split("_");
-
-                return setStatus(Integer.valueOf(st[0]), st[1]);
-            } else {
-                return setStatus(0, currStatus);
-            }
         }
 
         public String setStatus(int cond, String i) {
@@ -474,6 +465,9 @@ public class FamilyMembersActivity extends AppCompatActivity {
                             break;
                         case "8":
                             st = getString(R.string.dcbis11);
+                            break;
+                        case "10":
+                            st = getString(R.string.dcbis08);
                             break;
                     }
                     break;

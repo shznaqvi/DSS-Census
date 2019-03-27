@@ -577,8 +577,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         }
 
         MainApp.cc.setCurrent_status(dcbis00.isChecked() ? "9" : dcbis01.isChecked() ? "1" : dcbis03.isChecked() ? "2"
-                : dcbis05.isChecked() ? "3" : dcbis06.isChecked() ? "7" : dcbis07.isChecked() ? "8" : "0");
-        if (dcbis01.isChecked()) {
+                : dcbis05.isChecked() ? "3" : dcbis06.isChecked() ? "7" : dcbis07.isChecked() ? "8" : dcbis08.isChecked() ? "10" : "0");
+        if (dcbis01.isChecked() || dcbis08.isChecked()) {
             MainApp.cc.setCurrent_maritalOutcome(dcbis01Outa.isChecked() ? "1" : dcbis01Outb.isChecked() ? "2" : dcbis01Outc.isChecked() ? "3"
                     : dcbis01Outd.isChecked() ? "4" : "0");
 
