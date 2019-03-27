@@ -277,9 +277,9 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
                 if (!validatorClass.EmptyTextBox(this, bi.dnb13, getString(R.string.dnb13))) {
                     return false;
                 }
-                if (!bi.dnb13.getText().toString().matches("^(\\d{1,2}\\.\\d{1,2})$")) {
+                if (!bi.dnb13.getText().toString().matches("^(\\d{1,1}\\.\\d{3,3})$")) {
                     Toast.makeText(this, "ERROR(invalid): " + "Please type the correct format" + getString(R.string.dnb13), Toast.LENGTH_LONG).show();
-                    bi.dnb13.setError("Please type correct format (XX.XX)");
+                    bi.dnb13.setError("Please type correct format (X.XXX)");
                     return false;
                 } else {
                     bi.dnb13.setError(null);
