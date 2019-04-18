@@ -177,15 +177,11 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         this.setTitle("D S S");
 
         Calendar cal = Calendar.getInstance();
-        dcbis04Outtime.setManager(getSupportFragmentManager());
         dcbis04Outtime.setTimeFormat("HH:mm");
-        dcbidob.setManager(getSupportFragmentManager());
         dcbidob.setMaxDate(dateToday);
-        dcbis09bdt.setManager(getSupportFragmentManager());
         dcbis09bdt.setMaxDate(dateToday);
         dcbis09bdt.setMinDate(DateUtils.getUpdatedDate("dd/MM/yyyy", -280));
 
-        dcbis04Outdt.setManager(getSupportFragmentManager());
         dcbis04Outdt.setMaxDate(dateToday);
         cal.setTimeInMillis(System.currentTimeMillis());
 

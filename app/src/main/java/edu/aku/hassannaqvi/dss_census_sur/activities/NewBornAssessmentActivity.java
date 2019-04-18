@@ -53,10 +53,6 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
 
     public void setContentsUI() {
 
-        bi.dnb07.setManager(getSupportFragmentManager());
-        bi.dnb08.setManager(getSupportFragmentManager());
-        bi.dnb09.setManager(getSupportFragmentManager());
-        bi.dnb10.setManager(getSupportFragmentManager());
         bi.dnb07.setMaxDate(new SimpleDateFormat("dd/MM/yyyy").format(System.currentTimeMillis()));
         bi.dnb09.setMaxDate(new SimpleDateFormat("dd/MM/yyyy").format(System.currentTimeMillis()));
         bi.nblr.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -274,7 +270,7 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
 
             }
 */
-                if (!validatorClass.EmptyTextBox(this, bi.dnb13, getString(R.string.dnb13))) {
+                /*if (!validatorClass.EmptyTextBox(this, bi.dnb13, getString(R.string.dnb13))) {
                     return false;
                 }
                 if (!bi.dnb13.getText().toString().matches("^(\\d{1,1}\\.\\d{3,3})$")) {
@@ -314,7 +310,18 @@ public class NewBornAssessmentActivity extends AppCompatActivity {
                 }
                 if (!validatorClass.RangeTextBox(this, bi.dnb30, 5d, 25d, getString(R.string.dnb30), " MAUC")) {
                     return false;
-                }
+                }*/
+
+                // Update fields with new library
+                if (!bi.dnb13.isRangeTextValidate())
+                    return false;
+
+                if (!bi.dnb29.isRangeTextValidate())
+                    return false;
+
+                if (!bi.dnb30.isRangeTextValidate())
+                    return false;
+
 
                 if (!validatorClass.EmptyTextBox(this, bi.dnb1401, getString(R.string.dnb14m))) {
                     return false;

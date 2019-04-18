@@ -173,9 +173,9 @@
                             android:id="@+id/dnb04a"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="1dp"
-                            android:layout_marginLeft="1dp"
                             android:layout_marginStart="1dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginBottom="1dp"
                             android:layout_weight="1"
                             android:text="@string/dnbboy" />
 
@@ -249,9 +249,9 @@
                             android:id="@+id/dnbStatusa"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="1dp"
-                            android:layout_marginLeft="1dp"
                             android:layout_marginStart="1dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginBottom="1dp"
                             android:layout_weight="1"
                             android:text="@string/dnbStatusa" />
 
@@ -516,7 +516,7 @@
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:textColor="@android:color/white" />
 
-                        <EditText
+                        <!--<EditText
                             android:id="@+id/dnb13"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -525,7 +525,24 @@
                             android:hint="@string/gramurdu"
                             android:inputType="numberDecimal"
                             android:maxLength="5"
-                            android:text='@{dnbStatusa.checked ? dnb13.getText.toString : "" }' />
+                            android:text='@{dnbStatusa.checked ? dnb13.getText.toString : "" }' />-->
+
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/dnb13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:hint="##.###"
+                            android:inputType="numberDecimal"
+                            android:layoutDirection="ltr"
+                            android:text='@{dnbStatusa.checked ? dnb13.getText.toString : "" }'
+                            app:defaultValue="0"
+                            app:mask="##.###"
+                            app:maxValue="40.0"
+                            app:minValue="0.5"
+                            app:pattern="^(\\d{2,2}\\.\\d{1,3})$"
+                            app:required="@{dnbStatusa.checked ? true : false }"
+                            app:type="range" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -536,7 +553,7 @@
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:textColor="@android:color/white" />
 
-                        <EditText
+                        <!--<EditText
                             android:id="@+id/dnb29"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -545,7 +562,24 @@
                             android:hint="@string/centurdu"
                             android:inputType="numberDecimal"
                             android:maxLength="5"
-                            android:text='@{dnbStatusa.checked ? dnb29.getText.toString : "" }' />
+                            android:text='@{dnbStatusa.checked ? dnb29.getText.toString : "" }' />-->
+
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/dnb29"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:hint="###.##"
+                            android:inputType="numberDecimal"
+                            android:layoutDirection="ltr"
+                            android:text='@{dnbStatusa.checked ? dnb29.getText.toString : "" }'
+                            app:defaultValue="0"
+                            app:mask="###.##"
+                            app:maxValue="140.0"
+                            app:minValue="10.0"
+                            app:pattern="^(\\d{3,3}\\.\\d{1,2})$"
+                            app:required="@{dnbStatusa.checked ? true : false }"
+                            app:type="range" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -556,7 +590,7 @@
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:textColor="@android:color/white" />
 
-                        <EditText
+                        <!--<EditText
                             android:id="@+id/dnb30"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -565,7 +599,24 @@
                             android:hint="@string/centurdu"
                             android:inputType="numberDecimal"
                             android:maxLength="5"
-                            android:text='@{dnbStatusa.checked ? dnb30.getText.toString : "" }' />
+                            android:text='@{dnbStatusa.checked ? dnb30.getText.toString : "" }' />-->
+
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/dnb30"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:hint="##.##"
+                            android:inputType="numberDecimal"
+                            android:layoutDirection="ltr"
+                            android:text='@{dnbStatusa.checked ? dnb30.getText.toString : "" }'
+                            app:defaultValue="0"
+                            app:mask="##.##"
+                            app:maxValue="25.0"
+                            app:minValue="5.0"
+                            app:pattern="^(\\d{2,2}\\.\\d{2,2})$"
+                            app:required="@{dnbStatusa.checked ? true : false }"
+                            app:type="range" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -636,9 +687,9 @@
                                 android:id="@+id/dnb15a"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="1dp"
-                                android:layout_marginLeft="1dp"
                                 android:layout_marginStart="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:layout_marginBottom="1dp"
                                 android:layout_weight="1"
                                 android:text="@string/dcyes" />
 
@@ -824,9 +875,9 @@
                                 android:id="@+id/dnb1901aa"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="1dp"
-                                android:layout_marginLeft="1dp"
                                 android:layout_marginStart="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:layout_marginBottom="1dp"
                                 android:layout_weight="1"
                                 android:text="@string/correct" />
 
