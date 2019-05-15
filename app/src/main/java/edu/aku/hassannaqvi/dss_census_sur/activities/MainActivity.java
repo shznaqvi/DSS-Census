@@ -670,9 +670,9 @@ public class MainActivity extends Activity {
            /* BackgroundDrawable bg = new BackgroundDrawable();
             syncDevice.setBackground(bg);
             bg.start();*/
-            new GetMembers(this).execute();
-            new GetSurFollowUps(this).execute();
             new GetEvents(this).execute();
+            new GetSurFollowUps(this).execute();
+            new GetMembers(this).execute();
             //bg.stop();
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);

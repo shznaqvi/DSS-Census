@@ -19,6 +19,7 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 import edu.aku.hassannaqvi.dss_census_sur.contracts.EventsContract.singleEV;
 import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
@@ -98,8 +99,8 @@ public class GetEvents extends AsyncTask<Void, Void, String> {
             URL url = new URL(myurl);
             Log.d(TAG, "downloadUrl: " + myurl);
             conn = (HttpURLConnection) url.openConnection();
-            conn.setReadTimeout(10000 /* milliseconds */);
-            conn.setConnectTimeout(15000 /* milliseconds */);
+            conn.setReadTimeout(20000 /* milliseconds */);
+            conn.setConnectTimeout(20000 /* milliseconds */);
             conn.setRequestMethod("POST");
             conn.setDoOutput(true);
             conn.setDoInput(true);
@@ -126,7 +127,7 @@ public class GetEvents extends AsyncTask<Void, Void, String> {
             int HttpResult = conn.getResponseCode();
             if (HttpResult == HttpURLConnection.HTTP_OK) {
                 BufferedReader br = new BufferedReader(new InputStreamReader(
-                        conn.getInputStream(), "utf-8"));
+                        conn.getInputStream(), StandardCharsets.UTF_8));
                 StringBuffer sb = new StringBuffer();
 
                 while ((line = br.readLine()) != null) {
@@ -153,7 +154,7 @@ public class GetEvents extends AsyncTask<Void, Void, String> {
 
     public String readIt(InputStream stream, int len) throws IOException {
         Reader reader = null;
-        reader = new InputStreamReader(stream, "UTF-8");
+        reader = new InputStreamReader(stream, StandardCharsets.UTF_8);
         char[] buffer = new char[len];
         reader.read(buffer);
         return new String(buffer);
