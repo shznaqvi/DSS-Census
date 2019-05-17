@@ -702,8 +702,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleMember.COLUMN_UUID,
         };
 
-        String whereClause = singleMember.COLUMN_DSS_ID_HH + " = ?";
-        String[] whereArgs = new String[]{dssID};
+        String whereClause = singleMember.COLUMN_DSS_ID_HH + " LIKE ?";
+        String[] whereArgs = {"%" + dssID + "%"};
         String groupBy = null;
         String having = null;
 
