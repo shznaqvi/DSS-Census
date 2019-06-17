@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">DSS-SURVEY-SUR 2018-2019 (Round 3)</string>
+    <string name="app_name">DSS-SURVEY-SUR 2018-2019 (Round 4)</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
