@@ -61,7 +61,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="gone"
+            tools:visibility="visible">
 
             <LinearLayout
                 android:id="@+id/fldGrpHHExists"
@@ -116,7 +117,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="50"
                     android:text="@string/add_family"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="gone" />
 
                 <Button
                     android:id="@+id/btn_End"

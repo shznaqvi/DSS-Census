@@ -205,7 +205,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     TimePickerEditText dcbis04Outtime;
 
     String dateToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
-    String minDate = null;
+    String minDate = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
     //TODO: Convert old date picker and time picker to new ones
 
     @Override
