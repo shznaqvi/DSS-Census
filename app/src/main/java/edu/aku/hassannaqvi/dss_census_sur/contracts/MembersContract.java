@@ -35,6 +35,8 @@ public class MembersContract {
     private String education = "";
     private String occupation = "";
     private String member_type = "";
+    private String prev_prg = "";
+    private String lmp_dt = "";
 
     private String uuid = "";
 
@@ -64,6 +66,8 @@ public class MembersContract {
         this.education = mc.getEducation();
         this.occupation = mc.getOccupation();
         this.member_type = mc.getMember_type();
+        this.prev_prg = mc.getPrev_prg();
+        this.lmp_dt = mc.getLmp_dt();
 
         this.uuid = mc.getUuid();
     }
@@ -254,6 +258,22 @@ public class MembersContract {
         return uuid;
     }
 
+    public String getPrev_prg() {
+        return prev_prg;
+    }
+
+    public void setPrev_prg(String prev_prg) {
+        this.prev_prg = prev_prg;
+    }
+
+    public String getLmp_dt() {
+        return lmp_dt;
+    }
+
+    public void setLmp_dt(String lmp_dt) {
+        this.lmp_dt = lmp_dt;
+    }
+
     public MembersContract Sync(JSONObject jsonObject) throws JSONException {
 
         this._ID = jsonObject.getString(singleMember.COLUMN_ID);
@@ -289,6 +309,9 @@ public class MembersContract {
         this.member_type = jsonObject.getString(singleMember.COLUMN_MEMBER_TYPE);
 
         this.uuid = jsonObject.getString(singleMember.COLUMN_UUID);
+
+        this.prev_prg = jsonObject.getString(singleMember.COLUMN_PREVIOUS_PREG);
+        this.lmp_dt = jsonObject.getString(singleMember.COLUMN_LMP_DT);
         return this;
 
     }
@@ -319,6 +342,9 @@ public class MembersContract {
         this.member_type = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_MEMBER_TYPE));
 
         this.uuid = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_UUID));
+
+        this.prev_prg = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_PREVIOUS_PREG));
+        this.lmp_dt = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_LMP_DT));
         return this;
 
     }
@@ -352,6 +378,9 @@ public class MembersContract {
         json.put(singleMember.COLUMN_MEMBER_TYPE, this.member_type == null ? JSONObject.NULL : this.member_type);
 
         json.put(singleMember.COLUMN_UUID, this.uuid == null ? JSONObject.NULL : this.uuid);
+
+        json.put(singleMember.COLUMN_PREVIOUS_PREG, this.prev_prg == null ? JSONObject.NULL : this.prev_prg);
+        json.put(singleMember.COLUMN_LMP_DT, this.lmp_dt == null ? JSONObject.NULL : this.lmp_dt);
         return json;
     }
 
@@ -385,6 +414,8 @@ public class MembersContract {
         public static final String COLUMN_EDUCATION = "education";
         public static final String COLUMN_OCCUPATION = "occupation";
         public static final String COLUMN_MEMBER_TYPE = "member_type";
+        public static final String COLUMN_PREVIOUS_PREG = "current_preg_status";
+        public static final String COLUMN_LMP_DT = "lmp_dt";
         public static final String _URI = "censusmembers.php";
 
     }

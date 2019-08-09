@@ -329,8 +329,10 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                 if (checkedId == R.id.dcbis09b) {
                     fldGrpdcbis09b.setVisibility(View.VISIBLE);
                     dcbis09bTxt.setText("LMP " + getString(R.string.dcbidt));
+                    dcbis09bdt.setMaxDate((DateUtils.getUpdatedDate("dd/MM/yyyy", -14)));
                 } else {
                     fldGrpdcbis09b.setVisibility(View.GONE);
+                    dcbis09bdt.setMaxDate(dateToday);
                 }
             }
         });

@@ -64,7 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + singleUser.REGION_DSS + " TEXT );";
     public static final String DATABASE_NAME = "dss-census-sur.db";
     public static final String DB_NAME = "dss-census-sur_copy.db";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsContract.FormsTable.TABLE_NAME + "("
             + FormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -185,8 +185,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleMember.COLUMN_M_STATUS + " TEXT," +
             singleMember.COLUMN_EDUCATION + " TEXT," +
             singleMember.COLUMN_OCCUPATION + " TEXT," +
-            singleMember.COLUMN_MEMBER_TYPE + " TEXT" +
+            singleMember.COLUMN_MEMBER_TYPE + " TEXT," +
+            singleMember.COLUMN_PREVIOUS_PREG + " TEXT," +
+            singleMember.COLUMN_LMP_DT + " TEXT" +
             " );";
+    private static final String SQL_ALTER_MEMBER_1 = "ALTER TABLE " +
+            singleMember.TABLE_NAME + " ADD COLUMN " +
+            singleMember.COLUMN_PREVIOUS_PREG + " TEXT;";
+    private static final String SQL_ALTER_MEMBER_2 = "ALTER TABLE " +
+            singleMember.TABLE_NAME + " ADD COLUMN " +
+            singleMember.COLUMN_LMP_DT + " TEXT;";
     private static final String SQL_CREATE_DECEASED = "CREATE TABLE "
             + DeceasedMember.TABLE_NAME + "("
             + DeceasedMember.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -425,16 +433,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        /*db.execSQL(SQL_DELETE_USERS);
-        db.execSQL(SQL_DELETE_FORMS);
-        db.execSQL(SQL_DELETE_HOUSEHOLD);
-        db.execSQL(SQL_DELETE_MEMBERS);
-        db.execSQL(SQL_DELETE_CENSUS);
-        db.execSQL(SQL_DELETE_DECEASED);
-        db.execSQL(SQL_DELETE_MOTHER);
-        db.execSQL(SQL_DELETE_SEC_K_IM);
-        db.execSQL(SQL_DELETE_FOLLOWUPS);*/
-
         switch (i) {
             case 1:
                 db.execSQL(SQL_CREATE_NEWBORN);
@@ -448,6 +446,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             case 4:
                 db.execSQL(SQL_DELETE_PW_FROM_TABLE);
                 db.execSQL(SQL_DELETE_nb_FROM_TABLE);
+            case 5:
+                db.execSQL(SQL_ALTER_MEMBER_1);
+                db.execSQL(SQL_ALTER_MEMBER_2);
         }
     }
 
@@ -608,6 +609,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                 values.put(singleMember.COLUMN_UUID, member.getUuid());
 
+                values.put(singleMember.COLUMN_PREVIOUS_PREG, member.getPrev_prg());
+                values.put(singleMember.COLUMN_LMP_DT, member.getLmp_dt());
+
                 db.insert(singleMember.TABLE_NAME, null, values);
             }
 
@@ -700,6 +704,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleMember.COLUMN_MEMBER_TYPE,
 
                 singleMember.COLUMN_UUID,
+
+                singleMember.COLUMN_PREVIOUS_PREG,
+                singleMember.COLUMN_LMP_DT,
         };
 
         String whereClause = singleMember.COLUMN_DSS_ID_HH + " LIKE ?";
@@ -817,6 +824,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleMember.COLUMN_OCCUPATION,
                 singleMember.COLUMN_MEMBER_TYPE,
                 singleMember.COLUMN_UUID,
+
+                singleMember.COLUMN_PREVIOUS_PREG,
+                singleMember.COLUMN_LMP_DT,
         };
 
         String whereClause = singleMember.COLUMN_DSS_ID_HH + " =? AND " + singleMember.COLUMN_DSS_ID_M + " =?";
