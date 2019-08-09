@@ -173,11 +173,11 @@
                         android:visibility="gone" />
 
                     <RadioButton
-                        android:id="@+id/dcbis03"
+                        android:id="@+id/dcbis08"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:text="@string/dcbis03" />
+                        android:text="@string/dcbis08" />
 
                     <RadioButton
                         android:id="@+id/dcbis04"
@@ -195,6 +195,13 @@
                         android:text="@string/dcbis05" />
 
                     <RadioButton
+                        android:id="@+id/dcbis03"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:text="@string/dcbis03" />
+
+                    <RadioButton
                         android:id="@+id/dcbis06"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -207,13 +214,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
                         android:text="@string/dcbis11" />
-
-                    <RadioButton
-                        android:id="@+id/dcbis08"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/dcbis08" />
 
                 </RadioGroup>
 

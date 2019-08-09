@@ -192,7 +192,7 @@
     <string name="dcbhm"> مہینہ </string>
     <string name="dcbhd"> دن </string>
     <string name="dcbi"> موجودہ حیثیت </string>
-    <string name="dcbis"> حیثیت </string>
+    <string name="dcbis"> حالات کی تبدیلی </string>
     <string name="dcbis01"> پیدائش </string>
 
     <string name="dcbis01Status"> موجودہ حیثیت </string>
@@ -207,13 +207,13 @@
     <string name="dcbis05"> موت </string>
     <string name="dcbis06"> طلاق </string>
     <string name="dcbis07"> ازواجی حیثیت </string>
-    <string name="dcbis0701"> حیثیت </string>
+    <string name="dcbis0701"> ازدواجی حیثیت میں تبدیلی </string>
     <string name="dcbis07a"> Never Married </string>
     <string name="dcbis07b"> Married </string>
     <string name="dcbis07c"> Widowed </string>
     <string name="dcbis07d"> Divorce/Separated </string>
     <string name="dcbis08"> حمل سے </string>
-    <string name="dcbis09"> حمل کی معلومات </string>
+    <string name="dcbis09"> حمل کی حالت </string>
     <string name="dcbis10"> ابھی موجود نہیں ہے </string>
     <string name="dcbis11"> منع کردیا </string>
 
