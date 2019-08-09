@@ -61,13 +61,16 @@
                         android:inputType="textCapWords" />
 
                     <TextView
+                        android:id="@+id/pwflag"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="10"
-                        android:background="@color/colorPrimary"
-                        android:text="P"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textColor="@android:color/white" />
+                        android:background="@color/red"
+                        android:padding="10dp"
+                        android:text="PW"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 

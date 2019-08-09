@@ -163,6 +163,9 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
     @BindView(R.id.edt_dcbid)
     EditText edtDcbid;
 
+    @BindView(R.id.pwflag)
+    TextView pwflag;
+
     int position = 0;
     String mt;
 
@@ -220,6 +223,12 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                 dcba.setEnabled(true);
             }
             dcbis01.setEnabled(calculateYears >= 10);
+        }
+
+        if (mt.equals("mw") && MainApp.familyMembersList.get(position).getPrev_prg().equals("2")) {
+            pwflag.setVisibility(View.VISIBLE);
+            dcbis09c.setChecked(true);
+            dcbis09c.setEnabled(false);
         }
 
         dcbis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
