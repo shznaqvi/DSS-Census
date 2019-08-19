@@ -314,7 +314,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
             holder.memberType.setText(familyMembers.getMember_type().equals("mw") ? "(Married Women)" : familyMembers.getMember_type().equals("h") ? "(Husband)" :
                     (familyMembers.getMember_type().equals("c") || familyMembers.getMember_type().equals("ch")) ? "(Child)" : "(Other)");
 
-            String str[] = checkCStatus(familyMembers.getCurrent_status());
+            String[] str = checkCStatus(familyMembers.getCurrent_status());
 
             for (int mem : MainApp.memClicked) {
                 if (mem == position) {
@@ -375,6 +375,9 @@ public class FamilyMembersActivity extends AppCompatActivity {
                                 break;
                             case "2":
                                 st = getString(R.string.dcbis09b);
+                                break;
+                            case "3":
+                                st = getString(R.string.dcbis09d);
                                 break;
                         }
 

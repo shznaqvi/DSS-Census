@@ -143,6 +143,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
     RadioButton dcbis09a;
     @BindView(R.id.dcbis09b)
     RadioButton dcbis09b;
+    @BindView(R.id.dcbis09d)
+    RadioButton dcbis09d;
     @BindView(R.id.dcbis09c)
     CheckBox dcbis09c;
     @BindView(R.id.dcbis09bTxt)
@@ -168,6 +170,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
     int position = 0;
     String mt;
+
+    boolean prevPrgFlag = false;
 
     //TODO: Convert old date picker and time picker to new ones
 
@@ -225,10 +229,13 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
             dcbis01.setEnabled(calculateYears >= 10);
         }
 
-        if (mt.equals("mw") && MainApp.familyMembersList.get(position).getPrev_prg().equals("2")) {
+        prevPrgFlag = mt.equals("mw") && MainApp.familyMembersList.get(position).getPrev_prg().equals("2");
+
+        if (prevPrgFlag) {
             pwflag.setVisibility(View.VISIBLE);
             dcbis09c.setChecked(true);
             dcbis09c.setEnabled(false);
+            fldGrpdcbidt02a.setVisibility(View.VISIBLE);
         }
 
         dcbis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -255,6 +262,8 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                     fldGrpdcbis05.setVisibility(View.GONE);
 
                     dcbis01Outb.setChecked(mw_h_flag);
+
+                    dcbis09d.setVisibility(View.VISIBLE);
 
                 } else if (dcbis02.isChecked()) {
                     fldGrpdcbidt.setVisibility(View.VISIBLE);
@@ -425,14 +434,18 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         dcbis05Cause.setText(null);
         dcbis05Place.clearCheck();
 
-        dcbis04Out.clearCheck();
 
         dcbis01Out.clearCheck();
 
         dcbis09.clearCheck();
-        dcbis09c.setChecked(false);
+        if (!prevPrgFlag) {
+            dcbis09c.setChecked(false);
+            dcbis04Out.clearCheck();
+        }
 
         dcbis03a.setText(null);
+
+        dcbis09d.setVisibility(View.GONE);
 
     }
 
@@ -591,7 +604,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
             if (!dcbis01Outa.isChecked()) {
 
-                sC.put("current_preg_status", dcbis09a.isChecked() ? "1" : dcbis09b.isChecked() ? "2" : "0");
+                sC.put("current_preg_status", dcbis09a.isChecked() ? "1" : dcbis09b.isChecked() ? "2" : dcbis09d.isChecked() ? "3" : "0");
                 sC.put("current_preg_prv_status", dcbis09c.isChecked() ? "1" : "0");
 
                 if (dcbis09c.isChecked()) {
@@ -667,9 +680,9 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         m.setIs_head(c.getIs_head());
         m.setRelation_hh(c.getRelation_hh());
         if (dcbis01.isChecked()) {
-            m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_maritalOutcome() + ":" + (dcbis09a.isChecked() ? "1" : dcbis09b.isChecked() ? "2" : ""));
+            m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_maritalOutcome() + ":" + (dcbis09a.isChecked() ? "1" : dcbis09b.isChecked() ? "2" : dcbis09d.isChecked() ? "3" : ""));
             if (dcbis09c.isChecked()) {
-                m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_maritalOutcome() + ":" + (dcbis09a.isChecked() ? "1" : dcbis09b.isChecked() ? "2" : "") + ":" + c.getCurrent_statusOutcome());
+                m.setCurrent_status(c.getCurrent_status() + "_" + c.getCurrent_maritalOutcome() + ":" + (dcbis09a.isChecked() ? "1" : dcbis09b.isChecked() ? "2" : dcbis09d.isChecked() ? "3" : "") + ":" + c.getCurrent_statusOutcome());
             }
         } else if (dcbis05.isChecked()) {
             m.setCurrent_status(c.getCurrent_status() + "_" + (dcbis05Placea.isChecked() ? "1" : dcbis05Placeb.isChecked() ? "2" : dcbis05Placec.isChecked() ? "3"

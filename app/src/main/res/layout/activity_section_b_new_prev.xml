@@ -71,7 +71,8 @@
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
-                        android:visibility="gone" />
+                        android:visibility="gone"
+                        tools:visibility="visible" />
 
                 </LinearLayout>
 
@@ -427,6 +428,14 @@
                         android:id="@+id/dcbis09"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/dcbis09d"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dcbis09d"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
 
                         <RadioButton
                             android:id="@+id/dcbis09a"
