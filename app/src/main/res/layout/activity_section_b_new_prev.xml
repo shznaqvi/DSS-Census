@@ -70,7 +70,8 @@
                         android:text="PW"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
