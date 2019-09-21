@@ -488,6 +488,10 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     dcbbmid.setText(null);
                 }
 
+                if (dcbm04.isChecked()) {
+                    dcbidob.setMinDate(DateUtils.getUpdatedDateByMonths("dd/MM/yyyy", -900));
+                }
+
             }
         });
 
