@@ -489,7 +489,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                 }
 
                 if (dcbm04.isChecked()) {
-                    dcbidob.setMinDate(DateUtils.getUpdatedDateByMonths("dd/MM/yyyy", -900));
+                    dcbidob.setMinDate(DateUtils.getUpdatedDateByMonths("dd/MM/yyyy", -13));
                 }
 
             }
