@@ -108,6 +108,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     String DirectoryName;
 
     private UserLoginTask mAuthTask = null;
+    private int connectionRetry = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,7 +129,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     .getPackageManager()
                     .getPackageInfo("edu.aku.hassannaqvi.dss_census_sur", 0)
                     .versionName;
-            txtinstalldate.setText("Ver. " + MainApp.versionName + "." + String.valueOf(MainApp.versionCode) + " \r\n( Last Updated: " + new SimpleDateFormat("dd MMM. yyyy").format(new Date(installedOn)) + " )");
+            txtinstalldate.setText("Ver. " + MainApp.versionName + "." + MainApp.versionCode + " \r\n( Last Updated: " + new SimpleDateFormat("dd MMM. yyyy").format(new Date(installedOn)) + " )");
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -227,10 +228,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         if (sharedPref.getBoolean("checkingFlag", false)) {
 
-            String dt = sharedPref.getString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()).toString());
+            String dt = sharedPref.getString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
 
-            if (dt != new SimpleDateFormat("dd-MM-yy").format(new Date()).toString()) {
-                editor.putString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()).toString());
+            if (dt != new SimpleDateFormat("dd-MM-yy").format(new Date())) {
+                editor.putString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
 
                 editor.commit();
             }
@@ -282,6 +283,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     }
 
+
     @OnClick(R.id.syncData)
     void onSyncDataClick() {
         //TODO implement
@@ -294,7 +296,23 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             new syncData(this).execute();
 
         } else {
-            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+
+            String temp_ip = MainApp._IP;
+            Integer temp_port = MainApp._PORT;
+
+            connectionRetry++;
+
+            MainApp._IP = MainApp._IP_BACKUP;
+            MainApp._PORT = MainApp._PORT_BACKUP;
+
+
+            MainApp._IP_BACKUP = temp_ip;
+            MainApp._PORT_BACKUP = temp_port;
+            if (connectionRetry < 3) {
+                Toast.makeText(this, "Server Swichted to: http://" + MainApp._IP + ":" + MainApp._PORT + "\r\n Please Try Again! Try: " + connectionRetry, Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 package edu.aku.hassannaqvi.dss_census_sur.core;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Application;
@@ -7,11 +8,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
 import android.text.format.DateFormat;
 
 import org.json.JSONObject;
@@ -43,8 +46,10 @@ import edu.aku.hassannaqvi.dss_census_sur.otherClasses.MothersLst;
 
 public class MainApp extends Application {
 
-    public static final String _IP = "43.245.131.159"; // Test PHP server
-    public static final Integer _PORT = 8080; // Port - with colon (:)
+    public static String _IP = "43.245.131.159"; // Test PHP server
+    public static String _IP_BACKUP = "58.65.211.13"; // Test PHP server
+    public static Integer _PORT = 8080; // Port - with colon (:)
+    public static Integer _PORT_BACKUP = 2080; // Port - with colon (:)
     public static final String _HOST_URL = "http://" + MainApp._IP + ":" + MainApp._PORT + "/dss/api/";
     public static final String _UPDATE_URL = "http://" + MainApp._IP + ":" + MainApp._PORT + "/dss/app/surveillance/";
 
@@ -102,7 +107,7 @@ public class MainApp extends Application {
     public static List<deadMemberClass> deadMembers = new ArrayList<deadMemberClass>();
     //    Ali
     public static String regionDss = "";
-    public static String round = "5";
+    public static String round = "6";
     public static List<MembersContract> familyMembersList;
     public static CensusContract cc;
     public static DeceasedContract dc;
@@ -110,7 +115,7 @@ public class MainApp extends Application {
     public static SectionKIMContract ims;
     public static int mm = 1;
     public static int totalChild = 0;
-//    public static int memFlag = 0;
+    //    public static int memFlag = 0;
     public static int checkingFlag = 0;
     public static List<Integer> memClicked;
     public static ArrayList<MothersLst> lstMothers;
@@ -131,7 +136,7 @@ public class MainApp extends Application {
 
     /*Ali DSS SUR*/
     public static List<HouseholdContract> householdList;
-    public static Map<String,String> MotherChildList;
+    public static Map<String, String> MotherChildList;
 
     @Override
     public void onCreate() {
@@ -145,6 +150,16 @@ public class MainApp extends Application {
         // Requires Permission for GPS -- android.permission.ACCESS_FINE_LOCATION
         // Requires Additional permission for 5.0 -- android.hardware.location.gps
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER,
                 MINIMUM_TIME_BETWEEN_UPDATES,
