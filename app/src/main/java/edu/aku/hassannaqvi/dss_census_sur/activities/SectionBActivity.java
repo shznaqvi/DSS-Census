@@ -29,6 +29,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.validatorcrawler.aliazaz.Clear;
+import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -308,7 +309,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     fldGrpdbis0401a.setVisibility(View.GONE);
                 }
 
-                if (dcbis01.isChecked()) {
+                if (dcbis01.isChecked() || dcbis04.isChecked()) {
                     fldGrpdcbidob.setVisibility(View.GONE);
                     Clear.clearAllFields(fldGrpdcbidob);
                 } else fldGrpdcbidob.setVisibility(View.VISIBLE);
@@ -1037,7 +1038,7 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
             }
         }
 
-        if (!dcbis01.isChecked()) {
+        if (!(dcbis01.isChecked() && dcbis04.isChecked())) {
             sC.put("birth", tbdob01.isChecked() ? "1" : tbAge02.isChecked() ? "2" : "0");
             sC.put("dob_oth", dcbidoboth.getText().toString());
             sC.put("year_oth", dcbidobothy.getText().toString());
@@ -1213,6 +1214,10 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
         if (!validatorClass.EmptyTextBox(this, dcbidob, getString(R.string.date))) {
             return false;
         }
+
+        if (!Validator.emptyCheckingContainer(this, fldGrpdcbidob))
+            return false;
+
         // ============== Sex ===================
 
         if (dcbd.getCheckedRadioButtonId() == -1) {
