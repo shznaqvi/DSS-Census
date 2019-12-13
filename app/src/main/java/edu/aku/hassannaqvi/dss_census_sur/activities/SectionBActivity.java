@@ -28,6 +28,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.validatorcrawler.aliazaz.Clear;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -208,6 +210,21 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     String minDate = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
     //TODO: Convert old date picker and time picker to new ones
 
+    // DOB for others
+    @BindView(R.id.tbdob)
+    RadioGroup tbdob;
+    @BindView(R.id.tbdob01)
+    RadioButton tbdob01;
+    @BindView(R.id.tbAge02)
+    RadioButton tbAge02;
+    @BindView(R.id.dcbidoboth)
+    EditText dcbidoboth;
+    @BindView(R.id.dcbidobothy)
+    EditText dcbidobothy;
+    @BindView(R.id.fldGrpdcbidob)
+    LinearLayout fldGrpdcbidob;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -290,6 +307,11 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
                     fldGrpdbis0401.setVisibility(View.GONE);
                     fldGrpdbis0401a.setVisibility(View.GONE);
                 }
+
+                if (dcbis01.isChecked()) {
+                    fldGrpdcbidob.setVisibility(View.GONE);
+                    Clear.clearAllFields(fldGrpdcbidob);
+                } else fldGrpdcbidob.setVisibility(View.VISIBLE);
             }
         });
 
@@ -571,6 +593,22 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+//        DOB for others
+        tbdob.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (i == tbdob01.getId()) {
+                    dcbidoboth.setVisibility(View.VISIBLE);
+                    dcbidobothy.setVisibility(View.GONE);
+                    dcbidobothy.setText(null);
+                } else {
+                    dcbidobothy.setVisibility(View.VISIBLE);
+                    dcbidoboth.setVisibility(View.GONE);
+                    dcbidoboth.setText(null);
+                }
             }
         });
 
@@ -998,6 +1036,13 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
 
             }
         }
+
+        if (!dcbis01.isChecked()) {
+            sC.put("birth", tbdob01.isChecked() ? "1" : tbAge02.isChecked() ? "2" : "0");
+            sC.put("dob_oth", dcbidoboth.getText().toString());
+            sC.put("year_oth", dcbidobothy.getText().toString());
+        }
+
         MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : dcbm04.isChecked() ? "ot" : "0");
 
         MainApp.cc.setsC(String.valueOf(sC));
