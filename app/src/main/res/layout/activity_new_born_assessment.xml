@@ -288,7 +288,7 @@
                             android:layout_marginTop="16dp"
                             android:focusable="false"
                             android:hint="@string/dnb07"
-                            android:text='@{dnbStatusb.checked ? dnb07.getText.toString : "" }'
+                            android:text='@{dnbStatusb.checked ? dnb07.getText().toString() : "" }'
                             android:textColor="@android:color/black"
                             app:dateFormat="dd-MM-yyyy" />
 
@@ -308,7 +308,7 @@
                             android:layout_marginBottom="2dp"
                             android:focusable="false"
                             android:hint="@string/dnb08"
-                            android:text='@{dnbStatusb.checked ? dnb08.getText.toString : "" }'
+                            android:text='@{dnbStatusb.checked ? dnb08.getText().toString() : "" }'
                             android:textColor="@android:color/black"
                             app:is24HourView="true"
                             app:timeFormat="HH:mm" />
@@ -345,7 +345,7 @@
                                 android:layout_marginTop="16dp"
                                 android:focusable="false"
                                 android:hint="@string/dnb09"
-                                android:text='@{dnbStatusa.checked ? dnb09.getText.toString : "" }'
+                                android:text='@{dnbStatusa.checked ? dnb09.getText().toString() : "" }'
                                 android:textColor="@android:color/black"
                                 app:dateFormat="dd-MM-yyyy" />
 
@@ -365,7 +365,7 @@
                                 android:layout_marginBottom="2dp"
                                 android:focusable="false"
                                 android:hint="@string/dnb10"
-                                android:text='@{dnbStatusa.checked ? dnb10.getText.toString : "" }'
+                                android:text='@{dnbStatusa.checked ? dnb10.getText().toString() : "" }'
                                 android:textColor="@android:color/black"
                                 app:is24HourView="true"
                                 app:timeFormat="HH:mm" />
@@ -400,7 +400,7 @@
                                     android:hint="@string/dnb11ax"
                                     android:inputType="text"
                                     android:maxLength="20"
-                                    android:text='@{dnb11a.checked ? dnb11ax.getText.toString : "" }'
+                                    android:text='@{dnb11a.checked ? dnb11ax.getText().toString() : "" }'
                                     android:visibility='@{dnb11a.checked ? View.VISIBLE : View.GONE }' />
 
                                 <RadioButton
@@ -433,7 +433,7 @@
                                     android:hint="@string/otherurdu"
                                     android:inputType="text"
                                     android:maxLength="20"
-                                    android:text='@{dnb1196.checked ? dnb1196x.getText.toString : "" }'
+                                    android:text='@{dnb1196.checked ? dnb1196x.getText().toString() : "" }'
                                     android:visibility='@{dnb1196.checked ? View.VISIBLE : View.GONE }' />
                             </RadioGroup>
 
@@ -501,7 +501,7 @@
                                     android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                     android:hint="@string/dcother"
                                     android:inputType="text"
-                                    android:text='@{dnb1296.checked ? dnb1296x.getText.toString : "" }'
+                                    android:text='@{dnb1296.checked ? dnb1296x.getText().toString() : "" }'
                                     android:visibility='@{dnb1296.checked ? View.VISIBLE : View.GONE }' />
                             </RadioGroup>
 
@@ -525,7 +525,7 @@
                             android:hint="@string/gramurdu"
                             android:inputType="numberDecimal"
                             android:maxLength="5"
-                            android:text='@{dnbStatusa.checked ? dnb13.getText.toString : "" }' />-->
+                            android:text='@{dnbStatusa.checked ? dnb13.getText().toString() : "" }' />-->
 
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/dnb13"
@@ -535,7 +535,7 @@
                             android:hint="##.###"
                             android:inputType="numberDecimal"
                             android:layoutDirection="ltr"
-                            android:text='@{dnbStatusa.checked ? dnb13.getText.toString : "" }'
+                            android:text='@{dnbStatusa.checked ? dnb13.getText().toString() : "" }'
                             app:defaultValue="0"
                             app:mask="##.###"
                             app:maxValue="40.0"
@@ -562,7 +562,7 @@
                             android:hint="@string/centurdu"
                             android:inputType="numberDecimal"
                             android:maxLength="5"
-                            android:text='@{dnbStatusa.checked ? dnb29.getText.toString : "" }' />-->
+                            android:text='@{dnbStatusa.checked ? dnb29.getText().toString() : "" }' />-->
 
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/dnb29"
@@ -572,7 +572,7 @@
                             android:hint="###.##"
                             android:inputType="numberDecimal"
                             android:layoutDirection="ltr"
-                            android:text='@{dnbStatusa.checked ? dnb29.getText.toString : "" }'
+                            android:text='@{dnbStatusa.checked ? dnb29.getText().toString() : "" }'
                             app:defaultValue="0"
                             app:mask="###.##"
                             app:maxValue="140.0"
@@ -599,7 +599,7 @@
                             android:hint="@string/centurdu"
                             android:inputType="numberDecimal"
                             android:maxLength="5"
-                            android:text='@{dnbStatusa.checked ? dnb30.getText.toString : "" }' />-->
+                            android:text='@{dnbStatusa.checked ? dnb30.getText().toString() : "" }' />-->
 
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/dnb30"
@@ -609,7 +609,7 @@
                             android:hint="##.##"
                             android:inputType="numberDecimal"
                             android:layoutDirection="ltr"
-                            android:text='@{dnbStatusa.checked ? dnb30.getText.toString : "" }'
+                            android:text='@{dnbStatusa.checked ? dnb30.getText().toString() : "" }'
                             app:defaultValue="0"
                             app:mask="##.##"
                             app:maxValue="25.0"
@@ -646,7 +646,7 @@
                             android:hint="@string/dnb14m"
                             android:inputType="number"
                             android:maxLength="2"
-                            android:text='@{dnbStatusa.checked ? dnb1401.getText.toString : "" }' />
+                            android:text='@{dnbStatusa.checked ? dnb1401.getText().toString() : "" }' />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -666,7 +666,7 @@
                             android:hint="@string/dnb14m"
                             android:inputType="number"
                             android:maxLength="2"
-                            android:text='@{dnbStatusa.checked ? dnb1402.getText.toString : "" }' />
+                            android:text='@{dnbStatusa.checked ? dnb1402.getText().toString() : "" }' />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -721,7 +721,7 @@
                             android:hint="C"
                             android:inputType="numberDecimal"
                             android:maxLength="5"
-                            android:text='@{dnbStatusa.checked ? dnb1601.getText.toString : "" }' />
+                            android:text='@{dnbStatusa.checked ? dnb1601.getText().toString() : "" }' />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -741,7 +741,7 @@
                             android:hint="C"
                             android:inputType="numberDecimal"
                             android:maxLength="5"
-                            android:text='@{dnbStatusa.checked ? dnb1602.getText.toString : "" }' />
+                            android:text='@{dnbStatusa.checked ? dnb1602.getText().toString() : "" }' />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -1154,7 +1154,7 @@
                             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:hint="@string/dnb23"
                             android:inputType="text"
-                            android:text='@{dnb23a.checked ? dnb23x.getText.toString : "" }'
+                            android:text='@{dnb23a.checked ? dnb23x.getText().toString() : "" }'
                             android:visibility='@{dnb23a.checked ? View.VISIBLE : View.GONE }' />
 
                         <TextView
@@ -1198,7 +1198,7 @@
                             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:hint="@string/dnb24"
                             android:inputType="text"
-                            android:text='@{dnb24a.checked ? dnb24x.getText.toString : "" }'
+                            android:text='@{dnb24a.checked ? dnb24x.getText().toString() : "" }'
                             android:visibility='@{dnb24a.checked ? View.VISIBLE : View.GONE }' />
 
                         <TextView
@@ -1242,7 +1242,7 @@
                             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:hint="@string/dnb25"
                             android:inputType="text"
-                            android:text='@{dnb25a.checked ? dnb25x.getText.toString : "" }'
+                            android:text='@{dnb25a.checked ? dnb25x.getText().toString() : "" }'
                             android:visibility='@{dnb25a.checked ? View.VISIBLE : View.GONE }' />
 
                         <LinearLayout
@@ -1293,7 +1293,7 @@
                                 android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                 android:hint="@string/dnb26b"
                                 android:inputType="text"
-                                android:text='@{dnb26b.checked ? dnb26x.getText.toString : "" }'
+                                android:text='@{dnb26b.checked ? dnb26x.getText().toString() : "" }'
                                 android:visibility='@{dnb26b.checked ? View.VISIBLE : View.GONE }' />
 
                             <TextView
@@ -1352,7 +1352,7 @@
                                     android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                     android:hint="@string/dnb28"
                                     android:inputType="text"
-                                    android:text='@{dnb27b.checked ? dnb28.getText.toString : "" }' />
+                                    android:text='@{dnb27b.checked ? dnb28.getText().toString() : "" }' />
 
                             </LinearLayout>
                         </LinearLayout>

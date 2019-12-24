@@ -206,7 +206,7 @@
                         android:hint="@string/other"
                         android:inputType="text"
                         android:maxLength="20"
-                        android:text='@{dadr0996.checked ? dadr0996x.getText.toString : "" }'
+                        android:text='@{dadr0996.checked ? dadr0996x.getText().toString() : "" }'
                         android:visibility='@{dadr0996.checked ? View.VISIBLE : View.GONE }' />
                 </RadioGroup>
 
@@ -274,7 +274,7 @@
                     android:hint="@string/number"
                     android:inputType="number"
                     android:maxLength="2"
-                    android:text='@{dadr11b.checked ? dadr11bx.getText.toString : "" }'
+                    android:text='@{dadr11b.checked ? dadr11bx.getText().toString() : "" }'
                     android:visibility='@{dadr11b.checked ? View.VISIBLE : View.GONE }' />
 
                 <!--12-->
@@ -332,7 +332,7 @@
                         android:hint="@string/other"
                         android:inputType="text"
                         android:maxLength="20"
-                        android:text='@{dadr1296.checked ? dadr1296x.getText.toString : "" }'
+                        android:text='@{dadr1296.checked ? dadr1296x.getText().toString() : "" }'
                         android:visibility='@{dadr1296.checked ? View.VISIBLE : View.GONE }' />
                 </RadioGroup>
 

@@ -2,12 +2,13 @@ package edu.aku.hassannaqvi.dss_census_sur;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Collections;
 import java.util.List;
@@ -46,11 +47,11 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.date.setText(fc.get(position).getFormDate().toString());
-        holder.cluster.setText(fc.get(position).getDSSID().toString());
+        holder.date.setText(fc.get(position).getFormDate());
+        holder.cluster.setText(fc.get(position).getDSSID());
         String iStatus = "Status  Unknown";
         int iColor = 0;
-        switch (fc.get(position).getIstatus().toString()) {
+        switch (fc.get(position).getIstatus()) {
             case "1":
                 iStatus = "Complete";
                 iColor = Color.GREEN;
@@ -90,10 +91,10 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
 
         public ViewHolder(View v) {
             super(v);
-            rv = (RecyclerView) v.findViewById(R.id.FormsList);
-            date = (TextView) v.findViewById(R.id.date);
-            cluster = (TextView) v.findViewById(R.id.cluster);
-            household = (TextView) v.findViewById(R.id.household);
+            rv = v.findViewById(R.id.FormsList);
+            date = v.findViewById(R.id.date);
+            cluster = v.findViewById(R.id.cluster);
+            household = v.findViewById(R.id.household);
 
         }
 

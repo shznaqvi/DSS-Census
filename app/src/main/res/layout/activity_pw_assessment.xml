@@ -727,7 +727,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:hint="@string/dsa0898x"
-                        android:text='@{dsa0812a.checked ? dsa0813.getText.toString : "" }'
+                        android:text='@{dsa0812a.checked ? dsa0813.getText().toString() : "" }'
                         android:visibility='@{dsa0812a.checked ? View.VISIBLE : View.GONE }' />
 
 
@@ -1062,7 +1062,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:hint="@string/dsa1096x"
-                        android:text='@{dsa107a.checked ? dsa1096x.getText.toString : "" }'
+                        android:text='@{dsa107a.checked ? dsa1096x.getText().toString() : "" }'
                         android:visibility='@{dsa107a.checked ? View.VISIBLE : View.GONE }' />
                 </LinearLayout>
 
@@ -1457,7 +1457,7 @@
                         android:hint="@string/dsa18w"
                         android:inputType="numberDecimal"
                         android:maxLength="6"
-                        android:text='@{dsa1899.checked ? "" : dsa18w.getText.toString }'
+                        android:text='@{dsa1899.checked ? "" : dsa18w.getText().toString() }'
                         android:visibility='@{dsa1899.checked ? View.GONE : View.VISIBLE}' />
 
                     <CheckBox
@@ -1492,7 +1492,7 @@
                         android:hint="@string/dsa18m"
                         android:inputType="numberDecimal"
                         android:maxLength="4"
-                        android:text='@{dsa1999.checked ? "" : dsa19m.getText.toString }'
+                        android:text='@{dsa1999.checked ? "" : dsa19m.getText().toString() }'
                         android:visibility='@{dsa1999.checked ? View.GONE : View.VISIBLE}' />
 
                     <CheckBox
@@ -1527,7 +1527,7 @@
                         android:hint="@string/dsa20h"
                         android:inputType="numberDecimal"
                         android:maxLength="5"
-                        android:text='@{dsa2099.checked ? "" : dsa20h.getText.toString }'
+                        android:text='@{dsa2099.checked ? "" : dsa20h.getText().toString() }'
                         android:visibility='@{dsa2099.checked ? View.GONE : View.VISIBLE}' />
 
                     <CheckBox

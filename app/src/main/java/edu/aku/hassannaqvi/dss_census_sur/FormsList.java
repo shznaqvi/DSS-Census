@@ -2,10 +2,11 @@ package edu.aku.hassannaqvi.dss_census_sur;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class FormsList extends Activity {
         totalForms.setText("Total Forms: " + fTotal);
         completeForms.setText("Complete Forms: " + fComplete);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.FormsList);
+        mRecyclerView = findViewById(R.id.FormsList);
 
         mRecyclerView.setHasFixedSize(true);
 

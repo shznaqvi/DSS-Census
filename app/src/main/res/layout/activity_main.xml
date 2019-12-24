@@ -154,7 +154,7 @@
                     android:text="Still Birth Reporting" />
 
                 <Button
-                    android:id="@+id/openUCR_"
+                    android:id="@+id/openUCRa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"

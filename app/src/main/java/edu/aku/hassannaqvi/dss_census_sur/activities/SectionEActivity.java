@@ -3,7 +3,6 @@ package edu.aku.hassannaqvi.dss_census_sur.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -13,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import androidx.annotation.IdRes;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -16,7 +16,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.databinding.DataBindingUtil;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -33,9 +32,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.databinding.DataBindingUtil;
+
 import java.io.File;
-import java.net.URL;
-import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
@@ -400,6 +399,7 @@ public class MainActivity extends Activity {
         }
     }
 
+/*
 
     public boolean isConnectedToServer() {
         try {
@@ -415,6 +415,7 @@ public class MainActivity extends Activity {
             return false;
         }
     }
+*/
 
     public void syncServer(View view) {
 
@@ -424,8 +425,7 @@ public class MainActivity extends Activity {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
 
-            if (isConnectedToServer()) {
-
+            //          if (isConnectedToServer()) {
                 Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
                 new SyncAllData(
                         this,
@@ -487,7 +487,7 @@ public class MainActivity extends Activity {
                 Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
             }
 
-        } else {
+      /*  } else {
             String temp_ip = MainApp._IP;
             Integer temp_port = MainApp._PORT;
 
@@ -501,7 +501,7 @@ public class MainActivity extends Activity {
 
             //syncServer(view);
 
-        }
+        }*/
 
     }
 
