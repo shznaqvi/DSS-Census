@@ -1164,5 +1164,9 @@
     <string name="dsa2098"> معلوم نہیں </string>
     <string name="dsa2097"> غیر ضروری </string>
 
+  <!--New Strings-->
+  <string name="tbAge"> تاريخ پيدائش / عمر </string>
+  <string name="tbAge02"> عمر </string>
+  <string name="tbdob01"> تاريخ پيدائش </string>
 
 </resources>

@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -25,9 +27,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
-import androidx.annotation.IdRes;
-import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -208,6 +207,21 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
     String dateToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
     String minDate = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
     //TODO: Convert old date picker and time picker to new ones
+
+    // DOB for others
+    @BindView(R.id.tbdob)
+    RadioGroup tbdob;
+    @BindView(R.id.tbdob01)
+    RadioButton tbdob01;
+    @BindView(R.id.tbAge02)
+    RadioButton tbAge02;
+    @BindView(R.id.dcbidoboth)
+    EditText dcbidoboth;
+    @BindView(R.id.dcbidobothy)
+    EditText dcbidobothy;
+    @BindView(R.id.fldGrpdcbidob)
+    LinearLayout fldGrpdcbidob;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -572,6 +586,22 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+//        DOB for others
+        tbdob.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (i == tbdob01.getId()) {
+                    dcbidoboth.setVisibility(View.VISIBLE);
+                    dcbidobothy.setVisibility(View.GONE);
+                    dcbidobothy.setText(null);
+                } else {
+                    dcbidobothy.setVisibility(View.VISIBLE);
+                    dcbidoboth.setVisibility(View.GONE);
+                    dcbidoboth.setText(null);
+                }
             }
         });
 
@@ -999,6 +1029,13 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
 
             }
         }
+
+        if (!(dcbis01.isChecked() && dcbis04.isChecked())) {
+            sC.put("birth", tbdob01.isChecked() ? "1" : tbAge02.isChecked() ? "2" : "0");
+            sC.put("dob_oth", dcbidoboth.getText().toString());
+            sC.put("year_oth", dcbidobothy.getText().toString());
+        }
+
         MainApp.cc.setMember_type(dcbm01.isChecked() ? "mw" : dcbm02.isChecked() ? "h" : dcbm03.isChecked() ? "c" : dcbm04.isChecked() ? "ot" : "0");
 
         MainApp.cc.setsC(String.valueOf(sC));
@@ -1169,6 +1206,10 @@ public class SectionBActivity extends AppCompatActivity implements View.OnKeyLis
         if (!validatorClass.EmptyTextBox(this, dcbidob, getString(R.string.date))) {
             return false;
         }
+
+        if (!Validator.emptyCheckingContainer(this, fldGrpdcbidob))
+            return false;
+
         // ============== Sex ===================
 
         if (dcbd.getCheckedRadioButtonId() == -1) {
