@@ -101,15 +101,14 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
 //                        Toast.makeText(getApplicationContext(),familyMembersList.get(position).getMemberName(),Toast.LENGTH_SHORT).show();
                     }
+
+
                 })
         );
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                for (int item : MainApp.memClicked) {
-                    recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
-                }
+        new Handler().postDelayed(() -> {
+            for (int item : MainApp.memClicked) {
+                recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
             }
         }, 1200);
     }
@@ -140,69 +139,60 @@ public class FamilyMembersActivity extends AppCompatActivity {
             public void run() {
                 while (progressStatus < 100) {
                     progressStatus = doSomeWork();
-                    handler.post(new Runnable() {
-                        public void run() {
-                            progressDialog.setProgress(progressStatus);
-                        }
-                    });
+                    handler.post(() -> progressDialog.setProgress(progressStatus));
                 }
-                handler.post(new Runnable() {
-                    public void run() {
+                handler.post(() -> SheetMenu.with(FamilyMembersActivity.this)
+                        .setTitle("Select Option")
+                        .setMenu(R.menu.activity_menu)
+                        .setAutoCancel(true)
+                        .setClick(new MenuItem.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
 
-                        SheetMenu.with(FamilyMembersActivity.this)
-                                .setTitle("Select Option")
-                                .setMenu(R.menu.activity_menu)
-                                .setAutoCancel(true)
-                                .setClick(new MenuItem.OnMenuItemClickListener() {
-                                    @Override
-                                    public boolean onMenuItemClick(MenuItem item) {
+                                progress = 0;
+                                progressStatus = 0;
+                                progressDialog.setVisibility(View.GONE);
 
-                                        progress = 0;
-                                        progressStatus = 0;
-                                        progressDialog.setVisibility(View.GONE);
+                                if (item.getItemId() == R.id.add_member) {
 
-                                        if (item.getItemId() == R.id.add_member) {
-
-                                            if (HouseholdListActivity.visitType == 1) {
-                                                if (MainApp.familyMembersList.size() == SectionAActivity.memFlag) {
-                                                    MainApp.TotalMembersCount++;
-                                                    finish();
-                                                    startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
-                                                            .putExtra("followUpData", SectionAActivity.fp)
-                                                            .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
-                                                } else {
-                                                    Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
-                                                }
-                                            } else {
-                                                MainApp.TotalMembersCount++;
-                                                finish();
-                                                startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
-                                                        .putExtra("followUpData", SectionAActivity.fp)
-                                                        .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
-                                            }
-
-                                        } else if (item.getItemId() == R.id.next_activity) {
-
-                                            if (HouseholdListActivity.visitType == 1) {
-                                                if (MainApp.familyMembersList.size() == SectionAActivity.memFlag) {
-
-                                                    showDialog(true, "Are you sure to proceed?");
-
-                                                } else {
-                                                    Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
-                                                }
-                                            } else {
-                                                showDialog(true, "Are you sure to proceed?");
-                                            }
+                                    if (HouseholdListActivity.visitType == 1) {
+                                        if (MainApp.familyMembersList.size() == SectionAActivity.memFlag) {
+                                            MainApp.TotalMembersCount++;
+                                            finish();
+                                            startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
+                                                    .putExtra("followUpData", SectionAActivity.fp)
+                                                    .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
                                         } else {
-                                            showDialog(false, "Are you sure to force exit?");
+                                            Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
                                         }
-
-                                        return false;
+                                    } else {
+                                        MainApp.TotalMembersCount++;
+                                        finish();
+                                        startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
+                                                .putExtra("followUpData", SectionAActivity.fp)
+                                                .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
                                     }
-                                }).show();
-                    }
-                });
+
+                                } else if (item.getItemId() == R.id.next_activity) {
+
+                                    if (HouseholdListActivity.visitType == 1) {
+                                        if (MainApp.familyMembersList.size() == SectionAActivity.memFlag) {
+
+                                            showDialog(true, "Are you sure to proceed?");
+
+                                        } else {
+                                            Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    } else {
+                                        showDialog(true, "Are you sure to proceed?");
+                                    }
+                                } else {
+                                    showDialog(false, "Are you sure to force exit?");
+                                }
+
+                                return false;
+                            }
+                        }).show());
             }
 
             private int doSomeWork() {
@@ -253,7 +243,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
         GestureDetector mGestureDetector;
         private OnItemClickListener mListener;
 
-        public RecyclerItemClickListener(Context context, OnItemClickListener listener) {
+        RecyclerItemClickListener(Context context, OnItemClickListener listener) {
             mListener = listener;
 
             mGestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
@@ -291,7 +281,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
         private List<MembersContract> familyMembersList;
 
-        public familyMembersAdapter(List<MembersContract> familyMembersList) {
+        familyMembersAdapter(List<MembersContract> familyMembersList) {
             this.familyMembersList = familyMembersList;
         }
 
@@ -302,6 +292,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
             return new MyViewHolder(itemView);
         }
+
 
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
@@ -330,9 +321,11 @@ public class FamilyMembersActivity extends AppCompatActivity {
                 holder.year.setText(familyMembers.getCurrent_date());
             }
 
+            holder.itemView.setEnabled(familyMembers.getCol_flag() == null);
+
         }
 
-        public String[] checkCStatus(String currStatus) {
+        String[] checkCStatus(String currStatus) {
 
             String[] st;
 
@@ -342,7 +335,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
         }
 
-        public String setStatus(int cond, String i) {
+        String setStatus(int cond, String i) {
             String st = "";
             switch (cond) {
                 case 1:
@@ -487,10 +480,10 @@ public class FamilyMembersActivity extends AppCompatActivity {
             return familyMembersList.size();
         }
 
-        public class MyViewHolder extends RecyclerView.ViewHolder {
-            public TextView memberName, DSSidm, year, currentStatus, memberType;
+        class MyViewHolder extends RecyclerView.ViewHolder {
+            TextView memberName, DSSidm, year, currentStatus, memberType;
 
-            public MyViewHolder(View view) {
+            MyViewHolder(View view) {
                 super(view);
                 this.memberName = view.findViewById(R.id.memberName);
                 this.DSSidm = view.findViewById(R.id.DSSid);

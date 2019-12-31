@@ -37,6 +37,7 @@ public class MembersContract {
     private String member_type = "";
     private String prev_prg = "";
     private String lmp_dt = "";
+    private String col_flag = "";
 
     private String uuid = "";
 
@@ -70,6 +71,16 @@ public class MembersContract {
         this.lmp_dt = mc.getLmp_dt();
 
         this.uuid = mc.getUuid();
+
+        this.col_flag = mc.getCol_flag();
+    }
+
+    public String getCol_flag() {
+        return col_flag;
+    }
+
+    public void setCol_flag(String col_flag) {
+        this.col_flag = col_flag;
     }
 
     public String get_ID() {
@@ -312,6 +323,7 @@ public class MembersContract {
 
         this.prev_prg = jsonObject.getString(singleMember.COLUMN_PREVIOUS_PREG);
         this.lmp_dt = jsonObject.getString(singleMember.COLUMN_LMP_DT);
+        this.col_flag = jsonObject.getString(singleMember.COLUMN_COL_FLAG);
         return this;
 
     }
@@ -345,6 +357,7 @@ public class MembersContract {
 
         this.prev_prg = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_PREVIOUS_PREG));
         this.lmp_dt = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_LMP_DT));
+        this.col_flag = cursor.getString(cursor.getColumnIndex(singleMember.COLUMN_COL_FLAG));
         return this;
 
     }
@@ -381,6 +394,7 @@ public class MembersContract {
 
         json.put(singleMember.COLUMN_PREVIOUS_PREG, this.prev_prg == null ? JSONObject.NULL : this.prev_prg);
         json.put(singleMember.COLUMN_LMP_DT, this.lmp_dt == null ? JSONObject.NULL : this.lmp_dt);
+        json.put(singleMember.COLUMN_COL_FLAG, this.col_flag == null ? JSONObject.NULL : this.col_flag);
         return json;
     }
 
@@ -416,6 +430,7 @@ public class MembersContract {
         public static final String COLUMN_MEMBER_TYPE = "member_type";
         public static final String COLUMN_PREVIOUS_PREG = "current_preg_status";
         public static final String COLUMN_LMP_DT = "lmp_dt";
+        public static final String COLUMN_COL_FLAG = "colFlag";
         public static final String _URI = "censusmembers.php";
 
     }
