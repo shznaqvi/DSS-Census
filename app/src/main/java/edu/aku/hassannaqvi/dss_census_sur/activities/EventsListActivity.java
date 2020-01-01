@@ -180,6 +180,11 @@ public class EventsListActivity extends AppCompatActivity {
                             }
                         }
                     }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+
+                    }
                 })
         );
 

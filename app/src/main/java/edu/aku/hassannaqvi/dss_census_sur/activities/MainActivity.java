@@ -426,66 +426,66 @@ public class MainActivity extends Activity {
         if (networkInfo != null && networkInfo.isConnected()) {
 
             //          if (isConnectedToServer()) {
-                Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-                new SyncAllData(
-                        this,
-                        "Forms",
-                        "updateSyncedForms",
-                        FormsContract.class,
-                        MainApp._HOST_URL + FormsContract.FormsTable._URL,
-                        db.getUnsyncedForms()
-                ).execute();
+            Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
+            new SyncAllData(
+                    this,
+                    "Forms",
+                    "updateSyncedForms",
+                    FormsContract.class,
+                    MainApp._HOST_URL + FormsContract.FormsTable._URL,
+                    db.getUnsyncedForms()
+            ).execute();
 
-                Toast.makeText(getApplicationContext(), "Syncing Surveillance", Toast.LENGTH_SHORT).show();
-                new SyncAllData(
-                        this,
-                        "Census",
-                        "updateCensusDT",
-                        CensusContract.class,
-                        MainApp._HOST_URL + CensusContract.censusMember._URL,
-                        db.getUnsyncedCensus()
-                ).execute();
+            Toast.makeText(getApplicationContext(), "Syncing Surveillance", Toast.LENGTH_SHORT).show();
+            new SyncAllData(
+                    this,
+                    "Census",
+                    "updateCensusDT",
+                    CensusContract.class,
+                    MainApp._HOST_URL + CensusContract.censusMember._URL,
+                    db.getUnsyncedCensus()
+            ).execute();
 
-                Toast.makeText(getApplicationContext(), "Syncing Still Birth", Toast.LENGTH_SHORT).show();
-                new SyncAllData(
-                        this,
-                        "Still Birth",
-                        "updateSBirth",
-                        StillBirthContract.class,
-                        MainApp._HOST_URL + StillBirthContract.sBFup._URL,
-                        db.getUnsyncedStillBirth()
-                ).execute();
+            Toast.makeText(getApplicationContext(), "Syncing Still Birth", Toast.LENGTH_SHORT).show();
+            new SyncAllData(
+                    this,
+                    "Still Birth",
+                    "updateSBirth",
+                    StillBirthContract.class,
+                    MainApp._HOST_URL + StillBirthContract.sBFup._URL,
+                    db.getUnsyncedStillBirth()
+            ).execute();
 
-                Toast.makeText(getApplicationContext(), "Syncing New Born", Toast.LENGTH_SHORT).show();
-                new SyncAllData(
-                        this,
-                        "New Born",
-                        "updatenewBornFup",
-                        NewBornContract.class,
-                        MainApp._HOST_URL + NewBornContract.newBornFup._URL,
-                        db.getUnsyncedNewBorn()
-                ).execute();
+            Toast.makeText(getApplicationContext(), "Syncing New Born", Toast.LENGTH_SHORT).show();
+            new SyncAllData(
+                    this,
+                    "New Born",
+                    "updatenewBornFup",
+                    NewBornContract.class,
+                    MainApp._HOST_URL + NewBornContract.newBornFup._URL,
+                    db.getUnsyncedNewBorn()
+            ).execute();
 
-                Toast.makeText(this, "Syncing PW", Toast.LENGTH_SHORT).show();
-                new SyncAllData(
-                        this,
-                        "PW",
-                        "updatePWomen",
-                        PWContract.class,
-                        MainApp._HOST_URL + PWContract.pWFup._URL,
-                        db.getUnsyncedPW()
-                ).execute();
+            Toast.makeText(this, "Syncing PW", Toast.LENGTH_SHORT).show();
+            new SyncAllData(
+                    this,
+                    "PW",
+                    "updatePWomen",
+                    PWContract.class,
+                    MainApp._HOST_URL + PWContract.pWFup._URL,
+                    db.getUnsyncedPW()
+            ).execute();
 
-                SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = syncPref.edit();
+            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = syncPref.edit();
 
-                editor.putString("LastUpSyncServer", dtToday);
+            editor.putString("LastUpSyncServer", dtToday);
 
-                editor.apply();
+            editor.apply();
 
-            } else {
-                Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
-            }
+        } else {
+            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+        }
 
       /*  } else {
             String temp_ip = MainApp._IP;
@@ -726,7 +726,10 @@ public class MainActivity extends Activity {
     public void onBackPressed() {
         if (exit) {
             finish(); // finish activity
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, LoginActivity.class)
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         } else {
             Toast.makeText(this, "Press Back again to Exit.",
                     Toast.LENGTH_SHORT).show();

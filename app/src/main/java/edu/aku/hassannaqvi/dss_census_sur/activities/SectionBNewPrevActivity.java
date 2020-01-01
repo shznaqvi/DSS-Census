@@ -427,6 +427,9 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
             }
         });
 
+        // Dead status
+        dcbis05.setChecked(MainApp.familyMembersList.get(position).getCol_flag().equals("1"));
+
     }
 
     public void clearFieldsOnStatus() {
@@ -473,7 +476,9 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
 
                 MainApp.memClicked.add(position);
 
-                SectionAActivity.memFlag++;
+                if (!MainApp.familyMembersList.get(position).getCol_flag().equals("1"))
+                    SectionAActivity.memFlag++;
+
 
                 finish();
 
@@ -494,7 +499,6 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                             .putExtra("mothData", MainApp.cc)
                     );
                 } else {
-
                     if (dcbis04Outb.isChecked()) {
                         SectionBActivity.sbCounter = 1;
                     } else if (dcbis04Outd.isChecked()) {
@@ -510,7 +514,9 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
                                 .putExtra("sbCount", SectionBActivity.sbCounter)
                         );
                     } else {
-                        startActivity(new Intent(SectionBNewPrevActivity.this, FamilyMembersActivity.class));
+                        startActivity(new Intent(SectionBNewPrevActivity.this, FamilyMembersActivity.class)
+                                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     }
 
                 }
@@ -592,6 +598,7 @@ public class SectionBNewPrevActivity extends AppCompatActivity {
         sC.put("surround", fp.getFollowUpRound());
         sC.put("appVer", MainApp.versionName + "." + MainApp.versionCode);
         sC.put("visit_type", HouseholdListActivity.visitType);
+        sC.put("colflag_dead", MainApp.familyMembersList.get(position).getCol_flag());
 
         if (dcbis09b.isChecked()) {
             sC.put("lmp_dt", dcbis09bdt.getText().toString());

@@ -170,6 +170,11 @@ public class HouseholdListActivity extends AppCompatActivity {
                             }
                         }
                     }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+
+                    }
                 })
         );
 

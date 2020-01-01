@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +24,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import org.json.JSONObject;
-
 import java.util.List;
 
 import butterknife.BindView;
@@ -34,7 +31,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.dss_census_sur.R;
 import edu.aku.hassannaqvi.dss_census_sur.contracts.MembersContract;
-import edu.aku.hassannaqvi.dss_census_sur.core.DatabaseHelper;
 import edu.aku.hassannaqvi.dss_census_sur.core.MainApp;
 import ru.whalemare.sheetmenu.SheetMenu;
 
@@ -67,15 +63,14 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
 //        Set Recycler View
         mAdapter = new familyMembersAdapter(MainApp.familyMembersList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(FamilyMembersActivity.this);
         recycler_noMembers.setLayoutManager(mLayoutManager);
         recycler_noMembers.setItemAnimator(new DefaultItemAnimator());
         recycler_noMembers.setAdapter(mAdapter);
-
         mAdapter.notifyDataSetChanged();
 
         recycler_noMembers.addOnItemTouchListener(
-                new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
+                new RecyclerItemClickListener(FamilyMembersActivity.this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
                         // TODO Handle item click
@@ -91,15 +86,39 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
                             if (flag) {
 
+                                if (MainApp.familyMembersList.get(position).getCol_flag().equals("1"))
+                                    return;
+
                                 finish();
-                                startActivity(new Intent(getApplicationContext(), SectionBNewPrevActivity.class)
+                                startActivity(new Intent(FamilyMembersActivity.this, SectionBNewPrevActivity.class)
                                         .putExtra("followUpData", SectionAActivity.fp)
                                         .putExtra("dataFlag", true).putExtra("position", position));
 
                             }
                         }
+                    }
 
-//                        Toast.makeText(getApplicationContext(),familyMembersList.get(position).getMemberName(),Toast.LENGTH_SHORT).show();
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+                        if (MainApp.familyMembersList.get(position).getCol_flag().equals("1")) {
+
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                                    FamilyMembersActivity.this);
+                            alertDialogBuilder
+                                    .setMessage("Do you want to update dead member status??")
+                                    .setCancelable(false)
+                                    .setPositiveButton("Yes",
+                                            (dialog, id) -> {
+                                                finish();
+                                                startActivity(new Intent(FamilyMembersActivity.this, SectionBNewPrevActivity.class)
+                                                        .putExtra("followUpData", SectionAActivity.fp)
+                                                        .putExtra("dataFlag", true).putExtra("position", position));
+                                            });
+                            alertDialogBuilder.setNegativeButton("Cancel",
+                                    (dialog, id) -> dialog.cancel());
+                            AlertDialog alert = alertDialogBuilder.create();
+                            alert.show();
+                        }
                     }
 
 
@@ -111,23 +130,6 @@ public class FamilyMembersActivity extends AppCompatActivity {
                 recycler_noMembers.getChildAt(item).setBackgroundColor(Color.BLACK);
             }
         }, 1200);
-    }
-
-    public void saveDT() {
-        JSONObject sG = new JSONObject();
-/*
-        sG.put("dca0701", totalMem.getText().toString());
-        sG.put("dca0702", countMen.getText().toString());
-        sG.put("dca0703", countFemale.getText().toString());
-        sG.put("dca0801", totalChild.getText().toString());
-        sG.put("dca0802", countBoy.getText().toString());
-        sG.put("dca0803", countGirl.getText().toString());
-*/
-
-        MainApp.fc.setsG(String.valueOf(sG));
-
-        DatabaseHelper db = new DatabaseHelper(this);
-        db.updateSA();
     }
 
     @OnClick(R.id.btn_addMember)
@@ -145,53 +147,50 @@ public class FamilyMembersActivity extends AppCompatActivity {
                         .setTitle("Select Option")
                         .setMenu(R.menu.activity_menu)
                         .setAutoCancel(true)
-                        .setClick(new MenuItem.OnMenuItemClickListener() {
-                            @Override
-                            public boolean onMenuItemClick(MenuItem item) {
+                        .setClick(item -> {
 
-                                progress = 0;
-                                progressStatus = 0;
-                                progressDialog.setVisibility(View.GONE);
+                            progress = 0;
+                            progressStatus = 0;
+                            progressDialog.setVisibility(View.GONE);
 
-                                if (item.getItemId() == R.id.add_member) {
+                            if (item.getItemId() == R.id.add_member) {
 
-                                    if (HouseholdListActivity.visitType == 1) {
-                                        if (MainApp.familyMembersList.size() == SectionAActivity.memFlag) {
-                                            MainApp.TotalMembersCount++;
-                                            finish();
-                                            startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
-                                                    .putExtra("followUpData", SectionAActivity.fp)
-                                                    .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
-                                        } else {
-                                            Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
-                                        }
-                                    } else {
+                                if (HouseholdListActivity.visitType == 1) {
+                                    if (MainApp.familyMembersList.size() == SectionAActivity.memFlag) {
                                         MainApp.TotalMembersCount++;
                                         finish();
                                         startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
                                                 .putExtra("followUpData", SectionAActivity.fp)
                                                 .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
-                                    }
-
-                                } else if (item.getItemId() == R.id.next_activity) {
-
-                                    if (HouseholdListActivity.visitType == 1) {
-                                        if (MainApp.familyMembersList.size() == SectionAActivity.memFlag) {
-
-                                            showDialog(true, "Are you sure to proceed?");
-
-                                        } else {
-                                            Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
-                                        }
                                     } else {
-                                        showDialog(true, "Are you sure to proceed?");
+                                        Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
                                     }
                                 } else {
-                                    showDialog(false, "Are you sure to force exit?");
+                                    MainApp.TotalMembersCount++;
+                                    finish();
+                                    startActivity(new Intent(FamilyMembersActivity.this, SectionBActivity.class)
+                                            .putExtra("followUpData", SectionAActivity.fp)
+                                            .putExtra("dataFlag", false).putExtra("position", MainApp.TotalMembersCount));
                                 }
 
-                                return false;
+                            } else if (item.getItemId() == R.id.next_activity) {
+
+                                if (HouseholdListActivity.visitType == 1) {
+                                    if (MainApp.familyMembersList.size() == SectionAActivity.memFlag) {
+
+                                        showDialog(true, "Are you sure to proceed?");
+
+                                    } else {
+                                        Toast.makeText(FamilyMembersActivity.this, "Please update all members.", Toast.LENGTH_SHORT).show();
+                                    }
+                                } else {
+                                    showDialog(true, "Are you sure to proceed?");
+                                }
+                            } else {
+                                showDialog(false, "Are you sure to force exit?");
                             }
+
+                            return false;
                         }).show());
             }
 
@@ -236,12 +235,13 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+        Toast.makeText(FamilyMembersActivity.this, "You Can't go back", Toast.LENGTH_LONG).show();
     }
 
     public static class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
         GestureDetector mGestureDetector;
         private OnItemClickListener mListener;
+        private RecyclerView viewRecycle;
 
         RecyclerItemClickListener(Context context, OnItemClickListener listener) {
             mListener = listener;
@@ -251,11 +251,20 @@ public class FamilyMembersActivity extends AppCompatActivity {
                 public boolean onSingleTapUp(MotionEvent e) {
                     return true;
                 }
+
+                @Override
+                public void onLongPress(MotionEvent e) {
+                    View child = viewRecycle.findChildViewUnder(e.getX(), e.getY());
+                    if (child != null && mListener != null) {
+                        mListener.onLongItemClick(child, viewRecycle.getChildAdapterPosition(child));
+                    }
+                }
             });
         }
 
         @Override
         public boolean onInterceptTouchEvent(RecyclerView view, MotionEvent e) {
+            viewRecycle = view;
             View childView = view.findChildViewUnder(e.getX(), e.getY());
             if (childView != null && mListener != null && mGestureDetector.onTouchEvent(e)) {
                 mListener.onItemClick(childView, view.getChildAdapterPosition(childView));
@@ -274,6 +283,8 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
         public interface OnItemClickListener {
             void onItemClick(View view, int position);
+
+            void onLongItemClick(View view, int position);
         }
     }
 
@@ -321,7 +332,10 @@ public class FamilyMembersActivity extends AppCompatActivity {
                 holder.year.setText(familyMembers.getCurrent_date());
             }
 
-            holder.itemView.setEnabled(familyMembers.getCol_flag() == null);
+            if (familyMembers.getCol_flag().equals("1")) {
+                holder.itemView.setBackgroundResource(R.drawable.image_1);
+                if (MainApp.memClicked.size() == 0) SectionAActivity.memFlag++;
+            }
 
         }
 
